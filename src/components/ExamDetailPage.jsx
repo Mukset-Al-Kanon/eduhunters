@@ -105,18 +105,18 @@ export default function ExamDetailPage({
                     </span>
                   </div>
 
-                  {/* "Free Trial" Button on Right with WHITE text and minimal styling */}
+                  {/* "Free Trial" Button on Right */}
                   <button
                     onClick={() => onPreviewExams ? onPreviewExams(category.key) : onStartExamCategory(category.key)}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer border shrink-0 hover:scale-105 active:scale-95 shadow-xs text-white ${
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer border shrink-0 hover:scale-105 active:scale-95 shadow-xs ${
                       isDark 
-                        ? 'bg-white/[0.08] hover:bg-white/[0.14] border-white/15 hover:border-white/30 backdrop-blur-xs' 
+                        ? 'bg-white/[0.08] hover:bg-white/[0.14] text-white border-white/15 hover:border-white/30 backdrop-blur-xs' 
                         : 'bg-red-50 hover:bg-red-100 text-[#dc2626] border-red-200 hover:border-red-300'
                     }`}
                     title="Free Trial"
                   >
                     <span>Free Trial</span>
-                    <ArrowRight size={12} className="shrink-0 text-white" />
+                    <ArrowRight size={12} className="shrink-0 text-current" />
                   </button>
                 </div>
 

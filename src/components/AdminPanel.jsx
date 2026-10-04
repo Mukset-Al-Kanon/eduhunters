@@ -250,7 +250,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       id: 'r1',
       day: 'Mon',
       time: '09:30',
-      title: 'Biology Live Class (DMC Sanjid Siraj)',
+      title: 'Biology Live Class',
       tag: 'Biology Live',
       type: 'live',
       bgClass: 'bg-emerald-50 text-emerald-800 border-emerald-200'
@@ -374,9 +374,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       category: 'Faculty',
       title: 'Faculty & Mentors',
       items: [
-        { label: 'Sanjid Siraj (DMC)', url: 'https://assets.codervai.com/teachers/1781366052322-cropped-image.webp' },
-        { label: 'Tofayel Ahmed (BUET)', url: 'https://assets.codervai.com/teachers/1781363906472-cropped-image.webp' },
-        { label: 'Nazmuddin Al Aquib (DMC)', url: 'https://assets.codervai.com/teachers/1781465492086-cropped-image.webp' },
         { label: 'Jaidul Islam Nahian (CMC)', url: 'https://assets.codervai.com/teachers/1781515586459-cropped-image.webp' },
         { label: 'Sk Tasnim Ferdaus (DMC)', url: 'https://assets.codervai.com/teachers/1788702054420-cropped-image.webp' },
         { label: 'Senior Faculty Female', url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80' },

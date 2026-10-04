@@ -9,11 +9,18 @@ import {
   storeProductsData 
 } from './homeData';
 import { masterEnglishCourseData } from './masterEnglishCourseData';
+import { freeCoursesData } from './freeCoursesData';
 
 // Helper to reliably detect and purge any Zenith Crew / Codervai copied courses
 export const isZenithCopiedCourse = (course) => {
   if (!course) return false;
-  if (course.id === 'master-english-30-days' || course.slug === 'master-english-30-days') {
+  const VALID_COURSE_IDS = new Set([
+    'master-english-30-days',
+    'chemistry-1st-dagano-line',
+    'zoology-dagano-line-medical',
+    'hsc-26-27-step-by-step-guideline'
+  ]);
+  if (VALID_COURSE_IDS.has(course.id) || VALID_COURSE_IDS.has(course.slug)) {
     return false;
   }
   const str = (
@@ -141,6 +148,14 @@ export const initialData = {
         supportPhone: masterEnglishCourseData.supportPhone,
         previewVideoUrl: masterEnglishCourseData.previewVideoUrl,
         curriculum: masterEnglishCourseData.curriculum
+      };
+    }
+    const foundFree = freeCoursesData.find(c => c.id === course.id || c.slug === course.slug);
+    if (foundFree) {
+      return {
+        ...foundFree,
+        ...course,
+        curriculum: foundFree.curriculum
       };
     }
     return course;

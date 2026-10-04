@@ -724,15 +724,15 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
                           e.stopPropagation();
                           handleEnterCategory(cat.key);
                         }}
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer border shrink-0 hover:scale-105 active:scale-95 shadow-xs text-white ${
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer border shrink-0 hover:scale-105 active:scale-95 shadow-xs ${
                           isDark 
-                            ? 'bg-white/[0.08] hover:bg-white/[0.14] border-white/15 hover:border-white/30 backdrop-blur-xs' 
+                            ? 'bg-white/[0.08] hover:bg-white/[0.14] text-white border-white/15 hover:border-white/30 backdrop-blur-xs' 
                             : 'bg-red-50 hover:bg-red-100 text-[#dc2626] border-red-200 hover:border-red-300'
                         }`}
                         title="Free Trial"
                       >
                         <span>Free Trial</span>
-                        <ArrowRight size={11} className="shrink-0 text-white" />
+                        <ArrowRight size={11} className="shrink-0 text-current" />
                       </button>
                     </div>
                   </div>
@@ -1229,7 +1229,11 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
                             </span>
 
                             {isFreeTrial && (
-                              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center gap-1 shadow-xs animate-pulse">
+                              <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black border flex items-center gap-1 shadow-xs animate-pulse ${
+                                isDark
+                                  ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40'
+                                  : 'bg-emerald-50 text-emerald-700 border-emerald-300'
+                              }`}>
                                 <span>🎁 ফ্রি ট্রায়াল</span>
                               </span>
                             )}

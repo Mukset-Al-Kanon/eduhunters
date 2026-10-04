@@ -214,7 +214,14 @@ export default function App() {
             if (Array.isArray(parsed.courses) && parsed.courses.length > 0) {
               const list = parsed.courses
                 .filter(c => !isZenithCopiedCourse(c))
-                .map(c => c.category === 'University A Unit' ? { ...c, category: 'Free' } : c);
+                .map(c => {
+                  let mapped = c.category === 'University A Unit' ? { ...c, category: 'Free' } : c;
+                  const initialMatch = initialData.courses.find(initC => initC.id === c.id || initC.slug === c.slug);
+                  if (initialMatch && (!mapped.curriculum || mapped.curriculum[0]?.chapters?.[0]?.lessons?.some(l => l.title === 'HSC 26,27'))) {
+                    mapped = { ...mapped, curriculum: initialMatch.curriculum };
+                  }
+                  return mapped;
+                });
               const existingIds = new Set(list.map(c => c.id || c.slug));
               initialData.courses.forEach(c => {
                 if (!existingIds.has(c.id) && !existingIds.has(c.slug) && !isZenithCopiedCourse(c)) {
@@ -225,7 +232,7 @@ export default function App() {
             }
             return initialData.courses;
           })(),
-          instructors: Array.isArray(parsed.instructors) && parsed.instructors.length > 0 ? parsed.instructors : initialData.instructors,
+          instructors: [],
           freeVideos: (Array.isArray(parsed.freeVideos) && parsed.freeVideos.length > 0 && parsed.freeVideos.some(v => v.videoId?.includes('rMGOI-A5czA'))) 
             ? parsed.freeVideos 
             : initialData.freeVideos,
@@ -250,7 +257,7 @@ export default function App() {
     return initialData;
   });
 
-  // Permanently purge any Zenith Crew / Codervai copied courses from browser localStorage on load
+  // Permanently purge any Zenith Crew / Codervai copied courses and removed teachers from browser localStorage on load
   useEffect(() => {
     try {
       const raw = localStorage.getItem('eduhunters_data');
@@ -258,17 +265,36 @@ export default function App() {
         const parsed = JSON.parse(raw);
         let modified = false;
         if (Array.isArray(parsed.courses)) {
-          const purged = parsed.courses.filter(c => !isZenithCopiedCourse(c));
-          if (purged.length !== parsed.courses.length) {
-            parsed.courses = purged.length > 0 ? purged : initialData.courses;
+          let purged = parsed.courses.filter(c => !isZenithCopiedCourse(c)).map(c => {
+            const initialMatch = initialData.courses.find(initC => initC.id === c.id || initC.slug === c.slug);
+            if (initialMatch && (!c.curriculum || c.curriculum[0]?.chapters?.[0]?.lessons?.some(l => l.title === 'HSC 26,27'))) {
+              modified = true;
+              return { ...c, curriculum: initialMatch.curriculum };
+            }
+            return c;
+          });
+          const existingIds = new Set(purged.map(c => c.id || c.slug));
+          initialData.courses.forEach(c => {
+            if (!existingIds.has(c.id) && !existingIds.has(c.slug) && !isZenithCopiedCourse(c)) {
+              purged.push(c);
+              modified = true;
+            }
+          });
+          if (purged.length !== parsed.courses.length || modified) {
+            parsed.courses = purged;
             modified = true;
           }
+        }
+        if (Array.isArray(parsed.instructors) && parsed.instructors.length > 0) {
+          parsed.instructors = [];
+          modified = true;
         }
         if (modified) {
           localStorage.setItem('eduhunters_data', JSON.stringify(parsed));
           setData(prev => ({
             ...prev,
-            courses: parsed.courses
+            courses: parsed.courses || prev.courses,
+            instructors: parsed.instructors || prev.instructors
           }));
         }
       }

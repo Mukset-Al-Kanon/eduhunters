@@ -10,23 +10,21 @@ export function cleanYouTubeTitle(rawTitle) {
   if (!rawTitle) return 'লেকচার';
   let title = String(rawTitle).trim();
 
-  // Remove common YouTube divider suffixes
+  // Strip leading prefixes like "HSC 26,27-", "HSC 26, 27 -", etc.
+  title = title.replace(/^HSC\s*2[0-9]\s*[,/&]\s*2[0-9]\s*[-–—:\s]+/i, '');
+  title = title.replace(/^HSC\s*2[0-9]\s*[-–—:\s]+/i, '');
+
+  // Remove common YouTube divider suffixes (e.g. "| Medical Admission", "| As Sami Islam")
   if (title.includes('|')) {
     title = title.split('|')[0].trim();
   } else if (title.includes('—')) {
     title = title.split('—')[0].trim();
-  } else if (title.includes('-')) {
-    const parts = title.split('-');
-    if (parts.length > 1 && parts[0].trim().length > 3) {
-      title = parts[0].trim();
-    }
   }
 
   // Remove common prefix noise like "৪০মিনিটে " or "Day 1:"
   title = title.replace(/^[০-৯0-9]+\s*মিনিটে\s*/i, '');
   title = title.replace(/^Day\s*[০-৯0-9]+[:\s-]*/i, '');
   title = title.replace(/^Class\s*[০-৯0-9]+[:\s-]*/i, '');
-  title = title.replace(/!.*$/, ''); // remove anything after exclamation
 
   // Clean unescaped entities
   title = title.replace(/\\u0026/g, '&').replace(/&amp;/g, '&');

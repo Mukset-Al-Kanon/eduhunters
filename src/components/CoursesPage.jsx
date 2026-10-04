@@ -280,10 +280,10 @@ export default function CoursesPage({
                           e.stopPropagation();
                           onNavigateExams && onNavigateExams(cat.key);
                         }}
-                        className={`text-xs font-bold px-3 py-1.5 rounded-lg border transition-all cursor-pointer shrink-0 mb-0.5 ${
+                        className={`text-xs sm:text-sm font-bold bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 mb-0.5 ${
                           isDark 
-                            ? 'bg-white/[0.08] text-white border-white/15 hover:bg-white/[0.14] hover:border-white/30' 
-                            : 'bg-red-50 text-[#dc2626] border-red-200 hover:bg-[#dc2626] hover:text-white'
+                            ? 'text-white hover:text-[#ff4d6d]' 
+                            : 'text-[#dc2626] hover:text-red-700'
                         }`}
                       >
                         বিস্তারিত →
@@ -362,10 +362,10 @@ export default function CoursesPage({
                       
                       <button 
                         onClick={(e) => handleEnrollClick(c, e)}
-                        className={`text-xs font-bold px-3 py-1.5 rounded-lg border transition-all cursor-pointer shrink-0 mb-0.5 ${
+                        className={`text-xs sm:text-sm font-bold bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 mb-0.5 ${
                           isDark 
-                            ? 'bg-white/[0.08] text-white border-white/15 hover:bg-white/[0.14] hover:border-white/30' 
-                            : 'bg-red-50 text-[#dc2626] border-red-200 hover:bg-[#dc2626] hover:text-white'
+                            ? 'text-white hover:text-[#ff4d6d]' 
+                            : 'text-[#dc2626] hover:text-red-700'
                         }`}
                       >
                         বিস্তারিত →

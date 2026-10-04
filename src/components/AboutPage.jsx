@@ -61,69 +61,71 @@ export default function AboutPage({
         </section>
 
         {/* Meet Our Expert Teachers */}
-        <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-transparent' : 'bg-white'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-14">
-              <span className={`text-[10px] font-bold uppercase tracking-[0.22em] block mb-3 ${
-                isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
-              }`}>
-                Our Faculty
-              </span>
-              <h2 className={`text-3xl md:text-4xl font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                Meet Our <span className={isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'}>Expert Teachers</span>
-              </h2>
-            </div>
+        {instructors && instructors.length > 0 && (
+          <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-transparent' : 'bg-white'}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-14">
+                <span className={`text-[10px] font-bold uppercase tracking-[0.22em] block mb-3 ${
+                  isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
+                }`}>
+                  Our Faculty
+                </span>
+                <h2 className={`text-3xl md:text-4xl font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>
+                  Meet Our <span className={isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'}>Expert Teachers</span>
+                </h2>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {instructors.map((t) => (
-                <div 
-                  key={t.id}
-                  className={`group rounded-2xl overflow-hidden transition-all duration-300 border ${
-                    isDark 
-                      ? 'bg-[#120407]/90 border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)]' 
-                      : 'bg-white border-gray-200 hover:border-red-300 hover:shadow-xl shadow-sm'
-                  }`}
-                >
-                  <div className={`aspect-[3/4] overflow-hidden ${isDark ? 'bg-[#0a0204]' : 'bg-gray-100'}`}>
-                    <img 
-                      src={t.image} 
-                      alt={t.name} 
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                {instructors.map((t) => (
+                  <div 
+                    key={t.id}
+                    className={`group rounded-2xl overflow-hidden transition-all duration-300 border ${
+                      isDark 
+                        ? 'bg-[#120407]/90 border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)]' 
+                        : 'bg-white border-gray-200 hover:border-red-300 hover:shadow-xl shadow-sm'
+                    }`}
+                  >
+                    <div className={`aspect-[3/4] overflow-hidden ${isDark ? 'bg-[#0a0204]' : 'bg-gray-100'}`}>
+                      <img 
+                        src={t.image} 
+                        alt={t.name} 
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <p className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-1 truncate ${
+                        isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
+                      }`}>
+                        {t.designation}
+                      </p>
+                      <h3 className={`font-black leading-tight text-base ${isDark ? 'text-white' : 'text-[#111827]'}`}>
+                        {t.name}
+                      </h3>
+                      <p className={`text-xs mt-1.5 line-clamp-2 leading-relaxed whitespace-pre-line ${
+                        isDark ? 'text-gray-300' : 'text-gray-600'
+                      }`}>
+                        {t.bio}
+                      </p>
+                      {t.yt && (
+                        <a 
+                          href={t.yt} 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className={`mt-3 inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
+                            isDark ? 'text-[#ff6b8b] hover:text-white' : 'text-[#dc2626] hover:text-red-700'
+                          }`}
+                        >
+                          <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
+                          YouTube
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <p className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-1 truncate ${
-                      isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
-                    }`}>
-                      {t.designation}
-                    </p>
-                    <h3 className={`font-black leading-tight text-base ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                      {t.name}
-                    </h3>
-                    <p className={`text-xs mt-1.5 line-clamp-2 leading-relaxed whitespace-pre-line ${
-                      isDark ? 'text-gray-300' : 'text-gray-600'
-                    }`}>
-                      {t.bio}
-                    </p>
-                    {t.yt && (
-                      <a 
-                        href={t.yt} 
-                        target="_blank" 
-                        rel="noreferrer"
-                        className={`mt-3 inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
-                          isDark ? 'text-[#ff6b8b] hover:text-white' : 'text-[#dc2626] hover:text-red-700'
-                        }`}
-                      >
-                        <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
-                        YouTube
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Contact Banner */}
         <section className={`py-20 text-center transition-colors duration-300 ${
