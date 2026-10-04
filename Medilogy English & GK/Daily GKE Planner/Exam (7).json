@@ -1,0 +1,385 @@
+{
+  "exam_id": 595,
+  "title": "Exam (7)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 12,
+  "total_questions": 25,
+  "negative_mark": 0,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "173d79bd-8d16-43f6-b821-7aaaeda6b32f",
+      "question": "Choose the correct preposition. My brother has no interest _____ music.",
+      "options": [
+        "For",
+        "In",
+        "With",
+        "At"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Interest in- কোনো বিষয়ে আগ্রহ বোঝাতে এটি বসে।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "98f704f5-14c1-40fe-a30b-9439d3a559dc",
+      "question": "What are you so angry _____ ?",
+      "options": [
+        "For",
+        "About",
+        "With",
+        "At"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো ব্যক্তি বা বস্তু সম্বন্ধে এবং কোনো ব্যক্তি বা বস্তুর সাথে সম্পর্ক বোঝালে, সাধারণত what দ্বারা যুক্ত থেকে question কিংবা embedded question হলে angry-এর পর about বসে। তাছাড়া, কোনো কিছু নিয়ে রাগান্বিত হলে angry-এর সাথে about বসে।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "787bd5e4-bda2-41c5-a3fb-90ba27f6ea47",
+      "question": "I should appreciate it if you could complete this work ______ Thursday.",
+      "options": [
+        "Till",
+        "Untill",
+        "Upto",
+        "By"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Till-পর্যন্ত/অবধি; until-যে পর্যন্ত না; upto - পর্যন্ত/ অবধি; by-নির্ধারিত সময়ের পূর্বেই।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "19f7054b-f5e2-47cf-86ec-9855bd570b78",
+      "question": "I finally killed the fly _______ a rolled up newspaper.",
+      "options": [
+        "By",
+        "With",
+        "Through",
+        "From"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো কিছু দ্বারা বা হাতিয়ার, উপায় বোঝাতে with ব্যবহৃত হয়",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "59c1b8a2-756b-4e54-8117-d4d459aa2398",
+      "question": "He parted _____ his friends in tears.",
+      "options": [
+        "With",
+        "From",
+        "To",
+        "At"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Part from-বিচ্ছিন্ন হওয়া, ছেড়ে যাওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "e3301fa9-6a1e-4ca4-aa31-d170276d0427",
+      "question": "I don't think you will have any difficulty _____ a driving license.",
+      "options": [
+        "To get",
+        "In getting",
+        "For getting",
+        "Get"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "'Difficulty in something' অর্থ কোনো কিছুতে সমস্যা।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "7672379c-5419-42b6-a749-add7f56e3bd4",
+      "question": "Please_____ the necessity of arriving early.",
+      "options": [
+        "Emphasise",
+        "Emphasise to",
+        "Emphasise at",
+        "Emphasise about"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Emphasise (v)-এর পর কোনো preposition হবে না। তবে emphasis(n.)-এর পর on বসে",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "da3a12d0-ada7-4392-80ca-89271af7f169",
+      "question": "The government gave _____ the demands of the people.",
+      "options": [
+        "in to",
+        "in",
+        "to",
+        "over to"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Give in to-দাবি পূরণ করতে রাজি হওয়া; give in বশ্যতা স্বীকার করা; give to-কাউকে কিছু দেওয়া, give over to-কোনো কিছুতে বিলিয়ে দেওয়া",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "55a5c9e1-4a99-4f50-bd5b-1f86ed2151c8",
+      "question": "I count ____ your help.",
+      "options": [
+        "After",
+        "Upon",
+        "For",
+        "With"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Count upon- নির্ভর করা, বিশ্বাস করা। Count for-গুরুত্বপূর্ণ বলে বিবেচনা করা",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "a1122808-a90c-46a4-bf3a-e93330ec53a7",
+      "question": "Government has been entrusted ____ elected politicians",
+      "options": [
+        "with",
+        "for",
+        "to",
+        "at"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Entrusted with + something- কোনো কিছুতে আস্থা স্থাপন করা; Entrusted to someone- কোনো ব্যক্তি বা ব্যক্তিবর্গকে অর্পণ করা।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "7df94b97-f0bd-41ab-9603-24ccbc7077f9",
+      "question": "He has paid the penalty ____ his crimes _____five years in prison.",
+      "options": [
+        "For,with",
+        "At,by",
+        "About,at",
+        "After,with"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Paid for শাস্তি পাওয়া। সাজা বা শাস্তির আগে with ব্যবহার করা যায়",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "da024bb8-6e0a-468b-990f-1059dc07bbe8",
+      "question": "The intellectual can no longer be said to live _____ the margin of society.",
+      "options": [
+        "Against",
+        "Before",
+        "Beyond",
+        "Inside"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Against- বিপক্ষে; Beyond ঊর্ধ্বে; Inside মধ্যে; Before পূর্বে। বুদ্ধিজীবীরাও সমাজের সীমারেখার মধ্যে অবস্থান করেন। কাজেই তারা সমাজের সীমারেখার উর্ধ্বে নয়",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "5d64e059-360e-4fc5-a8ad-b0eea22b526b",
+      "question": "Fill in the blank 'He has assured me ______ safety'",
+      "options": [
+        "With",
+        "At",
+        "For",
+        "Of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Assure of- আশ্বস্ত করা, নিশ্চয়তা দেওয়া",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "f9c10eaf-60c9-416d-9ffa-a8eac1a3a8ef",
+      "question": "We have recently entered______ an agreement with the Inland Co-operative Society. Which of the following best fits in the blank space?",
+      "options": [
+        "No preposition",
+        "Upon",
+        "in",
+        "into"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কারো সাথে কোনো চুক্তিতে আবদ্ধ হওয়া অর্থে 'enter into  ' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "715ac30b-1f94-4db6-81f7-5b9afaf2fe17",
+      "question": "The walls of our house have been painted _____ green. Which is the correct preposition in the blank above?",
+      "options": [
+        "No preposition",
+        "By",
+        "In",
+        "With"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Paint'-এর পর adjective (যেমন- yellow, red, black etc) হলে কোনো preposition বসে না। যেমন- paint yellow/red/black",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "707c495a-88cd-4a6b-92aa-b0459efe3cef",
+      "question": "সূর্য দীঘল বাড়ি উপন্যাসে কোন  পটভূমি রয়েছে?",
+      "options": [
+        "পঞ্চাশের মন্বন্তর থেকে ৫২ এর ভাষা আন্দোলন",
+        "পঞ্চাশের মন্বন্তর থেকে ৪৭ এর দেশ ভাগ",
+        "ইংরেজ শাসনামল থেকে ৪৭ এর দেশ ভাগ",
+        "ইংরেজ শাসনামল থেকে মুক্তিযুদ্ধ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সূর্য দীঘল বাড়ি উপন্যাসের রচয়িতা আবু ইসহাক। পঞ্চাশের মন্বন্তর থেকে ৪৭ এর দেশ ভাগ পর্যন্ত কাহিনীর পটভূমি রয়েছে এই উপন্যাসে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "49bb2b3c-02d2-4833-a70b-1d4e1c476e09",
+      "question": "তানভীর মোকাম্মেল পরিচালিত 'চিত্রানদীর পাড়ে' চলচ্চিত্রটি কত সালে নির্মিত হয়?",
+      "options": [
+        "১৯৪৭",
+        "১৯৫৭",
+        "১৯৬৫",
+        "১৯৯৮"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তানভীর মোকাম্মেল পরিচালিত 'চিত্রানদীর পাড়ে' চলচ্চিত্রটি ১৯৪৭ সালের দেশ বিভাগ নিয়ে ১৯৯৮ সালে নির্মিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "2e4a1c4b-2008-4f5f-b18f-06b843e080bb",
+      "question": "\"১৯৪৭ সালের সীমানা কমিশন পরিচিত ছিল র‍্যাডক্রিসেন্ট কমিশন নামে\" উক্তিটি-",
+      "options": [
+        "মিথ্যা নয়",
+        "সত্য",
+        "মিথ্যা বললে সত্য হবে",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১৯৪৭ সালের সীমানা কমিশন পরিচিত ছিল র‍্যাডক্লিফ কমিশন নামে। সুতরাং উক্তিটি মিথ্যা",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "b127a4fa-8381-4a32-b1e6-ec1c39877bc6",
+      "question": "বাংলাদেশের বিজয় লাভের সময় পাকিস্তানের প্রধানমন্ত্রী কে ছিলেন?",
+      "options": [
+        "লিয়াকত আলী খান",
+        "খাজা নাজিম উদ্দিন",
+        "ইয়াহিয়া",
+        "নুরুল আমিন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাংলাদেশের বিজয় লাভের সময় পাকিস্তানের প্রধানমন্ত্রী  ছিলেন নুরুল আমিন।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "0b74048b-3b32-4092-9203-aa00a3fb8ebc",
+      "question": "''আমরা হিন্দু বা মুসলমান যেমন সত্য, তার চেয়ে বেশি সত্য আমরা বাঙালি।\" কে বলেছিলেন?",
+      "options": [
+        "লিয়াকত আলী খান",
+        "ড. মুহাম্মদ এনামুল হক",
+        "চৌধুরী খালিকুজ্জামান",
+        "ড. মুহম্মদ শহীদুল্লাহ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "''আমরা হিন্দু বা মুসলমান যেমন সত্য, তার চেয়ে বেশি সত্য আমরা বাঙালি।\" এটি ড. মুহম্মদ শহীদুল্লাহ বলেছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "11573e08-f133-4f57-acf2-f3f1ef4772ee",
+      "question": "তমুদ্দিন মজলিস এর সদস্য সংখ্যা কত ছিল?",
+      "options": [
+        "২",
+        "৩",
+        "৪",
+        "৯"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তমদ্দুন মজলিস এর সদস্য সংখ্যা ছিল তিনজন",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "92d7229a-5833-43f9-b003-ab9049e5bf3d",
+      "question": "তমুদ্দিন মজলিস প্রকাশিত বাংলা ভাষা আন্দোলনের মুখপাত্র পত্রিকার নাম কি ছিল?",
+      "options": [
+        "জয় বাংলা",
+        "বীর বাঙ্গালী",
+        "মাসিক মানপত্র",
+        "সাপ্তাহিক সৈনিক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তমুদ্দিন মজলিস প্রকাশিত বাংলা ভাষা আন্দোলনের মুখপাত্র পত্রিকার নাম ছিলো সাপ্তাহিক সৈনিক।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "90973c2f-22e3-4875-93e3-1331fe569944",
+      "question": "উর্দুকে পাকিস্তানের রাষ্ট্রভাষা করার সিদ্ধান্ত গৃহীত হয় ১৯৪৭ সালের ________ মাসে।",
+      "options": [
+        "জানুয়ারি",
+        "মার্চ",
+        "নভেম্বর",
+        "ডিসেম্বর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উর্দুকে পাকিস্তানের রাষ্ট্রভাষা করার সিদ্ধান্ত গৃহীত হয় ১৯৪৭ সালের ডিসেম্বর মাসে।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "d3e53d16-856f-4fcd-8982-c77b042a5161",
+      "question": "কত তারিখে ঢাকা মেডিকেল কলেজ প্রাঙ্গনে প্রথম শহিদ মিনার \"শহিদ স্মৃতিস্তম্ভ\" উদ্বোধন করা  হয়?",
+      "options": [
+        "২১ ফেব্রুয়ারি",
+        "২২ ফেব্রুয়ারি",
+        "২৩ ফেব্রুয়ারি",
+        "২৪ ফেব্রুয়ারি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "২৪ ফেব্রুয়ারিঃঢাকা মেডিকেল কলেজ প্রাঙ্গনে প্রথম শহিদ মিনার \"শহিদ স্মৃতিস্তম্ভ\" উদ্বোধন করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "273f450a-e6c8-4a47-9283-cffddf377527",
+      "question": "কেন নূরুল আমিন সরকার ১৪৪ ধারা জারি করে সভা সমাবেশ নিষিদ্ধ করে?",
+      "options": [
+        "ছাত্র আন্দোলনে অরাজকতা সৃষ্টি করতে",
+        "ছাত্র আন্দোলনের অরাজকতা বন্ধ করতে",
+        "ছাত্র আন্দোলনের ভয়ে ভীত হয়ে",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ছাত্র আন্দোলনের ভয়ে ভীত হয়ে নূরুল আমিন সরকার ১৪৪ ধারা জারি করে এবং সভা সমাবেশ নিষিদ্ধ করে।",
+      "images": []
+    }
+  ]
+}

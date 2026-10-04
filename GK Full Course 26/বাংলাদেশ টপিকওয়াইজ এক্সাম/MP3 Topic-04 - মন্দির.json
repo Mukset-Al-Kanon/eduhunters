@@ -1,0 +1,146 @@
+{
+  "exam_id": 9765,
+  "title": "MP3 Topic-04 : মন্দির",
+  "category": "বাংলাদেশ টপিকওয়াইজ এক্সাম",
+  "subtopic": "বাংলাদেশের প্রত্নস্থল Exam",
+  "duration_minutes": 5,
+  "total_questions": 9,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "30e273a9-f04f-4a16-b0a6-0069ef689490",
+      "question": "জনশ্রুতি অনুযায়ী বিখ্যাত ‘ঢাকেশ্বরী মন্দিরের’ প্রতিষ্ঠাতা একজন রাজা। তাঁর নাম কী? [SABAS][]",
+      "options": [
+        "ক) রাজা রামমোহন",
+        "খ) রাজা দেবজ্যোতি",
+        "গ) বল্লাল সেন",
+        "ঘ) লক্ষণ সেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জনশ্রুতি অনুযায়ী রাজা বল্লাল সেন ঢাকেশ্বরী মন্দির নির্মাণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "7b3c3efc-a1da-4e4b-950c-2cad38d0d57e",
+      "question": "ঢাকেশ্বরী মন্দিরের সিংহদ্বার কি নামে পরিচিত? [SABAS][]",
+      "options": [
+        "ক) সুবাহর তোরণ",
+        "খ) নহবতখানা তোরণ",
+        "গ) ঈশ্বরী তোরণ",
+        "ঘ) দশভুজা তোরণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ঢাকেশ্বরী মন্দিরের সিংহদ্বার নহবতখানা তোরণ নামে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "bd273df1-51c3-4ea8-8808-d69a958f0e3a",
+      "question": "The historic ‘Gangasagor Dighi’ of Rajarbagh in Dhaka city bears the memory of [SABAS][]",
+      "options": [
+        "ক) Emperor Akbar",
+        "খ) Subedar Islam Khan",
+        "গ) Shaesta Khan",
+        "ঘ) Raja Maan Shingh"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সম্রাট আকবরের সেনাপতি মান সিংহ এই দিঘি খনন করেন।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "d6f69739-fa07-40fd-a164-64b0c3772f39",
+      "question": "‘কান্তজীর মন্দির’ কোন জেলায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ক) জয়পুরহাট",
+        "খ) কুমিল্লা",
+        "গ) রাঙ্গামাটি",
+        "ঘ) দিনাজপুর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কান্তজীর মন্দির দিনাজপুর জেলায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "0a6b82fd-d032-45bc-a9d6-814ecbda8e26",
+      "question": "‘কান্তজীর মন্দির’ কোন উপজেলায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ক) দিনাজপুর",
+        "খ) কাহারোল",
+        "গ) বীরগঞ্জ",
+        "ঘ) বোচাগঞ্জ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কান্তজীর মন্দির দিনাজপুরের কাহারোল উপজেলায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d03eec44-fe00-4b4f-abda-134bec4ef909",
+      "question": "কান্তজীর মন্দিরের রিলিফ ভাস্কর্যগুলো রচিত হয়েছে? [SABAS][]",
+      "options": [
+        "ক) পাথর খণ্ডে",
+        "খ) তামার পাতে",
+        "গ) কাঠের ফলকে",
+        "ঘ) পোড়ামাটির ফলকে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মন্দিরের বাইরের দেয়ালগাত্রে পোড়ামাটির ফলকে লেখা রয়েছে বিভিন্ন কাহিনী।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "365a476e-e230-4e32-a0b2-6f12d4d594b7",
+      "question": "পুঠিয়া মন্দির অবস্থিত- [SABAS][]",
+      "options": [
+        "ক) নাটোর",
+        "খ) নওগাঁ",
+        "গ) রাজশাহী",
+        "ঘ) পাবনা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পুঠিয়া মন্দির রাজশাহী বিভাগে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "5685c2a0-3146-42bd-af52-f71e6bdb8857",
+      "question": "গুরুদুয়ারা নানকশাহী শিখ মন্দির কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ক) শাঁখারী বাজার",
+        "খ) আরমানিটোলা",
+        "গ) ঢাকা বিশ্ববিদ্যালয়",
+        "ঘ) নবাবপুর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গুরুদুয়ারা নানকশাহী ঢাকা বিশ্ববিদ্যালয় কলাভবন এলাকায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "31fe2411-44bb-4b63-ae93-41d964f48669",
+      "question": "কোদলা মঠ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ক) বাগেরহাট",
+        "খ) জয়পুরহাট",
+        "গ) মাগুরা",
+        "ঘ) নড়াইল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোদলা মঠ বাগেরহাট জেলায় অবস্থিত।",
+      "images": []
+    }
+  ]
+}

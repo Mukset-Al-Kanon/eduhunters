@@ -1,0 +1,761 @@
+{
+  "exam_id": 8486,
+  "title": "Derivatives (Ques. No. 1-50)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Derivatives (75 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "bb96d814-a7b0-45d4-bb9a-0b2d867f87da",
+      "question": "In English the original word is known as ----[]",
+      "options": [
+        "Suffix",
+        "Prefix",
+        "Root",
+        "None of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5c30d097-384b-4246-9788-65d9ec61050f",
+      "question": "Sweetly is a ----- of sweet.[]",
+      "options": [
+        "derivative",
+        "adjective",
+        "both",
+        "none"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "30c2f304-e8df-476d-a1ae-337b797c57bc",
+      "question": "The correct derivative of 'eat' is ---[]",
+      "options": [
+        "eatable",
+        "eatible",
+        "edible",
+        "eatous"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "4b19b632-88d2-4bc7-9f39-b31a845508cf",
+      "question": "The correct derivative of 'imagine' is -----.[]",
+      "options": [
+        "inimagine",
+        "imaginatory",
+        "imagify",
+        "imaginary"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "b47b9d51-4036-4120-bad1-f2ebe6f801e7",
+      "question": "The correct derivative of 'space' is ---[]",
+      "options": [
+        "special",
+        "spacious",
+        "spatial",
+        "special"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "8ca5f147-f802-4621-bc7e-105319408e24",
+      "question": "The correct derivative of 'root' is -----.[]",
+      "options": [
+        "rooty",
+        "rootish",
+        "rudimentary",
+        "rootly"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "61834a5c-1292-4058-b39c-e226406b8ba5",
+      "question": "The correct derivative of 'strike' is ---[]",
+      "options": [
+        "striking",
+        "struck",
+        "stroke",
+        "strook"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "037385ad-c7e8-4fae-9ef4-7b71a27bfd05",
+      "question": "The correct derivative of 'thief' is -----.[]",
+      "options": [
+        "thieve",
+        "thieves",
+        "thieft",
+        "thove"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "9ce8202b-7c95-432b-aa59-aa4d9a752ec7",
+      "question": "What is the verb form of 'bath' ?[]",
+      "options": [
+        "bathe",
+        "baethe",
+        "bethe",
+        "none"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "0fbcaa4a-acad-4bc7-b0ec-0da2ab9f2ea1",
+      "question": "Change the word LITTLE into verb.[]",
+      "options": [
+        "belittle",
+        "enlittle",
+        "enlitten",
+        "litted"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "ddaf9ff1-f1a5-408e-b8be-6fe62eb11b4e",
+      "question": "What is the verb form of the word 'fresh' ?[]",
+      "options": [
+        "freshen",
+        "enfresh",
+        "freshy",
+        "defresh"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "43f07963-e480-4390-ad3f-e06eac1c23cc",
+      "question": "Verb of the word 'new'\n is -----.[]",
+      "options": [
+        "anew",
+        "newness",
+        "renew",
+        "newly"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "45e17be8-c1a8-4662-bc6e-f467a4d15629",
+      "question": "Full' শব্দটির Verb হচ্ছে ---[]",
+      "options": [
+        "Filled",
+        "Fulfillment",
+        "Full",
+        "Fill"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "9d1055e8-94ab-415a-940d-c7399bd97025",
+      "question": "Noun of the word 'free' is ---[]",
+      "options": [
+        "freeness",
+        "freely",
+        "freedom",
+        "freedomness"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "5ad6966e-848a-4f05-9638-ad5d0c67f078",
+      "question": "Noun form of 'Young' is -----.[]",
+      "options": [
+        "younger",
+        "youth",
+        "youngest",
+        "tender"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "511d0cf2-7c68-4220-b76d-89744b1f3e23",
+      "question": "Truth শব্দটির Adjective form হবে -----[]",
+      "options": [
+        "Truly",
+        "TRUE",
+        "Truism",
+        "None of them"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "7a49a239-d68d-4689-a265-8a97c76cd1bb",
+      "question": "The noun form of 'grand' is -----.[]",
+      "options": [
+        "grandness",
+        "grandsome",
+        "grandeur",
+        "grand"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "59f39c1d-90be-4ee2-a2b5-92bcd6f8f483",
+      "question": "The correct derivative of 'book' is -------.[]",
+      "options": [
+        "book-worm",
+        "bookish",
+        "bookly",
+        "books"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "5269b76f-ef84-431f-ba46-26ce4e7f2aba",
+      "question": "What is the noun form of the word 'Pious' ?[]",
+      "options": [
+        "Piousness",
+        "Pousity",
+        "Piety",
+        "Pity"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "c39e897a-9d75-4f53-a21e-e63ea46fec55",
+      "question": "Which one is not a derivative of 'sense' ?[]",
+      "options": [
+        "sensuous",
+        "sensitive",
+        "sensible",
+        "sensuasive"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "e187f197-6557-469e-abe9-f935ed1b1bf8",
+      "question": "What is the adjective of 'Tax' ?[]",
+      "options": [
+        "Taxable",
+        "Taxation",
+        "Taxability",
+        "Taxing"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "2df2bb86-c981-4909-9d00-c6ef7617df51",
+      "question": "What is the adjective of 'child' ?[]",
+      "options": [
+        "Childhood",
+        "Childly",
+        "Childish",
+        "Children"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "6fb77453-5ef9-4efd-a8b1-3a7b7011b979",
+      "question": "Might' শব্দটির Adjective নিচের কোনটি ?[]",
+      "options": [
+        "Mightous",
+        "Mighty",
+        "Mightful",
+        "Mightier"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "83850423-0c01-4338-97fb-aabd3abb5803",
+      "question": "The correct adjective form of 'adjective' is -----.[]",
+      "options": [
+        "adjective",
+        "adjectival",
+        "adjectiving",
+        "adject"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "b6277921-62a3-4772-bb76-cfd7f73e0e90",
+      "question": "Adjective of the word 'Trouble' is -----.[]",
+      "options": [
+        "Troublefull",
+        "Troublesome",
+        "Troubling",
+        "None of them"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "b5aa112c-d509-42dc-979e-7320ce12c40e",
+      "question": "Passion' শব্দটির Adjective হচ্ছে ---[]",
+      "options": [
+        "Passionful",
+        "Pastoral",
+        "Emanation",
+        "Passionate"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "3556d7ae-56f5-4edb-8c90-bb2dc53b5ebe",
+      "question": "The adjective form of the word 'study' is -----.[]",
+      "options": [
+        "study",
+        "studily",
+        "stupidity",
+        "studious"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "87e209f7-492f-42ab-9e30-b1f0c4fe7d48",
+      "question": "The noun form of 'approve' is -----.[]",
+      "options": [
+        "approveness",
+        "approof",
+        "approval",
+        "aproval"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "7713204d-0e53-462e-b543-df47fe086304",
+      "question": "The adjective of the word 'accident' ?[]",
+      "options": [
+        "accidentally",
+        "mishap",
+        "accidental",
+        "disaster"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "82bea283-ea9a-42ee-b733-2a4946a83fdd",
+      "question": "The correct spelling of the noun of 'maintain' is -----.[]",
+      "options": [
+        "maintainance",
+        "maintenance",
+        "maintinance",
+        "msintenece"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "2f840c68-edd8-427b-92e3-9c6d1b5c6c64",
+      "question": "Noun form of 'guilty' is -----.[]",
+      "options": [
+        "guilt",
+        "guiltness",
+        "guilting",
+        "guiltys"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "63a8b52f-6df9-4901-becf-e71de96c3b88",
+      "question": "Find out the verb form of 'invasion' from the following.[]",
+      "options": [
+        "invisible",
+        "invite",
+        "invade",
+        "invincible"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "35ef2529-901e-4e9f-9046-b05dbe1350df",
+      "question": "The verb form of 'Politics' is -----.[]",
+      "options": [
+        "Political",
+        "Politically",
+        "Politicise",
+        "Policy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "d443637d-13e4-4f50-9cab-d9a2fa34ccfd",
+      "question": "Which of the following is a verb ?[]",
+      "options": [
+        "Occupation",
+        "Vary",
+        "Hatred",
+        "Instutions"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "ea0a4684-75f3-46a8-bcfe-26ace174667b",
+      "question": "The word 'popularize' is -----.[]",
+      "options": [
+        "adjective",
+        "verb",
+        "noun",
+        "adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "3c88f1d9-765a-440e-a14b-f2791b4cca88",
+      "question": "Which one is a noun ?[]",
+      "options": [
+        "acceptable",
+        "accepted",
+        "acceptance",
+        "acception"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "c67919e9-7998-4eee-95e0-b1abd79d8ed0",
+      "question": "The word 'obediently' is a/an -----.[]",
+      "options": [
+        "adverb",
+        "adjective",
+        "verb",
+        "noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "75a06f5f-54fa-41c2-93de-cb5300fd027c",
+      "question": "Which one of the following is an adverb ?[]",
+      "options": [
+        "Someday",
+        "Something",
+        "Somebody",
+        "Someone"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "c445c7f9-3176-498c-824f-53fced6b0672",
+      "question": "The word 'everything' is -----.[]",
+      "options": [
+        "an adjective",
+        "an adverb",
+        "a pronoun",
+        "a noun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "0e81473c-6b0a-4363-a8dd-cfd00878a18d",
+      "question": "The word 'American' is -----.[]",
+      "options": [
+        "problem",
+        "adjective",
+        "noun",
+        "both noun and adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "a3a1a425-7c19-46f7-a70f-ad72a817f25a",
+      "question": "The adjective form of 'sympathy' is -----.[]",
+      "options": [
+        "sympathetically",
+        "sympathetic",
+        "sympathize",
+        "sympathy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "b4249dd9-50b5-448e-83f9-f0ec18dfebb2",
+      "question": "Which is in the noun of the word 'believe' ?[]",
+      "options": [
+        "belief",
+        "believable",
+        "believing",
+        "believably"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "580a2588-61d0-489f-895f-24e0b9597e5a",
+      "question": "The verb form of 'memory' is -----.[]",
+      "options": [
+        "memorize",
+        "memorable",
+        "memorably",
+        "memorily"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "482f6423-c6b8-4e4a-8102-a87210dd4703",
+      "question": "What is the verb form of 'cool' ?[]",
+      "options": [
+        "cold",
+        "chill",
+        "fridge",
+        "freeze"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "39b99647-4626-49f6-8bea-c0681a95a71c",
+      "question": "The word 'mar' is -----.[]",
+      "options": [
+        "an adjective",
+        "a noun",
+        "a verb",
+        "an adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "678c40f9-98b0-4049-9bf0-d48959d880be",
+      "question": "The noun form of the adjective 'coward' is -----.\n[]",
+      "options": [
+        "Cowardice",
+        "Cowardness",
+        "Cowardly",
+        "Cowardy"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "ea0ecb0b-d652-441a-ac93-6efd58b7aa5a",
+      "question": "What is the verb form of 'father' ?[]",
+      "options": [
+        "fathern",
+        "father",
+        "fathering",
+        "fatherity"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "6e20cde3-dea2-4d8a-a7a3-4c0d98919c86",
+      "question": "What is the noun form of the word 'realize' ?[]",
+      "options": [
+        "realized",
+        "realization",
+        "reality",
+        "B + C"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "338d5ec5-7d41-445a-b12e-0085a728f8db",
+      "question": "The verb of 'strength' is -----.[]",
+      "options": [
+        "strengthen",
+        "strong",
+        "stronger",
+        "strengthening"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "16301718-6f7b-48a0-b0b8-dba29dc2afc2",
+      "question": "The noun form of the word 'Fortunate' is -----.[]",
+      "options": [
+        "Fortunately",
+        "Fortunate",
+        "Fortune",
+        "Fortunating"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

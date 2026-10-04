@@ -1,0 +1,761 @@
+{
+  "exam_id": 8415,
+  "title": "Position of Parts of Speech (Ques. No. 151-200)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Position of Parts of Speech (236 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "ebfb397e-74f4-438e-bf66-ec8813afb70e",
+      "question": "<u>After</u> the storm comes the calm.[]",
+      "options": [
+        "Pronoun",
+        "Adverb",
+        "Preposition",
+        "Conjunction"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "after the storm → noun এর আগে\n✅ Preposition\nTrick: preposition + noun",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "dd471f4d-1501-4fd0-8087-815d02a05e9d",
+      "question": "He went <u>down</u> the road.[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Preposition",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "down the road\n✅ Preposition\nTrick: direction + noun → preposition",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "be27dbf4-74ff-4774-bcec-229f31ef6af1",
+      "question": "Mr. Kabir is <u>on</u> the committee.[]",
+      "options": [
+        "Adverb",
+        "Preposition",
+        "Conjunction",
+        "Interjection"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "on the committee\n✅ Preposition\nTrick: on / in / at → preposition",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "5e68db92-695c-4939-94e8-df587a844c2c",
+      "question": "Anwar jumped over the wall. Here 'over' is ---[]",
+      "options": [
+        "An interjection",
+        "An adverb",
+        "An adjective",
+        "A preposition"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "over the wall\n✅ Preposition\nTrick: over + noun",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "4f290290-7af3-493e-a91e-6d22ab1c3aa8",
+      "question": "None <u>but</u> the brave deserves the fair. In this sentence 'but' is ---[]",
+      "options": [
+        "Preposition",
+        "Verb",
+        "Conjunction",
+        "Adverb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "none but the brave\n✅ Preposition\nTrick: none but = except",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "57d40342-f0d7-4470-824e-bfdbdb6e7907",
+      "question": "The moral law is <u>above</u> the civil law.[]",
+      "options": [
+        "Noun",
+        "Preposition",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "above the civil law → law (noun) এর আগে।\n➡ Preposition",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "e0785153-bfc6-4882-8585-aa4d89b4445b",
+      "question": "Don't talk <u>like</u> that.[]",
+      "options": [
+        "preposition",
+        "adjective",
+        "adverb",
+        "noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "like that → that (pronoun) এর আগে like।\n➡ Preposition",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "95f3c279-c138-4621-accd-fd747e303da2",
+      "question": "He stood <u>before</u> me.[]",
+      "options": [
+        "Noun",
+        "Adverb",
+        "Verb",
+        "Preposition"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "before me → me (pronoun) এর আগে।\n➡ Preposition",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "23640b4d-a479-4a6a-907a-6f9c82da4057",
+      "question": "He was only a yard <u>off</u> me.[]",
+      "options": [
+        "Adverb",
+        "Preposition",
+        "Conjunction",
+        "Interjection"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "off me → me(pronoun) এর আগে off।\n➡ Preposition",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "49af8617-c870-4bdc-ba73-8e517d0fa770",
+      "question": "He came <u>after</u> my departure.[]",
+      "options": [
+        "preposition",
+        "adverb",
+        "conjunction",
+        "verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Preposition+Possessive adj+noun\nafter my departure → departure (noun) ,my(adj)\n➡ Preposition",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "9a7eaefe-f319-4a33-a75e-7b07174ca2de",
+      "question": "<u>Despite</u> his illness he went to the college.[]",
+      "options": [
+        "Noun",
+        "Adverb",
+        "Conjunction",
+        "Preposition"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "despite his illness → illness (noun) এর আগে।\n➡ Preposition",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "74933602-fe1a-4061-b5ef-84ad6aa0d76a",
+      "question": "The plane flew <u>over</u> our head.[]",
+      "options": [
+        "Pronoun",
+        "Preposition",
+        "Adverb",
+        "Verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "over our head → head (noun) এর আগে।\n➡ Preposition",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "5c88dcc2-d4ad-4988-a692-1c06ed0bf2f8",
+      "question": "We could not win <u>but</u> learned a lot.[]",
+      "options": [
+        "An adjective",
+        "An adverb",
+        "A verb",
+        "A conjunction"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "win but learned → দুইটা clause যুক্ত করেছে।\n➡ Conjunction",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "3503a6dc-6c8e-4436-bdfa-1caa6908bf54",
+      "question": "I will watch <u>while</u> you sleep.[]",
+      "options": [
+        "Conjunction",
+        "Adverb",
+        "Preposition",
+        "Interjection"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "while you sleep → clause শুরু করেছে।\n➡ Conjunction",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "d3f522b8-b041-4900-a006-207a9908dd80",
+      "question": "<u>Unless</u> you work hard, you will not succeed.[]",
+      "options": [
+        "Conjunction",
+        "Interjection",
+        "Preposition",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Unless you work → clause introduce করছে।\n➡ Conjunction",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "45960fca-ecf7-453b-9c54-4d4be3870e79",
+      "question": "Five years have passed <u>since</u> I met you last.[]",
+      "options": [
+        "Pronoun",
+        "Preposition",
+        "Conjunction",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "since I met you → clause যুক্ত করেছে।\n➡ Conjunction",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "0407a7e3-26ba-4083-a771-0dacd9a8d807",
+      "question": "He is poor <u>but</u> honest. In this sentence which is conjunction ?[]",
+      "options": [
+        "poor",
+        "honest",
+        "but",
+        "he"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "poor but honest → দুই adjective যুক্ত করেছে।\n➡ Conjunction",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "660e7a96-997b-47ae-9dfc-08e00e75e89c",
+      "question": "He sat behind me, <u>but</u> in front of you. Here 'but' is used as ---[]",
+      "options": [
+        "A conjunction",
+        "Interjection",
+        "An adverb",
+        "Verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "behind me, but in front → দুই phrase যুক্ত করেছে।\n➡ Conjunction",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "932ed931-fc6c-4a23-835c-86b69055e7ce",
+      "question": "The book was <u>neither</u> well-written nor interesting.[]",
+      "options": [
+        "Verb",
+        "Adjective",
+        "Conjunction",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "neither…nor → conjunction pair।\n➡ Conjunction",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "316e712d-975d-4caa-812a-dbf66068a1d9",
+      "question": "<u>What!</u> Can this be true ?[]",
+      "options": [
+        "Conjunction",
+        "Interjection",
+        "Adverb",
+        "Preposition"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "What! → বিস্ময় প্রকাশ।\n➡ Interjection",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "12d136eb-72b7-4d06-9618-f3d3f666a2a0",
+      "question": "<u>Well,</u> I don't think I will be able to finish today.[]",
+      "options": [
+        "Preposition",
+        "Interjection",
+        "Adverb",
+        "Adjective"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Well, → আবেগ প্রকাশ।\n➡ Interjection",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "51e60238-d694-449b-ab2f-ba942c28ce91",
+      "question": "I found him guilty. Here 'guilty' is ---[]",
+      "options": [
+        "An object",
+        "A complement",
+        "A subject",
+        "A predicate"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "found him guilty → guilty object কে describe করছে।\n➡ Complement",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "23bf3f5e-4623-4e0c-89ef-da57403a81f4",
+      "question": "Which underlined word is a noun ?[]",
+      "options": [
+        "That is the <u>last</u> of the butter.",
+        "This is the <u>last</u> bus.",
+        "He came <u>last</u> in the race.",
+        "This lesson will not <u>last</u> long."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "the last of the butter → last এখানে বস্তু বোঝাচ্ছে।\nVerbal noun(article+noun+preposition)\n➡ Noun",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "12483c83-0e74-4613-9387-a05c9cd7753e",
+      "question": "Which underlined word is an adverb ?[]",
+      "options": [
+        "This house is <u>fine</u>.",
+        "This shirt suits me <u>fine</u>.",
+        "The bottle has to be <u>fine</u>.",
+        "He had to pay a <u>fine</u>."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "suits me fine → verb suits কে modify করছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "18a966a0-b512-414f-8d04-5a6c012643d7",
+      "question": "Which underlined word is adjective ?[]",
+      "options": [
+        "I have a good <u>home</u>.",
+        "He went <u>home</u>.",
+        "Have a happy <u>home</u> life.",
+        "Is he <u>home</u> yet."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "happy home life → home life কে describe করছে।\n➡ Adjective",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "67f576b2-2c7f-4291-a175-7a87c38de766",
+      "question": "Man has been used as a verb in ---[]",
+      "options": [
+        "He shouted at the <u>man</u>.",
+        "The captain has to <u>man</u> the ship carefully.",
+        "No <u>man</u> is infallible.",
+        "He is a worthy <u>man</u>."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "man the ship → কাজ বোঝাচ্ছে।\n➡ Verb",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "72ed1849-d394-4d72-8fcc-5d0612f6b3c2",
+      "question": "The word 'oil' has been used as a verb in ---[]",
+      "options": [
+        "I bought an oil painting.",
+        "I need some kerosene oil.",
+        "Oil your own machine.",
+        "There is no oil in the lamp."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "oil your machine → কাজ বোঝাচ্ছে।\n➡ Verb",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "7754bff8-6df6-4d16-93b1-6765ba57f71a",
+      "question": "He became rich <u>overnight</u>.[]",
+      "options": [
+        "A noun",
+        "An adjective",
+        "An adverb",
+        "Preposition"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "rich overnight → কখন হয়েছে বোঝাচ্ছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "a11cd6e9-5218-4486-bc66-22b9d77ff2e2",
+      "question": "Medha wants to go shopping <u>tomorrow</u>.[]",
+      "options": [
+        "Adverb",
+        "Noun",
+        "Verb",
+        "Adjective"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "shopping tomorrow → time বোঝাচ্ছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "70bfd7d7-b09e-4b52-8646-65a613f4bed5",
+      "question": "She looks <u>very</u> beautiful.[]",
+      "options": [
+        "Adjective",
+        "Verb",
+        "Pronoun",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "very beautiful → beautiful কে modify করছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "8088eda3-2b55-4f81-a420-078fa094489a",
+      "question": "The <u>warning</u> of the authority falls on deaf ears.[]",
+      "options": [
+        "Adverb",
+        "Adjective",
+        "Verb",
+        "Noun"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Verbal noun (article+noun+preposition)\n➡ Noun",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "2b10bec4-6cc5-4814-b992-addff12cb774",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He looked angry but did not speak angrily.",
+        "He looked angrily but did not speak angrily.",
+        "He looked angry but did not speak angry.",
+        "He looked angrily but did not speak angrily."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "looked angry → look (linking verb) এর পরে adjective লাগে।\n➡ Adjective",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "60fcdaf3-a259-432f-a309-9d5de8deeb0e",
+      "question": "The candidate did ----- and felt -----.[]",
+      "options": [
+        "so bad, badly",
+        "bad, badly",
+        "badly, bad",
+        "worse, worst"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "did badly → verb modify → Adverb\nfelt bad → feel (linking verb) → Adjective",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "a5213c1a-9640-4b26-bd4b-65f16f4c4778",
+      "question": "Jerry was deprived of <u>motherly</u> affection.[]",
+      "options": [
+        "An adverb",
+        "An adjective",
+        "A noun",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "motherly affection → affection কে describe করছে।\n➡ Adjective",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "39490a41-35f6-4c0c-9bae-e8a2005f2559",
+      "question": "Upoma came here <u>late</u>.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Verb",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "came late → verb modify করছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "8c8c3c2f-fee3-48d0-bcd1-3a3c800dfd7e",
+      "question": "The children who play near the garden <u>water</u> the saplings.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Verb",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "water the saplings → কাজ বোঝাচ্ছে।\n➡ Verb",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "e10b18ff-4d88-4c8a-b7d2-edd02f81204f",
+      "question": "Shamim looked <u>around</u> but could not spot the man. The word 'around' is ---[]",
+      "options": [
+        "An adjective",
+        "A preposition",
+        "An adverb",
+        "A noun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "looked around → looked কে modify করছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "2a9e70c8-c4ef-49d1-84d3-68a1aeffe292",
+      "question": "To and fro' is an idiom. Here 'to' is used as a/an ---[]",
+      "options": [
+        "Adjective",
+        "Preposition",
+        "Adverb",
+        "Infinitive maker"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "to and fro → movement বোঝাচ্ছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "48296c68-dad8-4a9d-a644-b34ba1039add",
+      "question": "He came to office late'. Here 'late' is ---[]",
+      "options": [
+        "A preposition",
+        "A noun",
+        "An adverb",
+        "An adjective"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "came late → verb modify।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "ea86850c-5ace-4389-b220-002c15ab1e94",
+      "question": "The guests arrived <u>after</u> we had left for the market.[]",
+      "options": [
+        "Preposition",
+        "Conjunction",
+        "Adverb",
+        "Adjective"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "after we had left → clause যুক্ত করেছে।\n➡ Conjunction",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "3d0a5ebe-e779-4247-9528-926a50d0444b",
+      "question": "She sings well enough. Here 'enough' is ---[]",
+      "options": [
+        "A verb",
+        "An adjective",
+        "An adverb",
+        "Noun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "well enough → well কে modify করছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "5e387e69-bf24-43fb-ac9d-0982f5d135ad",
+      "question": "They organized a volunteer corps. Here 'corps' is a ---[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Adverb",
+        "Pronoun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "volunteer corps → corps = group।\n➡ Noun",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "d08dcad6-66a8-4b0a-8c87-1034f8bdb17c",
+      "question": "People from all <u>walks</u> of life all ended the meeting.\n<u>Copying</u> is prohibited in the examination.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Adverb",
+        "Verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Copying is prohibited → copying subject।\n➡ Noun (Gerund)",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "82a4800c-1f50-4750-bf7e-911c5a9807e8",
+      "question": "The flower smells -----.[]",
+      "options": [
+        "sweet",
+        "sweetly",
+        "fragrantly",
+        "pleasant"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "smells sweet → smell (linking verb) → adjective লাগে।\n➡ Adjective",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "40302d9d-8f43-4f9f-92aa-a9091811b2b8",
+      "question": "Cycling is <u>certainly</u> higher than driving.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Interjection",
+        "Preposition"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "certainly higher → adjective modify করছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "b10b49d2-0ca1-4757-a366-d7df2350e6af",
+      "question": "An <u>elected</u> member can take the decision.[]",
+      "options": [
+        "Verb",
+        "Adverb",
+        "Conjunction",
+        "Adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "elected member → member কে describe করছে।\nAdj+noun\n➡ Adjective",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "0d0853b7-a843-4971-84f7-bdb9f095bd71",
+      "question": "There has been a <u>breakthrough</u> in the treatment of dengue.[]",
+      "options": [
+        "Adjective",
+        "Verb",
+        "Noun",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "a breakthrough → article a এর পরে noun।\n➡ Noun",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "36f81cea-45c0-40bf-a8cf-f698198b37d5",
+      "question": "We live upstairs. Here 'upstairs' is a/an ---[]",
+      "options": [
+        "Noun",
+        "Pronoun",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "live upstairs → place বোঝাচ্ছে।\n➡ Adverb",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "110f6b5d-8959-4750-a85e-ff49a3fab759",
+      "question": "Their house is <u>opposite</u> the Red Crescent Hospital.[]",
+      "options": [
+        "Preposition",
+        "Adjective",
+        "Noun",
+        "Adverb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "opposite the hospital → hospital এর আগে।\n➡ Preposition",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "380c3929-e2de-4d15-94d2-376143d09471",
+      "question": "I <u>hardly</u> understand him. The underlined word is ---[]",
+      "options": [
+        "a noun",
+        "a verb",
+        "An adjective",
+        "An adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "hardly understand → verb modify করছে।\n➡ Adverb",
+      "images": []
+    }
+  ]
+}

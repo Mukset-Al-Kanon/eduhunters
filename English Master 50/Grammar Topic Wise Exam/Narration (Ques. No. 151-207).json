@@ -1,0 +1,866 @@
+{
+  "exam_id": 8454,
+  "title": "Narration (Ques. No. 151-207)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Narration (207 Marks)",
+  "duration_minutes": 22,
+  "total_questions": 57,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "bc7706dc-0628-4fde-a636-6440e3eeeede",
+      "question": "He asked me where I had gone the previous day.[]",
+      "options": [
+        "He said to me,\"Where did you go yesterday\" ?",
+        "He asked me \"Where have you gone yesterday\" ?",
+        "He asked me \"Where had you gone previous day\" ?",
+        "He asked me \"Where did you go previous day\" ?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "9db671e6-f340-48f0-8503-314f687eb26d",
+      "question": "He said,\"Good morning, Sir\".[]",
+      "options": [
+        "He respectfully wished good morning to the person spoken to.",
+        "He respectfully wishes good morning to the person spoken to.",
+        "He respectfully wish good morning to the person spoken to.",
+        "He respectfully wished good morning to the person spoke to."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "0c9e6622-309c-4f70-b34e-f5b2c2428116",
+      "question": "The manager said to the strikers,\"Resume your work\".[]",
+      "options": [
+        "The manager requested the strikers to resume their work.",
+        "The manager ordered the strikers to resume their work.",
+        "The manager told the strikers to resume their work.",
+        "The manager requested to the strikers to resume their work."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "5278a92a-7d64-406c-9d27-0b07389ccc9a",
+      "question": "Anwar said,\"Let him say whatever he likes\".[]",
+      "options": [
+        "Anwar said that he may say whatever he liked.",
+        "Anwar said that he might say whatever he liked.",
+        "Anwar told that he might say whatever he likes.",
+        "Anwar said that he might say whatever he likes."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "1e05d1ef-b526-4ba4-b8a2-aecdeec37467",
+      "question": "He said to his friend,\"Let us play now\".[]",
+      "options": [
+        "He requested to his friends that they should play then.",
+        "He proposed to his friends that they would play then.",
+        "He proposed to his friends that they should play then.",
+        "He proposed to his friends that we should play then."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "26b50b6e-fbf1-4d86-82b8-9b7d750a5f74",
+      "question": "The poorman said,\"Let me have some food\".[]",
+      "options": [
+        "The poorman begged that I might had some food.",
+        "The poorman begged that I might have some food.",
+        "The poorman begged that he might had some food.",
+        "The poorman begged that he might have some food."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "8228e0cf-180d-4af5-a166-f038ab2631e0",
+      "question": "Munna said to Zuhan,\"I shall come to you tomorrow\".[]",
+      "options": [
+        "Munna told Zuhan that he would be going to him the next day.",
+        "Munna told Zuhan that he would go to him the following day.",
+        "Munna told Zuhan that he should come to him the following day.",
+        "Munna informed Juhan that he would come to him the following day."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "28912e7c-82fd-45c0-9ee9-615b8855e664",
+      "question": "Zuhan said to Zahra,\"Are you going to Dhaka tomorrow\" ?[]",
+      "options": [
+        "Zuhan wanted to know whether Zahra would go to Dhaka the following day.",
+        "Zuhan enquired from Zahra if she would be going to Dhaka the next day.",
+        "Zuhan asked Zahra if she was going to Dhaka the next day.",
+        "Zuhan wanted to confirm whether Zahra would be going to Dhaka the next day."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "0cc90520-8b22-4c7d-8271-19996eff22fc",
+      "question": "\"Why are you getting wet in the rain\" ? I said.[]",
+      "options": [
+        "I told why he was getting wet in the rain.",
+        "I asked why he were getting wet in the rain.",
+        "I asked why he was getting wet in the rain.",
+        "I asked were why he getting wet in the rain."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "a517c4c3-4080-4a94-91ab-774233d7fd58",
+      "question": "The children sang,\"May Bangladesh live forever\".[]",
+      "options": [
+        "The children wished that Bangladesh might live forever.",
+        "The children prayed that Bangladesh might live forever.",
+        "The children sang wished that Bangladesh might live forever.",
+        "The children sang wishing that Bangladesh might forever."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "f269b2e4-9b70-46bf-8b22-dc5abca565af",
+      "question": "Choose the correct indirect form.[]",
+      "options": [
+        "She said that she was happy to be there that evening.",
+        "She said she was happy to be there that evening.",
+        "She said that she is happy to be there that evening.",
+        "She said that she were happy to be there that evening."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "269b462f-2fca-4d49-bf68-19c2888c0640",
+      "question": "\"Who are you and what do you want ?\" he said to me.[]",
+      "options": [
+        "He asked me who was I and what did I want.",
+        "He asked to me who were you and what did you want.",
+        "He asked me who I was and what I wanted.",
+        "He told me who you are and what you want."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "0a278fec-f9a2-4a17-a00a-c60ac2c6ab3f",
+      "question": "Abul said,\"I was busy\".[]",
+      "options": [
+        "Abul said that I was busy.",
+        "Abul said that he was busy.",
+        "Abul said that I had been busy.",
+        "Abul said that he had been busy."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "d9519f53-ba08-4cf9-9585-f0459e7dbbb2",
+      "question": "He said to me,\"By God!I shall support you\".[]",
+      "options": [
+        "He swore by God that he will support me.",
+        "He swore by God that he will have supported me.",
+        "He swear by God that he would have supported me.",
+        "He swore by God that he would support me."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "7824c872-4b1c-4c2e-b237-a01da39532b6",
+      "question": "The man said,\"Good Morning ! My friends\" বাক্যটির indirect speech হবে ---[]",
+      "options": [
+        "The man said that my friends good morning.",
+        "The man bade his friends good morning.",
+        "The man wished that his friends good morning.",
+        "The man addressing his friends good morning."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "fff14830-e3af-45dd-810a-bdae5d19ff39",
+      "question": "\"Are you weeping\" ? he asked her.[]",
+      "options": [
+        "He asked her that she was weeping.",
+        "He asked her if she was weeping.",
+        "He asked her that she is weeping.",
+        "None of these"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "fcf8e063-c767-4dde-8fc2-41e493f1711f",
+      "question": "Karim said,\"I must go home\".[]",
+      "options": [
+        "Karim said that he will have to go home.",
+        "Karim said that he shall have to go home.",
+        "Karim said that he had to go home.",
+        "Karim said that he must go home."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "23fc21a2-3c96-4a2f-aaac-b79036942cb3",
+      "question": "\"What are you doing\" ? asked the teacher.[]",
+      "options": [
+        "The teacher asked what he was doing.",
+        "The teacher asked what was he doing.",
+        "The teacher asked what he has been doing.",
+        "The teacher asked what he had been doing."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "f07cf0b6-8f53-4d15-a644-b549c6cee727",
+      "question": "She asked me,\"Where were you\" ?[]",
+      "options": [
+        "She asked me where I went.",
+        "She asked me where I had gone.",
+        "She asked me where I had been.",
+        "She asked me where I was."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "c585afd2-41a2-41b3-9410-cd2392e3a294",
+      "question": "I said angrily,\"Leave me alone\".[]",
+      "options": [
+        "I said to him angrily to leave me alone.",
+        "I told him angrily to leave me alone.",
+        "I asked him angrily to leave me alone.",
+        "I told angrily to leave me alone."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "ef11a4fd-525a-4c3f-893c-0e8144e04ef7",
+      "question": "He said,\"I did not refuse to help\".[]",
+      "options": [
+        "He said that he does not want to help.",
+        "He denied that he had refused to help.",
+        "He denied that he refused to help.",
+        "He said he did not refuse to help."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "5f1bc11c-dba7-459f-93ac-c4642c68f2d5",
+      "question": "We said,\"Long live Bangladesh\".[]",
+      "options": [
+        "We wished that Bangladesh might live long.",
+        "We prayed that Bangladesh might live long.",
+        "We wished Bangladesh a long life.",
+        "All the above"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "64605bec-2f79-4b6e-9870-4b33b9721f99",
+      "question": "She said to me,\"Why don't you come on Monday\" ?[]",
+      "options": [
+        "He told me not to go on Monday.",
+        "She said me why did not she go on Monday.",
+        "She asked me why I did not go on Monday.",
+        "She asked me not to go on that day."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "71de88b6-b5d5-404e-9830-6d11f764c316",
+      "question": "He said,\"Where are my glasses\" ?[]",
+      "options": [
+        "He asked where are my glasses.",
+        "He asked where were his glasses.",
+        "He asked where his glasses were.",
+        "He asked where his glasses had been."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "f3f516c2-7578-4dd8-ac72-388e973b6135",
+      "question": "She said to him,\"Are you an engineer\" ?[]",
+      "options": [
+        "She asked him that he was an engineer.",
+        "She said to him that he was an engineer.",
+        "She asked him if he was an engineer.",
+        "She said to him if he is an engineer."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "2ef06290-112e-43da-a62c-1827406a2dee",
+      "question": "He said to me,\"Are you ill\" ? I replied,\"No\".[]",
+      "options": [
+        "He asked me if I was ill. I replied I was not.",
+        "He asked me if I was ill. I replied I was.",
+        "He asked me if I am ill. I replied that I was.",
+        "He asked me if I am ill. I replied that I was not."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "68e3e88a-d2c9-49f0-8be2-503023f5c597",
+      "question": "I said to him,\"Why are you working so hard\" ?[]",
+      "options": [
+        "I asked him why he was working so hard.",
+        "I asked him why was he working so hard.",
+        "I asked him why had he been working so hard.",
+        "I asked him why he had been working so hard."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "a39a12ab-62c9-42f8-8de9-cd8adc1c3114",
+      "question": "He asked me where I came from.[]",
+      "options": [
+        "He said to me,\"Where do you come from\" ?",
+        "He asked me,\"Where are you from\" ?",
+        "He said to me,\"Where do you from\" ?",
+        "He said to me,\"Where you come from\" ?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "2ee1295b-7382-468e-91e7-3e0a96d04246",
+      "question": "He said to me,\"Never move very fast\".[]",
+      "options": [
+        "He forbade me to move very fast.",
+        "He requested me not to move very fast.",
+        "He said to me that I should not move very fast.",
+        "He told me don't move very fast."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "04149771-536d-4b50-83f7-21449aa3fe1c",
+      "question": "He said to me,\"Do you know me\" ?[]",
+      "options": [
+        "He asked me if I know him.",
+        "He said do I know him.",
+        "He asked me if I knew him.",
+        "He asked me if I did know him."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "a3bb6d05-e4ea-45fe-a712-dce40349f32a",
+      "question": "Mother said to me,\"Do not tell a lie\".[]",
+      "options": [
+        "Mother frightened me not to tell a lie.",
+        "Mother suggested me not to tell a lie.",
+        "Mother advised me not to tell a lie.",
+        "Mother warned me not to tell a lie."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "401b7b02-3456-4e8d-8d60-01e6a912743e",
+      "question": "The headmaster says,\"The inspector will visit our school at 11 am today\".[]",
+      "options": [
+        "The Headmaster says that the Inspector will visit their school at 11 am today.",
+        "The Headmaster said that the inspector will visit their school at 11 am today.",
+        "The Headmaster said that the inspector is being visit their school at 11 am today.",
+        "The Headmaster said that today at 11 am the inspector must visit their school."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "1bdae225-0298-46eb-9962-925dbc0f358a",
+      "question": "My friend said to me,\"Go home at once\".[]",
+      "options": [
+        "My friend asked me go home at once.",
+        "My friend asked me to go home at once.",
+        "My friend said me go home at once.",
+        "My friend told me to went home at once."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "96d3b3d5-08ce-47af-8d58-4b6d9ca8dd9f",
+      "question": "He said,\"Good morning,can you help me\" ?[]",
+      "options": [
+        "He wished him good morning and asked whether he could help him.",
+        "He wished him good morning and asked for help.",
+        "He told good morning and asked whether he can help him.",
+        "He wished him good morning and requested to help him."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "9d9236ac-4dc3-47fd-ae12-ee72f3ea1662",
+      "question": "Angel said,\"I bought a pen yesterday\".[]",
+      "options": [
+        "Angel said that she had bought a pen the day before.",
+        "Angel said that I had bought a pen the day before.",
+        "Angel said that she bought a pen the day before.",
+        "Angel said that she has bought a pen the day before."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "4442100f-404b-481e-9372-9b5ab11fa288",
+      "question": "He said to me,\"Where were you staying when you are in Dhaka\" ?[]",
+      "options": [
+        "He asked me where I was staying when I was in Dhaka.",
+        "He asked me where I had been staying when I was in Dhaka.",
+        "He asked me where I had been staying when I had been in Dhaka.",
+        "He asked me where I stayed when I was in Dhaka."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "6edff414-4cc0-4557-9e3c-c8ad8b56765a",
+      "question": "She said,\"I have been teaching English for 7 years\".[]",
+      "options": [
+        "She said that she was teaching English for 7 years.",
+        "She said that he had been teaching English for 7 years.",
+        "She was saying that she had been teaching English for 7 years.",
+        "She said that she had been teaching English for 7 years."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "30c4b64e-ddc5-42c1-845e-c0c0026c699c",
+      "question": "He said to me,\"I know who killed the tiger\".[]",
+      "options": [
+        "He said to me that he knows who killed the tiger.",
+        "He told me that he had known who killed the tiger.",
+        "He told me that he knew who killed the tiger.",
+        "He told me that he knew who had killed the tiger."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "964436f6-a02b-4887-9b68-3c8bc74a9716",
+      "question": "She said,\"It is cool in winter\".[]",
+      "options": [
+        "She said that it is cool in winter.",
+        "She said that it was cool in winter.",
+        "She said that it had been cool in winter.",
+        "She said that it has been cool in winter."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "46f5d065-973d-4b17-984e-ec5e78797c11",
+      "question": "She asked,\"I don't know the way. Do you\" ?[]",
+      "options": [
+        "She said that she didn't know the way and did I know it.",
+        "She said that she didn't know the way and asked me if I did.",
+        "She told that she was not knowing the way, but wondered if I knew.",
+        "She asked me if I knew the way which she didn't."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "3cb44b7f-c58c-4dad-a239-dfc9b02bf8f5",
+      "question": "Rimi said that her brother was getting married.[]",
+      "options": [
+        "Rimi said,\"Her brother is getting married\".",
+        "Rimi told,\"Her brother is getting married\".",
+        "Rimi said,\"My brother is getting married\".",
+        "Rimi said,\"My brother was getting married\"."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "1eed5ff7-fb74-4320-a4e7-caa9e058a8a2",
+      "question": "\"How cruel the boss is!\" said the clerk.[]",
+      "options": [
+        "The clerk said that the boss was very cruel.",
+        "The clerk exclaimed that the boss was very cruel.",
+        "The clerk told that the boss was very cruel.",
+        "The clerk describe that the boss was very cruel."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "fb50416e-0270-418c-9ce3-8ff58a85068f",
+      "question": "She said,\"I was teaching earlier\".[]",
+      "options": [
+        "She said that she had been teaching earlier.",
+        "She said she had been teaching earlier.",
+        "She said that I had been teaching earlier.",
+        "She says that she was been teaching earlier."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "3e25bade-d447-47c9-a8e4-83e2fb7c617f",
+      "question": "Karim said,\"I met him long ago\".[]",
+      "options": [
+        "Karim said that he had met him long ago.",
+        "Karim said that he met him long ago.",
+        "Karim said that he has met him long ago.",
+        "Karim said that he had had met him long ago."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "df1858a9-fd31-450e-99c0-871aed501deb",
+      "question": "The stranger said to me,\"Could you help me\" ?[]",
+      "options": [
+        "The stranger asked me if I could help him.",
+        "The stranger said to me if I could help him.",
+        "The stranger asked me if I might help him.",
+        "The stranger told me to help him."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "9fd5ebbb-ba12-47a1-8f43-8ad1df959033",
+      "question": "He said to me,\"When did you come here\" ?[]",
+      "options": [
+        "He asked me when I had gone here.",
+        "He asked me when I had gone there.",
+        "He asked me when I had come there.",
+        "He asked me when I went there."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "482ed168-4bf2-48e8-b7a9-02f94af33c06",
+      "question": "He said,\"Would that I were rich\".[]",
+      "options": [
+        "He wished he would be rich.",
+        "He said that he were rich.",
+        "He wished he had been rich.",
+        "He said would that he were rich."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "c50121ec-4f70-4190-b3c0-f4bd4f3322aa",
+      "question": "You said to me,\"Why were you absent\" ?[]",
+      "options": [
+        "You asked me why I had been absent.",
+        "You told me why I had been absent.",
+        "You asked me why had I been absent.",
+        "You told me why had I been absent."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "8087dae7-dc86-4123-8383-a323b3d8f4f7",
+      "question": "I said to him,\"You should give up smoking\".[]",
+      "options": [
+        "I asked him to give up smoking.",
+        "I advised him to give up smoking.",
+        "I said he should give up smoking.",
+        "I said smoking should be given up."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "01ea300a-35f4-4727-9567-6541e8635dba",
+      "question": "He said to me,\"Did you watch the film last night\" ?[]",
+      "options": [
+        "He asked whether I watched the film last night.",
+        "He asked whether I had watched the film the night before.",
+        "He asked whether I had watched the film last night.",
+        "He asked whether I had watched the film yesterday night."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "03325d2e-2351-49cb-b0ef-62311bea287d",
+      "question": "He said,\"Poor fellow! How changed you are\" []",
+      "options": [
+        "He exclaimed in surprise that he was greatly changed.",
+        "He pitied that he was a poor fellow.",
+        "He pitied the poor fellow and surprised that he was greatly changed.",
+        "He pitied the man and exclaimed that he was greatly changed."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "8260c00d-01dd-4a22-9d97-78ab13b9d350",
+      "question": "Sadia exclaimed with joy that the mango was very sweet.[]",
+      "options": [
+        "Sadia said,\"How sweet the mango is!\"",
+        "Sadia said,\"How sweet the mango!\"",
+        "Sadia said,\"What a sweet the mango is!\"",
+        "Sadia said,\"What sweet the mango is!\""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "d1c9a3a9-0399-4300-9747-990b29ea9a98",
+      "question": "He said,\"Have you submitted your assignment\" ?[]",
+      "options": [
+        "He said to me if I have submitted his assignment.",
+        "He told me that if I submitted my assignment.",
+        "He asked me that if I would have submitted my assignment.",
+        "He asked me if I had submitted my assignment."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "40ac288c-7c6b-4e4e-8240-bcd4a9c03f61",
+      "question": "He told me that he had killed the bird.[]",
+      "options": [
+        "He asked to me,\"Why did you kill the bird\" ?",
+        "He said to me,\"Why did I kill the bird\" ?",
+        "He said to me,\"He had killed the bird\".",
+        "He said to me,\"He killed the bird\"."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "57eeab39-cf0f-40a8-a488-ac9c85480d17",
+      "question": "You said to me,\"Would you help me,please ?\"[]",
+      "options": [
+        "You said to me,would you help me.",
+        "You said to me,you would help me.",
+        "You said to me if I would help me.",
+        "You asked me if I would help you kindly."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "78e45e5b-a514-4213-98e4-0a2d306799be",
+      "question": "He said to me,\"If you come here,I will try to help you\".[]",
+      "options": [
+        "He said to me that if I come here he will try to help me.",
+        "He told me that if I come here he would help me.",
+        "He told me that if I went there he would try to help me.",
+        "He told me that if I had gone there he will try to help me."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "6a6729eb-1312-4644-83c3-1625b95cfce9",
+      "question": "\"Could I help you,Sir ?\" said the receptionist to the customer.[]",
+      "options": [
+        "The receptionist asked if she could help the customer.",
+        "The receptionist asked the customer if they could help him/her.",
+        "The receptionist asked the customer if she could help him/her.",
+        "The receptionist said that she could help the customer."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

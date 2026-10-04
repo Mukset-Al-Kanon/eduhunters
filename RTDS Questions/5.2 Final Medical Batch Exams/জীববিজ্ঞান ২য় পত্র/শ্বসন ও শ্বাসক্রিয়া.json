@@ -1,0 +1,708 @@
+{
+  "title": "শ্বসন ও শ্বাসক্রিয়া",
+  "category": "5.2 Final Medical Batch Exams > জীববিজ্ঞান ২য় পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "108983",
+      "question": "নিচের কোনটি প্যারান্যাসাল সাইনাস নয় ?",
+      "options": [
+        "ম্যাক্সিলারি",
+        "ম্যান্ডিবুলার",
+        "ফ্রন্টাল",
+        "এথময়েড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "চার জোড়া প্যারান্যাসাল সাইনাস হলো ম্যাক্সিলারি,ফ্রন্টাল,এথময়েড ও স্ফেনয়েড |"
+    },
+    {
+      "question_no": 2,
+      "id": "114670",
+      "question": "Adam's Apple দেখা যায়—",
+      "options": [
+        "অ্যালভিওলাসে",
+        "ফুসফুসে",
+        "স্বরযন্ত্রে",
+        "ট্রাকিয়ায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "স্বরযন্ত্রে Adam's Apple দেখা যায়।"
+    },
+    {
+      "question_no": 3,
+      "id": "114671",
+      "question": "Angiotensin II কোথায় রুপান্তরিত রূপ লাভ করে?",
+      "options": [
+        "ফুসফুস",
+        "বৃক্ক",
+        "যকৃত",
+        "মস্তিস্ক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "114672",
+      "question": "ফুসফুসের গঠন ও কাজের এককে কি বলে?",
+      "options": [
+        "অ্যালভিওলাস",
+        "ব্রঙ্কিওল",
+        "ট্রাকিওল",
+        "ফুসফুস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মানুষের ব্রঙ্কাসের প্রতিটি শাখাকে  ব্রঙ্কিওল বলা হয়।"
+    },
+    {
+      "question_no": 5,
+      "id": "114673",
+      "question": "ফুসফুসের আবরণীর দুটি স্তরের মাঝে কী থাকে?",
+      "options": [
+        "অ্যালভিওলাস",
+        "ব্রঙ্কিওল",
+        "অন্তঃপ্লুরা গহ্বর",
+        "বায়ুকুঠুরি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফুসফুসের আবরণীর দুটি স্তরের মাঝে অন্তঃপ্লুরা গহ্বর থাকে।"
+    },
+    {
+      "question_no": 6,
+      "id": "114674",
+      "question": "মানুষের প্রধান শ্বসন অঙ্গ কোনটি?",
+      "options": [
+        "ট্রাকিয়া",
+        "ফুসফুস",
+        "অ্যালভিওলাস",
+        "ব্রঙ্কিওল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "114675",
+      "question": "ওটিটিস মিডিয়া' কোন অঙ্গের রোগ?",
+      "options": [
+        "চোখ",
+        "নাক",
+        "কান",
+        "গলা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ওটিটিস মিডিয়া' মধ্যকর্ণের রোগ।"
+    },
+    {
+      "question_no": 8,
+      "id": "114676",
+      "question": "কোন সাইনাসের প্রদাহের কারণে গালে, দাঁতে ও মাথায় ব্যথা হয়?",
+      "options": [
+        "ফ্রন্টাল",
+        "ম্যাক্সিলারি",
+        "এথময়ডাল",
+        "স্ফেনয়েডাল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ম্যাক্সিলারি সাইনাসের প্রদাহের কারণে গালে, দাঁতে ও মাথায় ব্যথা হয়।"
+    },
+    {
+      "question_no": 9,
+      "id": "114677",
+      "question": "কত সপ্তাহ বয়স্ক মানবভ্রুণে সর্বপ্রথম সারফেকট্যান্ট ক্ষরণ শুরু হয়?",
+      "options": [
+        "২৩",
+        "২৪",
+        "২০",
+        "২৫"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "২৩ সপ্তাহ বয়স্ক মানবভূণে সর্বপ্রথম সারফেকট্যান্ট ক্ষরণ শুরু হয়।\r\n\r\nরেঞ্জ যেহেতু নাই সো ২০-২২ হবে নাহ বা ২০ হবে নাহ, তাই ২৩ ই দিবে\r\nরেঞ্জ থাকলে ২০-২২"
+    },
+    {
+      "question_no": 10,
+      "id": "114678",
+      "question": "শ্বসনতন্ত্রের কোন অংশে অক্সিজেন ও কার্বন ডাইঅক্সাইড বিনিময় হয়?",
+      "options": [
+        "ট্রাকিওল",
+        "ট্রাকিয়া",
+        "ব্রঙ্কাস",
+        "অ্যালভিওলাস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অ্যালভিওলাসে অক্সিজেন ও কার্বন ডাইঅক্সাইড বিনিময় হয়।"
+    },
+    {
+      "question_no": 11,
+      "id": "114679",
+      "question": "মানুষের শ্বাসনালি কয়টি তরুণাস্থি নির্মিত অর্ধবলয়ে গঠিত?",
+      "options": [
+        "৮০-১০০",
+        "৬৪-৮০",
+        "৪৪-৫০",
+        "১৫-২০"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মানুষের শ্বাসনালি ১৫-২০ টি তরুণাস্থি নির্মিত অর্ধবলয়ে গঠিত।"
+    },
+    {
+      "question_no": 12,
+      "id": "114680",
+      "question": "মানবদেহে বাম ফুসফুস কয়টি সেগমেন্টে বিভক্ত থাকে?",
+      "options": [
+        "১০",
+        "৫",
+        "৬",
+        "৮"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মানবদেহে ডান ফুসফুসে ১০টি লোবিউল থাকে।"
+    },
+    {
+      "question_no": 13,
+      "id": "114681",
+      "question": "প্রোস্টাগ্লান্ডিন অপসারণ করে কোনটি?",
+      "options": [
+        "ফুসফুস",
+        "ব্রঙ্কাস",
+        "ল্যারিংক্স",
+        "গলবিল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ল্যারিংক্স শব্দ উৎপন্ন করে।"
+    },
+    {
+      "question_no": 14,
+      "id": "114682",
+      "question": "ফুসফুসের সর্বমোট ধারণ ক্ষমতাকে বলে—",
+      "options": [
+        "ভাইটাল ক্যাপাসিটি",
+        "টাইডাল বায়ু",
+        "টাইডাল ভলিউম",
+        "রেসিডিউয়াল ভলিউম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ফুসফুসের সর্বমোট ধারণ ক্ষমতাকে বলে—ভাইটাল ক্যাপাসিটি।"
+    },
+    {
+      "question_no": 15,
+      "id": "114683",
+      "question": "শ্বসনতন্ত্রের কোন অংশে অলফ্যাক্টরি কোষ থাকে?",
+      "options": [
+        "ভেস্টিবিউল",
+        "নাসাগহ্বর",
+        "পশ্চাৎ নাসারন্ধ্র",
+        "নাসাগলবিল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নাসাগহ্বরে অলফ্যাক্টরি কোষ থাকে।"
+    },
+    {
+      "question_no": 16,
+      "id": "114684",
+      "question": "রাসায়নিক যৌগরূপে প্রতি ১০০মিলি রক্তে O2 বাহিত হয়?(মিলি)",
+      "options": [
+        "১৯",
+        "১৬",
+        "২২",
+        "২৪"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মানুষের প্রতি ১০০ মিলিলিটার রক্তে ১৬  গ্রাম হিমোগ্লোবিন থাকে।\r\nরাসায়নিক যৌগরূপে প্রতি ১০০মিলি রক্তে O2 বাহিত হয় 19 ml(মিলি)"
+    },
+    {
+      "question_no": 17,
+      "id": "114685",
+      "question": "ডায়াফ্রামের ক্ষেত্রে কোনটি প্রযোজ্য?",
+      "options": [
+        "শ্বসনে এর কোনো ভূমিকা নেই",
+        "বক্ষ ও উদর গহ্বরকে পৃথক রাখে",
+        "ফ্রেনিক ধমনী রক্ত সংগ্রহ করে",
+        "সকল মেরুদণ্ডী প্রাণীতে পাওয়া যায়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ডায়াফ্রাম বক্ষ ও উদর গহ্বরকে পৃথক রাখে।"
+    },
+    {
+      "question_no": 18,
+      "id": "114686",
+      "question": "হিমে লৌহের পরিমাণ কত?",
+      "options": [
+        "২৭%",
+        "৩০%",
+        "৩৩%",
+        "৩৩.৩৩%"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "লোহিত রক্তকণিকায় হিমোগ্লোবিনের পরিমাণ ৩৩%।\r\nহিমে লৌহের পরিমাণ ৩৩.৩৩%"
+    },
+    {
+      "question_no": 19,
+      "id": "114687",
+      "question": "ধূমপায়ী ব্যক্তির ফুসফুসের বৈশিষ্ট্য কেমন?",
+      "options": [
+        "অস্পষ্ট সাদা কালো দাগ",
+        "অ্যালভিওলাসের প্রাচীর স্বাভাবিক ও সবল",
+        "টিউমারের কোনো চিহ্ন দেখা যায় না",
+        "অ্যালভিওলাসের সুষম স্বচ্ছতা দেখা যায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ধূমপায়ী ব্যক্তির ফুসফুসের বর্ণ কালচে।"
+    },
+    {
+      "question_no": 20,
+      "id": "114688",
+      "question": "অন্তঃশ্বসনে রক্ত থেকে অক্সিজেন কোথায় প্রবেশ করে?",
+      "options": [
+        "ফুসফুসে",
+        "কৈশিক নালিতে",
+        "শিরায়",
+        "কোষে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অন্তঃশ্বসনের ক্ষেত্রে রক্ত থেকে অক্সিজেন কোষে প্রবেশ করে এবং কোষমধ্যস্থ খাদ্য জারিত হয়ে শক্তি ও কার্বন ডাইঅক্সাইড বিমুক্ত করে।"
+    },
+    {
+      "question_no": 21,
+      "id": "114689",
+      "question": "নবজাতক শিশু মিনিটে কতবার শ্বাসত্যাগ করে?",
+      "options": [
+        "২৫ বার",
+        "৪০ বার",
+        "৩০ বার",
+        "৫০ বার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নবজাতক শিশু মিনিটে ৪০ বার  শ্বাসত্যাগ করে।"
+    },
+    {
+      "question_no": 22,
+      "id": "114690",
+      "question": "রক্তে অক্সিজেন কয়ভাবে পরিবাহিত হয়?",
+      "options": [
+        "১ ভাবে",
+        "৩ ভাবে",
+        "২ ভাবে",
+        "৪ ভাবে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "রক্তে অক্সিজেন ২ ভাবে পরিবাহিত হয়।"
+    },
+    {
+      "question_no": 23,
+      "id": "114691",
+      "question": "নিঃশ্বাস বায়ুতে অক্সিজেনের পরিমাণ কত?",
+      "options": [
+        "১৩.৭ ভাগ",
+        "২০.৯৪ ভাগ",
+        "১০.০৯ ভাগ",
+        "৭৯.২০ ভাগ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রশ্বাস বায়ুতে অক্সিজেনের পরিমাণ ২০.৯৪ ভাগ"
+    },
+    {
+      "question_no": 24,
+      "id": "114692",
+      "question": "প্রতি 100 মি. লি. রক্তে O₂ এর ভৌত দ্রবণের পরিমাণ কত?",
+      "options": [
+        "0.2 মি. লি.",
+        "0.1 মি. লি.",
+        "0.5 মি. লি.",
+        "0.3 মি. লি."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রতি 100 মি. লি. রক্তে O₂ এর ভৌত দ্রবণের পরিমাণ 0.2 মি. লি."
+    },
+    {
+      "question_no": 25,
+      "id": "114693",
+      "question": "হিমোগ্লোবিন গঠিত হয় কোনটির সমন্বয়ে?",
+      "options": [
+        "আয়রন ও অক্সিজেন",
+        "আয়রন ও প্রোটিন",
+        "অক্সিজেন ও প্রোটিন",
+        "আয়রন ও শর্করা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হিমোগ্লোবিন গঠিত হয় আয়রন ও প্রোটিন সমন্বয়ে।"
+    },
+    {
+      "question_no": 26,
+      "id": "114694",
+      "question": "অ্যালভিওলাসের প্রাচীর কোন কোষ দিয়ে গঠিত?",
+      "options": [
+        "স্তরীভূত এপিথেলিয়াম",
+        "পিরামিডীয় এপিথেলিয়াম",
+        "আইশাকার এপিথেলিয়াম",
+        "ঘনাকার এপিথেলিয়াম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "114695",
+      "question": "স্বাভাবিক মানুষের ভাইটাল ক্যাপাসিটি কত?",
+      "options": [
+        "প্রায় ৪৫০০ মি.লি",
+        "প্রায় ৬০০০ মি.লি",
+        "প্রায় ১৫০০ মি.লি",
+        "প্রায় ২০০০ মি.লি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "114696",
+      "question": "অ্যালভিওলাইয়ে PCO2 কত?",
+      "options": [
+        "40 mmHg",
+        "107 mmHg",
+        "84 mmHg",
+        "123 mmHg"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "114697",
+      "question": "শ্বসনতন্ত্রের যে অংশটি খাদ্য গ্রাসের সময় ল্যারিংক্স[স্বরযন্ত্র] কে ঢেকে রেখে খাদ্যদ্রব্য এর ভিতরে প্রবেশ বাধা দেয় তাকে কি বলে?",
+      "options": [
+        "ডায়াফ্রাম",
+        "ট্রাকিয়া",
+        "স্টার্নাম",
+        "এপিগ্লটিস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "114698",
+      "question": "কার্বামিনো যৌগরূপে দ্রবণে কতটুকু CO2 দ্রবীভূত হয়?",
+      "options": [
+        "২৭%",
+        "৯%",
+        "৫%",
+        "১০%"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভৌত দ্রবণরূপে ৫%  CO2 দ্রবীভূত হয়।"
+    },
+    {
+      "question_no": 31,
+      "id": "114699",
+      "question": "ফুসফুসের কাজ নয় কোনটি?",
+      "options": [
+        "Ig ক্ষরণ করে",
+        "ব্রাডিকিনিন ও প্রোস্টাগ্লান্ডিন অপসারণ করে",
+        "সেরোটোনিন ও হিস্টামিন নিষ্ক্রিয় করে",
+        "Angiotensin I কে Angiotensin II তে রুপান্তরিত করে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Function of Lung"
+    },
+    {
+      "question_no": 32,
+      "id": "114700",
+      "question": "Voice Box সম্পর্কে সত্য নয় কোনটি?",
+      "options": [
+        "হাইঅয়েড অস্থির ঠিক নিচে অবস্থান করে",
+        "বর্ম আকৃতির তরুণাস্থি",
+        "Elastic Cartilage দিয়ে তৈরি",
+        "এটি গলবিলের সাথে একটি ছিদ্র দিয়ে উন্মুক্ত থাকে যাকে, এপিগ্লটিস বলে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "স্বরযন্ত্রের পার্ট আলিম স্যার"
+    },
+    {
+      "question_no": 33,
+      "id": "114701",
+      "question": "Windpipe এর সাথে সামন্ঞ্জস্যপূর্ণ কোনটি নয়?",
+      "options": [
+        "১৬-২০ টি হায়ালিন তরুণাস্থি নির্মিত অর্ধবলয়ে পরিবেষ্টিত",
+        "তরুণাস্থি নির্মিত বলে চুপসে যায় নাহ",
+        "বহিঃপ্রাচীর সিলিয়াযুক্ত মিউকাস ঝিল্লিতে আবৃত",
+        "Goblet Cell বিদ্যমান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ট্রাকিয়া আলিম স্যার পার্ট"
+    },
+    {
+      "question_no": 34,
+      "id": "114702",
+      "question": "নিচের কোনটি সত্য ?",
+      "options": [
+        "ডান ফুসফুস বড়,৬২৫ কেজি",
+        "Horizontal fissure ডান ফুসফুসে থাকে",
+        "বাম ফুসফুসে লোব ৩ টি",
+        "কার্ডিয়াক নচ ডান ফুসফুসের বৈশিষ্ট্য"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "114703",
+      "question": "ফুসফুসের বায়ু ধারণ ক্ষমতা সম্পর্কে কোনটি সঠিক?",
+      "options": [
+        "Tidal Volume: 1000ml",
+        "Inspiratory Reserve Volume : 2000-3300 mL",
+        "Residual Volume: 500 mL",
+        "Expiratory Reserve Volume : 4500mL"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "114704",
+      "question": "শ্বসনতন্ত্রের কাজ কোনটি নয়?",
+      "options": [
+        "শক্তি উৎপাদন",
+        "হিমোস্ট্যাসিস",
+        "উদ্বায়ী গ্যাস",
+        "দূষিত পদার্থের প্রবেশ রোধ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "114705",
+      "question": "Pre- Brotzinger complex কোথায় থাকে?",
+      "options": [
+        "মেডুলা",
+        "পনস",
+        "হাইপোথ্যালামাস",
+        "সেরেব্রাম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "114706",
+      "question": "শ্বাসরন্ঞ্জক সম্পর্কে কোনটি সঠিক নয়?",
+      "options": [
+        "ক্লোরোক্রুরিন: পলিকিট",
+        "হিমোসায়ানিন: সাইপানকুলিড",
+        "হিমোইরিথ্রিন: ব্রাকিওপোড",
+        "হিমোইরিথ্রিন: সাইপানকুলিড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "114707",
+      "question": "Hb কে বলা হয়?",
+      "options": [
+        "রবিনহুড কণা",
+        "ব্রাদারহুড কণা",
+        "হাইজেনবার্গ কণা",
+        "বিস্ময় কণা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "114708",
+      "question": "অ্যালভিওলাসের প্রাচীর ব্যাপনের জন্য সহায়ক কিসের জন্য বা কোন এপিথেলিয়ামের জন্য?",
+      "options": [
+        "Non ciliated columner epithelium",
+        "Ciliated columner epithelium",
+        "Cuboidal epithelium",
+        "Squamous epithelium"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "114709",
+      "question": "ফুসফুসের প্রদাহকে কী বলা হয়?",
+      "options": [
+        "ওটিটিসি মিডিয়া",
+        "সাইনুসাইটিস",
+        "নিউমোনাইটিস",
+        "এমফাইসেমা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "114710",
+      "question": "H2O+CO2---> H2CO3 এই বিক্রিয়ায় প্রভাবক কোনটি?",
+      "options": [
+        "ডিহাইড্রোজিনেজ",
+        "ট্রান্সফারেজ",
+        "কার্বনিক অ্যানহাইড্রেজ",
+        "কার্বোক্সিলেজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "114711",
+      "question": "মানুষের রক্তে গ্লোবিন ও হিমের অনুপাত কত?",
+      "options": [
+        "১ : ১",
+        "১ : ১০",
+        "১ : ২৫",
+        "২৫:১"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "114712",
+      "question": "প্রতি অণু হিমোগ্লোবিন কতটি পলিপেপটাইড চেইন দ্বারা গঠিত?",
+      "options": [
+        "25",
+        "33",
+        "4",
+        "10"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "114713",
+      "question": "নিচের কোনটি নিম্ন শ্বসননালির সংক্রমণ নয়?",
+      "options": [
+        "নিউমোনিয়া",
+        "যক্ষ্মা",
+        "টনসিলাইটিস",
+        "ফ্লু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "114714",
+      "question": "মানুষের প্রধান শ্বসন অঙ্গ কোনটি?",
+      "options": [
+        "Lungs",
+        "Trachea",
+        "Nostrils",
+        "Vestibule"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "114715",
+      "question": "প্রতিটি হিমোগ্লোবিন অণুতে কতটি ফেরাস আয়ন বিদ্যমান?",
+      "options": [
+        "3",
+        "2",
+        "4",
+        "1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "114716",
+      "question": "নিচের কোনটি ফুসফুসে ক্যান্সার সৃষ্টি করে?",
+      "options": [
+        "ক্লোরোফরম",
+        "অ্যামোনিয়া",
+        "নিকোটিন",
+        "কার্বন মনোক্সাইড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "114717",
+      "question": "CRP এর পূর্ণরূপ কোনটি?",
+      "options": [
+        "Coronary pulmonary resuscitatin",
+        "Cardiopulmonary resuscitation",
+        "Continuous percutaneus resuscitation",
+        "Coronary percutaneus resuscitation"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "114718",
+      "question": "পালমোনারী মূলে কোনটি থাকে না?",
+      "options": [
+        "ধমনী",
+        "শিরা",
+        "লসিকা নালী",
+        "ট্রাকিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    }
+  ]
+}

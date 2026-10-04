@@ -1,0 +1,78 @@
+{
+  "title": "মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি ২০০৮-০৯",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 5,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "146719",
+      "question": "পৃথিবীর মোট বরফের কতভাগ এন্টার্টিকাতে আছে?",
+      "options": [
+        "৫০",
+        "৭০",
+        "৯০",
+        "৭৫"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "146720",
+      "question": "চলচ্চিত্র সৃষ্টির মূল সূত্রের জনক কে?",
+      "options": [
+        "জেকুইস রিডেট",
+        "আবু আলী আল হাসান",
+        "হেনরি ল্যাংলোয়া",
+        "ব্ল্যাক মারিয়া স্টুডিও"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "146721",
+      "question": "\"অ্যাঞ্জেল” জলপ্রপাতটিনিম্নে উল্লেখিত কোন দেশে অবস্থিত?",
+      "options": [
+        "ফ্রান্স",
+        "ভারত",
+        "নরওয়ে",
+        "ভেনিজুয়েলা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "146722",
+      "question": "নিম্নের কোনটি উক্ত দেশের সঠিক মুদ্রার নাম নয়?",
+      "options": [
+        "চিলি পেসো",
+        "উত্তর কোরিয়া ওন",
+        "আলবেনিয়া রুবল",
+        "বতসোয়ানা পুল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "146723",
+      "question": "নিম্নের কোন মহিলা শান্তিতে প্রথম নোবেল পুরস্কার বিজয়ী হন?",
+      "options": [
+        "রুখ রোড",
+        "বার্থাভন স্যুটনার",
+        "মাদাম কুরী",
+        "জেনেট র্যাস্কিন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

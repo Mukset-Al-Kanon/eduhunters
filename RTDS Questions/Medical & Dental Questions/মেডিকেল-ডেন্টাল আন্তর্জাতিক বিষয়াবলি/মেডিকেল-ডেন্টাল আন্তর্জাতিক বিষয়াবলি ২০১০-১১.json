@@ -1,0 +1,78 @@
+{
+  "title": "মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি ২০১০-১১",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 5,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "146709",
+      "question": "নিম্নের কোন প্রতিষ্ঠান অথবা দেশ বাংলাদেশ উন্নয়ন ফোরামের প্রধান সমন্বয়কারীর কাজ করে?",
+      "options": [
+        "যুক্তরাজ্য",
+        "জাতিসংঘ",
+        "বিশ্ব ব্যাংক",
+        "যুক্তরাষ্ট্র"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "146710",
+      "question": "নিম্নের কোন সভ্যতায় প্রতিদিনকে ১২ জোড়াঘণ্টায় বিভক্ত করা হয়?",
+      "options": [
+        "ক্যালডীয়",
+        "পারস্য",
+        "রোমান",
+        "গ্রিক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "146711",
+      "question": "WTO এর চুক্তি অনুসারে বাংলাদেশের কোটাবিহীন বাজারে পোশাক সামগ্রী রপ্তানি শুরু করেন নিম্নের কোন সালে?",
+      "options": [
+        "২০০৫",
+        "২০০৬",
+        "২০০৭",
+        "২০০৮"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "146712",
+      "question": "নিম্নের কোন দেশে বিশ্বে সর্বপ্রথম নারীরা ভোটাধিকার পায়?",
+      "options": [
+        "নিউজিল্যান্ড",
+        "বেলজিয়াম",
+        "ফিনল্যান্ড",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "146713",
+      "question": "বাংলাদেশ থেকে প্রথম পোশাক রপ্তানি হয় নিম্নের কোন দেশে?",
+      "options": [
+        "সুইডেন",
+        "ফ্রান্স",
+        "নরওয়ে",
+        "যুক্তরাষ্ট্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

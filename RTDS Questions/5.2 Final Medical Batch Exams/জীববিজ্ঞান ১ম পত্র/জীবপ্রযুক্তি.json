@@ -1,0 +1,708 @@
+{
+  "title": "জীবপ্রযুক্তি",
+  "category": "5.2 Final Medical Batch Exams > জীববিজ্ঞান ১ম পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "113355",
+      "question": "ইনসুলিন কী?",
+      "options": [
+        "এনজাইম",
+        "হরমোন",
+        "ভিটামিন",
+        "অ্যান্টিবায়োটিক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইনসুলিন একটি হরমোন যা অগ্ন্যাশয়ের বিটা কোষ থেকে উৎপন্ন হয়।"
+    },
+    {
+      "question_no": 2,
+      "id": "115820",
+      "question": "Biotechnology শব্দটি প্রবর্তন করেন?",
+      "options": [
+        "কার্ল এরেকি",
+        "মেন্ডেলিফ",
+        "ভ্রিস",
+        "এরিক শ্চের্মেক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "115821",
+      "question": "Green biotechnology প্রয়োগ করা হয়?",
+      "options": [
+        "সমুদ্রে",
+        "কৃষি ক্ষেত্রে",
+        "চিকিৎসায়",
+        "সবগুলো"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্রিন = কৃষিক্ষেত্রে \r\nব্লু= সমুদ্র ক্ষেত্রে"
+    },
+    {
+      "question_no": 4,
+      "id": "115822",
+      "question": "টিস্যু কালচার এ ব্যবহার করা হয়-",
+      "options": [
+        "শীর্ষ মুকুল",
+        "কচি পাতা",
+        "পাপড়ি",
+        "সবগুলো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "115823",
+      "question": "টিস্যু কালচার এর জনক কে?",
+      "options": [
+        "Karl Ereky",
+        "Morgan",
+        "Haberlandt",
+        "Mandel"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "115824",
+      "question": "কোন কালচার এর মাধ্যমে হ্যাপ্লয়েড উদ্ভিদ উৎপাদন করা হয়?",
+      "options": [
+        "প্রোটোপ্লাস্ট",
+        "পরাগধানী",
+        "কক্ষমুকুল",
+        "মেরিস্টেম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পরাগধানী কালচারের মাধ্যমে হ্যাপ্লয়েড উদ্ভিদ উৎপাদন করা হয়"
+    },
+    {
+      "question_no": 7,
+      "id": "115825",
+      "question": "Autoclave যন্ত্রের তাপমাত্রা কত?",
+      "options": [
+        "১২১°©",
+        "১২৩°©",
+        "৩২১°©",
+        "২১১°©"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "115826",
+      "question": "ব্যাসাল মিডিয়াম এর pH কত?",
+      "options": [
+        "5.5-5.6",
+        "5.4-5.8",
+        "5.5-5.8",
+        "5.2-5.9"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "115827",
+      "question": "মাইক্রোপ্রোপাগেশন পদ্ধতি দেখা যায় কোন উদ্ভিদ এ?",
+      "options": [
+        "আলু",
+        "আখ",
+        "থূজা",
+        "টমেটো"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "থূজা, সাগরকলা"
+    },
+    {
+      "question_no": 10,
+      "id": "115828",
+      "question": "পোম্যাটো কোন দুটি উদ্ভিদ এর মিশ্রন?",
+      "options": [
+        "আলু আখ",
+        "আলু টমেটো",
+        "টমেটো আখ",
+        "আলু বেগুন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আলু+টমেটো= পোম্যাটো"
+    },
+    {
+      "question_no": 11,
+      "id": "115829",
+      "question": "নিচের কোনটি পোষক বা হোস্ট?",
+      "options": [
+        "E.coli",
+        "প্লজমিড",
+        "উভয়টিই",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা E.coli ও Agrobacterium tumefaciens হলো পোষক এবং প্লাজমিড হলো বাহক"
+    },
+    {
+      "question_no": 12,
+      "id": "115830",
+      "question": "ব্যাকটেরিয়া তে প্লাজমিড এর সংখ্যা কত?",
+      "options": [
+        "1-100",
+        "2-200",
+        "1-1000",
+        "2-2000"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "115831",
+      "question": "প্লাজমিড এর ক্ষেত্রে কোনটি সঠিক ?",
+      "options": [
+        "দ্বিসূত্রক",
+        "আনবিক ভর 10^6-200×10^6 Dalton",
+        "চক্রাকার",
+        "সবগুলো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দ্বিসূত্রক\r\nB\r\nআনবিক ভর 10^6-200×10^6 Dalton\r\n\r\nচক্রাকার"
+    },
+    {
+      "question_no": 14,
+      "id": "115832",
+      "question": "R6 প্লাজমিড কয়টি অ্যান্টিবায়োটিক প্রতিরোধী?",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "০৬ টি অ্যান্টিবায়োটিক প্রতিরোধী"
+    },
+    {
+      "question_no": 15,
+      "id": "115833",
+      "question": "কোন এনজাইম দ্বারা DNA জোড়া লাগে?",
+      "options": [
+        "লাইগেজ",
+        "রেস্ট্রিকশন",
+        "লাইপেজ",
+        "রেনিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "115834",
+      "question": "কাক্ষিত DNA নির্বাচন এর ধাপ নয় কোনটি?",
+      "options": [
+        "সুকরোজ গ্ৰেডিয়েন্ট সেন্ট্রিফিউজ",
+        "সিলিকা নির্ভর কীট",
+        "পটাশিয়াম ক্লোরাইড",
+        "সবগুলো"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা সিজিয়াম ক্লোরাইড হলো কাক্ষিত DNA নির্বাচন পদ্ধতি"
+    },
+    {
+      "question_no": 17,
+      "id": "115835",
+      "question": "ব্যাকটেরিয়া থেকে কতটি রেস্ট্রিকশন এনজাইম পৃথক করা হয়?",
+      "options": [
+        "100",
+        "1000এর বেশি",
+        "200এর বেশি",
+        "2000এর কম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "115836",
+      "question": "DNA কে পোষক কোষে প্রবেশ করানোর ভৌত প্রক্রিয়া কোনটি?",
+      "options": [
+        "Electroporation",
+        "Micro injection",
+        "Biolistics",
+        "সবগুলো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "115837",
+      "question": "টিকা উৎপাদন করে কোন প্রযুক্তি এর মাধ্যমে?",
+      "options": [
+        "মিউটেশন",
+        "জীবপ্রযুক্তি",
+        "টিস্যু কালচার",
+        "ক্লোনিং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "115838",
+      "question": "কোনটি ব্যবহার করে সরাসরি ট্রানজেনিক উদ্ভিদ তৈরি করা হয়?",
+      "options": [
+        "Electroporation",
+        "Micro injection",
+        "Implanta",
+        "Gunshot"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "115839",
+      "question": "জিন ক্লোনিং এর উৎস কয়টি?",
+      "options": [
+        "১",
+        "২",
+        "৩",
+        "৪"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "115840",
+      "question": "DNA ক্লোনিং এর দ্রুততম পদ্ধতি আবিষ্কার করেন কে?",
+      "options": [
+        "Lederberg",
+        "Williamson",
+        "Kary Mullis",
+        "Dragon"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "115841",
+      "question": "দ্বিসূত্রক DNA এক সূত্রক হয় কত তাপমাত্রায়?",
+      "options": [
+        "110",
+        "90",
+        "100",
+        "120"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "115842",
+      "question": "PCR এর ক্ষেত্রে সঠিক নয় কোনটি?",
+      "options": [
+        "এটি In vivo পদ্ধতি",
+        "ভেক্টর অত্যাবশক নয়",
+        "এটি In vitro পদ্ধতি",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "115843",
+      "question": "আগাছা প্রতিরোধী জাত উদ্ভাবন করা হয় কোন উদ্ভিদ এ?",
+      "options": [
+        "তামাক",
+        "সয়াবিন",
+        "পীনাট",
+        "ভূট্টা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "115844",
+      "question": "গ্লাইফসফেট কতটি আগাছা ধ্বংস করতে পারে না?",
+      "options": [
+        "78",
+        "76",
+        "2",
+        "5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "115845",
+      "question": "ক্লোভার গাছে কোন আয়নের অভাব আছে?",
+      "options": [
+        "আয়রন",
+        "সালফার",
+        "কার্বন",
+        "ফসফরাস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "115846",
+      "question": "সুপার রাইস এ বিটা ক্যারোটিন তৈরি এর কয়টি জিন থাকে?",
+      "options": [
+        "১",
+        "২",
+        "৩",
+        "৪"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "115847",
+      "question": "জোনাকি পোকার দেহে কোন এনজাইম থাকে যা আলোক বিচ্ছুরণ ঘটায়?",
+      "options": [
+        "গ্লাইফসেট",
+        "লুসিফারেজ",
+        "লাইপেজ",
+        "গ্লাইকোজেন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "115848",
+      "question": "ক্লোনপ্রানি এর ক্ষেত্রে সঠিক নয় কোনটি?",
+      "options": [
+        "জিনগত গঠন হুবহু এক",
+        "প্রকরন ঘটেনা",
+        "বাহ্যিক প্রকাশে ভিন্নতা দেখা যায়",
+        "কোনটি নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা বাহ্যিক প্রকাশে ভিন্নতা দেখা যায় ট্রান্সজেনিক প্রানিতে"
+    },
+    {
+      "question_no": 31,
+      "id": "115849",
+      "question": "গোল্ডেন রাইস কোন ভিটামিন এর অভাব পূরণ করে?",
+      "options": [
+        "A",
+        "D",
+        "E",
+        "C"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "115850",
+      "question": "ইনসুলিন এর বাজার জাত নাম কী?",
+      "options": [
+        "ইনুলিন",
+        "হিউমুলিন",
+        "ইনসুলিন",
+        "ইমুউলিন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "115851",
+      "question": "সেরাম অ্যালবিউমিন ব্যবহার করা হয় কোন চিকিৎসায়?",
+      "options": [
+        "ডায়বেটিস চিকিৎসায়",
+        "ভাইরাস সংক্রমণ এ",
+        "শল্য চিকিৎসার",
+        "হৃদরোগ চিকিৎসায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "115852",
+      "question": "কোন চিকিৎসায় ইন্টারফেরন ব্যবহার করা হয় না?",
+      "options": [
+        "হার্পিস",
+        "হেপাটাইটিস -C",
+        "জলাতঙ্ক",
+        "প্যাপিলোমা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "115853",
+      "question": "DNA ফরেনসিকস ব্যবহার করা হয়-",
+      "options": [
+        "অপরাধী শনাক্ত করতে",
+        "শ্রেণিবিন্যাসের স্তর নির্ধারণ এ",
+        "স্বজন নির্ধারণ এ",
+        "সবগুলো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "115854",
+      "question": "মাস্টার ব্লু প্রিন্ট বলে কোনটিকে?",
+      "options": [
+        "DNA",
+        "জিনোম",
+        "নিউক্লিক এসিড",
+        "ক্রোমোজম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "115855",
+      "question": "ছাগলের মাধ্যমে কোন ফার্মাসিউটিক্যালটি বৃহৎ পরিসরে উৎপাদন করা হচ্ছে?",
+      "options": [
+        "অ্যান্টি থ্রম্বিন",
+        "অ্যান্টি বডি",
+        "অ্যান্টি প্রোথ্রোম্বিন",
+        "অ্যামনিওজেন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "115856",
+      "question": "Plasminogen সক্রিয়কারক-",
+      "options": [
+        "TPT",
+        "PTA",
+        "TPA",
+        "TPP"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "115857",
+      "question": "রেস্ট্রিকশন এনজাইম নয়-",
+      "options": [
+        "Bam HI",
+        "Hind III",
+        "Eco RI",
+        "Hind HI"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "115858",
+      "question": "Insulin এ ডাই সালফাইড বন্ড থাকে কতটি?",
+      "options": [
+        "২",
+        "৩",
+        "৪",
+        "৫"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "115859",
+      "question": "Yeast এর ক্রোমোজোম সংখ্যা -",
+      "options": [
+        "১",
+        "৪৬",
+        "১০",
+        "১৬"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "115860",
+      "question": "বাণিজ্যিক ভাবে ইনসুলিন প্রস্তুতির জন্য ব্যবহৃত হচ্ছে",
+      "options": [
+        "Agrobacterium নামক ব্যাকটেরিয়া",
+        "E. coli নামক ব্যাকটেরিয়া",
+        "ঈস্ট নামক ছত্রাক",
+        "T2 ফায নামক ভাইরাস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "115861",
+      "question": "ইনসুলিন তৈরিতে প্রাণীর কোন অংশ ব্যবহৃত হয়?",
+      "options": [
+        "পাকস্থলি",
+        "জিহ্বা",
+        "অগ্ন্যাশয়",
+        "হৃৎপিন্ড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "115862",
+      "question": "ইনসুলিন কয়টি পলিপেপটাইড শৃঙ্খলা দ্বারা গঠিত?",
+      "options": [
+        "২টি",
+        "৩টি",
+        "৪টি",
+        "৫টি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "115863",
+      "question": "ইনসুলিন তৈরি হয় অগ্ন্যাশয়ের কোন কোষে?",
+      "options": [
+        "আলফা কোষে",
+        "বিটা কোষে",
+        "গামা কোষে",
+        "ফাঁকা কোষে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "115864",
+      "question": "কারো অগ্ন্যাশয় যদি ইনসুলিন তৈরিতে ব্যর্থ হয় তবে কোন রোগে আক্রান্ত হয়?",
+      "options": [
+        "ডায়াবেটিস",
+        "জ্বর",
+        "যক্ষা",
+        "জন্ডিস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কারো অগ্ন্যাশয় যদি ইনসুলিন তৈরিতে ব্যর্থ হয় তবে যে রোগে আক্রান্ত হয় তা\r\n\r\nডায়াবেটিস"
+    },
+    {
+      "question_no": 47,
+      "id": "115865",
+      "question": "জৈবপ্রযুক্তির মাধ্যমে তামাক গাছে কোন ভ্যাকসিন উৎপাদন করা হয়েছে?",
+      "options": [
+        "HBV",
+        "জলাতঙ্ক",
+        "ক্যাপোসি সার্কোমা",
+        "এনোজেনিটাল ক্যান্সার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Hepatitis -B ✅"
+    },
+    {
+      "question_no": 48,
+      "id": "115866",
+      "question": "মানুষের শরীরে ভাইরাসের সংক্রমণ ও ক্যান্সার প্রতিরোধ করে -",
+      "options": [
+        "ইন্টাফেরন",
+        "ইনসুলিন",
+        "সোমাটোস্ট্যাটিন",
+        "গ্লোবিউলিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মানুষের শরীরে ভাইরাসের সংক্রমণ ও ক্যান্সার প্রতিরোধ করে -\r\n\r\nইন্টাফেরন"
+    },
+    {
+      "question_no": 49,
+      "id": "115867",
+      "question": "’ইন্টারফেরন’ নিঃসৃত হয়-",
+      "options": [
+        "মাস্ট কোষ থেকে",
+        "ব্যাকটেরিয়া আক্রান্ত কোষ থেকে",
+        "ভাইরাস আক্রান্ত কোষ থেকে",
+        "ক্যান্সার কোষ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভাইরাস আক্রান্ত কোষ হতে ইন্টারফেরন নিঃসৃত হয়"
+    },
+    {
+      "question_no": 50,
+      "id": "115868",
+      "question": "ইন্টারফেরণ কোন ধরনের পদার্থ?",
+      "options": [
+        "প্রোটিন",
+        "শর্করা",
+        "চর্বি",
+        "গ্লাইকোলিপিড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রোটিন জাতীয় পদার্থ"
+    }
+  ]
+}

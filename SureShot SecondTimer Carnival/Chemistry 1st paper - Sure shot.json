@@ -1,0 +1,1630 @@
+{
+  "exam_id": 4805,
+  "title": "Chemistry 1st paper - Sure shot",
+  "category": "SureShot SecondTimer Carnival",
+  "duration_minutes": 40,
+  "total_questions": 100,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": 253712,
+      "question": "সেমি মাইক্রো পদ্ধতিতে ব্যবহৃত নমুনার গ্রহণযোগ্য পরিমাণ কোনটা?",
+      "options": [
+        "60mg",
+        "260mg",
+        "300mg",
+        "250mg"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-29/fbff1f92-4344-4c7b-a48e-c15910744d5a-image.png"
+      ]
+    },
+    {
+      "question_no": 2,
+      "id": 253714,
+      "question": "ল্যাবেরেটরির নিরাপত্তা সামগ্রী কোনটি?",
+      "options": [
+        "ফিউম হুড",
+        "লাইফ জ্যাকেট",
+        "রেইন কোট",
+        "O2 গ্যাস সিলিন্ডার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-29/c4f19334-7644-4ecb-83ce-87ac0aa47abc-image.png"
+      ]
+    },
+    {
+      "question_no": 3,
+      "id": 253715,
+      "question": "আয়তনিক ফ্লাস্ক ব্যবহৃত হয় কোন ক্ষেত্রে?",
+      "options": [
+        "প্রমাণ দ্রবণ তৈরিতে",
+        "মূল দ্রবণ তৈরীতে",
+        "গুণগত বিশ্লেষণে",
+        "দ্রবণ সংরক্ষণে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-29/d4ce5f10-8e5f-4d1a-99e1-730b6e0936d9-image.png"
+      ]
+    },
+    {
+      "question_no": 4,
+      "id": 253718,
+      "question": "ব্যুরেটের সাহায্যে সর্বনিম্ন কত আয়তন মাপা যায়?",
+      "options": [
+        "0.1 cm<sup>3</sup>",
+        "0.01 cm<sup>3</sup>",
+        "1.0 cm<sup>3</sup>",
+        "0.5 cm<sup>3</sup>"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/974ede1f-e643-401b-a185-702694369acc-image.png"
+      ]
+    },
+    {
+      "question_no": 5,
+      "id": 253719,
+      "question": "টাইট্রেশন করতে নিম্নের কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "শীতক",
+        "গোলতলী ফ্লাস্ক",
+        "কনিক্যাল ফ্লাস্ক",
+        "চ্যাপ্টাতলী ফ্লাস্ক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/5f6555d3-45fb-41e8-8f2f-05f15f1e607c-image.png"
+      ]
+    },
+    {
+      "question_no": 6,
+      "id": 253720,
+      "question": "মাইক্রোবিশ্লেণী পদ্ধতিতে ব্যবহৃত হয় না কোনটি?",
+      "options": [
+        "TLC",
+        "Dropping tube",
+        "NMR",
+        "Capillary tube"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/456c600f-1a6e-4359-ae74-fa47f724b593-image.png"
+      ]
+    },
+    {
+      "question_no": 7,
+      "id": 253721,
+      "question": "রাসায়নিক পদার্থকে বিজ্ঞানসম্মতভাবে শুষ্ককরণে ব্যবহৃত হয় -",
+      "options": [
+        "ডেসিকেটর",
+        "ক্যালরিমিটার",
+        "বুনসেন বার্নার",
+        "ফিউম হুড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/0ac32c1f-14fa-4ab6-92dc-210e68300b25-image.png"
+      ]
+    },
+    {
+      "question_no": 8,
+      "id": 253722,
+      "question": "250 ml 0.1M Na<sub>2</sub>CO<sub>3</sub> তৈরি করতে কি পরিমাণ Na<sub>2</sub>CO<sub>3</sub> লাগবে?",
+      "options": [
+        "2.65g",
+        "5.3g",
+        "5.5g",
+        "10.6g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/5cae7042-8037-4320-80bb-b05777603275-image.png"
+      ]
+    },
+    {
+      "question_no": 9,
+      "id": 253723,
+      "question": "ল্যাবরেটরির নিরাপত্তায় ব্যবহৃত হয় না কোনটি?",
+      "options": [
+        "ফিউম হুড",
+        "অগ্নিনির্বাপক",
+        "সেন্ট্রফিউজ",
+        "ফাস্ট এইড বক্স"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/1cb0227f-996b-4ce6-b929-0a2000016698-image.png",
+        "https://testmozusercontent.com/ugc/2022-10-30/d82593bf-2b4b-4284-9a65-1409bee98363-image.png",
+        "https://testmozusercontent.com/ugc/2022-10-30/4cc7c203-88ac-42e5-aa82-54ec3a6afc61-image.png"
+      ]
+    },
+    {
+      "question_no": 10,
+      "id": 253726,
+      "question": "কোনটি বিষাক্ত (toxic) রি-অ্যাজেন্ট?",
+      "options": [
+        "টলুইন",
+        "1-বিউটানল",
+        "বেনজিন",
+        "হেক্সেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/4f149c97-5152-4ea5-be86-5880c268053b-image.png"
+      ]
+    },
+    {
+      "question_no": 11,
+      "id": 253730,
+      "question": "কোন ল্যাবরেটরি-বিকারক ক্ষয়কারক?",
+      "options": [
+        "Na<sub>2</sub>CO<sub>3</sub>",
+        "NaCl",
+        "H<sub>2</sub>SO<sub>4</sub>",
+        "Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/bb8a833f-dd16-4a87-ab3b-ba4b6bd9a73c-image.png"
+      ]
+    },
+    {
+      "question_no": 12,
+      "id": 253731,
+      "question": "নিম্নের কোনটি অদাহ্য পদার্থ?",
+      "options": [
+        "বেনজিন",
+        "নাইট্রোজেন",
+        "ইথার",
+        "হাইড্রোজেন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/e7318ed3-23de-4a00-9bad-d0566b6a9729-image.png"
+      ]
+    },
+    {
+      "question_no": 13,
+      "id": 253732,
+      "question": "পল-বুঙ্গি ব্যালেন্সের সাহায্যে সর্বনিম্ন কত পরিমাণ ভর নির্ভুলভাবে মাপা যায়?",
+      "options": [
+        "0.0001 g",
+        "0.0002 g",
+        "0.001 g",
+        "0.002 g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/d9d1db83-5e4f-482f-92af-5f5f13b127a5-image.png"
+      ]
+    },
+    {
+      "question_no": 14,
+      "id": 253734,
+      "question": "কাচের যন্ত্রপাতি ইথানল দিয়ে ধৌত করার কারণ কোনটি?",
+      "options": [
+        "অণুজীব দ্রবীভূত হয়",
+        "দাগ মুছে যায়",
+        "ময়লা পরিষ্কার হয়",
+        "কাচ স্বচ্ছ হয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইথানল বিভিন্ন জীবাণুকে মেরে ফেলতে কার্যকরী। পণ্য এবং এন্টিসেপটিক এজেন্ট পরিষ্কার করার একটি সাধারণ উপাদান।",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-08-27/4d03db13-0501-4f1d-b437-0b4e6b5cd74a-image.png"
+      ]
+    },
+    {
+      "question_no": 15,
+      "id": 253738,
+      "question": "ল্যাবরেটরিতে কাচের সামগ্রী পরিষ্কার করতে কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "HCl + K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
+        "H<sub>2</sub>SO<sub>4 </sub>+ K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
+        "H<sub>2</sub>CO<sub>3 </sub>+ K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
+        "HNO<sub>3 </sub>+ K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/91fb1324-84ae-42eb-af4e-d9b498f21015-image.png"
+      ]
+    },
+    {
+      "question_no": 16,
+      "id": 253745,
+      "question": "রসায়ন ল্যাবে ব্যবহৃত আয়তন পরিমাপের সূক্ষতা কত?",
+      "options": [
+        "0.05 ml",
+        "0.01 ml",
+        "0.1 ml",
+        "1.0 ml"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/aaf7ddd1-397b-4bd1-a286-a29a0504340f-image.png"
+      ]
+    },
+    {
+      "question_no": 17,
+      "id": 253747,
+      "question": "কোনটি সেকেন্ডারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "KMnO<sub>4</sub>",
+        "K<sub>2</sub>Cr<sub>2</sub>O7",
+        "H<sub>2</sub>C<sub>2</sub>O<sub>4</sub>",
+        "Na<sub>2</sub>CO<sub>3</sub>"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/b9406f25-d05a-486e-9733-4c62269c2cd9-image.png"
+      ]
+    },
+    {
+      "question_no": 18,
+      "id": 253750,
+      "question": "কোন যন্ত্রটি ব্যবহার করে অধিকতর সূক্ষভাবে স্বল্প আয়তন পরিমাপ করা যায়?",
+      "options": [
+        "মেজারিং সিলিন্ডার",
+        "আয়তনিক ফ্লাস্ক",
+        "ব্যুরেট",
+        "কনিকেল ফ্লাস্ক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/a89ea7a0-ff47-4edb-aafe-3b39d37ee0b4-image.png"
+      ]
+    },
+    {
+      "question_no": 19,
+      "id": 253753,
+      "question": "ক্রোমিক এসিড দ্বারা কাচ পাত্র পরিষ্কার করার সময় কোন ধরণের বিক্রিয়া ঘটে?",
+      "options": [
+        "বিজারণ",
+        "প্রতিস্থাপন",
+        "প্রশমন",
+        "জারণ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/139a8352-b515-4495-b15b-7044445235d0-image.png"
+      ]
+    },
+    {
+      "question_no": 20,
+      "id": 253755,
+      "question": "5% NaHCO<sub>3</sub> দ্রবণের ঘনমাত্রা কত মোলার?",
+      "options": [
+        "0.15",
+        "0.321",
+        "0.595",
+        "1.06"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/3d610252-d32f-4185-90a2-6b57b2062961-image.png"
+      ]
+    },
+    {
+      "question_no": 21,
+      "id": 253882,
+      "question": "জাল পাসপোর্ট শনাক্তকরণে ব্যবহৃত রশ্মি কোনটি?",
+      "options": [
+        "UV-ray",
+        "Cathode-ray",
+        "IR-ray",
+        "X-ray"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-01/5408bb32-1239-4d97-8a85-8a60c82ba2d9-image.png"
+      ]
+    },
+    {
+      "question_no": 22,
+      "id": 253886,
+      "question": "বেগুনি রশ্মির তরঙ্গ দৈর্ঘ্য 4100Å হলে ফ্রিকুয়েন্সি কত?",
+      "options": [
+        "2.439 × 10<sup>6</sup> m<sup>-1</sup>",
+        "2.439 × 10<sup>6</sup> Hz",
+        "7.317 × 10<sup>-14</sup> m<sup>-1</sup>",
+        "7.317 × 10<sup>14</sup> Hz"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-01-02/f3bcf58f-3be1-4e0f-baf0-43f691a0a920-image.png"
+      ]
+    },
+    {
+      "question_no": 23,
+      "id": 253888,
+      "question": "H-বর্ণালির কোন অঞ্চলে ব্র্যাকেট সিরিজের উদ্ভব হয়?",
+      "options": [
+        "দৃশ্যমান অঞ্চল",
+        "অতিবেগুনি অঞ্চল",
+        "অবলোহিত অঞ্চল",
+        "আবর্তনীয় অঞ্চল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-01/c8c8b6eb-c4d4-4caa-afbe-d798465cbaeb-image.png"
+      ]
+    },
+    {
+      "question_no": 24,
+      "id": 253890,
+      "question": "পেপার ক্রোম্যাটোগ্রাফিতে R<sub>f</sub> এর সর্বোচ্চ মান কত হতে পারে?",
+      "options": [
+        "0.5",
+        "2",
+        "1",
+        "0.75"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/693d4c12-0d89-453b-bf6f-854937557777-image.png"
+      ]
+    },
+    {
+      "question_no": 25,
+      "id": 253891,
+      "question": "কোনটি ঊর্ধ্বপাতন প্রক্রিয়ায় বিশোধন করা যায়?",
+      "options": [
+        "সোডিয়াম ক্লোরাইড",
+        "পটাসিয়াম ক্লোরাইড",
+        "অ্যামোনিয়াম ক্লোরাইড",
+        "চিনি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/ea3bed69-b809-47f0-b36f-8e59fe2a76b2-image.png"
+      ]
+    },
+    {
+      "question_no": 26,
+      "id": 253892,
+      "question": "স্বর্ণপাত পরীক্ষায় পর্দায় প্রলেপন থাকে কোনটির?",
+      "options": [
+        "CuS",
+        "FeS",
+        "ZnS",
+        "NiS"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/d22db6cc-bce2-430c-9dc3-c77a5a4b069c-image.png"
+      ]
+    },
+    {
+      "question_no": 27,
+      "id": 253842,
+      "question": "2p অরবিটালের n এবং l এর মান কত?",
+      "options": [
+        "n = 3, l = 1",
+        "n = 2, l = 1",
+        "n = 1, l = 2",
+        "n = 2, l = 0"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-01/1d150fde-7257-495f-b3cc-e7fc40c70aad-image.png"
+      ]
+    },
+    {
+      "question_no": 28,
+      "id": 253845,
+      "question": "একটি মৌলের ইলেকট্রন বিন্যাস নিম্নরূপ :1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sub>x</sub><sup>1 </sup>3p<sub>y</sub><sup>1 </sup>3p<sub>z</sub><sup>1</sup>মৌলটির জন্য কোনটি সঠিক-",
+      "options": [
+        "একটি ধাতু",
+        "এর যোজনী স্থির",
+        "পর্যায় সারণির Gr 13 তে অবস্থিত",
+        "সমযোজী যৌগ গঠন করে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-01/05346a72-6c76-4adc-a950-009d6a2ee459-image.png"
+      ]
+    },
+    {
+      "question_no": 29,
+      "id": 253852,
+      "question": "M মৌলের আয়ন M<sup>+</sup> সম্ভব, M<sup>2+ </sup>সম্ভব নয়। মৌলটির পরমাণুর বহিস্তরের ইলেকট্রনীয় কাঠামো কোনটি?",
+      "options": [
+        "np<sup>1 </sup>",
+        "ns<sup>1</sup>",
+        "(n-1) d<sup>10 </sup>s<sup>1</sup>",
+        "(n-1) d<sup>1 </sup>ns<sup>2</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-01/d3055970-c966-400c-9dbb-6f137a6b2d3e-image.png"
+      ]
+    },
+    {
+      "question_no": 30,
+      "id": 253857,
+      "question": "Cr এর ইলেকট্রন বিন্যাস কোনটি?",
+      "options": [
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>4 </sup>4s<sup>2</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>5 </sup>4s<sup>1</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>4 </sup>4s<sup>1 </sup>4p<sup>1</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>4s<sup>2 </sup>4p<sup>4</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-01/6866b399-1c24-48c0-be13-016589b476f1-image.png"
+      ]
+    },
+    {
+      "question_no": 31,
+      "id": 253861,
+      "question": "পারমাণবিক ভরের একক কী?",
+      "options": [
+        "gm",
+        "g. mol<sup>-1</sup>",
+        "একক নেই",
+        "amu"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-01/3b9e8d15-8859-4d8d-aba7-9bf6d2984ea3-image.png"
+      ]
+    },
+    {
+      "question_no": 32,
+      "id": 253902,
+      "question": "কোনটির কম্পাংক বেশি-",
+      "options": [
+        "X-ray",
+        "UV",
+        "MW",
+        "IR"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/f974716b-1aea-4951-9bf5-697a97b3223d-image.png"
+      ]
+    },
+    {
+      "question_no": 33,
+      "id": 253905,
+      "question": "কোয়ান্টাম শক্তি বিকিরিত শক্তির কম্পাংকের সাথে কীভাবে সম্পর্কিত?",
+      "options": [
+        "সমানুপাতিক",
+        "ব্যস্তানুপাতিক",
+        "সমান",
+        "বর্গমূলের সমানুপাতিক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/db18838c-0ccd-4c5b-95cf-8a2aa12dce15-image.png"
+      ]
+    },
+    {
+      "question_no": 34,
+      "id": 253910,
+      "question": "নিচের কোন অরবিটাল সর্বনিম্ন শক্তি সম্পন্ন?",
+      "options": [
+        "3d",
+        "4s",
+        "4p",
+        "3s"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/080d5950-daa9-4956-91a8-03e9d42f7782-image.png"
+      ]
+    },
+    {
+      "question_no": 35,
+      "id": 253918,
+      "question": "1Å =? cm",
+      "options": [
+        "10<sup>-10</sup>",
+        "10<sup>-12</sup>",
+        "10<sup>-8</sup>",
+        "10<sup>-9</sup>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/f44e2d0e-961e-4847-a052-c5b40bc7feae-image.png"
+      ]
+    },
+    {
+      "question_no": 36,
+      "id": 253920,
+      "question": "Ca শিখা পরীক্ষায় কোন বর্ণ দেখায়?",
+      "options": [
+        "সোনালি হলুদ",
+        "হলুদ",
+        "হালকা লাল",
+        "সবুজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/5a850cc2-2b35-48b0-a366-a5c270dd790c-image.png"
+      ]
+    },
+    {
+      "question_no": 37,
+      "id": 253921,
+      "question": "50g সম্পৃক্ত দ্রবণে 5gCaCl<sub>2 </sub>দ্রবীভূত করলে CaCl<sub>2 </sub>এর দ্রাব্যতা (প্রতি 100g দ্রাবকে) কত?",
+      "options": [
+        "1.11",
+        "11.11",
+        "22.12",
+        "11.78"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-08-21/ffa8286a-28a1-43e2-8cf5-dc75eca9ddd5-image.png"
+      ]
+    },
+    {
+      "question_no": 38,
+      "id": 253922,
+      "question": "বামার সিরিজে n<sub>2 </sub>= 3 হলে তরঙ্গ দৈর্ঘ্য কত?",
+      "options": [
+        "5.67 × 10<sup>-5</sup> cm",
+        "6.57 × 10<sup>-5 </sup>cm",
+        "4.57 × 10<sup>-5</sup> cm",
+        "7.65 × 10<sup>-5</sup> cm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/31f4ff71-2dbd-4a20-8250-a5fa60b41729-image.png"
+      ]
+    },
+    {
+      "question_no": 39,
+      "id": 253926,
+      "question": "নেসলার দ্রবণ কী?",
+      "options": [
+        "K<sub>2</sub>HgI<sub>4 </sub>এর দ্রবণ",
+        "K<sub>2</sub>HgI<sub>4 </sub>এর ক্ষারীয় দ্রবণ",
+        "K<sub>2</sub>HgI<sub>4</sub>",
+        "Hg<sub>2</sub>I<sub>4</sub>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-09/e1b1969c-1a8d-4ea2-b0d9-abfac75b6197-image.png"
+      ]
+    },
+    {
+      "question_no": 40,
+      "id": 253934,
+      "question": "AgCl এর দ্রাব্যতা 0.0015 gL<sup>-1 </sup>হলে দ্রাব্যতা গুণাঙ্ক কত?",
+      "options": [
+        "1.05 × 10<sup>-5</sup>",
+        "2.0 × 10<sup>-5</sup>",
+        "2.0 × 10<sup>-10</sup>",
+        "1.1 × 10<sup>-10</sup>"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-09/c1c2ec9f-837c-4eee-b73b-c9a66b29aedb-image.png"
+      ]
+    },
+    {
+      "question_no": 41,
+      "id": 253938,
+      "question": "Cu(IO<sub>3</sub>)<sub>2 </sub>এর দ্রাব্যতা গুনাংক 1.4 × 10<sup>-7 </sup>হলে কপার আয়োডেটের দ্রাব্যতা mol L<sup>-1 </sup>এককে কত?",
+      "options": [
+        "1.5 × 10<sup>-3</sup>",
+        "2.6 × 10<sup>-3</sup>",
+        "3.3 × 10<sup>-3</sup>",
+        "4.5 × 10<sup>-3</sup>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-09/c08844ba-1a78-4b62-acbe-86a56ac4af5c-image.png"
+      ]
+    },
+    {
+      "question_no": 42,
+      "id": 254281,
+      "question": "কোনটি বিরল গ্যাস?",
+      "options": [
+        "N<sub>2</sub>",
+        "Ar",
+        "O<sub>2</sub>",
+        "F<sub>2</sub>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/01f25e45-54c4-4b67-81e3-8b6d55cda766-image.png"
+      ]
+    },
+    {
+      "question_no": 43,
+      "id": 254291,
+      "question": "ক্ষারকত্ব হ্রাসের সঠিক ক্রম কোনটি?",
+      "options": [
+        "F<sup>-</sup> > Cl<sup>-</sup> > Br<sup>-</sup> > I<sup>-</sup>",
+        "Br<sup>-</sup> > Cl<sup>-</sup> > F<sup>-</sup> > I<sup>-</sup>",
+        "I<sup>-</sup> > Cl<sup>-</sup> > Br<sup>-</sup> > F<sup>-</sup>",
+        "F<sup>-</sup> > Cl<sup>-</sup> > I<sup>-</sup> > Br<sup>-</sup>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-08-21/618f2173-a4e4-45bd-9783-ce639549a2ba-image.png"
+      ]
+    },
+    {
+      "question_no": 44,
+      "id": 254192,
+      "question": "ইলেকট্রন আসক্তির মান Cl = - 361 kJ mol<sup>-1</sup>, Br = - 340 kJ mol<sup>-1</sup>, I = - 308 kJ mol<sup>-1</sup>. কোন মৌলটির ঋণাত্মক আয়ন গঠনের প্রবণতা সর্বাধিক?",
+      "options": [
+        "Br",
+        "I",
+        "Cl",
+        "Cl এবং Br"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Cl এর ইলেকট্রন আসক্তি সর্বাধিক হওয়ায় এর ঋনাত্মক আয়ন গঠনের প্রবণতাও সর্বাধিক।",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-02/4ad2160c-a624-47fe-b6ab-075bd6190529-image.png"
+      ]
+    },
+    {
+      "question_no": 45,
+      "id": 254199,
+      "question": "একটি মৌল A এর বহিস্তরের ইলেট্রনীয় কাঠামো নিম্নরূপ হলে A<sub>2</sub>O যৌগটিতে কী ধরণের বন্ধন উপস্থিত?A --3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>1</sup> এবং O --- 2s<sup>2</sup> 2p<sup>4</sup>",
+      "options": [
+        "আয়নিক",
+        "সমযোজী",
+        "সন্নিবেশ",
+        "সমযোজী ও সন্নিবেশ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-03/527dbff8-3d9b-4c03-8b36-7579accd1c55-image.png"
+      ]
+    },
+    {
+      "question_no": 46,
+      "id": 254202,
+      "question": "CaCl<sub>2</sub> এবং AlCl<sub>3</sub> এর মধ্যে কোনটি অধিক সমযোজী?",
+      "options": [
+        "CaCl<sub>2</sub> > AlCl<sub>3</sub>",
+        "AlCl<sub>3</sub> > CaCl<sub>2</sub>",
+        "উভয়ই আয়নিক",
+        "উভয়ই সমযোজী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-02/a3c8a361-95d4-4cde-a1d8-3922dbfdba17-image.png"
+      ]
+    },
+    {
+      "question_no": 47,
+      "id": 254211,
+      "question": "নিম্নের কোন মৌলটির সক্রিয়তা সবচেয়ে কম? প্রদত্ত প্রথম আয়নীকরণ বিভবের মান–",
+      "options": [
+        "A ⇒ 900 kJ mol<sup>-1</sup>",
+        "B ⇒ 2100 kJ mol<sup>-1</sup>",
+        "C ⇒ 500 kJ mol<sup>-1</sup>",
+        "D ⇒ 280 kJ mol<sup>-1</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আয়নীকরণ বিভবের মান যত বেশি , সক্রিয়তা তত কম ।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": 254668,
+      "question": "রক্তের pH 7.4 হলে OH<sup>-</sup> এর ঘনমাত্রা কত mol L<sup>-1</sup>?",
+      "options": [
+        "1.2 × 10<sup>-4</sup>",
+        "2.11 × 10<sup>-7</sup>",
+        "2.5 × 10<sup>-7</sup>",
+        "3.1 × 10<sup>-7</sup>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-31/2739e267-78ec-4a0e-a8d2-2f90d7f756e7-image.png"
+      ]
+    },
+    {
+      "question_no": 49,
+      "id": 254549,
+      "question": "বিভিন্ন বিক্রিয়ার সক্রিয়ন শক্তি দেওয়া হল কোন বিক্রিয়াটির গতির হার সর্বোচ্চ?",
+      "options": [
+        "1.32 kjmol<sup>-1</sup>",
+        "2.31 kjmol-1",
+        "1.02 kjmol<sup>-1</sup>",
+        "0.5 × 10<sup>-2</sup> kjmol<sup>-1</sup>"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Type explanation here...",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-07-23/d8d613cc-dfa7-4c20-a6dd-166c0421c261-IMG-20230723-234249.jpg"
+      ]
+    },
+    {
+      "question_no": 50,
+      "id": 254553,
+      "question": "নিম্নের কোন বিক্রিয়ায় সাম্যবস্থার উপর চাপের প্রভাব নেই?",
+      "options": [
+        "N<sub>2</sub>O<sub>4</sub> ⇌ 2NO<sub>2</sub>",
+        "2SO<sub>2</sub> + O<sub>2 </sub>⇌ 2SO<sub>3</sub>",
+        "H<sub>2</sub> + I<sub>2</sub> ⇌ 2HI",
+        "CaCO<sub>3</sub> ⇌ CaO + CO<sub>2</sub>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-31/1caa2bc7-4a10-4603-a282-ed172b5aa8fb-image.png"
+      ]
+    },
+    {
+      "question_no": 51,
+      "id": 254561,
+      "question": "চাপের একক atm হলে নিম্নের বিক্রিয়ায় Kp এর একক কি?COCl<sub>2</sub>(g) ⇌ CO(g) + Cl<sub>2</sub>(g)",
+      "options": [
+        "atm<sup>-1</sup>",
+        "atm",
+        "atm²",
+        "একক নেই"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-07-23/644ab6a5-1e4b-4a65-89f7-3b9aea3f32a6-IMG-20230723-234337.jpg"
+      ]
+    },
+    {
+      "question_no": 52,
+      "id": 254568,
+      "question": "HSO<sub>4</sub><sup>-</sup> আয়নের অনুবন্ধী ক্ষারক কোনটি?",
+      "options": [
+        "H<sub>2</sub>SO<sub>4</sub>",
+        "SO<sub>4</sub><sup>2-</sup>",
+        "H<sub>2</sub>O",
+        "H<sub>3</sub>O<sup>+</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-30/9baf0be0-c842-433c-a06b-13e33e0a6af3-image.png"
+      ]
+    },
+    {
+      "question_no": 53,
+      "id": 254669,
+      "question": "কোনটি ক্ষারীয় বাফার দ্রবণ?",
+      "options": [
+        "NaOH ও CH<sub>3</sub>COOH",
+        "NH<sub>4</sub>OH ও NH<sub>4</sub>Cl",
+        "NaOH ও HCl",
+        "Hcl ও NH<sub>3</sub>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-10-31/c8077050-063e-4d8e-8c95-4c6cfe7a0f61-image.png"
+      ]
+    },
+    {
+      "question_no": 54,
+      "id": 254690,
+      "question": "CH_3COOH+NH_4OH=CH_3COONH_4+H_2Oবিক্রিয়াটির প্রশমন তাপের মান কত?",
+      "options": [
+        "50.8 kJ",
+        "-55.2 KJ",
+        "-57.3 KJ",
+        "-68.5 KJ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": 255021,
+      "question": "নিচের কোন মিশ্রণটি ভিনেগার?",
+      "options": [
+        "H<sub>2</sub>SO<sub>4</sub> +K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
+        "HCl + CH<sub>3</sub>COOH",
+        "কোনোটিই নয়",
+        "CH<sub>3</sub>COOH+H<sub>2</sub>O"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-07-24/c45d60dd-735b-4617-b513-861f165ab938-image.png"
+      ]
+    },
+    {
+      "question_no": 56,
+      "id": 255025,
+      "question": "ভিনেগার কীভাবে ব্যাকটেরিয়া ধ্বংস করে??",
+      "options": [
+        "প্রোটিনের গঠন ভেঙে দিয়ে",
+        "দ্রবণে গ্লুকোজ এর মান কমিয়ে",
+        "দ্রবণে pH এর মান কমিয়ে",
+        "দ্রবণে pH এর মান বৃদ্ধি করে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-07-24/bb45058e-930e-462c-bf90-5d9d7f76fc05-IMG-20230724-104129.jpg"
+      ]
+    },
+    {
+      "question_no": 57,
+      "id": 255032,
+      "question": "গ্লুকোজ থেকে ইথানল প্রস্তুতিতে কোন এনজাইম ব্যবহৃত হয়?",
+      "options": [
+        "ডায়াস্টেজ",
+        "ম্যাল্টেজ",
+        "জাইমেজ",
+        "ইনর্ভাটেজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-07-24/8e7af0a5-0f4b-4971-9deb-96fbc90e56df-image.png"
+      ]
+    },
+    {
+      "question_no": 58,
+      "id": 255039,
+      "question": "নিরাপদ খাদ্য সংরক্ষক হিসাবে পরিচিত কোনটি?",
+      "options": [
+        "ক্যালসিয়াম প্রোপানয়েট",
+        "সোডিয়াম নাইট্রাইট",
+        "ক্যালসিয়াম কার্বাইড",
+        "সোডিয়াম বেনজোয়েট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": 254881,
+      "question": "গ্লুকোজের আণবিক সংকেত C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> এটি কী?",
+      "options": [
+        "একটি অ্যালডিহাইড",
+        "কার্বোহাইড্রেট",
+        "একটি এসিড",
+        "একটি এস্টার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2023-07-24/82d0a5c3-207e-4977-935d-49fa53cd011a-image.png"
+      ]
+    },
+    {
+      "question_no": 60,
+      "id": 254899,
+      "question": "সাইট্রিক এসিড, ভিনেগার, লবণ, SO<sub>2</sub>। এ পদার্থগুলো নিম্নের কোন শ্রেনীর অন্তর্ভুক্ত?",
+      "options": [
+        "ভিটামিন",
+        "প্রোটিন",
+        "ফুড প্রিজারভেটিভস",
+        "খাদ্য সংযোজনী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2022-11-02/c53739db-6efb-4c83-bfef-e42eca08b456-image.png"
+      ]
+    },
+    {
+      "question_no": 61,
+      "id": "e363d067-a1d6-4a80-8e24-7db2c3f81156",
+      "question": "ফরমালিটিও বলা যায় কোনটিকে?",
+      "options": [
+        "নরমালিটি",
+        "মোলালিটি",
+        "মোলারিটি",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নরমালিটিকে ফরমালিটিও বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "135c9e35-7ed2-46ef-83d5-efe8a69d247d",
+      "question": "ল্যাবরেটরীতে প্রধানত কয় প্রকারের কাচ ব্যবহার করা হয়?",
+      "options": [
+        "দুই",
+        "তিন",
+        "চার",
+        "পাচ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ল্যাবরেটরীতে প্রধানত দুই প্রকারের কাচ ব্যবহার করা হয়-১) সাধারণ কাচ বা সোডা গ্লাস বা কোমল কাচ২) পাইরেক্স বা বোরো সিলিকেট কাচ",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "42ae714b-07b3-4bc8-95ca-803544162bc7",
+      "question": "জারণ শিখায় কত ডিগ্রী সেলসিয়াস তাপমাত্রা উৎপন্ন হয়?",
+      "options": [
+        "500° C",
+        "1100° C",
+        "1600°C",
+        "2100°C"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জারণ শিখায় 1600 ডিগ্রী সেলসিয়াস তাপমাত্রা উৎপন্ন হয়।",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": "2ce40a3d-caaa-4618-9742-a8a132fa0fb0",
+      "question": "কিডনির ক্ষতি করে কোন পদার্থ?",
+      "options": [
+        "হ্যালোজেনো অ্যালকেন",
+        "ইথাইল পার অক্সাইড",
+        "কার্বোনেটেড ওয়াটার",
+        "জৈব এসিড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হ্যালোজেনো অ্যালকেন লিভার ও কিডনির ক্ষতি করে।",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": "21f61e20-2901-4c57-8282-35e6c321af7e",
+      "question": "শরীরে ক্ষার পড়লে লঘু কী দ্বারা ধুতে হবে?",
+      "options": [
+        "ইথানয়িক এসিড",
+        "অক্সালিক এসিড",
+        "বোরিক এসিড",
+        "হাইড্রোক্লোরিক এসিড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "শরীরে ক্ষার পড়লে লঘু ইথানয়িক এসিড দ্বারা ধুয়ে নিতে হবে।",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": "3a4c9908-a3c5-40e2-a16b-2b5c98b9b96f",
+      "question": "উজ্জ্বল শিখার মন্ডল নয় কোনটি?",
+      "options": [
+        "মাঝের অনুজ্জ্বল মণ্ডল",
+        "উজ্জ্বল দহন মণ্ডল",
+        "উজ্জ্বল নীল মণ্ডল",
+        "অনুজ্জ্বল দহন মন্ডল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উজ্জ্বল শিখা ৪টি মণ্ডল নিয়ে গঠিত নিচের উজ্জ্বল নীল মণ্ডল, মাঝের অনুজ্জ্বল মণ্ডল, সম্পূর্ণ দহন মণ্ডল এবং বাইরের পূর্ণ ও উজ্জ্বল দহন মণ্ডল।।",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": "6ee8566c-bbca-47af-8dcc-7af89f528691",
+      "question": "মারাত্মক ব্রংকিয়াল উত্তেজক বলা যায় কোনটিকে?",
+      "options": [
+        "অ্যামোনিয়াম হাইড্রোক্সাইড",
+        "সোডিয়াম হাইড্রোক্সাইড",
+        "অ্যালুমিনিয়াম হাইড্রোক্সাইড",
+        "ম্যাগনেসিয়াম হাইড্রোক্সাইড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অ্যামোনিয়াম হাইড্রোক্সাইড মারাত্মক ব্রংকিয়াল উত্তেজক।",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": "ee4296c1-7e25-46a3-b121-93d80ef2b783",
+      "question": "অব্যবহ্রত HCI কে কী দিয়ে প্রশমিত করা হয়?",
+      "options": [
+        "চুন",
+        "Mg(OH)2",
+        "NH4OH",
+        "NaCl"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অব্যবহ্রত NaOH কে NaHSO4 দ্বারা প্রশমিত করা হয়অব্যবহ্রত HCI কে চুন দিয়ে প্রশমিত করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": "dadba5c9-044d-4e4c-8293-e416d1481341",
+      "question": "হাইড্রোজেন স্কেল প্রস্তাব করেন কে?",
+      "options": [
+        "বিজ্ঞানী স্টাস",
+        "বিজ্ঞানী নিউটন",
+        "বিজ্ঞানী রাদারফোর্ড",
+        "বিজ্ঞানী ডাল্টন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাইড্রোজেন স্কেল প্রস্তাব করেন বিজ্ঞানী ডাল্টনঅক্সিজেন স্কেল প্রস্তাব করেন বিজ্ঞানী স্টাস।",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": "79899168-9e7f-4529-8df3-fd7caee4ef96",
+      "question": "ক্যান্সার নিরাময় করা হয় কোন আইসোটোপ দিয়ে?",
+      "options": [
+        "কোবাল্ট 60",
+        "কার্বন 14",
+        "ফসফরাস 32",
+        "আয়োডিন-১৩১"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোবাল্ট 60 এর সাহায্যে ক্যান্সার নিরাময় করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": "e6a3d4e2-0d67-4edc-964e-3160c05bbc1e",
+      "question": "ফসফরাস 32 দিয়ে কোন রোগের চিকিৎসা করা হয়?",
+      "options": [
+        "ক্যান্সার",
+        "পলিসাইথেমিয়া ভেরা",
+        "থাইরয়েড গ্রন্থির রোগের",
+        "অ্যানেমিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফসফরাস 32 দিয়ে রক্তাল্পতা জনিত রোগ পলিসাইথেমিয়া ভেরা এবং আয়োডিন 131 ব্যবহার করে থাইরয়েড গ্রন্থির রোগের চিকিৎসা করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": "ffe1f5f1-b385-4d8f-9d1f-ef88e67cecf2",
+      "question": "কোন রশ্মি মাছ, মাংস, ফলের রস, ধান, গম, আলু, পেঁয়াজ প্রভৃতির সংরক্ষণে ব্যবহার হয়?",
+      "options": [
+        "আলফা রশ্মি",
+        "বিটা রশ্মি",
+        "গামা রশ্মি",
+        "রঞ্জন রশ্মি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Co60 থেকে নির্গত গামা রশ্মি মাছ, মাংস, ফলের রস, ধান, গম, আলু, পেঁয়াজ প্রভৃতির সংরক্ষণে ব্যবহার হয়।",
+      "images": []
+    },
+    {
+      "question_no": 73,
+      "id": "73a5663e-3f6b-4a06-a3d7-c2b90453f94a",
+      "question": "গ্রেভস রোগ চিকিৎসায় ব্যবহৃত হয় কোন আইসোটোপ?",
+      "options": [
+        "কোবাল্ট 60",
+        "কার্বন 14",
+        "ফসফরাস 32",
+        "আয়োডিন-১৩১"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আয়োডিন-১৩১ ব্যবহার হয় গ্রেভস রোগ চিকিৎসায়।",
+      "images": []
+    },
+    {
+      "question_no": 74,
+      "id": "db1052e8-1489-49a4-9763-0059b7b58305",
+      "question": "ফ্লোরোসেন্ট টিউবের ভেতর কোন মিশ্রণ ভর্তি করা হয়?",
+      "options": [
+        "আর্গন গ্যাস ও মার্কারি বাষ্প",
+        "অ্যাসিটিলিন গ্যাস ও মার্কারি বাষ্প",
+        "ক্লোরিন গ্যাস ও মিথেন বাষ্প",
+        "ক্লোরিন গ্যাস ও মার্কারি বাষ্প"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ফ্লোরোসেন্ট টিউবের ভেতর আর্গন গ্যাস ও মার্কারি বাষ্প মিশ্রণ ভর্তি করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 75,
+      "id": "28d2b9b9-022a-496d-a3d1-bc450b5f7256",
+      "question": "ইলেকট্রন বিন্যাসের প্রয়োগ নয় কোনটি?",
+      "options": [
+        "মৌলের সক্রিয়তা নির্ণয়",
+        "পর্যায় সারণিতে মৌলের সংখ্যা নির্ণয়",
+        "পর্যায় সারণিতে মৌলের অবস্থান নির্ণয়",
+        "মৌলের যোজ্যতা নির্ণয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইলেকট্রন বিন্যাসের প্রয়োগ -১) মৌলের যোজ্যতা নির্ণয় করা যায়২) পর্যায় সারণিতে মৌলের অবস্থান নির্ণয় করা যায়৩) মৌলের সক্রিয়তা নির্ণয় করা যায়",
+      "images": []
+    },
+    {
+      "question_no": 76,
+      "id": "6d3bd5dc-ed5d-4e07-8a31-438d642c1c2b",
+      "question": "বাম্পিং রোধ করার জন্য গোলতলী ফ্লাস্কের মিশ্রণটি কী করা হয়?",
+      "options": [
+        "কয়েক টুকরা চিপস দেয়া হয়",
+        "ফিউম হুড ব্যবহার করা হয়",
+        "হিটিং ম্যান্টল ব্যবহার করা হয়",
+        "অ্যাসবেস্টস জালিকা ব্যবহৃত হয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাম্পিং রোধ করার জন্য গোলতলী ফ্লাস্কের মিশ্রণে কয়েক টুকরা চিপস দেয়া হয়।",
+      "images": []
+    },
+    {
+      "question_no": 77,
+      "id": "a5fceab6-1f88-47c8-aff2-ba39f74e562f",
+      "question": "অনুপ্রভা প্রদর্শন করে নিচের কোনটি?",
+      "options": [
+        "I2 বাষ্প",
+        "MgS",
+        "পেট্রোলিয়াম",
+        "কাচ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রতিপ্রভা প্রদর্শন করে Na,Hg ও 12 এর বাম্প, পেট্রোলিয়াম, কাচঅনুপ্রভা প্রদর্শন করে মৃৎক্ষার ধাতুর MgS",
+      "images": []
+    },
+    {
+      "question_no": 78,
+      "id": "17c7487e-7e76-4e43-9770-46f126aa6f11",
+      "question": "রক্তের শর্করা নির্ণয় ও পালস অক্সিমেট্রিতে কোন IR ব্যবহৃত হয়?",
+      "options": [
+        "NIR",
+        "FIR",
+        "Body IR",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "রক্তের শর্করা নির্ণয় ও পালস অক্সিমেট্রিতে Near IR ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 79,
+      "id": "a47e0b7c-d751-418a-b09f-c097f77976ea",
+      "question": "হৃদপিন্ডের ব্লকেজ নিরাময়ে কোন IR রশ্মি ব্যবহার করা হয়?",
+      "options": [
+        "NIR",
+        "FIR",
+        "Body IR",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হৃদপিন্ডের ব্লকেজ নিরাময়ে Far IR রশ্মি ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 80,
+      "id": "d1c38ae1-470b-4612-98df-3a6143e99f47",
+      "question": "মস্তিষ্কের আঘাত, হাইড্রোসেফালাস রোগ নির্ণয় ব্যবহৃত হয় →",
+      "options": [
+        "IR",
+        "MRI",
+        "CT scan",
+        "X-ray"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মস্তিষ্কের আঘাত, হাইড্রোসেফালাস রোগ নির্ণয় এমআরআই ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 81,
+      "id": "71db26f3-8e8b-45ef-ae88-77df83fb7333",
+      "question": "বলয় পরীক্ষা করা হয় কোন আয়নের ক্ষেত্রে?",
+      "options": [
+        "Cl-",
+        "SO4 2-",
+        "CO3 2-",
+        "NO3-"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2024-04-06/56c28a8d-f5c2-4b76-a303-9fc682f85ded-Screenshot-20240406-205256-Chrome.jpg"
+      ]
+    },
+    {
+      "question_no": 82,
+      "id": "e79d655e-cc3f-4809-9a90-6edd83e0bff5",
+      "question": "লেড অ্যাসিটেট পরীক্ষা দ্বারা কোন আয়ন শনাক্ত করা যায় না?",
+      "options": [
+        "Cl-",
+        "SO4 2-",
+        "CO3 2-",
+        "NO3-"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": [
+        "https://testmozusercontent.com/ugc/2024-04-06/56c28a8d-f5c2-4b76-a303-9fc682f85ded-Screenshot-20240406-205256-Chrome.jpg"
+      ]
+    },
+    {
+      "question_no": 83,
+      "id": "aa4eca0d-c694-4ba8-bd7f-d8506eb16117",
+      "question": "হ্যালাইড লবণ পরীক্ষায় সবুজাভ গ্যাস ও ব্লিচিং পাউডারের গন্ধ পাওয়া যায় কোন আয়নের ক্ষেত্রে?",
+      "options": [
+        "ক্লোরাইড",
+        "ব্রোমাইড",
+        "আয়োডাইড",
+        "নাইট্রেট গ্যাস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হ্যালাইড লবণ পরীক্ষায় সবুজাভ গ্যাস ও ব্লিচিং পাউডারের গন্ধ পাওয়া যায় ক্লোরাইড আয়নের ক্ষেত্রে।",
+      "images": []
+    },
+    {
+      "question_no": 84,
+      "id": "f91c0e29-275f-4cc4-83ab-b752777684bd",
+      "question": "অতি হ্রস্ব পর্যায় বলে কোন পর্যায়কে?",
+      "options": [
+        "১ম পর্যায়",
+        "২য় পর্যায়",
+        "৩য় পর্যায়",
+        "ষষ্ঠ পর্যায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অতি হ্রস্ব পর্যায়: ১ম পর্যায়",
+      "images": []
+    },
+    {
+      "question_no": 85,
+      "id": "cba2278f-77ab-4403-9c16-6e22eb76a20a",
+      "question": "অতি দীর্ঘ পর্যায় বলে কোন পর্যায়কে?",
+      "options": [
+        "২য় পর্যায়",
+        "৩য় পর্যায়",
+        "৬ষ্ঠ পর্যায়",
+        "৭ম পর্যায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অতিদীর্ঘ পর্যায়: ৬ষ্ঠ পর্যায়",
+      "images": []
+    },
+    {
+      "question_no": 86,
+      "id": "5fa8e422-0900-4935-8369-c8659073af6d",
+      "question": "আদর্শ পর্যায়  বলে কোন পর্যায়দ্বয়কে?",
+      "options": [
+        "২য়, ৩য় পর্যায়",
+        "২য়, ৪র্থ পর্যায়",
+        "৩য়, ৪র্থ পর্যায়",
+        "১ম, ২য় পর্যায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আদর্শ পর্যায়: ২য়, ৩য় পর্যায়",
+      "images": []
+    },
+    {
+      "question_no": 87,
+      "id": "afcad9db-2cf0-45d4-b4be-71c5d768f21b",
+      "question": "X-Ray এর জন্য স্বচ্ছ মাধ্যম কোন ধাতু?",
+      "options": [
+        "Be",
+        "B",
+        "Bi",
+        "Ti"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "X-Ray এর জন্য স্বচ্ছ মাধ্যম Be",
+      "images": []
+    },
+    {
+      "question_no": 88,
+      "id": "f9eae903-8355-4be6-8ccd-1665203fba49",
+      "question": "অধিক সক্রিয় ধাতুকে গলানোর সময়ে কোন গ্যাস এর উপস্থিতিতে কাজটি সম্পন্ন করা হয়?",
+      "options": [
+        "Ar",
+        "He",
+        "Xe",
+        "Cl2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অধিক সক্রিয় ধাতুকে গলানোর সময়ে He গ্যাস এর উপস্থিতিতে কাজটি সম্পন্ন করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 89,
+      "id": "5b75558e-89ea-4611-9826-81733d481ae2",
+      "question": "অ্যাজমা রোগের চিকিৎসায় কোন গ্যাস এর মিশ্রণ ব্যবহার করা হয়?",
+      "options": [
+        "O-He",
+        "He-Ar",
+        "Ar-Xe",
+        "Xe-CH3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অ্যাজমা রোগের চিকিৎসায় O-He গ্যাস এর মিশ্রণ ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 90,
+      "id": "96ae8d6b-770b-4bd1-a5c3-1b8ce0ed0b36",
+      "question": "কোন ভিটামিনের অভাবে ডার্মাটাইটিস হয়?",
+      "options": [
+        "ভিটামিন B1",
+        "ভিটামিন B2",
+        "ভিটামিন C",
+        "ভিটামিন B12"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভিটামিন b1 এর অভাবে বেরিবেরি হয়ভিটামিন বি২ এর অভাবে ডার্মাটাইটিস হয়ভিটামিন b6 এর অভাবে ডার্মাটাইটিস হয়ভিটামিন বি12 এর অভাবে রক্তশূন্যতা হয়",
+      "images": []
+    },
+    {
+      "question_no": 91,
+      "id": "52f6cb4b-9447-4eea-b9f6-192b250c1fcb",
+      "question": "বার্কল্যান্ড আইডের পদ্ধতিতে কোন অ্যাসিড উৎপাদন করা হয়?",
+      "options": [
+        "নাইট্রিক অ্যাসিড",
+        "সালফিউরিক অ্যাসিড",
+        "হাইড্রোক্লোরিক অ্যাসিড",
+        "নাইট্রাস অ্যাসিড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বার্কল্যান্ড আইডের পদ্ধতিতে নাইট্রিক অ্যাসিড উৎপাদন করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 92,
+      "id": "f010b082-d7dd-47aa-88ec-da5c5f6c41fb",
+      "question": "মাংসপেশিতে টান সৃষ্টি হয় কোন ভিটামিনের অভাবে?",
+      "options": [
+        "ভিটামিন ই",
+        "ভিটামিন এ",
+        "ভিটামিন ডি",
+        "ভিটামিন কে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভিটামিন ই এর অভাবে মাংসপেশিতে টান সৃষ্টি হয়।",
+      "images": []
+    },
+    {
+      "question_no": 93,
+      "id": "c449edc4-a627-4923-a08c-5a8fad550f41",
+      "question": "ভিটামিন বি12 এর অভাবে কোন রোগ হয়?",
+      "options": [
+        "বেরিবেরি",
+        "স্কার্ভি",
+        "রক্তক্ষরণ",
+        "রক্তশূন্যতা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ভিটামিন বি12 এর অভাবে রক্তশূন্যতা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 94,
+      "id": "4768d701-6bf8-4def-b137-89af40b34a95",
+      "question": "কিউরিং পদ্ধতির উদাহরণ কোনটি?",
+      "options": [
+        "শাকসবজি",
+        "লবনাক্ত মাছ",
+        "জ্যাম বা জেলি",
+        "শুষ্ক মাছ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কিউরিং বা সল্টিং পদ্ধতিতে গাঢ় লবণের দ্রবণে খাদ্য ডুবিয়ে রাখা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 95,
+      "id": "3f3ec52c-ffa7-47de-b573-038dc0b17768",
+      "question": "টিনজাত কাস্টার্ড এ কী ব্যবহার করা হয়?",
+      "options": [
+        "সোডিয়াম বাই কার্বনেট",
+        "সোডিয়াম কার্বনেট",
+        "সোডিয়াম হাইড্রক্সাইড",
+        "অ্যামোনিয়াম নাইট্রাইট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "টিনজাত কাস্টার্ড এ সোডিয়াম বাই কার্বনেট ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 96,
+      "id": "0ca9bd89-78e5-4770-8f0c-a59490c9209e",
+      "question": "ফলের রসকে সংরক্ষণ করার জন্য কী ব্যবহার করা হয়?",
+      "options": [
+        "সোডিয়াম বাই কার্বনেট",
+        "অ্যামোনিয়াম নাইট্রাইট",
+        "সালফার ডাই অক্সাইড",
+        "নাইট্রিক এসিড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফলের রসকে সংরক্ষণ করার জন্য সালফার ডাই অক্সাইড ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 97,
+      "id": "ad002552-970a-47fc-ac32-439daf671b88",
+      "question": "সিলভার সল কণার আকার বড় হলে হলে তা কী বর্ণের হয়?",
+      "options": [
+        "বেগুনী",
+        "নীল",
+        "লাল",
+        "সাদা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সিলভার সল কণার আকার বড় হলে হলে তা বেগুনি বর্ণের এবং কণার আকার ছোটর জন্য Au লাল বর্ণের হয়।",
+      "images": []
+    },
+    {
+      "question_no": 98,
+      "id": "0adf1cff-9f29-40b0-bbc3-abde7c5afebb",
+      "question": "মাখনের খাদ্যমান প্রায় কত কিলোজুল?",
+      "options": [
+        "1580 কিলোজুল",
+        "2050 কিলো জুল",
+        "3055 কিলো জুল",
+        "6200 কিলো জুল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মাখনের খাদ্যমান প্রায় 3055 কিলো জুল।",
+      "images": []
+    },
+    {
+      "question_no": 99,
+      "id": "5ac8b3be-1046-4a95-bab4-5c5904278d8d",
+      "question": "পেয়ারা কোন জৈব এসিডের উৎস?",
+      "options": [
+        "অক্সালিক এসিড",
+        "সাইট্রিক এসিড",
+        "ম্যালিক এসিড",
+        "অ্যাসকরবিক এসিড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পেয়ারাতে অক্সালিক এসিড পাওয়া যায়।",
+      "images": []
+    },
+    {
+      "question_no": 100,
+      "id": "d9c7b776-2be2-41fc-97ac-d30343611e09",
+      "question": "কোন জোড়টি সঠিক নয়?",
+      "options": [
+        "পিঁপড়া - ফরমিক এসিড",
+        "কমলা - অ্যাসকরবিক এসিড",
+        "ম্যালিক এসিড - আপেল",
+        "দুধ - ল্যাকটিক এসিড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ল্যাকটিক এসিড দইয়ে থাকে, দুধে না।",
+      "images": []
+    }
+  ]
+}

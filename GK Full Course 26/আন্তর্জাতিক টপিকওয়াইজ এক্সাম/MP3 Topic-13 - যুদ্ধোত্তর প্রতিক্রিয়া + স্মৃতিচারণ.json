@@ -1,0 +1,311 @@
+{
+  "exam_id": 10471,
+  "title": "MP3 Topic-13 : যুদ্ধোত্তর প্রতিক্রিয়া + স্মৃতিচারণ",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "আধুনিক পাশ্চাত্যের উত্থান + প্রথম বিশ্বযুদ্ধ + দ্বিতীয় বিশ্বযুদ্ধ Exam",
+  "duration_minutes": 10,
+  "total_questions": 20,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "15885dab-08c1-44e5-9827-dec5d02f95bd",
+      "question": "হলোকাষ্ট' (Holocaust) বলে চিহ্নিত করা হয় কোনটিকে? [SABAS][]",
+      "options": [
+        "কৃষ্ণাঙ্গ-শ্বেতাঙ্গ সংঘাত",
+        "হুতু-তুতসিদের লড়াই",
+        "দ্বিতীয় বিশ্বযুদ্ধকালীন ইহুদি নিধন",
+        "গুয়ানতানামোয় বন্দিদের উপর নির্যাতন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হলোকাষ্ট বলতে দ্বিতীয় বিশ্বযুদ্ধ চলাকালীন নাৎসি বাহিনী কর্তৃক পরিচালিত ইহুদি নিধনযজ্ঞকে বোঝানো হয়.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "683dd05e-6382-4816-b8a7-93ea56805227",
+      "question": ".........million Jews were killed in Nazi Holocaust. [SABAS][]",
+      "options": [
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নাৎসি বাহিনীর হলোকাষ্টে প্রায় ৬ মিলিয়ন ইহুদি নিহত হয়েছিল.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "43cd8814-d55b-462f-aec8-3432707a5302",
+      "question": "দ্বিতীয় বিশ্বযুদ্ধের পর যুদ্ধাপরাধীদের বিচার করা হয়েছিল জার্মানির - [SABAS][]",
+      "options": [
+        "বার্লিনে",
+        "নুরেমবার্গে",
+        "হাইডেলবার্গে",
+        "বনে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "দ্বিতীয় বিশ্বযুদ্ধের পর নুরেমবার্গে যুদ্ধাপরাধীদের বিচার অনুষ্ঠিত হয়েছিল.",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "8713154a-2f31-433e-bb73-a13fd3f4095e",
+      "question": "The Geneva Convention deals with - [SABAS][]",
+      "options": [
+        "Women's rights",
+        "Peace and conflict",
+        "International trade",
+        "Arms trafficking"
+      ],
+      "correct_answer": null,
+      "correct_index": null,
+      "explanation": "জেনেভা কনভেনশন যুদ্ধ পরিচালনার নিয়মাবলী বা কন্ডাক্ট অফ ওয়ার-এর সাথে সম্পর্কিত.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "65abec0d-9403-45ed-aef7-370f2216d299",
+      "question": "জেনেভা কনভেনশন হলো - [SABAS][]",
+      "options": [
+        "বাণিজ্য সম্মেলন",
+        "বিচার বিভাগীয় সম্মেলন",
+        "যুদ্ধ বিরতিকরণ সম্মেলন",
+        "যুদ্ধবন্দিদের প্রতি আচরণ বিধি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জেনেভা কনভেনশন মূলত যুদ্ধবন্দিদের প্রতি মানবিক আচরণ নিশ্চিত করার বিধিবিধান.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "2e9cdaee-366c-4310-aa0a-0bb0588217c1",
+      "question": "জেনেভা কনভেনশনস' হলো কতগুলো- [SABAS][]",
+      "options": [
+        "মানবাধিকার চুক্তি",
+        "সামরিক চুক্তি",
+        "যুদ্ধচুক্তি",
+        "অর্থনৈতিক চুক্তি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জেনেভা কনভেনশনসমূহকে আন্তর্জাতিক মানবাধিকার চুক্তি হিসেবে গণ্য করা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "85ae9893-90ab-47e6-9c20-62f2929bcc4a",
+      "question": "জেনেভা কনভেনশন' কত সালে স্বাক্ষরিত হয়? [SABAS][]",
+      "options": [
+        "১৯৪৫",
+        "১৯৪৭",
+        "১৯৪৯",
+        "১৯৫৩"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আধুনিক জেনেভা কনভেনশন ১৯৪৯ সালে স্বাক্ষরিত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "5128a517-f3ec-47ef-9e53-3dc4db932fdd",
+      "question": "When was the Geneva Convention on prisoners of war signed? [SABAS][]",
+      "options": [
+        "August 14, 1947",
+        "August 12, 1949",
+        "January 10, 1966",
+        "September 17, 1978"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যুদ্ধবন্দিদের সুরক্ষা বিষয়ক জেনেভা কনভেনশনটি ১২ আগস্ট, ১৯৪৯ সালে স্বাক্ষরিত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "d4cda9cd-031e-469f-879d-db2e91773b91",
+      "question": "যুদ্ধ ও সশস্ত্র সংঘর্ষ সংক্রান্ত আইন প্রণয়ন বিষয়ে ১৯৪৯ সালের জেনেভা কনভেনশনসমূহ অভিহিত - [SABAS][]",
+      "options": [
+        "দুটি রেডক্রস কনভেনশন' নামে",
+        "তিনটি রেডক্রস কনভেনশন' নামে",
+        "চারটি রেডক্রস কনভেনশন' নামে",
+        "পাঁচটি রেডক্রস কনভেনশন' নামে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১৯৪৯ সালের জেনেভা কনভেনশনসমূহকে একত্রে 'চারটি রেডক্রস কনভেনশন' নামে অভিহিত করা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "74d3b423-b282-4762-a3f1-8ab3d7308bd3",
+      "question": "কোনো যুদ্ধে সংঘটিত গণহত্যার বিচারে বেসামরিক জনগণের নিরাপত্তা-বিষয়ক কোন কনভেনশনটি প্রাসঙ্গিক? [SABAS][]",
+      "options": [
+        "প্রথম কনভেনশন",
+        "দ্বিতীয় কনভেনশন",
+        "তৃতীয় কনভেনশন",
+        "চতুর্থ কনভেনশন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বেসামরিক জনগণের নিরাপত্তা ও সুরক্ষার বিষয়টি জেনেভা কনভেনশনের চতুর্থ কনভেনশনের অন্তর্ভুক্ত.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "fc74b9cc-c4d2-4e50-959c-0a5657b28f83",
+      "question": "উইনস্টন চার্চিল কোন সালে সাহিত্যে নোবেল পুরস্কার পান? [SABAS][]",
+      "options": [
+        "১৯৪৩",
+        "১৯৫৩",
+        "১৯৪৮",
+        "১৯৪৫"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উইনস্টন চার্চিল ১৯৫৩ সালে সাহিত্যে নোবেল পুরস্কার লাভ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "92787b9c-9708-42e5-8f68-f976e4bb4c2f",
+      "question": "কোন ব্রিটিশ প্রধানমন্ত্রী সাহিত্যে নোবেল পুরস্কার পান? [SABAS][]",
+      "options": [
+        "মার্গারেট থ্যাচার",
+        "উইনস্টন চার্চিল",
+        "জেমস কালাহার",
+        "এডওয়ার্ড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্রিটিশ প্রধানমন্ত্রী উইনস্টন চার্চিল সাহিত্যে নোবেল পুরস্কার পেয়েছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "63dac620-1372-42d4-93d8-818ed0231a58",
+      "question": "একজন রাজনীতিবিদ্ কিন্তু সাহিত্যে নোবেল পুরস্কার পেয়েছেন-- [SABAS][]",
+      "options": [
+        "চার্চিল",
+        "কিসিঞ্জার",
+        "দ্য গল",
+        "রুজভেল্ট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "উইনস্টন চার্চিল রাজনীতিবিদ্ হওয়া সত্ত্বেও সাহিত্যে নোবেল পুরস্কার পান।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "e94c74a1-ecf5-4673-875f-3d3b103396fc",
+      "question": "Anne Frank wrote her world famous diary during second world war hiding in- [SABAS][]",
+      "options": [
+        "Germany",
+        "Holland",
+        "England",
+        "Poland"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অ্যানা ফ্রাঙ্ক দ্বিতীয় বিশ্বযুদ্ধের সময় হল্যান্ডে লুকিয়ে থাকার সময় তার বিখ্যাত ডায়েরিটি লিখেছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "07c10457-7a85-4dce-9bb5-7c343167fce1",
+      "question": "What is not the work of Winston Churchill? [SABAS][]",
+      "options": [
+        "History of the English-Speaking People",
+        "History of the Second World War",
+        "Far From the Madding Crowd",
+        "Life in marlborough"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "টমাস হার্ডির লেখা উপন্যাস হলো 'Far From the Madding Crowd'।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "8d90c46e-4f1f-41c6-bd9d-172e56df1d61",
+      "question": "কর্নার স্টোন অব পিস' এই স্মৃতিসৌধটি সম্প্রতি স্থাপিত হয়েছে - [SABAS][]",
+      "options": [
+        "ম্যাকাও",
+        "হাইতি",
+        "ওকিনাওয়া",
+        "ভিয়েতনাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ওকিনাওয়া যুদ্ধের স্মৃতি রক্ষার্থে 'কর্নার স্টোন অব পিস' ওকিনাওয়ায় স্থাপিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "b59608d5-0a1f-474e-ab27-d67e9e9dc928",
+      "question": "জাপানে মার্কিন যুক্তরাষ্ট্রের স্থায়ী ঘাঁটি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "হিরোশিমা",
+        "ওসাকা",
+        "ওকিনাওয়া",
+        "টোকিও"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দ্বিতীয় বিশ্বযুদ্ধের পর মার্কিন বাহিনী ওকিনাওয়া দ্বীপে তাদের স্থায়ী সামরিক ঘাঁটি স্থাপন করে।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "e09df57d-ad09-4acc-87fb-fa1b88312f03",
+      "question": "স্ট্যাচু অব পিস' কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "নিউইয়ার্ক",
+        "লন্ডন",
+        "সিউল",
+        "রোম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জাপানি সেনাদের যৌন নির্যাতনের শিকার নারীদের স্মরণে দক্ষিণ কোরিয়ার সিউলে এই ভাস্কর্যটি স্থাপিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "2b196137-f588-41ce-a86d-0b3fa6121f2f",
+      "question": "স্ট্যাচু অব পিস' (Statue of peace) কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "নাগাসাকি",
+        "নিউইয়ার্ক",
+        "টরেন্টো",
+        "হিরোশিমা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পারমাণবিক বোমা বিস্ফোরণে নিহতদের স্মরণে জাপানের নাগাসাকিতে 'শান্তি পার্ক' বা স্ট্যাচু অব পিস স্থাপন করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "f46a1a5a-cad6-4e8f-b0e5-df33e992864f",
+      "question": "Statue of peace is situated in which country? [SABAS][]",
+      "options": [
+        "USA",
+        "UK",
+        "Germany",
+        "Japan"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জাপানের নাগাসাকিতে পারমাণবিক হামলায় নিহতদের স্মরণে এই স্ট্যাচু বা স্মৃতিসৌধটি অবস্থিত।",
+      "images": []
+    }
+  ]
+}

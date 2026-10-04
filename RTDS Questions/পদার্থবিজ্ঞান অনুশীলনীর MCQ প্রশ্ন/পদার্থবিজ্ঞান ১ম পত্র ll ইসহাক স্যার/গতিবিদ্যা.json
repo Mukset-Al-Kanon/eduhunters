@@ -1,0 +1,820 @@
+{
+  "title": "ইসহাক স্যার || পদার্থ ১ম পত্র || ৩য় অধ্যায়",
+  "category": "পদার্থবিজ্ঞান অনুশীলনীর MCQ প্রশ্ন > পদার্থবিজ্ঞান ১ম পত্র ll ইসহাক স্যার",
+  "duration_minutes": 30,
+  "total_questions": 58,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "127495",
+      "question": "20ms-¹ বেগে গতিশীল একটি বস্তুর বেগ 2ms¹ হারে হ্রাস পায়। থেমে যাওয়ার আগে বস্তুটি কত দূরত্ব অতিক্রম করবে?",
+      "options": [
+        "50m",
+        "200m",
+        "100m",
+        "120m"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "127496",
+      "question": "একটি গতিশীল বস্তুর সরণের সমীকরণ x = (4t² + 3t)m.2s পরবস্তুটির বেগ হবে?",
+      "options": [
+        "3ms^-1",
+        "8ms^-1",
+        "11ms^-1",
+        "19ms^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "127497",
+      "question": "একটি বস্তু স্থির অবস্থা হতে 4 ms-² সমত্বরণে যাত্রা শুরু করলো 6s পর বস্তুটির বেগ কত হবে?",
+      "options": [
+        "24ms^-1",
+        "12ms^-1",
+        "16ms^-1",
+        "18ms^-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "v=u+ at = 0 + (4 × 6) = 24ms^-1"
+    },
+    {
+      "question_no": 4,
+      "id": "127498",
+      "question": "প্রাসের গতিপথের যেকোনো বিন্দুতে ত্বরণের অনুভূমিক উপাংশ-",
+      "options": [
+        "শূন্য",
+        "g",
+        "g/2",
+        "-g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অনুভূমিক বরাবর প্রাসের ত্বরণ, ax = 0 উল্লম্ব বরাবর প্রাসের ত্বরণ, ay=-g হয়।"
+    },
+    {
+      "question_no": 5,
+      "id": "127499",
+      "question": "একটি হাতঘড়ির মিনিটের কাঁটার কৌণিক বেগ কত?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "127500",
+      "question": "অনুভূমিক বরাবর নিক্ষিপ্ত বস্তুর গতিপথ-",
+      "options": [
+        "উপবৃত্তাকার",
+        "পরাবৃত্তাকার",
+        "বৃত্তাকার",
+        "সরলরৈখিক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অনুভূমিক বরাবর নিক্ষিপ্ত বস্তুর গতিপথ পরাবৃত্তাকার"
+    },
+    {
+      "question_no": 7,
+      "id": "127501",
+      "question": "15 cm দীর্ঘ একটি ঘড়ির ঘন্টার কাঁটার প্রান্তের রৈখিক বেগ কত?",
+      "options": [
+        "2.18 × 10-^3 cms^-1",
+        "0.22 × 10^-4 cms^-1",
+        "1.31 × 10^-3 cms ^-1",
+        "1.31 × 10^-3 cms^-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "127502",
+      "question": "A ও B দুটি গাড়ি যথাক্রমে 10 kmh^-1 ও 20kmh^-1 বেগে একই দিকে চলছে। A এর সাপেক্ষে B এর আপেক্ষিক বেগ-",
+      "options": [
+        "10kmh^-1 সামনের দিকে",
+        "20 kmh^-1 সামনের দিকে",
+        "20kmh^-1 পিছনের দিকে",
+        "30kmh^-1 সামনের দিকে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "A এর সাপেক্ষে B এর আপেক্ষিক গতি (20-10) kmh^-1 = 10 kmh^-1 সামনের দিকে।"
+    },
+    {
+      "question_no": 9,
+      "id": "127503",
+      "question": "প্রাসের সর্বাধিক উচ্চতার রাশিমালা-",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "127504",
+      "question": "প্রাসের নিক্ষেপ বিন্দু ও পতন বিন্দুর মধ্যবর্তী দূরত্ব হলো-",
+      "options": [
+        "সরণ",
+        "দূরত্ব",
+        "পাল্লা",
+        "অভিক্ষেপ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রাসের প্রক্ষেপণ বিন্দু হতে পতন বিন্দুর মধ্যবর্তী অনুভূমিক দূরত্বকে অনুভূমিক পাল্লা বা পাল্লা বলে।"
+    },
+    {
+      "question_no": 11,
+      "id": "127505",
+      "question": "পড়ন্ত বস্তুর ক্ষেত্রে গ্যাললিও এর সূত্র",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "স্থির অবস্থান থেকে বিনা বাধায় পড়ন্ত বস্তুর নির্দিষ্ট সময় t-এ প্রাপ্তবেগ v ওই সময়ের সমানুপাতিক (পড়ন্ত বস্তুর ২য় সূত্র)।"
+    },
+    {
+      "question_no": 12,
+      "id": "127506",
+      "question": "একটি পাখা প্রতি মিনিটে ৩০ বার ঘুরছে। এর কৌণিক বেগ কত?",
+      "options": [
+        "π rads^-1",
+        "2 rads^-1",
+        "15 rads^-1",
+        "60π rads^-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "127507",
+      "question": "একটি কণা 2m ব্যাসার্ধের বৃত্তাকার পথে প্রতি মিনিটে 30 বার আবর্তন করে। এর রৈখিক বেগ কত?",
+      "options": [
+        "πms^-1",
+        "4π ms^-1",
+        "2π ms^-1",
+        "0.5πms^-1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "127508",
+      "question": "একটি ক্রিকেট বলকে 49 ms-1 বেগে খাড়া ওপরের দিকে নিক্ষেপ করলে কত সময় পর তা আবার পূর্বের অবস্থানে ফিরে আসবে?",
+      "options": [
+        "20s",
+        "49s",
+        "15s",
+        "10s"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "127509",
+      "question": "একটি প্রাসের গতির সর্বোচ্চ বিন্দুতে এর বেগ এবং ত্বরণের অভিমুখ-",
+      "options": [
+        "পরস্পরের সমান্তরাল কোণে আনত",
+        "পরস্পরের সাথে 45°",
+        "পরস্পরের সমকোণে",
+        "পরস্পরের বিপরীত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রাসের সর্বাধিক উচ্চতায় বেগ ও ত্বরণের মধ্যবর্তী কোণ 90° হয়।"
+    },
+    {
+      "question_no": 16,
+      "id": "127510",
+      "question": "সর্বাধিক পাল্লার জন্য প্রাসকে অনুভূমিকের সাথে কত কোণে নিক্ষেপ করতে হবে?",
+      "options": [
+        "30°",
+        "45°",
+        "60°",
+        "90°"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "127663",
+      "question": "একটি পাথরখন্ডকে ভূপৃষ্ঠ থেকে খাড়া ওপরের দিকে তুলতে থাকলে এর ওপর কয়টি বল ক্রিয়া করে?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পাথরখন্ডকে খাড়া ওপরের দিকে তুলতে থাকলে এর\r\nউপরে দুইটা বল ক্রিয়া করবে। একটা হলো ওপরের দিকের\r\nবল আরেকটি হলো ওজন।"
+    },
+    {
+      "question_no": 18,
+      "id": "127664",
+      "question": "একটি বস্তুকে Vo আদিবেগে খাড়া ওপরের দিকে নিক্ষেপ করা হলো। নিচের কোন রাশিটি এর সর্বোচ্চ উচ্চতা নির্দেশ করে?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "127665",
+      "question": "70 m উঁচু দালানের ছাদ থেকে একটি পাথর ছেড়ে দিলে ভূমিতে পৌঁছতে এর কত সময় লাগবে?",
+      "options": [
+        "1.9s",
+        "3.57s",
+        "3.8s",
+        "14.28s"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "127666",
+      "question": "প্রক্ষেপকের বিচরণকালের সমীকরণ কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "127667",
+      "question": "একটি বস্তুকে অনুভূমিকের সাথে 45° কোণে 20ms-¹ বেগে নিক্ষেপ করলে কত দূরে গিয়ে পড়বে?",
+      "options": [
+        "10m",
+        "40.8m",
+        "5m",
+        "20m"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "127668",
+      "question": "একটি বস্তুকে খাড়া ওপরের দিকে নিক্ষেপ করলে সর্বোচ্চ উচ্চতায় পৌছার সময়-",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "127669",
+      "question": "বৃত্তাকার পথে 72 km/h সমদ্রুতিতে চলমান কোনো গাড়ির কেন্দ্রমুখী ত্বরণ 1ms-2 হলে, বৃত্তাকার পথের ব্যাসার্ধ কত?",
+      "options": [
+        "400m",
+        "300m",
+        "150m",
+        "200m"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "127670",
+      "question": "1 rps = ?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "127671",
+      "question": "একটি বল 19.6ms^-1 গতিতে সোজা ওপরে ছোড়া হলো।এটা সর্বোচ্চ কত উচ্চতায় পৌঁছাতে পারবে?",
+      "options": [
+        "9.8m",
+        "4.9m",
+        "1m",
+        "19.6m"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "127672",
+      "question": "একটি বস্তুকে 4.9ms-1 বেগে খাড়া ওপরের দিকে ছোড়া হলো। বস্তুটি কতক্ষণ শূন্যে থাকবে?",
+      "options": [
+        "2sec",
+        "1sec",
+        "3sec",
+        "4sec"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "127673",
+      "question": "অনুভূমিকের সাথে 45° কোণে নিক্ষিপ্ত একটি বস্তুর অনুভূমিক পাল্লা 100m। সর্বোচ্চ উচ্চতা কত?",
+      "options": [
+        "14.43m",
+        "17.68m",
+        "25m",
+        "43m"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "127674",
+      "question": "প্রাসের গতিপথের সর্বোচ্চ উচ্চতায়-",
+      "options": [
+        "বেগ শূন্য",
+        "স্থিতিশক্তি শূন্য",
+        "বেগ ও ত্বরণের ডট গুণফল শূন্য",
+        "বেগ ও ত্বরণের ক্রস গুণফল শূন্য"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রাসের গতিপথের সর্বোচ্চ উচ্চতায় বেগ ও ত্বরণের মধ্যবর্তী\r\nকোণ 90° হয়।ফলে বেগ ও ত্বরণের ডট গুণফল শূন্য হয়।"
+    },
+    {
+      "question_no": 29,
+      "id": "127675",
+      "question": "তির্যকভাবে প্রক্ষিপ্ত বস্তুর গতি কীরূপ?",
+      "options": [
+        "একমাত্রিক অসমত্বরণ সম্পন্ন",
+        "একমাত্রিক সমত্বরণ সম্পন্ন",
+        "দ্বিমাত্রিক অসমত্বরণ সম্পন্ন",
+        "দ্বিমাত্রিক সমত্বরণ সম্পন্ন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তির্যকভাবে প্রক্ষিপ্ত বস্তুর গতি দ্বিমাত্রিক সমত্বরণ\r\nসম্পন্ন"
+    },
+    {
+      "question_no": 30,
+      "id": "127676",
+      "question": "যদি কোনো প্রাসের সর্বাধিক অনুভূমিক পাল্লা R হয়, তবে তার আরোহিত সর্বোচ্চ উচ্চতা হবে-",
+      "options": [
+        "4R",
+        "R/2",
+        "R/4",
+        "2R"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "127677",
+      "question": "প্রাসের সর্বাধিক উচ্চতায় বিভবশক্তি ও গতিশক্তির অনুপাত কত?",
+      "options": [
+        "1:2",
+        "1:1",
+        "3:1",
+        "3:2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রাসের সর্বাধিক উচ্চতায় বিভবশক্তি ও গতিশক্তির\r\nঅনুপাত 3:1"
+    },
+    {
+      "question_no": 32,
+      "id": "127679",
+      "question": "",
+      "options": [
+        "সমবেগ",
+        "সমত্বরণ",
+        "সমমন্দন",
+        "অসম ত্বরণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "127680",
+      "question": "একটি বন্দুকের গুলি কোনো দেওয়ালের মধ্যে 0.05 m প্রবেশ করার পর অর্ধেক বেগ হারায়। গুলিটি দেওয়ালের মধ্যে আর কতদূর প্রবেশ করতে পারবে?",
+      "options": [
+        "0.02 m",
+        "0.33 m",
+        "1.67 m",
+        "0.52 m"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "127681",
+      "question": "একটি ঘড়ির মিনিটের কাঁটার কম্পাঙ্ক কত?",
+      "options": [
+        "2.78 Hz",
+        "2.78×10-¹ Hz",
+        "2.78 x10-² Hz",
+        "2.78×10-⁴Hz"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "127682",
+      "question": "পরিবর্তনশীল ত্বরণে গতিশীল কোনো বস্তুর অতিক্রান্ত দূরত্ব নির্ণয়ে ব্যবহৃত হয়-",
+      "options": [
+        "s=Vo+1/2at^2",
+        "s=Vo+1/2a(2t-1)",
+        "s=Vo+1/2g(2t-1)",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "127683",
+      "question": "0.01 m দৈর্ঘ্যের একটি ঘড়ির মিনিটের কাঁটার প্রান্তীয় বিন্দুর রৈখিক বেগের মান কত?",
+      "options": [
+        "1.54× 10-⁵ ms-1",
+        "1.64×10-⁵ ms-1",
+        "1.74×10-⁵ ms-¹",
+        "1.84× 10-⁵ms¹"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "127684",
+      "question": "মুক্তভাবে পড়ন্ত কোনো বস্তুর 1s, 2s, 3s এ অতিক্রান্ত দূরত্বের অনুপাত-",
+      "options": [
+        "1:2:3",
+        "1:4:9",
+        "1:3:9",
+        "1:3:5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "127685",
+      "question": "একটি প্রক্ষেপককে অনুভূমিকের সাথে 60° কোণে 3ms^-1 বেগে প্রক্ষেপ করা হলে সর্বোচ্চ উচ্চতায় প্রক্ষেপকটির বেগ কত হবে?",
+      "options": [
+        "",
+        "3ms-¹",
+        "",
+        "0 ms-¹"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "127686",
+      "question": "স্থির অবস্থান থেকে 100 kg ভরের একটি গাড়ি অনুভূমিকের সাথে 30° কোণে 20m দূরত্বের একটি আনত তল বেয়ে নামছে। গাড়িটির বেগ-",
+      "options": [
+        "0.8 ms-¹",
+        "14 ms-¹",
+        "98 ms-¹",
+        "196 ms-¹"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "127687",
+      "question": "সর্বোচ্চ উচ্চতায় একটি প্রাসের দ্রুতি প্রারম্ভিক দ্রুতির অর্ধেক । প্রক্ষেপণ কোণ-",
+      "options": [
+        "60°",
+        "15°",
+        "30°",
+        "45°"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "127688",
+      "question": "একই ভরের দুটি বস্তুকে একই বেগে অনুভূমিক তলের সাথে 60° ও 30° কোণে ছোঁড়া হলো। কোনটি সমান হবে?",
+      "options": [
+        "ভ্রমণকাল",
+        "প্রক্ষেপণ সীমা",
+        "সর্বাধিক উচ্চতা",
+        "এদের সবগুলো"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "127689",
+      "question": "একজন লোক একটি পাথরকে উল্লম্বভাবে সর্বোচ্চ h m উচ্চতা পর্যন্ত ছুঁড়তে পারে। ওই একই লোক অনুভূমিক দিকে সর্বোচ্চ কত দূরত্ব পর্যন্ত ছুঁড়তে পারবে?",
+      "options": [
+        "",
+        "h m",
+        "2h m",
+        "3h m"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "127690",
+      "question": "একটি বস্তুকে মিনারের শীর্ষ থেকে ফেলা হলে বস্তুটি 3sec এ মিনারের অর্ধেক উচ্চতা অতিক্রম করে। কতক্ষণ পরে বস্তুটি ভূমিতে পৌঁছাবে?",
+      "options": [
+        "3.6 s",
+        "4.24 s",
+        "3.71 s",
+        "6s"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "127691",
+      "question": ". প্রক্ষেপণ কোণ কত হলে একটি প্রাসের ক্ষেত্রে সর্বাধিক উচ্চতা ও অনুভূমিক পাল্লা সমান হবে?",
+      "options": [
+        "θ = tan-¹ 2",
+        "θ = tan-¹ 3",
+        "θ = tan-¹ 4",
+        "θ = tan-¹ 5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "127692",
+      "question": "একটি বস্তুকণা X অক্ষ বরাবর গমন করছে এবং কোনো মুহূর্তে এর সরণ, x(t) = 2t^3 -3t² +4t। কণাটির ত্বরণ যখন শূন্য তখন এর বেগ কত? [সকল রাশি S.I এককে প্রকাশিত)",
+      "options": [
+        "3.5 ms-¹",
+        "2.5 ms-¹",
+        "4.5 ms-¹",
+        "5 ms-¹"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "127693",
+      "question": "একটি বস্তুর বেগ v(t) = (6t^3 + 2t)ms-¹। 2 sec পর বস্তুটির সরণ কত?",
+      "options": [
+        "20m",
+        "26 m",
+        "28 m",
+        "56 m"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "127694",
+      "question": "একটি বস্তুকে 196 ms^-1 বেগে খাড়া ওপরের দিকে নিক্ষেপ করা হলো। 10 s পর এর বেগ কত হবে?",
+      "options": [
+        "98 ms-¹",
+        "78 ms-¹",
+        "68 ms-¹",
+        "88 ms-¹"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "127695",
+      "question": "t সময় পরে x = 6t এবং y = 8t -5t² হলে ওই মুহূর্তে প্রাসের নিক্ষেপণ বেগ হবে-",
+      "options": [
+        "10 ms-¹",
+        "5 ms-¹",
+        "6 ms-1",
+        "8 ms-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "127696",
+      "question": ".খাড়া ওপরের দিকে নিক্ষিপ্ত বস্তুর অনুভূমিক দূরত্ব R এর মান কত?",
+      "options": [
+        "R = R max",
+        "",
+        "",
+        "R = 0"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "127697",
+      "question": "100 m দীর্ঘ একটি ট্রেন 45 kmh-¹ বেগে চলে 1 km দীর্ঘ একটি ব্রিজ অতিক্রম করে। ব্রিজটি অতিক্রম করতে ট্রেনটি কত সময় লাগবে?",
+      "options": [
+        "10 s",
+        "20 s",
+        "40 s",
+        "88 s"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 51,
+      "id": "127698",
+      "question": "",
+      "options": [
+        "অধিবৃত্ত",
+        "পরাবৃত্ত",
+        "উপবৃত্ত",
+        "আয়তাকার পরাবৃত্ত"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 52,
+      "id": "127699",
+      "question": "একটি বেলুন 4.9 ms-¹ বেগে সোজা ওপরে উঠছে। যখন বেলুনটির উচ্চতা 200 m, তখন বেলুন থেকে একটি পাথর ফেলা হলো। পাথরটি সর্বাধিক কত উচ্চতায় উঠবে?",
+      "options": [
+        "1.225 m",
+        "6.25 m",
+        "4.11m",
+        "3.225 m"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "127700",
+      "question": "ভূমির সাথে 30° কোণে আনত একটি মসৃণ তল AB এর সর্বোচ্চ বিন্দু A থেকে একটি বস্তু গড়িয়ে 10 sec পরে সর্বনিম্ন বিন্দু Bতে আসল। ভূমি হতে A এর উচ্চতা হলো-",
+      "options": [
+        "212.25 m",
+        "122.5 m",
+        "368.48 m",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "127701",
+      "question": "একটি ট্রেন 50 kmh-1 বেগে চলা অবস্থায় ব্রেক কষে 60 cms-² মন্দন সৃষ্টি করা হলো। ট্রেনটি কতদূর গিয়ে থাকবে ?",
+      "options": [
+        "160.55 m",
+        "150.55 m",
+        "277.89m",
+        "158 m"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 55,
+      "id": "127702",
+      "question": "কোনো একটি বস্তুকে ভূপৃষ্ঠ হতে কত কোণে 45 ms-¹ বেগে ছুড়লে 200 m দূরে গিয়ে পড়বে?",
+      "options": [
+        "39.72°",
+        "37.72°",
+        "35.72°",
+        "36.72°"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 56,
+      "id": "127703",
+      "question": "22 ms-² মন্দন সৃষ্টিকারী বল প্রয়োগ করে একটি গাড়িকে 44 m দূরে থামানো হলে ওই গাড়িটির আদিবেগ কত?",
+      "options": [
+        "40 ms-¹",
+        "36 ms-¹",
+        "22 ms -¹",
+        "44 ms-¹"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "127704",
+      "question": "একটি দেয়াল ঘড়ির মিনিটের কাঁটার দৈর্ঘ্য 20cm হলে এর প্রান্তের রৈখিক বেগ কত?",
+      "options": [
+        "3.49×10-⁴ ms-¹",
+        "9.34×10-⁴ ms-1",
+        "3.94 ×10-³ ms-¹",
+        "8.34 ×10-⁴ ms-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "127705",
+      "question": "অনুভূমিকের সাথে 30° কোণ করে ভূপৃষ্ঠ থেকে 50 ms-¹ বেগে বুলেট ছোড়া হলো। বুলেটটি 60 m দূরে অবস্থিত দেওয়ালকে কত উচ্চতায় আঘাত করবে?",
+      "options": [
+        "13.65 m",
+        "25.23 m",
+        "15.825 m",
+        "29.94"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

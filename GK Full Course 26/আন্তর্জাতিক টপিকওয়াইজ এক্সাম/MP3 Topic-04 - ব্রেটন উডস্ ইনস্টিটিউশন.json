@@ -1,0 +1,791 @@
+{
+  "exam_id": 10480,
+  "title": "MP3 Topic-04 : ব্রেটন উডস্ ইনস্টিটিউশন",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "জাতিসংঘ-০২ Exam",
+  "duration_minutes": 26,
+  "total_questions": 52,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "2b50637b-6fcf-4c74-aa6f-1eac5a7ff77a",
+      "question": "১. কোনটি ‘Bretton Woods Institutes’ এর অন্তর্ভুক্ত? [৪২তম বিসিএস (বিশেষ)][]",
+      "options": [
+        "IDB",
+        "IMF",
+        "WTO",
+        "ADB"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্রেটন উডস সম্মেলনে গঠিত বিশ্বব্যাংক ও IMF-কে একত্রে ব্রেটন উডস ইনস্টিটিউশন বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "2492f573-1b72-4a60-8cf8-33e8fc6ad643",
+      "question": "২. The World Bank and the IMF are the result of which of the following conferences?/ বিশ্বব্যাংক এবং আই.এম.এফ কোন আলোচনাসভার ফলশ্রুতিতে গঠিত হয়? [34th BCS][]",
+      "options": [
+        "Rome conference",
+        "Geneva conference",
+        "London conference",
+        "Bretton Woods conference"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "১৯৪৪ সালের ব্রেটন উডস সম্মেলনে বিশ্বব্যাংক এবং আইএমএফ প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "5464be42-6367-44cb-9b4d-dcb48245e740",
+      "question": "৩. IMF (International Monetary Fund) is the result of- [34th BCS][]",
+      "options": [
+        "Havana Conference",
+        "Geneva Conference",
+        "Bretton woods Conference",
+        "Rome Conference"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১৯৪৪ সালের জুলাই মাসে মার্কিন যুক্তরাষ্ট্রের ব্রেটন উডস সম্মেলনে আইএমএফ গঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "315cdd9e-b5eb-4403-a801-bfc2e36bb12b",
+      "question": "৪. ব্রেটন উডস ইনস্টিটিউশন বলা হয়- [২৪তম বিসিএস][]",
+      "options": [
+        "ডব্লিউ টি ও",
+        "বিশ্বব্যাংক ও আইএমএফ",
+        "জাতিসংঘ",
+        "এডিবিকে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৪৪ সালের ব্রেটন উডস চুক্তির মাধ্যমে বিশ্বব্যাংক ও আইএমএফ জন্ম নেওয়ায় এদের ব্রেটন উডস ইনস্টিটিউশন বলে।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "b9d9ebd1-e3a5-4f1f-bf90-2db39d1e377c",
+      "question": "৫. ব্রেটন উডস কনসেনসাস এর মধ্যে থেকে জন্ম নেয়া সংস্থা কোনটি? [রাবি (ই ইউনিট): ১৯-২০][]",
+      "options": [
+        "HSBC ব্যাংক",
+        "চায়না উন্নয়ন ব্যাংক",
+        "ব্রিকস্ ব্যাংক",
+        "বিশ্ব ব্যাংক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্রেটন উডস সম্মেলনের ফলশ্রুতিতে বিশ্বব্যাংক ও আইএমএফ প্রতিষ্ঠিত হয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "5d6feeda-a3b4-474f-9468-885ac6c5db01",
+      "question": "৬. What does IMF stand for? [BPSC Junior Instructor: 23][]",
+      "options": [
+        "International Maritime Federation",
+        "International Marketing Forum",
+        "International Monetary Fund",
+        "Intravenous Micro Fluid"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "IMF-এর পূর্ণরূপ হলো International Monetary Fund বা আন্তর্জাতিক মুদ্রা তহবিল।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "c414e265-d807-4ce1-b603-ae5692d41db5",
+      "question": "৭. IMF is a (an) - [Mercantile Bank Ltd. Officer: 06][]",
+      "options": [
+        "Multinational Bank (বহুজাতিক ব্যাংক)",
+        "International Financial Institution (আন্তর্জাতিক আর্থিক প্রতিষ্ঠান)",
+        "ন্যাশনাল ব্যাংক (দেশীয় ব্যাংক)",
+        "UN Body (জাতিসংঘের অঙ্গসংস্থা)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আইএমএফ হলো একটি প্রধান আন্তর্জাতিক আর্থিক প্রতিষ্ঠান।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "748f88a2-426d-4106-85d3-091da40ad1a3",
+      "question": "৮. আই.এম.এফ এর প্রধান কাজ- [রাবি (অর্থনীতি): ০৭-০৮][]",
+      "options": [
+        "বাণিজ্য সম্প্রসারণ",
+        "আন্তর্জাতিক আর্থিক ব্যবস্থাপনা",
+        "ঋণ প্রদান",
+        "অর্থনৈতিক উন্নয়ন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আন্তর্জাতিক মুদ্রা তহবিলের মূল কাজ আন্তর্জাতিক আর্থিক ব্যবস্থার স্থিতিশীলতা রক্ষা করা।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "488067a3-81f4-4ec3-9541-47aecd88bc74",
+      "question": "৯. International Monetary Fund was established in the year- [NCC Bank Ltd. Probationary Officer: 09] Or, আন্তর্জাতিক মুদ্রা তহবিল কোন সালে গঠিত হয়? [৪] তম বিসিএস][]",
+      "options": [
+        "১৯৪৪ সালে",
+        "১৯৪৫ সালে",
+        "১৯৪৮ সালে",
+        "১৯৪৯ সালে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আইএমএফ গঠিত হয় ১৯৪৪ সালে এবং কার্যক্রম শুরু করে ১৯৪৫ সালে।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "85109a9c-dae0-4684-92ad-aa3f27f8b7cf",
+      "question": "১০. আন্তর্জাতিক অর্থ তহবিল (IMF) কবে হতে এর কার্যক্রম শুরু করে? [১৮তম বিসিএস][]",
+      "options": [
+        "১৯৪৫ সাল হতে",
+        "১৯৪৬ সাল হতে",
+        "১৯৪৭ সাল হতে",
+        "১৯৪৮ সাল হতে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আইএমএফ আনুষ্ঠানিকভাবে ১৯৪৭ সালের ১ মার্চ থেকে তাদের কার্যক্রম শুরু করে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "90940224-2629-4711-827e-3d2c7c691ee4",
+      "question": "১১. আন্তর্জাতিক বিনিময় হারের স্থিতি রক্ষার প্রধান সমন্বয়কারী কোনটি? [রাবি (ই ইউনিট): ১১-১২][]",
+      "options": [
+        "IBRD",
+        "ADB",
+        "IMF",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আন্তর্জাতিক বিনিময় হারের স্থিতি রক্ষা ও ভারসাম্য বজায় রাখতে আইএমএফ প্রধান ভূমিকা পালন করে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "0fb05843-bc45-463d-ba93-e4d52c8cfeea",
+      "question": "১২. SDR - এর পূর্ণরূপ কি? [রপ্তানি উন্নয়ন ব্যুরোর সহকারী পরিচালক: ২৩][]",
+      "options": [
+        "Special Drawing Right",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এসডিআর হলো আইএমএফ কর্তৃক সৃষ্ট একটি আন্তর্জাতিক সংরক্ষিত সম্পদ বা হিসাবের একক।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "cf8f458f-1d6f-4909-8109-c2871f5c13fd",
+      "question": "১৩. Special Drawings Rights (SDRs) is related to - [Combined 9 Bank & 2 Financial Institution Senior Officer: 25/ BSEC Assitant Director: 21][]",
+      "options": [
+        "IMF",
+        "IDB",
+        "ADB",
+        "HSBC"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এসডিআর (SDR) আন্তর্জাতিক মুদ্রা তহবিল (IMF)-এর একটি হিসাবের একক।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "e514870b-14e2-4972-b53b-542896d1f83e",
+      "question": "১৪. SDR is the currency unit of- [3 Banks Assistant Engineer (IT): 20] Or, SDR যে প্রতিষ্ঠানে ব্যবহৃত একটি হিসাবের একক- [রাবি (ফিন্যান্স এন্ড ব্যাংকিং): ০২-০৩][]",
+      "options": [
+        "IDA",
+        "ADB",
+        "IBRD",
+        "IMF"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এসডিআর হলো আইএমএফ-এর নিজস্ব হিসাবের একক বা কৃত্রিম মুদ্রা।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "5d3123a9-aa9c-42b8-9063-c0bdc35c8fc0",
+      "question": "১৫. SDR (Special Drawing Rights) সুবিধা প্রবর্তনের জন্য কত সালে IMF এর গঠনতন্ত্র (Articles) সংশোধন করা হয়েছিল? [৩৭তম বিসিএস][]",
+      "options": [
+        "১৯৬৯",
+        "১৯৭১",
+        "১৯৭৫",
+        "১৯৭৮"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৯৬৯ সালে আইএমএফ-এর গঠনতন্ত্র সংশোধন করে এসডিআর সুবিধা প্রবর্তন করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "b36353f4-b084-49b0-a743-b24ff8100ba5",
+      "question": "১৬. নেতিবাচক ট্রেড ব্য্যালেন্স শোধারবার জন্য ঋণ দেয়- [স্বাস্থ্য মন্ত্রণালয়ের অধীন সহ-রসারবিদ: ০১][]",
+      "options": [
+        "IDA",
+        "IFC",
+        "IMF",
+        "IBRD"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বৈদেশিক বাণিজ্যের ঘাটতি বা নেতিবাচক ট্রেড ব্য্যালেন্স মেটাতে আইএমএফ ঋণ প্রদান করে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "b0592c45-d006-4e11-b0d2-2e1f7f12290e",
+      "question": "১৭. যে প্রতিষ্ঠান ঋণ দেয় বিশেষ করে বৈদেশিক বাণিজ্যের ভারসাম্যহীনতা হ্রাস করতে - [ডাক ও টেলিযোগাযোগ মন্ত্রণালয়ের হিসাবরক্ষককর্তা: ০৫][]",
+      "options": [
+        "বিশ্বব্যাংক",
+        "এশিয়ান উন্নয়ন ব্যাংক",
+        "আই. এফ. সি",
+        "আই.এম.এফ."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বৈদেশিক বাণিজ্যের ভারসাম্যহীনতা দূর করতে আইএমএফ সদস্য দেশগুলোকে আর্থিক সহায়তা দিয়ে থাকে।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "26dd53ab-5edd-4ee0-b5b8-6dec2e19a353",
+      "question": "The IMF helps countries with:[]",
+      "options": [
+        "Infrastructure projects",
+        "Balance of payments crises",
+        "Trade agreements",
+        "Environmental policies"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "IMF lends to countries facing balance of payments problems.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "d7667be0-c615-4a62-a73d-89331a8a0574",
+      "question": "Which international organization provides financial assistance to countries facing balance of payments problems and offers policy advice on economic issues?[]",
+      "options": [
+        "Bank for International Settlements (BIS)",
+        "International Monetary Fund (IMF)",
+        "World Trade Organization (WTO)",
+        "World Bank"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "IMF provides emergency financial assistance and policy advice to stabilize economies.",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "54e73f65-6dce-4053-8cd1-8fa559002fc3",
+      "question": "IMF has opened SARTTAC. What does it stand for?[]",
+      "options": [
+        "South Asia Regional Training & Technical Assistance Center",
+        "South Asia Regional Technical & training Assistance center",
+        "South America Regional Tecnical & Training Assistance Center",
+        "South America Regional Training & Technical Assistance Center"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "SARTTAC is the IMF's capacity development center in South Asia.",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "434799f0-43b8-4c85-b4fe-6d3b8f29cb91",
+      "question": "The world Bank is an -[]",
+      "options": [
+        "Multinational Bank",
+        "International Financial Institution",
+        "National Bank",
+        "UN Body"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The World Bank operates as an international financial institution providing loans.",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "6fef314a-b210-4623-846f-5c78670f6ef6",
+      "question": "বিশ্বব্যাংকে কোন সালে প্রতিষ্ঠিত হয়?[]",
+      "options": [
+        "১৯৪৯ সালে",
+        "১৯৪৬ সালে",
+        "১৯৮৬ সালে",
+        "১৯৪৪ সালে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিশ্বব্যাংক ১৯৪৪ সালে ব্রটন উডস কনফারেন্সে প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "7ab2964b-637d-429d-8769-cb3415626db0",
+      "question": "বিশ্বব্যাংকে কবে গঠিত হয়?[]",
+      "options": [
+        "২৫ জুন, ১৯৪৫",
+        "২৫ জুন, ১৯৪৬",
+        "২৫ জুন, ১৯৪‍৭",
+        "২৫ জুন, ১৯৪৮"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিশ্বব্যাংক আনুষ্ঠানিকভাবে ১৯৪৬ সালের ২৫ জুন কার্যক্রম শুরু করে।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "7fcd6979-361a-4438-8e04-13dda4818842",
+      "question": "বিশ্বব্যাংকের অফিসিয়াল নাম কী?[]",
+      "options": [
+        "International Bank for Reconstruction and Development",
+        "International Bank for Refractructure and Development",
+        "International Bank for Restructuring and Development",
+        "International Bank for Regulation and Development"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "IBRD হলো বিশ্বব্যাংকের মূল ঋণদানকারী প্রতিষ্ঠান।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "88641d9e-8efc-43fc-8174-62d612f608aa",
+      "question": "IBRD is popularly known as -[]",
+      "options": [
+        "World Bank",
+        "New Development Bank",
+        "IMF",
+        "AIIB Bank"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "IBRD and IDA together form the core of the World Bank.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "0c1557cf-c64f-465a-81ae-611727fef4de",
+      "question": "World Development Report নিম্নের কোন সংস্থাটির বার্ষিক প্রকাশনা?[]",
+      "options": [
+        "UNDP",
+        "World Bank",
+        "IMF",
+        "BRICS"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "World Development Report বিশ্বব্যাংক কর্তৃক প্রকাশিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "54e71aa4-c061-49b9-81b3-e122a75d1d08",
+      "question": "IBRD-এর পূর্ণরূপ কী?[]",
+      "options": [
+        "International Bank for Reconstruction and Development",
+        "International Bank for Refractructure and Development",
+        "International Bank for Restructuring & Development",
+        "International Bank for Regulation and Development"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি পুনর্গঠন ও উন্নয়নের জন্য আন্তর্জাতিক ব্যাংক।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "8d3c812c-4866-445a-81a9-1db65169867e",
+      "question": "বিশ্বব্যাংকের কোন অঙ্গ সংগঠনটি 'Soft loan window' নামে পরিচিত?[]",
+      "options": [
+        "IFC",
+        "EDI",
+        "IDA",
+        "IBRD"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "IDA দরিদ্রতম দেশগুলোকে নমনীয় শর্তে বা শূন্য সুদে ঋণ দেয়।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "802583a4-606a-41ef-bef8-12a5a3ab0cd5",
+      "question": "Which of the following is an affiliate of the International Bank of Reconstruction and Development?/ নিচের কোন সংগঠনটি পুনর্গঠন ও উন্নয়নের জন্য আন্তর্জাতিক ব্যাংক এর সাথে সম্পর্কযুক্ত?[]",
+      "options": [
+        "IDA",
+        "UNDP",
+        "UNICEF",
+        "IMF"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "IDA is an affiliate of the World Bank Group.",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "1c318571-8cc4-4137-a797-c7a3c4de558a",
+      "question": "The main object of which of the following UN agency is to help the underdeveloped countries in the task of raising their living standards?[]",
+      "options": [
+        "IMF",
+        "UNICEF",
+        "UNDP",
+        "IDA"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "IDA focuses on reducing poverty by providing loans to poor countries.",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "de2f753a-64ab-4fc1-8431-b068131558b6",
+      "question": "আন্তর্জাতিক উন্নয়ন সংস্থা দরিদ্র দেশসমূহকে যা দেয়-[]",
+      "options": [
+        "বাণিজ্যিক ঋণ",
+        "সহজ শর্তে ঋণ",
+        "ক্ষুদ্র ঋণ",
+        "শিল্প ঋণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "IDA সহজ শর্তে এবং দীর্ঘমেয়াদী ঋণ প্রদান করে থাকে।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "ee4429aa-c9c2-41eb-97dd-76166c66370d",
+      "question": "বিশ্বব্যাংকের সহযোগী প্রতিষ্ঠানের কোনটি দরিদ্রতম উন্নয়নশীল দেশগুলোতে শূন্য সুদে দীর্ঘমেয়াদী ঋণ প্রদান করে?[]",
+      "options": [
+        "International Development Association.",
+        "International Monetary Fund.",
+        "International Finance Corporation.",
+        "Asian Development Bank."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "IDA provides concessional loans and grants to the poorest countries.",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "df36bfcd-ad73-4a0c-ba13-06c738ee4ef2",
+      "question": "৩৩. IFC বলতে কোনটিকে বোঝায়?[]",
+      "options": [
+        "Indian film corporation",
+        "International Finance Corporation",
+        "Indian Forest Corporation",
+        "International Food Company"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "IFC হলো বিশ্বব্যাংকের একটি সহযোগী প্রতিষ্ঠান যা উন্নয়নশীল দেশে বেসরকারি খাতে বিনিয়োগ ও অর্থায়ন করে থাকে।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "8fe03e30-9371-46f5-86f3-3661dfc0a59f",
+      "question": "৩৪. IFC (International Finance Corporation) is the part of following Organization?/IFC (ইন্টারন্যাশনাল ফাইনান্স কর্পোরেশন) নিচের কোনটির অঙ্গসংস্থা?[]",
+      "options": [
+        "UNDP",
+        "World Bank",
+        "IMF",
+        "UNICEF"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "IFC বিশ্বব্যাংক গ্রুপের (World Bank Group) পাঁচটি প্রধান অঙ্গসংস্থার একটি।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "932ba5ed-9166-4544-a333-cadbdb79c522",
+      "question": "৩৫. বিশ্বব্যাংক সংশ্লিষ্ট কোন সংস্থাটি স্বল্প আয়ের উন্নয়নশীল দেশে বেসরকারি খাতে আর্থিক সহায়তা ও উপদেশ দিয়ে থাকে?[]",
+      "options": [
+        "IFC",
+        "IBRD",
+        "MIGA",
+        "ICSID"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "IFC উন্নয়নশীল দেশের বেসরকারি খাতে ঋণ ও পরামর্শমূলক সেবা প্রদান করে।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "e3a27033-76ee-465e-b281-6205e16f6523",
+      "question": "৩৬. MIGA is an organization of -[]",
+      "options": [
+        "EU",
+        "NAFT",
+        "World Bank",
+        "IMF"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "MIGA বিশ্বব্যাংক গ্রুপের অন্যতম একটি গুরুত্বপূর্ণ অংশ।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "db8647ad-415d-4c2e-a53f-22a6751c6376",
+      "question": "৩৭. MIGA কখন গঠিত হয়?[]",
+      "options": [
+        "১৯৮২ সনে",
+        "১৯৮৮ সনে",
+        "১৯৯৬ সনে",
+        "১৯৮৮ সনে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিশ্বব্যাংক গ্রুপের অংশ হিসেবে MIGA ১৯৮৮ সালে প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "a2c13820-b50f-45b7-838a-b5526a2c2355",
+      "question": "৩৮. কোনটি বিশ্ব ব্যাংকের কাজ নয়?[]",
+      "options": [
+        "মুদ্রা ছাপানো",
+        "অর্থনৈতিক উন্নয়নের ঋণ দান",
+        "প্রশিক্ষণ প্রদান",
+        "বিনিয়োগ উৎসাহ দান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কেন্দ্রীয় ব্যাংক বা দেশের মুদ্রাবাজার মুদ্রা ছাপে, বিশ্বব্যাংক বা এর অঙ্গসংস্থাগুলো ঋণদান ও উন্নয়নমূলক কাজ করে।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "fdfe277a-c04e-43b2-8255-9f891f741889",
+      "question": "৪০. কোনটি বিশ্বব্যাংকের অঙ্গ প্রতিষ্ঠান নয়?[]",
+      "options": [
+        "IDA",
+        "IMF",
+        "IBRD",
+        "IFC"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "IMF একটি স্বাধীন আন্তর্জাতিক আর্থিক প্রতিষ্ঠান, বিশ্বব্যাংকের অঙ্গসংস্থা নয়।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "b9227502-9aa7-48d2-afbf-7bc029254d30",
+      "question": "৪১. The watchdog of international trade is - / বিশ্ব বাণিজ্য তত্ত্বাবধায়ক কে?[]",
+      "options": [
+        "World Bank",
+        "GATT",
+        "WTO",
+        "IMF"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "WTO আন্তর্জাতিক বাণিজ্যের তত্ত্বাবধায়ক বা অভিভাবক হিসেবে কাজ করে।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "0a594c19-972b-4400-82aa-4a0a9f6f43f9",
+      "question": "৪২. WTO এর পূর্ণরূপ কী?[]",
+      "options": [
+        "World Tea Organization",
+        "World Transport Organization",
+        "World Trade Organization",
+        "World Tennis Organization"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "WTO-এর পূর্ণরূপ World Trade Organization বা বিশ্ব বাণিজ্য সংস্থা।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "913e76c0-a508-4522-938b-d5a60e512eb3",
+      "question": "৪৩. গ্যাট বাণিজ্য আলোচনা প্রথম শুরু হয় কত সালে?[]",
+      "options": [
+        "১৯৪৭",
+        "১৯৮৪",
+        "১৯৬২",
+        "১৯৯৪"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৯৪৭ সালে জেনেভায় গ্যাটের প্রাথমিক চুক্তি স্বাক্ষরিত হয় এবং বাণিজ্য আলোচনা শুরু হয়।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "2a9c56d1-5f1f-461c-858e-35723a7a5bc0",
+      "question": "৪৪. উরুগুয়ে রাউন্ডের সংলাপ কত বছর ধরে চলেছিল?[]",
+      "options": [
+        "২ বছর",
+        "৮ বছর",
+        "৫ বছর",
+        "৬ বছর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্যাটের উরুগুয়ে রাউন্ডের আলোচনা ১৯৮৬ থেকে ১৯৯৪ সাল পর্যন্ত প্রায় ৮ বছর স্থায়ী হয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "75969208-b8cd-4dff-86f7-c9a75a6d11d4",
+      "question": "৪৫. The Uruguay round negotiations led to the creation of / উরুগুয়ে রাউন্ড কোনটি সৃষ্টির সাথে সম্পর্কিত?[]",
+      "options": [
+        "BRICS",
+        "WTO",
+        "APEC",
+        "FTAA"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উরুগুয়ে রাউন্ড চুক্তির মাধ্যমেই ১৯৯৫ সালে WTO প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "e650c632-2a4a-47c8-859b-9dacc80ef984",
+      "question": "৪৬. GATT-এর পরিবর্তিত রূপ-[]",
+      "options": [
+        "ECO",
+        "EEC",
+        "IMF",
+        "WTO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "GATT পরিবর্তিত ও রূপান্তরিত হয়ে বর্তমান WTO-তে রূপ নেয়।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "7c1e5eda-557f-4f97-b4d5-4b361794397e",
+      "question": "৪৭. WTO is the successor organization of:[]",
+      "options": [
+        "GATT",
+        "League of Nations",
+        "NAFTA",
+        "IMF"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "GATT-এর উত্তরসূরি বা উত্তরাধিকারী প্রতিষ্ঠান হলো WTO।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "13c523de-845c-4fe1-9f2c-caf1382b3322",
+      "question": "৪৮. GATT কখন WTO তে রূপান্তরিত হয়?[]",
+      "options": [
+        "১৯৯০ সালে",
+        "১৯৯৫ সালে",
+        "১৯৯৬ সালে",
+        "১৯৯৭ সালে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৯৫ সালের ১ জানুয়ারি GATT আনুষ্ঠানিকভাবে WTO-এ রূপান্তরিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "3449e0fd-7113-406d-a6ce-047310ded8fd",
+      "question": "৪৯. বিশ্ব বাণিজ্য সংস্থার কার্যক্রম শুরু হয় -[]",
+      "options": [
+        "১ জানুয়ারি, ১৯৯৩",
+        "১ জানুয়ারি, ১৯৯৪",
+        "১ জানুয়ারি, ১৯৯৫",
+        "১ জানুয়ারি, ১৯৯৬"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১৯৯৫ সালের ১ জানুয়ারি থেকে WTO তার কার্যক্রম আনুষ্ঠানিকভাবে শুরু করে।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "26ee76eb-c2fa-43c4-8285-528f58f11dc6",
+      "question": "৫০. GATS stand for -[]",
+      "options": [
+        "General Agreement on Trade Supplies",
+        "General Agreement on Trade in Services",
+        "General Agreement on Tariff and Services",
+        "General Agreement on Tariff and Subsidies"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "GATS-এর পূর্ণরূপ হলো General Agreement on Trade in Services.",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "158a54a2-afc8-46a5-91ce-345b39aa52b0",
+      "question": "৫১. জিএসপি (GSP) এর পূর্ণরূপ কী?[]",
+      "options": [
+        "Generalized System of Preference",
+        "Global System of Positioning",
+        "Global Strategic Partnership",
+        "Government Support Program"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "GSP হলো উন্নত দেশসমূহ কর্তৃক উন্নয়নশীল দেশগুলোকে প্রদত্ত শুল্কমুক্ত সুবিধা বা Generalized System of Preference.",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "34f25a8b-a3fd-4b5c-885b-5bbfb8659b3d",
+      "question": "৫২. ইউরোপীয় ইউনিয়ন কর্তৃক স্বল্পোন্নত দেশসমূহকে প্রদত্ত EBA সুবিধা কোন ক্ষেত্রে প্রযোজ্য?[]",
+      "options": [
+        "বাণিজ্যের ক্ষেত্রে",
+        "যুদ্ধের ক্ষেত্রে",
+        "শিক্ষার ক্ষেত্রে",
+        "পরিবহনের ক্ষেত্রে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Everything But Arms (EBA) হলো ইইউ-এর একটি বাণিজ্য সুবিধা।",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "2cd82cbf-7ea7-4b55-a4d2-f58253462187",
+      "question": "৫৪. TRIPS agreement is prepared on ...[]",
+      "options": [
+        "Patent",
+        "Bilateral trade",
+        "Climate",
+        "Peace"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "TRIPS চুক্তিটি মূলত মেধাস্বত্ব, পেটেন্ট এবং বাণিজ্যিক অধিকার সুরক্ষার সাথে সম্পর্কিত।",
+      "images": []
+    }
+  ]
+}

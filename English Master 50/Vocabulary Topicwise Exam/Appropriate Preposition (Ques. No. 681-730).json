@@ -1,0 +1,761 @@
+{
+  "exam_id": 8172,
+  "title": "Appropriate Preposition (Ques. No. 681-730)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "Appropriate Preposition Exam (957 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "4b3d8fb5-313c-43ac-8444-0143db66cc6f",
+      "question": "He was accused ------- theft.[]",
+      "options": [
+        "to",
+        "in",
+        "for",
+        "of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "334dfde6-62b3-4fee-95ca-bead09ce52fb",
+      "question": "The man is guilty ----- abduction.[]",
+      "options": [
+        "for",
+        "with",
+        "of",
+        "against"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "b2db9481-267c-4167-bf2e-f7d54fd834a9",
+      "question": "He was charged ----- theft.[]",
+      "options": [
+        "of",
+        "with",
+        "in",
+        "for"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "eace03ec-9292-4719-ac02-159033853190",
+      "question": "He is innocent ----- the charge.[]",
+      "options": [
+        "of",
+        "with",
+        "to",
+        "on"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "20edc4f1-a89d-464e-aa87-0b0235ed1475",
+      "question": "The judge acquitted him ----- the charge.[]",
+      "options": [
+        "of",
+        "on",
+        "from",
+        "with"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "621ffa44-46b4-4e54-b1d6-da9b12e55cb2",
+      "question": "I am not good ----- translation.[]",
+      "options": [
+        "about",
+        "for",
+        "in",
+        "at"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "1efc23bc-1d2e-4a35-a24c-b11cb071b037",
+      "question": "I am not bad ----- tennis.[]",
+      "options": [
+        "in",
+        "at",
+        "with",
+        "on"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "c2d542d5-201b-49bd-9043-52137c94e300",
+      "question": "One should be mindful ----- other's comfort.[]",
+      "options": [
+        "for",
+        "in",
+        "to",
+        "of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "e8acb03c-cc62-4005-abe3-700403bbbd3d",
+      "question": "The cow live ----- grass.[]",
+      "options": [
+        "with",
+        "on",
+        "in",
+        "at"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "6c9fc8b1-4ef2-4140-8dfe-c6e1aa8e7bf9",
+      "question": "The cow feeds ----- grass.[]",
+      "options": [
+        "on",
+        "in",
+        "of",
+        "by"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "b8a32fd4-25bb-48c3-aa7e-faf2b6691bcf",
+      "question": "Feed the baby ----- milk.[]",
+      "options": [
+        "to",
+        "in",
+        "on",
+        "with"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "0996affc-57d1-4615-9701-d2dad827ec64",
+      "question": "The govt. dealers deal ----- sugar according ----- law.[]",
+      "options": [
+        "in, to",
+        "of, on",
+        "with, in",
+        "to, of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "23141dbe-b504-4c5d-98a0-b9e821905dd0",
+      "question": "Many people in this country have no roof ----- their heads.[]",
+      "options": [
+        "on",
+        "above",
+        "over",
+        "upon"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "1dbd4f0b-40a9-44b3-bd2f-a338fb62d5be",
+      "question": "He was ----- a loss ----- words.[]",
+      "options": [
+        "in, by",
+        "with, for",
+        "at, for",
+        "at, in"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "968145cf-1a06-4261-be63-529aa6efa1b2",
+      "question": "My appointment is ----- my disposal.[]",
+      "options": [
+        "under",
+        "in",
+        "at",
+        "with"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "a327540f-c709-43dc-bce5-c3865f42d019",
+      "question": "Jerry agreed to repair it ----- his own cost.[]",
+      "options": [
+        "with",
+        "at",
+        "by",
+        "from"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "181c0278-2a32-429b-8bb9-78b4c37aa44c",
+      "question": "The teacher asked the students to do exercise ----- the bottom of the page.[]",
+      "options": [
+        "on",
+        "at",
+        "in",
+        "with"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "7f48aba5-c7bf-4dde-82eb-8b35c0a8d744",
+      "question": "Alam couldn't decide to go anywhere ----- the end on holiday.[]",
+      "options": [
+        "at",
+        "to",
+        "for",
+        "in"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "9aaad2af-fcb1-4c31-a1b7-49739081a581",
+      "question": "I am going to Dhaka ----- the end of journey.[]",
+      "options": [
+        "in",
+        "at",
+        "for",
+        "into"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "7804620c-4daf-4823-abe5-ccad255ae58d",
+      "question": "He was shy at first but ----- the end he asked her to marry him.[]",
+      "options": [
+        "in",
+        "at",
+        "for",
+        "of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "cf7167b5-6ca4-4ea4-9b07-1bfb5f249fa7",
+      "question": "I was horrified ----- the sight of so much distress.[]",
+      "options": [
+        "about",
+        "at",
+        "for",
+        "with"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "adbfb35b-e48b-46c2-b1bd-3f03925dea88",
+      "question": "They shouted ----- the top of their voice.[]",
+      "options": [
+        "on",
+        "at",
+        "to",
+        "over"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "621549fd-8273-4d97-a9e6-9355844975f8",
+      "question": "I wake up much letter ----- weekend.[]",
+      "options": [
+        "in",
+        "for",
+        "on",
+        "at"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "5397f020-930f-42f6-80f0-87f245c77756",
+      "question": "He list his father ----- an early age.[]",
+      "options": [
+        "to",
+        "for",
+        "of",
+        "at"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "f5a2b073-7c21-4703-b31d-75ac8b269fe1",
+      "question": "He sleeps during the day and works ----- night.[]",
+      "options": [
+        "at",
+        "at the",
+        "on",
+        "on the"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "48f7af67-eb49-4eb7-8ae3-7be97343b02e",
+      "question": "He refused to be a party ----- any violence.[]",
+      "options": [
+        "to",
+        "for",
+        "of",
+        "at"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "c5c986f1-1501-49d2-bb3d-351d73998135",
+      "question": "He is not ----- home today.[]",
+      "options": [
+        "within",
+        "in",
+        "at",
+        "out"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "27867397-ae67-4897-a612-d06fe7588ead",
+      "question": "Are you ----- the right track ?[]",
+      "options": [
+        "on",
+        "in",
+        "at",
+        "of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "51f7f288-c591-493b-9b7a-ceccb6e2d31a",
+      "question": "He has suffered heavy losses, yet he was rolling ----- wealth.[]",
+      "options": [
+        "for",
+        "with",
+        "from",
+        "in"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "7a5c4e7e-6f25-4cfb-80dd-8bf29cfd090a",
+      "question": "His integrity was ----- question.[]",
+      "options": [
+        "at",
+        "beyond",
+        "to",
+        "off"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "54d42406-11a4-4e09-b0bb-781f02ec4450",
+      "question": "He broke the jug ----- a hundred pieces.[]",
+      "options": [
+        "at",
+        "into",
+        "to",
+        "in"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "7623c438-df4b-416c-acae-2ea9134ddff9",
+      "question": "My sister brings colour and happiness ----- my life.[]",
+      "options": [
+        "to",
+        "with",
+        "in",
+        "on"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "8c94e172-87c3-4953-8a17-11de5defbaa6",
+      "question": "The prices of essential commodities, specially rice, groceries, vegetables have already gone up ----- the purchasing capacity of the common people.[]",
+      "options": [
+        "to",
+        "beyond",
+        "under",
+        "none"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "0ce745f2-c24b-4c3c-9998-8b037373859f",
+      "question": "The book is ----- far the best one he has ever written.[]",
+      "options": [
+        "on",
+        "in",
+        "by",
+        "at"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "52f40dc1-b7d9-4463-878b-7e8cec400148",
+      "question": "You should not sleep ----- day.[]",
+      "options": [
+        "at",
+        "on",
+        "by",
+        "in"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "f124c395-98c9-46ae-9d64-05cdf6d689f6",
+      "question": "Return the camera ----- hand.[]",
+      "options": [
+        "by",
+        "at",
+        "in",
+        "of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "84a78f46-cc2b-4e33-a225-06aed70cce94",
+      "question": "She is a Bangladeshi ----- marriage.[]",
+      "options": [
+        "by",
+        "for",
+        "with",
+        "to"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "4e8f98a9-45c0-429e-bfc3-0d6b760d5d32",
+      "question": "A drowning person ----- a straw.[]",
+      "options": [
+        "catches",
+        "catches for",
+        "catches at",
+        "catches after"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "8442ed5a-a4ad-45cf-bf92-042003ed2fde",
+      "question": "A ----- man catches ----- a straw.[]",
+      "options": [
+        "drawing, on",
+        "drowning , at",
+        "sinking, by",
+        "drowning , on"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "24d6d86d-0933-4802-9aa9-b8db43babe83",
+      "question": "All my efforts to bring about a compromise ended ----- smoke.[]",
+      "options": [
+        "with",
+        "in",
+        "of",
+        "through"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "f5de9075-9286-4954-b20a-86c97395eb76",
+      "question": "I caught sight ----- the man.[]",
+      "options": [
+        "at",
+        "with",
+        "for",
+        "of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "afa0d544-f921-47cf-93be-0a9662d8c4e3",
+      "question": "I am fed up ----- this exercise.[]",
+      "options": [
+        "to do",
+        "with doing",
+        "to doing",
+        "for doing"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "5acbebe6-4a6e-410d-8658-7721617856a4",
+      "question": "I am fed up ----- waiting for her to telephone.[]",
+      "options": [
+        "in",
+        "with",
+        "by",
+        "for"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "ad0b110e-a3e3-4aa5-9d01-3659833972f4",
+      "question": "The building will go ----- sale this month.[]",
+      "options": [
+        "for",
+        "in",
+        "on",
+        "to"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "457169da-523e-41c4-92a1-b55ff20aedc7",
+      "question": "Please don't get mad ----- me.[]",
+      "options": [
+        "on",
+        "at",
+        "of",
+        "in"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "039b267c-5d71-4514-8958-7052ec859df4",
+      "question": "I decided to go ----- with my friend as I needed some exercise.[]",
+      "options": [
+        "to a walk",
+        "for a walk",
+        "for a walking",
+        "walk"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "10c29269-9f96-41e8-9424-dfadd0f74335",
+      "question": "He is good ----- nothing.[]",
+      "options": [
+        "for",
+        "in",
+        "on",
+        "of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "468974ba-4573-446a-a0cf-b7eacdfc3a5f",
+      "question": "I had a glance ----- the girl.[]",
+      "options": [
+        "to",
+        "with",
+        "at",
+        "on"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "986781eb-a4dc-4d6a-8821-83efa1c114e6",
+      "question": "In my heart ----- heart I deplored his obstinacy.[]",
+      "options": [
+        "with",
+        "from",
+        "of",
+        "at"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "f8338268-1a07-445b-b562-8396a3f9b455",
+      "question": "Money is required for research ----- advance.[]",
+      "options": [
+        "for",
+        "of",
+        "by",
+        "in"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

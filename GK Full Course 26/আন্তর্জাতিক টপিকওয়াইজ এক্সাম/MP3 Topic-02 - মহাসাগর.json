@@ -1,0 +1,401 @@
+{
+  "exam_id": 10422,
+  "title": "MP3 Topic-02 : মহাসাগর",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "ভৌগোলিক বৈচিত্র্য Exam",
+  "duration_minutes": 15,
+  "total_questions": 26,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "a77c72d2-013e-40bb-b9b1-d2ed3abc0642",
+      "question": "How many oceans are there in the world? [SABAS][]",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বর্তমানে বিশ্বে মহাসাগরের সংখ্যা ৫টি (প্রশান্ত, আটলান্টিক, ভারত, দক্ষিণ ও সুমেরু)।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5a92f662-ac46-4e40-81c8-7b9e3b476053",
+      "question": "The largest ocean of the world is- [SABAS][]",
+      "options": [
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "উত্তর মহাসাগর",
+        "প্রশান্ত মহাসাগর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রশান্ত মহাসাগর হলো আয়তনে পৃথিবীর বৃহত্তম মহাসাগর।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "da5474d3-d03f-4d0e-8090-399cf8f75ccf",
+      "question": "পৃথিবীর বৃহত্তম ও গভীরতম (largest and deepest) মহাসাগরের নাম কী? [SABAS][]",
+      "options": [
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "প্রশান্ত মহাসাগর",
+        "দক্ষিণ মহাসাগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রশান্ত মহাসাগর আয়তনে বৃহত্তম এবং গভীরতার দিক থেকেও গভীরতম।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "4bb07cda-37fb-4331-81f6-ca7f8844dee8",
+      "question": "প্রশান্ত মহাসাগরে আকৃতি কিরূপ? [SABAS][]",
+      "options": [
+        "ত্রিভুজ আকৃতির মতো",
+        "রম্বসের মতো",
+        "পরাবৃত্তের মতো",
+        "আয়তক্ষেত্রের মতো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রশান্ত মহাসাগরের আকৃতি অনেকটা ত্রিভুজাকৃতির।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "91a5d9f0-ae03-480b-a830-3af7ba0454e8",
+      "question": "ভূ-পৃষ্ঠের সর্বনিম্ন স্থান কোথায় ও তার গভীরতা কত- [SABAS][]",
+      "options": [
+        "আটলান্টিক মহাসাগরে এবং গভীরতা ৪০১৩৭ ফুট",
+        "ভারত মহাসাগরে এবং গভীরতা ৩৭০০০ ফুট",
+        "প্রশান্ত মহাসাগরে এবং গভীরতা ৩৬১৯৯ ফুট",
+        "উত্তর মহাসাগরে এবং গভীরতা ৩৫১২০ ফুট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পৃথিবীর গভীরতম স্থান মারিয়ানা ট্রেঞ্চ প্রশান্ত মহাসাগরে অবস্থিত, যার গভীরতা প্রায় ৩৬,১৯৯ ফুট।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "5369908b-0b45-4a83-9572-9527f91cf109",
+      "question": "পৃথিবীর গভীরতম স্থান- [SABAS][]",
+      "options": [
+        "মারিয়ানা ট্রেঞ্চ",
+        "ডেড সি",
+        "বৈকাল হ্রদ",
+        "লোহিত সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মারিয়ানা ট্রেঞ্চ হলো পৃথিবীর সমুদ্র পৃষ্ঠের গভীরতম স্থান।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "4b5885f2-461d-4ecd-826c-e9151d9c8bf1",
+      "question": "প্রশান্ত মহাসাগরের গভীরতম খাত- [SABAS][]",
+      "options": [
+        "মারিয়ানা ট্রেঞ্চ",
+        "পোয়ের্তোরিকো ট্রেঞ্চ",
+        "সুন্দা ট্রেঞ্চ",
+        "ম্যাটপ্যান ট্রেঞ্চ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মারিয়ানা ট্রেঞ্চ প্রশান্ত মহাসাগরের গভীরতম খাত।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "62035631-0336-4a13-bcb1-1a55ff794dea",
+      "question": "পৃথিবীর গভীরতম স্থান কোন মহাসাগরে অবস্থিত? [SABAS][]",
+      "options": [
+        "ভারত মহাসাগরে",
+        "আটলান্টিক মহাসাগরে",
+        "প্রশান্ত মহাসাগরে",
+        "উত্তর মহাসাগরে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মারিয়ানা ট্রেঞ্চ প্রশান্ত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "693a8ad6-e327-4515-b6bb-2206421a52d4",
+      "question": "পৃথিবীর গভীরতম স্থান 'মারিয়ানা ট্রেঞ্চ' এর গভীরতা- [SABAS][]",
+      "options": [
+        "১০০০০০ মিটার",
+        "১১০০০ মিটার",
+        "১১১০০ মিটার",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মারিয়ানা ট্রেঞ্চের গভীরতা প্রায় ১১,০০০ মিটারের বেশি।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "02dfcb17-4f44-446a-9be3-f1fd717886b6",
+      "question": "মারিয়ানা ট্রেঞ্চ অবস্থিত- [SABAS][]",
+      "options": [
+        "পৃথিবীর উত্তর গোলার্ধে",
+        "আমেরিকা ও এশিয়ার মধ্যবর্তী স্থানে",
+        "ভারত ও অস্ট্রেলিয়ার মধ্যবর্তী স্থানে",
+        "ইউরোপ ও আফ্রিকার মধ্যবর্তী স্থানে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মারিয়ানা ট্রেঞ্চ উত্তর-পশ্চিম প্রশান্ত মহাসাগরে, আমেরিকা ও এশিয়ার মাঝে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "111dfea7-a55d-4755-979f-cf798c13fa67",
+      "question": "Which famous marine World Heritage site is home to 400 species of coral and 1500 species of fish? [SABAS][]",
+      "options": [
+        "Belize Barrier Reef Reserve System, Belize",
+        "Great Barrier Reef, Australia",
+        "Galapagos Islands, Ecuador",
+        "Ha Long Bay, Vietnam"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অস্ট্রেলিয়ার গ্রেট ব্যারিয়ার রিফ বিশ্বের বৃহত্তম কোরাল রিফ সিস্টেম যা বৈচিত্র্যময় সামুদ্রিক জীবনের জন্য বিখ্যাত।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "67e776b5-adfc-432b-b40d-1133a6ab7526",
+      "question": "গ্রেট বেরিয়ার রিফ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগরে",
+        "আটলান্টিক মহাসাগরে",
+        "ভারত মহাসাগরে",
+        "পারস্য উপসাগরে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গ্রেট ব্যারিয়ার রিফ প্রশান্ত মহাসাগরে, অস্ট্রেলিয়ার উত্তর-পূর্ব উপকূলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "7536bb68-564e-4252-95e6-75d585d67912",
+      "question": "গ্রেট ব্যারিয়ার রিফ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "অস্ট্রেলিয়া",
+        "ক্যারিবিয়ান দ্বীপপুঞ্জ",
+        "ইন্দোনেশিয়া",
+        "জাপান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গ্রেট ব্যারিয়ার রিফ অস্ট্রেলিয়ার কুইন্সল্যান্ড উপকূলে প্রশান্ত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "90994194-6dca-4802-ab06-aeaed4ac4ca8",
+      "question": "In what sea would you find the Great Barrier Reef? [SABAS][]",
+      "options": [
+        "Coral Sea",
+        "Black Sea",
+        "Aral Sea",
+        "Dead Sea"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গ্রেট ব্যারিয়ার রিফ কোরাল সাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "fafc9eaa-4d67-4c72-aa9b-2d60297d6c5d",
+      "question": "এশিয়ার বৃহত্তম সাগর কোন্টি? [SABAS][]",
+      "options": [
+        "আরব সাগর",
+        "আটলান্টিক মহাসাগর",
+        "ভারত মহাসাগর",
+        "দক্ষিণ মহাসাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আরব সাগর হলো এশিয়ার বৃহত্তম সাগর।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "6dfce241-0cbe-4f38-b4f4-d4b902b1db91",
+      "question": "দ্বিতীয় বৃহত্তম মহাসাগর- [SABAS][]",
+      "options": [
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "আরব সাগর",
+        "দক্ষিণ মহাসাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আটলান্টিক মহাসাগর প্রশান্ত মহাসাগরের পর পৃথিবীর দ্বিতীয় বৃহত্তম মহাসাগর।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "166b8749-61cd-4182-acb4-bf87fe7a8383",
+      "question": "Which ocean divides America & Europe? [SABAS][]",
+      "options": [
+        "Pacific",
+        "Arctic",
+        "Atlantic",
+        "Southern"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আটলান্টিক মহাসাগর আমেরিকা মহাদেশ এবং ইউরোপ ও আফ্রিকাকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "923fad62-c938-497a-9b11-f8ca8b7bc8f0",
+      "question": "আটলান্টিক মহাসাগরের পশ্চিম তীরে কোন্টি অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আমেরিকা",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আটলান্টিক মহাসাগরের পশ্চিমে উত্তর ও দক্ষিণ আমেরিকা মহাদেশ অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "248369d6-9b35-4def-b3e2-b65d24f14170",
+      "question": "North America shares boundary with Pacific Ocean from - [SABAS][]",
+      "options": [
+        "South",
+        "West",
+        "North",
+        "East"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উত্তর আমেরিকা মহাদেশের পশ্চিমে প্রশান্ত মহাসাগর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "cfdfc69b-c89b-43bc-ad69-bd80773b4475",
+      "question": "পোর্টি রিকো খাতটি কোন্ মহাসাগরে? [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "ভারত মহাসাগর",
+        "সুমেরু মহাসাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পুয়ের্তো রিকো বা পোর্টি রিকো খাত আটলান্টিক মহাসাগরের গভীরতম স্থান।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "ef9aaa75-bdd8-4810-b496-48abae606d72",
+      "question": "পানামা খাল কোন মহাদেশে? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পানামা খালটি উত্তর আমেরিকা মহাদেশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "25829e91-3646-4e89-a795-a453515f7af4",
+      "question": "পানামা খাল কোন কোন মহাসাগরকে যুক্ত করেছে? [SABAS][]",
+      "options": [
+        "আটলান্টিক ও ভূমধ্যসাগর",
+        "আটলান্টিক ও প্রশান্ত মহাসাগর",
+        "ভারত ও প্রশান্ত মহাসাগর",
+        "প্রশান্ত ও ভূমধ্যসাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই খালটি আটলান্টিক মহাসাগর এবং প্রশান্ত মহাসাগরকে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "575f5223-4088-4f24-a5b1-3254a13e2a7d",
+      "question": "কোন খাল উত্তর আমেরিকাকে দক্ষিণ আমেরিকা থেকে বিচ্ছিন্ন করেছে? [SABAS][]",
+      "options": [
+        "সুয়েজ খাল",
+        "গ্রান্ট খাল",
+        "ক্যানিয়ন খাল",
+        "পানামা খাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পানামা খাল উত্তর ও দক্ষিণ আমেরিকা মহাদেশের সংযোগস্থলে অবস্থিত এবং তাদের বিচ্ছিন্ন করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "370524dc-758a-443c-ac2e-1e47959a94b6",
+      "question": "উত্তর আমেরিকাকে দক্ষিণ আমেরিকার সাথে যুক্ত করেছে - [SABAS][]",
+      "options": [
+        "বেরিং প্রণালি",
+        "পানামা যোজক",
+        "গ্রেট লেকস",
+        "ফ্লোরিডা প্রণালি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পানামা যোজক উত্তর ও দক্ষিণ আমেরিকাকে সংযুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "98ebf41d-e468-468c-b43f-5d231b30f21a",
+      "question": "পানামা খাল খনন সমাপ্তকারী দেশের নাম? [SABAS][]",
+      "options": [
+        "ফ্রান্স",
+        "যুক্তরাজ্য",
+        "যুক্তরাষ্ট্র",
+        "পানামা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফ্রান্স খনন কাজ শুরু করলেও যুক্তরাষ্ট্র পরবর্তীতে ১৯০৪ সালে কাজ শুরু করে এবং সমাপ্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "f3a00feb-5db8-4319-bace-99be3d4cbf3a",
+      "question": "পানামা খালের মালিকানা কত সালে পানামার নিকট হস্তান্তর হয়? [SABAS][]",
+      "options": [
+        "২০০০ সালে",
+        "১৯৯৯ সালে",
+        "১৯৯৮ সালে",
+        "১৯৯০ সালে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৯৯ সালের ৩১ ডিসেম্বর যুক্তরাষ্ট্র এই খালের মালিকানা ও পরিচালনা পানামার নিকট হস্তান্তর করে।",
+      "images": []
+    }
+  ]
+}

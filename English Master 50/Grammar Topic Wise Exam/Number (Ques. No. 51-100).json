@@ -1,0 +1,761 @@
+{
+  "exam_id": 8372,
+  "title": "Number (Ques. No. 51-100)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Number (194 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "9d856672-b68e-441c-b539-56d3a6789ad6",
+      "question": "Which one of the following is singular ?[]",
+      "options": [
+        "Agenda",
+        "Alumni",
+        "Medium",
+        "Media"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি গ্রামারে Medium শব্দটি একটি Singular (একবচন) বিশেষ্য। এটি ল্যাটিন ভাষা থেকে আগত একটি শব্দ। যখন আমরা কোনো যোগাযোগের মাধ্যম বা কোনো কিছুর উপকরণ বোঝাতে একটি মাত্র বিষয়কে নির্দেশ করি, তখন 'Medium' ব্যবহৃত হয়। \nএর বহুবচন বা Plural রূপ হলো Media। তবে আধুনিক ইংরেজিতে 'Media' শব্দটিকে অনেক সময় সমষ্টিগতভাবে একবচন হিসেবেও ব্যবহার করা হয় (যেমন: Mass media is...), কিন্তু ব্যাকরণগতভাবে 'Medium' ই প্রকৃত একবচন রূপ। \nউদাহরণ:\nSingular: Television is a powerful medium of communication. (টেলিভিশন যোগাযোগের একটি শক্তিশালী মাধ্যম।)\nPlural: There are different types of media such as radio, TV, and newspapers. (রেডিও, টিভি এবং সংবাদপত্রের মতো বিভিন্ন ধরনের মাধ্যম রয়েছে।)",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "8dcf0195-a435-416c-85a9-36315428463f",
+      "question": "Which one is in singular number ?[]",
+      "options": [
+        "Criteria",
+        "Data",
+        "Agenda",
+        "Index"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Index (Singular): যখন একটিমাত্র সূচি বা নির্ঘণ্ট বোঝায়, তখন তাকে 'Index' বলা হয়।\nPlural Form (বহুবচন): Index-এর বহুবচন বা Plural হলো Indices (ইনডাইসেস) অথবা Indexes (ইনডেক্সেস)।\nউদাহরণ: The book's index (একবচন) is very helpful. (বইটির সূচিপত্রটি খুব সহায়ক)।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "25e76a37-6d7c-474f-97f7-13dd60d76fa7",
+      "question": "Which of the following is in plural form ?[]",
+      "options": [
+        "Datum",
+        "Media",
+        "Analysis",
+        "Radius"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Media শব্দটি মূলত Medium শব্দটির বহুবচন (Plural form)। ইংরেজি ব্যাকরণে যখন অনেকগুলো মাধ্যমকে একত্রে বোঝানো হয়, তখন 'media' ব্যবহার করা হয়। যদিও বর্তমানে অনেক ক্ষেত্রে একে একবচন হিসেবে ব্যবহার করা হয়, তবে শুদ্ধ ব্যাকরণ অনুযায়ী এটি একটি Plural noun",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "dbdfe4cb-0894-454c-93a1-68b4f0f40bb6",
+      "question": "Which one is in singular number ?[]",
+      "options": [
+        "Phenomena",
+        "Criterion",
+        "Oases",
+        "Ultimata"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Criterion (singular): এর অর্থ হলো বিচারের মানদণ্ড বা কোনো কিছু যাচাই করার একটি নির্দিষ্ট নিয়ম। এটি একটি (১টি) বিষয়কে বোঝায়।\nCriteria (plural): এটি হলো Criterion-এর বহুবচন (Plural)। যখন একের অধিক মানদণ্ড বোঝানো হয়, তখন Criteria ব্যবহৃত হয়। \nসহজ উদাহরণ:\nSingular: This is the only criterion for selection. (এটিই নির্বাচনের একমাত্র মানদণ্ড)।\nPlural: The criteria for selection are strict. (নির্বাচনের মানদণ্ডগুলো কঠোর)।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "71e1b6f3-a1e8-49a7-a9aa-2b18b9fb0a57",
+      "question": "Which one is not plural ?[]",
+      "options": [
+        "Data",
+        "Criteria",
+        "Phenomenon",
+        "Curricula"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Phenomenon হলো গ্রীক বা ল্যাটিন থেকে আসা একটি অনিয়মিত (irregular) বিশেষ্য, যা একটি নির্দিষ্ট ঘটনা (a single fact or event) বোঝাতে ব্যবহৃত হয়। \nSingular (একবচন): Phenomenon (একটি ঘটনা)\nPlural (বহুবচন): Phenomena (অনেকগুলো ঘটনা) \nউদাহরণ:\nSingular: That is an interesting phenomenon. (ওটি একটি আকর্ষণীয় ঘটনা।)\nPlural: Several new phenomena were recorded. (কয়েকটি নতুন ঘটনা রেকর্ড করা হয়েছিল।)",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "1d1cb804-5501-45c3-81a5-85d57d850f61",
+      "question": "Which one of the following words is a plural number ?[]",
+      "options": [
+        "Datum",
+        "Mouse",
+        "Errata",
+        "Bacterium"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রদত্ত শব্দগুলোর মধ্যে Errata (ইরাটা) একটি Plural Number (বহুবচন)। \nব্যাখ্যা (Explanation):\nমূল শব্দ (Singular): Erratum (ইরাটাম - একটি ছাপার ভুল)।\nবহুবচন (Plural): Errata (ইরাটা - অনেকগুলো ছাপার ভুল বা একটি বইয়ের শেষে দেওয়া ভুল ও সংশোধনের তালিকা)।\nল্যাটিন নিয়ম: ইংরেজি ব্যাকরণে ল্যাটিন থেকে আসা অনেক শব্দের শেষে 'um' থাকলে সেটি একবচন এবং 'a' থাকলে সেটি বহুবচন হয় (যেমন: Medium -> Media, Datum -> Data)।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "fc7776f3-6fc9-4c06-bd62-6e526211c95e",
+      "question": "Which one of the following is a singular noun ?[]",
+      "options": [
+        "Syllabi",
+        "Phenomena",
+        "Premium",
+        "Media"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রদত্ত অপশনগুলোর মধ্যে Premium (প্রিমিয়াম) একটি Singular Noun (একবচন বিশেষ্য)। \nসংজ্ঞা: Singular noun বলতে এমন কোনো ব্যক্তি, বস্তু, বা ধারণাকে বোঝায় যা সংখ্যায় মাত্র ১টি।\nPremium কেন Singular: 'Premium' (বীমার কিস্তি বা অতিরিক্ত মূল্য) শব্দটি একটি গণনাবাচক বিশেষ্য (Countable noun)। এর বহুবচন বা Plural ফর্ম হলো Premiums। তাই 'Premium' একবচনে ব্যবহৃত হয়।\nঅন্যান্য অপশনগুলো:\nPhenomena (ফেনোমেনা) হলো Phenomenon-এর Plural।\nSyllabi (সিলেবাই) হলো Syllabus-এর Plural।\nMedia (মিডিয়া) হলো Medium-এর Plural।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "f3078bc8-3bdc-4fbe-ad98-3f6d6417badd",
+      "question": "Which one is singular ?[]",
+      "options": [
+        "Agenda",
+        "Bacteria",
+        "Crises",
+        "Curriculum"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Curriculum হলো Singular (একবচন)। \nব্যাখ্যা (Explanation):\nCurriculum (Singular/একবচন): এর অর্থ হলো পাঠ্যক্রম বা শিক্ষাক্রম (একটি মাত্র শিক্ষাক্রম)।\nCurricula (Plural/বহুবচন): যখন একের অধিক বা অনেকগুলো পাঠ্যক্রম বোঝানো হয়, তখন \"Curricula\" (ল্যাটিন বহুবচন) বা \"Curriculums\" (ইংরেজি বহুবচন) ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "d323985f-e849-472b-9efd-319cdb9cf855",
+      "question": "Identify the singular number[]",
+      "options": [
+        "Axis",
+        "Data",
+        "Crises",
+        "Phenomena"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Singular Number: Axis (অ্যাক্সিস) \nঅর্থ: অক্ষ, মেরুদণ্ড, বা কেন্দ্ররেখা (একটিমাত্র)।\nবচন: এটি Singular Number (একবচন)। \nব্যাখ্যা (Explanation in Bengali):\nসংজ্ঞা: যখন কোনো Noun (বিশেষ্য) দ্বারা কেবল একজন ব্যক্তি, বস্তু, বা স্থানকে বোঝানো হয়, তখন তাকে Singular Number বা একবচন বলে।\nAxis-এর ব্যবহার: 'Axis' শব্দটি একটি মাত্র অক্ষ বা কেন্দ্ররেখাকে বোঝাতে ব্যবহৃত হয়। যেমন: The Earth rotates on its axis (পৃথিবী তার অক্ষে আবর্তন করে)।\nPlural Form (বহুবচন): Axis-এর plural form বা বহুবচন হলো Axes (উচ্চারণ: আকসিসেজ)।\nSingular: Axis (অক্ষ)\nPlural: Axes (অক্ষসমূহ)",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "7071f950-6507-4a23-8a9a-d73d6c43eb19",
+      "question": "Which singular-plural pair is correct ?[]",
+      "options": [
+        "Stratum-Strata",
+        "Agendum-Agendums",
+        "Agenda-Agendas",
+        "Appendix-Appendice"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Stratum is the singular form (একবচন) representing a single layer, while Strata is the plural form (বহুবচন) representing multiple layers, commonly used in geology or data analysis. \nCorrect Pair: Stratum (singular) \n Strata (plural)\nBangla Meaning: স্তর (Layer/Stratum) \n স্তরসমূহ/স্তরগুলো (Layers/Strata)",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "483811cf-3754-4c62-b155-c87620f6c999",
+      "question": "Which of the following singular-plural pair is incorrect ?[]",
+      "options": [
+        "Memorandum-Memoranda",
+        "Bureau-Bureaus",
+        "Bacterium-Bacteri",
+        "Crisis-Crises"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি ব্যাকরণ অনুযায়ী, ল্যাটিন শব্দ যার শেষে -um থাকে, তার বহুবচন (Plural) করতে সাধারণত -um বাদ দিয়ে -a যুক্ত করতে হয়। সেই নিয়ম অনুযায়ী: \nBacterium (একবচন) এর সঠিক বহুবচন হলো Bacteria।\nপ্রশ্নে উল্লিখিত Bacteri শব্দটি ভুল, কারণ এর শেষে -a নেই।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "1ddc304a-6d74-40f0-9cb3-6a6a53c6cd70",
+      "question": "Which one is plural form ?[]",
+      "options": [
+        "Axis",
+        "Formulae",
+        "Crisis",
+        "Syllabus"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Formula\" (সূত্র)-এর plural বা বহুবচন রূপ হলো Formulae (ফর্মুলি) অথবা Formulas (ফর্মুলাজ). \nFormula (singular/একবচন): সূত্র\nFormulae/Formulas (plural/বহুবচন): সূত্রসমূহ/সূত্রগুলো",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "f2e5a199-1b16-47b6-98a0-918f8ab7bb59",
+      "question": "Which one is plural ?[]",
+      "options": [
+        "Genera",
+        "Agendum",
+        "Formula",
+        "Genus"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Genera (জেনেরা) হলো plural (বহুবচন)  \nSingular (একবচন): Genus (গণ/মহাজাতি - gen-us)\nPlural (বহুবচন): Genera (গণসমূহ/মহাজাতিসমূহ - jen-er-uh) \nব্যাখ্যা:\nএটি জীববিজ্ঞানে (Biology) ব্যবহৃত একটি ল্যাটিন শব্দ। 'Genus' (গণ) এর বহুবচন হলো 'Genera' (গণসমূহ)। যদিও 'genuses' ব্যবহার করা যায়, তবে 'genera' ই বেশি প্রচলিত।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "1a3f0a50-7110-492f-9b8e-872db3ffb68e",
+      "question": "Which one is plural ?[]",
+      "options": [
+        "Princess",
+        "Princes",
+        "Mattress",
+        "News"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The word princes is the plural form of \"prince\". \nIn Bengali, princes (plural) means:\nরাজকুমারেরা (Rajkumarera)\nরাজপুত্রেরা (Rajputrera)\nনেতারা (Netara)\nExplanation:\nPrince (Singular) = রাজকুমার / রাজপুত্র (Rajkumar / Rajputra)\nPrinces (Plural) = রাজকুমারেরা / রাজপুত্রেরা (Rajkumarera / Rajputrera)",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "6a035051-7a6d-44b4-bccd-f988621d0e68",
+      "question": "Which one is plural ?[]",
+      "options": [
+        "Actress",
+        "Princess",
+        "Mistress",
+        "Princesses"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The plural of \"princess\" is princesses. \nIn Bengali, the word for princess is রাজকুমারী (Rajkumari). \nSingular: Princess (রাজকুমারী)\nPlural: Princesses (রাজকুমারীরা or অনেক রাজকুমারী) \nExamples in Bengali context:\nPrincess = রাজকুমারী (Rajkumari)\nPrincesses = রাজকুমারীরা (Rajkumarira) / রাজকুমারীগণ (Rajkumarigon)",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "39947cab-8beb-4405-ac59-3ad2b96dcade",
+      "question": "Which word is singular ?[]",
+      "options": [
+        "Buses",
+        "Boxes",
+        "Agendas",
+        "Billiards"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The word Billiards is generally considered a singular noun because it refers to a single, specific game played with a cue and balls on a table. \nIn Bangla, it is translated as:\nবিলিয়ার্ড (Billiard)\nবিলিয়ার্ড খেলা (Billiard khela - meaning Billiards game)",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "621ed217-422e-4a9c-8879-04024d265f64",
+      "question": "Which of the following is the plural form of 'Boy' ?[]",
+      "options": [
+        "Boyes",
+        "Boyen",
+        "Boys",
+        "The boy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The plural form of 'Boy' is Boys. \nIn Bengali, this is expressed in the following ways depending on context:\nছেলেরা (Chhelera) - Meaning: The boys / Boys (used as subject)\nবালকেরা (Balakera) - Meaning: Boys (more formal)\nছেলেদের (Chheleder) - Meaning: Of the boys / To the boys",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "cb24ff8c-8bdd-46e4-be1e-9d166b2bf338",
+      "question": "Doll এর সঠিক plural কোনটি ?[]",
+      "options": [
+        "Dolss",
+        "Dolls",
+        "Doles",
+        "Dolly"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইংরেজি গ্রামারের সাধারণ নিয়ম অনুযায়ী, বেশিরভাগ singular (একবচন) শব্দের শেষে 's' যোগ করে সেটিকে plural (বহুবচন) করা হয়। Doll শব্দটিও এই নিয়মের অন্তর্ভুক্ত। \nSingular: Doll (একটি পুতুল)\nPlural: Dolls (একাধিক পুতুল)",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "3bef1def-65ff-4d0d-bea9-3d83477f5be8",
+      "question": "Fox এর সঠিক Plural কোনটি ?[]",
+      "options": [
+        "Foxen",
+        "Foxes",
+        "Foxs",
+        "Foxss"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Fox-এর সঠিক Plural (বহুবচন) হলো Foxes. \nইংরেজি ব্যাকরণের নিয়ম অনুযায়ী, কোনো শব্দের শেষে যদি x, s, sh, ch, বা ss থাকে, তবে সেই শব্দটিকে Plural করতে হলে তার শেষে 'es' যোগ করতে হয়. \nSingular: Fox (একটি শিয়াল)\nPlural: Fox + es = Foxes (একাধিক শিয়াল)",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "2e3193f9-e76d-4142-9195-93d1e84142f4",
+      "question": "The plural form of 'Thief' is ---[]",
+      "options": [
+        "Thiefs",
+        "Thieves",
+        "Thiefes",
+        "Thiefee"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The plural form of 'Thief' is Thieves. \nব্যাখ্যা (Explanation in Bengali):\nইংরেজি গ্রামারের নিয়ম অনুযায়ী, যেসব Singular noun-এর শেষে 'f' বা 'fe' থাকে, সেগুলোর plural করার সময় 'f'/'fe' উঠে গিয়ে 'ves' যুক্ত হয়। \nSingular (একবচন): Thief (চোর)\nPlural (বহুবচন): Thieves (চোরেরা/চোরেরা) \nউদাহরণ:\nSingular: The thief was caught. (চোরটিকে ধরা হয়েছে।)\nPlural: The thieves were caught. (চোরগুলোকে ধরা হয়েছে।)",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "b94f0c51-249e-4255-aaf0-380ed4035f5e",
+      "question": "Plural of the word 'Knife' is ---[]",
+      "options": [
+        "Knifes",
+        "Kniveses",
+        "Knives",
+        "Knifeess"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The plural of the word 'Knife' is Knives. \nব্যাখ্যা (Explanation in Bengali):\nইংরেজি গ্রামারের নিয়ম অনুযায়ী, কোনো singular noun-এর শেষে যদি 'f' বা 'fe' থাকে, তবে সেটির plural করার সময় 'f' বা 'fe' উঠে গিয়ে 'ves' (ভিইএস) যুক্ত হয়। \nKnife (ছুরি) -> knife -> Knives (ছুরিগুলি) \nউদাহরণ:\nSingular: This is a sharp knife. (এটি একটি ধারালো ছুরি।)\nPlural: Those are sharp knives. (ওগুলো ধারালো ছুরিগুলি।)",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "7da2c4e6-7cb0-4bb5-b5c0-bae888bffc5b",
+      "question": "Plural form of 'Wolf' is ---[]",
+      "options": [
+        "Wolfs",
+        "Wolfes",
+        "Wolffier",
+        "Wolves"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Wolf-এর plural form হলো Wolves. \nব্যাখ্যা (Explanation in Bangla):\nইংরেজি ব্যাকরণের নিয়ম অনুযায়ী, যেসব Singular Noun-এর শেষে -f বা -fe থাকে, সেগুলোর Plural করার সময় সাধারণত -f/-fe উঠে গিয়ে -ves যুক্ত হয়। \nSingular: Wolf (নেকড়ে) - শেষে '-f' আছে।\nPlural: Wolves (নেকড়েরা) - '-f' উঠে গিয়ে '-ves' হয়েছে। \nউদাহরণ:\nA wolf is hunting. (একটি নেকড়ে শিকার করছে।)\nThree wolves are hunting. (তিনটি নেকড়ে শিকার করছে।)",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "e4955587-dca3-4331-983c-dc9c42c6ad17",
+      "question": "Which is the plural of 'Calf' ?[]",
+      "options": [
+        "Calfs",
+        "Calffes",
+        "Calf",
+        "Calves"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Calf (বাছুর/পায়ের পেছনের পেশী) এর বহুবচন (Plural) হলো Calves (উচ্চারণ: কালভ্‌জ্‌)। \nব্যাখ্যা (Explanation):\nনিয়ম: ইংরেজি গ্রামারের নিয়ম অনুযায়ী, যেসব Singular Noun-এর শেষে 'f' বা 'fe' থাকে, সেগুলোর Plural করার সময় 'f' বা 'fe' উঠে গিয়ে 'ves' যুক্ত হয়।\nউদাহরণ: Calf -> Calves।\nভুল ধারণা: অনেক সময় ভুল করে 'Calfs' লেখা হয়, কিন্তু সঠিক বানানটি হলো 'Calves'।\nঅর্থ: Calf (একটি বাছুর) -> Calves (একাধিক বাছুর)।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "800c2d0b-a034-479f-a54f-f176b4a40335",
+      "question": "Choose the correct plural form[]",
+      "options": [
+        "Wifes",
+        "Roofs",
+        "Wolfs",
+        "Shelfs"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Roof\" (ছাদ) শব্দটির সঠিক বহুবচন (plural) হলো Roofs。 \nব্যাখ্যা (Explanation):\nইংরেজি ব্যাকরণের সাধারণ নিয়ম অনুযায়ী, 'f' বা 'fe' তে শেষ হওয়া শব্দের বহুবচন করতে 'f/fe' তুলে দিয়ে 'ves' যোগ করতে হয় (যেমন: leaf -> leaves, wife -> wives)। কিন্তু, 'roof' (ছাদ) শব্দটি এই নিয়মের ব্যতিক্রম। \nসঠিক রূপ: Roof + s = Roofs",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "888b636e-c403-49d9-801d-a64ab7b1991e",
+      "question": "The plural of 'Dwarf' is ---[]",
+      "options": [
+        "Dwarves",
+        "Dwarfes",
+        "Dwarfs",
+        "Dwarx"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Dwarf' এর বহুবচন (plural) হলো Dwarfs অথবা Dwarves। \nবাংলায় ব্যাখ্যা:\nDwarfs (Standard): এটি সবচেয়ে সাধারণ এবং আদর্শ (standard) বহুবচন, যা সাধারণত সাধারণ বিশেষ্য (common noun) হিসেবে ব্যবহৃত হয়।\nDwarves (Literature/Fantasy): এই রূপটি সাহিত্য বা কল্পকাহিনীতে (যেমন: জে. আর. আর. টলকিয়েন-এর বই) বেশি ব্যবহৃত হয়, বিশেষ করে পৌরাণিক বামনদের বোঝাতে।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "61eca133-5c4a-42e6-85b0-041127944f46",
+      "question": "Which of the following does not add 'Ves' in the plural form ?[]",
+      "options": [
+        "Wife",
+        "Roof",
+        "Wolf",
+        "Shelf"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সাধারণত কোনো শব্দের শেষে -f বা -fe থাকলে, প্লুরাল (বহুবচন) করার সময় -f/-fe উঠে গিয়ে -ves যুক্ত হয় (যেমন: Leaf → Leaves, Wife → Wives). \nতবে Roof এই নিয়মের একটি ব্যতিক্রম (Exception)। Roof-এর শেষে -f থাকলেও এর প্লুরাল করার সময় -ves যুক্ত হয় না; বরং সরাসরি একটি -s যুক্ত হয়।. \nSingular: Roof\nPlural: Roofs",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "5fb172a2-a293-4674-9bd2-50699db6fc45",
+      "question": "Which is the plural form of the word 'Hero' ?[]",
+      "options": [
+        "Heros",
+        "Heroes",
+        "Herois",
+        "Heross"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Hero (বীর/নায়ক) শব্দটির বহুবচন (plural) হলো Heroes। \nব্যাখ্যা (Explanation in Bengali):\nনিয়ম: ইংরেজি ব্যাকরণের নিয়ম অনুযায়ী, যেসব Singular Noun-এর শেষে 'o' থাকে এবং তার আগের অক্ষরটি একটি Consonant (ব্যঞ্জনবর্ণ) হয়, সাধারণত সেগুলোর শেষে '-es' যোগ করে plural করতে হয়।\nপ্রয়োগ: 'Hero' শব্দটির শেষে 'o' আছে এবং তার আগে 'r' (Consonant) আছে। তাই, Hero + es = Heroes। \nউদাহরণ:\nSingular: The firefighter is a true hero. (দমকলকর্মীটি একজন প্রকৃত বীর।)\nPlural: The firefighters are true heroes. (দমকলকর্মীরা প্রকৃত বীর।)",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "b2b89d87-5094-431c-be88-fb61b0a61409",
+      "question": "Echo এর সঠিক plural কোনটি ?[]",
+      "options": [
+        "Echos",
+        "Echoes",
+        "Echoistic",
+        "Echoed"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইংরেজি গ্রামারের সাধারণ নিয়ম অনুযায়ী, কোনো singular noun-এর শেষে যদি 'o' থাকে এবং 'o'-এর ঠিক আগের অক্ষরটি consonant (ব্যঞ্জনবর্ণ) হয়, তবে তার plural করার সময় '-es' যোগ করতে হয়। Echo শব্দটিতে 'o'-এর আগে 'h' (consonant) আছে, তাই echo + es = echoes। \nSingular: Echo (প্রতিধ্বনি)\nPlural: Echoes (প্রতিধ্বনিগুলো)",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "c990cc68-88d9-4ba9-ba84-ad99d4efd982",
+      "question": "What is the plural of 'Photo' ?[]",
+      "options": [
+        "Photoes",
+        "Photos",
+        "Photographs",
+        "None of these"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Photo শব্দের plural বা বহুবচন রূপ হলো Photos. \nনিয়ম: ইংরেজি ব্যাকরণে সাধারণত কোনো শব্দের শেষে 'o' থাকলে বহুবচন করার সময় 'es' (যেমন: mango -> mangoes) যোগ করা হয়। কিন্তু 'photo' শব্দটি 'photograph'-এর সংক্ষিপ্ত রূপ (abbreviation)।\nব্যতিক্রম: ল্যাটিন বা গ্রীক থেকে আসা কিছু ইংরেজি শব্দ, যেগুলোর শেষে 'o' থাকে, সেগুলোর ক্ষেত্রে শুধুমাত্র 's' যোগ করে বহুবচন করা হয়।\nউদাহরণ:\nSingular: Photo (একটি ছবি)\nPlural: Photos (একাধিক ছবি)",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "0dc7365d-1328-4727-b229-b9c0f11a2537",
+      "question": "The plural form of the word 'army' is ---[]",
+      "options": [
+        "Armys",
+        "Armyes",
+        "Armis",
+        "Armies"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Army' (সেনাবাহিনী) শব্দটির plural (বহুবচন) রূপ হলো Armies. \nইংরেজি গ্রামারের নিয়ম অনুযায়ী, কোনো শব্দের শেষে যদি 'y' থাকে এবং তার ঠিক আগের অক্ষরটি যদি Consonant (ব্যঞ্জনবর্ণ) হয়, তবে plural করার সময় 'y' উঠে গিয়ে 'i' বসে এবং শেষে 'es' যোগ করতে হয়। \nArmy: এখানে শেষ অক্ষর 'y' এবং তার আগের অক্ষরটি 'm' (Consonant)।\nনিয়ম: Army = Arm + y = Arm + i + es = Armies।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "16be2467-0511-4dfc-8007-453ea0e94ae0",
+      "question": "Mr. Sinha has come pagal advice. So he contacted two ---[]",
+      "options": [
+        "attorney",
+        "attorneis",
+        "attornies",
+        "attorneys"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Mr. Sinha (জনাব সিনহা): একজন ব্যক্তি।\nHas come/received pagal advice (পাগলামি বা অদ্ভুত পরামর্শ পেয়েছেন): 'Pagal' শব্দটি এখানে অযৌক্তিক, পাগলবৎ, বা চরম ভুল পরামর্শ (Absurd/Crazy advice) বোঝাতে ব্যবহৃত হয়েছে। অর্থাৎ, সিনহা এমন একটি পরামর্শ পেয়েছেন যা ঠিক নয় বা ঝুঁকিযুক্ত।\nSo he contacted two attorneys (তাই তিনি দুইজন অ্যাটর্নির সাথে যোগাযোগ করেছেন): যেহেতু পরামর্শটি ভুল বা পাগলামি মনে হয়েছে, তাই তিনি নিশ্চিত হওয়ার জন্য বা আইনি সমাধানের জন্য দুইজন আইনজীবী (Attorneys/Lawyers) এর সাথে কথা বলেছেন।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "62a60096-9ec0-4467-8a6b-30773cd07a2a",
+      "question": "Foot' plural form.[]",
+      "options": [
+        "foot",
+        "feet",
+        "foots",
+        "feets"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"Foot\"-এর বহুবচন (Plural) রূপ হলো \"Feet\"। \nFoot (একবচন/Singular): যখন একটি পা বোঝায় (যেমন: My foot hurts - আমার পা ব্যথা করছে)।\nFeet (বহুবচন/Plural): যখন দুটি বা তার বেশি পা বোঝায় (যেমন: I have two feet - আমার দুটি পা আছে)। \nমূল নিয়ম:\nএটি একটি Irregular Plural (অনিয়মিত বহুবচন), কারণ এখানে শেষে 's' বা 'es' যোগ করে বহুবচন করা হয় না। এখানে মাঝের 'oo' পরিবর্তিত হয়ে 'ee' হয় (foot -> feet)।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "fae30837-8569-4382-8d39-6df5f63dcd88",
+      "question": "Men is plural form of ---[]",
+      "options": [
+        "Human",
+        "Man",
+        "Humane",
+        "Me"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Men (মেন) হলো Man (ম্যান) এর Plural (বহুবচন) রূপ। \nব্যাখ্যা:\nMan (একবচন/Singular): একজন পুরুষ বা মানুষকে বোঝাতে 'Man' ব্যবহৃত হয়।\nMen (বহুবচন/Plural): একের অধিক পুরুষ বা মানুষকে বোঝাতে 'Men' ব্যবহৃত হয়। \nউদাহরণ:\nSingular: He is a good man. (তিনি একজন ভালো মানুষ।)\nPlural: They are strong men. (তারা শক্তিশালী পুরুষ।)",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "e9a8cb74-c769-4e76-ae85-3d58e723deca",
+      "question": "Which of the following is the plural form of 'Tooth' ?[]",
+      "options": [
+        "Teeths",
+        "Tooth",
+        "Teeth",
+        "Tooths"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজিতে কিছু শব্দ আছে যেগুলোর বহুবচন করার সময় শেষে 's' বা 'es' যোগ না করে শব্দের মাঝখানের vowel পরিবর্তন করা হয়। এগুলোকে Irregular Plural বলা হয়। \nSingular: Tooth (একটি দাঁত)\nPlural: Teeth (একাধিক দাঁত)",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "9cee5b36-919c-499a-a4c7-acbe9c90165f",
+      "question": "Plural form of 'Goose' is ---[]",
+      "options": [
+        "Gooses",
+        "Geeses",
+        "Geese",
+        "Geses"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Goose (একবচন/Singular): একটি হাঁস (বিশেষ প্রজাতির, যা রাজহাঁস নামে পরিচিত)।\nGeese (বহুবচন/Plural): একের অধিক বা অনেকগুলো হাঁস। \nএটি ইংরেজি ব্যাকরণের একটি অনিয়মিত (Irregular) বহুবচন। সাধারণ নিয়মে শব্দের শেষে 's' বা 'es' যোগ করে বহুবচন করা হয় (যেমন: book-books), কিন্তু এখানে শব্দের মাঝখানের 'oo' পরিবর্তিত হয়ে 'ee' হয়।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "ee6e2525-6b81-4512-ba2f-bb7b1b2b4ace",
+      "question": "Which one is plural form of 'Dormouse' ?[]",
+      "options": [
+        "Dormiuses",
+        "Dormouces",
+        "Dormices",
+        "Dormice"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Dormouse' (একটি ছোট ইঁদুর জাতীয় প্রাণী) এর বহুবচন (Plural) রূপ হলো Dormice। \nব্যাখ্যা:\nইংরেজি ব্যাকরণের নিয়ম অনুযায়ী, 'Mouse' (ইঁদুর) শব্দের বহুবচন যেমন 'Mice' হয়, তেমনি 'Dormouse' শব্দের শেষের অংশ '-mouse' পরিবর্তিত হয়ে '-mice' হয়। \nSingular (একবচন): Dormouse (ডরমাউস)\nPlural (বহুবচন): Dormice (ডরমাইস) \nউদাহরণ:\nA dormouse is sleeping. (একটি ডরমাউস ঘুমাচ্ছে)\nTwo dormice are sleeping. (দুইটি ডরমাইস ঘুমাচ্ছে)",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "9b39e959-55a5-4b62-adf1-ead9c07df3bf",
+      "question": "The plural form of 'Mouse' is ---[]",
+      "options": [
+        "Mousse",
+        "Mices",
+        "Mice",
+        "Mouses"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সাধারণ নিয়ম নয়: সাধারণত ইংরেজি শব্দের শেষে 's' বা 'es' যোগ করে plural করা হয় (যেমন- Cat থেকে Cats), কিন্তু 'Mouse' এই নিয়ম মানে না। এটি একটি Irregular Plural Noun (অনিয়মিত বহুবচন)।\nকেন Mice? এটি একটি পুরোনো ইংরেজি শব্দ যা ভেতরের ভাওয়েল (vowel) পরিবর্তন করে বহুবচন হয় (mouse \n mice)।\nব্যতিক্রম: কম্পিউটার মাউসের ক্ষেত্রে অনেক সময় 'Mouses' ব্যবহার করা হলেও, প্রমিত ইংরেজি (Standard English) অনুযায়ী প্রাণী বা কম্পিউটার—উভয় ক্ষেত্রেই 'Mice' ব্যবহার করা সবচেয়ে সঠিক। \nউদাহরণ:\nSingular: There is one mouse in the room. (রুমে একটি ইঁদুর আছে।)\nPlural: There are several mice in the room. (রুমে কয়েকটি ইঁদুর আছে।)",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "21667f5a-98f8-4604-98e1-3f4d425ce112",
+      "question": "What is the plural form of the word 'louse' ?[]",
+      "options": [
+        "louses",
+        "lice",
+        "lices",
+        "licess"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Louse' (লাউস) শব্দটির বহুবচন বা plural form হলো Lice (লাইস)। \nব্যাখ্যা:\nLouse (singular): একটি মাত্র উকুন বা পরজীবী পোকা।\nLice (plural): একের অধিক বা অনেকগুলো উকুন। \nকেন 'Lices' বা 'Louses' নয়?\nএটি একটি Irregular Plural (অনিয়মিত বহুবচন), যা ইংরেজি ব্যাকরণের সাধারণ নিয়ম (শেষে s বা es যোগ করা) অনুসরণ করে না। যেমন: 'Mouse' থেকে 'Mice' হয়, তেমনি 'Louse' থেকে 'Lice' হয়। \nউদাহরণ:\nSingular: I found a louse in my hair. (আমি আমার চুলে একটি উকুন পেয়েছি)।\nPlural: Her head is full of lice. (তার মাথায় উকুন ভর্তি)।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "18c65786-51c7-416e-b8ba-da43cb18542a",
+      "question": "The plural form of 'ox' :[]",
+      "options": [
+        "Oxes",
+        "Oxen",
+        "Oxis",
+        "Bullok"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Oxes (ভুল): সাধারণত 'x' দিয়ে শেষ হওয়া শব্দের শেষে 'es' যোগ করে plural করা হয় (যেমন: Box -> Boxes), কিন্তু 'Ox' এর ক্ষেত্রে এটি প্রযোজ্য নয়।\nOxen (সঠিক): এটি একটি Irregular Plural বা অনিয়মিত বহুবচন। পুরানো ইংরেজি (Old English) ব্যাকরণ অনুযায়ী এর শেষে 'en' যুক্ত হয়। \nউদাহরণ:\nSingular (একবচন): One ox (একটি ষাঁড়)।\nPlural (বহুবচন): Two oxen (দুইটি ষাঁড়)।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "5d6ee499-b5fb-4ea3-8e3e-5525367a8151",
+      "question": "Which one is in plural number ?[]",
+      "options": [
+        "School",
+        "Oxen",
+        "Leaf",
+        "Mathematics"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Singular (একবচন): Ox (ষাঁড়) - এটি একটিমাত্র ষাঁড়কে বোঝায়।\nPlural (বহুবচন): Oxen (ষাঁড়গুলি/অনেকগুলো ষাঁড়) - এটি একের অধিক ষাঁড়কে বোঝায়। \nকেন \"Oxen\" হয়, \"Oxes\" নয়?\nসাধারণত ইংরেজি শব্দের শেষে 's' বা 'es' যোগ করে plural করা হয় (যেমন: Book -> Books)। কিন্তু 'Ox' একটি Irregular Plural (অনিয়মিত বহুবচন) শব্দ। এটি ইংরেজি ভাষার পুরনো নিয়ম (Old English) অনুসরণ করে, যেখানে শেষে '-en' যুক্ত করে বহুবচন করা হতো, ঠিক যেমন Child থেকে Children হয়।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "8cab1ac5-4231-4cba-8d35-0788abf82074",
+      "question": "I have six (ox) for ploughing the land.[]",
+      "options": [
+        "Oxen",
+        "Oxens",
+        "Ox",
+        "Oxes"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Singular (একবচন): Ox (ষাঁড়) - এটি একটিমাত্র ষাঁড়কে বোঝায়।\nPlural (বহুবচন): Oxen (ষাঁড়গুলি/অনেকগুলো ষাঁড়) - এটি একের অধিক ষাঁড়কে বোঝায়। \nকেন \"Oxen\" হয়, \"Oxes\" নয়?\nসাধারণত ইংরেজি শব্দের শেষে 's' বা 'es' যোগ করে plural করা হয় (যেমন: Book -> Books)। কিন্তু 'Ox' একটি Irregular Plural (অনিয়মিত বহুবচন) শব্দ। এটি ইংরেজি ভাষার পুরনো নিয়ম (Old English) অনুসরণ করে, যেখানে শেষে '-en' যুক্ত করে বহুবচন করা হতো, ঠিক যেমন Child থেকে Children হয়।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "1bc5ab7f-d123-4ee0-99aa-e8bca23b7d1f",
+      "question": "The plural form of the letter 't' is ---[]",
+      "options": [
+        "t's",
+        "ts'",
+        "ts",
+        "None of the above"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The plural form of the letter 't' is t's. When forming the plural of lowercase letters, digits, or abbreviations, an apostrophe followed by an 's'  is used to avoid confusion (e.g., \"Mind your p's and q's\"). \nব্যাখ্যা (Explanation):\nt's (ছোট হাতের অক্ষরের ক্ষেত্রে): ছোট হাতের অক্ষর (lowercase letters) যেমন- a, i, t-এর বহুবচন করার সময় 's-এর আগে একটি অ্যাপোস্ট্রফি ব্যবহার করা হয়।\nউদাহরণ: \"How many t's are in the word 'thought'?\" (thought শব্দটিতে কয়টি t আছে?)\nTs (বড় হাতের অক্ষরের ক্ষেত্রে): বড় হাতের অক্ষর (uppercase) হলে সাধারণত Ts লেখা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "4c40bb35-8aec-4f02-b2de-239345504f31",
+      "question": "There are 10 ----- in a hundred.[]",
+      "options": [
+        "tens",
+        "ten's",
+        "ten",
+        "tenx"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "There are 10 tens in a hundred.\" \nএর মানে হলো, ১০০-এর মধ্যে ১০টি 'দশ' আছে। \nঅর্থাৎ, ১০, ২০, ৩০, ৪০, ৫০, ৬০, ৭০, ৮০, ৯০, ১০০ - এভাবে ১০টি 'দশ' মিলে ১০০ তৈরি হয়।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "9147c7fb-2302-42a0-83ba-9ba4ba097c6f",
+      "question": "The plurals of letters,numeral signs, symbols, abbreviations and individual words are formed by adding ---[]",
+      "options": [
+        "s",
+        "es",
+        "s",
+        "all of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Letters, numeral signs, symbols, abbreviations, and individual words-এর বহুবচন (plural) সাধারণত শেষে '-s' (কখনও কখনও 's) যোগ করে গঠিত হয়। যেমন- ABCs, 1990s, DOs, PMs, that's। মনে রাখতে হবে, অ্যাপোস্ট্রফি ('s) ব্যবহার না করে ছোট হাতের 's' ব্যবহার করাই আধুনিক ইংরেজি রীতি। \nব্যাখ্যা (Explanation in Bengali):\nletters (বর্ণ): বর্ণ বা অক্ষরের বহুবচন করতে s যোগ করা হয়। যেমন: Mind your p's and q's (p's and q's)।\nnumeral signs (সংখ্যা): সংখ্যার বহুবচন করতে s যোগ করা হয়। যেমন: The 1990s (নব্বইয়ের দশকগুলো)।\nsymbols (চিহ্ন): চিহ্নের বহুবচন করতে s যোগ করা হয়। যেমন: The &'s (এন্ড চিহ্নগুলো)।\nabbreviations (সংক্ষিপ্ত রূপ): সংক্ষিপ্ত রূপের বহুবচন করতে s যোগ করা হয়। যেমন: MOT > MOTs, ATM > ATMs।\nindividual words (ব্যক্তিগত শব্দ): কোনো বাক্যে নির্দিষ্ট শব্দকে বহুবচন করতে 's বা s যোগ করা হয়। যেমন: There are too many 'maybe's in your story (তোমার গল্পে অনেক বেশি 'হয়তো' শব্দ আছে)।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "7c0b7c39-17e1-48be-87fe-0f5cd536ddcb",
+      "question": "Which one is plural number ?[]",
+      "options": [
+        "Five's",
+        "Fivess",
+        "Five",
+        "Fiveses"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Five's (apostrophe সহ): এটি একটি Possessive বা সম্বন্ধ পদ, যার অর্থ \"৫ এর\" (যেমন: The five's value, ৫ এর মান)। এটি প্লুরাল বা বহুবচন নয়।\nFives (apostrophe ছাড়া): এটি \"Five\" সংখ্যাটির Plural বা বহুবচন রূপ। যখন আমরা অনেকগুলো '৫' বা ৫-এর নোট/দল বোঝাই, তখন fives (f-i-v-e-s) ব্যবহার করা হয়। \nউদাহরণ:\nHe gave me two fives. (সে আমাকে দুটো ৫-এর নোট দিয়েছে।) - এখানে fives মানে অনেকগুলো ৫।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "1574d58e-cca5-443e-81b2-3728980417c5",
+      "question": "Choose the word which never has a plural form.[]",
+      "options": [
+        "Woman",
+        "Inventor",
+        "Information",
+        "Mouse"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি ব্যাকরণ অনুযায়ী 'Information' একটি Uncountable Noun (গণনা করা যায় না এমন বিশেষ্য)। এর কোনো বহুবচন বা Plural form হয় না। \nব্যাখ্যা:\n১. S যুক্ত হয় না: আমরা কখনোই 'informations' বলতে পারি না। এটি সবসময় 'information' হিসেবেই ব্যবহৃত হয়। \nভুল: I have many informations.\nসঠিক: I have much information.",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "79e6ef68-df76-49b0-bf74-39a77fa90f7c",
+      "question": "Which word is correct ?[]",
+      "options": [
+        "Furnitures",
+        "Informations",
+        "Scenaries",
+        "Proceeds"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Proceed\" এবং \"Proceeds\" উভয় শব্দই সঠিক, তবে এদের অর্থ এবং ব্যবহার সম্পূর্ণ ভিন্ন। \nProceed (verb/ক্রিয়া): এর অর্থ কোনো কাজ শুরু করা বা সামনে অগ্রসর হওয়া।\nউদাহরণ: \"Please proceed with your work.\" (অনুগ্রহ করে আপনার কাজ চালিয়ে যান।)\nProceeds (noun/বিশেষ্য): এর অর্থ কোনো নির্দিষ্ট ঘটনা বা বিক্রয় থেকে প্রাপ্ত অর্থ বা লাভ।\nউদাহরণ: \"The proceeds from the concert will go to charity.\" (কনসার্ট থেকে প্রাপ্ত অর্থ দাতব্য সংস্থায় যাবে",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "d49baf20-e457-45db-b849-05a25d8212be",
+      "question": "Which of the following is always singular ?[]",
+      "options": [
+        "Manner",
+        "Formula",
+        "Foot",
+        "Scenery"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Uncountable Noun: 'Scenery' একটি Uncountable Noun বা গণনা অযোগ্য বিশেষ্য। ইংরেজিতে যেসব জিনিস গণনা করা যায় না, সেগুলোকে সবসময় Singular হিসেবে গণ্য করা হয়।\nবহুবচন হয় না: যেহেতু এটি Uncountable, তাই এর সাথে 's' বা 'es' যোগ করে 'Sceneries' লেখা ভুল। যদিও কিছু ডিকশনারিতে বিরল ক্ষেত্রে 'sceneries' উল্লেখ থাকতে পারে, তবে আদর্শ গ্রামার অনুযায়ী এর কোনো Plural রূপ নেই।\nSingular Verb: 'Scenery' এর পরে সবসময় Singular Verb (যেমন: is, was, has) বসে।\nউদাহরণ: The scenery of the Himalayas is charming. (হিমালয়ের দৃশ্যাবলী মনোরম।)",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "302bc58f-831d-4963-95f5-37bd136996bc",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "The scenery of Rangamati are beautiful",
+        "The sceneries of Rangamati are beautiful",
+        "The scenery of Rangamati is beautiful",
+        "The sceneries of Rangamati is beautiful"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Scenery (দৃশ্যপট) একটি Uncountable Noun: ইংরেজি গ্রামার অনুযায়ী, 'Scenery' শব্দটি একটি 'Uncountable Noun' বা অগণন বিশেষ্য। একে গণনা করা যায় না, তাই এর সাথে 's' বা 'es' (sceneries) যোগ করে বহুবচন (plural) করা যায় না।\nVerb-এর ব্যবহার: যেহেতু 'Scenery' সিঙ্গুলার (একবচন) হিসেবে ধরা হয়, তাই এর সাথে 'is' বসবে, 'are' নয়। \nভুল বাক্য: The sceneries of Rangamati are beautiful. (ভুল)\nসঠিক বাক্য: The scenery of Rangamati is beautiful. (সঠিক)",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "91906179-25f1-4c13-b203-b8157b3348ab",
+      "question": "Which one is always used as singular ?[]",
+      "options": [
+        "Staff",
+        "Horse",
+        "Bread",
+        "Custom"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অগণনযোগ্য বিশেষ্য (Uncountable Noun): Bread একটি \"Mass Noun\" বা অগণনযোগ্য বিশেষ্য। আমরা যেমন পানির (water) বা চালের (rice) দানা এক এক করে গণি না, তেমনি সাধারণত আস্ত রুটির টুকরো বা স্লাইসগুলোকে 'একটি রুটি', 'দুটি রুটি' (one bread, two breads) হিসেবে গণি না। \n২. 'S' বা 'ES' যুক্ত হয় না: Bread-এর সাথে কখনো 's' যুক্ত করে plural (breads) করা যায় না। 'A bread' বা 'Two breads' বলা ভুল। \n৩. সংখ্যা বোঝাতে 'Loaf' বা 'Slice' ব্যবহার: আপনি যদি একটি, দুটি বা তিনটি রুটি বোঝাতে চান, তবে রুটির সংখ্যার বদলে 'Loaf' (লোফ-আস্ত রুটি) বা 'Slice' (স্লাইস-কাটা টুকরো) ব্যবহার করতে হয়।",
+      "images": []
+    }
+  ]
+}

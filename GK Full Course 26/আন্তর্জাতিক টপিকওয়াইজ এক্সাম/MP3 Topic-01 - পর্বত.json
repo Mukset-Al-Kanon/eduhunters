@@ -1,0 +1,671 @@
+{
+  "exam_id": 10421,
+  "title": "MP3 Topic-01 : পর্বত",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "ভৌগোলিক বৈচিত্র্য Exam",
+  "duration_minutes": 22,
+  "total_questions": 44,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "25c5a78c-9395-42c7-8938-08241daae725",
+      "question": "The longest mountain range in the world is- [SABAS][]",
+      "options": [
+        "হিমালয় পর্বতমালা",
+        "অ্যাটলাস পর্বতমালা",
+        "আন্দিজ পর্বতমালা",
+        "আল্পস পর্বতমালা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আন্দিজ পর্বতমালা দক্ষিণ আমেরিকা মহাদেশে অবস্থিত এবং এটি বিশ্বের দীর্ঘতম পর্বতমালা.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "d257faba-66c0-4c77-adf5-eebd9e6ec002",
+      "question": "আন্দিজ পর্বতমালা কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা",
+        "ইউরোপ",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আন্দিজ পর্বতমালা দক্ষিণ আমেরিকা মহাদেশের পশ্চিমে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "03cdb2f9-125e-47c6-9c3c-a26937404697",
+      "question": "ইউরোপের উচ্চতম পর্বতশ্রেণি- [SABAS][]",
+      "options": [
+        "ভলগা",
+        "লাগাডা",
+        "আল্পস",
+        "লাটভিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আল্পস পর্বতমালা ইউরোপের উচ্চতম এবং সবচেয়ে গুরুত্বপূর্ণ পর্বতশ্রেণি.",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "d62d3668-68ee-4e1f-9cff-7afa14a2bd42",
+      "question": "আল্পস পর্বতমালা কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "পশ্চিম ইউরোপে",
+        "পূর্ব ইউরোপে",
+        "উত্তর আমেরিকায়",
+        "দক্ষিণ আমেরিকায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আল্পস পর্বতমালা মূলত পশ্চিম ইউরোপে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "107c5092-9e6e-47ec-8ef3-f3ac6421ca3d",
+      "question": "পিরেনীজ পর্বত কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মিশরে",
+        "সিরিয়ায়",
+        "স্পেনে",
+        "ইরানে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পিরেনীজ পর্বতমালা ইউরোপের দক্ষিণ-পশ্চিমে স্পেন এবং ফ্রান্সের সীমান্তে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "f91917b9-8abd-42b6-ad39-bf80b80202ac",
+      "question": "হিন্দুকুশ....দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফগানিস্তান",
+        "ভারত",
+        "কাজাখস্তান",
+        "নেপাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হিন্দুকুশ পর্বতমালা মূলত আফগানিস্তানে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "f947e61b-ed46-4a89-8696-c317ccaff6a6",
+      "question": "হিমালয় পর্বতমালা কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "নেপাল ও ভারতে",
+        "নেপাল ও চীনে",
+        "ভারত ও চীনে",
+        "নেপাল ও ভূটানে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হিমালয় পর্বতমালা নেপাল ও ভূটানসহ দক্ষিণ এশিয়ার একাধিক দেশের মধ্য দিয়ে বিস্তৃত.",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "babdd60c-b28c-4800-aada-f74216fd68cb",
+      "question": "কোন দেশকে হিমালয় কন্যা বলা হয়? [SABAS][]",
+      "options": [
+        "নেপাল",
+        "ভূটান",
+        "চীন",
+        "ভারত"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নেপালকে হিমালয় কন্যা হিসেবে অভিহিত করা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "2043125a-e22e-4edc-9ebb-7ebe03838802",
+      "question": "এভারেস্ট শৃঙ্গে আরোহণের জন্য কোন দেশের অনুমতির প্রয়োজন? [SABAS][]",
+      "options": [
+        "ভারত",
+        "চীন",
+        "পাকিস্তান",
+        "নেপাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মাউন্ট এভারেস্টের দক্ষিণ দিক দিয়ে আরোহণের জন্য নেপালের অনুমতির প্রয়োজন হয়.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "3aa09229-bc2a-4242-a4cf-38cf6542b9b2",
+      "question": "কোন দুটি প্লেটের সংযোগস্থল বরাবর মাউন্ট এভারেস্ট অবস্থিত? [SABAS][]",
+      "options": [
+        "ইন্ডিয়ান ও বার্মিজ",
+        "ইন্ডিয়ান ও ইউরেশিয়ান",
+        "ইন্ডিয়ান ও আফ্রিকান",
+        "বার্মিজ ও ইউরেশিয়ান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট এভারেস্ট ইন্ডিয়ান এবং ইউরেশিয়ান টেকটোনিক প্লেটের সংযোগস্থল বরাবর অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "ea8e9a0f-f203-453d-98ee-93955f4f3f96",
+      "question": "হিমালয় পর্বতমালার উদ্ভব কোন্ দুটি টেকটোনিক প্লেটের সংঘর্ষে হয়েছে? [SABAS][]",
+      "options": [
+        "ইউরেশিয়ান ও আফ্রিকান",
+        "ইন্ডোঅস্ট্রেলিয়ান ও ইউরেশিয়ান",
+        "আমেরিকান ও ইউরেশিয়ান",
+        "প্যাসিফিক ও ইন্ডোঅস্ট্রেলিয়ান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হিমালয় পর্বতমালা গঠিত হয়েছে ইন্ডিয়ান প্লেট (ইন্ডোঅস্ট্রেলিয়ান) এবং ইউরেশিয়ান প্লেটের সংঘর্ষের ফলে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "0626fe3a-84a4-4b3c-9759-716f15b20fa6",
+      "question": "পৃথিবীর সর্ব্বোচ্চ পর্বতশৃঙ্গ কোন্টি? [SABAS][]",
+      "options": [
+        "কেটু",
+        "মাউন্ট এভারেস্ট",
+        "কিলিমাঞ্জরো",
+        "মাউন্ট ব্লাঁ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট এভারেস্ট হলো সমুদ্রপৃষ্ঠ থেকে উচ্চতার দিক দিয়ে পৃথিবীর সর্বোচ্চ পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "faa1e587-d790-4fc2-9932-9e0fa372e495",
+      "question": "Mount Everest is located in - [SABAS][]",
+      "options": [
+        "India",
+        "Nepal",
+        "Bhutan",
+        "China"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট এভারেস্ট নেপাল ও চীনের সীমান্তে অবস্থিত, তবে এর শীর্ষবিন্দু নেপালের অংশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "bf99eebe-7842-4ca5-9b8f-a9c3ffdb630d",
+      "question": "মাউন্ট কিলিমাঞ্জরো কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আফ্রিকা",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মাউন্ট কিলিমাঞ্জরো তানজানিয়ায় অবস্থিত, যা আফ্রিকার সর্বোচ্চ পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "e7c86e11-6700-4b62-89d3-6216e9154862",
+      "question": "Mount Kilimanjaro is in - [SABAS][]",
+      "options": [
+        "Kenya",
+        "Tanzania",
+        "Uganda",
+        "Japan"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট কিলিমাঞ্জরো তানজানিয়াতে অবস্থিত একটি সুপ্ত আগ্নেয়গিরি।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "8c06f351-3f80-4c45-904d-d6eda227c70a",
+      "question": "এভারেস্ট শৃঙ্গের উচ্চতা কত? [SABAS][]",
+      "options": [
+        "৮,৪৫০ মিটার",
+        "৮,৮৪৮ মিটার",
+        "৮,৮৪০ মিটার",
+        "৮,০০০ মিটার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট এভারেস্টের স্বীকৃত উচ্চতা ৮,৮৪৮ মিটার।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "f4edf7b5-0ba7-4db2-bc3e-ed01615808f0",
+      "question": "সমুদ্রপৃষ্ঠ থেকে মাউন্ট এভারেস্টের উচ্চতা কত? [SABAS][]",
+      "options": [
+        "২৯০২৯ ফুট",
+        "৩২০০০ ফুট",
+        "৪১০৪১ ফুট",
+        "২১০২১ ফুট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ফুট হিসেবে মাউন্ট এভারেস্টের উচ্চতা প্রায় ২৯,০২৯ ফুট।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "c12070bf-6c5f-424d-bfa4-127c943ee06c",
+      "question": "এভারেস্ট শৃঙ্গ প্রথম জয় করা হয়- [SABAS][]",
+      "options": [
+        "১৯৫০ সালে",
+        "১৯৫১ সালে",
+        "১৯৫২ সালে",
+        "১৯৫৩ সালে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এডমন্ড হিলারি ও তেনজিং নোরগে ১৯৫৩ সালের ২৯ মে প্রথম এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "ff60fac7-7457-4942-adc4-5acc9e21af0e",
+      "question": "Who is the first person to reach the summit of Mount Everest? [SABAS][]",
+      "options": [
+        "Musa Ibrahim",
+        "Edmund Hillary",
+        "Jorden Romero",
+        "Mona Mulepati"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৫৩ সালে স্যার এডমন্ড হিলারি প্রথম ব্যক্তি হিসেবে এভারেস্টের চূড়ায় পৌঁছান।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "366e5519-834a-4c8a-a30d-f9228a1f7eaf",
+      "question": "তেনজিং ও হিলারি কবে এভারেস্ট-এর চূড়ায় পা রাখেন? [SABAS][]",
+      "options": [
+        "১৯৫৩ সালের ২৯ মে",
+        "১৯৭২ সালের ২১ জুন",
+        "১৯৭৪ সালের ২৬ জুলাই",
+        "১৯৭৪ সালের ২২ ডিসেম্বর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৯৫৩ সালের ২৯ মে তেনজিং নোরগে এবং এডমন্ড হিলারি যৌথভাবে এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "ee4c0d6b-6337-43d4-8751-5391d6e94da9",
+      "question": "Who is the first woman to climb Mount Everest? [SABAS][]",
+      "options": [
+        "Junko Tabei",
+        "Nishat Majumder",
+        "Raha Moharrak",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জাপানি পর্বতারোহী জুনকো তাবেই ১৯৭৫ সালে প্রথম নারী হিসেবে মাউন্ট এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "55adf2cc-2c48-4c2a-a1cb-e2cd67699941",
+      "question": "প্রথম কোন ভারতীয় এভারেস্ট শৃঙ্গে আরোহন করেন? [SABAS][]",
+      "options": [
+        "অবতার সিং",
+        "শিপ্রা মজুমদার",
+        "নিশাত",
+        "কেউ না"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অবতার সিং চিমা প্রথম ভারতীয় হিসেবে ১৯৬৫ সালে এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "ae398abe-13d9-4198-a71b-c5174be080c0",
+      "question": "এভারেস্ট জয়ী প্রথম বাঙ্গালী কে? [SABAS][]",
+      "options": [
+        "নিশাত মজুমদার",
+        "সতব্রত দাম",
+        "মুসা ইব্রাহিম",
+        "ওয়াসফিয়া নাজরীন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মুসা ইব্রাহিম ২০১০ সালে প্রথম বাংলাদেশী হিসেবে এভারেস্ট জয়ের কৃতিত্ব অর্জন করেন।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "9c608d56-39fe-4ab5-ba71-dd99c2ecdeae",
+      "question": "Who is the first arab woman to conquer the Everest? [SABAS][]",
+      "options": [
+        "Bilkis Habibi",
+        "Suzanne Al Houby",
+        "Junkeya Tabei",
+        "Salma Hayek"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সুজান আল হুবি ২০১১ সালে প্রথম আরব নারী হিসেবে এভারেস্টের চূড়ায় আরোহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "5291514f-e866-4e5c-87e6-4d3e89eaf75a",
+      "question": "The first Bangladeshi who climbed Mount Everest is- [SABAS][]",
+      "options": [
+        "Edmond Hillary",
+        "Neil Armstrong",
+        "Musa Ibrahim",
+        "Serpa Tenjing"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মুসা ইব্রাহিম প্রথম বাংলাদেশী হিসেবে এভারেস্ট জয়ের মাইলফলক স্পর্শ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "0c203e63-3ed1-46c5-a205-5f4f2c42fa4f",
+      "question": "মুসা ইব্রাহিম কিসে খ্যাতি লাভ করেন? [SABAS][]",
+      "options": [
+        "সৌদে",
+        "এভারেস্ট শৃঙ্গে আরোহন",
+        "দাবায়",
+        "সাঁতারে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মুসা ইব্রাহিম প্রথম বাংলাদেশী হিসেবে মাউন্ট এভারেস্ট আরোহন করে খ্যাতি লাভ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "2df11c17-4c7f-4c64-b78d-811986fe030b",
+      "question": "বাংলাদেশের মুসা ইব্রাহিম কত তারিখে পৃথিবীর সর্ব্বোচ্চ পর্বতশৃঙ্গ এভারেস্টের শিখরে পা রাখেন? [SABAS][]",
+      "options": [
+        "২০ মে, ২০১০",
+        "২১ মে, ২০১০",
+        "২২ মে, ২০১০",
+        "২৩ মে, ২০১০"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মুসা ইব্রাহিম ২০১০ সালের ২৩ মে তারিখে এভারেস্টের শিখরে পা রাখেন।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "3ea4d826-731b-4375-a3be-9d5bba009c87",
+      "question": "The name of the first Bangladeshi female conquering the everest is - [SABAS][]",
+      "options": [
+        "রানী হামিদ",
+        "শারমিন সুলতানা শিরিন",
+        "জান্নাতুল ফেরদৌস",
+        "নিশাত মজুমদার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নিশাত মজুমদার প্রথম বাংলাদেশী নারী হিসেবে এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "a34b8030-0cb2-4dd9-93f0-7e0e3fe7c3d3",
+      "question": "নিশাত মজুমদার কত তারিখে এভারেস্টের চূড়ায় আরোহন করেন? [SABAS][]",
+      "options": [
+        "১৮ মে, ২০১২",
+        "১৯ মে, ২০১২",
+        "২১ মে, ২০১২",
+        "২২ মে, ২০১২"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নিশাত মজুমদার ২০১২ সালের ২২ মে তারিখে এভারেস্টের চূড়ায় আরোহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "bc69f6a7-919e-4585-8e67-bb2acd41f419",
+      "question": "এভারেস্টের চূড়ায় আরোহণকারী দ্বিতীয় বাংলাদেশী কে? [SABAS][]",
+      "options": [
+        "মুসা ইব্রাহিম",
+        "নিশাত মজুমদার",
+        "ওয়াসফিয়া নাজরীন",
+        "এম.এ. মুহিত"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এম.এ. মুহিত এভারেস্টের চূড়ায় আরোহণকারী দ্বিতীয় বাংলাদেশী।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "ae4410c7-8096-439a-b626-9acf242b5195",
+      "question": "ওয়াসফিয়া নাজরীন বিখ্যাত - [SABAS][]",
+      "options": [
+        "অ্যাথলেট হিসেবে",
+        "নারী উদ্যোক্তা হিসেবে",
+        "এভারেস্টজয়ী হিসেবে",
+        "ক্রিকেটার হিসেবে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ওয়াসফিয়া নাজরীন একজন বাংলাদেশী পর্বতারোহী যিনি সাত মহাদেশের সাতটি সর্বোচ্চ শৃঙ্গ জয় করেছেন।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "e961c8e5-d3d7-4bb7-9025-0fe77a362a05",
+      "question": "ওয়াসফিয়া নাজরীন কত তারিখে এভারেস্টের চূড়ায় আরোহন করেন? [SABAS][]",
+      "options": [
+        "২৩ মে, ২০১২",
+        "২৪ মে, ২০১২",
+        "২৫ মে, ২০১২",
+        "২৬ মে, ২০১২"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ওয়াসফিয়া নাজরীন ২০১২ সালের ২৬ মে তারিখে এভারেস্টের চূড়ায় আরোহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "f5155130-4eb3-4029-8985-58dcdef06a34",
+      "question": "‘গডউইন অস্টিন’ পর্বতশৃঙ্গটি কোন পর্বতমালা? [SABAS][]",
+      "options": [
+        "হিমালয়",
+        "আল্পস",
+        "কারাকোরাম",
+        "আলাস্কা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গডউইন অস্টিন (K2) কারাকোরাম পর্বতমালায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "684f166e-0cc5-4e04-8267-de71f19dbaed",
+      "question": "Which one is the second highest mountain on the earth? [SABAS][]",
+      "options": [
+        "Makalu",
+        "Himalayas",
+        "Annapurna",
+        "K2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "K2 বা গডউইন অস্টিন পৃথিবীর দ্বিতীয় উচ্চতম পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "cc5a5c07-ee09-4824-b7d5-9a186e7bad90",
+      "question": "যুক্তরাজ্যের সর্ব্বোচ্চ পর্বতশৃঙ্গ হচ্ছে- [SABAS][]",
+      "options": [
+        "এলবর্জ",
+        "আল্পস",
+        "বেননেভিস",
+        "এঙ্গন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বেন নেভিস যুক্তরাজ্যের সর্বোচ্চ পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "bd21e7c7-2f00-43ae-907f-3deed415ded5",
+      "question": "Adam's Peak শীর্ষস্থানটি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ইন্দোনেশিয়া",
+        "ভিয়েতনাম",
+        "শ্রীলংকা",
+        "ফিলিপাইন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আদমস পিক (Adam's Peak) শ্রীলঙ্কায় অবস্থিত একটি পবিত্র পর্বত।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "b5ba5b97-aa5e-4d65-8450-f85843042b65",
+      "question": "তোরাবোরা পাহাড় অবস্থিত কোন দেশে? [SABAS][]",
+      "options": [
+        "সুইড",
+        "আফগানিস্তান",
+        "শ্রীলংকা",
+        "সৌদি আরব"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তোরাবোরা পাহাড় আফগানিস্তানে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "c3b2ebfe-b4b3-414f-8391-b3bd94ff3b17",
+      "question": "‘Mount Kinabalu’ কোন দেশের পর্বতমালা? [SABAS][]",
+      "options": [
+        "ইন্দোনেশিয়া",
+        "মালয়েশিয়া",
+        "থাইল্যান্ড",
+        "মায়ানমার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট কিনাবালু মালয়েশিয়ার সর্বোচ্চ পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "80f115d7-c583-4632-8724-f76087031af3",
+      "question": "অলিভ পর্বতটি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "পাকিস্তান",
+        "জেরুজালেম",
+        "ইয়েমেন",
+        "ইরাক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অলিভ পর্বত জেরুজালেমে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "5ce17a93-87a8-4d51-b39e-9dcde1ee9a2f",
+      "question": "The Pico Island is located in - [SABAS][]",
+      "options": [
+        "Turkey",
+        "Egypt",
+        "China",
+        "Portugal"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পিকো দ্বীপ পর্তুগালের আজোরেস দ্বীপপুঞ্জে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "c64513bc-13f2-4123-b347-a04027571893",
+      "question": "Khyber pass is in - [SABAS][]",
+      "options": [
+        "India",
+        "Nepal",
+        "Pakistan",
+        "Bangladesh"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "খাইবার পাস পাকিস্তান ও আফগানিস্তান সীমান্তে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "04d522da-c0ae-4e67-9cdf-642d0b5fc686",
+      "question": "বিশ্বের উচ্চতম গিরিপথ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "যুক্তরাষ্ট্র",
+        "নেপাল",
+        "তিব্বত",
+        "রাশিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বিশ্বের উচ্চতম গিরিপথ উমলিংলা তিব্বত (লাদাখ অঞ্চল, ভারত) এলাকায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "d9e4b9cb-431a-4d3b-8c28-6d9ca7cc9bce",
+      "question": "সেট বার্নার্ড গিরিপথ কোথায়? [SABAS][]",
+      "options": [
+        "কলোরাডো",
+        "অস্ট্রেলিয়ান আল্পস",
+        "আফগানিস্তান",
+        "সুইস আল্পস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সেন্ট বার্নার্ড গিরিপথ সুইস আল্পস পর্বতমালায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "781ffea3-9d2f-4b9d-b86c-df1057f9ac47",
+      "question": "সোয়াত উপত্যকা কোন দেশে? [SABAS][]",
+      "options": [
+        "আফগানিস্তান",
+        "ভারত",
+        "পাকিস্তান",
+        "ইরান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সোয়াত উপত্যকা পাকিস্তানের খাইবার পাখতুনখোয়া প্রদেশে অবস্থিত।",
+      "images": []
+    }
+  ]
+}

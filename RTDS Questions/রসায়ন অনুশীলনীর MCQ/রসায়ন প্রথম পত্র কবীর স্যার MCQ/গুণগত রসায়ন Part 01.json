@@ -1,0 +1,2010 @@
+{
+  "title": "আহসানুল কবীর স্যার রসায়ন ১ম পত্র - Chapter 2: গুণগত রসায়ন 1 Part",
+  "category": "রসায়ন অনুশীলনীর MCQ > রসায়ন প্রথম পত্র কবীর স্যার MCQ",
+  "duration_minutes": 30,
+  "total_questions": 143,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "132418",
+      "question": "\"পরমাণুর নিউক্লিয়াস ধনাত্মক আধানযুক্ত”-কোন বিজ্ঞানী প্রমাণ করেন?",
+      "options": [
+        "রাদারফোর্ড",
+        "বোর",
+        "ডি-ব্রগলি",
+        "জে.জে. থমসন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "132419",
+      "question": "ক্যালসিয়াম ফসফেটের দ্রাব্যতা গুণফল কোনটি?",
+      "options": [
+        "27s^3",
+        "s^5",
+        "27s^5",
+        "108s^5"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "132420",
+      "question": "4f অরবিটালের (n+l) এর মান কত?",
+      "options": [
+        "4",
+        "6",
+        "7",
+        "11"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "132421",
+      "question": "বামার সিরিজের ২য় লাইনের ক্ষেত্রে n-এর মান কত?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "132422",
+      "question": "AB3 যৌগের দ্রাব্যতা গুণফল 1.7×10^-12 হলে এর দ্রাব্যতা কত?",
+      "options": [
+        "6.3×10^-14molL-1",
+        "6.3×10^-10 molL-1",
+        "2.5x10^-7 molL-1",
+        "5.0×10^-4molL-¹"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "132423",
+      "question": "নিচের কোনটি রক্তের ন্যায় লাল দ্রবণের সংকেত?",
+      "options": [
+        "Fe (CNS)3",
+        "Fe(CNS)2",
+        "NH4CNS",
+        "KCNS"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "132424",
+      "question": "Cu²+ আয়ন শনাক্তকরণে ব্যবহৃত হয়-",
+      "options": [
+        "ক্ষারীয় K2HgI4",
+        "K4[Fe(CN)6]",
+        "K2H2Sb2O7",
+        "CaC204"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "132425",
+      "question": "30°C তাপমাত্রায় 200g সম্পৃক্ত দ্রবণে 18g দ্রব দ্রবীভূত থাকলে দ্রবটির দ্রাব্যতা কত?",
+      "options": [
+        "9.0",
+        "9.5",
+        "10.5",
+        "9.89 g/100g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "132426",
+      "question": "কোনো ইলেকট্রনের জন্য কোয়ান্টাম সংখ্যার কোন সেটটি গ্রহণযোগ্য?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "132427",
+      "question": "নিচের কোন যৌগের ক্ষারীয় মূলকের d-অরবিটালে ইলেকট্রন আছে?",
+      "options": [
+        "ScCl3",
+        "TiCl4",
+        "CrSO4",
+        "CaSO4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "132428",
+      "question": "",
+      "options": [
+        "এতে দুটি প্রোটন ও দুটি ইলেকট্রন আছে",
+        "এটা খুব ধীরগতিসম্পন্ন কণা",
+        "ইহা ধনাত্মক চার্জ কণা",
+        "এর ভর সংখ্যা 2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "132429",
+      "question": "বিশুদ্ধ খাদ্য লবণের কেলাসনে নিম্নের কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "NH4CI",
+        "HCl",
+        "BaCl2",
+        "H2SO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "132430",
+      "question": "বোর পরমাণু মডেল কোনটির বর্ণালি ব্যাখ্যা করতে পারে?",
+      "options": [
+        "He+",
+        "H-",
+        "He2+",
+        "H+"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "132431",
+      "question": "একটি ইলেকট্রনের জন্য কোয়ান্টাম সংখ্যার কোন সেটটি সম্ভব?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "132432",
+      "question": "কক্ষ তাপমাত্রায় 225g সম্পৃক্ত দ্রবণে 75g দ্রব দ্রবীভূত থাকলে এর দ্রাব্যতা কত?",
+      "options": [
+        "100",
+        "75",
+        "50",
+        "25"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "132433",
+      "question": "দৃশ্যমান অঞ্চলের আলোর তরঙ্গদৈর্ঘ্য ব্যাপ্তি কত?",
+      "options": [
+        "0.1-10nm",
+        "10-280nm",
+        "380-780nm",
+        "780-10^6"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "132434",
+      "question": "সৌর মডেল কোনটি?",
+      "options": [
+        "রাদারফোর্ড পরমাণু মডেল",
+        "বোর পরমাণু মডেল",
+        "থমসন পরমাণু মডেল",
+        "ডাল্টন পরমাণু মডেল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "132435",
+      "question": "কোনো শক্তিস্তরে অরবিটাল সংখ্যা নির্ণয়ের সূত্র",
+      "options": [
+        "2(2n+1)",
+        "2n+1",
+        "2n²",
+        "n²"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "132436",
+      "question": "সর্ববহিস্থরের d-অরবিটালের জন্য প্রযোজ্য কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "λ দ্বারা l বুঝিয়েছে"
+    },
+    {
+      "question_no": 20,
+      "id": "132437",
+      "question": "",
+      "options": [
+        "4s3",
+        "27s4",
+        "108s5",
+        "s2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "132438",
+      "question": "একটি অরবিটালে সর্বাধিক কয়টি ইলেকট্রন থাকে?",
+      "options": [
+        "2",
+        "6",
+        "10",
+        "14"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "132439",
+      "question": "",
+      "options": [
+        "AgCI",
+        "AgNO3",
+        "Ba (NO3) 2",
+        "BaSO4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "132440",
+      "question": "পরমাণুতে অরবিটাল সম্পর্কে ধারণা দেয় কোন কোয়ান্টাম সংখ্যা?",
+      "options": [
+        "প্রধান কোয়ান্টাম সংখ্যা",
+        "সহকারী কোয়ান্টাম সংখ্যা",
+        "চৌম্বক কোয়ান্টাম সংখ্যা",
+        "স্পিন কোয়ান্টাম সংখ্যা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "132441",
+      "question": "/ = 2 হলে উপস্তর কোনটি?",
+      "options": [
+        "s-উপস্তর",
+        "p-উপস্তর",
+        "d-উপস্তর",
+        "f-উপস্তর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "132442",
+      "question": "অরবিটালসমূহের সঠিক শক্তির ক্রম কোনটি?",
+      "options": [
+        "4p>3d>3s",
+        "4p>3s>3d",
+        "3d>3s>4p",
+        "3d>4p>3s"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "132443",
+      "question": "ইলেকট্রনের চার্জ কত কুলম্ব?",
+      "options": [
+        "1.6×10^-20 C",
+        "1.6×10^-19 С",
+        "4.8×10^-10 C",
+        "4.8×10 ^-9C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "132444",
+      "question": "Ca এর 19 তম ইলেকট্রনটি কোন অরবিটালে যায়?",
+      "options": [
+        "3s",
+        "4s",
+        "3d",
+        "3p"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "132445",
+      "question": "d-উপস্তরে অরবিটাল কয়টি?",
+      "options": [
+        "1",
+        "3",
+        "5",
+        "7"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "132446",
+      "question": "আসমানি আলোর তরঙ্গদৈর্ঘ্যের চেয়ে ছোট তরঙ্গদৈর্ঘ্যের আলো কোনটি?",
+      "options": [
+        "নীল",
+        "সবুজ",
+        "কমলা",
+        "লাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "132447",
+      "question": "নিচের কোন অরবিটালটি পাই বন্ধন গঠনে অংশগ্রহণ করে?",
+      "options": [
+        "s-অরবিটাল",
+        "p- অরবিটাল",
+        "d- অরবিটাল",
+        "f- অরবিটাল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "132448",
+      "question": "দ্রাব্যতা গুণফল নিচের কোন ক্ষেত্রে প্রযোজ্য?",
+      "options": [
+        "অধিক দ্রবণীয় সমযোজী যৌগ",
+        "অধিক দ্রবণীয় তড়িৎযোজী",
+        "স্বল্প দ্রবণীয় আয়নিক যৌগ",
+        "স্বল্প দ্রবণীয় সমযোজী যৌগ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "132449",
+      "question": "ইলেক্ট্রোম্যাগনেটিক বর্ণালিতে নিচের কোনটির তরঙ্গদৈর্ঘ্য দীর্ঘ?",
+      "options": [
+        "UV-রশ্মি",
+        "TV-রশ্মি",
+        "IR-রশ্মি",
+        "X-রশ্মি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "132450",
+      "question": "কোনো পরমাণুর চতুর্থ শক্তিস্তরে কতটি উপশক্তিস্তর থাকে?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "132451",
+      "question": "নিচের কোনটির জন্য বোর পরমাণু মডেল প্রযোজ্য?",
+      "options": [
+        "H+",
+        "He+",
+        "Li+",
+        "Be+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "132452",
+      "question": "f অরবিটালের জন্য / এর মান কত?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "132453",
+      "question": "ক্রোমিয়াম পরমাণুতে অযুগ্ম ইলেকট্রনের সংখ্যা কত?",
+      "options": [
+        "8",
+        "6",
+        "5",
+        "3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "132454",
+      "question": "লাইমেন বর্ণালি সিরিজ তড়িৎ চুম্বকীয় বিকিরণের কোন অঞ্চলে ঘটে?",
+      "options": [
+        "UV",
+        "IR",
+        "X - ray",
+        "Visible Ray"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "132455",
+      "question": "প্লাংক ধ্রুবকের মান কত?",
+      "options": [
+        "6.23 × 10^23 Js",
+        "6.23×10^-23Js",
+        "6.624×10^34Js",
+        "6.624× 10^-34Js"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "132456",
+      "question": "যদি Kp = as^3 হয় তবে a =?; এখানে S= স্বল্প দ্রাব্য লবণের দ্রাবতা।",
+      "options": [
+        "1",
+        "4",
+        "27",
+        "108"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "132457",
+      "question": "3d অরবিটালের পরে কোনটিতে ইলেকট্রন প্রবেশ করবে?",
+      "options": [
+        "4p",
+        "4d",
+        "4s",
+        "5s"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "132458",
+      "question": "প্যাশ্চেন সিরিজের ক্ষেত্রে নিম্ন শক্তিস্তরের মান কত?",
+      "options": [
+        "5",
+        "4",
+        "3",
+        "2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "132459",
+      "question": "4p অরবিটালের জন্য সহকারী কোয়ান্টাম সংখ্যার মান কত?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "132460",
+      "question": "",
+      "options": [
+        "Cu",
+        "Cr",
+        "Zn",
+        "Na"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "132461",
+      "question": "25° সে তাপমাত্রায় 150 গ্রাম সম্পৃক্ত দ্রবণে 50 গ্রাম দ্রব দ্রবীভূত থাকলে ঐ দ্রবের দ্রাব্যতা কত?",
+      "options": [
+        "100",
+        "75",
+        "50",
+        "25"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "132462",
+      "question": "কোয়ান্টাম সংখ্যার মান n=4 এবং l=3 হলে অরবিটাল-",
+      "options": [
+        "4s",
+        "4p",
+        "4d",
+        "4f"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "132463",
+      "question": "কোন মৌলটি ব্যতিক্রমধর্মী ইলেকট্রন বিন্যাস দেখায়?",
+      "options": [
+        "Zn",
+        "Fe",
+        "Cu",
+        "Pb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "132464",
+      "question": "চৌম্বক কোয়ান্টাম সংখ্যা দ্বারা কী পাওয়া যায়?",
+      "options": [
+        "প্রধান শক্তিস্তর",
+        "উপশক্তিস্তর",
+        "অরবিটাল",
+        "ইলেকট্রনের ঘূর্ণনের দিক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "132465",
+      "question": "আইসোটোনের উদাহরণ কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "132466",
+      "question": "",
+      "options": [
+        "3.4×10^-14",
+        "4.3×10^-14",
+        "3.4x10^-13",
+        "4.3×10^-13"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "132467",
+      "question": "IR এর প্রভাবে ঘটে-",
+      "options": [
+        "রক্ত সঞ্চালন হ্রাস",
+        "ধমনী ও শিরা প্রশস্তকরণ",
+        "অঙ্গ প্রতিস্থাপন",
+        "দেহের তাপমাত্রা হ্রাস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 51,
+      "id": "132468",
+      "question": "সিলভার ক্লোরাইডের দ্রাব্যতা প্রতি লিটার জলীয় দ্রবণে 0.00015 গ্রাম হলে দ্রাব্যতা গুণফল কত?",
+      "options": [
+        "1.1×10^-10",
+        "1.1×10^-12",
+        "2.1×10^-13",
+        "2.1×10^-15"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 52,
+      "id": "132469",
+      "question": "ক্ষারীয় পটাশিয়াম টেট্রা আয়োডো মারকিউরেট দ্রবণ দ্বারা নিচের কোনটি শনাক্ত করা হয়?",
+      "options": [
+        "Al3+",
+        "Cu 2+",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "132470",
+      "question": "ব্রাকেট সিরিজের ক্ষেত্রে n₂ এর মান কত?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "132471",
+      "question": "",
+      "options": [
+        "পরমাণুর কেন্দ্র ধনাত্মক চার্জযুক্ত বলে",
+        "আলফা কণার গতিশক্তি বেশি বলে",
+        "আলফা কণার প্রতিফলিত হওয়ার ক্ষমতা কম",
+        "পরমাণুর অধিকাংশই স্থানই ফাঁকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 55,
+      "id": "132472",
+      "question": "কোন বিকারক দিয়ে Cu²+ এবং Fe²+ উভয় আয়ন শনাক্ত করা যায়?",
+      "options": [
+        "নেসলার দ্রবণ",
+        "অ্যামোনিয়া দ্রবণ",
+        "সিলভার নাইট্রেট দ্রবণ",
+        "H2S"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 56,
+      "id": "132473",
+      "question": "টাকা দ্বারা শোষিত UV রশ্মি কোন রশ্মি হিসেবে বিকিরিত হয়?",
+      "options": [
+        "UV- রশ্মি",
+        "IR-রশ্মি",
+        "Y-রশ্মি",
+        "Visible-রশ্মি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "132474",
+      "question": "স্বাভাবিক অবস্থায় হাইড্রোজেন পরমাণুর আবর্তনশীল ইলেকট্রনের কৌণিক ভরবেগ কত?",
+      "options": [
+        "1.05×10^-34 Js",
+        "11x10^-34Js",
+        "3.16×10^-34 Js",
+        "4.22×10^-34 Js"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "132475",
+      "question": "রাদারফোর্ড তার পরীক্ষায় কোন পদার্থের প্রলেপযুক্ত পর্দা ব্যবহার করেন?",
+      "options": [
+        "জিংক নাইট্রাইড",
+        "জিংক সালফেট",
+        "জিংক সালফাইড",
+        "জিংক ফসফেট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 59,
+      "id": "132476",
+      "question": "কোন বিজ্ঞানীর মতে আবর্তনশীল ইলেকট্রন ক্রমাগত শক্তি বিকিরত করে?",
+      "options": [
+        "হাইজেনবার্গ",
+        "আইনস্টাইন",
+        "ম্যাক্স প্ল্যাংক",
+        "ম্যাক্সওয়েল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 60,
+      "id": "132477",
+      "question": "যে কোনো অরবিটালে সর্বোচ্চ ধারণকৃত ইলেকট্রন সংখ্যা কতটি?",
+      "options": [
+        "2n²",
+        "(2l+1)",
+        "2(2l+1)",
+        "2(2n+1)"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 61,
+      "id": "132478",
+      "question": "A2B3 যৌগে দ্রাব্যতা, S ও দ্রাব্যতা গুণফল Ksp এর মধ্যে সঠিক সম্পর্ক কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 62,
+      "id": "132479",
+      "question": "",
+      "options": [
+        "আইসোটোন",
+        "আইসোটোপ",
+        "আইসোমার",
+        "আইসোবার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 63,
+      "id": "132480",
+      "question": "পটাশিয়াম এর সর্ববহিঃস্থ ইলেকট্রনের জন্য কোন সেটটি সঠিক?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 64,
+      "id": "132481",
+      "question": "কোন উপশক্তি স্তরে ইলেকট্রন আগে প্রবেশ করবে?",
+      "options": [
+        "5s",
+        "4d",
+        "4p",
+        "5p"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 65,
+      "id": "132482",
+      "question": "কোন পরমাণু মডেল কক্ষপথ সম্পর্কে ধারণা দেয়?",
+      "options": [
+        "রাদারফোর্ড",
+        "থমসন",
+        "ডাল্টন",
+        "বোর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 66,
+      "id": "132483",
+      "question": "কোন বর্ণের আলোর শক্তি বেশি?",
+      "options": [
+        "লাল",
+        "কমলা",
+        "বেগুনি",
+        "নীল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 67,
+      "id": "132484",
+      "question": "কোনটি নেসলার বিকারক?",
+      "options": [
+        "Zn-Hg ও গাঢ় HCl",
+        "CuSO +2NaOH",
+        "K2HgI4 ও KOH দ্রবণ",
+        "[Ag(NH3)2]OH"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 68,
+      "id": "132485",
+      "question": "কোন সেটটির ইলেকট্রন সংখ্যা সমান?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 69,
+      "id": "132486",
+      "question": "নিচের কোন সেটটিতে সম-আয়ন প্রভাব বিদ্যমান?",
+      "options": [
+        "CaCl2, CH3CI",
+        "H2S,HCI",
+        "C2H6,HCI",
+        "NaCl, C6H5Cl"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 70,
+      "id": "132487",
+      "question": "M3+ আয়নে 23টি ইলেকটন থাকলে M এর পারমাণবিক সংখ্যা কত?",
+      "options": [
+        "3",
+        "24",
+        "25",
+        "26"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 71,
+      "id": "132488",
+      "question": "রাদারফোর্ডের আলফা কণা বিচ্ছুরণ পরীক্ষায় স্বর্ণপাতের পুরুত্ব কত ছিল?",
+      "options": [
+        "0.0000004m",
+        "0.0004cm",
+        "0.0004mm",
+        "0.004cm"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 72,
+      "id": "132494",
+      "question": "XY যৌগের দ্রাব্যতার ক্ষেত্রে কোনটি সঠিক?",
+      "options": [
+        "",
+        "",
+        "",
+        "Ksp =S"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 73,
+      "id": "132495",
+      "question": "3d অরবিটালের জন্য m এর মান সেট হবে?",
+      "options": [
+        "0",
+        "-1, 0, +1",
+        "-2, -1, 0, +1, +2",
+        "-3, -2, -1, 0, 1, +2,+3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 74,
+      "id": "132497",
+      "question": "",
+      "options": [
+        "7.52×10^-6molL-1",
+        "7.52 ×10^-6gL-1",
+        "7.52×10^-5 moIL-1",
+        "7.52×10^-5gL-¹"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 75,
+      "id": "132498",
+      "question": "কোয়ান্টাম সংখ্যার মানের কোন সেটটি অবাস্তব?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 76,
+      "id": "132499",
+      "question": "ক্যান্সার আক্রান্ত কোষ শনাক্তকরণ পরীক্ষায় কোন রশ্মি ব্যবহার করা হয়?",
+      "options": [
+        "UV",
+        "X-ray",
+        "IR",
+        "MW"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 77,
+      "id": "132500",
+      "question": "H-পরমাণুর বর্ণালির বামার সিরিজের সর্বনিম্ন তরঙ্গ সংখ্যার বিকিরিত রশ্মি কোনটি?",
+      "options": [
+        "3RH/4",
+        "5RH/36",
+        "8R/9",
+        "9RH/144"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 78,
+      "id": "132501",
+      "question": "পরমাণুতে অরবিটালের ধারণা কোন উৎস থেকে?",
+      "options": [
+        "বোর মডেল",
+        "রাদারফোর্ড মডেল",
+        "কোয়ান্টাম তত্ত্ব",
+        "আউফবাউ নীতি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 79,
+      "id": "132502",
+      "question": "সর্বাধিক তড়িৎ ঋণাত্মক মৌলের সর্বশেষ শক্তিস্তরের ইলেকট্রন বিন্যাস কোনটি?",
+      "options": [
+        "5s²5p⁵",
+        "4s²4p³",
+        "3s³p⁵",
+        "2s²2p⁵"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 80,
+      "id": "132503",
+      "question": "ইলেকট্রন দ্বারা পূর্ণ হওয়ার জন্য অরবিটালের কোন ক্রমটি সঠিক?",
+      "options": [
+        "5s>4p>3d>4s",
+        "4s>3d>4p>5s",
+        "4s>3d>5p>4d",
+        "5s>4p>5p>4d"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 81,
+      "id": "132504",
+      "question": "নিচের কোনটি আউফবাউ নীতির বিকল্প রূপ?",
+      "options": [
+        "2n² নিয়ম",
+        "(2l+1) নিয়ম",
+        "(n+l) নিয়ম",
+        "2(2l+1)নিয়ম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 82,
+      "id": "132505",
+      "question": "AX2 এর দ্রাব্যতা S হলে দ্রাব্যতা গুণফল কত হবে?",
+      "options": [
+        "S²",
+        "4S³",
+        "27s⁴",
+        "108s⁵"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 83,
+      "id": "132506",
+      "question": "রিডবার্গ ধ্রুবক (RH) এর মান কত?",
+      "options": [
+        "",
+        "",
+        "",
+        "1.09678×10^7 m^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 84,
+      "id": "132507",
+      "question": "কোন কণিকার স্থায়িত্ব সবচেয়ে কম?",
+      "options": [
+        "ইলেকট্রন",
+        "প্রোটন",
+        "নিউটন",
+        "মেসন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 85,
+      "id": "132508",
+      "question": "পরমাণুর তৃতীয় কক্ষপথের একটি ইলেকট্রনের জন্য কৌণিক ভরবেগের মান নির্ণয়ের সমীকরণ কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 86,
+      "id": "132509",
+      "question": "অসীম দূরত্বের শক্তিস্তর হতে একটি ইলেকট্রন চতুর্থ শক্তিস্তরে স্থানান্তরিত হলে বিকিরিত রশ্মিটি কোন সিরিজভুক্ত?",
+      "options": [
+        "লাইমেন",
+        "বামার",
+        "ফুন্ড",
+        "ব্রাকেট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 87,
+      "id": "132510",
+      "question": "পর্যায় সারণিতে কোন ব্লকে অধাতুর সংখ্যা বেশি?",
+      "options": [
+        "s",
+        "p",
+        "d",
+        "f"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 88,
+      "id": "132511",
+      "question": "Mn পরমাণুতে কয়টি অযুগ্ম ইলেকট্রন আছে?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 89,
+      "id": "132512",
+      "question": "কোন বিকিরিত রশ্মির তরঙ্গদৈর্ঘ্য সবচেয়ে বেশি?",
+      "options": [
+        "মহাজাগতিক রশ্মি",
+        "X-ray",
+        "UV- রশ্মি",
+        "Visible ray"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 90,
+      "id": "132513",
+      "question": "LM2 এর দ্রাব্যতা 0.0003molL হলে এর দ্রাব্যত গুণফল কত?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 91,
+      "id": "132514",
+      "question": "Cr পরমাণুর সর্ববহিঃস্থ স্তরের ইলেকট্রনের জন্য কোয়ান্টাম সংখ্যার সেট কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 92,
+      "id": "132515",
+      "question": "জাল পাসপোর্ট শনাক্তকরণে কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "UV রশ্মি",
+        "IR রশ্মি",
+        "y -রশ্মি",
+        "X- রশ্মি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 93,
+      "id": "132516",
+      "question": "অ্যালুমিনিয়াম হাইড্রোক্সাইডের দ্রাব্যতা গুণফল 3.7×10^-15 হলে এর দ্রাব্যতা কত?",
+      "options": [
+        "4.28×10^-3 gL-¹",
+        "4.42×10^3gL-¹",
+        "6.24×10^-3 gL-¹",
+        "8.44 x10^-3gL-¹"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 94,
+      "id": "132517",
+      "question": "",
+      "options": [
+        "4 He2+",
+        "স্বর্ণের পাত",
+        "ZnS এর আবরণযুক্ত পর্দা",
+        ""
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 95,
+      "id": "132518",
+      "question": "নিচের কোন নীতি অনুসারে অযুগ্ম ইলেকট্রনসমূহের স্পিন একইমুখী হবে?",
+      "options": [
+        "পলির বর্জন নীতি",
+        "হুন্ডের নীতি",
+        "আউফবাউ নীতি",
+        "ফাযানের নীতি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 96,
+      "id": "132519",
+      "question": "হুন্ডের নীতি কোনটির ক্ষেত্রে প্রযোজ্য নয়?",
+      "options": [
+        "s",
+        "p",
+        "d",
+        "f"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 97,
+      "id": "132520",
+      "question": "",
+      "options": [
+        "2.7×10^-5",
+        "3.8×10^-5",
+        "1.08x10^-4",
+        "7.29 ×10^-4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 98,
+      "id": "132521",
+      "question": "",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 99,
+      "id": "132522",
+      "question": "কোনটি দৃশ্যমান বর্ণালি?",
+      "options": [
+        "লাইম্যান সিরিজ",
+        "বামার সিরিজ",
+        "প্যাশ্চেন সিরিজ",
+        "ব্রাকেট সিরিজ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 100,
+      "id": "132523",
+      "question": "নিচের কোন ধাতুর আয়ন শনাক্তকরণে K2H2Sb2O7 প্রয়োজন?",
+      "options": [
+        "Ca",
+        "Cu",
+        "Na",
+        "Al"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 101,
+      "id": "132524",
+      "question": "ক্যালসিয়ামের সর্ববহিঃস্থস্তরের ইলেকট্রনদ্বয়ের কোয়ান্টাম সংখ্যার সেট কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 102,
+      "id": "132525",
+      "question": "৪র্থ শক্তিস্তরে মোট অরবিটাল সংখ্যা কয়টি?",
+      "options": [
+        "4",
+        "9",
+        "16",
+        "32"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 103,
+      "id": "132526",
+      "question": "Cu3 (PO4)2 এর দ্রাব্যতা S হলে, দ্রাব্যতা গুণফল হলো-",
+      "options": [
+        "6S⁵",
+        "36S⁵",
+        "54S⁵",
+        "108S⁵"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 104,
+      "id": "132527",
+      "question": "উচ্চশক্তির অরবিটাল নিচের কোনটি?",
+      "options": [
+        "3d",
+        "4f",
+        "5p",
+        "6s"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 105,
+      "id": "132528",
+      "question": "সোডিয়াম আয়ন শনাক্তকরণে ব্যবহৃত হয় কোনটি?",
+      "options": [
+        "K4 [Fe (CN)6]",
+        "K2H2Sb2O7",
+        "(NH4)2C204",
+        "K2Hgl4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 106,
+      "id": "132529",
+      "question": "পরমাণুর উপশক্তিস্তরে ইলেকট্রন ধারণ ক্ষমতা নির্ণয়ের সূত্র কোনটি?",
+      "options": [
+        "2n2",
+        "2l+1",
+        "2(l+1)",
+        "2(2l+1)"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 107,
+      "id": "132530",
+      "question": "বোর মডেল নিচের কোন মৌল বা আয়নের বর্ণালি ব্যাখ্যা করতে পারে?",
+      "options": [
+        "He",
+        "H-",
+        "H+",
+        "Be³+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 108,
+      "id": "132531",
+      "question": "WiFi- তে কোন অঞ্চলের তড়িৎ চুম্বকীয় বিকিরণ ব্যবহৃত হয়?",
+      "options": [
+        "মাইক্রো ওয়েভ",
+        "রেডিও ওয়েভ",
+        "অবলোহিত",
+        "অতিবেগুনি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 109,
+      "id": "132532",
+      "question": "ভিন্ন ভিন্ন শক্তির উপশক্তিস্তরে ইলেক্ট্রনগুলো প্রবেশের ক্ষেত্র কোননীতি অনুসৃত হয়?",
+      "options": [
+        "আউফবাউ নীতি",
+        "হুন্ডের নীতি",
+        "পাউলির বর্জন নীতি",
+        "হাইজেনবার্গের অনিশ্চয়তা নীতি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 110,
+      "id": "132533",
+      "question": "কোনো পরমাণুর ২২ তম ইলেক্ট্রনের জন্য কোয়ান্টাম সংখ্যার কোন সেটটি সঠিক?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 111,
+      "id": "132534",
+      "question": "জাল টাকা শনাক্তকরণে ব্যবহৃত আলোকের তরঙ্গদৈর্ঘ্য কত?",
+      "options": [
+        "10-380nm",
+        "230- 375nm",
+        "0-230nm",
+        "200-370nm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 112,
+      "id": "132535",
+      "question": "হাইড্রোজেন পরমাণুর বর্ণালির কোন সিরিজটি অতিবেগুনি অঞ্চলে রেখা দেখায়?",
+      "options": [
+        "বামার",
+        "প্যাশ্চেন",
+        "ব্রাকেট",
+        "লাইমেন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 113,
+      "id": "132536",
+      "question": "গ্লুবার লবণের সংকেত কোনটি?",
+      "options": [
+        "CuSO4.5H₂O",
+        "FeSO4.7HО",
+        "Na₂CO3.10H₂O",
+        "Na2SO4.10H2O"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 114,
+      "id": "132537",
+      "question": "3d অরবিটালের জন্য সহকারী কোয়ান্টাম সংখ্যার মান কত?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 115,
+      "id": "132538",
+      "question": "",
+      "options": [
+        "s²",
+        "4s³",
+        "27s⁴",
+        "108s⁵"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 116,
+      "id": "132539",
+      "question": "নিচের কোন কোয়ান্টাম সংখ্যার সেটটি গ্রহণযোগ্য?",
+      "options": [
+        "n=1,l= 0,m = 0",
+        "n=2,l=1,m=-2",
+        "n =3,l=1,m=+2",
+        "n =3,l=2,m=-3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 117,
+      "id": "132540",
+      "question": "IR রশ্মি-",
+      "options": [
+        "দেহের তাপমাত্রা হ্রাস করে",
+        "এনজাইমের কার্যকারিতা হ্রাস করে",
+        "ধমনী ও শিরা প্রশস্ত করে",
+        "রক্ত সঞ্চালন হ্রাস করে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 118,
+      "id": "132541",
+      "question": "কোনটি আইসোটোন এর উদাহরণ?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 119,
+      "id": "132542",
+      "question": "উপশক্তিস্তরে সর্বোচ্চ ইলেকট্রন ধারণ ক্ষমতা কোনটি?",
+      "options": [
+        "(2l+1)",
+        "2(2l+1)",
+        "2n²",
+        "2n"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 120,
+      "id": "132543",
+      "question": "K(19) এর সর্বশেষ শক্তিস্তরের ইলেকট্রনের জন্য কোন সেটটি সঠিক?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 121,
+      "id": "132544",
+      "question": "প্রোটনের প্রকৃত ভর কত?",
+      "options": [
+        "1.60×10^-24g",
+        "1.66×10^-24 g",
+        "1.673×10^-24g",
+        "1.675×10^-24g"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 122,
+      "id": "132545",
+      "question": "পরমাণুর ৩য় শক্তিস্তরের জন্য 'm' এর মান কতটি?",
+      "options": [
+        "3",
+        "4",
+        "6",
+        "9"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 123,
+      "id": "132546",
+      "question": "কোন রশ্মির তরঙ্গদৈর্ঘ্য অধিক?",
+      "options": [
+        "UV",
+        "X-ray",
+        "MW",
+        "IR"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 124,
+      "id": "132547",
+      "question": "নেসলার বিকারক ব্যবহার করা হয় কোন আয়ন শনাক্তকরণে?",
+      "options": [
+        "Na+",
+        "K+",
+        "",
+        "Cu²+"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 125,
+      "id": "132548",
+      "question": "চিকিৎসা বিজ্ঞানে ফিজিওথেরাপিতে কোনটি ব্যবহার করা হয়?",
+      "options": [
+        "X-ray",
+        "IR",
+        "MRI",
+        "UV"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 126,
+      "id": "132549",
+      "question": "নিচের কোনটি 'flame test' এ 'Golden yellow' প্রতীয়মান হয়?",
+      "options": [
+        "K",
+        "Ca",
+        "Cu",
+        "Na"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 127,
+      "id": "132550",
+      "question": "সোডিয়াম আয়নে কতকগুলো ইলেকট্রন থাকে?",
+      "options": [
+        "11",
+        "5",
+        "10",
+        "13"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 128,
+      "id": "132551",
+      "question": "স্পিরিট ল্যাম্প সম্বন্ধে সত্য নিচের কোনটি?",
+      "options": [
+        "সাশ্রয়ী",
+        "শিখায় তাপমাত্রা বেশি",
+        "শিখা নিয়ন্ত্রণ করা যায়",
+        "ইথানল এর জ্বালানি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 129,
+      "id": "132552",
+      "question": "নিচের কোন মৌলটির ( একমাত্র) স্থায়ী আইসোটোপ আছে?",
+      "options": [
+        "Na",
+        "K",
+        "Fe",
+        "Ca"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 130,
+      "id": "132553",
+      "question": "পারদের রেখা বর্ণালিতে কোন বর্ণটি সুস্পষ্টভাবে দেখা যায়?",
+      "options": [
+        "নীল",
+        "হলুদ",
+        "কমলা",
+        "আসমানি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 131,
+      "id": "132554",
+      "question": "কোনো মৌলের বিভিন্ন উপকক্ষে সর্বোচ্চ ইলেকট্রন সংখ্যা জানার জন্য নিম্নের কোন নীতি ব্যবহৃত হয় না ?",
+      "options": [
+        "আউফবাউ নীতি",
+        "হুন্ডের নীতি",
+        "পলির বর্জন নীতি",
+        "প্ল্যাঙ্কের নীতি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 132,
+      "id": "132555",
+      "question": "দ্রবণে Na+ আয়ন শনাক্তকরণে নিচের কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "",
+        "",
+        "",
+        "AgNO3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 133,
+      "id": "132556",
+      "question": "আলোক বর্ণালির তরঙ্গ দৈর্ঘ্যের ভিত্তিতে বেমানান কোনটি?",
+      "options": [
+        "অতিবেগুনী রশ্মি",
+        "রঞ্জন রশ্মি",
+        "অবলোহিত রশ্মি",
+        "গামা রশ্মি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 134,
+      "id": "132557",
+      "question": "নিম্নের কোনটির আইসোটোপ একটি?",
+      "options": [
+        "C",
+        "Na",
+        "H",
+        "CI"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 135,
+      "id": "132558",
+      "question": "MRI এর অর্থ কি?",
+      "options": [
+        "ম্যাগনেটিক রেডিয়েশন ইমেজিং",
+        "ম্যাগনেটিক রেজোনেন্স ইমেজিং",
+        "মলিকুলার রেজোনেন্স ইমেজিং",
+        "মডার্ন রেজোনেন্স ইমেজিং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 136,
+      "id": "132559",
+      "question": "তীব্র এসিড ও তীব্র ক্ষারের টাইট্রেশনে নির্দেশক হিসাবে ব্যবহার উপযোগী কোনটি?",
+      "options": [
+        "মিথাইল অরেঞ্জ",
+        "মিথাইল রেড",
+        "ফেনফথেলিন",
+        "সবকটি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 137,
+      "id": "132560",
+      "question": "ক্যাথোড রশ্মি কি?",
+      "options": [
+        "বোসন",
+        "ইলেকট্রন",
+        "প্রোটন",
+        "নিউট্রন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 138,
+      "id": "132561",
+      "question": "",
+      "options": [
+        "UV রশ্মি",
+        "X-ray",
+        "অবলোহিত রশ্মি",
+        "টেলিভিশন তরঙ্গ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 139,
+      "id": "132562",
+      "question": "ইনফ্রারেড আলোর তরঙ্গ দৈর্ঘ্য কত?",
+      "options": [
+        "0.78µm -1000µm",
+        "380nm -780nm",
+        "0.005mm- 0.10nm",
+        "1000µm-100cm"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 140,
+      "id": "132563",
+      "question": "উত্তেজিত অবস্থায় H পরমাণুর বেলায় কোয়ান্টাম সংখ্যা n = 4,l=1 বিশিষ্ট অরবিটাল কোনটি?",
+      "options": [
+        "s orbital",
+        "p orbital",
+        "dz² orbital",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 141,
+      "id": "132564",
+      "question": "নিম্নের কোন পরীক্ষাটি সালফিউরিক এসিড ও নাইট্রিক এসিডের মধ্যে পার্থক্য করতে ব্যবহার করা যায়?",
+      "options": [
+        "সার্বজনীন নির্দেশক",
+        "সোডিয়াম কার্বনেট গুঁড়া",
+        "ম্যাগনেসিয়াম ফিতা",
+        "বেরিয়াম নাইট্রেট দ্রবণ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 142,
+      "id": "132565",
+      "question": "কোন পরমাণু বা আয়নে ইলেকট্রন ও নিউট্রন সংখ্যা সমান?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 143,
+      "id": "134613",
+      "question": "বরফের একটি অক্সিজেন পরমাণুতে কয়টি H-বন্ধন বিদ্যমান?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

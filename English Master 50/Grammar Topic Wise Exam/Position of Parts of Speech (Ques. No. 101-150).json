@@ -1,0 +1,761 @@
+{
+  "exam_id": 8414,
+  "title": "Position of Parts of Speech (Ques. No. 101-150)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Position of Parts of Speech (236 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "cd18454e-0010-4e72-9e97-fcecc65a9cac",
+      "question": "The work will <u>double</u> your income.\nI shall <u>call</u> you on Friday.\nI will immediately <u>water</u> the plants.\nYou may <u>water</u> on the plant.[]",
+      "options": [
+        "Noun",
+        "Pronoun",
+        "Verb",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "double / call / water → Verb\nTrick: Subject + action → Verb\nOr modal verb(will) এরপর main verb বসে",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "8a216c92-eb75-468b-80c6-efc4231d956d",
+      "question": "I cannot <u>right</u> the wrong.\nA man cannot <u>undergo</u> two trials for the same crime.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Verb",
+        "Pronoun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "right / undergo → Verb\nTrick: noun থেকেও action হলে → Verb\n(right = correct করা)",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "77815a94-4f0b-40ef-967f-f66063c416ac",
+      "question": "Can you <u>smell</u> gas ?\nA man cannot <u>undergo</u> two trials for the same crime.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Verb",
+        "Pronoun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "smell / undergo → Verb\nTrick: subject + action → Verb",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "f637b062-23fa-45d2-aa45-c0dde6609570",
+      "question": "Come on, it's time to go <u>home</u>.\nThey went <u>home</u> last night.\nThey returned <u>home</u> earlier.\nWhat time did he get <u>home</u> last night ?[]",
+      "options": [
+        "Verb",
+        "Adverb",
+        "Noun",
+        "Preposition"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "home → Adverb\nTrick: go / come / return / get + home → Adverb (no preposition)",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "dd181a27-2e99-4079-896c-43a2b2dc6c41",
+      "question": "The mother sat vigilantly beside the sick baby. Here '<u>vigilantly</u>' is ---[]",
+      "options": [
+        "A noun",
+        "An adverb",
+        "An adjective",
+        "None of the three"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "vigilantly → Adverb\nTrick: -ly ending → usually adverb",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "7ba61719-a1aa-437b-b8d3-a305f2e1d6b2",
+      "question": "Man cannot live <u>alone</u>.[]",
+      "options": [
+        "Adjective",
+        "Preposition",
+        "Pronoun",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "alone → Adverb\nTrick: verb (live) কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "c6acc14d-e6a5-4702-9142-0833226567f8",
+      "question": "He works <u>hard</u>.\nYou should work <u>hard</u>.\nHe works <u>hard</u> all day round.\nHe works <u>hard</u> to manage the hard work.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Adverb",
+        "Pronoun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "hard → Adverb\nTrick: work/run/study + hard → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "dcf71326-5e3b-48f2-8f19-77a6fb092bf3",
+      "question": "The boys moved <u>fast</u> to save the child from drowning.\nHow <u>fast</u> the boy runs !\nHe runs <u>fast</u>.\nHe walks <u>fast</u>.[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "slowly / early → Adverb\nTrick: verb কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "367960de-f334-4912-9f2e-a4f0daf3f675",
+      "question": "Please speak <u>slowly</u>.\nThe bird flies <u>slowly</u>.\nHe started <u>early</u>.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Noun",
+        "Pronoun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "slowly / early → Adverb\nTrick: verb কে modify করছে\n-ly suffix",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "c6e06489-fd45-442f-a47a-4e849cef8025",
+      "question": "The accident took place long <u>ago</u>.\nThank you <u>very</u> much.[]",
+      "options": [
+        "Adjective",
+        "Noun",
+        "Adverb",
+        "Pronoun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "long ago / much → Adverb\nTrick: time বা degree বোঝালে → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "986b6a90-ba34-4951-9029-46d2b2e19cc2",
+      "question": "The girl dances <u>nicely</u>.\nThe bird sings <u>sweetly</u>.[]",
+      "options": [
+        "An adverb",
+        "A verb",
+        "An adjective",
+        "A noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "nicely / sweetly → Adverb\nTrick: -ly suffix → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "af82e9b3-0f80-4ee9-85aa-81803f309ea2",
+      "question": "He has done ----- in the examination.\nI found out that Rahim did ----- in the test.\nThe corrections were made -----.[]",
+      "options": [
+        "bad",
+        "badly",
+        "unwell",
+        "worse"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "badly → Adverb\nTrick: do + adverb (action কেমন হয়েছে বোঝায়)",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "1ec2d155-0a00-4257-9fd4-0bf081b94448",
+      "question": "The programme was telecast/broadcast <u>live.</u> Here 'live' is ---[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "live → Adverb\nTrick: verb + live (broadcast/telecast live)",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "c2cac4cf-b20c-4a99-994d-c414d01a1ac0",
+      "question": "His grades have improved, but only -----.[]",
+      "options": [
+        "minimum",
+        "very slightly",
+        "some",
+        "in a small amount"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "very slightly → Adverb phrase\nTrick: verb improved কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "606f2835-6c7f-474f-b2fd-cba91742d143",
+      "question": "\"Well' is usually an adverb and so describe -----, but when it refers to health it can be an adjective and describe -----.[]",
+      "options": [
+        "Adjectives, Verbs",
+        "Nouns, Pronouns",
+        "Adjectives, Nouns",
+        "Verbs, Nouns"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "well → Adverb / Adjective\nAdverb: verb describe করে\nAdjective: health বোঝায়\nTrick:\nwrite/run well → Adverb\nfeel well → Adjective",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "311cdf59-4437-44c5-a63e-0baf48f934e1",
+      "question": "There are two types of verbs, action verbs and ----- verbs.[]",
+      "options": [
+        "helping",
+        "linking",
+        "modal",
+        "A & B"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "linking → Verb type\nTrick: verb দুই ধরনের\nAction verb\nLinking verb",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "25ed345e-496c-45b8-a879-3a215b43be16",
+      "question": "I know <u>better</u>. The underlined word is ---[]",
+      "options": [
+        "An adjective",
+        "An adverb",
+        "A preposition",
+        "A noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "better → Adverb\nTrick: verb know কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "a7e75b15-fda1-4a16-b3a4-8bb60afbf77a",
+      "question": "He came <u>close</u> to me.\nHe did not want to arrive <u>late.</u>\nThe flight arrived <u>late.</u>\nHe came <u>late.</u>[]",
+      "options": [
+        "Preposition",
+        "Conjunction",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "close / late → Adverb\nTrick: verb came / arrived কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "e1dced72-e73e-4e0b-bf2e-022bda74ea64",
+      "question": "I know that he is <u>well.</u>[]",
+      "options": [
+        "Conjunction",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "well → Adjective\nTrick: be verb + adjective",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "d5b9a85c-31e6-4831-b4e2-ddc71675cd8a",
+      "question": "The boy writes well. Here 'well' is a/an ---[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Verb",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "well → Adverb\nTrick: write + well (verb describe)",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "f444616d-a1ad-44f8-8d92-991f110f55f1",
+      "question": "The patient visits the doctor <u>once</u> a month.\nI have read the novel <u>twice.</u>[]",
+      "options": [
+        "Pronoun",
+        "Adjective",
+        "Adverb",
+        "Verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "once / twice → Adverb\nTrick: frequency বোঝালে → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "55ac000e-ca07-4601-a6e5-bb55381b1e13",
+      "question": "People like him <u>little.</u>\nI have done the work <u>well.</u>\nHe reached home <u>safely.</u>[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Verb",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "little / well / safely → Adverb\nTrick: verb (like / done / reached) কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "acecc622-db00-4aec-9428-56c66754507b",
+      "question": "<u>Down</u> went the Titanic.[]",
+      "options": [
+        "Adverb",
+        "Noun",
+        "Adjective",
+        "Preposition"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Down went the Titanic → Adverb\nTrick: movement direction বোঝালে (up/down/out/in) → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "22d24408-71d4-43df-a79a-e3e4bad258e1",
+      "question": "He doesn't like Beethoven and neither do I. In this sentence 'neither' is ---[]",
+      "options": [
+        "Preposition",
+        "Adverb",
+        "Adjective",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "neither → Adverb\nTrick: negative agreement (neither do I)",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "ac2c42d1-5a10-4b7a-a7a3-e519db3427b0",
+      "question": "<u>Hardly</u> do I go to the New Market. The underlined word is ---[]",
+      "options": [
+        "A noun",
+        "An adverb",
+        "A preposition",
+        "An adjective"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "hardly → Adverb\nTrick: negative sense + inversion (Hardly do I…)\n-ly suffix",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "6eedc5de-d7bf-4200-a601-c8680c97665d",
+      "question": "When you can say you can do this, <u>well</u> prove this.[]",
+      "options": [
+        "Preposition",
+        "Adjective",
+        "Conjunction",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "well → Adverb\nTrick: verb prove কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "a730be4a-c409-4005-a63e-9fe6489c8245",
+      "question": "Jeans are nowadays <u>in</u> across the globe. Here 'in' is ---[]",
+      "options": [
+        "Adjective",
+        "Preposition",
+        "Adverb",
+        "Conjunction"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "in → Adjective\nTrick: fashion sense\nin = fashionable / trendy",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "541b7c16-9a6e-4a9a-a2eb-81586f1039d3",
+      "question": "The boys went <u>inside</u> to eat dinner.[]",
+      "options": [
+        "Adverb",
+        "Preposition",
+        "Conjunction",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "inside → Adverb\nTrick: verb went এর direction",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "57595e86-7892-4847-92ee-3d405c7073b7",
+      "question": "Suddenly one of the wheels came <u>off</u>. []",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Preposition",
+        "Pronoun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "suddenly → Adverb\nTrick: action কিভাবে হলো বোঝালে → Adverb\n-ly suffix",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "ad32604c-18b3-4640-9de6-3bb89993e64c",
+      "question": "The sun has gone <u>down</u>.\nThe price of essentials has gone <u>down</u>.[]",
+      "options": [
+        "Adverb",
+        "Adjective",
+        "Noun",
+        "Preposition"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "down → Adverb\nTrick: verb + down (gone down)",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "c8c21e74-9bde-4245-8632-1c1e9f5c0c95",
+      "question": "The <u>more</u> you read, the more you learn.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Interjection",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "the more you read → Adverb\nTrick: more + verb (degree বোঝায়) → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "734f0282-1140-4434-b5ac-72be8dd7ceb7",
+      "question": "Akbar <u>still</u> works in that office.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Preposition",
+        "Conjunction"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "still works → Adverb\nTrick: verb কে modify করলে → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "27fa0b4a-46ad-40ec-a247-3347953eb4bf",
+      "question": "I <u>already</u> told him about the party.[]",
+      "options": [
+        "An adjective",
+        "An adverb",
+        "A preposition",
+        "An interjection"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "already told → Adverb\nTrick: time বোঝালে (already, just, yet) → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "cb9ffcb9-5b7c-494d-82fb-e4fee912324f",
+      "question": "Rahim always runs quite fast. Here 'always' is ---\nHe <u>always</u> tells the truth.[]",
+      "options": [
+        "Pronoun",
+        "Noun",
+        "Adverb",
+        "Adjective"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "always runs / tells → Adverb\nTrick: frequency word → Adverb\n(always, often, usually, sometimes)",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "59bf682b-1611-4de1-93c8-88cb406bdf90",
+      "question": "I rather like the smell of petrol,'rather' is ---[]",
+      "options": [
+        "Pronoun",
+        "Adverb",
+        "Conjunction",
+        "Adjective"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "rather like → Adverb\nTrick: degree বোঝালে → Adverb (rather, quite, very",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "41783239-d3f2-4e0c-854e-e1ec16376758",
+      "question": "He has <u>already</u> finished his homework.[]",
+      "options": [
+        "Noun",
+        "Pronoun",
+        "Adverb",
+        "Adjective"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "already finished → Adverb\nTrick: time word (already, just, yet) → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "a439ce53-3df7-4a2e-b588-4a5132ba14c5",
+      "question": "I <u>usually</u> get up early.\nHe <u>hardly</u> goes to his native village.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Verb",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "usually / hardly → Adverb\nTrick: frequency / degree word → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "68fa8eff-041f-40ee-acfe-eaddcc55cf18",
+      "question": "Barking dogs <u>seldom</u> bite.\nI <u>seldom</u> go to cinema.[]",
+      "options": [
+        "A noun",
+        "An adverb",
+        "A verb",
+        "A preposition"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "seldom → Adverb\nTrick: frequency বোঝায় (rarely)",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "c67212ca-c772-4220-96f1-39f1a2af7099",
+      "question": "It is <u>best</u> analyzed in Samuelson.\nHe was <u>gravely</u> concerned about the problem.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Noun",
+        "Verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "best / gravely → Adverb\nTrick: verb কে modify করছে (analyzed / concerned)",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "4bf6cad0-0df2-4676-ab31-a112a3570492",
+      "question": "He is little known. Here 'little' is ---[]",
+      "options": [
+        "Pronoun",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "little known → Adverb\nTrick: adverb + past participle (little / well / widely known)",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "892c86e5-afd9-4321-94f9-2b67b3c9d212",
+      "question": "Sohan may <u>yet</u> surprise us all.[]",
+      "options": [
+        "Noun",
+        "Adverb",
+        "Preposition",
+        "Adjective"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "yet surprise → Adverb\nTrick: yet / still / already → verb modify করে",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "6f58ec6b-575e-4722-8ef5-355ec7badf95",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "Both sentence are correct.",
+        "Judy often reads magazines.",
+        "She arrives always late in the morning.",
+        "Judy reads often magazines."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Judy often reads magazines\nTrick: frequency adverb (often, always) → subject এর পরে",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "57ce050b-8281-4051-8564-3c058ab1de7d",
+      "question": "Which position of 'always' is correct ?[]",
+      "options": [
+        "Always the old man enjoys watching television at weekends.",
+        "The old man enjoys watching always television at weekends.",
+        "The old man enjoys always watching television at weekends.",
+        "The old man always enjoys watching television at weekends."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "✔ The old man always enjoys watching television\nTrick: subject + always + main verb",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "b41ee1b6-7130-46bd-8a2a-04374f43df9a",
+      "question": "Choose the correct sentence :[]",
+      "options": [
+        "We had always to wear a uniform at school.",
+        "We always had to wear an uniform at school.",
+        "We always had to wear a uniform at school.",
+        "We had always wear uniform to school."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✔ We always had to wear a uniform\nTrick: always → subject এর পরে",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "30318e6d-557d-4c4e-b28d-09819c7a3b09",
+      "question": "He ----------.[]",
+      "options": [
+        "catches always the train at 7.30 a.m",
+        "catch always the train at 7.30 a.m",
+        "always catches the train at 7.30 a.m",
+        "always catch the train at 7.30 a.m"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Q45\n✔ always catches the train\nTrick: always + verb\nsubject = he → catches",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "1060c2ca-d24d-4de5-a2a2-e6210c3de16a",
+      "question": "<u>Sometimes</u> reports are misleading.[]",
+      "options": [
+        "Noun",
+        "Pronoun",
+        "Adverb",
+        "Adjective"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Sometimes reports → Adverb\nTrick: time/frequency word → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "660818e8-f788-4f0d-b307-0becc923a591",
+      "question": "I can't tell you <u>how</u> I did it.[]",
+      "options": [
+        "Adverb",
+        "Adjective",
+        "Noun",
+        "Verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "how I did it → Adverb\nTrick: how → verb describe করে",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "86997d74-b1b1-4d47-a87a-d4fd8a82f0f5",
+      "question": "The wearer knows <u>where</u> the shoe pinches.[]",
+      "options": [
+        "relative pronoun",
+        "demonstrative pronoun",
+        "personal pronoun",
+        "interrogative pronoun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "where the shoe pinches → Relative pronoun\nTrick: clause introduce করলে → Relative pronoun",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "c5fa5bbf-efa9-46cd-ba1c-a3653ec9e604",
+      "question": "<u>Beyond</u> the river lay a little village.[]",
+      "options": [
+        "Interjection",
+        "Conjunction",
+        "Exclamation",
+        "Preposition"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Beyond the river → Preposition\nTrick: preposition + noun",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "b479724b-a635-4900-9219-273abdffa759",
+      "question": "She said that she will be in the classroom <u>by</u> 8 a.m.[]",
+      "options": [
+        "noun",
+        "conjunction",
+        "preposition",
+        "adjective"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "by 8 a.m. → Preposition\nTrick: by + time → Preposition",
+      "images": []
+    }
+  ]
+}

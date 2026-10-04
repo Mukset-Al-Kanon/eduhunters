@@ -1,0 +1,716 @@
+{
+  "exam_id": 10414,
+  "title": "[Set-C] মানচিত্র পরীক্ষা-০৫ (নদ-নদী, দ্বীপ, চর, হাওড়, খাল-বিল, হ্রদ, জলপ্রপাত)",
+  "category": "বাংলাদেশ মানচিত্র প্রশ্নব্যাংক",
+  "subtopic": "Chapter-05 : নদ-নদী, দ্বীপ, চর, হাওড়, খাল-বিল, হ্রদ, জলপ্রপাত",
+  "duration_minutes": 25,
+  "total_questions": 47,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "d2bdab17-e786-4f94-9029-a9f629c88034",
+      "question": "পদ্মা নদীর উৎপত্তি [SABAS][]",
+      "options": [
+        "হিমালয় পর্বতে",
+        "লুসাই পাহাড়ে",
+        "হিমালয়ের মানস সরোবরে",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "f84a00e7-8904-49f3-b97a-6ffbb8620d9a",
+      "question": "বাংলাদেশের কোন নদীর উৎপত্তি তিব্বতে? [SABAS][]",
+      "options": [
+        "Brahmaputra",
+        "Tista",
+        "Padma",
+        "Surma"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "925af712-c147-466c-9aba-d70847232575",
+      "question": "ব্রহ্মপুত্র নদ হিমালয়ের কোন শৃঙ্গ থেকে উৎপত্তি হয়েছে? [SABAS][]",
+      "options": [
+        "বরাইল",
+        "কৈলাস",
+        "কাঞ্চনজঙ্ঘা",
+        "গডউইন অস্টিন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "3f1a33d0-7534-4223-8e61-575f21bd0a3a",
+      "question": "তিব্বতের মানস সরোবর হতে উৎপন্ন- [SABAS][]",
+      "options": [
+        "সুরমা",
+        "তিস্তা",
+        "ব্রহ্মপুত্র",
+        "পদ্মা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "ca94e177-5cf3-445e-b74a-caa3293b405c",
+      "question": "কর্ণফুলী নদীর উৎপত্তি- [SABAS][]",
+      "options": [
+        "তিব্বতের মানস সরোবর হ্রদ",
+        "লামা মইভার পর্বত",
+        "সিকিমের পার্বত্য অঞ্চল",
+        "মিজোরামের লুসাই পাহাড়ের লংলেহ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d8f4da19-fc49-412b-a5a3-342383ef4976",
+      "question": "মাতামুহুরী নদী নির্মের কোথা হতে উৎপন্ন হয়েছে? [SABAS][]",
+      "options": [
+        "লামার মইভার পর্বত",
+        "খাগড়াছড়ির বাদনাতলী পর্বত",
+        "আসামের লুসাই পর্বত",
+        "সিকিমের পার্বত্য অঞ্চল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "82e4850e-1471-4753-ad0d-2827ac509b85",
+      "question": "আরাকান পাহাড় হতে উৎপন্ন নদী কোনটি? [SABAS][]",
+      "options": [
+        "ফেনী নদী",
+        "সাঙ্গু নদী",
+        "কর্ণফুলী নদী",
+        "নাফ নদী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "a440a091-d663-4a8b-94bd-8cb8fb8a76e4",
+      "question": "উৎপত্তিস্তলে মেঘনার নাম কি? [SABAS][]",
+      "options": [
+        "Manash",
+        "Lushai",
+        "The Barak",
+        "Gumti"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "0154d903-3d7e-4a9e-8c2e-0a50b5e5a78e",
+      "question": "কোন নদীর ভারতীয় অংশের নাম বরাক? [SABAS][]",
+      "options": [
+        "পদ্মা",
+        "মেঘনা",
+        "যমুনা",
+        "তিস্তা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "8a214e32-694f-46cc-989a-e2cd05592b39",
+      "question": "পদ্মা নদী কোন জেলার ভেতর দিয়ে বাংলাদেশে প্রবেশ করেছে? [SABAS][]",
+      "options": [
+        "Khulna",
+        "Rajshahi",
+        "Kushtia",
+        "Dinajpur"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "13cd7ff2-e6f4-486b-9edd-f3036fc718b6",
+      "question": "ব্রহ্মপুত্র নদী কোন জেলার ভেতর দিয়ে বাংলাদেশে প্রবেশ করেছে? [SABAS][]",
+      "options": [
+        "গাইবান্ধা",
+        "নীলফামারী",
+        "ঠাকুরগাঁও",
+        "কুড়িগ্রাম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "565c5610-9d08-4880-b3ec-cdeb0e8c05b7",
+      "question": "পদ্মা ও যমুনা কোথায় মিলিত হয়েছে? [SABAS][]",
+      "options": [
+        "চাঁদপুর",
+        "সিরাজগঞ্জ",
+        "গোয়ালন্দ",
+        "ভোলা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পদ্মা ও যমুনা নদী রাজবাড়ী জেলার গোয়ালন্দে মিলিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "8d4b00c0-0b56-4e25-af37-d062c4320c0f",
+      "question": "বাংলাদেশে ঢুকার পর পদ্মা নদী, ব্রহ্মপুত্র-যমুনার সাথে নিম্নোক্ত একটা জায়গায় মিশে- [SABAS][]",
+      "options": [
+        "গোয়ালন্দ",
+        "বাহাদুরাবাদ",
+        "ভৈরববাজার",
+        "নারায়ণগঞ্জ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাংলাদেশে প্রবেশের পর পদ্মা নদী ব্রহ্মপুত্র-যমুনার সাথে গোয়ালন্দে মিলিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "137a33b9-222d-4402-9504-c3220e3faf0a",
+      "question": "পদ্মা, মেঘনা ও ডাকাতিয়া নদী নিচের কোথায় একত্রে মিলিত হয়? [SABAS][]",
+      "options": [
+        "বরিশাল",
+        "চাঁদপুর",
+        "শরীয়তপুর",
+        "পটুয়াখালী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পদ্মা, মেঘনা ও ডাকাতিয়া নদী চাঁদপুরে একত্রে মিলিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "708e3473-7af4-44d6-91c9-f0c5d8837356",
+      "question": "পদ্মা ও মেঘনা কোথায় মিলিত হয়েছে? [SABAS][]",
+      "options": [
+        "সিরাজগঞ্জ",
+        "গোয়ালন্দ",
+        "চাঁদপুর",
+        "নগরবাড়ী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পদ্মা ও মেঘনা নদী চাঁদপুরে মিলিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "e1ffe378-b7bc-486d-8251-7f63dfb7061b",
+      "question": "মেঘনা নদী ব্রহ্মপুত্রের সাথে মিলিত হয়েছে- [SABAS][]",
+      "options": [
+        "ভৈরব বাজারে",
+        "চাঁদপুরের কাছে",
+        "গোয়ালন্দে",
+        "নারায়ণগঞ্জে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মেঘনা নদী ব্রহ্মপুত্রের সাথে ভৈরব বাজারে মিলিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "53db69fd-aaed-4b52-ba22-a35541e5302e",
+      "question": "তিস্তা নদী কোন নদীর সাথে মিলিত হয়েছে? [SABAS][]",
+      "options": [
+        "পদ্মা",
+        "মেঘনা",
+        "যমুনা",
+        "কর্ণফুলী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "তিস্তা নদী যমুনা নদীর সাথে মিলিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "8164f690-69ad-4195-9375-458930c709f5",
+      "question": "কোন স্থানে ব্রহ্মপুত্র নদ যমুনা ও পুরাতন ব্রহ্মপুত্রে বিভক্ত হয়েছে? [SABAS][]",
+      "options": [
+        "জামালপুর",
+        "কুড়িগ্রাম",
+        "দেওয়ানগঞ্জ",
+        "সিরাজগঞ্জ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দেওয়ানগঞ্জে ব্রহ্মপুত্র নদ যমুনা ও পুরাতন ব্রহ্মপুত্রে বিভক্ত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "6f3f968c-7477-453d-8105-5dbc08983450",
+      "question": "বাঙালি ও যমুনা নদীর সংযোগ কোথায়? [SABAS][]",
+      "options": [
+        "রাজশাহী",
+        "পাবনা",
+        "বগুড়া",
+        "সিরাজগঞ্জ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাঙালি ও যমুনা নদীর সংযোগস্থল হলো বগুড়া।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "8e66d710-c557-49f4-9153-227f07def5ec",
+      "question": "বাংলাদেশের কোথায় সুরমা ও কুশিয়ারা নদী মিলিত হয়ে মেঘনা নাম ধারণ করেছে? [SABAS][]",
+      "options": [
+        "ভৈরব",
+        "চাঁদপুর",
+        "দেওয়ানগঞ্জ",
+        "আজমেরীগঞ্জ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আজমেরীগঞ্জে সুরমা ও কুশিয়ারা নদী মিলিত হয়ে মেঘনা নাম ধারণ করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "eb853543-fc84-4e34-87e1-901b5d181d72",
+      "question": "সুরমা ও কুশিয়ারা এ দুটি নদীর মিলিত স্রোতের নাম কি? [SABAS][]",
+      "options": [
+        "কুশিয়ারা",
+        "বরাক",
+        "মেঘনা",
+        "নরসুন্দা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুরমা ও কুশিয়ারা নদীর মিলিত স্রোত মেঘনা নামে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "f8bdbfe7-df93-4080-9621-c736ab024be0",
+      "question": "যমুনা নদী কোথায় পতিত হয়েছে? [SABAS][]",
+      "options": [
+        "পদ্মা",
+        "বঙ্গোপসাগর",
+        "ব্রহ্মপুত্র",
+        "মেঘনা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যমুনা নদী পদ্মা নদীতে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "41d455e5-cca8-46a1-9579-320f464a9596",
+      "question": "পদ্মার শাখা নদী- [SABAS][]",
+      "options": [
+        "আড়িয়াল খাঁ",
+        "ভৈরব",
+        "করতোয়া",
+        "কর্ণফুলী"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পদ্মার শাখা নদী হলো আড়িয়াল খাঁ।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "80cbb664-5e5f-450e-966a-58a139e70d7b",
+      "question": "পদ্মা নদীর শাখা নদী- [SABAS][]",
+      "options": [
+        "মাথাভাঙ্গা",
+        "ধলেশ্বরী",
+        "গোমতী",
+        "সুরমা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পদ্মা নদীর একটি প্রধান শাখা নদী হলো মাথাভাঙ্গা।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "5aa0e54d-dbb0-4ffe-acaa-7d0e100a9db0",
+      "question": "পদ্মার শাখা নদী- [SABAS][]",
+      "options": [
+        "মধুমতী",
+        "গোমতী",
+        "করতোয়া",
+        "হালদা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মধুমতী পদ্মা নদীর অন্যতম শাখা নদী।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "185eba76-ecf6-4237-b5d4-5d45e07f6bea",
+      "question": "গড়াই কোন নদীর শাখা নদী? [SABAS][]",
+      "options": [
+        "যমুনা",
+        "পদ্মা",
+        "মেঘনা",
+        "ব্রহ্মপুত্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গড়াই পদ্মা নদীর একটি অন্যতম প্রধান শাখা নদী।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "0669a091-a022-4886-9801-294085551c28",
+      "question": "কপোতাক্ষ নদ কোন নদীর শাখা? [SABAS][]",
+      "options": [
+        "ব্রহ্মপুত্র",
+        "যমুনা",
+        "পদ্মা",
+        "মেঘনা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কপোতাক্ষ নদ পদ্মা নদীর শাখা নদী হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "2b261bae-b9be-4979-80c4-dc7900b96d55",
+      "question": "পুনর্ভবা, নাগর ও টাঙ্গন কোন নদীর উপনদী? [SABAS][]",
+      "options": [
+        "মহানন্দা",
+        "ভৈরব",
+        "কুমার",
+        "করাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পুনর্ভবা, নাগর ও টাঙ্গন নদীগুলো মহানন্দা নদীর উপনদী।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "e7955493-8ca9-4011-9689-9f48c399d77a",
+      "question": "তিস্তা কোন নদীর উপনদী? [SABAS][]",
+      "options": [
+        "পদ্মা",
+        "মেঘনা",
+        "গোমতী",
+        "কর্ণফুলী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তিস্তা ব্রহ্মপুত্র-যমুনা নদী ব্যবস্থার একটি প্রধান উপনদী যা মেঘনা নদী অববাহিকার অন্তর্ভুক্ত।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "2fea0c12-00cd-438c-b090-74b4126953ba",
+      "question": "ব্রহ্মপুত্রের প্রধান শাখা কোন নদী? [SABAS][]",
+      "options": [
+        "পদ্মা",
+        "যমুনা",
+        "সুরমা",
+        "মেঘনা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্রহ্মপুত্র নদ থেকে উৎপন্ন প্রধান শাখা নদী হলো যমুনা।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "950b7af0-2654-468a-b996-2565e05c73ed",
+      "question": "ধলেশ্বরী কোন নদীর শাখা নদী? [SABAS][]",
+      "options": [
+        "A. পদ্মা",
+        "B. বুড়িগঙ্গা",
+        "C. যমুনা",
+        "D. মেঘনা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ধলেশ্বরী নদী যমুনা নদী থেকে উৎপন্ন হয়েছে এবং এটি যমুনার একটি শাখা নদী।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "661ba116-77a6-4729-845d-51fa5e8eec24",
+      "question": "ধলেশ্বরী নদীর শাখা নদী কোনটি? [SABAS][]",
+      "options": [
+        "A. শীতলক্ষ্যা",
+        "B. বুড়িগঙ্গা",
+        "C. ধরলা",
+        "D. বংশী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বুড়িগঙ্গা নদী ধলেশ্বরী নদী থেকে উৎপত্তি লাভ করেছে, তাই এটি ধলেশ্বরীর একটি শাখা নদী।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "6f1cc26e-9822-4430-855a-ecb3c2ed3e1c",
+      "question": "মাইনী' কোন নদীর উপনদী? [SABAS][]",
+      "options": [
+        "A. সাঙ্গু",
+        "B. যমুনা",
+        "C. টাঙ্গন",
+        "D. কর্ণফুলী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মাইনী নদীটি রাঙামাটি জেলায় অবস্থিত এবং এটি কর্ণফুলী নদীর একটি প্রধান উপনদী।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "009708b8-d2e0-43c9-88a4-bd11fbcc8c5a",
+      "question": "কপোতাক্ষ, শিবসা ও পশুর কোন নদীর শাখা নদী? [SABAS][]",
+      "options": [
+        "A. মধুমতি",
+        "B. ভৈরব",
+        "C. গড়াই",
+        "D. কুমার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কপোতাক্ষ, শিবসা ও পশুর নদীগুলো মূলত গড়াই-মধুমতী নদী ব্যবস্থা থেকে সৃষ্ট শাখা নদী হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "51c77056-114d-4c1f-a158-d795fa9325ea",
+      "question": "কোনটি যমুনার উপনদী? [SABAS][]",
+      "options": [
+        "A. তিস্তা",
+        "B. ধলেশ্বরী",
+        "C. ধলাই",
+        "D. বংশী"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "তিস্তা নদী ভারতের সিকিম ও পশ্চিমবঙ্গ হয়ে বাংলাদেশে প্রবেশ করে যমুনা নদীতে মিলিত হয়েছে, তাই এটি যমুনার উপনদী।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "454ef06b-85b8-40c8-97d5-c5df4580e9bb",
+      "question": "বাংলাদেশের দীর্ঘতম নদী কোনটি? [SABAS][]",
+      "options": [
+        "A. মেঘনা",
+        "B. যমুনা",
+        "C. পদ্মা",
+        "D. কর্ণফুলী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাংলাদেশের দীর্ঘতম নদী মেঘনা।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "3677093b-4756-49e1-8fe2-56431213e0c4",
+      "question": "বাংলাদেশের নদীবলয়ের মধ্যে দীর্ঘপথ অতিক্রম করেছে কোনটি? [SABAS][]",
+      "options": [
+        "A. ব্রহ্মপুত্র",
+        "B. পদ্মা",
+        "C. মেঘনা",
+        "D. যমুনা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাংলাদেশের নদীবলয়ের মধ্যে দীর্ঘপথ অতিক্রম করেছে ব্রহ্মপুত্র নদী।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "cd7c197f-d6bd-4646-aee9-562506dc73f9",
+      "question": "বাংলাদেশের বৃহত্তম নদী- [SABAS][]",
+      "options": [
+        "A. পদ্মা",
+        "B. মেঘনা",
+        "C. যমুনা",
+        "D. গোমতী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলাদেশের বৃহত্তম নদী মেঘনা।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "d91fa322-2aa5-4935-b12d-896abb2157e2",
+      "question": "বাংলাদেশের প্রশস্ততম নদী কোনটি? [SABAS][]",
+      "options": [
+        "A. The Jamuna",
+        "B. The Meghna",
+        "C. The Surma",
+        "D. The Padma"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলাদেশের প্রশস্ততম নদী মেঘনা।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "97aac313-9fe8-4587-9b13-ad3827764032",
+      "question": "বাংলাদেশের সবচেয়ে নাব্যতা নদী কোনটি? [SABAS][]",
+      "options": [
+        "A. পদ্মা",
+        "B. মেঘনা",
+        "C. যমুনা",
+        "D. কর্ণফুলী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাংলাদেশের সবচেয়ে নাব্যতা নদী কর্ণফুলী।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "4e9459e2-cb0d-4686-877c-4d6a7d8100f1",
+      "question": "বাংলাদেশের সবচেয়ে গভীরতম নদী কোনটি? [SABAS][]",
+      "options": [
+        "A. যমুনা",
+        "B. মেঘনা",
+        "C. পদ্মা",
+        "D. ধলেশ্বরী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলাদেশের সবচেয়ে গভীরতম নদী মেঘনা।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "f8d18786-5db5-4701-9a19-fd347421b54e",
+      "question": "বাংলাদেশের সবচেয়ে খরস্রোতা নদী কোনটি? [SABAS][]",
+      "options": [
+        "A. সুরমা",
+        "B. কর্ণফুলী",
+        "C. তিস্তা",
+        "D. মেঘনা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলাদেশের সবচেয়ে খরস্রোতা নদী কর্ণফুলী।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "49ac4cc0-2f9e-4a70-a0ee-f5ab916e3463",
+      "question": "শিকস্তি-পয়স্তি কিসের সাথে সম্পর্কিত? [SABAS][]",
+      "options": [
+        "A. চর প্রশাসনের আইন",
+        "B. নদী তীরবর্তী ভূমির ভাঙা গড়া",
+        "C. নদী অববাহিকার উৎস",
+        "D. শিবের স্ত্রীর নাম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "শিকস্তি-পয়স্তি নদী তীরবর্তী ভূমির ভাঙা গড়া বা নদীর ভাঙন ও গড়ার সাথে সম্পর্কিত।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "f64abfea-2037-4066-a5d9-72fb42123fb5",
+      "question": "নদী শিকস্তি কারা? [SABAS][]",
+      "options": [
+        "A. নদীর চর জাগলে যারা চর দখল করতে যায়",
+        "B. পূজা-পার্বণে যারা নদীতে স্নান করতে যায়",
+        "C. নদীর ভাঙনে সর্বস্বান্ত জনগণ",
+        "D. নদীতে জাল দিয়ে মাছ ধরায় নিয়োজিত জনগণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নদী শিকস্তি বলতে নদীর ভাঙনে সর্বস্বান্ত জনগণকে বোঝায়।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "9a202dd7-7955-4df3-aa93-af198383dc4e",
+      "question": "বাঙালি' নামের নদীটি কোন জেলায় অবস্থিত? [SABAS][]",
+      "options": [
+        "বগুড়া",
+        "ফরিদপুর",
+        "গোপালগঞ্জ",
+        "কুড়িগ্রাম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাঙালি নদীটি বগুড়া জেলায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "dbe38390-f48e-473a-8fe1-312286122b90",
+      "question": "পুরাতন ব্রহ্মপুত্র নদটি কোন জেলার উপর দিয়ে প্রবাহিত? [SABAS][]",
+      "options": [
+        "জামালপুর",
+        "সিরাজগঞ্জ",
+        "মানিকগঞ্জ",
+        "ময়মনসিংহ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পুরাতন ব্রহ্মপুত্র নদ জামালপুর জেলার উপর দিয়ে প্রবাহিত।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "49f6b342-d2b9-4d12-92a8-0d327908f937",
+      "question": "মাওয়া ফেরিঘাট কোন জেলায় অবস্থিত? [SABAS][]",
+      "options": [
+        "শরীয়তপুর",
+        "মাদারীপুর",
+        "ঢাকা",
+        "মুন্সিগঞ্জ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মাওয়া ফেরিঘাট মুন্সিগঞ্জ জেলায় অবস্থিত।",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "exam_id": 9667,
+  "title": "Translation (Ques. No. 551-578)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "Translation Exam (578 Marks)",
+  "duration_minutes": 15,
+  "total_questions": 28,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "eae64219-a386-4e30-90cf-91de79ac960d",
+      "question": "‘এমন দেশটি কোথাও খুঁজে পাবে নাকো তুমি’- এর ইংরেজি অনুবাদ কর--- [SABAS][]",
+      "options": [
+        "You will find such a country nowhere.",
+        "Now here you will find such a country.",
+        "Nowhere will you find such a country.",
+        "You will find a country like this nowhere."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Negative adverbial (Nowhere) শুরুতে বসলে inversion হয়।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "366e7644-adc7-4c72-8ce5-1b2250085935",
+      "question": "Which one is the appropriate translation? ঢাকার জাদুঘর দেখার মতো জিনিস। [SABAS][]",
+      "options": [
+        "The Museum of Dhaka is a good thing to see",
+        "The Museum of Dhaka is nice for seeing",
+        "The Museum of Dhaka is beautiful to see",
+        "The Museum of Dhaka is worth seeing."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কোনো কিছু দেখার মতো বা যোগ্য বোঝাতে 'worth seeing' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "881e359f-e430-4478-bb16-6e285d4a8699",
+      "question": "What is the correct translation of: 'অনেক গৃহকর্মী আছেন যারা বাড়িতে প্রায় সারাদিন কাজ করেন'। [SABAS][]",
+      "options": [
+        "There are many housewives who work almost all day.",
+        "Many housewives work at home almost all day.",
+        "Many housewives works almost all day at home.",
+        "Housewives work at home all day almost."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রদত্ত বাক্যটির গঠন অনুযায়ী এটি সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "bf808907-3dde-4ece-b0a3-1117735a7f30",
+      "question": "You must make your views known to all. এর বাংলা অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "তুমি অবশ্যই সকলকে তোমার মতামত জানিয়ে দেবে।",
+        "তুমি অবশ্যই সকলকে তোমার মতামত জানিয়ে দেবে।",
+        "তুমি অবশ্যই সকলকে তাদের মতামত জানাতে দিবে।",
+        "তুমি অবশ্যই তাদেরকে সকলের মতামত জানতে দিবে।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Make known মানে কাউকে কিছু জানানো।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "65fb5708-cc04-49d5-bf30-0c582e130149",
+      "question": "What is the correct English of ‘প্রত্যেক ইংরেজি বাক্যেরই একটি ক্রিয়াপদ থাকবে’। [SABAS][]",
+      "options": [
+        "Every English sentence must have a verb.",
+        "Every English sentence should have a verb.",
+        "Every English sentence has a verb.",
+        "Every sentence has a verb."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যটির বাধ্যবাধকতা বোঝাতে 'must have' ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "5b1f4cb4-a2b6-4512-9cea-6b4a2bbb5497",
+      "question": "‘সে চায় তার সন্তানেরা ভালো পোশাক পরুক’। এর সঠিক ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "He likes that his children can dress well.",
+        "He likes that his children will wear dress well.",
+        "He likes his children to dress well.",
+        "He likes his children to wear dress well."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "like/want someone to do something গঠন অনুযায়ী এটি সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "85104670-dae0-4df6-b09b-ecaddef7c060",
+      "question": "The Vice-Chancellor of University took the chair in the meeting. এর বঙ্গানুবাদ- [SABAS][]",
+      "options": [
+        "বিশ্ববিদ্যালয়ের উপাচার্য সভায় চেয়ারে বসলেন",
+        "বিশ্ববিদ্যালয়ের উপাচার্য মহোদয় সভায় অংশগ্রহণ করেন।",
+        "বিশ্ববিদ্যালয়ের উপাচার্য সভায় চেয়ারে নিলেন",
+        "বিশ্ববিদ্যালয়ের উপাচার্য সভায় সভাপতিত্ব করলেন।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Take the chair মানে সভাপতিত্ব করা।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "461a8cce-feaf-42d3-b652-448e9a949c82",
+      "question": "সুন্দর মুখের জয় সর্বত্র-কোনটি সঠিক অনুবাদ? [SABAS][]",
+      "options": [
+        "Good face wins all.",
+        "Good looking face is liked by every body.",
+        "To win everything, beautiful face is essential.",
+        "None of them."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি একটি প্রচলিত প্রবাদ বা ভাবানুবাদ।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "6bc499ee-80c0-48ef-88ae-4e3059c8b700",
+      "question": "They left me waiting outside' The correct Bengali translation is- [SABAS][]",
+      "options": [
+        "তারা আমাকে বাইরে অপেক্ষায় রেখে চলে গেল",
+        "তারা আমাকে অপেক্ষা রেখে বাইরে চলে গেল",
+        "আমাকে বাইরে রেখে তারা অপেক্ষা করতে লাগল",
+        "আমাকে বাইরে অপেক্ষা করতে বলে তারা বাইরে গেল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যের অর্থানুযায়ী এটি সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "87a6889a-b4d4-4dba-9ccb-fecf3ef32d20",
+      "question": "হ্যাঁ করে দাঁড়িয়ে আছ কেন? [SABAS][]",
+      "options": [
+        "Why are you standing with your mouth open?",
+        "Why do you stand like a fool?",
+        "Why are you standing so inactively?",
+        "Why do you stand foolishly?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ভাবার্থ অনুযায়ী Foolishly (বোকার মতো) বেশি উপযুক্ত।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "5e7b9ec2-ae70-4dc6-98dd-f7beeaa4731c",
+      "question": "The correct translation of the sentence: 'সে ঘোলা জলে মাছ শিকার করতে চেয়েছিল।' [SABAS][]",
+      "options": [
+        "He wanted to fish in the troubled water.",
+        "He wanted to fish in the dirty water.",
+        "He wanted to fish in the undrinkable water.",
+        "He wanted to fish in the muddy water."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Troubled water বাগধারাটি ঘোলা জল বা অস্থিতিশীল পরিস্থিতি বোঝাতে ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "d416e162-3a86-4fa0-9284-f6865cbd6f78",
+      "question": "What is the correct translation: 'খাদ্য নিরাপত্তার জন্য কৃষিশিক্ষা অপরিহার্য' [SABAS][]",
+      "options": [
+        "The agricultural education is inevitable for food security.",
+        "Agricultural education is essential for food security.",
+        "Education of agriculture is essential for food security.",
+        "The agriculture education is unavoidable for food security."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সাধারণত কোনো বিষয়ের আগে the বসে না, তাই Agricultural education সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "27c03948-2c8c-4970-86c1-83299a28f07d",
+      "question": "Identify the correct translation: 'সত্যিকারের ফুলও হয়তো এর চেয়ে খুব বেশি সুগন্ধি হতো না।' [SABAS][]",
+      "options": [
+        "Real flowers hardly could have smelt better.",
+        "Real flowers could hardly have smelt better.",
+        "Real flowers could have smelt better hardly.",
+        "Real flowers could smelt better hardly."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Could hardly have structure-টি অসম্ভব বা খুব কম সম্ভাবনা বোঝাতে ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "d3f108fe-907e-4a33-801f-389367820fb6",
+      "question": "সে স্প্যানিশ ও ফরাসি ভাষায় কথা বলে। [SABAS][]",
+      "options": [
+        "She speaks Spanish and French.",
+        "She speaks not only Spanish but French as well.",
+        "She speaks Spanish. She also speaks French.",
+        "a and c"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রথম ও তৃতীয় অপশন উভয়ই অর্থগতভাবে সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "e3d08da8-d4d5-44d8-94be-9012c1413c3c",
+      "question": "সে অবাঞ্ছিত, অপরিচিত এবং কপর্দকহীন অবস্থায় মারা গেল। [SABAS][]",
+      "options": [
+        "He died unloved, unknown and without money.",
+        "He died unloved, unknown and penniless.",
+        "He died unloved, unknown and without any money.",
+        "b and c"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Penniless অর্থ কপর্দকহীন। b ও c উভয়ই সঠিক অর্থ প্রকাশ করলেও b বেশি সংহতিপূর্ণ।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "b0774bf3-a679-4a98-8447-055d1a39cab7",
+      "question": "রানা তোমার জন্য অনেকক্ষণ ধরে অপেক্ষা করছে- এর সঠিক ইংরেজি বাক্য কোনটি? [SABAS][]",
+      "options": [
+        "Rana has been waiting for you for a long time",
+        "Rana has been waiting for your for a long time.",
+        "Rana will be waiting for tour a long time.",
+        "Rana is waiting for you."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Present perfect continuous tense (has been waiting) দীর্ঘসময় ধরে চলমান কাজ বোঝায়।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "2fa18bf8-f7fe-4836-bf7c-5f2031fcdd36",
+      "question": "তুমি কি লোকটিকে তার নাম কি জিজ্ঞেস করেছিলে? [SABAS][]",
+      "options": [
+        "Did you ask the man what his name is?",
+        "Did you ask the man what his name was?",
+        "Did you ask the man what his name?",
+        "Did you ask the man what is his name?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Principal clause past tense-এ থাকলে subordinate clause-ও past tense (was) হবে।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "cb13dd9a-78b7-4789-8842-d7d0b6dd4336",
+      "question": "অতি আদরে ছেলেটি গড়ায় গেল। [SABAS][]",
+      "options": [
+        "Too much care has downed.",
+        "Too much indulgence has spoiled the boy.",
+        "Very much indulgence has spoiled the boy.",
+        "Too many indulgence has got the boy down."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Too much indulgence (বাড়াবাড়ি প্রশ্রয়) ছেলেটিকে নষ্ট করেছে (spoiled) বোঝায়।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "8cdff7f9-561e-4770-8749-41d09051557f",
+      "question": "Choose the correct translation of the sentence - 'পলকের মধ্যে রেবা উধাও হয়ে গেল।' [SABAS][]",
+      "options": [
+        "Off go Reba in the twinkling of the eye.",
+        "Off went Reba in the twinkling of the eye.",
+        "Off goes Reba in the twinkling of the eye.",
+        "Off gone Reba in the twinkling of the eye."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গেল (past tense) হওয়ায় went ব্যবহৃত হয়েছে। Twinkling of the eye অর্থ পলক।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "8f8fbfb7-df0d-43f2-aa86-f79d4b12368d",
+      "question": "আমি এ ব্যাপারে বিশেষ কিছু জানি না। [SABAS][]",
+      "options": [
+        "I do not know much about this matter",
+        "I did not know nothing about the matter",
+        "I have not know much about the subject",
+        "I do not knew about this matter"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Negative sentence-এ much ব্যবহার সঠিক। অন্যগুলোতে grammar ভুল আছে।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "dac6ae7d-84d3-400d-a7a1-1c3fc0467f5a",
+      "question": "[SABAS]\nআমি পরীক্ষায় খারাপ করেছি।[]",
+      "options": [
+        "ক) I have done bad in the exam",
+        "খ) I have done unwell in the exam",
+        "গ) I have done badly in the exam",
+        "ঘ) I have done worse in the exam"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "f9914e0c-68aa-4414-a86e-3c09b7e8fc4b",
+      "question": "[SABAS]\n'তাকে একদিন অন্তর ঔষধ খেতে হয়'- Correct translation is---[]",
+      "options": [
+        "ক) He takes medicine on alternate days.",
+        "খ) He has to take medicine on alternate days.",
+        "গ) He has to take medicine on week days.",
+        "ঘ) Both A & B"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "35b17a85-bd15-4f2a-98c3-6f93e07604a7",
+      "question": "[SABAS]\nবই আমাদের সর্বোৎকৃষ্ট সমাজের সাথে পরিচয় করিয়ে দেয়। এর সঠিক ইংরেজি হল[]",
+      "options": [
+        "ক) Book introduce to the best society.",
+        "খ) Books introduce to the best society.",
+        "গ) The books introduce to the best society.",
+        "ঘ) Books introduce us to the best society."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "8873b175-4e85-41e6-95a9-e3abd67ef573",
+      "question": "[SABAS]\n'I took him to be a man of taste' বাক্যটির যথাযথ বাংলা অনুবাদ-[]",
+      "options": [
+        "ক) আমি তাঁকে একজন রুচিশীল মানুষ মনে করেছিলাম",
+        "খ) আমি তাঁকে এক মজার মানুষ হিসেবে গ্রহণ করেছিলাম",
+        "গ) আমি মনে করলাম, তিনি বোধ হয় মজার মানুষ",
+        "ঘ) আমি তাঁকে একজন সংস্কৃতিবান মানুষ হিসেবে নিয়েছিলাম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "7a0fceba-ef17-47c7-be3a-b5b54642eba2",
+      "question": "[SABAS]\n'He got out a few words' বাক্যটির সঠিক বঙ্গানুবাদ[]",
+      "options": [
+        "ক) সে কথা বলল",
+        "খ) সে কথা শুনে চলে গেল",
+        "গ) সে রাগ শুনল",
+        "ঘ) সে অনেক কষ্টে কয়েকটা কথা বলল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "6d4339b4-8b8e-4607-9ed2-80c9236d8d71",
+      "question": "[SABAS]\nক্ষুধার রাজ্যে পৃথিবী গদ্যময়[]",
+      "options": [
+        "ক) The world is hungry",
+        "খ) The world is prosaic in the state of hunger",
+        "গ) The world is rolling in the state of hunger",
+        "ঘ) The world has a hunger appearance"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "0957c95c-75f0-4599-8888-95d8a2d4f733",
+      "question": "তুমিই যত নষ্টের গোড়া'- Appropriate translation is---[]",
+      "options": [
+        "It is you who are at the root of all mischiefs.",
+        "You are at the root of all mischiefs.",
+        "It is you who is at the root of all mischiefs.",
+        "It is you who are at the root of all mischief."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "4fb8e06b-90f6-4b1d-ab92-a1c33a0339ba",
+      "question": "এমন ছেলে বাঁচলেও যা মরলেও তা'- Correct translation is---[]",
+      "options": [
+        "It is all the same whether such a boy live or die.",
+        "It is all the same whether such a boy lives or die.",
+        "It is all the same whether such boy lives or dies.",
+        "It is all the same whether such a boy live or dies."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

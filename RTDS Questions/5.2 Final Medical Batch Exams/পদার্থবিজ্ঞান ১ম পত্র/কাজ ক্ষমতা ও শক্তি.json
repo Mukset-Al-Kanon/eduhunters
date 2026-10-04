@@ -1,0 +1,708 @@
+{
+  "title": "কাজ ক্ষমতা ও শক্তি",
+  "category": "5.2 Final Medical Batch Exams > পদার্থবিজ্ঞান ১ম পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "119892",
+      "question": "কাজের অভিকর্ষীয় একক নিচের কোনটি?",
+      "options": [
+        "J",
+        "kg-m",
+        "Nm",
+        "W"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "119893",
+      "question": "হাতে ব্যাগ নিয়ে একটি সমতল পথে হাঁটলে ব্যাগটির ওজন -",
+      "options": [
+        "ধনাত্মক কাজ করে",
+        "ঋণাত্মক কাজ করে",
+        "কোন কাজ করে না",
+        "কোনোটিই সঠিক নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "119894",
+      "question": "ধনাত্মক কাজ সম্পর্কে নিচের কোনটি সত্য নয়?",
+      "options": [
+        "ত্বরণ সৃষ্টি হয়",
+        "বলের দ্বারা কাজ",
+        "গতিশক্তি হ্রাস পায়",
+        "স্থিতিশক্তি হ্রাস পায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "119895",
+      "question": "কেন্দ্রমুখী বল দ্বারা কৃতকাজ -",
+      "options": [
+        "সর্বোচ্চ",
+        "শূন্য",
+        "নির্দিষ্ট নয়",
+        "ধনাত্মক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "119896",
+      "question": "500g ভরের একটি বস্তুকে স্থির অবস্থান থেকে 2.2N বল প্রয়োগ করে 1.1m দূরত্ব সরানো হলো। বস্তুটির উপর কি পরিমাণ কাজ করা হয়েছে?",
+      "options": [
+        "1 J",
+        "2.42 J",
+        "9. 8 J",
+        "5 J"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "119897",
+      "question": "স্থিতিস্থাপক বলের বিরুদ্ধে সরণ চারগুণ করলে কৃত কাজ -",
+      "options": [
+        "দ্বিগুণ হবে",
+        "চার গুণ হবে",
+        "১৬ গুণ হবে",
+        "সরণের উপর নির্ভর করে না"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "119898",
+      "question": "কোন বস্তুকে ভূমির উপরে তোলা হলে কোন শক্তির বিরুদ্ধে কাজ সম্পন্ন হয়?",
+      "options": [
+        "তড়িৎ চুম্বক শক্তি",
+        "মাধ্যাকর্ষণ শক্তি",
+        "রাসায়নিক শক্তি",
+        "ঘর্ষণ মূলক শক্তি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "119899",
+      "question": "স্প্রিং ধ্রুবক নিচের কোনটির উপর নির্ভর করে না?",
+      "options": [
+        "স্প্রিং এর দৈর্ঘ্য",
+        "জ্যামিতিক গঠন",
+        "স্প্রিং এর আকৃতি",
+        "পদার্থের স্থিতিস্থাপক ধর্ম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "119900",
+      "question": "স্প্রিং ধ্রুবক এর একক নিচের কোনটি?",
+      "options": [
+        "N",
+        "Nm",
+        "N/m",
+        "কোন একক নেই"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "119901",
+      "question": "1 কিলোওয়াট - ঘন্টা -",
+      "options": [
+        "3. 6✘ 10^4 J",
+        "36✘ 10^4 J",
+        "3. 6✘ 10^6 J",
+        "3. 6✘ 10^5 J"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "119902",
+      "question": "যান্ত্রিক শক্তি কত প্রকার?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "119903",
+      "question": "ওষুধের কারখানায় জীবাণু ধ্বংস করতে শক্তির কোন ধরনের রূপান্তর ঘটে?",
+      "options": [
+        "যান্ত্রিক শক্তি শব্দ শক্তিতে",
+        "যান্ত্রিক শক্তি রাসায়নিক শক্তিতে",
+        "তাপ শক্তি যান্ত্রিক শক্তিতে",
+        "শব্দ শক্তি যান্ত্রিক শক্তিতে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "119904",
+      "question": "নির্দিষ্ট ভরের কোনো বস্তুর গতিশক্তি তার ভরবেগের -",
+      "options": [
+        "সমানুপাতিক",
+        "বর্গের সমানুপাতিক",
+        "ব্যস্তানুপাতিক",
+        "বর্গের ব্যস্তানুপাতিক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "119905",
+      "question": "একটি ২ কেজি ভরের বস্তু ১০ মিটার উচ্চতা থেকে নিচে পড়লে ভূমির স্পর্শ করার মুহূর্তের গতি শক্তি হবে-",
+      "options": [
+        "980J",
+        "196J",
+        "49J",
+        "190J"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "119906",
+      "question": "একটি বস্তুর ভরবেগ তিনগুণ করলে উহার গতিশক্তি -",
+      "options": [
+        "নয়গুণ হবে",
+        "তিনগুণ হবে",
+        "একই থাকবে",
+        "অর্ধেক হবে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "119907",
+      "question": "1অশ্ব ক্ষমতা সমান কত ?",
+      "options": [
+        "764 watt",
+        "736watt",
+        "746 watt",
+        "864 watt"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "1অশ্ব ক্ষমতা = 746 watt।   এস আই পদ্ধতিতে ক্ষমতার একক  জুল/সেকেন্ড।"
+    },
+    {
+      "question_no": 17,
+      "id": "119908",
+      "question": "ক্ষমতার মাত্রা সম্পর্কে নিজের কোনটি সঠিক?",
+      "options": [
+        "ML^2T^-2",
+        "ML^2T^-3",
+        "ML^2T",
+        "ML^2T^-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ক্ষমতার মাত্রা ML^2T^-3।   কাজের মাত্রা হলো ML^2T^-2।"
+    },
+    {
+      "question_no": 18,
+      "id": "119909",
+      "question": "নিচের কোনটি স্কেলার রাশি?",
+      "options": [
+        "বেগ",
+        "কাজ",
+        "সরণ",
+        "বল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কাজ একটি স্কেলার রাশি। কারণ এটি দুটি ভেক্টর রাশির ডট গুণন। শক্তি, ক্ষমতা, কর্মদক্ষতা এরাও স্কেলার রাশি।"
+    },
+    {
+      "question_no": 19,
+      "id": "119910",
+      "question": "নিচের কোনটি সংরক্ষণশীল বল নয়?",
+      "options": [
+        "অভিকর্ষীয় বল",
+        "চুম্বক বল",
+        "ঘর্ষণ বল",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ঘর্ষণ  সংরক্ষণশীল বল নয়। সংরক্ষণশীল বলগুলো হল - অভিকর্ষ বল, চুম্বক বল, স্প্রিং বল, বৈদ্যুতিক বল।"
+    },
+    {
+      "question_no": 20,
+      "id": "119911",
+      "question": "ভূমি হতে 20 মিটার উচ্চতায় গতি শক্তি বিভব শক্তির দ্বিগুণ হলে কত উচ্চতা থেকে বস্তুটি ফেলে দেয়া হয়েছিল?",
+      "options": [
+        "20",
+        "30",
+        "40",
+        "60"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "x = h/ (n+1) \r\n\r\n( গতি শক্তি বিভব শক্তির nগুণ হলে)"
+    },
+    {
+      "question_no": 21,
+      "id": "119912",
+      "question": "200 gm ভরের একটি কণার বেগ v= 2i+6j m/s কণাটির গতিশক্তি কত?",
+      "options": [
+        "0.6j",
+        "8j",
+        "4j",
+        "16j"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "119913",
+      "question": "m ও 4m ভরের দুটি বস্তুর সমান গতিশক্তি নিয়ে গতিশীল। তাদের ভরবেগের অনুপাত কত?",
+      "options": [
+        "4:1",
+        "√2:1",
+        "1:2",
+        "1:6"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "m ও 4m ভরের দুটি বস্তুর সমান গতিশক্তি নিয়ে গতিশীল হলে তাদের ভরবেগের অনুপাত 1:2 হবে।  Ek =P^2 /2m"
+    },
+    {
+      "question_no": 23,
+      "id": "119914",
+      "question": "নিচের কোন ক্ষেত্রে কাজ সম্পাদিত হয়?",
+      "options": [
+        "পৃথিবী সূর্যের চারদিকে ঘোরা",
+        "ব্যাগ হাতে নিয়ে সমতল পথে হাটা",
+        "হাতে ব্যাগ নিয়ে উঁচু নিচু পথে হাটা",
+        "পাথরে দড়িবেধে ঘুরানো"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "119915",
+      "question": "একটি রাইফেলের গুলির বেগ যদি দ্বিগুণ করা হয় তবে এর গতি শক্তি কত হবে?",
+      "options": [
+        "দ্বিগুণ",
+        "চার গুণ",
+        "আট গুণ",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "119916",
+      "question": "তীর নিক্ষেপের সময় একটি বাঁকানো ধনুক কোন শক্তি ধারণ করে?",
+      "options": [
+        "গতিশক্তি",
+        "বিভব শক্তি",
+        "বিদ্যুৎ শক্তি",
+        "চাপ শক্তি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তীর নিক্ষেপের সময় একটি বাঁকানো ধনুক বিভব শক্তি ধারণ করে।"
+    },
+    {
+      "question_no": 26,
+      "id": "119917",
+      "question": "প্রযুক্ত বল এবং সরণের দিক পরস্পর বিপরীত হলে কৃত কাজ কেমন হবে?",
+      "options": [
+        "শূন্য",
+        "ধনাত্মক",
+        "ঋণাত্মক",
+        "সর্বাধিক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "119918",
+      "question": "জুল ও ক্যালরির মধ্যে সম্পর্ক নিচের কোনটি?",
+      "options": [
+        "1 cal =2. 4 J",
+        "1 cal= 4. 2 J",
+        "4. 2 cal= 1 J",
+        "1 cal = 1 J"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জুল ও ক্যালরির মধ্যে  সম্পর্ক হল  1 cal= 4. 2 J।"
+    },
+    {
+      "question_no": 28,
+      "id": "119919",
+      "question": "h একটি বস্তুকে বিনা বাধা করতে দিলে কোথায় এর গতিশক্তি ও বিভব শক্তি সমান হবে?",
+      "options": [
+        "3h/4",
+        "2h/3",
+        "কোনোটিই নয়",
+        "2×(h/4)"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "x= h/2 ( গতিশক্তি বিভব শক্তি সমান হলে)"
+    },
+    {
+      "question_no": 29,
+      "id": "119920",
+      "question": "অসংরক্ষণশীল বলের ক্ষেত্রে নিচের কোনটি মিথ্যা?",
+      "options": [
+        "শক্তির নিত্যতা সূত্র মেনে চলে না",
+        "পূর্ণচক্রে কৃতকাজ শূন্য হয় না",
+        "কৃতকাজ পুনরুদ্ধার সম্ভব",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "119921",
+      "question": "কাজের মান সর্বোচ্চ হবে যদি বল ও সরণের মধ্যবর্তী কোণ -",
+      "options": [
+        "0 °",
+        "90°",
+        "180°",
+        "360°"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "119922",
+      "question": "কোন বস্তুর উপর ক্রিয়াশীল বল দ্বারা কৃত কাজ নিচের কোনটির পরিবর্তনের সমান?",
+      "options": [
+        "তাপমাত্রা",
+        "ঘনত্ব",
+        "গতি শক্তি",
+        "বিভব শক্তি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "119923",
+      "question": "15 ওয়াট ক্ষমতা বলতে বোঝায় -",
+      "options": [
+        "15 সেকেন্ডে 1 জুল কাজ",
+        "3 সেকেন্ডে 5 জুল কাজ",
+        "5সেকেন্ডে 3 জুল কাজ",
+        "1 সেকেন্ডে 15 জুল কাজ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "119924",
+      "question": "একটি বস্তুুর রৈখিক ভরবেগ 50% বৃদ্ধি করলে এর গতিশক্তি বৃদ্ধি পাবে -",
+      "options": [
+        "25%",
+        "50%",
+        "125%",
+        "225%"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "119925",
+      "question": "নিচের কোনটি শক্তির একক নয়?",
+      "options": [
+        "kW h",
+        "Nm",
+        "Kgms^-1",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "119926",
+      "question": "গতিশক্তির মাত্রা নিচের কোনটি?",
+      "options": [
+        "ML^2T^-2",
+        "ML^1T^-2",
+        "ML^0T^-2",
+        "ML^2T^2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বল ধ্রুবকের মাত্রা ML^0T^-2"
+    },
+    {
+      "question_no": 36,
+      "id": "119927",
+      "question": "একটি রাইফেলের গুলি একটি তক্তা ভেদ করতে পারে। এর গুলির বেগ তিন গুণ করা হলে এটি একই পুরত্বের কতটি তক্তার ভেদ করতে পারবে?",
+      "options": [
+        "1",
+        "3",
+        "9",
+        "16"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গুলির বেগ তিন গুণ করা হলে এটি একই পুরত্বের 9 টি তক্তা ভেদ করতে পারবে। \r\n\r\nn∞v^2 ( n= তক্তার সংখ্যা)"
+    },
+    {
+      "question_no": 37,
+      "id": "119928",
+      "question": "m ভরের একটি বস্তু E গতিশক্তিতে চলছে । এর (রৈখিক ভরবেগ)^2 কত?",
+      "options": [
+        "mE",
+        "2mE",
+        "√(2mE)",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "m ভরের একটি বস্তু E গতিশক্তিতে চলছে । এর (রৈখিক ভরবেগ)^2= (2mE)"
+    },
+    {
+      "question_no": 38,
+      "id": "119929",
+      "question": "কোন স্প্রিংকে 10 নিউটন বল দ্বারা টেনে 5m প্রসারিত করা হলে এই স্প্রিং ধ্রুবক কত?",
+      "options": [
+        "1 N/m",
+        ".5 N/m",
+        "2 N/m",
+        "4N/m"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "স্প্রিং ধ্রুবক (k) =  বল/  সরণ \r\n\r\n=5/10 =.  5 N/m"
+    },
+    {
+      "question_no": 39,
+      "id": "119930",
+      "question": "কোন বল দ্বারা কৃত কাজের ক্ষেত্রে নিজের কোনটি সত্য নয়?",
+      "options": [
+        "বল ও সরণের ভেক্টর গুণন",
+        "গতিশক্তির পরিবর্তনের সমান",
+        "একটি স্কেলার রাশি",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোন বল দ্বারা কৃত কাজ বল ও সরণের ভেক্টর গুণন নয়। এটি বল ও সরণের  ডট গুণন।"
+    },
+    {
+      "question_no": 40,
+      "id": "119931",
+      "question": "কোনো গতিশীল বস্তুর গতিশক্তি Ek এবং ভরবেগ p বনাম √Ek লেখচিত্র টি হবে",
+      "options": [
+        "অধি বৃত্ত",
+        "আয়তাকার পরাবৃত্ত",
+        "উপবৃত্ত",
+        "সরলরেখা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "119932",
+      "question": "25 N বল দ্বারা কোনো স্প্রিংকে টেনে 10 cm বৃদ্ধি করা হলো। এর স্প্রিং ধ্রুবক কত?",
+      "options": [
+        "22.5N cm-1",
+        "25 N m",
+        "250 Nm^-1",
+        "250 N cm"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "119933",
+      "question": "25 N বল কোনো স্প্রিংকে টেনে 10 cm বৃদ্ধি করে। স্প্রিংকে 8 cm প্রসারিত করলে কত কাজ সম্পন্ন হবে?",
+      "options": [
+        "0.8 J",
+        "0.8 Nm",
+        "ক ও খ উভই",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "119934",
+      "question": "স্প্রিং ধ্রুবকের একক কোনটি?",
+      "options": [
+        "N m2",
+        "N m",
+        "N m-1",
+        "N m-2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "119935",
+      "question": "গতিশক্তির মাত্রা কোনটি?",
+      "options": [
+        "ML2T2",
+        "ML2T1",
+        "ML2T-2",
+        "ML-2T-2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "119936",
+      "question": "স্থিতিশক্তি কয় ধরণের?",
+      "options": [
+        "২",
+        "৩",
+        "৪",
+        "৫"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "119937",
+      "question": "10 N বল প্রয়োগ একটি গাড়িকে 100 m সরাতে কত কাজ করতে হবে? বল ও সরণের মধ্যবর্তী কোণ 90 ডিগ্রি",
+      "options": [
+        "100 Joule",
+        "1000 Joule",
+        "500 Joule",
+        "0 Joule"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "119938",
+      "question": "40 N ওজনের বস্তুকে মেঝে থেকে 3 m উচুঁতে 2 সেকেন্ড ধরে রাখতে কাজের পরিমাণ হবে",
+      "options": [
+        "0 J",
+        "49J",
+        "120J",
+        "240J"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "119939",
+      "question": "500 g ভরের একটি বস্তুকে স্থির অবস্থান থেকে 2 N বল প্রয়োগে 1 m দূরত্বে সরানো হলো। বস্তুটির ওপর কী পরিমাণ কাজ করা হলো?",
+      "options": [
+        "9.8 J",
+        "0.5 J",
+        "2 J",
+        "4.9 J"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "119940",
+      "question": "40 kg-m কে Joule এ প্রকাশ করো",
+      "options": [
+        "199 j",
+        "196 j",
+        "200 j",
+        "392 j"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "119941",
+      "question": "কেন্দ্রমুখী বল দ্বারা কৃতকাজ",
+      "options": [
+        "অসীম",
+        "ধনাত্বক",
+        "শূন্য",
+        "ঋণাত্বক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    }
+  ]
+}

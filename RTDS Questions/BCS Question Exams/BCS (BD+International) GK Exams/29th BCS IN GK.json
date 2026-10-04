@@ -1,0 +1,218 @@
+{
+  "title": "29th BCS IN GK (Review Purpose)",
+  "category": "BCS Question Exams > BCS (BD+International) GK Exams",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "114877",
+      "question": "আইএলও-র সদর দপ্তর কোথায় অবস্থিত?",
+      "options": [
+        "লন্ডন",
+        "জেনেভা",
+        "নিউইয়র্ক",
+        "দিল্লী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "114878",
+      "question": "এসকাপের সদর দপ্তর কোথায় অবস্থিত?",
+      "options": [
+        "ব্যাংকক",
+        "সিঙ্গাপুর",
+        "দিল্লী",
+        "কলম্বো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "114879",
+      "question": "ডেভিস কাপ কোন খেলায় দেয়া হয়?",
+      "options": [
+        "ব্যাডমিন্টন",
+        "লন টেনিস",
+        "টেবিল টেনিস",
+        "ক্রিকেট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "114880",
+      "question": "পৃথিবীতে সবচেয়ে বেশি পাওয়া ধাতু কোনটি?",
+      "options": [
+        "লোহা",
+        "সিলিকন",
+        "পারদ",
+        "তামা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "114881",
+      "question": "কোন বিজ্ঞানী রোগজীবাণু তত্ত্ব উদ্ভাবন করেন?",
+      "options": [
+        "ডারউইন",
+        "লুইপাস্তুর",
+        "প্রিস্টলী",
+        "ল্যাভয়সিয়ে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "114882",
+      "question": "পৃথিবীর প্রথম বাণিজ্যিক যোগাযোগ কৃত্রিম উপগ্রহ কোনটি?",
+      "options": [
+        "আর্লিবার্ড হল",
+        "এস্ট্রোলার হল",
+        "ওবেরী হল",
+        "কসমস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "114883",
+      "question": "সূর্য পৃষ্ঠের উত্তাপ কত?",
+      "options": [
+        "৬০০০ ডিগ্রি সেন্টিগ্রেড",
+        "৮০০০ ডিগ্রি সেন্টিগ্রেড",
+        "১০০০০ ডিগ্রি সেন্টিগ্রেড",
+        "১২০০০ ডিগ্রি সেন্টিগ্রেড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "114884",
+      "question": "জোয়ারের কত সময় পর ভাঁটার সৃষ্টি হয়?",
+      "options": [
+        "৬ ঘণ্টা ১৩ মি.",
+        "৮ ঘণ্টা",
+        "১২ ঘণ্টা",
+        "১৩ ঘণ্টা ১৫ মি."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "114885",
+      "question": "ইউরোপীয় ইউনিয়নের সদর দপ্তর কোথায় অবস্থিত?",
+      "options": [
+        "লন্ডন",
+        "ব্রাসেলস",
+        "বন",
+        "প্যারিস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "114886",
+      "question": "East London কোথায় অবস্থিত?",
+      "options": [
+        "ইংল্যান্ডে",
+        "জার্মানিতে",
+        "আমেরিকায়",
+        "দক্ষিণ আফ্রিকায়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "114887",
+      "question": "জাতিসংঘের সদর দপ্তর কোথায় অবস্থিত?",
+      "options": [
+        "লন্ডন",
+        "নিউইয়র্ক",
+        "প্যারিস",
+        "মস্কো"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "114888",
+      "question": "সার্কের সচিবালয় কোথায় অবস্থিত?",
+      "options": [
+        "দিল্লী",
+        "ইসলামাবাদ",
+        "কাঠমান্ডু",
+        "ঢাকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "114889",
+      "question": "কম্পিউটারের স্থায়ী স্মৃতিশক্তিকে কি বলে?",
+      "options": [
+        "RAM",
+        "ROM",
+        "হার্ডওয়্যার",
+        "সফ্‌টওয়্যার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "114890",
+      "question": "সবচেয়ে শক্তিশালী সৌরচুল্লি তৈরি করা হয়েছে কোন দেশে?",
+      "options": [
+        "যুক্তরাষ্ট্র",
+        "ভারত",
+        "জাপান",
+        "নেপাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "114891",
+      "question": "চাঁদ দিগন্তের কাছে অনেক বড় দেখায় কেন?",
+      "options": [
+        "বায়ুমণ্ডলীয় প্রতিসরণে",
+        "আলোর বিচ্ছুরণে",
+        "অপাবর্তনে",
+        "দৃষ্টিভ্রমে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

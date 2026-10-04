@@ -1,0 +1,761 @@
+{
+  "exam_id": 8498,
+  "title": "Conditional (Ques. No. 1-50)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Conditional (182 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "be57bf37-7cd4-4500-b9ab-9b35693557cb",
+      "question": "Conditionals are of -----.[]",
+      "options": [
+        "two kinds",
+        "four kinds",
+        "three kinds",
+        "none"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "d17609d1-fa88-429d-bfc7-749a0b472bf1",
+      "question": "Which one of the following uses zero conditional ?[]",
+      "options": [
+        "If he came, I would go.",
+        "If he come, I will go.",
+        "If you heat ice, it melts",
+        "If he had come, I would go."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "363e1491-2e2e-425a-883d-19275b6102d2",
+      "question": "If he has time, he ----- us next Friday.[]",
+      "options": [
+        "visits",
+        "would go",
+        "have gone",
+        "was gone"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "a38f3f91-7988-4fb1-b770-697da2068b01",
+      "question": "If you buy one t-shirt, you ----- the second one free.[]",
+      "options": [
+        "would get",
+        "get",
+        "got",
+        "will have gotten"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "81dee683-4755-4989-85eb-bb4c73694ed6",
+      "question": "If you stay too long in the sun, your skin -----.[]",
+      "options": [
+        "burn",
+        "burnt",
+        "burned",
+        "burns"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "a513b51f-b669-48e2-bc9e-80cb135cba75",
+      "question": "If it is winter, it (feel) cool.\nIf it is summer, it (feel) hot.\n[]",
+      "options": [
+        "felt",
+        "would feel",
+        "feels",
+        "will feel"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "c31f8aed-da33-4196-b5eb-28c7f087dae2",
+      "question": "If Alex ----- me, I will email the documents.[]",
+      "options": [
+        "asks",
+        "will ask",
+        "has asked",
+        "will tell"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "771c3468-de45-40c3-a1e9-a10cea99e4b8",
+      "question": "-----, we won't have much to talk about.[]",
+      "options": [
+        "If he not comes",
+        "Unless he comes",
+        "If he didn't come",
+        "Unless he doesn't come"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "93033a42-b4f5-4d4c-ad11-429fdfb2c2f6",
+      "question": "If a ruby is heated , it ----- temporarily lose its colour.[]",
+      "options": [
+        "will",
+        "would",
+        "does",
+        "has"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "ed2a6b53-c1a8-4bcc-8517-fe3da6216860",
+      "question": "If the parliamentary body -----, the bill will be placed in the parliament.[]",
+      "options": [
+        "approved",
+        "had approved",
+        "approves",
+        "has approved"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "37857b8c-66b2-404d-859d-f2bd032f7a7f",
+      "question": "He won't pass his exam unless he ----- much harder.[]",
+      "options": [
+        "studies",
+        "study",
+        "will study",
+        "may study"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "3157c281-4f0d-4723-81be-e0fe571dd9b6",
+      "question": "If it rains, we ----- ludo.[]",
+      "options": [
+        "would play",
+        "will play",
+        "played",
+        "would have played"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "39732545-a558-40c8-a207-0425e31108d5",
+      "question": "If you make delay, you ----- the train.[]",
+      "options": [
+        "would miss",
+        "should miss",
+        "shall miss",
+        "will miss"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "9dd6d6ce-76ca-4972-8f4f-c23130b7dea1",
+      "question": "If he ----- on telling lies nobody will believe a word he says.[]",
+      "options": [
+        "go",
+        "continues",
+        "goes",
+        "will go"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "0418497a-8c14-4b82-b810-30ccb1febb12",
+      "question": "If forests are destroyed, wild animals ----- their natural inhabitation.[]",
+      "options": [
+        "loses",
+        "lost",
+        "will lose",
+        "will have lost"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "3622c86a-7fd9-4bc6-a7a7-40b169b88c93",
+      "question": "If he runs fast, he ----- win the prize.[]",
+      "options": [
+        "would",
+        "will",
+        "can",
+        "could"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "c1288f29-f53c-420c-90cf-452d935afa24",
+      "question": "If he has time, he ----- us next Friday.[]",
+      "options": [
+        "visit",
+        "visited",
+        "will visit",
+        "will have visit"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "585d823e-207e-429f-a8b6-451482f6fbae",
+      "question": "If you point that picture well, they ----- it in the exhibition.[]",
+      "options": [
+        "will hang",
+        "would hang",
+        "hung",
+        "will have hung"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "f3a52f9d-cecf-479b-a8c2-b036cca35c0f",
+      "question": "Rokeya ----- from her post if she is late again.[]",
+      "options": [
+        "is dismissed",
+        "has been dismissed",
+        "will be dismissed",
+        "will dismissed"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "c93e97fc-0ad2-4826-95f3-7ef95e3f9dfe",
+      "question": "If the price is low, the demand -------.[]",
+      "options": [
+        "is increased",
+        "will be increased",
+        "would be increased",
+        "will increase"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "051102d6-0c79-48cc-bb8b-c2831f57341c",
+      "question": "If I ----- a millionaire, I ----- help every worth cause.[]",
+      "options": [
+        "be, should",
+        "was, could",
+        "were, would",
+        "on, may"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "1acb3115-5725-4379-b188-b60bd254cc69",
+      "question": "The boy ----- unless he apologized sincerely.[]",
+      "options": [
+        "not be forgiven",
+        "have not be forgiven",
+        "has not forgiven",
+        "would not be forgiven"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "2d571aea-29f2-4d3c-b77c-c5614c4cbf91",
+      "question": "If your sister -----, she would come.[]",
+      "options": [
+        "invited",
+        "inviting",
+        "invites",
+        "were invited"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "373f7636-b2c1-49a3-b227-eee9bd3ac5c7",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "If I had a camera, I would have taken some photographs.",
+        "If I had a camera, I would taken some photographs.",
+        "If I had a camera, I would take some photographs.",
+        "If I had a camera, I took some photographs."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "6b4fafe6-dabe-4135-aacb-972029154f66",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "If I found a bag in the street, I will take it to the police.",
+        "If I found a bag in the street, I would take it to the police.",
+        "If I found a bag in the street, I took it to the police.",
+        "If I found a bag in the street, I will be taking it to the police."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "e54d5aa1-a498-44c6-82f6-50fa0001d8a2",
+      "question": "It would be pleasant/better if we ----- where to go.[]",
+      "options": [
+        "know",
+        "known",
+        "knew",
+        "had known"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "417ec273-59bd-4898-844d-4b6da0b004d9",
+      "question": "If I were you, I ----- anyone about this.[]",
+      "options": [
+        "wouldn't told",
+        "wouldn't have told",
+        "wouldn't be telling",
+        "wouldn't tell"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "a86a7a41-fc50-45ce-b415-3a071cf91595",
+      "question": "I could go for a drive if today ----- Saturday.\nIf the party <u>was</u> on Friday, we could go.[]",
+      "options": [
+        "was",
+        "is",
+        "were",
+        "could be"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "0e41b748-8818-4ab3-8c62-20992f454929",
+      "question": "If we had a boat, we ----- the river.[]",
+      "options": [
+        "will be crossing",
+        "will cross",
+        "would cross",
+        "would make cross"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "85fedfe4-8b40-4b2e-a83f-11c486d34fea",
+      "question": "If I knew the answer, ----- tell you.[]",
+      "options": [
+        "I'll",
+        "I'd",
+        "I must",
+        "I can"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "54562a8f-9c36-49e4-86c4-35f0b72ff0e1",
+      "question": "I would tell you the answer if I ----- what it was.[]",
+      "options": [
+        "know",
+        "had known",
+        "knew",
+        "have known"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "84ea39b0-ac63-47bd-9b16-b48e49ee8bb1",
+      "question": "If the oxygen supply in the atmosphere ----- not replaced by plants, it would soon be exhausted.[]",
+      "options": [
+        "is",
+        "was",
+        "were",
+        "had been"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "ca89eb78-8e57-413b-8cd0-7ac14ec7f751",
+      "question": "If teaching ----- more, fewer teachers/students would leave the profession.[]",
+      "options": [
+        "had paid",
+        "is paying",
+        "paid",
+        "has paid"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "148e6402-e97f-4398-bf6e-bc0620caae6f",
+      "question": "I ----- quiet if I were you.[]",
+      "options": [
+        "shall keep",
+        "keep",
+        "should keep",
+        "kept"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "3886d284-c828-40d8-9df0-6cc353126d36",
+      "question": "If I lived near my office, ----- in time for work.[]",
+      "options": [
+        "I would be",
+        "I shall be",
+        "I will be",
+        "I were"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "9a9c799d-60da-49f4-bda6-5b8409070e5f",
+      "question": "If you were in my position, what ----- you do ?\nIf he had the money, he ----- buy a car.[]",
+      "options": [
+        "could",
+        "would",
+        "should",
+        "might be"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "b05b9d3b-f642-4449-9695-9ba101a7d4e6",
+      "question": "If my father was richer, I ----- to have a car.[]",
+      "options": [
+        "will be allowed",
+        "would allow",
+        "allowed",
+        "would be allowed"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "3c26304f-1d21-4e00-b9e5-58fb46f1d26e",
+      "question": "If a found a lost dog, I ----- it to his owner.[]",
+      "options": [
+        "will returning",
+        "will return",
+        "would return",
+        "will have returned"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "c1d43d22-b974-4b7d-932b-8b5fc98d16c9",
+      "question": "The 'if clause' of a sentence is 'If he came' Now determiner its correct principal clause.[]",
+      "options": [
+        "I went",
+        "I had gone",
+        "I would go",
+        "I shall have gone"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "e7312ee1-1f18-494e-b6f0-75565dd62309",
+      "question": "If the sun didn't shine, fruits -----.[]",
+      "options": [
+        "wouldn't ripen",
+        "did not ripen",
+        "will not ripen",
+        "had not ripen"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "56df95ac-2173-4f6e-9e63-4273ece6f37b",
+      "question": "If motorists were to drive more carefully, they ----- fewer accidents.[]",
+      "options": [
+        "will be having",
+        "would have",
+        "will have",
+        "would have had"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "e01e6cca-885e-430b-955f-7ada85d9cf57",
+      "question": "If I ----- you, I would never do it.\nIf I ----- a prince, I would not know what sorrow is.[]",
+      "options": [
+        "was",
+        "were",
+        "had been",
+        "have been"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "06ec6624-a7c2-4a77-b307-d2195268639b",
+      "question": "What would you do if you\n ----- ten lakh taka ?[]",
+      "options": [
+        "will",
+        "won",
+        "will won",
+        "have won"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "ee48bf07-d8c3-473f-8e2a-dba22f3d3e80",
+      "question": "If I ----- a millionaire, I ----- help every worthy cause.[]",
+      "options": [
+        "be, should",
+        "was, could",
+        "were, would",
+        "am, may"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "dd2ac3af-3923-4f51-86fa-38e9635f50d6",
+      "question": "If I were you, I (handle) the situation more carefully.[]",
+      "options": [
+        "would handle",
+        "will handle",
+        "handle",
+        "would have handled"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "3bbb496d-6973-4070-92a6-502ffaa45322",
+      "question": "If cigarettes were banned, life -----.[]",
+      "options": [
+        "will be healthier",
+        "becomes healthier",
+        "should become healthier",
+        "would become healthier"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "fbb0ce8b-9845-48b3-97a0-de4044dc0819",
+      "question": "Do you think you would buy it ----- ?[]",
+      "options": [
+        "if it was very cheap",
+        "because it were cheaper",
+        "if it were cheaper",
+        "if it were not cheap"
+      ],
+      "correct_answer": null,
+      "correct_index": null,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "53aafe0b-aae9-4eea-afb2-79bdd4016e57",
+      "question": "This could have worked if I ----- been more cautious.[]",
+      "options": [
+        "had",
+        "might",
+        "have",
+        "would"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "0183add9-f6fe-48a2-a7d7-1d600dd80148",
+      "question": "He ----- to see us if he had been able to.[]",
+      "options": [
+        "had come",
+        "came",
+        "is coming",
+        "would have come"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "da3da8a0-bd82-4659-8418-1f4f6e53f7ff",
+      "question": "----- better, the team would have been able to defeat the opponent.[]",
+      "options": [
+        "If it prepares",
+        "If prepares",
+        "Preparing",
+        "Had it prepared"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

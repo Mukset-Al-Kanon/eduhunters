@@ -1,0 +1,610 @@
+{
+  "exam_id": 586,
+  "title": "E-1 | Noun",
+  "category": "ইংরেজিকে এক্সাম",
+  "duration_minutes": 15,
+  "total_questions": 40,
+  "negative_mark": 0,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "b574d39b-2fae-4bf0-a672-9777c85dff73",
+      "question": "What is the collective noun of knives,forks, spoons, and other eating utensils?",
+      "options": [
+        "Crockery",
+        "Cutlery",
+        "Cattle",
+        "Orchestra"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Orchestra is a combination of musical instruments.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "9abcc65e-96ad-48f9-b882-6149648dc019",
+      "question": "The gold of South Africa is pure . What kind of noun is the word 'gold'?",
+      "options": [
+        "Proper Noun",
+        "Common Noun",
+        "Abstract Noun",
+        "Material Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে material বা পদার্থ দ্বারা কোনো জিনিস গঠিত হয় তাদের Material Noun বলে. Exp: Diamond, Gold,Water etc. But Material Noun er পূর্বে article বসলে সেটা  Common Noun হয়ে যায়!!",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "38a69f13-c986-42f6-b5f6-5c6e8ea5c10a",
+      "question": "Which one is the agent noun of Investigation?",
+      "options": [
+        "Investigator",
+        "Investor",
+        "Investment",
+        "Investination"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "An agent noun is a noun that refers to a person or thing that performs an action. It is often formed by adding \"-er\" or \"-or\" to a verb (e.g., teacher (teaches), actor (acts), driver (drives)).",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "2df7c6ab-192a-484a-a1e0-efe6c8af9d3e",
+      "question": "What kind of Noun is Money?",
+      "options": [
+        "Abstract",
+        "Collective",
+        "Countable",
+        "Uncountable"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Money দেখে মনে হয় countable but actually এটার countable form হচ্ছে a coin, a note, an euro etc.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "7f1068fd-20ad-48c2-9744-0df6f3a5d836",
+      "question": "______ students from different districts have come to take part in the admission test.",
+      "options": [
+        "A large amount",
+        "A large number",
+        "A large number of",
+        "A huge amount of"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "A huge amount uncountable sense create করে.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d56ba14c-a611-446e-b932-06a807f1bf6f",
+      "question": "Choose the correct answer",
+      "options": [
+        "No less than fifty students were present.",
+        "No fewer than fifty students were present.",
+        "No lesser than fifty students were present.",
+        "No smaller than fifty students were present."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Lesser, smaller, less term গুলো uncountable এর ক্ষেত্রে ব্যবহার হয়.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "42f68d98-6814-42a4-b40d-52e40925ff31",
+      "question": "Nazrul is the Byron of Bangladesh. What kind of Noun (Byron ) is in this sentence?",
+      "options": [
+        "Proper Noun",
+        "Common Noun",
+        "Material Noun",
+        "Abstract Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Metaphor [তুলনা] হিসেবে Byron ব্যবহার হওয়ার কারণে এক্ষেত্রে এটা Common Noun. যদিও normal case e Byron name হিসেবে proper Noun হবে! Also Proper Noun er পূর্বে article হলে সেটা common noun হিসেবে কাজ করে.",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "ff5e503b-4fea-477e-ae8f-a3e920bb7052",
+      "question": "The _______ of this office will be sold.",
+      "options": [
+        "Furniture",
+        "Pieces of furniture",
+        "Furnitures",
+        "Piece of furniture"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Uncountable noun এর পূর্বে the বসলে তা singular ই থাকে. এটা অনেক furniture কে নির্দিষ্ট করে বুঝায়.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "4a8f0763-8f92-4831-b854-bfc6f5016015",
+      "question": "There was ____ hope of Asia's recovery.",
+      "options": [
+        "Few",
+        "Very",
+        "Little",
+        "Many"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Uncountable noun এর পূর্বে  (almost no) বুঝাতে little. And Countable এ few বসে.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "4e558e24-3bf0-4390-923b-e293e553d542",
+      "question": "We should use ____time we have at our disposal to enjoy our life.",
+      "options": [
+        "The little",
+        "The most of",
+        "The few",
+        "Few"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বেশি পরিমাণে নয় কিন্তু যতোটুকু আছে তার সবটুকু sense mean করতে countable er পূর্বে the few, uncountable er পূর্বে the little হবে.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "feedb341-910d-40ba-b88a-1fb758101e1f",
+      "question": "Knowledge is Power. What Kind of parts of speech Knowledge is",
+      "options": [
+        "Proper Noun",
+        "Common Noun",
+        "Collective noun",
+        "Abstract Noun"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "22b83896-57bd-45a1-bbd5-d04f46a9699b",
+      "question": "The boy was rewarded for his honesty. Which noun the word Honesty is",
+      "options": [
+        "Common Noun",
+        "Abstract Noun",
+        "Concrete Noun",
+        "Material Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "2c7fba27-5c6f-45d8-bf28-83e379e30900",
+      "question": "What Kind of noun 'Agency' is",
+      "options": [
+        "Concrete Noun",
+        "Abstract Noun",
+        "Collective Noun",
+        "Common Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Abstract noun because it represents a concept rather than a tangible object.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "9d2e2ed6-d02a-4206-b801-68bb53e5cf42",
+      "question": "The jury _____ quarrelling among Themselves.",
+      "options": [
+        "Are",
+        "Is",
+        "Be",
+        "Both a and b"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যেহেতু Jury এখানে সামষ্টিকভাবে না বসে আলাদা ভাবে বুঝিয়েছে তাই এক্ষেত্রে plural verb বসবে!! এটাকে বলে Noun of multitudeNormal sense e Jury means [ a group of Judges] So collective noun and use Singular verb as well.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "ca8e05e3-e6f6-4c99-98b0-548314a20e88",
+      "question": "The Gold of this necklace is expensive.",
+      "options": [
+        "Concrete Noun",
+        "Common Noun",
+        "Abstract Noun",
+        "Material Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Material noun এর পূর্বে article থাকলে common হয়ে যায় ...",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "01330033-14c3-437a-b73e-56b3f4523a79",
+      "question": "Choose the correct line",
+      "options": [
+        "The scenery of Rangamati are beautiful",
+        "The Sceneries of Bandarbans are beautiful",
+        "The scenery of Rangamati is beautiful",
+        "None of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Scenery is Uncountable noun.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "df1f1b88-c7a0-4060-98b2-a318b4b78d7b",
+      "question": "Which one of the following is Noun?",
+      "options": [
+        "Cute",
+        "Flute",
+        "Mute",
+        "Suit"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Scenery is Uncountable noun.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "7df27cf4-3a66-4e44-a3f7-fdd9db05a8f4",
+      "question": "The Noun form of Migratory is",
+      "options": [
+        "Immigrant",
+        "Migrate",
+        "Migrating",
+        "Migrant"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Scenery is Uncountable noun.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "87473f4c-149e-4a96-855d-2dad073a92b4",
+      "question": "The noun form of Spontaneous",
+      "options": [
+        "Spontinity",
+        "Spontaneousity",
+        "Sponsorship",
+        "Spontaneity"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কিছু শব্দ সবসময়ই singular যেমন: News, Mathematics Economics, Physics, Information,Weather,Traffic, Advice etc.",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "f76efcf7-0693-4450-87af-7f73298f7b87",
+      "question": "____  can be grown in arid lands.",
+      "options": [
+        "Only a little crops",
+        "Only few crops",
+        "Only a few crops",
+        "Only little crop"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"A few\" is used with countable nouns (like crops), and it means a small number but still enough.",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "28884649-3779-464f-aa19-2c5c1e167182",
+      "question": "The Mug on the counter contains ____ water",
+      "options": [
+        "Few",
+        "A little",
+        "Several",
+        "Many"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Type explanation here...",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "3fe426f3-7879-4f6a-a6e4-f4b0a9464183",
+      "question": "Which one of the following is the meaning of 'a few'",
+      "options": [
+        "Not Many,Hardly Any",
+        "Not Much",
+        "Some",
+        "Not at all"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Type explanation here...",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "3f1064c6-10d7-49f2-8d77-c2c60ba9b663",
+      "question": "Broad শব্দটির abstract form হচ্ছে-",
+      "options": [
+        "Breath",
+        "Breadth",
+        "Broadness",
+        "Broadband"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Type explanation here...",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "b481cb88-4063-4072-90d7-24abb6b72a5f",
+      "question": "I don't take ____tea",
+      "options": [
+        "Many",
+        "Too many",
+        "Much",
+        "Few"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Type explanation here...",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "6765f7b0-a2a4-4b8c-9085-7fa336bb6da4",
+      "question": "নিচের কোনটি collective noun নয়?",
+      "options": [
+        "Archipelago",
+        "Fleet",
+        "Clergy",
+        "Clerk"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Archipelago means a mixture of islands.Fleet a mass of vehicles.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "7365f2ff-243e-4784-96bf-fa50c98e13ce",
+      "question": "Choose the best answer",
+      "options": [
+        "I will buy two soaps",
+        "I shall buy two soaps",
+        "I shall buy two bars of soap",
+        "I will buy two bars of soaps"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Masculine.   FaminineTailor... Seamstress Hart .... RoeHorse... MareSpinster means Unmarried woman.",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "9b559fcf-a33d-4262-bcc3-d84a0a10c028",
+      "question": "Which one is Correct?",
+      "options": [
+        "I have many works to perform",
+        "I have many work to perform",
+        "I have much work to perform.",
+        "I have much works to perform"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Work uncountable noun.",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "237aade2-8d03-4041-9a54-cf1b981b25b6",
+      "question": "There are too many people looking for ____Jobs in this country.",
+      "options": [
+        "Few",
+        "Too few",
+        "A few",
+        "So few"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Masculine.   FaminineTailor... Seamstress Hart .... RoeHorse... MareSpinster means Unmarried woman.",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "46fd9287-872d-4386-9111-be3a2497887a",
+      "question": "Choose the correct furniture",
+      "options": [
+        "We want a few furnitures",
+        "We want a few furniture",
+        "We don't want furniture.",
+        "We want some furnitures"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "A few, some এগুলো countable noun এর determiner. Furniture uncomfortable noun.",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "e35aa23a-2ad8-4052-953f-a3d4b73788ed",
+      "question": "Which of the following is a concrete noun?",
+      "options": [
+        "Cute",
+        "Hiya",
+        "Freedom",
+        "Computer"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "A few, some এগুলো countable noun এর determiner.",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "d34b55b5-4b25-44e1-b873-31abafa95995",
+      "question": "Which of the following sentences uses a countable noun in the plural form correctly",
+      "options": [
+        "She has many information to share.",
+        "There are a few chairs left in the room",
+        "The team made some progress in their work",
+        "I need a new advice."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Only chair is countable in there.",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "d11880e4-1e2c-484b-8571-8a60160ff87d",
+      "question": "What Kind of Noun Is the Word 'Noun' is",
+      "options": [
+        "Common",
+        "Collective",
+        "Material",
+        "Proper"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "A few, some এগুলো countable noun এর determiner.",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "5252ec71-bae0-4745-80ce-2bbb28a857f2",
+      "question": "Choose the countable noun",
+      "options": [
+        "Newspaper",
+        "Milk",
+        "Magic",
+        "Fine"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "A few, some এগুলো countable noun এর determiner.",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "c7a6262c-402a-4c74-8598-660599f096ba",
+      "question": "Which sentence correctly uses a plural collective noun?",
+      "options": [
+        "The group of musicians is practicing",
+        "The family have arrived.",
+        "The audience are cheering loudly",
+        "The team has won the match."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Collective noun সাধারণত singular হলেও Audience plural হিসেবে ব্যবহৃত হয়...",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "83b70d85-c82c-4020-94d5-cefd7eea8950",
+      "question": "Which one is used in a negative sense?",
+      "options": [
+        "The few",
+        "Few",
+        "A few",
+        "All of the above"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A few, some এগুলো countable noun এর determiner.",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "a0bd35e4-fd59-4d58-9fe6-925e465db2b5",
+      "question": "I have _____ enemies, but they can do me ____ harm",
+      "options": [
+        "The few, much",
+        "Little , few",
+        "A few, little",
+        "All of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "A few, some এগুলো countable noun এর determiner.",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "1e6e0d4e-0f6d-4da1-8f2d-12c285dfa2b1",
+      "question": "I took _____ for my lab yesterday",
+      "options": [
+        "Two equipment",
+        "Two pieces of equipments",
+        "Two equipment pieces",
+        "Two pieces of equipment"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "A few, some এগুলো countable noun এর determiner.",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "21f53455-bbff-46dc-8e5a-c5e79c39d8e7",
+      "question": "One and a half million people drive rickshaws for a living,plus ___hundred thousand who own and repair them.",
+      "options": [
+        "Few",
+        "A few",
+        "Little",
+        "A little"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A few, some এগুলো countable noun এর determiner.",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "57380f81-2be5-4e95-bc20-ecb349a56b6a",
+      "question": "She is a beauty. What kind of noun Beauty is in this sentence?",
+      "options": [
+        "Abstract",
+        "Material",
+        "Proper",
+        "Common"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যদিও normally এটা abstract noun কিন্তু পূর্বে article বসার কারণে এটি common noun বলে বিবেচিত হবে. এক্ষেত্রে beauty কোনো গুণ নয় বরং গুনবিশিষ্ট ব্যাক্তি.",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "22c3e3a8-6d63-4e2d-9009-458bc81bbc45",
+      "question": "The mother in her rose at the sight of this. Here Mother is an......",
+      "options": [
+        "Abstract",
+        "Material",
+        "Proper",
+        "Common"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যদিও normally এটা abstract noun কিন্তু পূর্বে article বসার কারণে এটি common noun বলে বিবেচিত হবে. এক্ষেত্রে beauty কোনো গুণ নয় বরং গুনবিশিষ্ট ব্যাক্তি.",
+      "images": []
+    }
+  ]
+}

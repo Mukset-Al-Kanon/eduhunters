@@ -1,0 +1,1240 @@
+{
+  "title": "জিনতত্ত্ব ও বিবর্তন (All Board Question) - Review Purpose",
+  "category": "Board Question Exams > Biology 2nd Paper",
+  "duration_minutes": 30,
+  "total_questions": 88,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "118935",
+      "question": "সর্বপ্রথম Genetics শব্দ কে প্রচলন করেন?",
+      "options": [
+        "মেন্ডেল",
+        "কার্ল করেন্স",
+        "উইলিয়াম বেটসন",
+        "হুগো দ্যা ক্রিস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "118942",
+      "question": "গ্রেগর জোহান মেন্ডেল কোন দেশে জন্মগ্রহণ করেন?",
+      "options": [
+        "ফ্রান্স",
+        "ইংল্যান্ড",
+        "ইতালী",
+        "অস্ট্রিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "118943",
+      "question": "বংশ গতিবিদ্যার জনক কে?",
+      "options": [
+        "চালর্স রবার্ট ডরউইন",
+        "জ্যাঁ ব্যাপটিস্ট দ্যা ল্যামার্ক",
+        "গ্রেগর জোহান মেন্ডেল",
+        "জে গ্রেগর মেন্ডেল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "118944",
+      "question": "বংশগতি বিজ্ঞানের জনক কে?",
+      "options": [
+        "গ্রেগর জোহান মেন্ডেল",
+        "অ্যারিস্টোটল",
+        "লিনিয়াস",
+        "উইলিয়াম হার্ভে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "118945",
+      "question": "জীবের বাহ্যিক বৈশিষ্ট্যকে কী বলে?",
+      "options": [
+        "ফিনোটাইপ",
+        "জিনোটাইপ",
+        "প্রকট বৈশিষ্ট্য",
+        "প্রচ্ছন্ন বৈশিষ্ট্য"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "118946",
+      "question": "নিচের কোন জিনোটাইপ হতে বেশি ধরনের গ্যামিট সৃষ্টি হবে?",
+      "options": [
+        "aa Rr",
+        "Aa Rr",
+        "Aa RR",
+        "Aa rr"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "118947",
+      "question": "কোনটি ডাইহাইব্রিড ক্রসের অনুপাত?",
+      "options": [
+        "2:1",
+        "3:1",
+        "1:2:1",
+        "9:3:3:1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "118948",
+      "question": "মেন্ডেলের ১ম সূত্রকে কি বলে?",
+      "options": [
+        "ক্রোমোজম তত্ত্ব",
+        "পৃথকীকরণের সূত্র",
+        "পেনজেনেসিস তত্ত্ব",
+        "স্বাধীন সঞ্চারণের সূত্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "118949",
+      "question": "মেন্ডেলের ২য় সূত্রের ক্ষেত্রে কত ধরনের জিনোটাইপ পাওয়া যায়?",
+      "options": [
+        "4",
+        "9",
+        "12",
+        "16"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "118950",
+      "question": "AaBb জেনোটাইপধারী জীব থেকে কয় ধরনের গ্যামেট তৈরি হতে পারে?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "118951",
+      "question": "F1 জনু বলতে কি বুঝায়?",
+      "options": [
+        "First familial generation",
+        "First floral generation",
+        "First filial generation",
+        "None of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "118952",
+      "question": "কোনটি মেন্ডেলের প্রথম সূত্রের ব্যতিক্রমের উদাহরণ?",
+      "options": [
+        "অসম্পূর্ন প্রকটতা",
+        "পরিপূরক জীন",
+        "এপিস্ট্যাসিস",
+        "পলিজেনিক ইনহেরিট্যান্স"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "118953",
+      "question": "মেন্ডেলের প্রথম সূত্রের ব্যাতিক্রম নয় কোনটি?",
+      "options": [
+        "অসম্পূর্ন প্রকটতা",
+        "ঘাতক জীন",
+        "পরিপূরক জীন",
+        "সম প্রকটতা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "118954",
+      "question": "অসম্পূর্ন প্রকটতার ক্ষেত্রে ‍জিনোটাইপিক অনুপাত কত?",
+      "options": [
+        "3:1",
+        "9:7",
+        "1:2:1",
+        "13:3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "118955",
+      "question": "কোনটি মেন্ডেলের প্রথম সূত্রের ব্যতিক্ররে উদাহরণ?",
+      "options": [
+        "অসম্পূর্ন প্রকটতা",
+        "প্রকট এপিস্ট্যাসিস",
+        "এপিস্ট্যাসিস",
+        "পলিজেনিক ইনহেরট্যান্স"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "118956",
+      "question": "কেন 3:1 না হয়ে 1:2:1 হয়?",
+      "options": [
+        "এপিস্ট্যাসিস",
+        "লিথাজিন",
+        "সমপ্রকটতা",
+        "পরিপূরক জিন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "118957",
+      "question": "সমপ্রকতার ক্রিয়ার F2 জনুর ফিনোটাইপিক অনুপাত কত?",
+      "options": [
+        "1:2:1",
+        "2:1",
+        "1:1",
+        "3:1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "118958",
+      "question": "নিচের কোনটি সমপ্রকটতার ফিনোটাইপিক অনুপাত?",
+      "options": [
+        "9:7",
+        "3:1",
+        "2:1",
+        "1:2:1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "118959",
+      "question": "লিথাল জীনের কারণে কোন রোগ হয়?",
+      "options": [
+        "হিমোফিলিয়া ও থ্যালাসেমিয়া",
+        "থ্যালাসেমিয়া ও বর্ণাদ্ধতা",
+        "বর্ণাদ্ধতা ও রাতকানা",
+        "রাতকানা ও হেমোফিলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "118960",
+      "question": "ড্রসাফিলা মাছির লুপ্তপ্রায় ডানা সৃষ্টিকারী জিনটি কোন ধরনের?",
+      "options": [
+        "সাবভাইটাল",
+        "সেমিলিথাল",
+        "ইন্টারমিডিয়েট",
+        "পলিজিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "118962",
+      "question": "মেন্ডেলের দ্বিতীয় সূত্রের ব্যতিক্রম কোনটি?",
+      "options": [
+        "অসম্পূর্ন প্রকটতা",
+        "সমপ্রকটতা",
+        "লিথাল জিন",
+        "পরিপূরক জিন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "118963",
+      "question": "কেন 9:3:3:1 না হয়ে 13:3 হয়েছে?",
+      "options": [
+        "দ্বৈত প্রচ্ছন্ন এপিস্ট্যাসিস",
+        "এপিস্ট্যাসিস",
+        "পলিজিন",
+        "লিথালজিন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "118964",
+      "question": "দ্বৈত প্রচ্ছন্ন এপিস্ট্যাসিস এর ফিনোটাইপিক অনুপাত কোনটি?",
+      "options": [
+        "9:3:3:1",
+        "1:2:1",
+        "13:3",
+        "9:7"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "118965",
+      "question": "দ্বৈত প্রচ্ছন্ন এপিস্টাসিস এর অনুপাত কোনটি?",
+      "options": [
+        "3:1",
+        "13:3",
+        "9:7",
+        "2:1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "118966",
+      "question": "দ্বৈত প্রচ্ছন্ন এপিস্ট্যাসিসের F2 জনুর অনুপাত কোনটি?",
+      "options": [
+        "2:1",
+        "3:1",
+        "9:7",
+        "13:3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "118967",
+      "question": "9:7 অনুপাতের কারণ",
+      "options": [
+        "মারণ জিন",
+        "পলিজিন",
+        "ইন্টারমিডিয়েট জিন",
+        "ডুপ্লিকেট প্রচ্ছন্ন জিন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "118968",
+      "question": "",
+      "options": [
+        "25%",
+        "50%",
+        "75%",
+        "100%"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "118969",
+      "question": "নারীদেহের দুটি X -ক্রোমোসোমের একটি কিংবা সম্পূর্ণ অনুপস্থিত থাকলে কোন রোগ হয়?",
+      "options": [
+        "অ্যাকোমেগালি",
+        "টারনার সিনড্রোম",
+        "মিক্সিডিমা",
+        "প্রাডের উইলি সিনড্রোম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "118970",
+      "question": "মানুষের দেহকোষে কতটি অটোসোম থাকে?",
+      "options": [
+        "22",
+        "23",
+        "44",
+        "46"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "118971",
+      "question": "সেক্স লিস্কড ইনহেরিটেন্স এর বৈশিষ্ট্য",
+      "options": [
+        "জিনগুলি Y ক্রোমোজোমে থাকে",
+        "জিনগুলি পিতা হতে শুধুমাত্র কন্যাতে যায়",
+        "জিনগুলি পিতা হতে শুধু মাত্র পুত্রে যায়",
+        "বৈশিষ্ট্যগুলি মহিলাদের বেশি প্রকাশিত হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "118972",
+      "question": "XX-Xo পদ্ধতিতে লিঙ্গ র্নিধারণ হয় কোন প্রাণীতে?",
+      "options": [
+        "ঘাসফড়িং",
+        "ড্রসোফিলা",
+        "গিনিপিগ",
+        "মানুষ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "118973",
+      "question": "বর্ণাদ্ধতার জন্য দায়ী জিন হলো",
+      "options": [
+        "লিথাল",
+        "এপিস্ট্যাটিক",
+        "সহ-প্রকট",
+        "সেক্সলিংকড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "118974",
+      "question": "সেক্স লিস্কড রোগ নয় কোনটি?",
+      "options": [
+        "মাসকুলার ডিসট্রফি",
+        "গনোরিয়া",
+        "বর্ণাদ্ধতা",
+        "হিমোফিলিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "118975",
+      "question": "মানুষের লাল সবুজ বর্ণাদ্ধতার জিন হলো",
+      "options": [
+        "লিথাল",
+        "এপিস্টাটিক",
+        "সেক্সলিংকড",
+        "সহ-প্রকট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "118976",
+      "question": "বণাদ্ধ পুরুষ ও স্বাভাবিক দৃষ্টির নারীর মধ্যে বিয়ে হলে তাদের স্বাভাবিক দৃষ্টির কন্যা সন্তানদের সম্ভাব্য হার কত?",
+      "options": [
+        "100%",
+        "75%",
+        "50%",
+        "25%"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "118977",
+      "question": "একাদশ শ্রেণির ছাত্রী মিনি স্বাভাবিক বর্ণ দর্শনে সক্ষম হলেও তার এক ভাই র্বণাদ্ধ মিনির পিতা মাতার জিনোটাইপ হলো",
+      "options": [
+        "XBXB ও XbY",
+        "XbXb ও XBY",
+        "XBXb ও XBY",
+        "XbXb ও XbY"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "118978",
+      "question": "নিচের কোন ধরনের মিলনে সকল পুত্র সন্তান বর্ণাদ্ধ হবে?",
+      "options": [
+        "পিতা স্বাভাবিক , মা বর্ণাদ্ধ",
+        "পিতা বর্নাদ্ধ, মা স্বাভাবিক",
+        "পিতা স্বাভাবিক, মা বাহক",
+        "পিতা বর্ণাদ্ধ, মা বাহক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "118979",
+      "question": "বর্ণাদ্ধতায় আক্রান্ত কণ্যার বাবা মা হলো?",
+      "options": [
+        "স্বাভাবিক মা ও বর্ণাদ্ধ বাবা",
+        "বাহক মা ও স্বাভাবিক বাবা",
+        "বাহক মা ও বর্ণাদ্ধ বাবা",
+        "বর্ণাদ্ধ মা ও স্বাভাবিক বাবা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "118980",
+      "question": "",
+      "options": [
+        "50 % মেয়ে স্বাভাবিক",
+        "50 % মেয়ে বর্ণাদ্ধ",
+        "50% ছেলে বর্ণাদ্ধ জিন বাহক",
+        "100% ছেলে স্বাভাবিক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "118981",
+      "question": "মাতা বর্ণাদ্ধ ও পিতা স্বাভাবিক হলে পুত্রগন শতকরা কত অংশ বর্ণাদ্ধ হবে?",
+      "options": [
+        "100",
+        "75",
+        "50",
+        "25"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "118982",
+      "question": "পিতা স্বাভাবিক ও মাতা বর্ণাদ্ধ হলে, ছেলেগুলো কি হবে?",
+      "options": [
+        "25 % স্বাভাবিক",
+        "25 % বর্ণাদ্ধ",
+        "50 % বর্ণাদ্ধ",
+        "50 % স্বাভাবিক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "118983",
+      "question": "নিলা বর্ণাদ্ধ XcXc তার বাবা ও মায়ের জেনোটাইপ কি হবে?",
+      "options": [
+        "XY এবং XcX",
+        "XY এবং XcXc",
+        "XcY এবং XcXc",
+        "XY এবং XX"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "118984",
+      "question": "কোন রোগটিকে রাজকীয় রোগ বলে?",
+      "options": [
+        "হিমোফিলিয়া",
+        "রাতকানা",
+        "বর্ণাদ্ধতা",
+        "মাসকুলার ডিসট্রফি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "118985",
+      "question": "হিমোফিলিয়ায় আক্রান্ত মহিলার সম্ভাব্য পিতামাতা কে?",
+      "options": [
+        "বাহক মা ও হিমোফিলিক বাবা",
+        "সুস্থ মা ও হিমোফিলিক বাবা",
+        "বাহক মা ও সুস্থ বাবা",
+        "হিমোফিলিক মা ও সুস্থ বাবা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "118986",
+      "question": "নিচের কোন রোগের কারণে হাই স্কুলের একজন ছাত্র চলৎশক্তিহীন হয়ে যেতে পারে?",
+      "options": [
+        "এক্টোডার্মাল ডিসপ্লেসিয়া",
+        "মাসকুলার ডিস্ট্রফি",
+        "মায়োপিয়া",
+        "হিমোফিলিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "118987",
+      "question": "মানুষের কোন ব্লাড গ্রুপটি সার্বজনীন গ্রহীতা?",
+      "options": [
+        "A",
+        "B",
+        "O",
+        "AB"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "118988",
+      "question": "B ব্লাড গ্রুফের মানুষ কোন গ্রুফের রুক্ত গ্রহণ করতে পারে?",
+      "options": [
+        "AB এবং O",
+        "B এবং O",
+        "B এবং AB",
+        "A, AB এবং O"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "118989",
+      "question": "এন্টিবডিহীন রুক্তগ্রুপ কোনটি?",
+      "options": [
+        "A",
+        "B",
+        "AB",
+        "O"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "118990",
+      "question": "কোন রক্তগ্রুপ বহনকারী ব্যাক্তিকে সবার্জনীন দাতা বলা হয়?",
+      "options": [
+        "A",
+        "B",
+        "O",
+        "AB"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "119122",
+      "question": "এন্টিবডি বিহীন রক্তগ্রুপ হচ্ছে",
+      "options": [
+        "A",
+        "B",
+        "AB",
+        "O"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 51,
+      "id": "119123",
+      "question": "কোন গ্রুপের রক্তে a ও b উভয় অ্যান্টিবডি থাকে?",
+      "options": [
+        "A",
+        "B",
+        "AB",
+        "O"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "O group এ a & b উভয় অ্যান্টিবডি থাকে"
+    },
+    {
+      "question_no": 52,
+      "id": "119124",
+      "question": "AB রক্ত গ্রুপের ক্ষেত্রে কোনটি প্রযোজ্য?",
+      "options": [
+        "O গ্রুপের রক্ত নিতে পারে",
+        "উভয় অ্যান্টিবডি a ও b বিদ্যমান",
+        "A গ্রুপকে রক্ত দান করতে পারে",
+        "লোহিত কণিকায় শুধু এন্টিজেন B বিদ্যমান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যেহেতু O গ্রুপ সার্বজনীন দাতা তাই O গ্রুপের রক্ত নিতে পারে\r\nলোহিত কণিকায় শুধু অ্যান্টিজেন B না A ও থাকে"
+    },
+    {
+      "question_no": 53,
+      "id": "119125",
+      "question": "A ব্লাডগ্রুপের মানুষ কোন গ্রুপের রক্ত গ্রহণ করতে পারে?",
+      "options": [
+        "AB এবং O",
+        "A এবং O",
+        "Aএবং AB",
+        "A,ABএবং O"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "119126",
+      "question": "A,B,AB এবং O রক্ত গ্রুপধারী সন্তানদের পিতামাতার রক্তে গ্রুপ কোনটি?",
+      "options": [
+        "ABএবং A",
+        "B এবং O",
+        "AB এবং O",
+        "A এবং O"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 55,
+      "id": "119127",
+      "question": "বাবা ও মায়ের রক্তের গ্রুপ কোনটি হলে তাদের সন্তানদের রক্তের গ্রুপের সাথে কোনো ভাবেই মিলবে না?",
+      "options": [
+        "AB এবং O",
+        "ABএবং A",
+        "A এবং B",
+        "ABএবং B"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 56,
+      "id": "119128",
+      "question": "বাবার রক্তের গ্রুপ AB এবং মায়ের রক্তের গ্রুপ O হলে তাদের সন্তানদের মধ্যে পিতা মাতার রক্তের গ্রুপ হবার সম্ভাবনা কতটুকু?",
+      "options": [
+        "0%",
+        "25%",
+        "75%",
+        "100%"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "119129",
+      "question": "বাবা ও মা উভয়ের রক্তগ্রুপ AB হলে সন্তানের রক্তগ্রুপ AB হওয়ার সম্ভাবনা কতটুকু?",
+      "options": [
+        "25%",
+        "50%",
+        "75%",
+        "100%"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "119130",
+      "question": "পিতা ও মাতা উভয়ের রক্তগ্রুপ AB হলে সন্তানদের মধ্যে AB রক্তগ্রুপ কী হারে প্রকাশ পাবে?",
+      "options": [
+        "25%",
+        "50%",
+        "75%",
+        "100%"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 59,
+      "id": "119131",
+      "question": "Rh+ এর জিনোটাইপ কোনটি?",
+      "options": [
+        "Cde",
+        "CDD",
+        "cdE",
+        "CDE"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 60,
+      "id": "119132",
+      "question": "প্রাথমিক পর্যায়ে ডারউইন এর মতবাদের দুর্বল দিকগুলো চিহিৃত করেন কে?",
+      "options": [
+        "টি এইচ হাক্সলি",
+        "স্পেনসার",
+        "ভাইজম্যান",
+        "ই. হেকেল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 61,
+      "id": "119133",
+      "question": "বিবর্তনবাদের জনক কে?",
+      "options": [
+        "ল্যামার্ক",
+        "ডারউইন",
+        "এরিস্টটল",
+        "মেন্ডেল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 62,
+      "id": "119134",
+      "question": "নিকট সম্পর্কিত জীবগোষ্ঠী ভিন্ন পরিবেশে বসবাসের ফলে তাদের মধ্যে যে বিবর্তন ঘটে তাকে কী বলা হয়?",
+      "options": [
+        "অপসারী",
+        "অভিসারী",
+        "সমান্তরাল",
+        "ম্যাক্রো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 63,
+      "id": "119135",
+      "question": "পরিব্যাক্তি মতবাদ কে দেন?",
+      "options": [
+        "ভাইজম্যান",
+        "ডারউইন",
+        "ল্যার্মাক",
+        "ভ্রিস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 64,
+      "id": "119136",
+      "question": "প্রাকৃতিক নির্বাচন মতবাদকে কী বলা হয়?",
+      "options": [
+        "ল্যামার্কিজম",
+        "ডারউইনিজম",
+        "নব্য-ল্যামার্কিজম",
+        "অ্যাল্টজম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 65,
+      "id": "119137",
+      "question": "র্জামপ্লাজম মতবাদ প্রবর্তন করেন",
+      "options": [
+        "ভাইজম্যান",
+        "ডারউইন",
+        "হাক্সেল",
+        "ল্যামার্ক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 66,
+      "id": "119138",
+      "question": "অর্জিত বৈশিষ্ট্যের উত্তরাধিকার কার মতবাদ?",
+      "options": [
+        "চালর্স রবার্ট ডারউইন",
+        "আর্নেস্ট হেকেল",
+        "অগাস্ট ভাইজম্যান",
+        "জ্যা ব্যাপটিস্ট দ্য ল্যামার্ক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 67,
+      "id": "119139",
+      "question": "অর্জিত বৈশিষ্ট্যর উত্তরাধিকার মতবাদটি কার দেয়া",
+      "options": [
+        "চালর্স ডারউইন",
+        "জ্যা ব্যাপটিস্ট লামার্ক",
+        "আগস্ট ভাইজম্যান",
+        "হুগো দ্য ভ্রিস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 68,
+      "id": "119140",
+      "question": "প্রাকৃতিক নির্বাচন মতবাদের প্রবর্তন কে?",
+      "options": [
+        "ডারউইন",
+        "ল্যামার্ক",
+        "ভাইজম্যান",
+        "স্পেনসার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রাকৃতিক নির্বাচন মতবাদের প্রবর্তন ডারউইন"
+    },
+    {
+      "question_no": 69,
+      "id": "119141",
+      "question": "প্রজাপতির ডানা এর সমবৃত্তীয় অঙ্গ কোনটি?",
+      "options": [
+        "তিমির ফ্লিপার",
+        "পাখির ডানা",
+        "মানুসের হাতে",
+        "বিড়ালের অগ্রপদ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 70,
+      "id": "119142",
+      "question": "সমবৃত্তীয় অঙ্গ হলো",
+      "options": [
+        "বাদুড়ের ডানা-- মৌমাছির ডানা",
+        "পাখির ডানা-- মানুষের ডানা",
+        "মানুষের ডানা-- বাদুড়ের ডানা",
+        "অক্টোপাসের চোখ-মানুষের চোখ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সমবৃত্তীয় অঙ্গ হলো \r\nঅক্টোপাসের চোখ-মানুষের চোখ"
+    },
+    {
+      "question_no": 71,
+      "id": "119145",
+      "question": "কোন বিজ্ঞানী প্রাণীজগৎকে মেরুদন্ডী ও অমেরুদন্ডী এই দুই ভাগে বিভক্ত করেন?",
+      "options": [
+        "অ্যারিস্টটল",
+        "রবার্ট হুক",
+        "ল্যার্মাক",
+        "ইউলিয়াম হার্ভে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 72,
+      "id": "119146",
+      "question": "অর্জিত বৈশিষ্ট্যের উত্তরাধিকার-- মতবাদটি প্রবতন করেন কোন বিজ্ঞানী?",
+      "options": [
+        "চালর্স ডারউইন",
+        "আগস্ট ভাইজম্যান",
+        "জ্যা ব্যাপটিস্ট ল্যামার্ক",
+        "হুগো দ্য ভিস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 73,
+      "id": "119147",
+      "question": "ল্যামার্ক মতবাদটি কতটি নীতির উপর প্রতিষ্ঠিত?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 74,
+      "id": "119148",
+      "question": "ল্যামার্কের সূত্রসমূহ কয়টি?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 75,
+      "id": "119149",
+      "question": "ল্যামার্কবাদের ‍মূল বিষয়বস্তু কোনটি?",
+      "options": [
+        "স্বতঃস্ফতভাবেই জীবদেহে পরিবর্তন সূচিত হয়",
+        "ধারাবাহিক পরিবতনগুলো বংশানুসরণযোগ্য",
+        "অর্জিত সকল বৈশিষ্ট্যই বংশানুসরণযোগ্য",
+        "জীবন সংগ্রামে পরাজিত জীব বিলপ্ত হয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ল্যামার্কবাদের ‍মূল বিষয়বস্তু \r\nঅর্জিত সকল বৈশিষ্ট্যই বংশানুসরণযোগ্য"
+    },
+    {
+      "question_no": 76,
+      "id": "119150",
+      "question": "অস্তিত্বের জন্য সংগ্রাম উক্তিটি কার?",
+      "options": [
+        "ল্যামার্ক",
+        "ডারউইন",
+        "হেকেল",
+        "দা ভ্রিস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 77,
+      "id": "119151",
+      "question": "বিবর্তনের চাবিকাঠি কোনটি?",
+      "options": [
+        "পরিবেশের প্রভাব ও সক্রিয় প্রচেষ্টা",
+        "অঙ্গের ব্যবহার ও অব্যবহার",
+        "অর্জিত বৈশিষ্ট্যর উত্তরাধিকার",
+        "জেনেটিক প্রকরণ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 78,
+      "id": "119152",
+      "question": "মানবদেহের নিক্রিয় অঙ্গ কোনটি?",
+      "options": [
+        "গায়ের লোম",
+        "কর্তন দাতঁ",
+        "চক্ষু পল্বব",
+        "চোখের পেশী"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 79,
+      "id": "119153",
+      "question": "মানুষের নিক্রিয় অঙ্গ কোনটি?",
+      "options": [
+        "ডায়াফ্রাম",
+        "প্লীহা",
+        "কক্কিক্স",
+        "কর্ণাস্থি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 80,
+      "id": "119154",
+      "question": "ব্যক্তিজনি জাতিজনির পুনরাবৃত্তি ঘটায় তত্ত্বটির প্রবক্তা কে?",
+      "options": [
+        "ল্যামার্ক",
+        "ডারউইন",
+        "হেকেল",
+        "অ্যারিস্টটল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 81,
+      "id": "119155",
+      "question": "Archaeopteryx থেকে কোন শ্রেণির উৎপত্তি হয়েছে?",
+      "options": [
+        "Osteichthyes",
+        "Amphibia",
+        "Reptilia",
+        "Aves"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 82,
+      "id": "119156",
+      "question": "Archaeopteryx এ কোন কোন শ্রেণির বৈশিষ্ট্য রয়েছে?",
+      "options": [
+        "স্তন্যপায়ী ও পাখি",
+        "সরীসৃপ ও উভচর",
+        "সরীসৃপ ও পাখি",
+        "স্তন্যপায়ী ও সরীসৃপ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 83,
+      "id": "119157",
+      "question": "Archaeopteryx কে কোন কোন শ্রেণির সংযোগকারী যোগসূত্র বলা হয়?",
+      "options": [
+        "উভচর পাখি",
+        "উভচর ও সরীসুপ",
+        "সরীসৃপ ও পাখি",
+        "পাখি ও স্তন্যপায়ী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 84,
+      "id": "119158",
+      "question": "Archaeopteryx কোন যুগে উদ্ভব হয়েছিল?",
+      "options": [
+        "জুরাসিক",
+        "কার্বোনিফেরাস",
+        "অর্ডোভিসিয়ান",
+        "ক্যামব্রিয়ান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 85,
+      "id": "119159",
+      "question": "কোনটি সংযোগকারী যোগসূত্র রক্ষাকারী প্রাণী",
+      "options": [
+        "ক্যাঙ্গারু",
+        "প্লাটিপাস",
+        "ল্যাস্প্রে",
+        "হ্যাগফিশ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 86,
+      "id": "119160",
+      "question": "জীবন্ত জীবাশ্ন কোনটি?",
+      "options": [
+        "Branchiostoma",
+        "Latimaria",
+        "Petromyzon",
+        "Plesiobatis"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 87,
+      "id": "119161",
+      "question": "সরিসৃপের যুগ কোনটি?",
+      "options": [
+        "আর্কিওজোয়িক",
+        "প্রোটারোজোয়িক",
+        "মেসোজোয়িক",
+        "প্যালিওজোয়িক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 88,
+      "id": "119162",
+      "question": "স্তন্যপায়ী যুগ বলা হয় কোন মহাকালকে?",
+      "options": [
+        "আর্কিওজয়িক",
+        "সিনোজয়িক",
+        "প্রোটেরোজয়িক",
+        "মেসোজয়িক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

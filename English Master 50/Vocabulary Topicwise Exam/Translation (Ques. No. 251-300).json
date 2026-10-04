@@ -1,0 +1,761 @@
+{
+  "exam_id": 9655,
+  "title": "Translation (Ques. No. 251-300)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "Translation Exam (578 Marks)",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "1fe94e36-ad1e-4f93-88f3-f193df9ce280",
+      "question": "I am out of pocket by the transaction- বাক্যটির সঠিক অনুবাদ কী? [SABAS][]",
+      "options": [
+        "ট্রেন থেকে নেমে দেখলাম, আর পকেট চুরি হয়েছে",
+        "এ বাবদ যে খরচ হয়েছে, তা আমার পকেট থেকে হয়েছে",
+        "এই লেনদেনে আমি টাকাকড়িবিহীন হয়ে পড়েছি",
+        "এই দেনা-পাওনার ফলে আমার লোকসান হয়েছে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Out of pocket' ইডিওমটির অর্থ হলো আর্থিক ক্ষতি হওয়া বা লোকসান করা।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "684f2f9b-eb05-4e22-a197-90322f14f2de",
+      "question": "আজ খুব ঠাণ্ডা, তাই না? এর সঠিক ইংরেজি কোনটি? [SABAS][]",
+      "options": [
+        "Today is very cold, is it true?",
+        "Today is very cold, is n't it?",
+        "It's very cold today, is n't it?",
+        "It's very cold, isn't today?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আবহাওয়া বোঝাতে 'It' দিয়ে বাক্য শুরু হয় এবং tag question হিসেবে 'isn't it?' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "65a7b84b-648b-4bd7-87c6-aca5909ee959",
+      "question": "‘I asked him to move in the matter’ বাক্যটির যথাযথ বঙ্গানুবাদ --- [SABAS][]",
+      "options": [
+        "আমি তাকে ব্যাপারটা ঢুকে নিতে বলেছি",
+        "আমি তাকে ব্যাপারটিতে ব্যবস্থা নিতে বলেছি",
+        "আমি তাকে ব্যাপারটি খতিয়ে দেখতে বলেছি",
+        "আমি তাকে বলেছি সে যেন বিষয়টি দেখে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Move in the matter' মানে হলো কোনো বিষয়ে পদক্ষেপ নেওয়া বা ব্যবস্থা গ্রহণ করা।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "8f4c854e-f034-4507-8a26-55e7cf9092e0",
+      "question": "“শরৎকালে গাছের পাতা ঝরে যায়” Which of the following is the correct translation? [SABAS][]",
+      "options": [
+        "A tree shed it's leaves in autumn",
+        "A tree sheds its leaves in autumn.",
+        "A tree shed its leaves in autumn",
+        "A tree shedding its leaves in autumn"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সাধারণ সত্য (General Truth) বোঝাতে Present Indefinite Tense ব্যবহৃত হয় এবং 'its' হলো Possessive pronoun।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "1024cb7b-23da-427d-9e40-daa6884d5438",
+      "question": "He is a hard nut to crak. বাক্যটির সঠিক বাংলা অনুবাদ [SABAS][]",
+      "options": [
+        "তিনি হলেন শক্ত বাদাম যা ভাঙা যায় না",
+        "তিনি ভেঙে পড়ার লোক নন",
+        "তিনি কঠিন লোক",
+        "তিনি ভাঙবেন তবু মচকাবেন না"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "A hard nut to crack' ইডিওমটি এমন ব্যক্তিকে বোঝায় যাকে সহজে বোঝা বা বাগে আনা যায় না (কঠিন লোক)।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "56315175-e960-48f9-8af5-9ce8e05b3cab",
+      "question": "I will teach you a lesson. Appropriate translation is - [SABAS][]",
+      "options": [
+        "আমি তোমাকে একটি শিক্ষা দেব।",
+        "আমি তোমাকে এমন শিক্ষা দেব।",
+        "আমি তোমাকে শিক্ষা দিয়ে ছাড়ব।",
+        "আমি তোমাকে শিখিয়ে দেব।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Teach someone a lesson' মানে কাউকে কঠিন শিক্ষা দেওয়া বা উচিত শিক্ষা দেওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "a16abace-b66e-4906-b3dc-1e8600c06d22",
+      "question": "He hates to part with his money এর যথাযথ বঙ্গানুবাদ - [SABAS][]",
+      "options": [
+        "সে টাকা রাখতে ঘৃণা করে।",
+        "সে টাকা রাখতে চায় না।",
+        "সে টাকা পয়সার ভাগীদার করতে চায় না",
+        "সে তার টাকা খরচ করতে চায় না।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Part with' মানে হলো কোনো কিছু ছেড়ে দেওয়া বা খরচ করা। তাই এখানে টাকা খরচ করতে না চাওয়ার অর্থ প্রকাশ পেয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "6a6971cd-548b-4208-8294-ebd7b0c8f34d",
+      "question": "The situation has come to a head- এর অর্থ [SABAS][]",
+      "options": [
+        "পরিস্থিতির উন্নতি ঘটেছে",
+        "পরিস্থিতির অবনতি ঘটেছে",
+        "পরিস্থিতির চরম অবস্থায় পৌঁছেছে",
+        "পরিস্থিতি পূর্বের তুলনায় ভালো"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Come to a head' ইডিওমটির অর্থ হলো কোনো পরিস্থিতি বা ঘটনার চরম বা চূড়ান্ত পর্যায়ে পৌঁছানো.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "f40ccb42-1195-4e80-9ffb-e6f0761a946e",
+      "question": "The boy is set on becoming a teacher এর সঠিক অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "ছেলেটি শিক্ষিত হতে চায়",
+        "ছেলেটি শিক্ষক হতে চায়",
+        "ছেলেটি শিক্ষক হবে ভাবছে",
+        "ছেলেটি শিক্ষক হতে বদ্ধপরিকর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Set on' মানে কোনো কিছু করার জন্য দৃঢ়প্রতিজ্ঞ বা বদ্ধপরিকর হওয়া.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "e5851cdd-58ab-49c4-97ee-b700ad00332c",
+      "question": "He has broken with his friend বাক্যটির বাংলা [SABAS][]",
+      "options": [
+        "সে তার বন্ধুকে বিদায় দিয়েছে",
+        "সে তার বন্ধুর বিশ্বাস ভঙ্গ করেছে",
+        "সে তার বন্ধুকে আঘাত করেছে",
+        "সে তার বন্ধুর সঙ্গে ঝগড়া করেছে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Break with someone' ইডিওমটির অর্থ হলো কারো সাথে সম্পর্ক ছিন্ন করা বা ঝগড়া করা.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "9cd6ddb0-b586-48f7-aef1-789e339e2e28",
+      "question": "He called me names এর অর্থ [SABAS][]",
+      "options": [
+        "সে আমাকে নাম ধরে ডাকল",
+        "সে আমার নাম স্মরণ করল",
+        "সে আমাকে গালাগালি করল",
+        "সে আমার প্রশংসা করল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Call someone names' ইডিওমটির অর্থ হলো কাউকে গালি দেওয়া বা অপমানজনক শব্দ ব্যবহার করা.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "83841a07-c069-4077-bf6a-b356ba01a17e",
+      "question": "He was bombarded with complaints এর সঠিক বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "তার উপর অসংখ্য বোমা মারা হল",
+        "তার কাছে অসংখ্য অভিযোগ করা হল",
+        "তার অভিযোগগুলি বোমার মত ছিল",
+        "বোমা মারার জন্য তাকে অভিযুক্ত করা হল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Bombarded with' মানে এখানে কারো ওপর প্রচুর পরিমাণে অভিযোগ বা প্রশ্ন ছুঁড়ে দেওয়া বোঝায়.",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "0062cef2-6f60-477b-878c-9878aec384e5",
+      "question": "The fire is out-বাক্যটির সঠিক অনুবাদ [SABAS][]",
+      "options": [
+        "আগুন ছড়িয়ে পড়েছে",
+        "আগুন নিভে গেছে",
+        "আগুন এখন বাইরে",
+        "বাইরের আগুন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Fire is out' এর অর্থ হলো আগুন নিভে গেছে.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "d3b0a802-4e53-424f-83ac-5d0c0edaaa54",
+      "question": "To keep up appearances কথাটির বাংলা বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "বাইরের ঠাট বজায় রাখা",
+        "আবির্ভূত হওয়া",
+        "উপস্থিতি বজায় রাখা",
+        "নিজেকে দেখানো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Keep up appearances' ইডিওমটির অর্থ হলো বাইরের ঠাট বজায় রাখা বা লোক দেখানো অবস্থা ঠিক রাখা.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "72df77d5-11f0-4b8d-a442-c12e7f705dfb",
+      "question": "The correct translation of ‘গাছে এখনো ফল ধরে নাই’ is [SABAS][]",
+      "options": [
+        "The tree has not yet borne fruit",
+        "The tree has not caught any fruit",
+        "The tree cannot yet bear fruit",
+        "The tree has not given fruit"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গাছে ফল ধরা বোঝাতে 'bear fruit' ব্যবহৃত হয় এবং বাক্যটি Perfect Tense এ আছে.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "7af06e95-b570-40d1-bc58-7f2f2650fc85",
+      "question": "The girl is possessed এর যথাযথ বাংলা অনুবাদ - [SABAS][]",
+      "options": [
+        "মেয়েটি অপ্সরা",
+        "মেয়েটি রোগগ্রস্ত",
+        "মেয়েটি বিপন্নগ্রস্ত",
+        "মেয়েটি ভূতাবিষ্ট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Possessed' বলতে সাধারণত অশুভ আত্মা বা ভূত দ্বারা আক্রান্ত (ভূতাবিষ্ট) হওয়াকে বোঝায়.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "aa6b6e5d-c301-49d9-abb2-feab517ccc78",
+      "question": "Is everything in order কথাটির বাংলা বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "সবকিছু নিচেপসত হয়েছে কি?",
+        "সবকিছু ক্রমানুসারে সাজানো আছে কি?",
+        "সবকিছু কি ঠিক?",
+        "সবকিছু ঠিকঠাক আছে তো?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "In order' মানে হলো সব ঠিকঠাক বা নিয়মমাফিক আছে কি না তা জিজ্ঞাসা করা.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "7a2763d5-ee28-4d27-9c78-66fb263a7cc3",
+      "question": "Why do you fight sight of me? কথাটির বাংলা বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "কেন তুমি আমাকে এড়িয়ে চলছ?",
+        "কেন তুমি আমার সঙ্গে ঝগড়া করছ?",
+        "কেন তুমি আমাকে আঘাত করছ?",
+        "কেন তুমি আমাকে ফাঁকি দিচ্ছ?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Fight shy of' ইডিওমটির অর্থ হলো কাউকে এড়িয়ে চলা বা কোনো কিছুতে অনাগ্রহ দেখানো.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "4bdf717c-8c1d-4614-8ead-e240cbb446a1",
+      "question": "The trial was held in camera এর বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "বিচারের কাজ প্রকাশ্য করা হয়েছিল",
+        "বিচারানুষ্ঠানটি গোপনে পরিচালিত হয়েছিল",
+        "সর্বসমক্ষে এ বিচারকার্য পরিচালিত হয়েছিল",
+        "ক্যামেরার সামনে এ বিচারকার্য অনুষ্ঠিত হয়েছিল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "In camera' একটি আইনগত শব্দ যার অর্থ গোপনে বা রুদ্ধদ্বার বৈঠকে বিচারকার্য পরিচালনা করা।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "92b77b84-e57f-405d-b9eb-e1172885ae79",
+      "question": "“I have been on the go for the last seven days” [SABAS][]",
+      "options": [
+        "গত সাত দিন ধরে আমি যাওয়ার চেষ্টা করছিলাম।",
+        "গত সাত দিন ধরে আমি চলছিলান।",
+        "গত সাত দিন আমার কোন অবসর ছিল না।",
+        "গত সাত দিন আমি কর্মব্যস্ত ছিলাম।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "On the go' ইডিওমটির অর্থ হলো খুব ব্যস্ত থাকা (very busy)।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "be12432e-5c8b-4b45-96ad-218bd9406713",
+      "question": "I never got to see him at close quaters বাক্যটির যথাযথ বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "আমি তাকে কখনো নিকটস্থ বাসায় খুঁজে পাইনি",
+        "আমি তাকে কখনো সামনের বাড়িটিতে দেখতে পাইনি",
+        "আমি তাকে কখনো চোখে দেখিনি",
+        "আমি তাকে কখনো কাছ থেকে দেখার সুযোগ পাই নি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "At close quarters' মানে খুব কাছ থেকে বা খুব নিকটে।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "d040b0be-bc08-4b67-a934-e9d104deac84",
+      "question": "On that question I must part company with you এর বঙ্গানুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "ঐ প্রশ্নে আমি অবশ্যই তোমার সঙ্গে ভিন্নমত পোষণ করব",
+        "ঐ বিবেচনায় আমি অবশ্যই তোমার সঙ্গে কোম্পানিটি ভাগ করে নেব",
+        "ঐ কারণে আমি অবশ্যই তোমার সঙ্গ ত্যাগ করব",
+        "ঐ প্রশ্নে আমি নিশ্চয়ই তোমার বিরুদ্ধে যাব"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Part company with someone' মানে কারো সাথে মতের অমিল হওয়া বা ভিন্নমত পোষণ করা।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "3210509a-06b9-4307-9c02-b2090013d5d0",
+      "question": "Choose an acceptable English translation for the Bengali sentence - তুমি কি ইংরেজিতে কোন হেলেকুসানো ছড়া জানো? [SABAS][]",
+      "options": [
+        "You know any nursery rhyme in English?",
+        "Do you know any nursery rhyme in English?",
+        "You know any English verse to forget boys, do you?",
+        "Do you know any English forgetfulness verse for boys?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Nursery rhyme' মানে শিশুতোষ ছড়া। এটি প্রশ্নবোধক বাক্য হওয়ায় 'Do you know...' কাঠামোটি সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "2fa1ce73-5dd3-4543-bafa-154e5caab0f2",
+      "question": "I was much put out by the late arrival of the train এর বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "ট্রেনটি দেরিতে আসায় আমার অনেক অসুবিধা হল",
+        "ট্রেনটি দেরিতে আসায় আমার বেজায় রাগ হল",
+        "ট্রেনটি দেরিতে আসায় আমার বেশ সুবিধা হল",
+        "ট্রেনটি দেরিতে আসায় আমি বেশ বিরক্ত হলাম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Put out' মানে বিরক্ত বা অসুবিধায় পড়া।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "a37c9b91-18c2-4627-b0c4-fabd9394f96e",
+      "question": "The translation of ‘আমি তাকে বুঝাতে চেষ্টা করব’ [SABAS][]",
+      "options": [
+        "I will making him to understand",
+        "I will try make him understand.",
+        "I will try to make him to understand.",
+        "I will try to make him understand."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Make someone understand' মানে কাউকে বোঝানো। 'Try to' এর পর verb এর base form বসে।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "46f945bb-c296-4e97-b4b1-24b7df35215e",
+      "question": "“পুষ্টিকর খাদ্য স্বাস্থ্যের জন্য ভালো।” [SABAS][]",
+      "options": [
+        "Good food is for good health.",
+        "Nutritious food is good for health.",
+        "Nutrients in food is good and healthy.",
+        "Healthy food is good for health."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পুষ্টিকর' এর ইংরেজি 'Nutritious'।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "c70b5f04-812f-4e8d-bdbf-010a80f567ac",
+      "question": "What is the best translation of the sentence-সে তার ভাইয়ের মতো লম্বা নয় [SABAS][]",
+      "options": [
+        "He is not as tall like his brother.",
+        "He is not tall enough.",
+        "He is not taller than his brother.",
+        "He is not as tall as his brother."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নেতিবাচক তুলনার ক্ষেত্রে 'not as + adjective + as' কাঠামো ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "4ef11611-5a3c-4dfa-a7ff-0c97725e6e99",
+      "question": "The closest translation of: ‘ami tar kotha mone korte parchi nah’ is --- [SABAS][]",
+      "options": [
+        "I don’t remember his words.",
+        "My memory has lost his words.",
+        "I have forgotten him.",
+        "I can’t remember him."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কাউকে মনে করতে না পারা বা স্মরণ করতে না পারার ক্ষেত্রে 'I can't remember him' সবচেয়ে সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "5bd9b648-4025-4854-aff6-9dbbd5d76f57",
+      "question": "‘তার সাথে আমার সুসম্পর্ক নেই’-Which one is correct? [SABAS][]",
+      "options": [
+        "I am not in good terms with him.",
+        "I am not on good terms with him.",
+        "I am not in good relationship with him.",
+        "There exists no good relationship"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সুসম্পর্ক থাকা' বোঝাতে 'on good terms' বাগধারাটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "ce1a7e2b-e9c5-4bbd-80b3-13c66f152199",
+      "question": "The correct translation of ‘রাজশাহীতে প্রচুর আম জন্মে’ is- [SABAS][]",
+      "options": [
+        "Abundance mango grows in Rajshahi.",
+        "Plentiful mango grows in Rajshahi.",
+        "Available mango grows in Rajshahi.",
+        "Mangoes grow in plenty in Rajshahi."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রচুর' অর্থে 'in plenty' ফ্রেজটি এখানে সবচেয়ে উপযুক্ত।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "34439b6e-d81b-4935-8e60-fce70ce68a8a",
+      "question": "‘কি করে অংকটি করতে হয় তা তিনি আমাকে দেখালেন।’ [SABAS][]",
+      "options": [
+        "He shows me to do the sum.",
+        "He showed me to do the sum.",
+        "He showed me how to do the sum.",
+        "He showed me do the sum."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কিভাবে করতে হয়' বোঝাতে 'how to + verb' কাঠামোটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "506989ad-aba4-4089-ad04-78922c5482c1",
+      "question": "সেই কনকনে শীতে আমি কাঁপিতে লাগিলাম। Which one is right translation? [SABAS][]",
+      "options": [
+        "I began trembling in that huge cold.",
+        "The trembling of me began in that biting cold.",
+        "I began to tremble in that biting cold.",
+        "I was trembling in that horrible cold."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কনকনে শীত' এর সঠিক ইংরেজি 'biting cold' এবং 'কাঁপতে লাগা' বোঝাতে 'began to tremble' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "84e01220-2ca2-4631-8198-810fd11b7ae3",
+      "question": "What is the correct translation of, গ্রামখানি মেঘে ঢাকা। [SABAS][]",
+      "options": [
+        "The clouds are covering the village.",
+        "The village is covered by the clouds.",
+        "The village is surrounded by the clouds.",
+        "The clouds have encircled the sky."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "passive voice-এ 'covered by' বা 'covered with' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "1536322d-dd43-4ffb-b1eb-bf1701f2639a",
+      "question": "আমি তাকে অনেক দিন থেকে চিনি। [SABAS][]",
+      "options": [
+        "I had knows him for a long time",
+        "I knew him for a long time",
+        "I have known him for a long time",
+        "I know him for a long time"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কোনো কাজ অতীতে শুরু হয়ে এখনো চলছে বোঝালে Present Perfect Tense (have/has + V3) হয়।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "9af71662-41b0-44c0-99d2-2ee076431b59",
+      "question": "আমি তাকে দু’বছর যাবৎ চিনি। [SABAS][]",
+      "options": [
+        "I have been knowing her for two years",
+        "I have known her for two years",
+        "I have know her for two years",
+        "I am knowing her for two years"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Know' একটি stative verb, তাই এটি continuous tense-এ বসে না। সঠিক Present Perfect Tense।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "da9c107d-4ad6-46a2-84a5-777d17f50ee0",
+      "question": "Choose the English translation of “সৌভাগ্যক্রমে পরের বাসে আমি উঠতে পেরেছিলাম” [SABAS][]",
+      "options": [
+        "Fortunately I could get into the next bus.",
+        "Fortunately I managed the next bus.",
+        "Luckily I entered the next bus.",
+        "Luckily I rode the next bus."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Manage' শব্দটি এখানে কোনো কিছু সফলভাবে সম্পন্ন করা বা পেরে ওঠা অর্থে ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "8ccd671b-4147-4ed5-8cf2-97935bc93144",
+      "question": "The correct translation of-“সে ভাত না খেয়ে কেবল পানি খায়” [SABAS][]",
+      "options": [
+        "He drank water instead of eating rice",
+        "He drank water without rice",
+        "He drank water without having rice",
+        "He drank water with rice"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "না খেয়ে' বোঝাতে 'without having' বা 'without eating' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "6fcad78a-a000-48c8-ab85-b7e3c2f8c172",
+      "question": "তিনি রাগে গজগজ করছেন- [SABAS][]",
+      "options": [
+        "He is burning with anger.",
+        "He is shouting in rage.",
+        "He is bursting into anger.",
+        "He is boiling with rage."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "রাগে গজগজ করা' বা 'রাগে ফুটতে থাকা' বোঝাতে 'boiling with rage' সঠিক ইডিওম।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "4b51e4f7-1fb9-48da-8fa8-1845906bc419",
+      "question": "The ring leader was caught. -এর সঠিক অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "ডাকাত ধরা পড়েছে।",
+        "গ্যাং এর নেতা ধরা পড়েছে।",
+        "পথ প্রদর্শক ধরা পড়েছে।",
+        "দাঙ্গানেতা ধরা পড়েছে।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Ring leader' অর্থ কোনো অশুভ বা দাঙ্গামূলক দলের মূল হোতা বা নেতা।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "abea9151-1430-455e-a84c-556fa76da2b8",
+      "question": "Identify the correct translation of the sentence: Most atoms do not possess this property. [SABAS][]",
+      "options": [
+        "বেশি পরমাণুর হাতে এই সম্পত্তি নেই।",
+        "বেশি ভাগ পরমাণুর মালিকানায় সম্পত্তি নেই।",
+        "এই সম্পত্তির অধিকারী বেশি পরমাণু নয়।",
+        "বেশি ভাগ পরমাণুর এই বৈশিষ্ট্যটি নেই।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Possess this property' এর সঠিক অনুবাদ হলো 'এই বৈশিষ্ট্যটি থাকা' বা 'এই বৈশিষ্ট্যটি নেই'।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "1cd96fd9-7930-4d68-8ae0-0855bf78c353",
+      "question": "‘The leader gave a telling speech’ এর সঠিক অনুবাদ --- [SABAS][]",
+      "options": [
+        "নেতা জ্বালাময়ী বক্তৃতা দিলেন।",
+        "নেতা অসাধারণ বক্তৃতা দিলেন।",
+        "নেতা মারাত্মক বক্তৃতা দিলেন।",
+        "নেতা কার্যকর বক্তৃতা দিলেন।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Telling speech' বলতে এমন বক্তৃতা বোঝায় যা অত্যন্ত প্রভাবশালী বা কার্যকর (effective)।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "8ef2c99f-0414-4fc1-83e2-799a9dfef386",
+      "question": "What is the correct translation of, ‘নদীটি খুবই গভীর’? [SABAS][]",
+      "options": [
+        "The river is very profound.",
+        "The river is too deep.",
+        "The river is full profound.",
+        "The river is very deep."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গভীর' এর ইংরেজি 'deep' এবং 'খুবই' বোঝাতে 'very deep' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "38a6b9e5-f0a7-4d26-8c65-2d0902a44822",
+      "question": "Choose the correct translation of -সে খুবই আবেগপ্রবণ। [SABAS][]",
+      "options": [
+        "He is very passionate.",
+        "He is very conscientious",
+        "He is very proud.",
+        "He is very emotional."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আবেগপ্রবণ' এর সঠিক ইংরেজি শব্দ হলো 'emotional'।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "a3f4bf91-8111-4e89-b3f7-e11b3d39f723",
+      "question": "সকালে পাখিরা কিচিরমিচির করে। ইংরেজিতে- [SABAS][]",
+      "options": [
+        "Birds twitter at dawn.",
+        "Birds shout at dawn.",
+        "Birds cry at dawn.",
+        "Birds howl at dawn."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পাখির কিচিরমিচির ডাকের ইংরেজি হলো 'twitter'।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "74d6098d-1b96-4986-b951-9330d78c7945",
+      "question": "Choose the best translation of the sentence ‘তুমি বরং তাকে এখানে পাঠাও’। [SABAS][]",
+      "options": [
+        "You send him here.",
+        "You had better send him here.",
+        "You should send him here.",
+        "You rather send him here."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বরং' অর্থে কোনো পরামর্শ বা নির্দেশ দিতে 'had better' কাঠামোটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "73ff6fd0-b6f5-44fa-9719-38a3adbfea2a",
+      "question": "Choose the best translation of the sentence, ‘They are at dagger’s drawn.’ [SABAS][]",
+      "options": [
+        "তারা ছুরি ধরে করেছিল।",
+        "তারা উন্মুক্ত ছুরির কাছে ছিল।",
+        "তারা ঘোর বিবাদমান ছিল।",
+        "তারা শত্রু ছিল।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "At daggers drawn' একটি ইডিওম যার অর্থ ঘোরতর বিবাদে লিপ্ত থাকা।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "c64733c3-22b7-4f63-8b61-9217a4a7cf40",
+      "question": "আমি তাকে দীর্ঘ দিন ধরে চিনি। (Choose the correct translation) [SABAS][]",
+      "options": [
+        "I have knew him for long days",
+        "I have known him for many days",
+        "I have know him for long days",
+        "I had known him for long days"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "দীর্ঘ সময় ধরে জানা বোঝাতে Present Perfect Tense (have/has + known) সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "b67fd1bb-a010-4234-85f5-ef058fd0a1fa",
+      "question": "Man is the measure of all things. উক্তিটির ভাবার্থ- [SABAS][]",
+      "options": [
+        "মানুষের পরিমাপ জ্ঞান অপরের থেকে ভালো",
+        "সবার উপরে মানুষ সত্য তাহার উপরে নাই",
+        "মানুষ সকল বস্তুকে পরিমাপ করতে পারে",
+        "মানুষেরা নিজের মত করে সত্য নির্ধারণ করতে পারে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই বিখ্যাত দার্শনিক উক্তিটি মানবকেন্দ্রিকতাকে বোঝায়, যা বাংলায় 'সবার উপরে মানুষ সত্য' ভাবের কাছাকাছি।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "ce93090e-1c3b-465a-8682-054781f129aa",
+      "question": "The correct translation of ‘আমার বমি বমি লাগছে’ [SABAS][]",
+      "options": [
+        "I feel nausea",
+        "I am about to vomit",
+        "I fancy I will vomit",
+        "I feel vomiting"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বমি বমি ভাব' এর ইংরেজি শব্দ হলো 'nausea'।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "be9a54eb-ab8a-449a-8c7b-52c4f66d7de3",
+      "question": "Can you recall his name? এর সঠিক বঙ্গানুবাদ[]",
+      "options": [
+        "ক) তুমি কি তার নাম মনে করতে পার?",
+        "খ) তুমি কি তাকে নাম ধরে ডাকতে পার?",
+        "গ) তুমি কি তার নাম রাখতে পার?",
+        "ঘ) তুমি কি তার নাম আবার ডাকতে পার?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

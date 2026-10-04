@@ -1,0 +1,341 @@
+{
+  "exam_id": 10464,
+  "title": "MP3 Topic-06 : আমেরিকার স্বাধীনতা যুদ্ধ",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "আধুনিক পাশ্চাত্যের উত্থান + প্রথম বিশ্বযুদ্ধ + দ্বিতীয় বিশ্বযুদ্ধ Exam",
+  "duration_minutes": 10,
+  "total_questions": 22,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "46b2e87a-bc4e-48e7-a392-a9cde7ca16c6",
+      "question": "যুক্তরাষ্ট্র কোন দেশের উপনিবেশ ছিল? [SABAS][]",
+      "options": [
+        "স্পেন",
+        "ব্রিটেন",
+        "ফ্রান্স",
+        "জার্মানি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যুক্তরাষ্ট্র ব্রিটেনের উপনিবেশ ছিল.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "9068a432-8695-4ae7-88eb-0f742619a229",
+      "question": "আমেরিকা কার কাছ থেকে স্বাধীনতা লাভ করে? [SABAS][]",
+      "options": [
+        "ব্রিটেন",
+        "ফ্রান্স",
+        "অস্ট্রেলিয়া",
+        "কানাডা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আমেরিকা ব্রিটেনের কাছ থেকে স্বাধীনতা লাভ করে.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "6e4ffec2-dd2b-40b6-9e2c-372f8eaffcf9",
+      "question": "যুক্তরাষ্ট্রের কোন অঙ্গরাজ্যে ইউরোপীয় নাগরিকরা প্রথমে বসতি স্থাপন করে? [SABAS][]",
+      "options": [
+        "ভার্জিনিয়া",
+        "ম্যাসাচুসেটস",
+        "মেরিল্যান্ড",
+        "নিউ মেক্সিকো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইউরোপীয় নাগরিকরা প্রথমে ভার্জিনিয়াতে বসতি স্থাপন করে.",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "69cc10a9-ad02-4d34-9835-f46bd7b30f3b",
+      "question": "ব্রিটেনের বণিক সম্প্রদায় যুক্তরাষ্ট্রের কতটি উপনিবেশ গড়ে তুলেছিল? [SABAS][]",
+      "options": [
+        "৯টি",
+        "১১টি",
+        "১৩টি",
+        "১৭টি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্রিটেনের বণিক সম্প্রদায় যুক্তরাষ্ট্রের ১৩টি উপনিবেশ গড়ে তুলেছিল.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "a8c68f42-f682-4f49-9e61-b7ce393a5261",
+      "question": "Boston Tea Party' is associated with the? [SABAS][]",
+      "options": [
+        "French Revolution",
+        "Bolshevik Revolution",
+        "American Independence",
+        "Independence of Egypt"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Boston Tea Party আমেরিকার স্বাধীনতার সাথে সম্পর্কিত.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "84454f7f-1001-4465-bdda-15868f063fca",
+      "question": "আমেরিকা স্বাধীনতা ঘোষণা করে- [SABAS][]",
+      "options": [
+        "২ জুলাই, ১৭৭৬",
+        "৩ জুলাই, ১৭৭৬",
+        "৪ জুলাই, ১৭৭৬",
+        "৫ জুলাই, ১৭৭৬"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমেরিকা ৪ জুলাই, ১৭৭৬ সালে স্বাধীনতা ঘোষণা করে.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "74d18bde-e761-41b5-9025-97ec899a79c7",
+      "question": "যুক্তরাষ্ট্রের স্বাধীনতা সংগ্রামের নায়ক- [SABAS][]",
+      "options": [
+        "জর্জ ওয়াশিংটন",
+        "আব্রাহাম লিঙ্কন",
+        "রুজভেল্ট",
+        "কলম্বাস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যুক্তরাষ্ট্রের স্বাধীনতা সংগ্রামের নায়ক জর্জ ওয়াশিংটন.",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "8a829481-6bac-46cf-a2d1-acf4fe99ecd6",
+      "question": "The Declaration of Independence in the USA was written by: [SABAS][]",
+      "options": [
+        "Abraham Lincoln",
+        "Thomas Jefferson",
+        "George Washington",
+        "Dwight D. Eisenhower"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Declaration of Independence টমাস জেফারসন লিখেছিলেন.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "7f03983c-bc3d-4188-beda-ead8ffb38970",
+      "question": "Who was the oldest person to sign the US Declaration of Independence? [SABAS][]",
+      "options": [
+        "Abraham Lincoln",
+        "Benjamin Franklin",
+        "George Washington",
+        "Thomas Jefferson"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "US Declaration of Independence স্বাক্ষরকারী সবচেয়ে বয়স্ক ব্যক্তি ছিলেন বেঞ্জামিন ফ্রাঙ্কলিন.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "19f9aecb-4e63-438e-a620-3bc48e3205c7",
+      "question": "আমেরিকা স্বাধীন হয় - [SABAS][]",
+      "options": [
+        "১৬৮৮ সালে",
+        "১৯০০ সালে",
+        "১৭৮৩ সালে",
+        "১৭৭০ সালে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমেরিকা ১৭৮৩ সালে স্বাধীন হয়.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "5c34512b-237d-4422-a575-81f007dbfb6a",
+      "question": "মার্কিন যুক্তরাষ্ট্রের জাতীয় দিবস কোনটি? [SABAS][]",
+      "options": [
+        "১৪ জুলাই",
+        "১৪ আগস্ট",
+        "৪ জুলাই",
+        "২৩ মার্চ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মার্কিন যুক্তরাষ্ট্রের জাতীয় দিবস ৪ জুলাই।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "8fa89fa4-f762-4710-837a-c52d93d22bb0",
+      "question": "আমেরিকা অর্থাৎ বর্তমান ইউএসএ ব্রিটেনের একটি কলোনি ছিল। ব্রিটেনের হাত হতে মুক্ত হয়ে স্বাধীনতা অর্জনের জন্য তাদের দীর্ঘদিন যুদ্ধ করতে হয়। এ যুদ্ধে তাদের প্রত্যক্ষ সাহায্য প্রদান করে ইউরোপের একটি দেশ। সে কোন দেশটি? [SABAS][]",
+      "options": [
+        "জার্মানি",
+        "স্পেন",
+        "ফ্রান্স",
+        "পর্তুগাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমেরিকার স্বাধীনতা যুদ্ধে ফ্রান্স প্রত্যক্ষ সাহায্য করেছিল।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "ebf2fef7-eef2-48a4-b0ec-d76b7ffde162",
+      "question": "আমেরিকার স্বাধীনতা যুদ্ধে যে ইংরেজ সেনাপতি ইংরেজ সৈন্য পরিচালনা করেন তার নাম কী? [SABAS][]",
+      "options": [
+        "কর্ণওয়ালিস",
+        "লর্ড নর্থ",
+        "হ্যামিল্টন",
+        "জর্জ ওয়াশিংটন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আমেরিকার স্বাধীনতা যুদ্ধে ইংরেজ সেনাপতি ছিলেন কর্ণওয়ালিস।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "45a4113a-184e-47b0-820a-21eefd93efd3",
+      "question": "লর্ড কর্ণওয়ালিস ভারতের গভর্নর জেনারেল হওয়ার পূর্বে কোন ভূমিকায় ছিলেন? [SABAS][]",
+      "options": [
+        "ব্রিটেনের পররাষ্ট্রমন্ত্রী",
+        "ফ্রান্সে নিযুক্ত ব্রিটেনের রাষ্ট্রদূত",
+        "যুক্তরাষ্ট্রের স্বাধীনতা যুদ্ধে ব্রিটিশ বাহিনীর প্রধান",
+        "কেমব্রিজ বিশ্ববিদ্যালয়ের উপাচার্য"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "লর্ড কর্ণওয়ালিস আমেরিকার স্বাধীনতা যুদ্ধে ব্রিটিশ বাহিনীর প্রধান ছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "4be39169-8d2b-4d2b-a97a-b9acf4e0d284",
+      "question": "The American General who led the revolt against the British and declared American independence was - [SABAS][]",
+      "options": [
+        "George Bush",
+        "Bill Clinton",
+        "George Washington",
+        "Theodore Roosevelt"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জর্জ ওয়াশিংটন আমেরিকান জেনারেল হিসেবে ব্রিটেনের বিরুদ্ধে নেতৃত্ব দিয়েছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "e35c8540-84af-4f6f-99d6-af137dc373a8",
+      "question": "১৭৮৩ সালে ভার্সাইতে কয়টি চুক্তি স্বাক্ষরিত হয়? [SABAS][]",
+      "options": [
+        "২",
+        "৩",
+        "৪",
+        "৫"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৭৮৩ সালে ভার্সাইতে ২টি চুক্তি স্বাক্ষরিত হয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "a03ef6c3-bb8b-4ff0-902c-f277ac1c64d7",
+      "question": "In which year American Independence was acknowledged by England? [SABAS][]",
+      "options": [
+        "1782",
+        "1783",
+        "1784",
+        "11/19"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৭৮৩ সালে ব্রিটেন আমেরিকার স্বাধীনতাকে আনুষ্ঠানিকভাবে স্বীকৃতি দেয়।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "eef5cc2c-5729-4a84-9ea3-ce3dfb9645b3",
+      "question": "যুক্তরাষ্ট্র ও ইংল্যান্ডের মধ্যে স্বাক্ষরিত যুক্তরাষ্ট্রের ঐতিহাসিক স্বাধীনতা চুক্তিটি কি নামে পরিচিত? [SABAS][]",
+      "options": [
+        "প্রথম ভার্সাই চুক্তি",
+        "বার্লিন চুক্তি",
+        "স্বাধীনতা চুক্তি",
+        "ওয়াশিংটন চুক্তি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যুক্তরাষ্ট্র ও ইংল্যান্ডের মধ্যকার ঐতিহাসিক স্বাধীনতা চুক্তি 'প্যারিস শান্তি চুক্তি' নামে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "4a666077-087e-4fb0-9bf9-8f22d45a9bcd",
+      "question": "১৭৮৩ সালে প্যারিস চুক্তি স্বাক্ষর হয়েছিল কোন দুটি দেশের মধ্যে? [SABAS][]",
+      "options": [
+        "ফ্রান্স ও জার্মানি",
+        "যুক্তরাষ্ট্র ও যুক্তরাজ্য",
+        "জার্মানি-যুক্তরাজ্য",
+        "ফ্রান্স ও যুক্তরাজ্য"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৭৮৩ সালের প্যারিস চুক্তি স্বাক্ষর হয়েছিল যুক্তরাষ্ট্র ও যুক্তরাজ্য (ব্রিটেন) এর মধ্যে।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "aea9ebce-fcbe-4465-b22a-9d97204a7836",
+      "question": "যুক্তরাষ্ট্রকে ‘স্ট্যাচু অব লিবার্টি’ উপহার দেয় কোন দেশ উপহার দেয়? [SABAS][]",
+      "options": [
+        "বেলজিয়াম",
+        "যুক্তরাজ্য",
+        "ইতালি",
+        "ফ্রান্স"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ফ্রান্স যুক্তরাষ্ট্রকে 'স্ট্যাচু অব লিবার্টি' উপহার দিয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "7fa4a59b-de4a-4c0b-bfc8-5cced4d99d83",
+      "question": "‘স্ট্যাচু অব লিবার্টি’ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ফ্রান্সের আইল্যান্ডে",
+        "নিউইয়র্কে আইল্যান্ডে",
+        "জাপানের ভূমিতে",
+        "ভারতের দিল্লিতে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "স্ট্যাচু অব লিবার্টি মার্কিন যুক্তরাষ্ট্রের নিউইয়র্কে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "242bc16d-a8b7-4bcd-a853-941892ead965",
+      "question": "Statue of Liberty-এর স্থপতি (architect) নাম কী? [SABAS][]",
+      "options": [
+        "দ্য গ্যাঁলে",
+        "গুস্তাভ",
+        "বার্থোলডি",
+        "দ্য জোঁ ঝেঁ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

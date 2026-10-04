@@ -1,0 +1,761 @@
+{
+  "exam_id": 6811,
+  "title": "Article (Ques. No. 151-200)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Article (233 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "41a79d93-394a-4425-96ec-d11c90268dda",
+      "question": "He has ----- red and white horse.\nThe syeds will establish ---- school after their grandmother's name.[]",
+      "options": [
+        "a",
+        "an",
+        "no article",
+        "the"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Use \"a\" because \"horse\" is a singular countable noun, and both \"red\" and \"white\" describe the same single animal.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "6f9deb89-bd45-4a1e-b79f-9fd69c291711",
+      "question": "He went to ----- and -----.[]",
+      "options": [
+        "the Canada, USA",
+        "Canada, the USA",
+        "the Canada, the USA",
+        "Canada, USA"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Most countries take no article (Canada), but countries with \"United\" or \"States\" in the name require \"the\" (the USA).",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "e455cad3-7dcf-4569-9a4e-7e3b9a424c21",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "The students have gone to see the Himalaya.",
+        "The students have gone to see the Himalayas.",
+        "The students have gone to see Himalaya.",
+        "The students have gone to see Himalayas."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Use \"the\" before the names of mountain ranges (plural), like the Himalayas.",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "abc89b39-0249-49a4-9f78-8907b102d309",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "The Padma is longest river in Bangladesh.",
+        "The Padma is longest river in the Bangladesh.",
+        "Padma is longest river in Bangladesh.",
+        "The Padma is the longest river in Bangladesh."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Use \"the\" before river names (The Padma) and before superlative adjectives (the longest)",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "65159339-e1a7-40d2-8029-eca6ba79e81e",
+      "question": "I know he is ----- honest man.\nShe is ----- unknown woman here.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Use \"an\" because \"honest\" begins with a silent 'h' (vowel sound) and \"unknown\" begins with a vowel sound.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "c4307f26-96f0-4299-acdf-4564a0a05290",
+      "question": "I saw ----- beggar.[]",
+      "options": [
+        "an one-eyed",
+        "an one-eye",
+        "a one-eye",
+        "a one-eyed"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Although \"one\" starts with a vowel letter, it sounds like 'w', which is a consonant sound.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "a96dc1c8-c910-4b97-802a-2ea7416e66b5",
+      "question": "My mother gave me ----- one-taka note.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"one-taka\" starts with the consonant 'w' sound,requiring \"a\".",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "371c663f-09f2-45f5-9a9e-7b0196332949",
+      "question": "Sohana is ----- European lady.\nHe prefers ----- European country for spending his vacation.\nDenmark is ----- European nation.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"European\" starts with a 'y' consonant sound, so \"a\" is used instead of \"an\".",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "a3ec4eda-537e-43f7-9854-0a8869ae45a0",
+      "question": "We made ----- fire.[]",
+      "options": [
+        "a",
+        "the",
+        "on",
+        "of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "In the phrase \"made a fire,\" it refers to a single instance of a campfire or hearth fire.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "ab666c63-7562-42d1-bb0d-bb1956b9715f",
+      "question": "The book is ----- one I was seriously looking for.\nI found ----- old lady came to our house.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"The\" is used because the \"one\" and the \"old lady\" are specific—the speaker is identifying a particular person or thing already mentioned or known.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "23344a69-7c43-4080-901a-d8fd5c584be0",
+      "question": "He has ----- M.A. from Public University.[]",
+      "options": [
+        "an",
+        "the",
+        "a",
+        "of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The letter 'M' in \"M.A.\" is pronounced starting with a vowel sound \"em\"",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "7bbcbed8-900a-4d8c-8c3b-9e43dd8107b6",
+      "question": "The Meghna falls into ----- Bay of Bengal.[]",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Use \"the\" before names of bays, gulfs, and oceans (The Bay of Bengal).",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "68296010-a6e7-4d5a-a4c5-246e666db7cc",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Dhaka is on Buriganga.",
+        "Dhaka is on a Buriganga.",
+        "Dhaka is on the Buriganga.",
+        "The Dhaka is on the Buriganga."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Use \"the\" before names of rivers. Cities (Dhaka) do not take an article.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "1370bd72-218f-43e6-b6fc-ed6312fc3ef3",
+      "question": "There is ----- cow in the field.[]",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"Cow\" is a singular countable noun mentioned for the first time without specific identification.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "4436fce5-d1e3-4778-a06f-48645b480ddc",
+      "question": "He received ----- wound.[]",
+      "options": [
+        "a",
+        "an",
+        "one",
+        "the"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Wound\" starts with a consonant sound (/w/), so \"a\" is appropriate for a single injury.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "89a31dba-1b7d-41a8-ad97-30435d98d289",
+      "question": "Industry is ----- mother of goodluck.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "This is a metaphorical title/definition. When \"mother\" is used to define a specific relationship to a quality (good luck), use \"the\".",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "63e4f8d8-299e-4fe0-91d3-87d498de1563",
+      "question": "Birds of ----- feather flock together.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "No article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Birds of a feather\" is a fixed idiom where \"a\" means \"the same.\"",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "a77080d9-7581-44c2-ae28-a14406853ae8",
+      "question": "Mr.Robert lives in ----- Hague.[]",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "No article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The Hague\" is one of the few city names that always includes a definite article as part of its proper name.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "dca06591-dbaf-4624-b36d-541e421bcc4c",
+      "question": "My friend holds ----- unique position.\nIt was ----- unique sight.\nThis is ----- unique problem.\nThis is ----- unique opportunity.[]",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "No article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Like \"European,\" the word \"unique\" starts with a 'y' consonant sound, requiring \"a\".",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "fe8c2e4a-6a88-4fae-b990-6981c0a87aca",
+      "question": "----- Germans are very enterprising.[]",
+      "options": [
+        "No",
+        "The",
+        "An",
+        "A"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When referring to a national group or people as a whole (Germans), use \"The\".",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "42a1b637-496d-4fb6-b0f3-420c54f9949f",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "It is a must",
+        "It is the must",
+        "It is must",
+        "It is an must"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Must\" is used here as a countable noun meaning \"a necessity,\" so it requires the indefinite article \"a\".",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "894cd5f2-7d2f-492e-aa91-dc067b4a5c1a",
+      "question": "He is ----- most famous teacher of this college.\nDhaka is ----- biggest city in Bangladesh.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "to"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Use \"the\" before superlative adjectives like \"most famous\" and \"biggest.\"",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "6ac3fb8b-1361-42a8-ba6e-4f1b6b37f3dd",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "The Sundarban",
+        "Sundarbans",
+        "Sundarban",
+        "The Sundarbans"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Descriptive geographical names that are plural in form (like The Sundarbans) always take the definite article \"the.\"",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "f4cb26b5-bc63-417e-8611-39c5edc2ec94",
+      "question": "Tisha has a knack for playing ----- piano.[]",
+      "options": [
+        "a",
+        "on",
+        "the",
+        "B & C"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Both \"on piano\" (focusing on the activity) and \"the piano\" (focusing on the instrument) are grammatically acceptable, though \"the\" is standard for musical instruments.",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "2bce3352-d4d4-46d3-854d-497f3644ed22",
+      "question": "কোনটিতে Article এর সঠিক প্রয়োগ নেই ?[]",
+      "options": [
+        "An university",
+        "Men",
+        "The earth",
+        "An hour"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The word \"university\" starts with a consonant sound, so it should take \"a\", not \"an.\"",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "f338c2d0-f7f9-49b6-a1bc-4773f6e0d732",
+      "question": "Man এর পূর্বে কোন Article বসালে মানবজাতি বোঝায় ?[]",
+      "options": [
+        "The",
+        "A",
+        "An",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "When \"Man\" is used to represent the entire human race, no article is used.",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "878ee94c-3644-401c-9cbc-1e0c7474c18b",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Gold is a precious metal.",
+        "Gold is precious metal.",
+        "The Gold is a precious metal.",
+        "A Gold is a precious metal."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Material nouns like \"Gold\" do not take an article when used in a general sense.",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "02145106-9d8a-4b9f-8303-b9ee25086322",
+      "question": "None but ----- brave deserves ----- fair.[]",
+      "options": [
+        "the, the",
+        "a, the",
+        "an, the",
+        "the, a"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"The\" + adjective (the brave) represents a whole class of people. This is a famous proverb: \"None but the brave deserves the fair.\"",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "4ff7aa67-37e8-4a35-a3ec-a581ac2c1a8f",
+      "question": "I know someone who wrote a book about ----- life of Bangabandhu Sheikh Rahman.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Use \"the\" because \"life\" is made specific by the phrase \"of Bangabandhu Sheikh Rahman.\"",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "1cc22f16-abbd-4aac-b1be-a26c8708ce65",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Omar Khayyam is rarely born.",
+        "An Omar Khayyam is rarely born.",
+        "A Omar Khayyam is rarely born.",
+        "The Omar Khayyam is rarely born."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Use \"an\" before a proper noun (Omar Khayyam) when comparing someone to a famous person's qualities (meaning \"a person like him\").",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "7a434b19-7602-4dfe-b0e1-23a88d450a46",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "Bangalees are a brave nation.",
+        "The Bangalees are a brave nation.",
+        "The Bangalee is a brave nation.",
+        "Bangalees are brave nation."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Use \"The\" before the names of nations or ethnic groups (The Bangalees) when referring to them collectively.",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "abbae567-a382-440b-b3d9-f64b740a7344",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Padma is a big river.",
+        "A Padma is a big river.",
+        "The Padma is a big river.",
+        "The Padma is big river."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Always use \"the\" before the names of rivers (The Padma).",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "1bb4dacf-5e22-4a4d-8122-e615aa353f4a",
+      "question": "নিচের কোন বাক্যটি শুদ্ধ ?[]",
+      "options": [
+        "Lion is beast of prey",
+        "A lion is beast of prey",
+        "The lion is a beast of prey",
+        "The Lion is beast of prey"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"The\" + singular common noun (The lion) can represent a whole species.",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "67fd42fc-8fb9-4a51-8b1a-2820508741d5",
+      "question": "Which is the correct sentence ?[]",
+      "options": [
+        "Forgiveness is the great virtue.",
+        "Forgiveness is great virtue.",
+        "Forgiveness is greater virtue.",
+        "Forgiveness is a great virtue."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"Virtue\" is a countable noun in this context, and \"great\" starts with a consonant sound, so it requires \"a\".",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "63a2446d-789f-441e-86ff-4bcf4c55322f",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "The nature is looking beautiful in the spring.",
+        "Nature looks beautiful in the spring.",
+        "The nature looks like beautiful in spring.",
+        "The nature is beautiful in spring."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"Nature\" does not take an article when referring to the physical world/environment in a general sense.",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "98b53879-c357-4f8a-805f-4572db5ee114",
+      "question": "All applicants must possess -----.[]",
+      "options": [
+        "a university degree",
+        "an university degree",
+        "the university degree",
+        "university degree"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The word \"university\" starts with a consonant sound, so it should take \"a\", not \"an.\"",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "85321cc1-e76e-4a2a-80b1-caa26f6a2c4a",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He earns hundred taka a day.",
+        "He earns a hundred taka a day.",
+        "He earned a hundred taka day.",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"A hundred\" is the standard way to express the number 100 in a sentence.",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "98ca7c8e-fa75-4cd6-82f2-5bf0509e01f5",
+      "question": "Choose the right article.[]",
+      "options": [
+        "Who is woman in a red sari ?",
+        "Who is the woman in red sari ?",
+        "Who is the woman in a red sari ?",
+        "Who is the woman in the red sari ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"The\" is used because the woman is specified by her clothing (\"in the red sari\").",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "efb65a41-b0f8-4a92-b564-7b27a567f06e",
+      "question": "Choose the right article.[]",
+      "options": [
+        "What chilly day it was !",
+        "What the chilly day it was !",
+        "What a chilly day it was !",
+        "What an chilly day it was !"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "In exclamatory sentences starting with \"What,\" use \"a/an\" before a singular countable noun.",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "6c7b6d13-d695-4e7f-b710-64365688fca0",
+      "question": "Sugar is nice in ----- cup of tea.[]",
+      "options": [
+        "some",
+        "the",
+        "a",
+        "an"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Use \"a\" to refer to a single, non-specific container (a cup).",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "df4daa84-7a8f-4391-8744-ff25ea57d3a2",
+      "question": "Man is ----- architect of his own fate.[]",
+      "options": [
+        "the",
+        "an",
+        "a",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Use \"the\" because the noun \"architect\" is made specific by the phrase \"of his own fate.\"",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "c7346bfa-20a2-45e3-82a0-5a10def85154",
+      "question": "The dress was designed by ----- famous Indian artist.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "one"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Famous Indian artist\" is a singular countable noun mentioned for the first time without specific identification, so use \"a\".",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "0b08b19e-a2ca-441b-8731-d95e87ab5ae5",
+      "question": "This is rather ----- difficult question.[]",
+      "options": [
+        "the",
+        "No article",
+        "an",
+        "a"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Use \"a\" after \"rather\" when it precedes an adjective and a singular countable noun (rather a difficult question).",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "0b8e414c-f887-4640-af6b-e8375e8eb13c",
+      "question": "----- Iqbal is not born in every age.[]",
+      "options": [
+        "a",
+        "the",
+        "this",
+        "an"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Use \"an\" before a proper noun (Iqbal) when referring to someone with the same qualities as that person (meaning \"a person like Iqbal\").",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "8ade7c45-daaa-40f2-b998-cb8fdb3e83b6",
+      "question": "There is ----- boy on ----- bicycle.[]",
+      "options": [
+        "a, the",
+        "an, the",
+        "a, an",
+        "a, a"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Use \"a\" for the first mention of the boy. Use \"the\" for \"bicycle\" because it implies a specific or standard mode of transport in this context.",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "aec819b3-016e-400e-9fae-a267d520876f",
+      "question": "I want to play ----- guitar.\nAdiba is learning to play ----- piano.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Use \"the\" before the names of musical instruments (the guitar, the piano) when speaking about playing them.",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "d407c371-d77d-46d1-bbb3-b14b1c4831af",
+      "question": "----- Actor is the life of a play.[]",
+      "options": [
+        "The",
+        "An",
+        "A",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Use \"An\" before \"Actor\" (singular countable noun starting with a vowel sound) to represent the entire class/profession in a general statement.",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "fdbe0ac4-5515-441e-96ba-e518c09ac8d5",
+      "question": "May I ask you ----- question ?\nHelen works eight hours ----- day.\nTwelve inches make ----- foot.[]",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Use \"a\" for singular countable units: \"a question,\" \"a day\" (meaning per day), and \"a foot\" (meaning one foot).",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "b1d3c576-f7fc-47b9-a945-49310db8fdfe",
+      "question": "George ----- sixth was ----- king of England.[]",
+      "options": [
+        "the, the",
+        "no article, the",
+        "The, the",
+        "the, no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Use \"the\" before ordinal numbers (the sixth) and when a title is followed by a specific country (\"the king of England\").",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "8ff12ecf-b6c5-4256-acbc-92b293e94169",
+      "question": "Do you know the name of ----- artist who painted the portrait ?[]",
+      "options": [
+        "a",
+        "no article",
+        "an",
+        "the"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Use \"the\" because the \"artist\" is specific—the one who painted the portrait.",
+      "images": []
+    }
+  ]
+}

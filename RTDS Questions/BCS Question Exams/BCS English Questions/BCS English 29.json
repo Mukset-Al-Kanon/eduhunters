@@ -1,0 +1,260 @@
+{
+  "title": "BCS English 29",
+  "category": "BCS Question Exams > BCS English Questions",
+  "duration_minutes": 30,
+  "total_questions": 18,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "105385",
+      "question": "I have not heard from him -",
+      "options": [
+        "long since",
+        "for a long time",
+        "may have come",
+        "for long"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সাধারণত দীর্ঘ সময় বোঝাতে Positive sentence-এ 'for a long time' ব্যবহার করা হয়। কিন্তু Negative sentence-এ for a long time-এর ব্যবহার সীমিত। Negative sentence-এ 'for long' ব্যবহার করা হয়। এ sentence-এর পরিপ্রেক্ষিতে option (A) long\r\n\r\nsince option (C) since long-এর ব্যবহার appropriate হয় না। তাই ওপরের যুক্তি অনুযায়ী option (D) for long। সঠিক উত্তর। [N.B: কখনো কখনো 'for a long time'-ও Negative sentence- এ ব্যবহার করা যায়। তবে এক্ষেত্রে 'for a long time' এবং 'for long'- এর মধ্যে সূক্ষ্ম পার্থক্য পরিলক্ষিত হয়। এ পার্থক্য অনুযায়ী for a long time দ্বারা সময়ের ব্যাপ্তি বেশি প্রকাশ পায়। তাই 'for a long time'-কে আমরা একেবারে বাদ দিতে পারি না। তাহলে এ যুক্তি অনুযায়ী option (B)-ও ঠিক।।"
+    },
+    {
+      "question_no": 2,
+      "id": "105387",
+      "question": "Honey is _____ sweet.",
+      "options": [
+        "very",
+        "too much",
+        "much too",
+        "excessive"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এ প্রশ্নে এমন কোনো শব্দ নেই যা মাত্রাতিরিক্ত ভাব প্রকাশ করে। এখানে এমন কোনো context নেই যা মাত্রাতিরিক্ত (to a greater degree) বোঝায়। option (B) too much option (C) much too দ্বারা বেশি মাত্রায় কোনো কিছু বোঝায় এবং একটা implied comparison-এর ব্যবহার আসে। option (D) excessive একটি adjective। তাই sweet, adjective-কে modify করার জন্য একটি adverb দরকার। তাহলে option (A) very-ই সঠিক। এটি structurally সঠিক। very একটি adverb যা sweet (adjective)- কে modify করতে ব্যবহার করা হয়েছে।"
+    },
+    {
+      "question_no": 3,
+      "id": "105389",
+      "question": "He said that he _____ be unable to come.",
+      "options": [
+        "will",
+        "shall",
+        "should",
+        "would"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এটি 'sequence of tense' সম্পর্কিত সমস্যা। option (a) ও (B) ভুল। কারণ আমরা জানি principal clause (He said)-এ past tense থাকলে subordinate clause (that he be ubable to come)- এও past tense ব্যবহার করতে হয়। 'will' ও 'shall' present form 'should' একটি Modal Auxiliary যেটা 'উচিৎ' অর্থে ব্যবহার করা হয়। তাই এখানে should খাপ খায় না। (D) would হলো 'will'-এর past form"
+    },
+    {
+      "question_no": 4,
+      "id": "105391",
+      "question": "Neither Rani nor Simi _____ qualified for the job.",
+      "options": [
+        "are",
+        "is",
+        "were",
+        "had"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি subject-verb concord সম্পর্কিত সমস্যা। Neither nor দ্বারা দুটি subject-কে যোগ করা হলে মনে রাখতে হবে, ২য় subject বা verb-এর 'immediate subject' অনুযায়ী verb বসবে। (A) are হবে না। কারণ ২য় subject 'Simi' Third person singular number, তাই, 'are' ব্যবহার করা যায় না। (B) is ব্যবহার করা যায়। কারণ এটি singular verb."
+    },
+    {
+      "question_no": 5,
+      "id": "105392",
+      "question": "He said that he_____ the previous day.",
+      "options": [
+        "has come",
+        "had come",
+        "came",
+        "arrived"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি একটি speech সংক্রান্ত সমস্যা। Sentenceটি Indirect speech-এ রয়েছে। Sequence of tense বা Speech-এর নিয়মানুযায়ী Reporting verb বা principal clause past tense-এ থাকলে (said), reported speech বা subordinate clause-এও past tense হয়। এটা হতে পারে past simple অথবা past perfect 'Direct speech'-এ past simple tense, Indirect speech-এর ক্ষেত্রে পরিবর্তিত হয়ে past perfect. তাহলে Direct speechটি দাঁড়ায়- He said, 'I came yesterday.' ফলে (B)-ই correct answer."
+    },
+    {
+      "question_no": 6,
+      "id": "105394",
+      "question": "He watched the boat _____ down the river.",
+      "options": [
+        "to float",
+        "floating",
+        "was floating",
+        "had floated"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো simple sentence-এ দুটি main verb ব্যবহার করা যায় না। তাই একটি verb-এর সাথে ing যোগ করতে হয় অথবা verb-টির পূর্বে to বসাতে হয়। উল্লেখ্য, উদ্দেশ্য বোঝাতে verb-টির পূর্বে to বসাতে হয়। অর্থাৎ infinitive ব্যবহার করা হয়। উপরিউক্ত sentence-এ কোনো উদ্দেশ্য বোঝায় না। এছাড়া 'watch' verb-এর পর 'to' ব্যবহার করা হয় না। এরূপ আরো কিছু verb হলো make, let, see প্রভৃতি। তাই option (A) to float ভুল। option (B) floating ঠিক। কারণ এখানে verb- এর সাথে ing যোগ করা হয়েছে।"
+    },
+    {
+      "question_no": 7,
+      "id": "105396",
+      "question": "Your conduct admits _____ no excuse.",
+      "options": [
+        "to",
+        "for",
+        "of",
+        "at"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Admit to- স্বীকার করা। Admit of- অবকাশ থাকা। Admit এর subject যখন abstract noun অথবা impersonal হয় শুধু তখনই admit এর পরে of বসে। কিন্তু admit এর subject যখন personal হয় তখন admit এর পরে of বসে না। যেমন- I admit no excuse."
+    },
+    {
+      "question_no": 8,
+      "id": "105397",
+      "question": "He had a _____ headache.",
+      "options": [
+        "strong",
+        "acute",
+        "serious",
+        "bad"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এটি একটি 'collocation' সমস্যা। সংক্ষেপে collocation হলো ভাষার শব্দ চয়নের যথার্থতা ও এক শব্দের সাথে অন্য শব্দের মানানসই ব্যবস্থা। এ কারণেই আমরা ইচ্ছেমতো একটি শব্দের পাশে আরেকটি শব্দ ব্যবহার করতে পারি না। যেমন: 'weather permitting' এর পরিবর্তে 'weather allowing' বললে ভুল হবে, যদিও allow এবং premit-এর অর্থ প্রায় এক। কারণ এটা ভাষার internal melody-কে নষ্ট করে। ঠিক এভাবে headache-এর সাথে 'bad' adjective-ই বেশি খাপ খায় এবং natural মনে হয়। 'strong' ও 'serious' natural হয় না। সুতরাং serious natural সঠিক উত্তর (D)"
+    },
+    {
+      "question_no": 9,
+      "id": "105399",
+      "question": "I shall not ______the examination this year",
+      "options": [
+        "give",
+        "appear at",
+        "sit",
+        "go for"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "appear at/go in for/sit for- পরীক্ষায় অংশ গ্রহণ করার ক্ষেত্রে ব্যবহার হয়।"
+    },
+    {
+      "question_no": 10,
+      "id": "105400",
+      "question": "They travelled to Savar -",
+      "options": [
+        "on foot",
+        "by walking",
+        "on their feet",
+        "by foot"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পায়ে হেঁটে যাওয়া বুঝালে on foot ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 11,
+      "id": "105402",
+      "question": "'Sky' is to 'bird' as 'water' is to -",
+      "options": [
+        "feather",
+        "fish",
+        "boat",
+        "lotus"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sky- আকাশ; bird- পাখি; Feather-পালক;\r\nFish- মাছ; Lotus- পদ্মফুল; Boat- নৌকা।"
+    },
+    {
+      "question_no": 12,
+      "id": "105403",
+      "question": "'Good' is to 'bad' as 'white' is to -",
+      "options": [
+        "dark",
+        "black",
+        "grey",
+        "ebony"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Good- ভাল; bad- খারাপ; white- সাদা; Ebony-আবলুস কাঠ; \r\nBlack- কাল; Grey-ধূসর; Red- লাল।"
+    },
+    {
+      "question_no": 13,
+      "id": "105405",
+      "question": "'Botany' is to 'plants' as 'Zoology' is to -",
+      "options": [
+        "flowers",
+        "trees",
+        "dear",
+        "animals"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Botany (উদ্ভিদবিদ্যা) plants (উদ্ভিদ) নিয়ে আলোচনা করে। তদ্রুপ, Zoology (প্রাণিবিদ্যা) animals বা প্রাণিদের নিয়ে আলোচনা করে।"
+    },
+    {
+      "question_no": 14,
+      "id": "105406",
+      "question": "The bad news struck him like a bolt from the-",
+      "options": [
+        "sky",
+        "heavens",
+        "firmament",
+        "blue"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "'Bolt from the blue' একটা idiom, যার অর্থ বিনা মেঘে বজ্রপাত। প্রদত্ত Sentence-এর অর্থ হচ্ছে দুঃসংবাদটি (bad news) তাকে বিনা মেঘে বজ্রপাতের মতোই আঘাত (Struck) করলো।"
+    },
+    {
+      "question_no": 15,
+      "id": "105407",
+      "question": "When one is 'pragmatic' he is being -",
+      "options": [
+        "wasteful",
+        "productive",
+        "practical",
+        "fussy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "pragmatic/practical- বাস্তবাদী; wasteful- অপব্যয়ী; productive- উৎপাদনশীল; fussy- হৈচৈপূর্ণ।"
+    },
+    {
+      "question_no": 16,
+      "id": "105408",
+      "question": "\"Into the_____ of death rode the six hundred\".",
+      "options": [
+        "city",
+        "tunnel",
+        "road",
+        "valley"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এটি ইংরেজ কবি Alfred Tennyson-এর 'The Charge of the Light Brigade' কবিতার দুটি লাইন।"
+    },
+    {
+      "question_no": 17,
+      "id": "105409",
+      "question": "\"To be or not to be, that is the _____.\"",
+      "options": [
+        "meaning",
+        "question",
+        "answer",
+        "issue"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই quotationটি ইংরেজ নাট্যকার William Shakespeare- এর Hamlet নাটকের অন্তর্গত। এটি Hamlet-এর নাটকের অন্তর্গত। এটি Hamlct-এর একটি বিখ্যাত Soliloquy. Soliloquy হচ্ছে মঞ্চে কথা বলার জন্য অভিনেতার একটি dramatic teachnique."
+    },
+    {
+      "question_no": 18,
+      "id": "105410",
+      "question": "\"I have a ____ that one day this nation will live out the true meaning of its creed that all men are created equal.\"",
+      "options": [
+        "desire",
+        "hope",
+        "dream",
+        "with"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "উক্তিটি মার্কিন যুক্তরাষ্ট্রের কৃষ্ণাঙ্গদের অধিকার আদায়ের আন্দোলনের নেতা মার্টিন লুথার কিং-এর। তিনি ২৮ আগস্ট ১৯৬৩ সালে ওয়াশিংটন ডিসির লিংকন মেমোরিয়ালে ২ লাখ ৫০ হাজার লোকর সামনে দাঁড়িয়ে বৃক্ততা দানকালে এ উক্তিটি করেন। যেহেতু এটি একটি উক্তি, অতএব এখানে Option (C) dream-কেই আমাদের ব্যবহার করতে হবে। Question- এর ক্ষেত্রে শব্দ change করার কোনো অবকাশ নেই।"
+    }
+  ]
+}

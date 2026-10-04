@@ -1,0 +1,131 @@
+{
+  "exam_id": 9759,
+  "title": "MP3 Topic-05 : রাজধানী ঢাকা",
+  "category": "বাংলাদেশ টপিকওয়াইজ এক্সাম",
+  "subtopic": "বাংলাদেশ পরিচিতি Exam",
+  "duration_minutes": 5,
+  "total_questions": 8,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "f02bc543-14ba-441f-964b-4ce1e0accd63",
+      "question": "নগর হিসেবে প্রতিষ্ঠিত হবার পর ঢাকা বর্তমানে এর কততম শতাব্দী অতিক্রম করছে? [SABAS][]",
+      "options": [
+        "ক) ৫ম",
+        "খ) ২য়",
+        "গ) ৪র্থ",
+        "ঘ) ৩য়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ঢাকা ১৬১০ সালে সুবা বাংলার রাজধানী হিসেবে প্রতিষ্ঠিত হয়, ফলে বর্তমানে এটি ৫ম শতাব্দী অতিক্রম করছে।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "c13535de-37fd-4682-9d13-12ba9dc87f5f",
+      "question": "বাংলাদেশের রাজধানী কোথায়? [SABAS][]",
+      "options": [
+        "ক) ঢাকা উত্তর",
+        "খ) ঢাকা দক্ষিণ",
+        "গ) ঢাকা",
+        "ঘ) শেরে বাংলা নগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাংলাদেশের রাজধানীর নাম ঢাকা।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "6527b429-15d3-4431-a7ab-25ca6cf49fd7",
+      "question": "স্বাধীন বাংলাদেশের রাজধানী হওয়ার পূর্বে ঢাকা বাংলার রাজধানী ছিল- [SABAS][]",
+      "options": [
+        "ক) তিনবার",
+        "খ) চারবার",
+        "গ) দুইবার",
+        "ঘ) একবার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ঐতিহাসিকভাবে ঢাকা চারবার বাংলার রাজধানী হিসেবে মর্যাদা লাভ করেছিল।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "6c4aba4b-7198-42e7-b6f0-84a8ff3c1321",
+      "question": "ঢাকার নিকটবর্তী কোন জেলা? [SABAS][]",
+      "options": [
+        "ক) মানিকগঞ্জ",
+        "খ) মাগুরা",
+        "গ) মাদারীপুর",
+        "ঘ) ময়মনসিংহ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ঢাকার ভৌগোলিক সীমানা অনুযায়ী মানিকগঞ্জ এর নিকটবর্তী জেলা।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "9bdc0668-3eff-4991-9e4b-1735628c59cf",
+      "question": "Dacca থেকে Dhaka করা হয় কোন সালে? [SABAS][]",
+      "options": [
+        "ক) ১৯৯০",
+        "খ) ১৯৯১",
+        "গ) ১৯৮২",
+        "ঘ) ১৯৮৫"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১৯৮২ সালের ৮ অক্টোবর সরকারিভাবে বানানের পরিবর্তন আনা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "3c9d8f06-27c8-463e-8a90-5d06c971a930",
+      "question": "The old name of RAJUK is- [SABAS][]",
+      "options": [
+        "ক) BIIT",
+        "খ) DIT",
+        "গ) BAT",
+        "ঘ) None of these"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রাজউকের পূর্ব নাম ছিল ঢাকা ইমপ্রুভমেন্ট ট্রাস্ট (DIT)।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "c209ba11-2a38-4aaa-ae78-fcfb9529fdb2",
+      "question": "The First Master Plan for Dhaka city was prepared in- [SABAS][]",
+      "options": [
+        "ক) 1953",
+        "খ) 1959",
+        "গ) 1972",
+        "ঘ) 1985"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ঢাকা শহরের প্রথম মাস্টার প্ল্যান ১৯৫৯ সালে প্রণয়ন করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "484c31a4-2b35-4202-aaa6-7d9b2fc592d5",
+      "question": "হাতির ঝিল' এর নকশার পরিকল্পনা করেন কে? [SABAS][]",
+      "options": [
+        "ক) শিল্পী হামিদুজ্জামান খান",
+        "খ) নিপুন কুন্দু",
+        "গ) স্থপতি আহসান খান",
+        "ঘ) শামীম শিকদার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাতিরঝিল প্রকল্পের নকশা প্রণয়ন করেন স্থপতি আহসান খান।",
+      "images": []
+    }
+  ]
+}

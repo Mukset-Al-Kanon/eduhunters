@@ -1,0 +1,274 @@
+{
+  "title": "BCS English 41st",
+  "category": "BCS Question Exams > BCS English Questions",
+  "duration_minutes": 30,
+  "total_questions": 19,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "104369",
+      "question": "identify the word that can be used as both singular and plural:",
+      "options": [
+        "wood",
+        "issue",
+        "fish",
+        "light"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সাধারণত wood, issue এবং light হচ্ছে non-countable, কিন্তু fish এর plural একই aircraft,sheep,fish,deer,corps,yoke,swine,rice,cannon,information,music,furniture etc."
+    },
+    {
+      "question_no": 2,
+      "id": "104379",
+      "question": "Findout the correct passive from of the sentence, \"Who taught you French?\"",
+      "options": [
+        "By whom you were taught French?",
+        "By whom French was taught by you?",
+        "French was taught you by whom?",
+        "By whom were you taught French?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Interrogative sentence এ WH word থাকলে who এর পরিবর্তে by whom বসে, auxiliary verb + subject + V3 + ext."
+    },
+    {
+      "question_no": 3,
+      "id": "104389",
+      "question": "\"The old man was tired of walking.\" Here \"walking\" is -",
+      "options": [
+        "present participle",
+        "adjective",
+        "common noun",
+        "gerund"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Verb এর সাথে ing যুক্ত হয়ে যদি বাক্যের subject এবং object হিসেবে কাজ করে তখন তাকে gerund বলে । Gerund সাধারণত noun এর কাজ করে।"
+    },
+    {
+      "question_no": 4,
+      "id": "104390",
+      "question": "which one is a correct sentence?",
+      "options": [
+        "The doctor found my pulse",
+        "The doctor took my pulse",
+        "The doctor examined my pulse",
+        "The doctor saw my pulse"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সাধারণত নাড়ী পরীক্ষা করা বোঝাতে feel pulse/take pulse ব্যবহৃত হয়ে থাকে।কিন্তু মেডিকেল সায়েন্স এর পরিভাষায় pulse সাধারণত take অর্থাৎ নেওয়া হয়। তাই শুদ্ধ বাক্যটি হবে The doctor took my pulse. যার অর্থ হলো - ডাক্তার আমার নাড়ির স্পন্দন পরীক্ষা করেছেন"
+    },
+    {
+      "question_no": 5,
+      "id": "104391",
+      "question": "\"I will not let you go\" in this sentence \"go\" is -",
+      "options": [
+        "infinitive",
+        "gerund",
+        "paticiple",
+        "verbal noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাধারণত to + verb মিলে infinitive হয়, তবে বাক্যটিতে let থাকায় to উহ্য থাকবে যা infinitive নামে পরিচিত।"
+    },
+    {
+      "question_no": 6,
+      "id": "104392",
+      "question": "\"Call me if you have any problems regarding you work.\" Here \"regarding\" is-",
+      "options": [
+        "gerund",
+        "apposition",
+        "preposition",
+        "conjunction"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Regarding যখন noun এর পূর্বে বসে preposition এর কাজ করে তখন এর অর্থ দাঁড়ায় সম্পর্কে তথা about"
+    },
+    {
+      "question_no": 7,
+      "id": "104393",
+      "question": "Select the correct comperative form of the sentence \"A string of pearls was not so bright as her teeth\"",
+      "options": [
+        "Her teeth was more brighter than a string pearls.",
+        "Her teeth were brighter than a string of pearls",
+        "A string of pearls was brighter than her teeth.",
+        "A string of pearls were very bright than her teeth."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Positive বাক্যটিতে not so bright as থাকায় comparative করার সময় এর পরিবর্তে brighter than বসবে।"
+    },
+    {
+      "question_no": 8,
+      "id": "104395",
+      "question": "\"Come on,it's time to go home.\" Here \"home\" is -",
+      "options": [
+        "noun",
+        "verb",
+        "adjective",
+        "adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটিতে go (verb) এর পরে বসে এটিকে নির্দেশ করায় এখানে home শব্দটি adverb. এখানে \"home\" adverb of place হিসেবে বসেছে"
+    },
+    {
+      "question_no": 9,
+      "id": "104397",
+      "question": "\"Huffing and puffing, we arrived at the classroom door with only seven seconds to spare.\" In this sentence the verb \"arrived\" is -",
+      "options": [
+        "intransitive",
+        "transitive",
+        "causative",
+        "defective"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Transative হচ্ছে সকর্মক আর intransative হচ্ছে অকর্মক ক্রিয়া। বাক্যটিতে arrived হচ্ছে intransative verb."
+    },
+    {
+      "question_no": 10,
+      "id": "104399",
+      "question": "(\"To win a prize\") is my ambition. the bracket part of the sentence is a\\an-",
+      "options": [
+        "adjective phrase",
+        "noun phrase",
+        "adverb phrase",
+        "conjunctional phrase"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "To win a prize বাক্যটির verb (is) এর পূর্বে বসে সাবজেক্ট এর কাজ করেছে বলে এটি noun phrase."
+    },
+    {
+      "question_no": 11,
+      "id": "104400",
+      "question": "\"who's that?\" in this sentence \"that\" is a\\an-",
+      "options": [
+        "pronoun",
+        "conjunction",
+        "adjective",
+        "adverb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "That এইখানে অবজেক্ট হিসেবে ব্যবহৃত হয়েছে pronoun রূপে।"
+    },
+    {
+      "question_no": 12,
+      "id": "104402",
+      "question": "What is the noun from of the word 'know\"?",
+      "options": [
+        "knowing",
+        "Knowledge",
+        "knowledgeable",
+        "known"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Know= verb ; knowing = gerundial noun; knowledge = noun."
+    },
+    {
+      "question_no": 13,
+      "id": "104404",
+      "question": "\"I shall help you (provided) you obey me.\" Here the bracketed word is a\\an",
+      "options": [
+        "adverb",
+        "adjective",
+        "conjunction",
+        "verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাক্যটিতে দুটি clause provided দ্বারা যুক্ত হিসেবে ব্যবহৃত হয়েছে। তাই এটি এখানে conjunction."
+    },
+    {
+      "question_no": 14,
+      "id": "104406",
+      "question": "Which \"But\" is a preposition?",
+      "options": [
+        "It is but right to admit our faults",
+        "What we can do but sit and wait?",
+        "we tried hard, but did not succeed",
+        "There is no one but likes him"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইংরেজি বাক্যে preposition সাধারণত noun বা noun phrase এর পূর্বে বসে। প্রদত্ত অপশনসমূহের মধ্যে শুধু একটিতেই 'but' এর পরে noun phrase 'sit and wait' ব্যবহৃত হয়েছে। তাছাড়া অন্য অপশনসমূহ বিশ্লেষণ করলে দেখা যায় অপশন (A) তে but এর পরে right বসেছে adjective হিসেবে, অপশন (C) তে 'did not succeed verb phrase হিসেবে এবং অপশন (D) তে like বসেছে verb হিসেবে।"
+    },
+    {
+      "question_no": 15,
+      "id": "104408",
+      "question": "When Ushashi entered ___ the room everybody stopped talking.",
+      "options": [
+        "into",
+        "in",
+        "to",
+        "no prepositiion required"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সাধারণত কোথাও প্রবেশ করা বোঝাতে enter এর পর prepostion বসে না, কিন্তু কোনো চুক্তিতে পৌঁছানো বোঝালে enter into হয়।"
+    },
+    {
+      "question_no": 16,
+      "id": "104410",
+      "question": "Choose the word opposite in meaning to \"terse\":",
+      "options": [
+        "concise",
+        "detailed",
+        "expresive",
+        "descriptive"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Terse শব্দের অর্থ সংক্ষিপ্তভাবে, এর বিপরীত হবে detailed (সবিস্তারে)"
+    },
+    {
+      "question_no": 17,
+      "id": "104413",
+      "question": "\"Give somebody a piece of you mind\" means to-",
+      "options": [
+        "tell someone that you are very angry with them",
+        "say exactly what you feel or think",
+        "return or to help somebody return to a normal situation",
+        "give somebody mental piece"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Interogative sentence এ WH word থাকলে who এর পরিবর্তে by whom বসে; Auxiliary verb+sub+V3+ext."
+    },
+    {
+      "question_no": 18,
+      "id": "104414",
+      "question": "Identify the correct spelling:",
+      "options": [
+        "questionaire",
+        "questionoir",
+        "questionnaire",
+        "questionair"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Questionnaire শব্দের অর্থ প্রশ্নমালা বা প্রশ্নাবলী।"
+    },
+    {
+      "question_no": 19,
+      "id": "104415",
+      "question": "One whose attitude is \"eat,drink and be merry\" is-",
+      "options": [
+        "materialistic",
+        "epicurean",
+        "cynic",
+        "stoic"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Epicurean অর্থ বিলাশপ্রিয় , রুচিবাগিস বা সুখপ্রিয় অর্থাৎ Whose attitude is eat,drink and be merry."
+    }
+  ]
+}

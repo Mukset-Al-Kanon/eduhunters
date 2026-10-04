@@ -1,0 +1,1632 @@
+{
+  "title": "হাজারী স্যারের অনুশীলনী-রসায়ন ২য় পত্র- অধ্যায় 5",
+  "category": "রসায়ন অনুশীলনীর MCQ > রসায়ন ২য় পত্র MCQ || হাজারী স্যার",
+  "duration_minutes": 30,
+  "total_questions": 116,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "145733",
+      "question": "1.0 nm সমান কত?",
+      "options": [
+        "10⁹ m",
+        "10-⁷m",
+        "10-⁹ cm",
+        "10-⁷cm"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "1 nm = 10-⁹ m = 10-7cm"
+    },
+    {
+      "question_no": 2,
+      "id": "145734",
+      "question": "",
+      "options": [
+        "অ্যামোনিয়াম কার্বামেট",
+        "কার্বামাইড",
+        "অ্যামোনিয়াম সায়ানেট",
+        "অ্যামোনিয়াম কার্বনেট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "145735",
+      "question": "উপাদানের উপর ভিত্তি করে প্রাকৃতিক গ্যাসের প্রকারভেদ কী?",
+      "options": [
+        "শুষ্ক ও আর্দ্র",
+        "তরল ও বায়বীয়",
+        "হালকা ও ভারী",
+        "তরল ও শুষ্ক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "উপাদানের উপর ভিত্তি করে প্রাকৃতিক গ্যাস ২ প্রকার।\r\n(i) শুষ্ক (ii) আর্দ্র।"
+    },
+    {
+      "question_no": 4,
+      "id": "145736",
+      "question": "নিম্নমানের কয়লা কোনটি?",
+      "options": [
+        "লিগনাইট",
+        "পিট",
+        "বিটুমিনাস",
+        "অ্যানথ্রাসাইট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সবচেয়ে নিম্নমানের কয়লা = পিট এবং উচ্চমানের কয়লা\r\n⇒ অ্যানথ্রাসাইট।"
+    },
+    {
+      "question_no": 5,
+      "id": "145737",
+      "question": "সিরামিক সামগ্রীতে Pb0 কী হিসেবে ব্যবহৃত হয়?",
+      "options": [
+        "বিগালক",
+        "গ্লেজিং পদার্থ",
+        "বন্ধন কারক",
+        "যান্ত্রিকশক্তি বৃদ্ধি কারক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিরামিক শিল্পে PbO, CaO, B2O3 গ্লেজিং পদার্থ\r\nহিসেবে ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 6,
+      "id": "145738",
+      "question": "নিচের কোনটি সেকেন্ডারি দূষক?",
+      "options": [
+        "CO2",
+        "CO",
+        "SO2",
+        "03"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সেকেন্ডারি দূষক 03, SO3, H2SO4, NO2, N205, PANS |"
+    },
+    {
+      "question_no": 7,
+      "id": "145739",
+      "question": "সানস্ক্রিন লোশন তৈরিতে কোন ন্যানো পার্টিকেল ব্যবহৃত হয়?",
+      "options": [
+        "Na2O",
+        "ZnO",
+        "Al203",
+        "CuO"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সানস্ক্রিন লোশনে ন্যানো পার্টিকেল ZnO ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 8,
+      "id": "145740",
+      "question": "সূক্ষ্ম ছাঁকনি দিয়ে কী করা যায়?",
+      "options": [
+        "গ্যাস প্রবাহ থেকে বিষাক্ত গ্যাস পৃথক করা হয়",
+        "তরল মিশ্রণ থেকে উপাদানসমূহ পৃথক করা হয়",
+        "তরল প্রবাহ থেকে কঠিন উপাদান পৃথক করা হয়",
+        "গ্যাস প্রবাহ থেকে ধূলিকণা পৃথক করা হয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গ্যাস প্রবাহ থেকে ধূলিকণা পৃথক করা হয় সূক্ষ্ম ছাঁকনি দিয়ে।"
+    },
+    {
+      "question_no": 9,
+      "id": "145741",
+      "question": "সিমেন্ট উৎপাদনের প্রধান কাঁচামাল কোনটি?",
+      "options": [
+        "সল্ট কেক",
+        "চুনা পাথর",
+        "সোডা অ্যাশ",
+        "কাদামাটি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিমেন্ট উৎপাদনের প্রধান কাঁচামাল চুনাপাথর, মার্বেল\r\nপাথর, CaCO3 উপজাত ইত্যাদি।"
+    },
+    {
+      "question_no": 10,
+      "id": "145742",
+      "question": "কাঁচ কী?",
+      "options": [
+        "সোডিয়াম ক্যালসিয়াম দ্বি সিলিকেট",
+        "সোডিয়াম অ্যালুমিনিয়াম সিলিকেট",
+        "সোডিয়াম ফসফেট",
+        "অ্যালুমিনিয়াম সিলিকেট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কাঁচ হলো সোডিয়াম ক্যালসিয়াম দ্বি সিলিকেট মিশ্রণ যা\r\nদেখতে স্বচ্ছ কিন্তু ভঙ্গুর এবং অনিয়তাকার।"
+    },
+    {
+      "question_no": 11,
+      "id": "145743",
+      "question": "ঢাকা শহরে কোন শিল্পের মাধ্যমে পানি সবচেয়ে বেশি দূষিত হয়?",
+      "options": [
+        "কাগজ শিল্প",
+        "চামড়া শিল্প",
+        "সিমেন্ট শিল্প",
+        "সার শিল্প"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ঢাকা শহরে চামড়া শিল্পের মাধ্যমে পানি সবচেয়ে বেশি দূষিত হয়।"
+    },
+    {
+      "question_no": 12,
+      "id": "145744",
+      "question": "ন্যানো কণার পরিসর হলো",
+      "options": [
+        "0.074 - 0.53 nm",
+        "0.073 – 0.26 nm",
+        "1.0 - 100 nm",
+        "200–400 nm"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ন্যানো কণার পরিসর 1 to 100 nm। এর মধ্যে ন্যানো লেয়ার একমাত্রিক \r\nন্যানো টিউব দ্বিমাত্রিক ন্যানো পার্টিকেল ত্রিমাত্রিক।"
+    },
+    {
+      "question_no": 13,
+      "id": "145745",
+      "question": "ব্ল্যাক লিকার এর বর্ণ কী?",
+      "options": [
+        "কালো",
+        "বাদামি",
+        "অ্যাশ",
+        "সাদা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পাল্প শিল্পে বাদামি বর্ণের পরিস্রত তরলকে ব্ল্যাক লিকার বলে। এর উপাদান→ Na₂CO3, Na2SO4 ইত্যাদি।"
+    },
+    {
+      "question_no": 14,
+      "id": "145746",
+      "question": "ইউরিয়া সারে নাইট্রোজেনের পরিমাণ কত?",
+      "options": [
+        "৪২%",
+        "৪৩%",
+        "৪৬%",
+        "৪৮%"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইউরিয়া (H2N – CO – NH2) সারে নাইট্রোজেন ৪৬%।"
+    },
+    {
+      "question_no": 15,
+      "id": "145747",
+      "question": "ন্যানো অবস্থায় পদার্থের অপটিক্যাল ও চুম্বকীয় ধর্ম পরিবর্তনের কারণ কোনটি?",
+      "options": [
+        "কণার ভর",
+        "কণার তলের ক্ষেত্রফল",
+        "কণার আয়তন",
+        "কণার ভৌত অবস্থা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ন্যানো কণার অপটিক্যাল ও চুম্বকীয় ধর্ম পরিবর্তনের কারণ\r\nকণার তলের ক্ষেত্রফল"
+    },
+    {
+      "question_no": 16,
+      "id": "145748",
+      "question": "সিমেন্ট কারখানায় সৃষ্ট সবচেয়ে বড় দূষক কোনটি?",
+      "options": [
+        "NOx",
+        "SOx",
+        "CO",
+        "ডাস্ট পার্টিকেল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সিমেন্ট কারখানায় সৃষ্ট বড় দূষণ ডাস্ট পার্টিকেল/ধূলিকণা"
+    },
+    {
+      "question_no": 17,
+      "id": "145749",
+      "question": "চামড়া পিকলিং-এ শতকরা কতভাগ H2SO4 ব্যবহৃত হয়?",
+      "options": [
+        "35",
+        "2.5",
+        "1.5",
+        "0.5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "চামড়া পিকলিং-এ শতকরা 1.5% H2SO4 যা 0.05M\r\nH2SO4 ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 18,
+      "id": "145750",
+      "question": "গ্যাস উৎপাদনের জন্য বাংলাদেশকে কতটি ব্লক বিভক্ত কর হয়েছে?",
+      "options": [
+        "23",
+        "26",
+        "27",
+        "29"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গ্যাস উৎপাদনের জন্য বাংলাদেশকে 23টা ব্লক এবং 29 টা\r\nক্ষেত্রে ভাগ করা হয়েছে।"
+    },
+    {
+      "question_no": 19,
+      "id": "145751",
+      "question": "পুনঃ প্রক্রিয়াকরণ প্রণালি কী?",
+      "options": [
+        "নতুন চক্র তৈরি",
+        "পদার্থ বিশুদ্ধ করার প্রণালী",
+        "পরিত্যক্ত পদার্থকে পুনরায় ব্যবহার্য করা",
+        "রঙিন বস্তু তৈরি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পুনঃপ্রক্রিয়াকরণ প্রণালিকে পরিত্যক্ত পদার্থকে পুনরায়\r\nব্যবহার্য করার প্রক্রিয়াকে বোঝায়।\r\nযাকে ৩টা R দ্বারা define করা যায় →\r\nReduce, Reuse, Recycle."
+    },
+    {
+      "question_no": 20,
+      "id": "145752",
+      "question": "সিমেন্ট কী?",
+      "options": [
+        "হাইড্রেটেড Ca সিলিকেট ও অ্যালুমিনেট এর মিশ্রণ",
+        "সোডিয়াম সিলিকেট",
+        "সোডিয়াম ফসফেট",
+        "ক্যালসিয়াম অ্যালুমিনেট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সারা বিশ্বে সর্বাধিক ব্যবহৃত হয় পোর্টল্যান্ড সিমেন্ট।"
+    },
+    {
+      "question_no": 21,
+      "id": "145753",
+      "question": "মণ্ড তৈরির জন্য কুকিং লিকার হিসেবে ব্যবহৃত হয় কোনটি?",
+      "options": [
+        "Na2S+ NaOH",
+        "Ca (OCI) C1",
+        "Ca (OH)2",
+        "CaO + Na2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পাল্প শিল্পে কুকিং লিকার জড়িত। কুকিং লিকারের উপাদান\r\n→ 27.1% Na2S, 58.6% NaOH, 14.3% Na2CO3"
+    },
+    {
+      "question_no": 22,
+      "id": "145754",
+      "question": "সিমেন্টের কোন উপাদানটি এর দ্রুত জমাট বাঁধার জন্য দায়ী?",
+      "options": [
+        "CaO.SiO2",
+        "CaO.Al203",
+        "CaO.Fe2O3",
+        "Al203"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিমেন্ট দ্রুত জমাট বাঁধার জন্য দায়ী→ CaO.Al203 এবং\r\nজমাট বাঁধার মন্থরের জন্য দায়ী জিপসাম বা CaSO4.2H2O।"
+    },
+    {
+      "question_no": 23,
+      "id": "145755",
+      "question": "সিমেন্ট উৎপাদনে কোন ক্যালকারিয়াস পদার্থ ব্যবহৃত হয়?",
+      "options": [
+        "চুনাপাথর",
+        "সিমেন্ট",
+        "কাদামাটি",
+        "শ্লেট পাথর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সিমেন্ট উৎপাদনে ক্যালকারিয়াস পদার্থ চুনাপাথর এবং আরজেলেসিয়াস পদার্থ = চায়না ক্লে (Al203, 2SiO3 2H2O)"
+    },
+    {
+      "question_no": 24,
+      "id": "145756",
+      "question": "নিম্নের কোনটি বাংলাদেশের প্রাকৃতিক গ্যাস ক্ষেত্র?",
+      "options": [
+        "ফুলবাড়ি",
+        "বিবিয়ানা",
+        "জামালগঞ্জ",
+        "বড় পুকুরিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিবিয়ানা একটি প্রাকৃতিক গ্যাস ক্ষেত্র। বাংলাদেশের কয়লার\r\nখনির কয়লার মান দীঘিপাড়া > জামালগঞ্জ > খালিসপুর > বড়\r\nপুকুরিয়া।"
+    },
+    {
+      "question_no": 25,
+      "id": "145757",
+      "question": "ETP কী?",
+      "options": [
+        "বায়ু দূষণ প্রক্রিয়া",
+        "শিল্পের বর্জ্য ট্রিটমেন্ট সম্পর্কিত",
+        "পানি দূষণ অপসারণ",
+        "পরিবেশ দূষণমুক্ত করা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ETP এর পূর্ণরূপ → Effluent treatment plant."
+    },
+    {
+      "question_no": 26,
+      "id": "145758",
+      "question": "কোনটি জ্বালানি নয়?",
+      "options": [
+        "H2",
+        "02",
+        "C",
+        "CH4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অক্সিজেন জ্বালানি নয় কিন্তু অন্যকে জ্বলতে সাহায্য করে।"
+    },
+    {
+      "question_no": 27,
+      "id": "145759",
+      "question": "কাঁচের কাঁচামাল কোনটি?",
+      "options": [
+        "সোডা অ্যাশ, চুনাপাথর ও বালি",
+        "ক্লে, ফেল্সার, বালি",
+        "চুনাপাথর, ক্লে",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "145760",
+      "question": "জ্বালানি মানের ক্রম অনুসারে কোনটি সঠিক?",
+      "options": [
+        "অ্যানথ্রাসাইট কয়লা> বিটুমিনাস> লিগনাইট> পিট",
+        "অ্যানথ্রাসাইট কয়লা> বিটুমিনাস< লিগনাইট> পিট",
+        "বিটুমিনাস > অ্যানথ্রাসাইট > লিগনাইট > পিট",
+        "বিটুমিনাস > লিগনাইট > পিট > অ্যানথ্রাসাইট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কয়লার জ্বালানি মানের ক্রম হলো P < L < B< A অর্থাৎ অ্যানথ্রাসাইট > বিটুমিনাস > লিগনাইট >পিট।"
+    },
+    {
+      "question_no": 29,
+      "id": "145942",
+      "question": "নিম্নের কোনটি দ্বি-সিলিকেট?",
+      "options": [
+        "সিরামিক্স",
+        "কাঁচ",
+        "সিমেন্ট",
+        "ক্লে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কাঁচ হলো সোডিয়াম ক্যালসিয়াম দ্বি-সিলিকেট মিশ্রণ।"
+    },
+    {
+      "question_no": 30,
+      "id": "145943",
+      "question": "নিচের কোনটি কাঁচ উৎপাদনে জড়িত?",
+      "options": [
+        "মেলটিং, শেপিং, আনিলিং",
+        "জিগারিং, বিটিং, অ্যানিলিং,",
+        "কাস্টিং, শীটমেকিং, রিফাইনি",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মেলটিং, শেপিং, অ্যানিলিং, কিউলেট ইত্যাদি কাঁচ শিল্পের\r\nসাথে জড়িত"
+    },
+    {
+      "question_no": 31,
+      "id": "145944",
+      "question": "কোন কয়লার কুকিং মান সবচেয়ে বেশি?",
+      "options": [
+        "বিটুমিন",
+        "পিট",
+        "লিগনাইট",
+        "অ্যানথ্রাসাইট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কয়লার জ্বালানি মানের ক্রম হলো P < L < B< A\r\nঅর্থাৎ অ্যানথ্রাসাইট > বিটুমিনাস > লিগনাইট > পিট।"
+    },
+    {
+      "question_no": 32,
+      "id": "145945",
+      "question": "২০০৯ সাল পর্যন্ত বাংলাদেশে আবিষ্কৃত কয়লা খনির সংখ্যা কত?",
+      "options": [
+        "৩টি",
+        "৫টি",
+        "৭টি",
+        "৮টি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "২০০৯ সাল অবধি বাংলাদেশে আবিষ্কৃত কয়লার খনির\r\nসংখ্যা ৫টা। সবচেয়ে ভালো কয়লার মান দীঘিপাড়া খনিতে।"
+    },
+    {
+      "question_no": 33,
+      "id": "145946",
+      "question": "ETP কোন বর্জ্য পরিশোধন করে?",
+      "options": [
+        "কঠিন",
+        "তরল",
+        "গ্যাসীয়",
+        "ধূলা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ЕТР Effluent treatment plant এখানে Effluent বলতে তরল পদার্থকে বোঝায়।"
+    },
+    {
+      "question_no": 34,
+      "id": "145947",
+      "question": "কোনটি কাগজ রিসাইক্লিং এর একটি পদ্ধতি?",
+      "options": [
+        "চপিং (Chopping)",
+        "ডি-ইংকিং",
+        "বিটিং",
+        "কাস্টিং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ডি-ইংকিং কাগজ রিসাইক্লিং এর একটি পদ্ধতি।"
+    },
+    {
+      "question_no": 35,
+      "id": "145948",
+      "question": "আকারের দিক থেকে কোন ক্রমটি সঠিক?",
+      "options": [
+        "পরমাণু < অণু < ন্যানো কণা",
+        "ন্যানো কণা < পরমাণু < অণু",
+        "পরমাণু < ন্যানো কণা < অণু",
+        "অণু> পরমাণু < ন্যানো কণা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পদার্থের আকারের ক্রম পরমাণু < অণু < ন্যানো কণা"
+    },
+    {
+      "question_no": 36,
+      "id": "145949",
+      "question": "বর্জ্য ব্যবস্থাপনায় কোনটি সংশ্লিষ্ট?",
+      "options": [
+        "উন্মুক্ত প্রণালি",
+        "তিনটি 'R'",
+        "ট্যানিং",
+        "কাস্টিং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পুনঃপ্রক্রিয়াকরণ প্রণালিকে পরিত্যক্ত পদার্থকে পুনরায়\r\nব্যবহার্য করার প্রক্রিয়াকে বোঝায়।\r\nযাকে ৩টা R দ্বারা define করা যায় →\r\nReduce, Reuse, Recycle."
+    },
+    {
+      "question_no": 37,
+      "id": "145950",
+      "question": "নিচের কোন কোনটি কাগজ উৎপাদনে সংশ্লিষ্ট",
+      "options": [
+        "জিগারিং, বিটিং, কাস্টিং",
+        "বিটিং, রিফাইনিং, শীট গঠন",
+        "অ্যানিলিং, বিটিং, শীট গঠন",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পাল্প বা মন্ড হতে কাগজ তৈরির পদ্ধতি ৩টা।\r\ni) বিটিং ii) রিফাইনিং iii) শীট গঠন।"
+    },
+    {
+      "question_no": 38,
+      "id": "145951",
+      "question": "নিচের কোন কোন প্রক্রিয়া সিরামিক উৎপাদনে ব্যবহৃত হয়?",
+      "options": [
+        "মেলটিং, শেপিং, আনিলিং",
+        "প্রেসিং, কাস্টিং / জিগারিং, গ্লেজিং",
+        "বিটিং, রিফাইনিং, কাস্টিং",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিরামিক শিল্পে→ প্রেসিং, কাস্টিং / জিগারিং, গ্লেজিং।"
+    },
+    {
+      "question_no": 39,
+      "id": "145952",
+      "question": "কোনটিতে সেলুলোজের শতকরা পরিমাণ বেশি?",
+      "options": [
+        "গমের ছোবড়া",
+        "আখের ছোবড়া",
+        "তুলা",
+        "কাঠ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সেলুলোজ হলো B-D গ্লুকোজের পলিমার তুলাতে সেলুলোজের শতকরা পরিমাণ বেশি (৯৪%)।"
+    },
+    {
+      "question_no": 40,
+      "id": "145953",
+      "question": "সিমেন্ট শিল্পে কোনটি কাঁচামাল হিসেবে ব্যবহৃত হয়?",
+      "options": [
+        "প্রাকৃতিক গ্যাস",
+        "কয়লা",
+        "চুনাপাথর",
+        "সোডা অ্যাশ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সিমেন্ট উৎপাদনে ক্যালকারিয়াস পদার্থ চুনাপাথর এবং আরজেলেসিয়াস পদার্থ = চায়না ক্লে (Al2O3, 2SiO3 2H2O)"
+    },
+    {
+      "question_no": 41,
+      "id": "145954",
+      "question": "বাংলাদেশে কয়লাভিত্তিক প্রধান শিল্প কোনটি?",
+      "options": [
+        "ইউরিয়া",
+        "গ্লাস",
+        "বিদ্যুৎ",
+        "সিমেন্ট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাংলাদেশে কয়লার ভিত্তিক প্রধান শিল্প—বিদ্যুৎ।"
+    },
+    {
+      "question_no": 42,
+      "id": "145955",
+      "question": "নিম্নের কোন উপাদানটি কাঁচ এবং সিরামিকস উভয় উৎপাদন প্রক্রিয়ার কাঁচামাল?",
+      "options": [
+        "সিলিকা",
+        "সোডা অ্যাশ",
+        "ক্রায়োলাইট",
+        "ফেল্সার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সিলিকা কাঁচ এবং সিরামিক উভয়ই শিল্পে ব্যবহৃত হয়\r\nকাঁচ Na2O.CaO.6SiO2\r\nসিরামিক→ Al03.2SiO2.2H2O"
+    },
+    {
+      "question_no": 43,
+      "id": "145956",
+      "question": "কোনটি উৎপাদনের জন্য কয়লার গ্যাসীয়করণ করা হয়?",
+      "options": [
+        "CO+ H2",
+        "CO2",
+        "H2N – CO – NH2",
+        "NH3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কয়লার গ্যাসীয়করণে CO + H₂ (ওয়াটার গ্যাস) উৎপন্ন হয়।"
+    },
+    {
+      "question_no": 44,
+      "id": "145957",
+      "question": "কোনটির পরিমাণ বৃদ্ধি পেলে কয়লার গুণগত মান বৃদ্ধি পায়?",
+      "options": [
+        "ছাই",
+        "উদ্বায়ী পদার্থ",
+        "কার্বন",
+        "সালফার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কার্বন বৃদ্ধি পেলে কয়লার গুণগতমান বাড়ে কিন্তু জলীয় বাষ্প (H2O) বৃদ্ধি পেলে কয়লার গুণগতমান কমবে।"
+    },
+    {
+      "question_no": 45,
+      "id": "145958",
+      "question": "অ্যানিলিং একটি গুরুত্বপূর্ণ ধাপ কোন শিল্পে?",
+      "options": [
+        "চামড়া শিল্প",
+        "সিমেন্ট শিল্প",
+        "কাঁচ শিল্প",
+        "কাগজ শিল্প"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মেলটিং, শেপিং, অ্যানিলিং, কিউলেট ইত্যাদি কাঁচ শিল্পের\r\nসাথে জড়িত"
+    },
+    {
+      "question_no": 46,
+      "id": "145959",
+      "question": "সিমেন্ট শিল্পের প্রধান কাঁচামাল কোনটি?",
+      "options": [
+        "CaO",
+        "Al203",
+        "MgO",
+        "CaCO3-MgCO3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সিমেন্ট উৎপাদনে ক্যালকারিয়াস পদার্থ চুনাপাথর এবং\r\nআরজেলেসিয়াস পদার্থ = চায়না ক্লে (Al203, 2SiO3 2H2O)"
+    },
+    {
+      "question_no": 47,
+      "id": "145960",
+      "question": "ন্যানো কণার বৈশিষ্ট্য নয় কোনটি?",
+      "options": [
+        "সাধারণ পরমাণুর চেয়ে আকারে ছোট",
+        "অবলোহিত আলোতে দেখা যায়",
+        "দৃশ্যমান আলোতে দেখা যায় না",
+        "প্যারাচুম্বকীয় ধর্ম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ন্যানো কণার বৈশিষ্ট্য→\r\ni) দৃশ্যমান আলোতে দেখা যায় না\r\nii) IR তে দেখা যায়\r\niii) প্যারাচুম্বকীয়\r\niv) পরমাণুর চেয়ে আকারে বড়"
+    },
+    {
+      "question_no": 48,
+      "id": "145961",
+      "question": "ETP কী?",
+      "options": [
+        "তরল বর্জ্য প্রক্রিয়াকরণ",
+        "প্রাকৃতিক পলিমার",
+        "কঠিন বর্জ্য পচন প্রক্রিয়া",
+        "রিসাইক্লিং প্রক্রিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "145962",
+      "question": "কোন বৈশিষ্ট্য স্থুল কণা ও ন্যানো কণা উভয়ের জন্য একই?",
+      "options": [
+        "পরিবাহিতা",
+        "দৃঢ়তা",
+        "ঘনত্ব",
+        "সক্রিয়তা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "145963",
+      "question": "কোন শিল্পে প্রাকৃতিক গ্যাস একটি কাঁচামাল?",
+      "options": [
+        "ইউরিয়া",
+        "সিমেন্ট",
+        "বিদ্যুৎ",
+        "গ্লাস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 51,
+      "id": "145964",
+      "question": "পাল্প উৎপাদনে মূল উপাদান কোনটি?",
+      "options": [
+        "Na₂S",
+        "সেলুলোজ",
+        "NaOH",
+        "সালফার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 52,
+      "id": "145965",
+      "question": "ইউরিয়া উৎপাদনের প্রধান কাঁচামাল কোনটি?",
+      "options": [
+        "তরল বায়ু",
+        "তরলীকৃত পেট্রোলিয়াম গ্যাস",
+        "কার্বোনাইট্রাইল",
+        "কার্বামেট যৌগ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "145966",
+      "question": "ETP এর সঠিক পূর্ণ নাম কোনটি?",
+      "options": [
+        "Effective Temperature & Pressure",
+        "Environmental Treatment Plant",
+        "Effluent Treatment Plant",
+        "Energy Treatment Plant"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "145967",
+      "question": "সিরামিক শিল্পের প্রধান কাঁচামাল কোনটি?",
+      "options": [
+        "চুনাপাথর",
+        "চায়না ক্লে",
+        "বোরাক্স",
+        "ক্রায়োলাইট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 55,
+      "id": "145968",
+      "question": "বাংলাদেশের কোন ক্ষেত্রে প্রাকৃতিক গ্যাস সর্বাধিক ব্যবহৃত হয়?",
+      "options": [
+        "ইউরিয়া উৎপাদন",
+        "পরিবহন খাত",
+        "বিদ্যুৎ উৎপাদন",
+        "রান্নার কাজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 56,
+      "id": "145969",
+      "question": "চায়না ক্লে এর সংকেত কোনটি?",
+      "options": [
+        "K2O.Al203.6SiO2",
+        "Al203.2Si02.2H20",
+        "Na2O.Al203. 6SiO2",
+        "CaO.Al203.6SiO2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "145970",
+      "question": "চামড়া ট্যানিংয়ে ব্যবহৃত হয় কোনটি?",
+      "options": [
+        "NaOH",
+        "Na2S",
+        "Cr2(S04)3",
+        "CrCl3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "145971",
+      "question": "কাঁচ উৎপাদনে কোনটি গৌণ উৎপাদান হিসেবে ব্যবহৃত হয়?",
+      "options": [
+        "Na₂SO4",
+        "SiO2",
+        "Cao",
+        "Na₂CO3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 59,
+      "id": "145972",
+      "question": "ইউরিয়া সার উৎপাদনে অন্তবর্তী যৌগ হিসেবে কোনটি পাওয়া যায়?",
+      "options": [
+        "Co",
+        "NH3",
+        "H-CO–NH₂",
+        "H₂NCOONH4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 60,
+      "id": "145973",
+      "question": "বাংলাদেশের সবচেয়ে বড় গ্যাস ক্ষেত্র কোনটি?",
+      "options": [
+        "তিতাস",
+        "ছাতক",
+        "বাখরাবাদ",
+        "হবিগঞ্জ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 61,
+      "id": "145974",
+      "question": "কাগজ উৎপাদনে বিরঞ্জক কোনটি?",
+      "options": [
+        "Na₂SO4",
+        "Na2CO3",
+        "NaOH",
+        "Ca(OCI)Cl"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 62,
+      "id": "145975",
+      "question": "কাগজ উৎপাদনে বিরঞ্জক কোনটি?",
+      "options": [
+        "Na₂SO4",
+        "Na₂CO3",
+        "NaOH",
+        "Ca(OCI)Cl"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 63,
+      "id": "145976",
+      "question": "পোর্টল্যান্ড সিমেন্টের প্রধান উপাদান কোনটি?",
+      "options": [
+        "CaO, SiO2, MgO",
+        "CaO, SiO2, Al203",
+        "CaO,SO2,Al203",
+        "CaO, SiO2, Fe2O3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 64,
+      "id": "145977",
+      "question": "কোন উপাদানের কারণে সিমেন্ট ধীরে জমাট বাঁধে?",
+      "options": [
+        "CaSO4.2H2O",
+        "3CaO.SiO2",
+        "CaO.Al203",
+        "Al203.Fe203.CaO"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 65,
+      "id": "145978",
+      "question": "ETP কি?",
+      "options": [
+        "বায়ু দূষণ পদ্ধতি",
+        "পানি দূষণ থেকে মুক্তি",
+        "দূষণমুক্ত পরিবেশ",
+        "শিল্প বর্জ্য পরিশোধন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 66,
+      "id": "145979",
+      "question": "কোনটি কয়লার গুণগত মান বৃদ্ধি করে?",
+      "options": [
+        "অ্যাশ",
+        "উদ্বায়ী পদার্থ",
+        "ফিক্সড কার্বন",
+        "সালফার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 67,
+      "id": "145980",
+      "question": "সিএনজি স্টেশনে ব্যবহৃত প্রাকৃতিক গ্যাসে মিথেনের পরিমাণ কত?",
+      "options": [
+        "79%",
+        "8৪%",
+        "90%",
+        "96%"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 68,
+      "id": "145981",
+      "question": "সারাবিশ্বে সর্বাধিক ব্যবহৃত সিমেন্ট কোনটি?",
+      "options": [
+        "ক্যালসিয়াম অ্যালুমিনেট সিমেন্ট",
+        "সালফেট রেজিস্ট্যান্স সিমেন্ট",
+        "পোর্টল্যান্ড সিমেন্ট",
+        "বায়ুরোধী সিমেন্ট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 69,
+      "id": "145982",
+      "question": "জিপসামের সংকেত কোনটি?",
+      "options": [
+        "CaO.2H2O",
+        "3CaO.H,O",
+        "CaSO4.2H₂0",
+        "CaSO4.3H2O"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 70,
+      "id": "145983",
+      "question": "কোনটি জীবাশ্ম জ্বালানি?",
+      "options": [
+        "কয়লা",
+        "হাইড্রোজেন",
+        "অ্যালকোহল",
+        "ইউরেনিয়াম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 71,
+      "id": "145984",
+      "question": "পাল্পের বিরঞ্জক পদার্থ কোনটি?",
+      "options": [
+        "SO3",
+        "NaOH",
+        "Ca(OCI)CI",
+        "HCl"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 72,
+      "id": "145985",
+      "question": "আর্জিলেসিয়াস দ্রব্য কোনটি?",
+      "options": [
+        "চুনাপাথর",
+        "চুন",
+        "জিপসাম",
+        "অ্যালুমিনা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 73,
+      "id": "145986",
+      "question": "FGD প্লান্টের মাধ্যমে কোনটি দূর করা যায় না?",
+      "options": [
+        "SOx",
+        "NOx",
+        "CO₂",
+        "CO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 74,
+      "id": "145987",
+      "question": "জ্বালানি মানের ভিত্তিতে কোন কয়লা সবচেয়ে ভাল?",
+      "options": [
+        "পিট কয়লা",
+        "লিগনাইট কয়লা",
+        "অ্যানথ্রাসাইট কয়লা",
+        "বিটুমিনাস কয়লা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 75,
+      "id": "145988",
+      "question": "ট্যানারির ক্রোমিয়াম আয়ন E.T.P'-র কোন প্রক্রিয়ায় পৃথক করা যায়?",
+      "options": [
+        "প্রভাবন",
+        "তড়িৎ বিশ্লেষণ",
+        "জীব প্রযুক্তি প্রয়োগ",
+        "সূক্ষ্মছাঁকন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 76,
+      "id": "145989",
+      "question": "ক্র্যাফ্ট পদ্ধতিতে পাল্প তৈরিতে কুকিং লিকারে কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "15% Na₂SO4,16% NaOH ও 36% CaCl, দ্রবণ",
+        "25%CH3COOH,13% Na2SO4 ও 29% KHCO3 দ্রবণ",
+        "6%CH,COOH,12% Na₂SO4 ও 49% KHCO3 দ্রবণ",
+        "27%Na₂S, 26%NaOH ও 14% Na₂CO3 দ্রবণ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 77,
+      "id": "145990",
+      "question": "চামড়ার কিউরিং-এর প্রয়োজনীয়তা কী?",
+      "options": [
+        "লোমমুক্ত করা",
+        "চর্বি দূর করা",
+        "ব্যাকটেরিয়া মুক্ত রাখা",
+        "নরম ও মসৃণ করা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 78,
+      "id": "145991",
+      "question": "চায়না ক্লে কোনটি?",
+      "options": [
+        "K20. Al203.Si02",
+        "Na₂O. Al203.CaO",
+        "CaO.Al203.6SiO2",
+        "Al203.2SiO.2H2O"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 79,
+      "id": "145992",
+      "question": "কোনটিতে কয়লার ফিক্সড কার্বন সর্বাধিক?",
+      "options": [
+        "পিট",
+        "লিগনাইট",
+        "বিটুমিনাস",
+        "অ্যানথ্রাসাইট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 80,
+      "id": "145993",
+      "question": "কুকিং লিকার কোনটি?",
+      "options": [
+        "Na₂SO4 ও CaSO4 এর মিশ্রণ",
+        "Na₂S ও Na₂CO3 এর ক্ষারকীয় মিশ্রণ",
+        "কাচ শিল্পে ব্যবহৃত একটি মিশ্রণ",
+        "একটি অম্লীয় মিশ্রণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 81,
+      "id": "145994",
+      "question": "সিমেন্টে উৎপাদনে আরজেলেসিয়াস পদার্থরূপে ব্যবহৃত কোনটি?",
+      "options": [
+        "অ্যালুমিনা",
+        "চুনাপাথর",
+        "ক্যালসিয়াম অক্সাইড",
+        "সিমেন্ট রক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 82,
+      "id": "145995",
+      "question": "অ্যানিলিং কোন শিল্পের গুরুত্বপূর্ণ ধাপ?",
+      "options": [
+        "কাগজ শিল্প",
+        "সিরামিক শিল্",
+        "কাঁচ শিল্প",
+        "চামড়া শিল্প"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 83,
+      "id": "145996",
+      "question": "জিপসামের সংকেত কোনটি?",
+      "options": [
+        "FeSO4.7H20",
+        "CaSO4.2H₂O",
+        "ZnSO4.7H2O",
+        "CuSO5H2O"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 84,
+      "id": "145997",
+      "question": "চামড়ার মূল রাসায়নিক উপাদান কোনটি?",
+      "options": [
+        "ফ্যাট",
+        "ট্যানিন",
+        "কোলাজেন",
+        "অ্যামিন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 85,
+      "id": "145998",
+      "question": "পেপার শিল্পে বিরঞ্জক হিসাবে ব্যবহার হয় কোনটি?",
+      "options": [
+        "H2O2",
+        "NaHSO3",
+        "Cl207",
+        "KMnO 4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 86,
+      "id": "145999",
+      "question": "ন্যানোকণার পরিসর কত nm?",
+      "options": [
+        "1-100",
+        "101-150",
+        "200-300",
+        "1-1000"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 87,
+      "id": "146000",
+      "question": "চামড়া শিল্পে ট্যানারি বর্জ্যে উপস্থিত ক্ষতিকর উপাদান কোনটি?",
+      "options": [
+        "As",
+        "Pb",
+        "Ni",
+        "Cr"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 88,
+      "id": "146001",
+      "question": "কোনটি ম্যুলাইট?",
+      "options": [
+        "3Al203.2SiO2",
+        "Na20.2SiO3",
+        "Al203.2SiO2.2H2O",
+        "3NaF.AIF3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 89,
+      "id": "146002",
+      "question": "কাগজ উৎপাদনে বিরঞ্জক হিসেবে কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "Na₂SO4",
+        "Na2CO3",
+        "NaOH",
+        "Ca(OCl) CI"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 90,
+      "id": "146003",
+      "question": "ক্যালকেরিয়াস দ্রব্য কোনটি?",
+      "options": [
+        "চুনাপাথর",
+        "অ্যালুমিনা",
+        "সিলিকা",
+        "জিপসাম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 91,
+      "id": "146004",
+      "question": "বাংলাদেশে প্রাপ্ত প্রাকৃতিক গ্যাসের কত শতাংশ বিদ্যুৎ উৎপাদনে ব্যবহৃত হয়?",
+      "options": [
+        "5%",
+        "12%",
+        "55%",
+        "18%"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 92,
+      "id": "146005",
+      "question": "শতভাগ রিসাইকেল করা যায় নিচের কোনটি?",
+      "options": [
+        "তামা",
+        "লোহা",
+        "জিঙ্ক",
+        "সীসা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 93,
+      "id": "146006",
+      "question": "চশমার লেন্স তৈরিতে কোন ধরনের কাচ ব্যবহৃত হয়?",
+      "options": [
+        "Fibre glass",
+        "Crookes glass",
+        "Gena glass",
+        "Flint glass"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 94,
+      "id": "146007",
+      "question": "স্বর্ণের ন্যানো পার্টিকেলের ক্ষেত্রে নিচের কোনটি সঠিক?",
+      "options": [
+        "স্বর্ণের ন্যানো কণার রং কমলা",
+        "ন্যানো স্বর্ণের কণার তড়িৎ পরিবাহিতা বেশি",
+        "ন্যানো স্বর্ণের গলনাঙ্ক সাধারণ স্বর্ণের গলনাঙ্ক অপেক্ষা অনেক বেশি",
+        "ন্যানো স্বর্ণ পার্টিকেল চুম্বক ধর্ম প্রদর্শন করে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 95,
+      "id": "146008",
+      "question": "্যানথ্রাসাইট কয়লার জ্বালানি মান কত?",
+      "options": [
+        "9800-1100 BTU/lb",
+        "14500-15500 ВТU/Ib",
+        "13500-18000 BTU/1b",
+        "10000-11000 BTU/Ib"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 96,
+      "id": "146009",
+      "question": "কৃত্রিম পেসমেকার যন্ত্রে কোন ব্যাটারি ব্যবহার করা হয়?",
+      "options": [
+        "Ni-Cd ব্যাটারি",
+        "Li- ব্যাটারি",
+        "Li আয়ন ব্যাটারি",
+        "শুল্ক ব্যাটারি (Dry Cell)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 97,
+      "id": "146010",
+      "question": "বাংলাদেশে কোন ধরনের শিল্প কারখানা স্থাপনের আগে ETP (Effluent Treatment Plant) বসানো জরুরি?",
+      "options": [
+        "কৃষি প্রক্রিয়াজাতকরণ শিল্প",
+        "ট্যানারি শিল্প",
+        "রেডিমেড গার্মেন্টসশিল্প",
+        "পশু খামার শিল্প"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 98,
+      "id": "146011",
+      "question": "ন্যানো পার্টিকেলের আকার কত?",
+      "options": [
+        "1-10 nm",
+        "0.1-0.5nm",
+        "1-100nm",
+        "1-50nm"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 99,
+      "id": "146012",
+      "question": "'প্লাস্টার অব প্যারিস” এর রাসায়নিক সংকেত কোনটি?",
+      "options": [
+        "(CuSO4)2H2O",
+        "CaSOMgSO4",
+        "MgSO 4",
+        "CaSO4.2H20"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 100,
+      "id": "146013",
+      "question": "সিরামিকের রাসায়নিক সংযুক্তিতে নিচের কোনটি থাকে না?",
+      "options": [
+        "Al203",
+        "SiO2",
+        "SiC",
+        "Al4C3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 101,
+      "id": "146014",
+      "question": "নিচের কোন শব্দ ন্যানো কণা সংশ্লিষ্ট নয়?",
+      "options": [
+        "সেমিকন্ডাক্টর",
+        "কোয়ান্টাম ডট",
+        "ফুলারিন",
+        "গ্রাফিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 102,
+      "id": "146015",
+      "question": "নিচের কোনটি গ্লাসকে ক্ষয় করে?",
+      "options": [
+        "H₂SO4",
+        "HNO3",
+        "HCI",
+        "HF"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 103,
+      "id": "146016",
+      "question": "নিচের কোন যৌগটি চামড়া প্রক্রিয়াজাতকরণে ব্যবহৃত হয়?",
+      "options": [
+        "Ca(OH)2",
+        "Cr₂ (SO4)3",
+        "Al2(SO4)3",
+        "Fe₂ (SO4)3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 104,
+      "id": "146018",
+      "question": "কোন মৌলটির উপস্থিতি কয়লার মান নষ্ট করে?",
+      "options": [
+        "Nitrogen",
+        "Phosphorus",
+        "Sulphur",
+        "Oxygen"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 105,
+      "id": "146019",
+      "question": "সিরামিক শিল্পে ব্যবহৃত কাঁচামাল কেওলিনাইটের রাসায়নিক সংকেত কী?",
+      "options": [
+        "Al203.2SiO2.2H2O",
+        "Al203.3SiO2.H20",
+        "Al203.2SiO2.3H2O",
+        "K2O.Al203.6SiO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 106,
+      "id": "146020",
+      "question": "",
+      "options": [
+        "increase",
+        "decrease",
+        "remain same",
+        "none of these"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 107,
+      "id": "146021",
+      "question": "নিচের কোনটি অ্যামোনিয়ার সাথে বিক্রিয়া করে ইউরিয়া উৎপন্ন করে?",
+      "options": [
+        "H2O",
+        "CO₂",
+        "CH4",
+        "C6H6"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 108,
+      "id": "146022",
+      "question": "নিচের কোন যৌগের পুনর্বিন্যাসের ফলে ইউরিয়া উৎপন্ন হয়?",
+      "options": [
+        "NHC-OH",
+        "NHCNS",
+        "NH2COONH4",
+        "NH4CNO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 109,
+      "id": "146023",
+      "question": "নিচের কোনটি ন্যানো কণার পরিসর বোঝায়?",
+      "options": [
+        "10nm - 100nm",
+        "1nm-50nm",
+        "0.1nm- 0.00 1nm",
+        ".03nm-0.005nm"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 110,
+      "id": "146024",
+      "question": "ট্যানারি শিল্পের কোন বর্জ্যটি পানি দূষণের প্রধান উৎস?",
+      "options": [
+        "ক্রোমিয়াম",
+        "কপার",
+        "জিংক",
+        "লেড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 111,
+      "id": "146025",
+      "question": "চামড়া শিল্পে ট্যানারি বর্জ্যে ক্ষতিকর উপাদান কোনটি?",
+      "options": [
+        "As",
+        "Pb",
+        "Ni",
+        "Cr"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 112,
+      "id": "146026",
+      "question": "প্রস্তাবিত রামপাল বিদ্যুৎকেন্দ্রে প্রধান দূষণকারী উপাদান কোনটি?",
+      "options": [
+        "CO",
+        "SO₂",
+        "NH3",
+        "CO2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 113,
+      "id": "146027",
+      "question": "কাঠ থেকে কাগজ তৈরিতে কুকিং-লিকার হিসেবে ব্যবহৃত হয় কোনটি?",
+      "options": [
+        "Ca(HSO3)2",
+        "CaO",
+        "KNO3",
+        "Na2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 114,
+      "id": "146028",
+      "question": "নিচের কোনটি সিমেন্ট তৈরিতে প্রধান উপাদান নয়?",
+      "options": [
+        "CaO",
+        "Cu₂O",
+        "SiO2",
+        "Al203"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 115,
+      "id": "146029",
+      "question": "নিচের কোনটি কাচ তৈরিতে প্রধান উপাদান নয়?",
+      "options": [
+        "SiO2",
+        "CaCO3",
+        "MgCO3",
+        "Na₂CO3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 116,
+      "id": "146030",
+      "question": "প্রাকৃতিক গ্যাসে ইথেনের % পরিমাণ কত?",
+      "options": [
+        "15.44-20.35",
+        "8.54-10.94",
+        "5.21-7.95",
+        "1.21-3.95"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    }
+  ]
+}

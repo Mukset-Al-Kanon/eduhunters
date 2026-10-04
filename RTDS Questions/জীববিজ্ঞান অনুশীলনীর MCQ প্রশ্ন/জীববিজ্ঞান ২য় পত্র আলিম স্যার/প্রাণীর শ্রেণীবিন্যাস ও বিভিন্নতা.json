@@ -1,0 +1,470 @@
+{
+  "title": "আলীম স্যার || জীববিজ্ঞান ২য় পত্র || ১ম অধ্যায়",
+  "category": "জীববিজ্ঞান অনুশীলনীর MCQ প্রশ্ন > জীববিজ্ঞান ২য় পত্র আলিম স্যার",
+  "duration_minutes": 30,
+  "total_questions": 33,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "123853",
+      "question": "শ্রেণিবিন্যাসবিদ্যার জনক কে?",
+      "options": [
+        "Carolus Linnaeus",
+        "Theophrastus",
+        "George Benthum",
+        "De Candolle"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "শ্রেণিবিন্যাসবিদ্যার জনক --> Carolus Linnaeus\r\nপ্রাণী বিজ্ঞানের জনক --> Aristotle"
+    },
+    {
+      "question_no": 2,
+      "id": "123854",
+      "question": "প্রানিদেহে সদৃশ একাধিক অংশের রৈখিক বা অনুদৈর্ঘ্যিক পুনরাবৃত্তিকে বলে-",
+      "options": [
+        "প্রান্তিকতা",
+        "খণ্ডায়ন",
+        "প্রতিসাম্যতা",
+        "মেটামেরিজম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রাণিদেহে এক্টোডার্ম ও মেসোডার্ম উদ্ভূত সদৃশ একাধিক খণ্ডের রৈখিক বা অনুদৈর্ঘ্যিক পুনরাবৃত্তিকে খন্ডকায়ন বা মেটামেরিজম বলে।\r\n\r\n[ বইয়ে খন্ডায়ন বা মেটামারিজম দুটোই আছে,\r\nআবার অপশনেও সেম দুটোই দিয় রাখছে, যেহেতু অনুশীলনীর সো চেঞ্জ করার অপশন নাই কোনোটা মুছে দিয়ে,তাই অনুশীলনীতে খ নিছে, খন্ডায়ন,আমরাও খ ই নিলাম ]"
+    },
+    {
+      "question_no": 3,
+      "id": "123855",
+      "question": "কোন পর্বের প্রাণীতে পানি সংবহনতন্ত্র পাওয়া যায়?",
+      "options": [
+        "Cnidaria",
+        "Nematoda",
+        "Mollusca",
+        "Echinodermata"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Echinodermata পর্বের প্রাণীদের দেহে বিশেষ ধরনের পানি সংবহন তন্ত্র বিদ্যমান। এতে বিদ্যমান নালিকাপদ এদের চলন অঙ্গ।"
+    },
+    {
+      "question_no": 4,
+      "id": "123856",
+      "question": "কোন পর্বের প্রাণীতে শিখাকোষ পাওয়া যায়?",
+      "options": [
+        "Porifera",
+        "Cnidaria",
+        "Platyhelminthes",
+        "Nematoda"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Platyhelminthes পর্বের প্রাণীদের দেহে রক্ত সংবহন তন্ত্র এবং শ্বসনতন্ত্র অনুপস্থিত কিন্তু রেচনতন্ত্রে শিখাকোষ (Flame cell) বিদ্যমান।"
+    },
+    {
+      "question_no": 5,
+      "id": "123857",
+      "question": "কোন পর্বের সকল প্রাণী সামুদ্রিক?",
+      "options": [
+        "Mollusca",
+        "Cnidaria",
+        "Echinodermata",
+        "Chordata"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Echinodermata পর্বের প্রাণীরা অতি পরিচিত সম্পূর্ণ রূপে সামুদ্রিক প্রাণী। এদেরকে সমুদ্র আর্চিন, সমুদ্র তারা, সমুদ্র শশা, সমুদ্র লিলি নামে অভিহিত করা হয়।"
+    },
+    {
+      "question_no": 6,
+      "id": "123858",
+      "question": "কোনটির পুচ্ছ পাখনা হেটারোসার্কাল ধরনের?",
+      "options": [
+        "রুই",
+        "লাংফিস",
+        "টাকি",
+        "হাঙ্গর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কন্ড্রিকথিস শ্রেণির প্রাণীদের পুচ্ছ পাখনা হেটারো সার্কাল।"
+    },
+    {
+      "question_no": 7,
+      "id": "123859",
+      "question": "সিলোমযুক্ত প্রাণী কোনটি?",
+      "options": [
+        "স্পঞ্জ",
+        "জেলি ফিস",
+        "চ্যাপ্টাকৃমি",
+        "তেলাপোকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Mollusca হতে Chordata  পর্বের প্রাণিদের সিলোম বিদ্যমান তথা এরা সিলোমেট।  \r\nNematoda --> স্যুডো বা ভ্রান্ত সিলোমেট এবং Porifera  হতে Platyhelminthes --> অ্যাসিলোমেট।"
+    },
+    {
+      "question_no": 8,
+      "id": "123860",
+      "question": "নিচের কোন প্রাণীতে সিউডোসিলোম বিদ্যমান?",
+      "options": [
+        "Fasciola hepatica",
+        "Ascaris lumbricoides",
+        "Taenia solium",
+        "Metaphire posthuma"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Ascaris lumbricoides (গোলকৃমি) --> Nematoda পর্বের প্রাণী\r\n Taenia solium, Fasciola hepatica --> Platyhelminthes."
+    },
+    {
+      "question_no": 9,
+      "id": "123861",
+      "question": "মুখ বিবরে র‌্যাডুলা নামক অংশ থাকে কোন পর্বের প্রাণীতে?",
+      "options": [
+        "Chordata",
+        "Mollusca",
+        "Arthropoda",
+        "Nematoda"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Mollusca পর্বের প্রাণীদের মুখ বিহ্বরে র‌্যাডুলা নামক অংশ থাকে (Bivalvia ব্যতীত)। একে রেতি জিহ্বা বলে যা কাইটিন নির্মিত।"
+    },
+    {
+      "question_no": 10,
+      "id": "124660",
+      "question": "মরুভূমি, বনভূমি, তৃণভূমি ইত্যাদি কোন ধরনের বৈচিত্র্য?",
+      "options": [
+        "বাস্তুতান্ত্রিক",
+        "প্রজাতিগত",
+        "জিনগত",
+        "প্রাকৃতিক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মরুভূমি, বনভূমি, তৃণভূমি, সমুদ্র, প্রবাল প্রাচীর ইত্যাদি বাস্তুতান্ত্রিক বৈচিত্র্যের উদাহরণ।"
+    },
+    {
+      "question_no": 11,
+      "id": "124661",
+      "question": "অক্ষের সাথে সামঞ্জস্য রেখে প্রাণীদেহের বিভিন্ন অংশের বিভাজন প্রকৃতিকে কী বলে?",
+      "options": [
+        "প্রান্তিকতা",
+        "খণ্ডায়ন",
+        "প্রতিসাম্যতা",
+        "মেটামেরিজম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অক্ষের সাথে সামঞ্জস্য রেখে প্রাণী দেহের বিভিন্ন অংশের বিভাজন প্রকৃতিকে প্রতিসাম্যতা বলে। প্রাণী জগতে ৫ ধরনের প্রতিসাম্যতা দেখা যায়।"
+    },
+    {
+      "question_no": 12,
+      "id": "124662",
+      "question": "শ্রেণিবিন্যাস স্তরের সর্বনিম্ন ধাপ কোনটি?",
+      "options": [
+        "Order",
+        "Genus",
+        "Family",
+        "Species"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শ্রেণিবিন্যাস স্তরের সর্বোচ্চ ধাপ kingdom (রাজ্য) এবং সর্বনিম্ন ধাপ Species (প্রজাতি)"
+    },
+    {
+      "question_no": 13,
+      "id": "124663",
+      "question": "কোন পর্বের প্রাণীদের সমুদ্রের ফুল বলা হয়?",
+      "options": [
+        "Cnidaria",
+        "Porifera",
+        "Platyhelminthes",
+        "Mollusca"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বিচিত্র বর্ণময়, অরীয় প্রতিসম নিডারিয়ান প্রাণীদের সমুদ্রের ফুল বলা হয়।এরা ট্রপিক্যাল রেইন ফরেস্টের সাথে তুলনীয়।"
+    },
+    {
+      "question_no": 14,
+      "id": "124664",
+      "question": "প্রাণিজগতের দ্বিতীয় বৃহত্তম পর্ব কোনটি?",
+      "options": [
+        "Cnidaria",
+        "Porifera",
+        "Platyhelminthes",
+        "Mollusca"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রাণিজগতের বৃহত্তম পর্ব→ Arthropoda এবং দ্বিতীয় বৃহত্তম পর্ব→ Mollusca"
+    },
+    {
+      "question_no": 15,
+      "id": "124665",
+      "question": "প্রাণিজগতের বৃহত্তম পর্ব কোনটি?",
+      "options": [
+        "Arthropoda",
+        "Porifera",
+        "Annelida",
+        "Mollusca"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রাণিজগতের বৃহত্তম পর্ব→ Arthropoda এবং দ্বিতীয় বৃহত্তম পর্ব→ Mollusca"
+    },
+    {
+      "question_no": 16,
+      "id": "124666",
+      "question": "এন্ডোস্টাইল কোনটির সমসংস্থ অঙ্গ?",
+      "options": [
+        "পিটুইটারি গ্রন্থি",
+        "থাইরয়েড গ্রন্থি",
+        "অ্যাপেন্ডিক্স",
+        "টনসিল গ্রন্থ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গলবিলে মেঝেতে এন্ডোস্টাইল নামক গঠন থাকে Chordata পর্বের প্রাণীদের যা পূর্ণবয়স্ক মেরুদণ্ডী প্রাণীতে থাইরয়েড গ্রন্থিতে পরিণত হয়।"
+    },
+    {
+      "question_no": 17,
+      "id": "124667",
+      "question": "নিচের কোন প্রাণীতে ট্যাডপোল নামক লার্ভা দশা ও প্রতীপ রূপান্তর দেখা যায়?",
+      "options": [
+        "Branchiostoma",
+        "Ascidia",
+        "Myxine",
+        "Duttaphrynus"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Urochordata উপ পর্বের প্রাণীর জীবন চক্রে ট্যাডপোল নামক লার্ভা দশা বিদ্যমান।"
+    },
+    {
+      "question_no": 18,
+      "id": "124668",
+      "question": "নিচের কোন প্রাণীর পরিপাকতন্ত্রে থলিকাকার 'ক্রপ' এবং পেশিময় 'গিজার্ড' থাকে?",
+      "options": [
+        "Cavia",
+        "Columba",
+        "Panthera",
+        "Hemidactylus"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Aves উপশ্রেণির প্রাণিদের পরিপাকতন্ত্রে থলিকাকার 'ক্রপ' এবং পেশিময় 'গিজার্ড' থাকে। যেমন: Columba, Copsychus."
+    },
+    {
+      "question_no": 19,
+      "id": "124669",
+      "question": "নিচের কোন পর্বটি রেডিয়াটার অন্তর্ভুক্ত?",
+      "options": [
+        "Arthropoda",
+        "Cnidaria",
+        "Annelida",
+        "Mollusca"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রেডিয়াটার অন্তর্ভুক্ত পর্ব Ctenophora & Cnidaria."
+    },
+    {
+      "question_no": 20,
+      "id": "124670",
+      "question": "Porifera পর্বের প্রাণীতে কোন ধরনের লার্ভা পাওয়া যায়?",
+      "options": [
+        "প্লানুলা",
+        "সারকারিয়া",
+        "ট্যাডপোল",
+        "অ্যাম্ফিব্লাস্টুলা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Porifera পর্বের প্রাণীদের জীবনচক্রে অ্যাম্ফিব্লাস্টুলা অথবা প্যারেনকাইমুলা লার্ভা বিদ্যমান।"
+    },
+    {
+      "question_no": 21,
+      "id": "124671",
+      "question": "শামুক জ্বর সৃষ্টি করে কোন পরজীবী?",
+      "options": [
+        "Schistosoma",
+        "Taenia",
+        "Plasmodium",
+        "Ascaris"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Platyhelminthes পর্বের Schistosoma গণের কয়েকটি প্রজাতির চ্যাপ্টাকৃমি মানুষে সিস্টোসোমাসিস বা শামুক জ্বর সৃষ্টি করে।"
+    },
+    {
+      "question_no": 22,
+      "id": "124672",
+      "question": "বোম্বে ডাক কোন শ্রেণির প্রাণী?",
+      "options": [
+        "Aves",
+        "Actinopterygii",
+        "Chondrichthyes",
+        "Sarcopterygii"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বোম্বে ডাক Actinopterygii শ্রেণিভুক্ত।"
+    },
+    {
+      "question_no": 23,
+      "id": "125494",
+      "question": "অপ্রতিসাম্যতার উদাহরণ কোনটি?",
+      "options": [
+        "Pila",
+        "Hydra",
+        "Labeo",
+        "Metaphire"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Porifera (স্পঞ্জ) এবং পরিণত Gastropod জাতীয় Mollusca প্রাণীতে অপ্রতিসাম্যতা দেখা যায়। উদাহরণ Pila globosa."
+    },
+    {
+      "question_no": 24,
+      "id": "125495",
+      "question": "নিচের কোনটি আর্থ্রোপোডা প্রাণীর বৈশিষ্ট্য?",
+      "options": [
+        "প্যারাপোডিয়া",
+        "হিমোসিল",
+        "রেডুলা",
+        "হিমালতন্ত্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Arthropoda পর্বের প্রাণিদের রক্ত সংবহনতন্ত্র মুক্ত প্রকৃতির এবং হৃৎপিণ্ড, ধমনি ও হিমোসিল নিয়ে গঠিত।"
+    },
+    {
+      "question_no": 25,
+      "id": "125496",
+      "question": "কোন পর্বে কোয়ানোসাইট কোষ পাওয়া যায়?",
+      "options": [
+        "Porifera",
+        "Cnidaria",
+        "Annelida",
+        "Nematoda"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Porifera পর্বের প্রাণীদের কোয়ানোসাইট বিদ্যমান।"
+    },
+    {
+      "question_no": 26,
+      "id": "125497",
+      "question": "নিচের কোন প্রাণীটি সামুদ্রিক বল্লা নামে পরিচিত?",
+      "options": [
+        "Aurelia aurita",
+        "Loa loa",
+        "Chironex fleckeri",
+        "Physalia physalis"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Cnidria পর্বের Chironex fleckeri পৃথিবীর সবচেয়ে বিষাক্ত জেলিফিশ যা 67 জন মানুষের মৃত্যুর কারণ হতে পারে। এদেরকে সামুদ্রিক বল্লা বলা হয়।"
+    },
+    {
+      "question_no": 27,
+      "id": "125498",
+      "question": "বাংলাদেশ কোন জীববৈচিত্র্য হট-স্পটের অন্তর্গত?",
+      "options": [
+        "মালয়",
+        "ইন্দো-বার্মা",
+        "ইন্ডিয়ান",
+        "হিমালয়ান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলাদেশে ইন্দো-বার্মা জীববৈচিত্র্য হট স্পটের অন্তর্ভুক্ত।"
+    },
+    {
+      "question_no": 28,
+      "id": "125499",
+      "question": "নিচের কোন পর্বের প্রাণী কোষীয় সংগঠন মাত্রার?",
+      "options": [
+        "Porifera",
+        "Cnidaria",
+        "Annelida",
+        "Nematoda"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Porifera পর্বের সকল প্রাণী কোষীয় সংগঠন মাত্রার।"
+    },
+    {
+      "question_no": 29,
+      "id": "125500",
+      "question": "নিচের কোন পর্বের প্রাণী অঙ্গ-তন্ত্র মাত্রার?",
+      "options": [
+        "Porifera",
+        "Cnidaria",
+        "Annelida",
+        "Platyhelminthes"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অঙ্গ তন্ত্রমাত্রার প্রাণী: Nematoda হতে Chordata."
+    },
+    {
+      "question_no": 30,
+      "id": "125501",
+      "question": "প্রোসোমা ও অপিসথোসোমা থাকে কোন প্রাণীতে?",
+      "options": [
+        "ক্রাস্টাসিয়ান",
+        "মোলাস্কান",
+        "অ্যারাকনিড",
+        "ইনসেক্ট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অ্যারাকনিড (মাকড়সা) জাতীয় প্রাণিদেহের খণ্ডগুলো মিলিত হয়ে প্রোসোমা ও অপিসথোসোমা নামক দুটি ট্যাগমা গঠন করে"
+    },
+    {
+      "question_no": 31,
+      "id": "125502",
+      "question": "নিচের কোন পর্বের প্রাণী ডিউটারোস্টোমিয়া দলভুক্ত?",
+      "options": [
+        "Annelida",
+        "Arthropoda",
+        "Mollusca",
+        "Echinodermata"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Echinodermata & Chordata পর্ব হলো ডিউটারোস্টোমিয়ার অন্তর্গত। এদের ক্লীভেজ অরীয় এবং অনির্ধারিত।"
+    },
+    {
+      "question_no": 32,
+      "id": "125503",
+      "question": "প্রাণীর তিনটি ভ্রূণীয় স্তর আবিষ্কার করেন কোন বিজ্ঞানী?",
+      "options": [
+        "C. Linnaeus",
+        "H. C. Pander",
+        "G. Benthum",
+        "de Candolle"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Heinz Christian Pander মুরগির ভ্রূণ পর্যবেক্ষণ করে তিনটি ভ্রূণীয় স্তর আবিষ্কার করেন।"
+    },
+    {
+      "question_no": 33,
+      "id": "125504",
+      "question": "কোন পর্বের প্রাণীতে অযৌন গেমিউল সৃষ্টি হয়?",
+      "options": [
+        "Mollusca",
+        "Platyhelminthes",
+        "Annelida",
+        "Porifera"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Porifera পর্বের প্রাণীতে কুড়ি বা গেমিউল সৃষ্টির মাধ্যমে অযৌন প্রজনন ঘটে।"
+    }
+  ]
+}

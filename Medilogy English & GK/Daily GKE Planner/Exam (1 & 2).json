@@ -1,0 +1,760 @@
+{
+  "exam_id": 590,
+  "title": "Exam (1 & 2)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 0,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "6b2f5123-b2eb-4873-af58-479a3669b9b1",
+      "question": "বাংলার দীর্ঘস্থায়ী রাজবংশ কোনটি?",
+      "options": [
+        "সেন",
+        "গৌড়",
+        "গুপ্ত",
+        "পাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাংলার দীর্ঘস্থায়ী রাজবংশ হলো পাল রাজবংশ।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "6053a0f6-f644-4916-b0fa-1c873bda7c1b",
+      "question": "পাল বংশের শ্রেষ্ঠতম রাজার উপাধি কি ছিল?",
+      "options": [
+        "হর্ষবর্ধন",
+        "নবরত্ন",
+        "সপ্তৈশ্বর্য",
+        "বিক্রমশীল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ধর্মপাল ছিলেন পাল বংশের শ্রেষ্ঠতম রাজা। বিক্রমশীল ছিলো তার উপাধি।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "53a8274e-d017-435d-8972-d170cecb3d8c",
+      "question": "কার শাসনামলে প্রথম চৈনিক পরিব্রাজক ফা হিয়েন ভারতে এসেছিল?",
+      "options": [
+        "প্রথম চন্দ্রগুপ্ত",
+        "বিক্রমশীল",
+        "গোপাল",
+        "বিক্রমাদিত্য"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দ্বিতীয় চন্দ্রগুপ্তের অপর নাম হলো বিক্রমাদিত্ত। তার শাসনামলেই প্রথম চৈনিক পরিব্রাজক ফা হিয়েন ভারতে এসেছিলো।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "6fe3df5b-d6d1-43b2-a8e9-3af5eaf92b03",
+      "question": "কখন গুপ্ত সাম্রাজ্যের পতন ঘটে?",
+      "options": [
+        "ষষ্ঠ শতকের প্রথমার্ধে",
+        "ষষ্ঠ শতকের শেষার্ধে",
+        "সপ্তম শতকের প্রথমার্ধে",
+        "সপ্তম শতকের শেষার্ধে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হুনদের আক্রমণে ষষ্ঠ শতকের প্রথমার্ধে গুপ্ত সাম্রাজ্যের পতন ঘটে।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "cf977991-615b-4923-b975-876b443a9ce0",
+      "question": "বিশ্বের প্রথম আবাসিক বিশ্ববিদ্যালয় কোনটি?",
+      "options": [
+        "ঢাকা বিশ্ববিদ্যালয়",
+        "কলকাতা বিশ্ববিদ্যালয়",
+        "অক্সফোর্ড বিশ্ববিদ্যালয়",
+        "নালন্দা বিশ্ববিদ্যালয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নালন্দা ভারতের বিহার রাজ্যে অবস্থিত বিশ্বের প্রথম আবাসিক বিশ্ববিদ্যালয়।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "4b96eab1-8132-4273-bca7-fc405ecb41b6",
+      "question": "শীলভদ্র ছিলেন একজন -",
+      "options": [
+        "পরিব্রাজক",
+        "আচার্য",
+        "সেনাসদস্য",
+        "জমিদার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "শীলভদ্র নালন্দা বিশ্ববিদ্যালয়ের আচার্য ছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "1394a013-e45e-4477-a196-a1a3195b0f7a",
+      "question": "' রাজাধিরাজ' উপাধির সাথে সম্পর্ক নেই নিচের কার?",
+      "options": [
+        "গোপচন্দ্র",
+        "ধর্মাদিত্য",
+        "সমাচারদেব",
+        "বিক্রমশীল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গোপচন্দ্র, ধর্মাদিত্য ও সমাচারদেব রাজাধিরাজ উপাধি গ্রহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "4b17bed0-90b7-4074-b0b0-c9ab15142288",
+      "question": "'ঐতরেয় আরণ্যক' গ্রন্থে সর্বপ্রথম বঙ্গ শব্দের উল্লেখ পাওয়া যায়। গ্রন্থটির লেখক কে ছিলেন?",
+      "options": [
+        "আবুল ফজল",
+        "মহিদাস",
+        "গোবিন্দ দাস",
+        "মন্দিরা ভট্টাচার্য"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ঐতরেয় আরণ্যক' গ্রন্থে সর্বপ্রথম বঙ্গ শব্দের উল্লেখ পাওয়া যায়। গ্রন্থটির লেখক মহিদাস।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "0e7fb809-fe9d-4fcf-9d8c-cb772b0339fb",
+      "question": "বৈদিক সাহিত্যে দ্রাবিড়দের কোন জাতি বলা হয়?",
+      "options": [
+        "সৈন্য",
+        "সাহসী",
+        "বীর",
+        "দস্যু"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বৈদিক সাহিত্যে দ্রাবিড়দের দস্যু জাতি বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "6333f829-3373-4b50-82b4-4e536d649f7d",
+      "question": "প্লেটোর গৃহশিক্ষক কে ছিলেন ?",
+      "options": [
+        "সক্রেটিস",
+        "আলেকজান্ডার",
+        "আর্কিমিডিস",
+        "এরিস্টটল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্লেটোরগৃহ শিক্ষক ছিলেন সক্রেটিস।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "113b2bed-d12b-4a9c-bfd5-392b80c6bb6d",
+      "question": "Antonym of 'Bold' is-",
+      "options": [
+        "brave",
+        "Confident",
+        "Courageous",
+        "Timid"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "78d531f1-bed7-40cf-b645-dd21c5f4ac81",
+      "question": "Antonym of 'Chronic' is -",
+      "options": [
+        "Permanent",
+        "Temporary",
+        "Severe",
+        "Persistent"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "19866a3f-4a31-4817-a607-152ac0dcc032",
+      "question": "The antonym of 'COMPETENT' is-",
+      "options": [
+        "Capable",
+        "Efficient",
+        "Skilled",
+        "Unskilled"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "7565755a-77a3-497e-8ee2-3e78db631f57",
+      "question": "Synonym of 'Conventional' is-",
+      "options": [
+        "Traditional",
+        "Modern",
+        "Rare",
+        "Usual"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "c93d8169-9b89-4253-bf1b-70fcd1c5c6ad",
+      "question": "BLISS means-",
+      "options": [
+        "Anger",
+        "Suffering",
+        "Happiness",
+        "Misery"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "652a08d5-0bbc-47ff-9399-fa7db2c7e7e1",
+      "question": "Synonym of 'APPARENT' is-",
+      "options": [
+        "Confusing",
+        "Doubtful",
+        "Hidden",
+        "Obvious"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "2e6010ad-c424-4dd3-bcfd-b9888194592d",
+      "question": "Antonym of 'BIZARRE' is-",
+      "options": [
+        "Normal",
+        "Strange",
+        "Unusual",
+        "Odd"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "b20989e7-899d-43cd-9b8e-fff0cd7e440d",
+      "question": "The opposite meaning of the word 'CEASE' is-",
+      "options": [
+        "Stop",
+        "Begin",
+        "Continue",
+        "Finish"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "565b01cc-530c-49df-8b1c-861315e83f9b",
+      "question": "Antonym of ' Candid ' is-",
+      "options": [
+        "Frank",
+        "Honest",
+        "Open",
+        "Secretive"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "0c2be09c-38cb-456a-a9b3-abf5ad6e641d",
+      "question": "Antonym of ' Affluent ' is-",
+      "options": [
+        "Wealthy",
+        "Poor",
+        "Rich",
+        "Prosperous"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "a5f1d1a5-7c9b-4b5a-ab6c-4d1cd73ccdd4",
+      "question": "Synonym of ' concise ' is-",
+      "options": [
+        "Lengthy",
+        "Brief",
+        "Elaborate",
+        "Complicated"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "83fc8e95-42fe-495b-9993-a4fef6e0ee35",
+      "question": "ABSURD means-",
+      "options": [
+        "Logical",
+        "Sensible",
+        "None",
+        "Foolish"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "42d54944-fe3e-4a1f-98b1-2057fc52741d",
+      "question": "Synonym of 'BENEVOLENT' is-",
+      "options": [
+        "None",
+        "Kind",
+        "Selfish",
+        "Cruel"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "cf7daf2f-d5f6-4efb-862e-c2b0c47e79f6",
+      "question": "Synonym of 'CONCEAL' is-",
+      "options": [
+        "Show",
+        "Reveal",
+        "Hide",
+        "Display"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "332cb175-2c66-4516-8d30-bfe6d91edb0a",
+      "question": "Synonym of 'APPREHEND' is-",
+      "options": [
+        "Understand",
+        "Neglect",
+        "Release",
+        "Ignore"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "c84b1760-9c97-4257-a91f-e5a3aef81311",
+      "question": "Choose the correct antonym for \"Evanescent\"-",
+      "options": [
+        "Transitory",
+        "Fleeting",
+        "Permanent",
+        "Ephemeral"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Evanescent=ক্ষণস্থায়ীPermanent= স্থায়ী",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "682ac0d4-cdb0-4e0b-890f-12b9a25ad6c9",
+      "question": "Choose the correct synonym for \"Desultory\"-",
+      "options": [
+        "Systematic",
+        "Haphazard",
+        "Consistent",
+        "Methodical"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Haphazard/Desultory=নিয়মশৃঙ্খলাহীন",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "0c95c374-905b-4768-8afd-6e5c78d00fbd",
+      "question": "Choose the correct antonym for \"Gluttonous\"-",
+      "options": [
+        "Voracious",
+        "Temperate",
+        "Insatiable",
+        "Greedy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Gluttonous - পেটুকTemperate-সংযমী",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "a9b6d3c9-df43-4fd8-a921-62067b29c778",
+      "question": "Choose the correct synonym for \"Fatuous\"-",
+      "options": [
+        "Wise",
+        "Foolish",
+        "Sensible",
+        "Thoughtful"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Fatuous=জড়বুদ্ধিFoolish - বোকা",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "8546c942-c1b9-42ea-95b1-38ac9d77f59c",
+      "question": "Choose the correct synonym for \"Diminutive\"-",
+      "options": [
+        "Colossal",
+        "Minuscule",
+        "Gigantic",
+        "Gargantuan"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Minuscule/ Diminutive - অতি ক্ষুদ্র",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "76004b70-91c4-42f8-885b-00cf298f604d",
+      "question": "Choose the correct antonym for \"Enervate\"-",
+      "options": [
+        "Strengthen",
+        "Weaken",
+        "Drain",
+        "Debilitate"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Enervate- শক্তিহীন করাStrengthen - শক্তিশালী করা",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "fe79316f-b67f-4077-848a-bbd439c3459e",
+      "question": "Choose the correct synonym for \"Forlorn\"-",
+      "options": [
+        "Jubilant",
+        "Desolate",
+        "Optimistic",
+        "Gregarious"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Desolate- জনশূন্য Forlorn- অবহেলিত",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "ce3eeb46-11b2-46bf-a2b5-10e446e12e82",
+      "question": "Choose the correct antonym for \"Garrulous\"-",
+      "options": [
+        "Loquacious",
+        "Taciturn",
+        "Verbose",
+        "Talkative"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Taciturn-অল্পভাষীGarrulous - অতিভাষী",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "90e5dc6c-8a59-4694-aff0-1dad9dd18aee",
+      "question": "Choose the correct synonym for \"Deleterious\"-",
+      "options": [
+        "Beneficial",
+        "Noxious",
+        "Innocuous",
+        "Constructive"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Deleterious/ Noxious - ক্ষতিকর",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "c607d6ab-e18b-4009-8040-5c85a7960939",
+      "question": "Choose the correct antonym for \"Ebullient\"-",
+      "options": [
+        "Lethargic",
+        "Enthusiastic",
+        "Vivacious",
+        "Jubilant"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Ebullient -উচ্ছ্বাসিতLethargic-নিরুদ্যম",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "eee3a914-4b25-4794-911b-7d67952213a6",
+      "question": "Choose the correct synonym for \"Diaphanous\"-",
+      "options": [
+        "Opaque",
+        "Transparent",
+        "Thick",
+        "Cloudy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "e4ee3c02-a8f0-4fbb-b0e0-7aee3a1d0d36",
+      "question": "Choose the correct antonym for \"Gainsay\"-",
+      "options": [
+        "Confirm",
+        "Deny",
+        "Dispute",
+        "Contradict"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "ac8d398d-f1df-4518-893c-d23b73e00683",
+      "question": "Choose the correct antonym for \"Ersatz\"-",
+      "options": [
+        "Authentic",
+        "Artificial",
+        "Fake",
+        "Counterfeit"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "adea8224-0ea2-4633-a58d-3400a3bc382c",
+      "question": "Choose the correct synonym for \"Feckless\"-",
+      "options": [
+        "Responsible",
+        "Strong",
+        "Efficient",
+        "Ineffectual"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Feckless - অসহায় Ineffectual - অকার্যকর",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "136dd363-5f85-46ef-aead-0cda87e1ada0",
+      "question": "পাল বংশের সর্বশেষ শক্তিশালী রাজা কে ছিলেন?",
+      "options": [
+        "রামপাল",
+        "গোপাল",
+        "ধর্মপাল",
+        "মদনপাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "**পাল বংশের সর্বশেষ শক্তিশালী রাজা ছিলেন রামপাল।**পাল বংশের সর্বশেষ রাজা ছিলেন মদনপাল",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "0abd4568-6000-4404-b120-fb30d8025db9",
+      "question": "পাহাড়পুর এর মহাবিহার নির্মাণ করেন কে?",
+      "options": [
+        "রামপাল",
+        "গোপাল",
+        "ধর্মপাল",
+        "মদনপাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পাহাড়পুর এর মহাবিহার অবস্থিত নওগাঁ জেলায়। এটি নির্মাণ করেন রাজা ধর্মপাল।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "2eea84b3-4dc9-41c1-9a76-86f033ed3743",
+      "question": "পাল বংশের রাজারা কোন ধর্মাবলম্বী ছিলেন?",
+      "options": [
+        "হিন্দু",
+        "খ্রিষ্টান",
+        "বৌদ্ধ",
+        "সবকটিই"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পাল বংশের রাজারা ছিলেন বৌদ্ধ ধর্মাবলম্বী।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "cd03fd1b-f36a-4678-88bf-56c00a659b3c",
+      "question": "সোমপুর বিহারকে কত সালে ইউনেস্কো বিশ্ব ঐতিহ্যের স্বীকৃতি দেয়?",
+      "options": [
+        "১৮৭৫",
+        "১৯৮৫",
+        "১৭৭৮৫",
+        "১৯৯৯"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সোমপুর বিহারকে ইউনেস্কো বিশ্ব ঐতিহ্যের স্বীকৃতি দেয় ১৯৮৫ সালে।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "a8c6d38e-3003-4ddb-835e-fa7cca8f5153",
+      "question": "কত সালে চর্যাপদ গ্রন্থাকারে প্রকাশিত হয়?",
+      "options": [
+        "১৮৭৬",
+        "১১২৩",
+        "১৯৫৬",
+        "১৯১৬"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "১৯১৬ সালে চর্যাপদ গ্রন্থাকারে প্রকাশিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "8ab0d6c5-8c40-4015-81aa-819f8d49a69f",
+      "question": "রামচরিত কাব্যের লেখক কে?",
+      "options": [
+        "হাসনা মওদুদ",
+        "ঈশ্বরচন্দ্র বিদ্যাসাগর",
+        "রবীন্দ্রনাথ ঠাকুর",
+        "সন্ধ্যাকর নন্দী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "রামচরিত কাব্যের লেখক সন্ধ্যাকর নন্দী।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "568869e1-6ecf-4cd2-beab-56f2fad41cb8",
+      "question": "কৌলীন্য প্রথার প্রবর্তক কে ছিলেন?",
+      "options": [
+        "হেমন্ত সেন",
+        "লক্ষণ সেন",
+        "বিজয় সেন",
+        "বল্লাল সেন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কৌলীন্য প্রথার প্রবর্তক বল্লাল সেন।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "c99157fb-e958-47bd-abfc-844d2159ffc4",
+      "question": "সেন বংশের সর্বশ্রেষ্ঠ রাজা কে ছিলেন?",
+      "options": [
+        "হেমন্ত সেন",
+        "লক্ষণ সেন",
+        "বিজয় সেন",
+        "বল্লাল সেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সেন বংশের সর্বশ্রেষ্ঠ রাজা ছিলেন বিজয় সেন। তিনি কৈবর্ত বিদ্রোহে রামপাল কে সহায়তা করেন।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "2eae5215-886c-498f-9fa7-122c6a8bd38c",
+      "question": "\"প্রিন্স অফ বিল্ডার্স\" কাকে বলা হয়?",
+      "options": [
+        "শাহজাহান ওরফে খুররম",
+        "আওরঙ্গজেব",
+        "সেলিম নূরুদ্দীন মুহম্মদ জাহাঙ্গীর",
+        "দ্বিতীয় বাহাদুর শাহ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রিন্স অফ বিল্ডার্স বলা হয় শাহজাহান ওরফে খুররম কে।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "2bf66f00-964c-4969-83b9-3df0779ae97b",
+      "question": "\"দ্বীন ই ইলাহী\" নামক নতুন ধর্ম ব্যাবস্থা কে চালু করেন?",
+      "options": [
+        "শাহজাহান ওরফে খুররম",
+        "আওরঙ্গজেব",
+        "সেলিম নূরুদ্দীন মুহম্মদ জাহাঙ্গীর",
+        "জালালউদ্দিন মোহাম্মদ আকবর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জালালউদ্দিন মোহাম্মদ আকবর  \"দ্বীন ই ইলাহী\" নামক নতুন ধর্ম ব্যাবস্থা চালু করেন।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "2227dceb-337d-4c4f-99a7-84faad9366c9",
+      "question": "শেরশাহের প্রকৃত নাম কি?",
+      "options": [
+        "হোসেন শাহ",
+        "শের আলী",
+        "শের হোসেন শাহ",
+        "শের খান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শেরশাহের প্রকৃত নাম শের খান।",
+      "images": []
+    }
+  ]
+}

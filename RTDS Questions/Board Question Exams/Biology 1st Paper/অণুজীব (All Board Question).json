@@ -1,0 +1,1016 @@
+{
+  "title": "অণুজীব (All Board Question) - Review Purpose",
+  "category": "Board Question Exams > Biology 1st Paper",
+  "duration_minutes": 30,
+  "total_questions": 72,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "115912",
+      "question": "কোন বিজ্ঞানী TMV কে তামাক পাতা থেকে কেলাসন প্রক্রিয়ায় পৃথক করেন?",
+      "options": [
+        "অ্যাডোলফ মায়ার",
+        "আইভেোনাভাসকি",
+        "স্টানলি",
+        "বোদেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "115913",
+      "question": "ভাইরাসের বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "আদিকোষী",
+        "বিপাক ঘটে",
+        "বাধ্যতামূলক পরজীবী",
+        "DNA ও RNA উপস্থিত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "115914",
+      "question": "কোনটিকে কেলাসিত করা যায়?",
+      "options": [
+        "আর্কিব্যাকটেরিয়া",
+        "ম্যালেরিয়া পরজীবী",
+        "ভাইরাস",
+        "সায়ানোব্যাকটেরিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "115915",
+      "question": "নিচের কোনটিতে রিভার্স-ট্রান্সক্রিপশন ঘটে?",
+      "options": [
+        "ভ্যাকসিনিয়িা",
+        "ভ্যারিওলা",
+        "হেপাটাইটিস-বি",
+        "HIV"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "115916",
+      "question": "কোনটি RNA ভাইরাস?",
+      "options": [
+        "Variola",
+        "Vaccinia",
+        "TMV",
+        "T2 Phage"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "115917",
+      "question": "নিচের কোনটি DNA ভাইরাস?",
+      "options": [
+        "হেপাটাইটিস-বি",
+        "চিকুনগুনিয়া",
+        "ডেঙ্গু",
+        "টোবাকো মোজাইক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "115918",
+      "question": "কোন ভাইরাসে দ্বি-সূত্রক RNA থাকে?",
+      "options": [
+        "ডেঙ্গু",
+        "রিও",
+        "পোলিও",
+        "রেবিস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "115919",
+      "question": "কোন ভাইরাসে DNA থাকে?",
+      "options": [
+        "T2",
+        "TMV",
+        "Flavi virus",
+        "Covid-19"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "115920",
+      "question": "নিম্নের কোনটি DNA ভাইরাস?",
+      "options": [
+        "রেবিস",
+        "ইনফ্লুয়েঞ্জা",
+        "ভ্যাক্সিনিয়া",
+        "ইবোলা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "115921",
+      "question": "নিচের কোন ভাইরাসে একসূত্রক DNA বিদ্যমান?",
+      "options": [
+        "ভ্যাকসিনিয়া",
+        "কোলিফাজ",
+        "ভ্যারিওলা",
+        "TIV"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "115922",
+      "question": "নিচের কোনটি দন্ডাকার ভাইরাস?",
+      "options": [
+        "T2",
+        "TMV",
+        "HIV",
+        "Vaccinia"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "115923",
+      "question": "টোবাকো মোজাইক ভাইরাসের আকার কোন ধরনের?",
+      "options": [
+        "দন্ডাকার",
+        "গোলাকার",
+        "ঘনক্ষেত্রাকার",
+        "ব্যাঙাচি আকার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "115924",
+      "question": "নিম্নের কোনটি গোলাকার ভাইরাস?",
+      "options": [
+        "TMV",
+        "HIV",
+        "T2 কোষ",
+        "Ebola"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "115925",
+      "question": "",
+      "options": [
+        "T2 ফায",
+        "ভ্যাক্নিনিয়া",
+        "TMV",
+        "পোলিও"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "115926",
+      "question": "ভাইরাসের ক্ষেত্রে কোনটি সঠিক নয়?",
+      "options": [
+        "DNA ও RNA উভয় প্রকার নিউক্লিয় অ্যাসিড থাকে?",
+        "দৈহিক বৃদ্ধি নেই",
+        "পরিবেশের উদ্দীপনায় সাড়া দেয় না",
+        "কেলাসিত করা যায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "115927",
+      "question": "নিচের কোনটিকে সংক্রমণক্ষম পূর্ণাঙ্গ ভাইরাস কণা বলে?",
+      "options": [
+        "ভিরিয়ন",
+        "ভিরয়েড",
+        "প্রিয়ন",
+        "নিউক্লিওক্যাপসিড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "115928",
+      "question": "প্রিয়নস হলো-",
+      "options": [
+        "সংক্রামক প্রোটিন ফাইব্রিল",
+        "সংক্রামক ক্ষুদ্র RNA",
+        "ভাইরাসের শূণ্য প্রোটিন আবরণ",
+        "ভাইরাসের ক্ষুদ্র ভাঙা RNA"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "115929",
+      "question": "ভাইরাস এর মাথায় দ্বিস্তরী প্রোটিন নির্মিত আবরণকে কী বলে?",
+      "options": [
+        "প্লাজমামেমব্রেন",
+        "কলার",
+        "জিনোম",
+        "ক্যাপসিড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "115930",
+      "question": "চা কফি ও তামাক প্রক্রিয়াজাতকরণের নিম্নের কোন ব্যাকটেরিয়া ব্যবহৃত হয়?",
+      "options": [
+        "Bacillus thuringiensis",
+        "Bacillus megaterium",
+        "Bordetella pertussis",
+        "Bacillus lactis"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "115931",
+      "question": "ব্যাকটেরিওফায এক প্রকার",
+      "options": [
+        "ব্যাকটেরিয়া",
+        "ছত্রাক",
+        "ভাইরাস",
+        "শৈবাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "115932",
+      "question": "T2 ভাইরাসের DNA তে মোট কতটি জিন থাকে?",
+      "options": [
+        "৮০ টি",
+        "৯০ টি",
+        "১২০ টি",
+        "১৫০ টি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "115933",
+      "question": "কোন ভাইরাস দিয়ে ক্যাপোসি সারাকোমা রোগ হয়?",
+      "options": [
+        "ইবোলা ভাইরাস",
+        "হার্পিস সিমপ্লেক্স",
+        "রিট্রো ভাইরাস",
+        "এনসেফালাটিস ভাইরাস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "115934",
+      "question": "নিচের কোনটি উদ্ভিদ ভাইরাস?",
+      "options": [
+        "TMV",
+        "T2 ফায",
+        "HIV",
+        "ফ্ল্যাডি ভাইরাস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "115935",
+      "question": "কোনটি ভাইরাসঘটিত রোগ?",
+      "options": [
+        "যক্ষা",
+        "কলেরা",
+        "জলাতঙ্ক",
+        "ধনুষ্টংকার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "115936",
+      "question": "মানুষের ভাইরাস ঘটিত রোগ কোনটি?",
+      "options": [
+        "কলেরা",
+        "আমাশয়",
+        "হেপাটাইসিস",
+        "যক্ষা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "115937",
+      "question": "কোনটি ভাইরাসঘঠিত রোগ?",
+      "options": [
+        "যক্ষা",
+        "কলেরা",
+        "জলাতঙ্ক",
+        "ধনুষ্টংকার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "115938",
+      "question": "নিচের কোনটি হতে ‘জন্ডিস’ রোগের টিক তৈরি হয়?",
+      "options": [
+        "ভাইরাস",
+        "ব্যাকটেরিয়া",
+        "মাইকোপ্লাজমা",
+        "অ্যাকটিনোমাইসিটিস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "115939",
+      "question": "নিচের কোনটি ইমার্জিং ভাইরাস?",
+      "options": [
+        "BMV",
+        "HIV",
+        "TMV",
+        "TIV"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "115940",
+      "question": "পেঁপের ‍রিং স্পট রোগের জীবাণু-",
+      "options": [
+        "DNA বহন করে",
+        "মশা দ্বারা বাহিত হয়",
+        "দন্ডাকৃতির",
+        "Flaviviridae গোত্রের অন্তর্গত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "115941",
+      "question": "PRSV এর প্রকৃত বাহক কোনটি?",
+      "options": [
+        "অ্যানোফিলিশ",
+        "এডিস",
+        "এফিড",
+        "প্লাজমোডিয়াম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "115942",
+      "question": "কোনটি ভাইরাসজনিত রোগ?",
+      "options": [
+        "ম্যালেরিয়া",
+        "ধানের ব্লাইট",
+        "কলেরা",
+        "পেঁপের রিং স্পট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "115943",
+      "question": "পেঁপের রিং স্পট ভাইরাস (PRSV) নিচের কোনটি দ্বারা বাহিত হয়?",
+      "options": [
+        "বায়ু",
+        "পানি",
+        "এফিড",
+        "মাটি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "115944",
+      "question": "PRSV কোনটি দ্বারা বাহিত হয়?",
+      "options": [
+        "বায়ু",
+        "পানি",
+        "মশকী",
+        "এফিড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "115945",
+      "question": "পেঁপের রিং স্পট রোগের জীবাণুর সাথে নিচের কোন রোগের জীবাণু সাদৃশ্যপূর্ণ?",
+      "options": [
+        "কলেরা",
+        "ডেঙ্গুজ্বর",
+        "ম্যালেরিয়া",
+        "ধানের ব্লাইট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "115946",
+      "question": "পেঁপের রিং স্পট ভাইরাস নিচের কোনটি দ্বারা বাহিত হয়?",
+      "options": [
+        "বায়ু",
+        "পানি",
+        "এফিড",
+        "মাটি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "115947",
+      "question": "ব্যাকটেরিওলজির জনক কে?",
+      "options": [
+        "এরেনবার্গ",
+        "রবার্ট হুক",
+        "লুই পাস্তুর",
+        "লিউয়েন হুক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "115948",
+      "question": "ব্যাকটেরিয়ার কোষপ্রাচীর মূলত কি দিয়ে গঠিত?",
+      "options": [
+        "কাইটিন",
+        "মিউকোপ্রোটিন",
+        "মুরামিক এসিড",
+        "সেলুলোজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "115949",
+      "question": "’কমা’ আকৃতির ব্যাকটেরিয়া কোনটি?",
+      "options": [
+        "Vibrio",
+        "Pseudomonas",
+        "Spirillum",
+        "Sarcina"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "115950",
+      "question": "Diplococcus pneumoniae এর আকৃতি কেমন?",
+      "options": [
+        "প্যাঁচানো",
+        "কমাকার",
+        "দন্ডাকার",
+        "গোলাকার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "115951",
+      "question": "ব্যাক্টেরিয়াতে পিলির প্রধান কাজ কোনটি?",
+      "options": [
+        "কোষ বিভাজনে সাহায্য করা",
+        "চলনে অংশগ্রহণ করা",
+        "পোষাকের সাথে যুক্ত হওয়া",
+        "প্রতিকূল অবস্থা রক্ষা করা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "115952",
+      "question": "কোন ব্যাকটেরিয়া পাটের আঁশ ছাড়াতে সাহায্য করে?",
+      "options": [
+        "Lactobacillus",
+        "Clostridium",
+        "Nitrosomonas",
+        "Azotobacter"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "115953",
+      "question": "কোন ব্যাকটেরিয়াটি ভিটামিন উৎপন্ন করে?",
+      "options": [
+        "Escherichia sp",
+        "Agrobacterium sp",
+        "Clostridium sp",
+        "Rhizobium sp"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "115954",
+      "question": "নিচের কোন রোগের জীবাণু আদিকোষী?",
+      "options": [
+        "ম্যালেরিয়া",
+        "নিউমোনিয়া",
+        "ইনফ্লুয়েজা",
+        "জলাতংক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "115955",
+      "question": "কমা আকৃতির জীবাণুটি কোন রোগের জন্য দায়ী?",
+      "options": [
+        "বসন্ত",
+        "যক্ষা",
+        "নিউমোনিয়া",
+        "কলেরা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "115956",
+      "question": "মাটির উর্বরতা বিনষ্টকারী ব্যাকটেরিয়া হলো কোনটি?",
+      "options": [
+        "Bacillus subtilis",
+        "Bacillus polymyxa",
+        "Bacilus tharinginensis",
+        "Bacillus denitrificans"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "115957",
+      "question": "কোনটি ব্যাকটেরিয়া জনিত রোগ?",
+      "options": [
+        "কলেরা",
+        "ডেঙ্গু",
+        "দাদরোগ",
+        "কক্কডিওমািইকোসিস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "115958",
+      "question": "নিচের কোনটি ম্যালেরিয়া জীবাণুর হ্যাপ্লয়েড দশা?",
+      "options": [
+        "জাইগোট",
+        "উকিনেট",
+        "উসিস্ট",
+        "স্পোরোজয়েট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "115959",
+      "question": "মানবদেহে আক্রমণকারী ম্যালেরিয়া জীবাণুর প্রথম দশাটির নাম কি?",
+      "options": [
+        "মেরোজয়েট",
+        "ট্রফোজয়েট",
+        "ক্রিক্টোজয়েট",
+        "স্পোরোজয়েট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "115960",
+      "question": "ম্যালেরিয়া জীবাণুর কোন দশা মানুষের দেহে প্রবেশ করে?",
+      "options": [
+        "স্পোরোজয়েট",
+        "ক্রোপ্টোজয়েট",
+        "সাইজন্ট",
+        "ট্রফোজয়েট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "115961",
+      "question": "মশকীর লালগ্রন্থিতে ম্যালেরিয়া জীবাণুর কোন দশা পাওয়া যায়?",
+      "options": [
+        "স্পোরোজোয়েট",
+        "ট্রফোজয়েট",
+        "ক্রিক্টোজয়েট",
+        "মেরোজয়েট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 51,
+      "id": "115962",
+      "question": "ম্যালেরিয়া জীবাণুর যে দশা প্রথম যকৃত কোষকে আক্রমণ করে-",
+      "options": [
+        "স্পোরোজয়েট",
+        "ক্রিপ্টোজয়েট",
+        "মেরোজয়েট",
+        "ক্রিপ্টোমেরোজয়েট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 52,
+      "id": "115963",
+      "question": "নিজের কোনটি মশকীয় লালাগ্রন্থি থেকে মানবদেহে প্রবেশ করে?",
+      "options": [
+        "ট্রফোজয়েট",
+        "ক্রিপ্টোজয়েট",
+        "মেরোজয়েট",
+        "স্পোরোজয়েট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "115964",
+      "question": "Plasmodium এর কোন পর্যায় মানুষকে সংক্রামিত করে?",
+      "options": [
+        "ট্রফোজোয়েট",
+        "ক্রিপ্টোজয়েট",
+        "মেরোজয়েট",
+        "স্পোরোজয়েট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "115965",
+      "question": "ক্রিপ্টোজয়েট কোথা হতে খাদ্য সংগ্রহ করে?",
+      "options": [
+        "R.B.C",
+        "W.B.C",
+        "যকৃত কোষ",
+        "লালা গ্রন্থী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 55,
+      "id": "115966",
+      "question": "নিচের কোনটি ম্যালেরিয়া পরজীবী ইরাইথ্রোসাইটিক সাইজোগনি সংশ্লিষ্ট?",
+      "options": [
+        "স্পোরোজয়েট",
+        "ক্রিপ্টোমেরোজয়েট",
+        "ক্রিপ্টোজয়েট",
+        "ট্রোফোজয়েট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 56,
+      "id": "115967",
+      "question": "এরিথ্রোসাইটিক সাইজোগনিতে কোন ধাপটি ক্ষণস্থায়ী?",
+      "options": [
+        "সাইজন্ট",
+        "সিগনেট রিং",
+        "ট্রোফোজয়েট",
+        "মেরোজয়েট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "115968",
+      "question": "ম্যালেরিয়া পরজীবীর জীবনচক্রের কোন দশায় সাফনার্স দানা দেখা যায়?",
+      "options": [
+        "মেরোজয়েট",
+        "সিগনেট রিং",
+        "সাইজেন্ট",
+        "অ্যামিবয়েড ট্রফোজয়েট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "115969",
+      "question": "ম্যালেরিয়া জীবাণুর বহু নিউক্লিয়াসযুক্ত অবস্থা কোনটি?",
+      "options": [
+        "সাইজন্ট",
+        "স্পোরোজোয়েট",
+        "ট্রোফোজোয়েট",
+        "উওসিস্ট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 59,
+      "id": "115970",
+      "question": "কোন ধাপটি বহু নিউক্লিয়াসযুক্ত?",
+      "options": [
+        "স্পোরোজোয়েট",
+        "সাইজন্ট",
+        "ট্রফোজোয়েট",
+        "সিগনেট রিং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 60,
+      "id": "115971",
+      "question": "ম্যালেরিয়া পরজীবীর জীবন চক্রের প্রথম কোন ধাপে হিমোজয়েন নামক বর্জ্য পদার্থ জমা হয়?",
+      "options": [
+        "ট্রফোজয়েট দশা",
+        "সিগনেট রিং দশা",
+        "সাইজন্ট দশা",
+        "রোজেট দশা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 61,
+      "id": "115972",
+      "question": "কোন ধাপে হিমোজয়েন তৈরি হয়?",
+      "options": [
+        "সাইজন্ট",
+        "ক্রিপ্টেজয়েট",
+        "অ্যামিবয়েড ট্রফোজয়েট",
+        "ট্রফোজয়েট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 62,
+      "id": "115973",
+      "question": "ম্যালেরিয়া জ্বর সৃষ্টির পর্যায়ে পরজীবীর কোন দশাটি দেখা যায়?",
+      "options": [
+        "মেরোজয়েট",
+        "স্পোরোজয়েট",
+        "ক্রিপ্টোমেরোজয়েট",
+        "ক্রিপ্টোজয়েট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 63,
+      "id": "115974",
+      "question": "Plasmodium vivax এর গ্যামিটোগনি কোথায় সম্পন্ন হয়?",
+      "options": [
+        "মানুষের যকৃতে",
+        "মানুষের লোহিত কণিকায়",
+        "মশকীর ক্রপে",
+        "মশকীর লালাগ্রন্থিতে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 64,
+      "id": "115975",
+      "question": "কোনটি Plasmondium vivax এর ডিপ্লয়েড দশা?",
+      "options": [
+        "স্পোরোজয়েট",
+        "ক্রিপ্টোজয়েট",
+        "মেরোজয়েট",
+        "উকিনেট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 65,
+      "id": "115976",
+      "question": "এক্সফ্লাজেলেশন কোথায় ঘটে?",
+      "options": [
+        "যকৃতে",
+        "লোহিত কণিকায়",
+        "মশকীয় ক্রপে",
+        "মশকীয় সিলোমে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 66,
+      "id": "115977",
+      "question": "ম্যালেরিয়ার পরজীবীর মিয়োসিস ঘটে নিচের কোনটিতে?",
+      "options": [
+        "উওসিস্ট",
+        "সাইজন্ট",
+        "মেরোজয়েট",
+        "ট্রফোজয়েট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 67,
+      "id": "115978",
+      "question": "ম্যালেরিয়া জীবাণুর যৌন জননে সচল ও লম্বাকৃতির জাইগোটের নাম কী?",
+      "options": [
+        "স্পোরোজয়েট",
+        "উওসিস্ট",
+        "উওকিনেট",
+        "জাইগোট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 68,
+      "id": "115979",
+      "question": "কোনটি সঠিক?",
+      "options": [
+        "আদিকোষী = ডিম্বাণু",
+        "লিফরোল = ব্যাক্টেরিয়া",
+        "অ্যাপ্লানোস্পোর = সচল কোষ",
+        "উওকিনেট = ডিপ্লয়েড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 69,
+      "id": "115980",
+      "question": "Plasmodium এর কোন দশা হতে গ্যামিটোসাইট তৈরি হয়?",
+      "options": [
+        "স্পোরোজয়েট",
+        "ক্রিপ্টোজয়েট",
+        "ট্রোফোজয়েট",
+        "মেরোজয়েট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 70,
+      "id": "115981",
+      "question": "কোয়ারটান ম্যালেরিয়ার পরজীবী কোনটি?",
+      "options": [
+        "Plasmodium vivax",
+        "P. malariae",
+        "P. ovale",
+        "P. falciparum"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 71,
+      "id": "115982",
+      "question": "বিনাইন টার্সিয়ান ম্যালেরিয়া রোগ সংক্রমিত হয় নিচের কোনটি দ্বারা",
+      "options": [
+        "Plasmodium vivax",
+        "Plasmodium malariae",
+        "Plasmodium ovale",
+        "Plasmodium falciparum"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 72,
+      "id": "115983",
+      "question": "Plasmodium malariae এর স্বাভাবিক সুপ্তিকাল কতদিন?",
+      "options": [
+        "৮ - ১৫",
+        "১১ - ১৬",
+        "১২ - ২০",
+        "১৮ - ৪০"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    }
+  ]
+}

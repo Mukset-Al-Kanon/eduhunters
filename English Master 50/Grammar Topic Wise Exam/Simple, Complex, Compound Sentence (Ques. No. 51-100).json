@@ -1,0 +1,761 @@
+{
+  "exam_id": 10790,
+  "title": "Simple, Complex, Compound Sentence (Ques. No. 51-100)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Simple, Complex, Compound Sentence (151 Marks)",
+  "duration_minutes": 25,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "a1ad3db9-f48d-4bac-a8fd-e496de480902",
+      "question": "‘Killing the bird, the old man brought bad luck to the crew’ is a - [SABAS][]",
+      "options": [
+        "complex sentence",
+        "compound sentence",
+        "simple sentence",
+        "none of them"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এতে একটিমাত্র finite verb (brought) এবং একটিমাত্র subject (the old man) থাকায় এটি একটি simple sentence।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "3cd7abb5-1e62-4d86-b5d8-39ba5294b073",
+      "question": "‘Without working hard, you will not prosper in life’ is a- [SABAS][]",
+      "options": [
+        "conditional sentence",
+        "compound sentence",
+        "complex sentence",
+        "simple sentence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এটি একটি simple sentence, কারণ এতে একটিমাত্র clause এবং finite verb (will prosper) আছে।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "84e03cf2-fc2e-4e46-bf27-d6ff44a7cd52",
+      "question": "‘I saw a boy who was poor’ is a- [SABAS][]",
+      "options": [
+        "simple sentence",
+        "compound sentence",
+        "complex sentence",
+        "none of them"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "who was poor' একটি subordinate adjective clause, তাই এটি complex sentence।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "7baf170f-5feb-4f63-ac4d-b83a5edac67b",
+      "question": "Which one of the following is a compound sentence? [SABAS][]",
+      "options": [
+        "Turning to the left you will see the shop.",
+        "If you read you will learn.",
+        "I shall work hard or I shall fail.",
+        "Had I the wings of a bird?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দুটি স্বাধীন খণ্ডবাক্য (I shall work hard, I shall fail) 'or' conjunction দ্বারা যুক্ত হয়েছে, তাই এটি compound sentence।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "162cf558-def6-4031-b6d1-c6081850264e",
+      "question": "“You should apologize for what you have done” is a - [SABAS][]",
+      "options": [
+        "complex sentence",
+        "simple sentence",
+        "compound sentence",
+        "adverbial clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "what you have done' একটি noun clause (subordinate), তাই পুরো বাক্যটি একটি complex sentence।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "06f021a3-2d7d-4b80-b421-aa0c8b5834ae",
+      "question": "The girl who sat next to me is an architect. It is a: [SABAS][]",
+      "options": [
+        "simple sentence",
+        "complex sentence",
+        "compound sentence",
+        "complex-compound sentence"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "who sat next to me' একটি adjective clause, যা complex sentence গঠন করে।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "b7676a60-b389-47f4-9ce9-0fcb160c4602",
+      "question": "A complex sentence is one which contains [SABAS][]",
+      "options": [
+        "one independent clause and one subordinate clause",
+        "two subordinate clause",
+        "two independent clauses",
+        "neither of the above"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "একটি complex sentence-এ কমপক্ষে একটি independent clause এবং একটি subordinate clause থাকে।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "72cf3878-cf33-469c-89b1-85bc454d3e12",
+      "question": "He is a boy who has his merit. This sentence is- [SABAS][]",
+      "options": [
+        "exclamatory",
+        "compound",
+        "complex",
+        "simple"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "who has his merit' একটি subordinate clause, তাই এটি complex sentence।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "09bab07c-897a-40cd-9989-c0d0d690e816",
+      "question": "Which of the following is a compound sentence? [SABAS][]",
+      "options": [
+        "Work hard and you will succeed",
+        "Work hard for success",
+        "If you work hard, you will succeed",
+        "You need to be hard working to succeed"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দুটি স্বাধীন খণ্ডবাক্য (independent clauses) 'and' দ্বারা যুক্ত হওয়ায় এটি একটি Compound sentence।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "a560ab1f-8e88-42f4-b50a-4474a3fd9acf",
+      "question": "‘If we don't read we become trapped in our own individual minds’ is a -. [SABAS][]",
+      "options": [
+        "a simple sentence",
+        "an imperative sentence",
+        "a complex sentence",
+        "an exclamatory sentence"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "If' যুক্ত conditional clause থাকায় এটি একটি Complex sentence।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "154b7376-3ca7-40e0-a874-0b118260206c",
+      "question": "Which one is a simple sentence? [SABAS][]",
+      "options": [
+        "If I make a promise I keep it",
+        "You can talk as much as you like",
+        "While there is life there is hope",
+        "He will pay only under compulsion"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটিতে একটিমাত্র finite verb (will pay) আছে এবং কোনো subordinate clause নেই, তাই এটি Simple sentence।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "ab3643db-921d-49d1-beea-7756f1e48f4c",
+      "question": "You must work for success. (Make it compound without changing meaning) [SABAS][]",
+      "options": [
+        "Work hard for the success.",
+        "Work hard for success.",
+        "Work hard to succeed.",
+        "Work hard and you will succeed."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Compound sentence-এ দুটি clause থাকে যা 'and' দ্বারা যুক্ত, এখানে 'Work hard' ও 'you will succeed' যুক্ত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "68d06b49-0665-465e-abeb-5f118a59ea74",
+      "question": "Because of illness, he could not attend the meeting. This is a ---- [SABAS][]",
+      "options": [
+        "simple sentence",
+        "complex sentence",
+        "compound sentence",
+        "multiple sentence"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এতে একটিমাত্র finite verb (could not attend) আছে, তাই এটি Simple sentence।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "7f46dd4f-716c-4028-a3f2-e5d73b08949e",
+      "question": "‘I saw that the boy was playing.’ It is an example of a – [SABAS][]",
+      "options": [
+        "complex sentence",
+        "compound sentence",
+        "simple sentence",
+        "exclamatory sentence"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "that the boy was playing' একটি noun clause, তাই এটি Complex sentence।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "dc8cb96c-dc75-4931-8a0d-bfe96df06e83",
+      "question": "‘Besides robbing the poor child, he also murdered her’– this sentence is- [SABAS][]",
+      "options": [
+        "a compound sentence",
+        "a simple sentence",
+        "a complex sentence",
+        "an optative sentence"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Besides robbing' একটি phrase, এবং বাক্যে একটি finite verb (murdered) থাকায় এটি Simple sentence।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "a08ec27d-e377-424c-b906-780499dcb1e2",
+      "question": "The tiger having fallen, he climbed down from the tree. [SABAS][]",
+      "options": [
+        "complex sentence",
+        "simple sentence",
+        "compound sentence",
+        "negative sentence"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The tiger having fallen' একটি absolute phrase এবং বাক্যে একটি finite verb (climbed) আছে, তাই এটি Simple sentence।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "ddd3e3b5-8109-4d50-83d6-b27be1879828",
+      "question": "What is the sentence-pattern of the following sentence? ‘Besides making a promise, he kept it.’ [SABAS][]",
+      "options": [
+        "Complex sentence",
+        "Compound sentence",
+        "Simple sentence",
+        "Negative sentence"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এতে একটিমাত্র clause (he kept it) আছে, তাই এটি Simple sentence।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "bef9469c-8f38-446c-beb8-21005655eec9",
+      "question": "‘There is no meaning in what you say’ what type of sentence is it? [SABAS][]",
+      "options": [
+        "simple sentence",
+        "compound sentence",
+        "positive sentence",
+        "complex sentence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "what you say' একটি noun clause, যা Complex sentence নির্দেশ করে।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "0a10adf6-20d4-4f4f-aafe-9ed18959721b",
+      "question": "Since the water was hot, I could not drink it. (The correct simple sentence of the above complex sentence is -) [SABAS][]",
+      "options": [
+        "The water was very hot, so I could not drink it.",
+        "The water being very hot, I could not drink it.",
+        "As the water being very hot, I could not drink it.",
+        "I could not drink the water because it was hot."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Complex sentence-এ Since/As থাকলে Simple sentence-এ 'Being' বা 'Having' যুক্ত Phrase বসে।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "975b037b-2daa-4dba-9cc0-bb4b0108dfe2",
+      "question": "He shut the door and went out. (Make it simple) [SABAS][]",
+      "options": [
+        "Shutting the door, he went out.",
+        "He shutting the door before went out.",
+        "He went out shutting door.",
+        "Closing the door he went out."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Compound sentence-এ 'and' থাকলে Simple-এ প্রথম verb-এর সাথে -ing যোগ করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "39aff15b-669d-4734-9212-de3f7f3fbc27",
+      "question": "The man said this and went away. (Complex) [SABAS][]",
+      "options": [
+        "Saying this the man went away",
+        "Having said this the man went away",
+        "The man went away after he had said this",
+        "None of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Simple sentence-কে Complex-এ রূপান্তরের সময় and তুলে দিয়ে দুটি clause করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "afe7efa2-ff08-4524-a30f-e37b5130b0a4",
+      "question": "I had done the work and went home (Simple) [SABAS][]",
+      "options": [
+        "Having done the work, I went home",
+        "Being done the work, I went home",
+        "Because of being done the work, I went home",
+        "As I had done the work, I went home"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কাজ শেষ বোঝাতে Having + past participle ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "b9cd3b53-9a82-42f5-be05-6b1633834187",
+      "question": "Though he is poor, he is happy. (Simple) [SABAS][]",
+      "options": [
+        "Despite his poverty, he is happy.",
+        "In spite of his being poor, he is unhappy.",
+        "He is poor but happy.",
+        "In spite of his poorness, he is happy."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Though/Although যুক্ত Complex sentence-কে Simple করতে 'Despite/In spite of' ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "9309275b-dadd-4367-9b27-cff70e707f17",
+      "question": "Though he tried hard, he failed. (Compound) [SABAS][]",
+      "options": [
+        "He tried and failed",
+        "In spite of his trying hard, he failed.",
+        "He tried hard but failed",
+        "But for his trying hard, he failed."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Though যুক্ত বাক্যকে Compound করার সময় 'but' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "461a0431-b223-4565-8c53-f941d7cb47f6",
+      "question": "Find the complex form of 'He is poor but honest'. [SABAS][]",
+      "options": [
+        "Although he is poor he is honest",
+        "He being poor is honest",
+        "Despite his poverty he is honest",
+        "In spite his honesty he is poor"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Compound sentence-এ but থাকলে Complex করার সময় Although/Though যোগ করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "0ea6103a-d021-460c-bd01-84967d3ac487",
+      "question": "He is poor but honest. (Make it simple) [SABAS][]",
+      "options": [
+        "In spite of his poverty he is honest.",
+        "Though he is poor but honest also.",
+        "He is poor and honest.",
+        "He is poor, so he is honest."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "But যুক্ত বাক্যকে Simple করার সময় In spite of + possessive case + noun ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "bdbc7e81-857e-4d1c-b319-a6ef7dd7679a",
+      "question": "He is rich, but he is unhappy'. Make it simple. [SABAS][]",
+      "options": [
+        "Although he is rich but he is unhappy.",
+        "In spite of his richness, he is unhappy.",
+        "In spite of his riches, he is unhappy.",
+        "Though he is rich, he is unhappy."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Richness-এর চেয়ে Riches (ধন-সম্পদ) শব্দটি অধিক সামঞ্জস্যপূর্ণ।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "b57b87df-f951-4041-834a-9b4b69ed034e",
+      "question": "Though he is rich, he is not happy. (Make it simple) [SABAS][]",
+      "options": [
+        "He is rich but not happy.",
+        "In spite of being a rich man, he is not happy",
+        "In spite of a rich man, he is not happy.",
+        "In spite of a rich man, he is happy."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Rich noun নয়, তাই 'In spite of being a rich man' সঠিক গঠন।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "0f1a4951-ffeb-49a6-b71a-179f4b9de026",
+      "question": "In spite of being old, he was young at heart.' The compound sentence of it is - [SABAS][]",
+      "options": [
+        "Though he was old he was young at heart",
+        "He was too old to be young at heart.",
+        "He was old but young at heart.",
+        "All of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Compound sentence-এ দুটি clause-কে 'but' দ্বারা যুক্ত করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "8050f875-f209-475f-87e9-b5830541c6b3",
+      "question": "Move and die. (Simple) [SABAS][]",
+      "options": [
+        "If you move, you will die.",
+        "By moving you will die.",
+        "Without moving you will die.",
+        "If you do not move, you will die."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Imperative sentence-এ 'and' থাকলে Simple sentence-এ 'By + gerund' ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "1e92e685-6cd9-4a53-b5b6-e48c01db4cd2",
+      "question": "If he does not move, he will die. (Compound) [SABAS][]",
+      "options": [
+        "Move and die",
+        "Move or die",
+        "He cannot move and die",
+        "Let him move or he will die"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "If + negative (Unless) যুক্ত বাক্যকে Compound করতে 'or' ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "03fb1e3a-854b-44b7-b9e3-1ae7d9075cbc",
+      "question": "Give the simple form of the sentence. 'Study well or you will fail.' [SABAS][]",
+      "options": [
+        "In case of your studying you will fail.",
+        "In case of your not studying well you will fail.",
+        "Despite your studying well you will fail.",
+        "In spite of your studying you will fail."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Or যুক্ত বাক্যকে Simple করার সময় In case of + negative gerund ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "f1357873-bd0a-4750-9f38-96d445bf9dcf",
+      "question": "If he does not do, he will die. (Compound) [SABAS][]",
+      "options": [
+        "Do and die",
+        "Do or die",
+        "He cannot do and die",
+        "Let him do or he will die."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "If clause নেতিবাচক হলে Compound-এ 'or' দ্বারা যুক্ত করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "b7f1def8-36f9-4ce0-8a19-e31f8f387281",
+      "question": "Move and die. (Make simple) [SABAS][]",
+      "options": [
+        "Move or Die",
+        "In case of your moving you will die.",
+        "Move unless you die.",
+        "Move never you will die"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Imperative sentence-এ and থাকলে Simple-এ 'By + gerund' হয়।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "fa4400d3-29bb-4c14-8c38-d4da073af840",
+      "question": "Move or die. (make it simple) [SABAS][]",
+      "options": [
+        "You shall move to die",
+        "In case of your failure to move you will die.",
+        "If you don't move you will die",
+        "You will to move to die"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Or যুক্ত Imperative-কে Simple করতে 'In case of + negative gerund' ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "704b6b92-65e2-41e0-925a-71ec54efd16c",
+      "question": "Choose the simple form of the sentence: If you help me, I will help you. [SABAS][]",
+      "options": [
+        "In case of your helping me I will help you",
+        "In case you help me I will help you",
+        "By your help I will help you",
+        "Despite your help I will help you"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "If যুক্ত affirmative sentence-কে Simple করতে 'In case of + possessive + gerund' ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "89b39fbf-4df5-4398-b337-9c0b6b7b2cb6",
+      "question": "The complex sentence of 'He is too weak to walk.' is: [SABAS][]",
+      "options": [
+        "He is so weak that he cannot walk",
+        "He is very weak to walk",
+        "He is so weak to walk",
+        "He is to weak to walk"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Too...to যুক্ত sentence-কে Complex করার নিয়ম: so...that + cannot।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "4407c829-3894-4cf6-8b25-cf90fd630a59",
+      "question": "The man is so weak that he cannot walk (Simple) [SABAS][]",
+      "options": [
+        "The man is too weak to walk",
+        "The man is so weak to walk",
+        "The man is too weak for him to walk",
+        "The man is so weak for him to walk"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "So...that + negative clause-কে Simple করার নিয়ম: too...to।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "67e1c9fb-1268-49e0-aa75-a9635f4f230e",
+      "question": "He is so dishonest that he cannot speak the truth. (Simple) [SABAS][]",
+      "options": [
+        "He is too dishonest that he cannot speak the truth.",
+        "He is too dishonest to be spoken the truth.",
+        "He is too dishonest to speak the truth.",
+        "He is very dishonest and he cannot speak the truth."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "So...that + cannot-কে Simple করার জন্য too...to ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "42910adc-6946-4a5a-a7e4-d6ebc8b842e4",
+      "question": "The grass was so wet that we could not sit on it. Make it a simple sentence. [SABAS][]",
+      "options": [
+        "The grass was very wet to sit on.",
+        "The grass was too wet for us to sit on.",
+        "The grass was wet enough for us to sit on.",
+        "The grass was much wet for us to sit on."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Complex sentence-এর subject এবং that clause-এর subject ভিন্ন হলে 'too...for + object + to' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "2eac3e85-acc7-438f-8974-9f727bb4d554",
+      "question": "She is — to reach the shelf. [SABAS][]",
+      "options": [
+        "so tall",
+        "tall as",
+        "tall enough",
+        "too tall"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Adjective + enough + to + verb এই গঠন অনুযায়ী 'tall enough' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "41d831a1-0aca-4eb7-8b89-3020f7d9e220",
+      "question": "He is working hard ———————. [SABAS][]",
+      "options": [
+        "as he can shine in life",
+        "that he can shine in life",
+        "to shine in life",
+        "so that he can shine in life"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উদ্দেশ্যমূলক বাক্যে Simple-এ 'to' থাকলেও Complex-এ 'so that' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "7ef5a4b3-715a-4a0f-bfe8-a17668b7e24b",
+      "question": "‘In spring, the cuckoo sings’ Make it complex. [SABAS][]",
+      "options": [
+        "When it is spring, the cuckoo sings.",
+        "The cuckoo sings in spring.",
+        "The cuckoo sings only in spring.",
+        "When the spring comes, the cuckoo sings"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সময় নির্দেশক phrase থাকলে 'When + clause' দ্বারা Complex করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "6639dcf6-41a8-4c3a-a251-9687b0ab0f71",
+      "question": "Does he wish me to go. Which one is complex for this sentence? [SABAS][]",
+      "options": [
+        "Does he want that I should go?",
+        "Does he wish my going?",
+        "Does he wish that I should go?",
+        "Does he wish that I may go?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Wish/Want যুক্ত Simple বাক্যকে Complex করতে 'that + subject + should + verb' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "ea8079c3-7cbb-4fed-9d38-c5988f31046e",
+      "question": "He wants that I should go. (Make it simple) [SABAS][]",
+      "options": [
+        "He wants my going",
+        "He wants me to go.",
+        "He wants that I must go",
+        "He wants that I might go."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "That clause-কে Simple করতে 'object + to + infinitive' গঠন ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "cc0eb154-8efb-4e3c-bc74-283d1fae34de",
+      "question": "Which is the complex form of ‘They admitted their guilt’? [SABAS][]",
+      "options": [
+        "They admitted that they were guilty",
+        "They admitted when they were guilty",
+        "They admitted because they were guilty",
+        "They admitted, they have guiltiness"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Noun phrase-কে Complex করতে 'that + clause' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "13392e46-9cff-48b2-a12e-f1789e68d441",
+      "question": "I know her name. (Make it complex) [SABAS][]",
+      "options": [
+        "What her name I know.",
+        "I know what is her name.",
+        "I know what her name is.",
+        "Her name I know."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Noun phrase-কে Complex করার সময় wh-word বা that এর পরে subject + verb বসে।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "9bfabe62-a385-4263-80d7-3c2ab38c8cdc",
+      "question": "[SABAS]\nThe sentence 'He is diligent, therefore he will succeed' is a-[]",
+      "options": [
+        "compound-complex sentence",
+        "compound sentence",
+        "simple sentence",
+        "complex sentence"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "859de7e3-9ae0-4311-a66a-fc561b628440",
+      "question": "[SABAS]\nWhich of the following is a compound sentence?[]",
+      "options": [
+        "After he came here, he talked to him",
+        "He came here but I did not talk to him",
+        "He stopped to talked to him",
+        "He could not but talked to him"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "ea7d2388-8f5f-4ec7-ad63-e7092783c0f8",
+      "question": "[SABAS]\n\"The man with a stick in his hand was walking across the road (লোকটা তার হাতে লাঠি নিয়ে হেঁটে রাস্তা পার হচ্ছিল)\" This sentence is the example of-[]",
+      "options": [
+        "a simple sentence",
+        "an imperative sentence",
+        "a complex sentence",
+        "an exclamatory sentence"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

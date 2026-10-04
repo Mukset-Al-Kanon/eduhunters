@@ -1,0 +1,381 @@
+{
+  "exam_id": 1358,
+  "title": "Exam (40)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 12,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "de0437cd-65d8-49b4-a7f6-a34e73fc6359",
+      "question": "নেপাল কোন ধরনের শাসনব্যবস্থা অনুসরণ করে?",
+      "options": [
+        "সামন্ততন্ত্র",
+        "সংসদীয় প্রজাতন্ত্র",
+        "সামরিক শাসন",
+        "রাজতন্ত্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নেপাল সংসদীয় প্রজাতন্ত্র শাসনব্যবস্থা অনুসরণ করে।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5b94716c-fa5e-45a0-8251-14b747c4e539",
+      "question": "পাকিস্তানের বৃহত্তম প্রদেশ (আয়তনে) কোনটি?",
+      "options": [
+        "সিন্ধু",
+        "পাঞ্জাব",
+        "খাইবার পাখতুনখোয়া",
+        "বেলুচিস্তান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পাকিস্তানের বৃহত্তম প্রদেশ (আয়তনে) বেলুচিস্তান।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "e6c9f81d-e0c6-4886-8774-c30dca725fe4",
+      "question": "শ্রীলঙ্কার কোন অঞ্চলটি তামিল জনগোষ্ঠীর আধিক্যপূর্ণ?",
+      "options": [
+        "দক্ষিণ উপকূল",
+        "উত্তর ও পূর্বাঞ্চল",
+        "পশ্চিমাঞ্চল",
+        "মধ্যাঞ্চল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "শ্রীলঙ্কার উত্তর ও পূর্বাঞ্চল তামিল জনগোষ্ঠীর আধিক্যপূর্ণ।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "81cf7dfb-37c1-4ee5-8082-2cb4f5f8f185",
+      "question": "কোন পর্বতমালার কারণে ভারত ও চীনের মধ্যে প্রাকৃতিক সীমানা গঠিত হয়েছে?",
+      "options": [
+        "কারাকোরাম",
+        "হিমালয়",
+        "হিন্দুকুশ",
+        "আরাবল্লী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হিমালয় পর্বতমালার কারণে ভারত ও চীনের মধ্যে প্রাকৃতিক সীমানা গঠিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "c78503a4-f82c-494d-9fde-2d46cfbb17d0",
+      "question": "মালদ্বীপের সর্বোচ্চ ভূমি উচ্চতা কত মিটার?",
+      "options": [
+        "2.4 মিটার",
+        "10.2 মিটার",
+        "5.8 মিটার",
+        "3.2 মিটার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মালদ্বীপের সর্বোচ্চ ভূমি উচ্চতা 2.4 মিটার।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "fea08444-84cc-44ed-abd9-992ef1336dab",
+      "question": "নিচের কোন দেশটি দ্বীপ রাষ্ট্র?",
+      "options": [
+        "ভুটান",
+        "নেপাল",
+        "মালদ্বীপ",
+        "আফগানিস্তান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নেপাল ,ভুটান  ও আফগানিস্তান হলো ভূ-বেষ্ঠিত (Land lock) দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "adfa9c50-399f-4333-bc8b-a06f60e182c0",
+      "question": "পাকিস্তানের রাজধানীর অবস্থান কোন পাহাড়ের পাদদেশে?",
+      "options": [
+        "সালতোরো",
+        "হিন্দুকুশ",
+        "মারগাল্লা",
+        "সুলেইমান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পাকিস্তানের রাজধানী ইসলামাবাদের অবস্থান মারগাল্লা পাহাড়ের পাদদেশে।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "59e77949-4d57-4a86-a8e4-b4934150454c",
+      "question": "ভুটান কোন নদী ব্যবস্থার ওপর নির্ভরশীল?",
+      "options": [
+        "ব্রহ্মপুত্র",
+        "গঙ্গা",
+        "সিন্ধু",
+        "গোধাবরী"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভুটান ব্রহ্মপুত্র নদী ব্যবস্থার ওপর নির্ভরশীল।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "56d4b363-b835-4bf1-9305-6586b5135045",
+      "question": "শ্রীলঙ্কার সাথে ভারতের সংযোগকারী প্রাচীন ভূগঠনিক গঠন কী নামে পরিচিত?",
+      "options": [
+        "মালাবার ব্রিজ",
+        "আদমের সেতু",
+        "পালি করিডোর",
+        "তামিল গেটওয়ে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "শ্রীলঙ্কার সাথে ভারতের সংযোগকারী প্রাচীন ভূগঠনিক গঠন আদমের সেতু (Adam's Bridge)।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "4e6daf9e-eb6d-4e2f-a197-c466ef198dd8",
+      "question": "দক্ষিণ এশিয়ার কোন দেশটি সম্পূর্ণভাবে পাহাড়বেষ্টিত?",
+      "options": [
+        "আফগানিস্তান",
+        "নেপাল",
+        "ভুটান",
+        "পাকিস্তান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দক্ষিণ এশিয়ায় ভুটান সম্পূর্ণভাবে পাহাড়বেষ্টিত।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "4115af19-93a1-469d-835a-3d4c8c32d73b",
+      "question": "ভারত মহাসাগরের মধ্যে কোনটি সবচেয়ে ছোট স্বাধীন রাষ্ট্র?",
+      "options": [
+        "মালদ্বীপ",
+        "শ্রীলঙ্কা",
+        "কমোরোস",
+        "সেশেলস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভারত মহাসাগরের মধ্যে সবচেয়ে ছোট স্বাধীন রাষ্ট্র মালদ্বীপ",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "0c3684fe-1d88-4e57-b98d-40c8070877a9",
+      "question": "নিচের কোন দেশের কোন সামুদ্রিক উপকূল নেই?",
+      "options": [
+        "ভারত",
+        "পাকিস্তান",
+        "নেপাল",
+        "শ্রীলঙ্কা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সামুদ্রিক উপকূল নেই নেপালে।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "f84bfbcd-9386-4c48-b03f-27f5aaadacdc",
+      "question": "'কাশ্মীর' অঞ্চল কোন দুটি দেশের মধ্যে বিরোধপূর্ণ এলাকা?",
+      "options": [
+        "ভারত ও নেপাল",
+        "ভারত ও পাকিস্তান",
+        "পাকিস্তান ও শ্রীলঙ্কা",
+        "ভারত ও আফগানিস্তান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কাশ্মীর' অঞ্চল দুটি দেশের মধ্যে বিরোধপূর্ণ- ভারত ও পাকিস্তান",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "be2fbc3e-d158-41d1-b8ce-cb25bde124e2",
+      "question": "দক্ষিণ এশিয়ায় 'মৌসুমি বায়ু' কোন মৌসুমে ভারী বৃষ্টিপাত ঘটায় ?",
+      "options": [
+        "গ্রীষ্মকাল",
+        "শীতকালীন",
+        "বসন্তকাল",
+        "শরৎকাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দক্ষিণ এশিয়ায় 'মৌসুমি বায়ু' গ্রীষ্মমৌসুমে ভারী বৃষ্টিপাত ঘটায়।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "44d8d912-7a12-4bb2-b7a3-afa3e7c572bd",
+      "question": "কাবুল' শহর কোন নদীর তীরে অবস্থিত?",
+      "options": [
+        "হেলমান্দ",
+        "আমু দরিয়া",
+        "কাবুল",
+        "সারন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কাবুল' শহর কাবুল নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "8ba940f8-b9b4-41ff-ba47-9bb1db79219e",
+      "question": "Divine inspiration comes from above. Here above is-",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Adverb",
+        "Preposition"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Uses of above-Noun - Our blessings come from above. (স্বর্গ থেকে আমাদের ওপর আশীর্বাদ আসে।)Adjective -Read the above sentence carefully. (ওপরের বাক্যটি ভালো করে পড়।)Adverb-The heavens are above. (স্বর্গ উপরে আছে।) Look above. (উপরে তাকাও)Preposition-The moral law is above the civil law. (আইনের ওপর নীতির স্থান",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "b4cf5c06-d62f-4e19-9781-2fc4c28edfa5",
+      "question": "He told us about the battle. এখানে about শব্দটি-",
+      "options": [
+        "Pronoun",
+        "Adjective",
+        "Adverb",
+        "Preposition"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Adverb:(i) Preposition হিসেবে ব্যবহৃত word এর পরে noun, noun phrase বা pronoun না থাকলে preposition টি adverb হবে। (ii) intransitive verb (walk) এর পরে adverb বসে।Preposition: Noun অথবা pronoun এর object form এর পূর্বে about থাকলে তা Preposition হবে।Adverb -He is walking about. (সে চতুর্দিকে/চারপাশে হাঁটছে)Preposition-There is something pleasing about him. (তার ব্যাপারে সামান্য কিছু প্রীতিকর)",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "e68232ef-fa15-45f9-89ca-6efe875be055",
+      "question": "After ages will sing his glory. Here after is a/an-",
+      "options": [
+        "Pronoun",
+        "Adjective",
+        "Adverb",
+        "Preposition"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Uses of after-Adjective-After ages will sing his glory. (পরবর্তী যুগ তার গৌরবগাথা রচনা করবে।)Adverb -They arrived soon after. (কিছুক্ষণ পরে তারা পৌঁছাল।)Preposition-She takes after her mother. (সে তার মায়ের মতো দেখতে।)Conjunction They arrived after the train had left the station. (ট্রেন ছেড়ে যাওয়ার পর তারা গৌছান।)",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "49c6cb92-2f0a-4a3c-b13f-bdaeb1767868",
+      "question": "Look before you leap. Here ' before ' is a/an-",
+      "options": [
+        "Preposition",
+        "Conjunction",
+        "Adverb",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Adverb-I have seen you before. (আমি তোমাকে পূর্বে দেখেছি।)Preposition-He came before the appointed time. (সে নির্ধারিত সময়ের পূর্বে এল।)Conjunction-He went away before I came. (আমার আসার পূর্বে সে চলে গেল।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "530fffae-9eed-43a0-8464-ec144b427af2",
+      "question": "I think yours is a better plan. Here ' better ' is a/an-",
+      "options": [
+        "Verb",
+        "Adverb",
+        "Noun",
+        "Adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Noun-Give place to your betters. (তোমার চেয়ে যারা ভালো তাদের জন্য জায়গা ছেড়ে দাও।)Adjective -I think yours is a better plan. (আমার মনে হয়, তোমার পরিকল্পনাটি আরও ভালো।)Adverb -I know him better. (আমি তাকে আরো ভালো জানি।) I know better. (আমি আর ভালো জানি)",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "0109fc00-c7bc-4015-a34d-6e5f66d70ae8",
+      "question": "Which underlined word is a preposition?",
+      "options": [
+        "You are but a child.",
+        "He is poor but honest.",
+        "None but the brave deserves the fair.",
+        "But me no buts."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Uses of but- Adverb -You are but a childConjunction -He is poor but honestPreposition-None but the brave deserves the fair. But me no buts- 1st but- verb; 2nd but- noun",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "7bce864d-6f6c-4d88-893f-54575b653149",
+      "question": "But me no buts. Here the second 'but' is a /an-",
+      "options": [
+        "Noun",
+        "Verb",
+        "Preposition",
+        "Adverb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Uses of but- Adverb -You are but a childConjunction -He is poor but honestPreposition-None but the brave deserves the fair. But me no buts- 1st but- verb; 2nd but- noun",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "e236faa0-a149-4688-9e4a-f733dd69a2e5",
+      "question": "She came down the hill. In this sentence 'down' is Preposition. True or false?",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Preposition: noun phrase (=article+ noun = the hill) এর পূর্বে preposition বসে",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "49035cd7-9273-49d7-8609-add598381256",
+      "question": "Few know where he is.Here 'few' is used as Adverb. True or false?",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Few know where he is.' Here 'few' is used as pronoun.-শুধু Few যদি verb এর subject হয়, তা pronoun (Indefinite pronoun) হবে",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "e9f6b0b6-cfc0-423f-9ef8-8c84a972911e",
+      "question": "They are men of like build and stature. Here the word 'like' is a/an-",
+      "options": [
+        "Preposition",
+        "Adverb",
+        "Adjective",
+        "Choice 4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Adjective: like বাক্যে build (দৈহিক গড়ন) noun এর পূর্বে বসে তার ধরন নির্দেশ করছে বলে ইহ্য Adjective",
+      "images": []
+    }
+  ]
+}

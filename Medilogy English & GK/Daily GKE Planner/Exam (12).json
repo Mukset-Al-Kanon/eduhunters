@@ -1,0 +1,385 @@
+{
+  "exam_id": 600,
+  "title": "Exam (12)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 15,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "b1561784-728c-4f2a-b048-f375271208c2",
+      "question": "_____ your shoes before entering the mosque.",
+      "options": [
+        "Put out",
+        "Put off",
+        "Put on",
+        "Pit up"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "3880a764-6ae3-47da-ba5c-8b0e98f1b670",
+      "question": "\"Put up with\" means -",
+      "options": [
+        "complain",
+        "Tolerate",
+        "Hate",
+        "Be patient"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "e27d11df-2ee6-4466-b358-08f36e9c3c25",
+      "question": "He went to the airport to see _____ her uncle.",
+      "options": [
+        "off",
+        "after",
+        "of",
+        "away"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "See off- বিদায় জানানো",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "b478bead-6f06-4218-9b9c-e420b9758278",
+      "question": "You should not run ______ debt.",
+      "options": [
+        "on",
+        "into",
+        "after",
+        "for"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Run into (fall into, পতিত হওয়া)",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "7f3fe84f-1da8-4911-bdf6-e4dce6f1626a",
+      "question": "The police is looking____  the case.",
+      "options": [
+        "after",
+        "on",
+        "up",
+        "into"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Look into (enquire into, তদন্ত্র করা)",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "b7c331f2-ffb8-4e35-bd88-fcedaaf2214a",
+      "question": ". \"Look out\" means-",
+      "options": [
+        "carry on",
+        "be careful",
+        "get on",
+        "give up"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Look out (Be cautious/ সতর্ক হওয়া)",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "7adf9407-0b0a-49ef-95b4-c5819a9ada4e",
+      "question": "The team is _____ eleven players.",
+      "options": [
+        "made",
+        "made of",
+        "made up",
+        "made up of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "made up of - consists of",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "54bb80e2-fb02-4404-ab53-72454aad304c",
+      "question": "Who looked ______ you?",
+      "options": [
+        "after",
+        "with",
+        "to",
+        "in"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "look after- দেখাশুনা করা",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "0fc9bc95-09e3-4443-900b-20bf7ccb705b",
+      "question": "Bees have compound eyes _____ almost 6,000 tiny lenses.",
+      "options": [
+        "made of",
+        "made in",
+        "made up",
+        "made on"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "6a269952-6dee-4f13-9b8a-e1272b89c395",
+      "question": "I had to______the loss.",
+      "options": [
+        "Made up",
+        "Make up for",
+        "Make up",
+        "Made up for"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Make up for (compensate/ ক্ষতিপূরণ করা)",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "a2d689cc-8966-4f08-ab80-577acd88d25c",
+      "question": "In spite of my requests, he did not _____.",
+      "options": [
+        "Give in",
+        "Fall in",
+        "Give forth",
+        "Get off"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "feed3ff8-5b7d-4df6-ae7e-69aae6bd5f20",
+      "question": "Instead of 'distribute' we can say-",
+      "options": [
+        "Give Out",
+        "Give Up",
+        "Give Away",
+        "Give Over"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Give away (distribute/ বিতরণকরা)",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "6fd7a548-ca0c-439a-aa15-4fb60b444776",
+      "question": "The tree has been blown _____ by the storm.",
+      "options": [
+        "away",
+        "up",
+        "off",
+        "out"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "29cf3db1-cb87-45d8-9696-b28ed98a749b",
+      "question": "\"থেমে যাওয়া\" অর্থে নিচের কোনটি সঠিক?",
+      "options": [
+        "Blow over",
+        "Blow away",
+        "Bear out",
+        "Bear off"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "ce6c89ad-ab29-4236-b272-c197cbe717d1",
+      "question": "মুক্তিযুদ্ধ বিষয়ক কবিতা \"গেরিলা\" কে লিখেছেন?",
+      "options": [
+        "মোঃ মনিরুজ্জামান",
+        "হাসান হাফিজুর রহমান",
+        "শামসুর রহমান",
+        "বেগম সুফিয়া কামাল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবি হাসান হাফিজুর রহমান মুক্তিযুদ্ধ বিষয়ক কবিতা \"গেরিলা\"  লিখেছেন।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "cb8e3a62-e5ef-48c5-aef9-e493e69e8163",
+      "question": "নিচের কোনটি সঠিক নয়?",
+      "options": [
+        "তোমার অভাবে এই স্বাধীনতা: মহাদেব সাহা",
+        "প্রথম শহীদ বাংলাদেশের মেয়ে : বেগম সুফিয়া কামাল",
+        "শহীদ স্মরণে : মোহাম্মদ মনিরুজ্জামান",
+        "দগ্ধগ্রাম ও মুক্তিযোদ্ধা: আসাদ চৌধুরী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দগ্ধগ্রাম ও মুক্তিযোদ্ধা , কবি জসীম উদ্দিন রচিত কবিতা।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "c502ffe7-e9b8-46bf-92c8-b98d4780b92c",
+      "question": "The Second World War broke ____in September, 1939.",
+      "options": [
+        "Through",
+        "Away",
+        "Out",
+        "In"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "c9110573-1cdc-4505-adfc-53025bfa9a64",
+      "question": "\"মোরা একটি ফুলকে বাঁচাবো বলে\" গানটির সুরকার কে?",
+      "options": [
+        "খান আতাউর রহমান",
+        "গোবিন্দ হালদার",
+        "ডিএল রায়",
+        "আপেল মাহমুদ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"মোরা একটি ফুলকে বাঁচাবো বলে\" গানটির সুরকার আপেল মাহমুদ।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "6d36b1ea-10eb-4d91-bc55-94315baee5c5",
+      "question": "মুক্তিযুদ্ধ বিষয়ক গান \"একবার যেতে দে না আমার ছোট্ট সোনার গাঁয়\" এর গীতিকার কে?",
+      "options": [
+        "খান আতাউর রহমান",
+        "গাজী মাজহারুল আনোয়ার",
+        "ডিএল রায়",
+        "আপেল মাহমুদ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মুক্তিযুদ্ধ বিষয়ক গান \"একবার যেতে দে না আমার ছোট্ট সোনার গাঁয়\" এর গীতিকার গাজী মাজহারুল আনোয়ার।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "e78ea808-c85f-4626-a33b-9e43186dfb4f",
+      "question": "\"এক নদী রক্ত পেরিয়ে\" গানটির গীতিকার ও সুরকার কে?",
+      "options": [
+        "খান আতাউর রহমান",
+        "গাজী মাজহারুল আনোয়ার",
+        "ডিএল রায়",
+        "আপেল মাহমুদ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"এক নদী রক্ত পেরিয়ে\" গানটির গীতিকার ও সুরকার খান আতাউর রহমান।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "a1fae886-99e1-4c80-8644-8d4d4472f913",
+      "question": "নিম্নোক্ত কোন গানের গীতিকার নজরুল ইসলাম বাবু ?",
+      "options": [
+        "জনতার সংগ্রাম চলবেই",
+        "ভয় কি মরণে",
+        "তীর হারা এই ঢেউয়ের সাগর",
+        "সব কটা জানালা খুলে দাও না"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"সব কটা জানালা খুলে দাও না\" গানটির গীতিকার নজরুল ইসলাম বাবু এবং সুরকার আহমেদ ইমতিয়াজ বুলবুল।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "dc9f8b80-7344-4914-8e1d-b450eb418081",
+      "question": "নিম্নোক্ত কোন গানের গীতিকার ও সুরকার ডিএল রায়?",
+      "options": [
+        "জনতার সংগ্রাম চলবেই",
+        "ভয় কি মরণে",
+        "তীর হারা এই ঢেউয়ের সাগর",
+        "ধনধান্য পুষ্পে ভরা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"ধনধান্য পুষ্পে ভরা\" গানটির গীতিকার ও সুরকার ডিএল রায়।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "54045b78-3d98-47cb-b61f-2befbd318f7b",
+      "question": "\" নোঙ্গর তোল তোল সময় \" গানটির সুরকার ও গীতিকার কে ?",
+      "options": [
+        "আব্দুল লতিফ , আব্দুল লতিফ",
+        "সমর দাস ,নইম গহর",
+        "মুকুন্দ দাস ,মুকুন্দ দাস",
+        "গাজী মাজহারুল আনোয়ার ,আনোয়ার পারভেজ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\" নোঙ্গর তোল তোল সময় \" গানটির সুরকার সমর দাস ও গীতিকার  নইম গহর ।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "8da5d731-15c2-4a93-ae46-90c68c3b1666",
+      "question": "নিচের কোনটি সঠিক?",
+      "options": [
+        "জনতার সংগ্রাম চলবেই, সিকান্দার আবু জাফর",
+        "সোনা সোনা সোনা লোকে বলে সোনা,সমর দাস",
+        "বিচারপতি তোমার বিচার, আলী মহসিন রাজা",
+        "একতারা তুই দেশের কথা বল রে এবার বল, আবু জাফর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"জনতার সংগ্রাম চলবেই\" গানটির গীতিকার সিকান্দার আবু জাফর ।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "c031847d-4d1d-4801-a6ad-3550bac1146a",
+      "question": "\"সন্ত্রাসবন্দী বুলেটবিদ্ধ দিনরাত্রি\" কবিতাটির লেখক কে?",
+      "options": [
+        "বেগম সুফিয়া কামাল",
+        "শামসুর রহমান",
+        "সৈয়দ শামসুল হক",
+        "মুনিরুজ্জামান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সন্ত্রাসবন্দী বুলেটবিদ্ধ দিনরাত্রি, রক্তসেচ, তুমি আসবে বলে সে স্বাধীনতা,  স্বাধীনতা তুমি, আসাদের শার্ট, তোমাকে পাওয়ার জন্য সে- শামসুর রহমান রচিত।",
+      "images": []
+    }
+  ]
+}

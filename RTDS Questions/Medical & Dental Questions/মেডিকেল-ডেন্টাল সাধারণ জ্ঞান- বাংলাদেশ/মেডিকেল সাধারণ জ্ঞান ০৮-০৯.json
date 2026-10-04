@@ -1,0 +1,148 @@
+{
+  "title": "মেডিকেল সাধারণ জ্ঞান ০৮-০৯",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল সাধারণ জ্ঞান- বাংলাদেশ",
+  "duration_minutes": 30,
+  "total_questions": 10,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "148318",
+      "question": "ঢাকা সেনানিবাসস্থ মুক্তিযুদ্ধ জাদুঘরের নাম কী?",
+      "options": [
+        "বিজয় কেতন",
+        "স্বাধীনতা কেতন",
+        "স্বাধীন সুন্দর",
+        "বিজয় বাংলা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "148319",
+      "question": "সর্বপ্রথম কোন বিদেশি মিশনে বাংলাদেশের পতাকা উত্তোলিত হয়?",
+      "options": [
+        "দিল্লি",
+        "কলকাতা",
+        "লন্ডন",
+        "কাঠমণ্ডু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "148320",
+      "question": "বাংলা ভাষায় বাংলাদেশের প্রথম মহিলা কবির নামকী?",
+      "options": [
+        "বেগম রোকেয়া",
+        "আশাপূর্ণা দেবী",
+        "চন্দ্রাবতী",
+        "ফেরদৌস আরা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "148321",
+      "question": "বাংলাদেশের বৃষ্টিপাতের কতভাগ বর্ষাকালে হয়?",
+      "options": [
+        "৪০%",
+        "৬০%",
+        "৮0%",
+        "২০%"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "148322",
+      "question": "বাংলাদেশের শতকরা কতভাগ লোক বিদ্যুৎ সুবিধা লাভ করে?",
+      "options": [
+        "৭০%",
+        "৯০%",
+        "৩৫%",
+        "৪৫%"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলাদেশ ১০০% বিদ্যুতায়নের দেশে রূপান্তিত হয়\r\n২১ মার্চ ২০২২ সালে।"
+    },
+    {
+      "question_no": 6,
+      "id": "148323",
+      "question": "নদীর তীরবর্তী শহর-বন্দর নিম্নের কোনটি সঠিক?",
+      "options": [
+        "শিলাইদহ মেঘনা",
+        "চালনা যমুনা",
+        "সারদা পদ্মা",
+        "ঠাকুরগাঁও পশুর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "148324",
+      "question": "মুক্তিযুদ্ধে শহিদ বীরশ্রেষ্ঠ সিপাহি মোস্তফা কামাল নিম্নের কোন তারিখে মৃত্যুবরণ করেন?",
+      "options": [
+        "৫ সেপ্টেম্বর, ১৯৭১",
+        "১৮ এপ্রিল, ১৯৭১",
+        "২০ এপ্রিল, ১৯৭১",
+        "২০ আগস্ট ১৯৭১"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "148325",
+      "question": "নিম্নের কোনটি রবীন্দ্রনাথ ঠাকুরের প্রথম কবিতা গ্রন্থ?",
+      "options": [
+        "মুক্তি",
+        "রাখালী",
+        "হিন্দু মেলার উপহার",
+        "বনফুল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "148326",
+      "question": "নিম্নের কোনটি উক্ত কবি/সাহিত্যিকের সঠিক ছদ্মনাম?",
+      "options": [
+        "প্রমথ চৌধুরী: সুনন্দ",
+        "মীর মোশাররফ হোসেন: অবধূত",
+        "মোহিতলাল মজুমদার : দৃষ্টিহীন",
+        "শেখ আজিজুর রহমান:শওকত ওসমান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "148327",
+      "question": "নিম্নে প্রদত্ত বাংলাদেশের কোন জেলায় 'চর কুকড়ি-মুকড়ি' অবস্থিত?",
+      "options": [
+        "নোয়াখালী",
+        "পটুয়াখালী",
+        "ভোলা",
+        "ফেনী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    }
+  ]
+}

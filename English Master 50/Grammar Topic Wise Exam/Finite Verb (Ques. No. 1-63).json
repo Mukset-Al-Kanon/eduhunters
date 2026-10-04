@@ -1,0 +1,956 @@
+{
+  "exam_id": 8383,
+  "title": "Finite Verb (Ques. No. 1-63)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Verb (300 Marks)",
+  "duration_minutes": 25,
+  "total_questions": 63,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "b529613a-e51e-4393-a95c-56e4eb91a05a",
+      "question": "What is the appropriate translation of 'আমি তোমাকে খাওয়াই ?'",
+      "options": [
+        "I have eat you",
+        "I eat you",
+        "I feed you",
+        "I fed you"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5b4df231-4f0e-432d-b3e8-d4b8915ea2ea",
+      "question": "What type of verb 'make' in the following sentence is ?\n'My mother <u>makes</u> me take the medicine'.[]",
+      "options": [
+        "Auxiliary",
+        "Week",
+        "Strong",
+        "Causative"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "1bc98f17-e242-4822-bc44-5a234f69d33b",
+      "question": "Which one is not a stative verb ?[]",
+      "options": [
+        "See",
+        "Taste",
+        "Feel",
+        "Laugh"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "8ca72f7f-79e9-4227-b4e1-662af2cd3a1c",
+      "question": "Honey tastes sweet. What is expressed by the verb 'taste' ?[]",
+      "options": [
+        "State of emotion",
+        "State of being",
+        "Event",
+        "State of perceiving"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "3743d33c-7b74-4060-adca-d26e4e2580f5",
+      "question": "Event Verbs are used in ---[]",
+      "options": [
+        "progressive form",
+        "non progressive forms",
+        "both",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "798de6d7-8a3b-4eec-adf7-204e1930d196",
+      "question": "Which one is an example of an intransitive verb ?[]",
+      "options": [
+        "The painted their fences green.",
+        "My family moved to another city.",
+        "We believed the boy.",
+        "He gave the papers to the lawyer."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "5bae3b87-16d4-4846-a812-2c79267ba534",
+      "question": "My younger brother has <u>become</u> a lawyer. The underlined word is a -----[]",
+      "options": [
+        "Linking verb",
+        "Causative verb",
+        "Transitive verb",
+        "Non finite verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "a426cd39-3be2-4679-b012-33c9ad9e5e90",
+      "question": "I <u>slept</u> a sound sleep and felt better. The underlined word is -----[]",
+      "options": [
+        "Inchoative verb",
+        "Verbs of perception",
+        "Cognate verb",
+        "Reflexive verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "0e461f67-44f7-4137-9e30-6ac1ab243e77",
+      "question": "Pick out the sentence with causative verb. []",
+      "options": [
+        "She is eating rice.",
+        "The letter is being written.",
+        "I shall get the work done by him.",
+        "Honey tastes sweet."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "53bbf624-0ead-4971-8d22-517bfc58c36e",
+      "question": "Which one is transitive verb ?[]",
+      "options": [
+        "The baby <u>sleeps</u>",
+        "<u>To err</u> is human",
+        "Fire <u>burns</u>",
+        "The girl <u>takes after</u> her mother"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "4959c464-2e6b-45e5-94c8-7e5601137490",
+      "question": "She milks the cow'. \nThe intransitive use of this sentence -----[]",
+      "options": [
+        "The cow milking her.",
+        "The cow is milked her.",
+        "The cow is milking.",
+        "The cow is being milked her."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "81672404-be5d-4c5a-8de0-5e0a1d446191",
+      "question": "Identify the sentence where the verb is used intransitively.[]",
+      "options": [
+        "He spoke the truth.",
+        "I feel a severe pain in my head.",
+        "Ring the bell.",
+        "The ship rank rapidly"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "fe2f9a92-8f75-4dfe-83d9-b3ee52960612",
+      "question": "He <u>is called</u> a genius. Here the verb is -----[]",
+      "options": [
+        "transitive",
+        "intransitive",
+        "linking",
+        "non-finite"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "f5c82539-e13e-4ee8-a610-fb20ac253ed6",
+      "question": "A word indicating 'Action' is called ---[]",
+      "options": [
+        "Noun",
+        "Article",
+        "Verb",
+        "Vowel"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "df5e3dbb-4c69-49df-a02a-d92191cc1c22",
+      "question": "The essential part of a sentence is ---[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Hard words",
+        "feeling"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "657f655b-bb7f-42e1-9555-f4f0729299aa",
+      "question": "Which one of the following is correct ?[]",
+      "options": [
+        "Every English sentence must have a verb",
+        "Every English sentence should have a verb",
+        "Every English sentence has a verb",
+        "Every sentence has a verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "676a03eb-7c6a-41c9-8fbb-575d8eee0656",
+      "question": "I did the work'. Here 'did' is a/an ---[]",
+      "options": [
+        "Auxiliary verb",
+        "Weak verb",
+        "Strong verb",
+        "Principal verb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "d30edd7a-1792-41c3-b240-5f4e5abb37cc",
+      "question": "No sentence can be formed without the -----.[]",
+      "options": [
+        "Transitive verb",
+        "Principal verb",
+        "Facititive verb",
+        "Intransitive verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "d5cd8713-ecc3-4b05-bd96-1f9152748c26",
+      "question": "I am in class twelve. Here 'am' is ---[]",
+      "options": [
+        "Cognate verb",
+        "Factitive verb",
+        "Auxiliary verb",
+        "Principal verb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "751fe6c9-5187-43d4-a4ea-8ff13feb212b",
+      "question": "We should obey the laws. Here the verb 'obey' is ---[]",
+      "options": [
+        "Principal",
+        "finite",
+        "non finite",
+        "auxiliary"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "93609a16-2d43-43e1-87da-075a00f4acdd",
+      "question": "Nothing lasts forever. What type of verb is 'last' in the sentence ?[]",
+      "options": [
+        "Auxiliary verb",
+        "Participle",
+        "Main verb",
+        "Modal auxiliary"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "49c17c49-e2c5-4ef5-850b-98509d73dca8",
+      "question": "Which one is used both as auxiliary and principal verb ?[]",
+      "options": [
+        "can",
+        "could",
+        "might",
+        "am"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "03dd7bc7-0afe-4f4f-8e3f-ca73ac0c193d",
+      "question": "What is the number of auxiliary verbs in English ?[]",
+      "options": [
+        "Eleven",
+        "Twelve",
+        "Thirteen",
+        "Fifteen"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "5b87a533-3285-4ded-9a3c-72717680c761",
+      "question": "ইংরেজি ভাষায় Primary auxiliaries কয়টি ?[]",
+      "options": [
+        "১০ টি",
+        "১৪ টি",
+        "১২ টি",
+        "১১ টি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "e7a501d1-7409-4cb5-ade9-8cd0de756bc1",
+      "question": "He took shelter under a tree. Here the verb 'took' is ---[]",
+      "options": [
+        "Transitive",
+        "Intransitive",
+        "Both A and B",
+        "Neither A nor B"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "83daa6d7-de3a-4461-a0d3-fd0289ccb302",
+      "question": "Mother loves me. Here 'loves' is an example of the -----[]",
+      "options": [
+        "Transitive verb",
+        "Auxiliary verb",
+        "Simple verb",
+        "Intransitive verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "0db172eb-9069-4014-92ab-6bf598e70e2e",
+      "question": "The boy reads a book. What kind of verb 'read' in the sentence is -----[]",
+      "options": [
+        "principal verb",
+        "auxiliary verb",
+        "transitive verb",
+        "intransitive verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "55b3939a-aa5c-4eb7-bb3e-0df5a88ad673",
+      "question": "He writes a letter. In the sentence 'write' is a ---[]",
+      "options": [
+        "Principal verb",
+        "Auxiliary verb",
+        "Transitive verb",
+        "Intransitive verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "8190150a-d319-43a2-a914-6b7eee230a68",
+      "question": "Mother laughs. বাক্যে laughs কীসের উদাহরণ ?[]",
+      "options": [
+        "Intransitive verb",
+        "Auxiliary verb",
+        "Transitive verb",
+        "Causative verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "b5f1230a-43ca-462c-a646-25aaeaa6622f",
+      "question": "Huffing and puffing, we arrived at the classroom door with only seven seconds to spare.' In the sentence the verb 'arrived' is ---[]",
+      "options": [
+        "Intransitive",
+        "Transitive",
+        "Causative",
+        "Defective"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "6ee15953-5a3b-43fd-865a-8fc0aa44aa3b",
+      "question": "Which one is intransitive verb ?[]",
+      "options": [
+        "Raise",
+        "Lay",
+        "Set",
+        "Rise"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "72e18e8b-37c0-41ce-b24f-d121443901c9",
+      "question": "The door opened automatically. The verb in this sentence is ---[]",
+      "options": [
+        "Transitive",
+        "Intransitive",
+        "Linking",
+        "Non finite"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "e953b975-d89d-45ff-9cf6-94068286903b",
+      "question": "River flows. What kind of verb 'flows' is ?\nFire burns. What kind of verb 'burn' is ?[]",
+      "options": [
+        "Intransitive",
+        "Transitive",
+        "Causative",
+        "Copulative"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "0396bc17-0786-4ab1-9192-2bd4d3e27c50",
+      "question": "Which of the following is not a type of incomplete verb ?[]",
+      "options": [
+        "auxiliary verb",
+        "intransitive verb",
+        "semi-auxiliary verb",
+        "being verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "e3d8a903-7c9d-4fd9-97b9-3597bb8bab61",
+      "question": "She sleeps. Here the verb 'sleep' is a -----[]",
+      "options": [
+        "Transitive verb",
+        "Linking verb",
+        "Be verb",
+        "Intransitive verb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "79a3b8e3-a632-40cd-9cfb-b83143cb6405",
+      "question": "Identify the underlined item in the sentence. '<u>Whom</u>' do you like most ?[]",
+      "options": [
+        "Subject",
+        "Direct object",
+        "Indirect object",
+        "Relative pronoun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "bfa418c1-eae3-48e2-b426-1ecc46aa2fde",
+      "question": "Identify the underlined item. <u>What</u> did you tell her ?[]",
+      "options": [
+        "Predicate",
+        "Question",
+        "Indirect object",
+        "Direct object"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "f8528304-0167-49c3-b783-5b562fc68068",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I presented her a flower.",
+        "I presented a flower for her.",
+        "She was presented a flower by me.",
+        "I presented her with a flower."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "22609834-7bb9-41a6-858a-8822b9edec24",
+      "question": "Mrs. Lubna has returned -----.[]",
+      "options": [
+        "the wallet to its original owner",
+        "to its original owner the wallet",
+        "the wallet to its originally owner",
+        "a wallet back to its original owner"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "428f76a1-b940-41db-a3a4-9e83f5ce688b",
+      "question": "The professor gave -----. []",
+      "options": [
+        "to the class a tough assignment",
+        "a tough assignment for the class",
+        "the class a tough assignment",
+        "an assignment tough to the class"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "5d252b69-5add-48d1-9c2d-55d2204d2b51",
+      "question": "We gave ----- a meal.[]",
+      "options": [
+        "for the visitors",
+        "at the visitors",
+        "the visitors",
+        "to the visitors"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "a1d1398b-189c-45d9-b1e8-93ff9181315f",
+      "question": "Rahat gave ----- a book.[]",
+      "options": [
+        "at the friends",
+        "to the friends",
+        "his friend",
+        "for the friends"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "b3dc0295-a56f-406d-b27c-02534792772c",
+      "question": "Shakespeare is a playwright. Here 'playwright' is used as ---\nHe became a politician.Here politician is used as ---[]",
+      "options": [
+        "Object",
+        "Subject",
+        "Adverb",
+        "Complement"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "6065cad2-3231-4894-a9a2-5247c071b088",
+      "question": "It is <u>difficult</u> to pass this admission test. Here 'difficult' \nis ---[]",
+      "options": [
+        "noun",
+        "adjective",
+        "adverb",
+        "complement"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "24bf4a84-29e7-49cc-a599-081dd9689cd3",
+      "question": "He became a politician. Here 'became' is a/an ---[]",
+      "options": [
+        "transitive verb",
+        "linking verb",
+        "action verb",
+        "intransitive verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "6ba07c18-d809-448d-8e80-31f880d56f6b",
+      "question": "Honey tastes sweet. Here 'taste' is a/an ----- verb.[]",
+      "options": [
+        "linking",
+        "intransitive",
+        "non-finite",
+        "none"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "4d485d4d-71bf-449a-9dde-baabd60ba605",
+      "question": "He <u>went</u> mad. This verb \nis ---[]",
+      "options": [
+        "Transitive",
+        "Intransitive",
+        "Linking",
+        "Stative"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "522bd5d2-7375-4c93-b1b7-322d00007112",
+      "question": "What kind of verb is the word 'went' in the sentence 'The dog went mad' ?[]",
+      "options": [
+        "Transitive",
+        "Causative",
+        "Copulative",
+        "Factitive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "3b4ad686-6584-41b6-bab3-41cd593ffd71",
+      "question": "Which sentence uses inchoative verb ?[]",
+      "options": [
+        "He was king",
+        "It is dark",
+        "He is weak",
+        "It is growing dark"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "329022f6-7187-4319-bd2f-7cf96879b6dd",
+      "question": "They elected him captain. Here 'elected' is -----[]",
+      "options": [
+        "Transitive verb",
+        "Reflexive verb",
+        "Factitive verb",
+        "Causative verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "ab451eff-c0ad-4173-a9e6-aa15638c49fd",
+      "question": "I dreamt a wonderful <u>dream</u>.[]",
+      "options": [
+        "Retained object",
+        "Cognate object",
+        "Reflexive object",
+        "Factitive object"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "a3c0405e-c0d5-4c09-9d4b-694fab320998",
+      "question": "Which sentence of the following is an example of cognate object ?[]",
+      "options": [
+        "He called me a fool.",
+        "He teaches us English.",
+        "I know him to be a coward.",
+        "Rani sang a song"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "38ef92ee-cb22-4b93-b832-7bbcdbfbfc8f",
+      "question": "He ran a race. Here 'ran' is a ----- verb.[]",
+      "options": [
+        "Causative",
+        "Copulative",
+        "Cognate",
+        "Factitive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "0338aca0-2dc8-403c-9856-cd70cb1188d4",
+      "question": "She <u>takes after</u> her mother.[]",
+      "options": [
+        "Verbal idiom",
+        "Phrasal verb",
+        "Regular verb",
+        "Intransitive verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "b7a546b0-6946-4f4c-9a67-1501df8fc684",
+      "question": "Jan <u>turned down</u> the chance to work abroad. The underlined part is -----[]",
+      "options": [
+        "Phrasal verb",
+        "Regular verb",
+        "Linking verb",
+        "Irregular verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "ed0d7610-a259-4e3f-9f3b-c795075d64c6",
+      "question": "Which of the following are semi-modals ?[]",
+      "options": [
+        "Can, Could",
+        "Need, Dare",
+        "Will, Would",
+        "Must, should"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "3dbab6b4-e536-4947-ae93-c69425cda11e",
+      "question": "Karim need not think of a job. Here 'need' is a ----- verb.[]",
+      "options": [
+        "Principal",
+        "Finite",
+        "Full",
+        "Modal"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "2ea418af-ec63-4fca-921e-ef6266223200",
+      "question": "Which of the following can be used both as a modal and a main verb ?[]",
+      "options": [
+        "Should",
+        "Would",
+        "May",
+        "Dare"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "216ebc48-207c-446b-ac14-0edf66548b74",
+      "question": "He dare not touch me. Here 'dare' is a -----[]",
+      "options": [
+        "Semi-modal verb",
+        "Main verb",
+        "Modal verb",
+        "Pure auxiliary verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "93f86a53-88ad-4fec-8619-c3cb065546fa",
+      "question": "He did it. Here 'did' is ---[]",
+      "options": [
+        "Common verb",
+        "Pro verb",
+        "Reflexive verb",
+        "Causative verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "477a65b7-8dd3-48aa-8907-d3f6898c2edf",
+      "question": "Dip, Feed, Fell, Raise, Set - all these words are :[]",
+      "options": [
+        "Transitive verb",
+        "Intransitive verb",
+        "Causative verb",
+        "Factitive verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "e10f6f9e-6c87-4429-9b41-8f1b8bc1e6a5",
+      "question": "Which of the following can be used as a 'modal' as well as a 'main' verb ?[]",
+      "options": [
+        "need",
+        "do",
+        "could",
+        "mind"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "992b9831-0861-4cd8-b870-3f823aab46c9",
+      "question": "He raised his hand. Here 'raised' is a ----- verb.[]",
+      "options": [
+        "copulative",
+        "cognate",
+        "factitive",
+        "causative"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

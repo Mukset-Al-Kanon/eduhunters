@@ -1,0 +1,761 @@
+{
+  "exam_id": 8455,
+  "title": "Subject Verb Agreement (Ques. No. 1-50)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Subject Verb Agreement (324 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "e684e3fc-ab2c-47d6-80a9-afab6ec83408",
+      "question": "Subject-Verb-Agreement' refers to ---[]",
+      "options": [
+        "Person only",
+        "Number, person and gender",
+        "Number only",
+        "Number and person"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "26a15b93-ed57-4061-8f7e-26722f1901cc",
+      "question": "A big room --- air-conditioned[]",
+      "options": [
+        "Is",
+        "Are",
+        "Should",
+        "Do"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "545b9853-776d-476f-a36f-bfe58433c2e7",
+      "question": "The headmaster --- to speak to you[]",
+      "options": [
+        "Wants",
+        "Is wanting",
+        "Has wanting",
+        "Was wanting"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "4503b5f2-f499-404d-b1af-910a1d8439ed",
+      "question": "The book --- to my uncle[]",
+      "options": [
+        "Belonging",
+        "Belongs",
+        "Was belonging",
+        "Is belonging"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "c34c7f15-3c98-4b6e-985f-dbe2dbbdc65a",
+      "question": "Monir --- Yashim because she is kind to him[]",
+      "options": [
+        "Is liking",
+        "Has liked",
+        "Was liking",
+        "Likes"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "41a1ca89-52a9-4fbf-9de3-d68a88ac2187",
+      "question": "Mars --- a planet in our solar system[]",
+      "options": [
+        "Are",
+        "Is",
+        "Was",
+        "Will be"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "82eae650-9bd4-4d94-89e7-f39d7ec40ca0",
+      "question": "Cultural studies --- a meaning of culture[]",
+      "options": [
+        "Gives",
+        "Give",
+        "Offer",
+        "Showing"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "52852111-de88-41ed-bf26-ba566d54451d",
+      "question": "The United States of America --- a rich country[]",
+      "options": [
+        "Are",
+        "Were",
+        "Was",
+        "Is"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "94434e98-ff09-4287-b61f-206c3337bf3c",
+      "question": "The United States --- a big Navy[]",
+      "options": [
+        "Has",
+        "Have",
+        "Is",
+        "Was"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "1d326782-e90d-4e46-a77a-21903c643f5a",
+      "question": "I --- the 9th letter of the English Alphabet[]",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "will be"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "38b20746-a1e2-4dc9-91d4-dc0c6f32e93f",
+      "question": "Gulliver's Travels' --- wonderful to read[]",
+      "options": [
+        "has",
+        "are",
+        "is",
+        "were"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "81623e09-0420-4743-91fe-2accb7322107",
+      "question": "These grapes --- sour[]",
+      "options": [
+        "tasing",
+        "are tasting",
+        "tastes",
+        "taste"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "4a7a4004-14b8-45ca-ae11-c08fde92616f",
+      "question": "--- there any nursing schools --- Chittagong ?[]",
+      "options": [
+        "Is, At",
+        "Are, On",
+        "Was, In",
+        "Are, In"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "8262b2c4-7daa-4d41-a776-90d6e50d28ed",
+      "question": "The memoranda --- important[]",
+      "options": [
+        "Is",
+        "Has",
+        "Have",
+        "Are"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "09ad41f7-7625-4caa-8c84-6ffaf51395c8",
+      "question": "Where --- all the boys --- ?[]",
+      "options": [
+        "has, gone",
+        "have, gone",
+        "did , went",
+        "does , go"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "63d00092-94f2-40be-ba25-8264408163c5",
+      "question": "Those --- the type I like[]",
+      "options": [
+        "is't",
+        "aren't",
+        "won't",
+        "don't"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "0b251861-d0ab-4c7a-a065-e2bdf1ae226b",
+      "question": "The pair of scissors --- dull[]",
+      "options": [
+        "have been",
+        "is",
+        "are",
+        "has"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "9820ef37-66a3-4278-833c-71cc9b505c0d",
+      "question": "--- pair of socks --- too small for me[]",
+      "options": [
+        "This, is",
+        "These, are",
+        "These , is",
+        "This , are"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "885ae260-a93a-4263-9398-b9f9b7626293",
+      "question": "Sweat --- the uses of the adversity[]",
+      "options": [
+        "is",
+        "are",
+        "has",
+        "have"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "647715a8-b67e-4bc9-ab18-9d5a1edac18c",
+      "question": "Loud --- the cries of the victim[]",
+      "options": [
+        "was",
+        "were",
+        "raised",
+        "rang"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "b7e3dbc1-25d1-4dbc-a8cf-0bcb29765a98",
+      "question": "Choose the correct answer[]",
+      "options": [
+        "One and a half hour is a long time",
+        "One and a half hour are a long time",
+        "One and a half hours is a long time",
+        "One and  half hour is a long time"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "4ca46408-544a-4caf-a7a0-59558ead5a56",
+      "question": "If I --- a king ![]",
+      "options": [
+        "am",
+        "was",
+        "were",
+        "shall be"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "2889ac64-3791-455f-8ea3-54a1954f86f4",
+      "question": "If I --- rich, I would travel around the world[]",
+      "options": [
+        "am",
+        "was",
+        "were",
+        "have been"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "c729cfa1-2472-455e-b816-e5598dbceace",
+      "question": "I wish, I --- a lawyer[]",
+      "options": [
+        "was",
+        "were",
+        "is",
+        "have"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "924389d8-e376-405d-9ca8-c2d221b86c66",
+      "question": "Sumi and Bokul --- friends when I studied in high school[]",
+      "options": [
+        "was",
+        "were",
+        "is",
+        "are"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "d158c375-484f-4d0b-94f5-bc323f71941a",
+      "question": "Mithila and Jarin --- not --- to each other for two years due to a misunderstanding[]",
+      "options": [
+        "are, spoken",
+        "are, speaking",
+        "has, spoken",
+        "have, spoken"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "fccf01cd-1e11-4e05-aa70-4ff794275dc1",
+      "question": "Here --- the notebook and the report that I promised you last week[]",
+      "options": [
+        "is",
+        "are",
+        "was",
+        "has been"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "d1d096c0-f487-4789-9ba5-844d60e2f84e",
+      "question": "Coffee and tea --- served in the evening[]",
+      "options": [
+        "was",
+        "were",
+        "have",
+        "had"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "70e876a5-4c71-4c61-8607-c5157a800a2a",
+      "question": "The bed and breakfast --- charming[]",
+      "options": [
+        "are",
+        "were",
+        "was",
+        "have been"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "1bd0fa11-244f-425d-a728-e2ed66fef2e3",
+      "question": "The poet and novelist --- come[]",
+      "options": [
+        "have",
+        "has",
+        "have been",
+        "has been"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "1f61c9ec-83ba-42d1-bcee-c97f47a9a1ef",
+      "question": "Bread and butter --- my favourite food[]",
+      "options": [
+        "is",
+        "are",
+        "have been",
+        "were"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "23fce97c-8987-4eb2-ba53-f3d1c4a32a96",
+      "question": "Ill news --- apace[]",
+      "options": [
+        "run",
+        "runs",
+        "running",
+        "ran"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "5b8de2f1-d0b8-4fb7-b273-2dda9de5525a",
+      "question": "No news --- good news[]",
+      "options": [
+        "is",
+        "are",
+        "was",
+        "were"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "2f24214c-82ef-4cd8-a2ac-dd3f1629c153",
+      "question": "The Headmaster and Secretary --- present at the last meeting[]",
+      "options": [
+        "is",
+        "was",
+        "have",
+        "were"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "b6afad06-b7eb-4db0-b3d5-26070cec818e",
+      "question": "The poet and novelist --- dead[]",
+      "options": [
+        "been",
+        "are",
+        "has been",
+        "is"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "5cb4ec7c-9fd0-4360-b45d-d9f4b084bcdc",
+      "question": "Physics --- a difficult subject[]",
+      "options": [
+        "is",
+        "were",
+        "have",
+        "are"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "83f61fc8-6e65-4f6b-b285-15dfd4c47d3e",
+      "question": "His mathematics --- weak[]",
+      "options": [
+        "is",
+        "was",
+        "are",
+        "have"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "62e65030-174e-44a3-9db4-4934ecdcefcf",
+      "question": "Ethics --- the study of moral duties, principles and values[]",
+      "options": [
+        "are",
+        "is",
+        "are about",
+        "deal"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "cd7d6064-2cdd-4298-8e81-a00b30a80477",
+      "question": "The Headmaster and the Principal --- present in the last meeting[]",
+      "options": [
+        "was",
+        "were",
+        "have",
+        "had"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "ad8057a7-0751-4d00-af05-a1699467bb78",
+      "question": "Each boy and each girl --- given a prize yesterday[]",
+      "options": [
+        "is",
+        "was",
+        "are",
+        "were"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "c8c8108a-fead-46a7-86fc-1392d4ad965c",
+      "question": "Every man, woman and child on the island --- the effects of the fuel shortage[]",
+      "options": [
+        "has suffered",
+        "suffer",
+        "have suffered",
+        "A & C"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "05f12d12-22cb-4583-8177-645bd5603ee3",
+      "question": "Each boy and each girl --- with a new dress[]",
+      "options": [
+        "was dressed",
+        "were dressed",
+        "dresses",
+        "have dressed"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "49f67146-3ccc-492d-8885-57dfed23b651",
+      "question": "The correct tense is ---[]",
+      "options": [
+        "No boy and no girl perform well",
+        "No boy and no girl performs well",
+        "No boy and no girl have performed well",
+        "No boy and no girl are  performed well"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "b2e6f51f-fecd-4a14-adec-d1e604fefb96",
+      "question": "The cautious --- not always cowards[]",
+      "options": [
+        "is",
+        "was",
+        "are",
+        "were"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "1d020b9d-fb6c-4a1b-a714-d382ee97e4c4",
+      "question": "The virtuous --- blessed[]",
+      "options": [
+        "have been",
+        "are",
+        "is",
+        "none of these"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "c6927a4c-a4d7-4969-a9ce-07a7e8c07c62",
+      "question": "The poor --- much in winter[]",
+      "options": [
+        "suffers",
+        "suffering",
+        "suffer",
+        "suffered"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "d52df68a-9eee-44b8-95d5-3ce7f00e16a6",
+      "question": "The man along with her neighbours --- working for the welfare of the people[]",
+      "options": [
+        "have",
+        "is",
+        "were",
+        "are"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "d977c559-3ef6-45df-a2ed-f3d360c940cc",
+      "question": "Karim as well as Rahim --- praise[]",
+      "options": [
+        "deserve",
+        "deserves",
+        "has deserved",
+        "deserving"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "b051e2ed-488d-4e2c-8171-3cda6ea73cc7",
+      "question": "Ram as well as Rahim --- there[]",
+      "options": [
+        "were",
+        "was",
+        "have",
+        "has"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "71707d50-345a-4fa9-923c-4dd4e93d574c",
+      "question": "My parents as well as I --- present there[]",
+      "options": [
+        "was",
+        "am",
+        "were",
+        "will"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

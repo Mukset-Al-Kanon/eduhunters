@@ -1,0 +1,506 @@
+{
+  "exam_id": 6812,
+  "title": "Article (Ques. No. 201-233)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Article (233 Marks)",
+  "duration_minutes": 15,
+  "total_questions": 33,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "e3238428-235d-46de-94b6-1a4d69f9c944",
+      "question": "He left ----- room in ----- fit of anger.[]",
+      "options": [
+        "no article, the",
+        "the, no article",
+        "the, a",
+        "the, an"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"The\" specifies a particular room; \"a\" is used in the idiom \"in a fit of anger.\"",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "cb6f099e-057b-450d-a999-91a309852530",
+      "question": "----- Miles is a popular band in Bangladesh.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Names of musical groups or bands (like the Miles) often take the definite article.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "94084e3d-40ec-4cbd-8c7b-39997b873359",
+      "question": "Los Angeles has ----- ideal climate.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"Ideal\" starts with a vowel sound, so it requires \"an ideal climate.\"",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "c8917448-62f0-4554-9f16-b65ffa6b0e03",
+      "question": "A moonlit night is ----- remarkable occasion for a beauty seeker.[]",
+      "options": [
+        "the",
+        "an",
+        "a",
+        "in"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"Remarkable\" starts with a consonant sound; it is one of many possible occasions, so \"a remarkable occasion.\"",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "d3b75584-49b8-43b5-a16f-a17ae53941a8",
+      "question": "----- man is ----- best creature.[]",
+      "options": [
+        "A, an",
+        "A, the",
+        "The, the",
+        "No article, the"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "No article is used when \"man\" refers to the human race in general; \"the best\" uses the definite article for a superlative.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d506ae18-3afc-4972-9f03-12007dee9d02",
+      "question": "----- love is such ----- beautiful thing.[]",
+      "options": [
+        "no article, a",
+        "a, no article",
+        "the, a",
+        "a, the"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Abstract nouns like \"love\" usually take no article; \"a beautiful thing\" follows the standard adjective-noun pattern.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "3bd4e002-59bb-4a08-bb12-fef1be275b9f",
+      "question": "Outside the bright primary rainbow, ----- much fainter secondary rainbow may be visible.[]",
+      "options": [
+        "so",
+        "still",
+        "a",
+        "as"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Introduces a singular, countable noun not previously mentioned: \"a much fainter secondary rainbow.\"",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "f42c3e81-2735-4e2e-9eac-04f77c2392f8",
+      "question": "Venus is a beautiful planet, perhaps ----- most beautiful of all planets.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Superlatives (most beautiful) always require \"the.\"",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "e3af29a1-395b-40a8-acbc-c0bff3314af6",
+      "question": "Suman has ----- terrible headache.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Common health ailments often use the indefinite article: \"a terrible headache.\"",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "1639e29a-911f-4e69-9b13-31e333cb52f1",
+      "question": "Someone, please call ----- policeman to catch the thief.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Refers to any non-specific member of the police force: \"call a policeman.\"",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "3cedf80f-55d5-44c1-a99b-eb5e1732a173",
+      "question": "I didn't realize how rich he was until I heard that he owns ----- Picasso.[]",
+      "options": [
+        "the",
+        "an",
+        "no article",
+        "a"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "When a proper name (Picasso) is used to represent a work by that person, use \"a Picasso.\"",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "04465048-89f1-414f-aeb0-ba45296ecbf2",
+      "question": "I would like to have ----- piano.[]",
+      "options": [
+        "the",
+        "no article",
+        "an",
+        "a"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Refers to a singular countable object in a general sense: \"have a piano.\"",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "a7e1a2b9-2c06-4102-b33e-84c8aaeaaf2b",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "What kind of a man is he ?",
+        "What kind of man he is ?",
+        "What kind of man is he ?",
+        "What a kind of man he is ?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "In questions starting with \"What kind of,\" the subject and verb are inverted (is he), and no article follows \"of.\"",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "bc8fccf9-5149-462a-9db9-eb164f6e343f",
+      "question": "He began ----- successful career in London as ----- actor, writer and part owner of ----- playing company.[]",
+      "options": [
+        "a, an, the",
+        "the, an, an",
+        "a, an, a",
+        "a, a, an"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"A successful career\" (consonant), \"an actor\" (vowel), and \"a playing company\" (consonant).",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "9510ac90-2267-4e50-9bcb-f0a2a285a742",
+      "question": "We must do more to protect ----- environment.\nWe must fight for the liberty of ----- press.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Specific entities like \"the environment\" and \"the press\" require the definite article.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "dc55325e-2466-4ec5-a36a-9228c0433fd2",
+      "question": "I am learning ----- English.\nIt's late. Let's go ----- home.\nDo you ever have your breakfast in ----- bed ?[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "No article"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "No articles are used before names of languages (English), specific destinations with \"go home,\" or the idiomatic \"in bed.\"",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "939583a8-6ad8-4606-b585-56bf8fb8eae8",
+      "question": "He went on ----- expensive holiday to ----- Bahamas.[]",
+      "options": [
+        "the, the",
+        "an, a",
+        "an, the",
+        "a, an"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"An expensive\" (vowel); names of island groups or countries with plural names require \"the Bahamas.\"",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "7a6d116b-e185-49d7-8345-ef35b9a658e9",
+      "question": "It is ----- pleasure to do business with such an efficient organization.\nLast summer we went on ----- cruise in the Sundarbans.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "none"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Used in the common expression \"It is a pleasure\" and for a singular trip: \"a cruise.\"",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "e272827c-3155-4338-84f7-e84dfdbf1223",
+      "question": "As ----- nation Bangladeshis are ----- religious-minded but not zealots.[]",
+      "options": [
+        "a, no article",
+        "a, the",
+        "the, a",
+        "the, no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"As a nation\" is a standard phrase; \"religious-minded\" is an adjective describing a plural noun (Bangladeshis), so no article is needed.",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "c4761967-1b50-476a-bc51-3656d8511b8c",
+      "question": "Their car goes 150 miles ----- hour.[]",
+      "options": [
+        "the",
+        "an",
+        "a",
+        "no article"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"A\" or \"an\" can be used to mean \"per.\" While \"an hour\" is standard, \"150 miles a day/hour\" is also a common distributive use of the article.",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "4596b689-0948-4341-b5ee-132336846790",
+      "question": "Last year we went on ----- cruise in the Caribbean. Among ----- Islands we visited Bermuda and the Bahamas.[]",
+      "options": [
+        "an, the",
+        "a, the",
+        "the, an",
+        "the, the"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"A cruise\" for a singular non-specific trip; \"the Islands\" is used when referring to a specific group (the Caribbean Islands).",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "f16adcb1-2ae6-47d9-ab00-28e3f39aac9e",
+      "question": "It was a beautiful day. There wasn't ----- cloud in the sky.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "No article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Used in the negative singular to mean \"not even one\": \"There wasn't a cloud.\"",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "e1654b20-e4b7-44cf-91c5-2d2f0bab78cd",
+      "question": "Kazi Nazrul is ----- Shelley of Bangladesh.[]",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "No article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "When a famous person's name is used as a metaphor for a quality, use the definite article: \"the Shelley of Bangladesh.\"",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "d9c10f04-4fa6-443b-ba16-260f6297d926",
+      "question": "I think ----- man is very unfriendly.[]",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Refers to a specific man the speaker is looking at or thinking about: \"the man.\"",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "87392ef9-4fd6-44b2-89f7-63599fec68db",
+      "question": "Dairy farming is ----- leading agricultural activity in Australia.[]",
+      "options": [
+        "then",
+        "at",
+        "a",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"A leading agricultural activity\" identifies it as one of the prominent activities, starting with a consonant sound.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "5be945db-5bc8-4d83-b1c6-93b5ff113dfb",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "A flower is gift of nature.",
+        "Flowers are a gift of nature.",
+        "A flower is a gift of nature.",
+        "The flower is a gift of nature."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Use \"The flower\" to represent a whole class or species; \"gift\" here is a singular countable noun requiring \"a gift.\"",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "541bd2ec-ea00-4cbf-8f15-e9c26940dff3",
+      "question": "Choose the <u>incorrect</u> sentence.[]",
+      "options": [
+        "His father is an LMF.",
+        "Nazrul is the Shelly of Bangladesh.",
+        "The man speaks English like the English.",
+        "Who is more beautiful of the two girls ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "This is incorrect because the comparative \"more beautiful\" requires \"the\" when followed by \"of the two\" (the more beautiful of the two).",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "355e61c1-cc45-4e08-8793-3ca4d5f3fdce",
+      "question": "Do you have ----- dictionary ? I don't have one, and I need to look up ----- word.[]",
+      "options": [
+        "a, an",
+        "an, the",
+        "a, a",
+        "the, the"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Two singular countable nouns introduced for the first time: \"a dictionary\" and \"a word.\"",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "c376b5c4-a91b-43ab-86bb-19e6dac6dc31",
+      "question": "I like ----- blue T-shirt over there better than ----- red one.\nShe dropped ----- can into ----- grass.\nHe is ----- best player in ----- team.[]",
+      "options": [
+        "a, an",
+        "an, the",
+        "the, a",
+        "the, the"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Everything is specific: \"the blue T-shirt,\" \"the red one,\" \"the can,\" \"the grass,\" \"the best player,\" and \"the team.\"",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "8bba17c8-d2c6-406f-a138-01efda78e0a9",
+      "question": "----- little learning is ----- dangerous thing.[]",
+      "options": [
+        "the, a",
+        "a, a",
+        "no article, a",
+        "a, no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Based on the proverb: \"A little learning is a dangerous thing.\"",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "dbc0a4bb-277a-4e4f-b928-2e043b639520",
+      "question": "----- burnt child dreads ----- fire.[]",
+      "options": [
+        "The, the",
+        "A, a",
+        "A, the",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"A burnt child\" represents any child in that situation; \"the fire\" refers to the specific element of fire in the proverb.",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "c3990a47-e903-43d5-8223-4927521b6208",
+      "question": "----- Mahabharat is ----- greatest epic in the world literature.[]",
+      "options": [
+        "no article, the",
+        "the, the",
+        "the, no article",
+        "no article, no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Holy books/epics require \"the Mahabharat\"; superlatives require \"the greatest.\"",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "d28031df-19ac-4b63-bfc8-b72525f88582",
+      "question": "Do you sell bananas by ----- kilo ?[]",
+      "options": [
+        "No article",
+        "The",
+        "A",
+        "An"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When expressing price or measurement units with \"by,\" use the definite article: \"by the kilo.\"",
+      "images": []
+    }
+  ]
+}

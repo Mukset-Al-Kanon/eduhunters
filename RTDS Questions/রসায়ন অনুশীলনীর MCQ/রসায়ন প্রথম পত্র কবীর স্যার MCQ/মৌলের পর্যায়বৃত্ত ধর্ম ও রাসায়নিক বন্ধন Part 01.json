@@ -1,0 +1,2052 @@
+{
+  "title": "আহসানুল কবীর স্যার রসায়ন ১ম পত্র - Chapter 3:মৌলের পর্যাবৃত্তিক ধর্ম ও রাসায়নিক বন্ধন 1 Part",
+  "category": "রসায়ন অনুশীলনীর MCQ > রসায়ন প্রথম পত্র কবীর স্যার MCQ",
+  "duration_minutes": 30,
+  "total_questions": 146,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "134663",
+      "question": "নিম্নের কোনটি বৃহদাকার অণু গঠন করে?",
+      "options": [
+        "HI",
+        "HBr",
+        "HCl",
+        "HF"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "HF সবচেয়ে বৃহদাকার অনু গঠন করে (এদের\r\nমধ্যে তড়িৎ ঋনাত্মকতার পার্থক্য সবচেয়ে বেশি)।"
+    },
+    {
+      "question_no": 2,
+      "id": "134664",
+      "question": "পারমাণবিক সংখ্যার ক্রম অনুসারে প্রথম অবস্থান্তর মৌল কোনটি?",
+      "options": [
+        "Ti",
+        "Cr",
+        "Fe",
+        "Ni"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পারমানবিক সংখ্যার ক্রমানুসারে, Ti (22) প্রথম অবস্থান্তর মৌল। Sc (21) প্রথম d ব্লক মৌল"
+    },
+    {
+      "question_no": 3,
+      "id": "134665",
+      "question": "কোনটিতে মুক্তজোড় ইলেকট্রনের প্রভাব সবচেয়ে বেশি?",
+      "options": [
+        "NH3",
+        "H20",
+        "NH4+",
+        "H30+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "H20 অনুতে দুটি মুক্তজোড় ইলেকট্রন থাকে\r\nতাই H₂0 তে মুক্তজোড় ইলেক্ট্রনের প্রভাব সবচেয়ে\r\nবেশি।"
+    },
+    {
+      "question_no": 4,
+      "id": "134666",
+      "question": "কোনটির পারমাণবিক ব্যাসার্ধ বেশি??",
+      "options": [
+        "Na",
+        "Mg",
+        "Si",
+        "S"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "একই পর্যায়ের বাম থেকে ডানে গেলে\r\nপারমানবিক আকার হ্রাস পায়। Na সর্ববামে হওয়ায়\r\nএর পারমানবিক ব্যাসার্ধ সবচেয়ে বেশি।"
+    },
+    {
+      "question_no": 5,
+      "id": "134667",
+      "question": "কোনটি ফেরোম্যাগনেটিক মৌল?",
+      "options": [
+        "Co",
+        "Ti",
+        "Cu",
+        "Zn"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Fe, CO, Ni এরা চৌম্বকের প্রতি প্রবলভাবে\r\nআকর্ষিত হয়। তাই এদের ফেরোম্যাগনেটিক মৌল\r\nবলে।"
+    },
+    {
+      "question_no": 6,
+      "id": "134668",
+      "question": "",
+      "options": [
+        "ইলেকট্রন আসক্তি",
+        "আয়নিকরণ শক্তি",
+        "তড়িৎ ধনাত্মকতা",
+        "তড়িৎ ঋণাত্মকতা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "134669",
+      "question": "নিচের কোনটি অভিজাত গ্যাস?",
+      "options": [
+        "H2",
+        "N2",
+        "F₂",
+        "Xe"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গ্রুপ 18 এর নিষ্ক্রিয় মৌল সমূহকে নোবেল গ্যাস বা অভিজাত গ্যাস বলা হয়।"
+    },
+    {
+      "question_no": 8,
+      "id": "134670",
+      "question": "NH4† এর আকৃতি কোনটি?",
+      "options": [
+        "অষ্টতলকীয়",
+        "দ্বি-পিরামিডীয়",
+        "চতুস্থলকীয়",
+        "পিরামিডীয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "134671",
+      "question": "কোনটির ইলেকট্রন আসক্তি বেশি?",
+      "options": [
+        "F",
+        "Cl",
+        "Br",
+        "I"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "134672",
+      "question": "নিচের কোনটির তড়িৎ ঋণাত্মকতা সবচেয়ে কম?",
+      "options": [
+        "He",
+        "C",
+        "O",
+        "F"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "134673",
+      "question": "নিচের কোন লবণটি পানিতে দ্রবীভূত হয়?",
+      "options": [
+        "AgF",
+        "AgCl",
+        "AgBr",
+        "Agl"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "AgF এর ক্ষেত্রে F এর আকার ছোট হওয়ায়\r\nপোলারায়ন সবচেয়ে কম ঘটে। তাই AgF লবনটি\r\nসবচেয়ে বেশি আয়নিক এবং সহজেই পানিতে\r\nদ্রবীভূত হয়।"
+    },
+    {
+      "question_no": 12,
+      "id": "134674",
+      "question": "নিচের কোন ধনাত্মক আয়নটি ঋণাত্মক আয়নের বেশি পোলারণ ঘটাতে পারে?",
+      "options": [
+        "Na+",
+        "Mg2+",
+        "Fe2+",
+        "Al3+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ফাজানের নীতি অনুসারে Al3+ এর আকার\r\nসবচেয়ে ছোট এবং চার্জ সবচেয়ে বেশি হওয়ায়\r\nAl3+ এর পোলারায়ন ক্ষমতা সবচেয়ে বেশি।"
+    },
+    {
+      "question_no": 13,
+      "id": "134675",
+      "question": "পানি তরল হওয়ার জন্য নিচের কোন বন্ধন দায়ী?",
+      "options": [
+        "আয়নিক বন্ধন",
+        "সমযোজী বন্ধন",
+        "হাইড্রোজেন বন্ধন",
+        "ধাতব বন্ধন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাইড্রোজেন বন্ধনের কারনে পানি গুচ্ছাকারে \r\n[(H20)n] থাকে। তাই পানি তরল।"
+    },
+    {
+      "question_no": 14,
+      "id": "134676",
+      "question": "SF6 অণুটির আকৃতি কীরূপ??",
+      "options": [
+        "পিরামিডীয়",
+        "চতুস্তলকীয়",
+        "ত্রিভুজীয়",
+        "অষ্টতলকীয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "134677",
+      "question": "নিচের কোনটি মিশ্র অ্যানহাইড্রাইড?",
+      "options": [
+        "NO",
+        "N203",
+        "N204",
+        "N₂05"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "N204 পানির সাথে বিক্রিয়ায় HNO₂ ও HNO3 উভয় এসিড উৎপন্ন করে। তাই N204 কে\r\nউভয় এসিডের মিশ্র অ্যানহাইড্রাইড বলে।"
+    },
+    {
+      "question_no": 16,
+      "id": "134678",
+      "question": "কোন হাইব্রিডাইজেশন দ্বারা H₂0 অণু গঠিত হয়?",
+      "options": [
+        "sp",
+        "sp²",
+        "sp3",
+        "sp3d"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "134679",
+      "question": "PCl5 অণুতে বিদ্যমান বন্ধন কোণের মান কত?",
+      "options": [
+        "90°",
+        "105°",
+        "107°",
+        "109°"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "134680",
+      "question": "নিচের কোনটি অধিক সমযোজী বৈশিষ্ট্য প্রদর্শন করে?",
+      "options": [
+        "AgF",
+        "AgCl",
+        "AgBr",
+        "AgI"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "AgI এর ক্ষেত্রে ।- এর আকার সবচেয়ে বড়\r\nহওয়ায়, ফাজানের নীতি অনুসারে পোলারায়ন\r\nসবচেয়ে বেশি। পোলারায়ন সবচেয়ে বেশি হওয়ায়\r\nAgl অধিক সমযোজী।"
+    },
+    {
+      "question_no": 19,
+      "id": "134681",
+      "question": "কোনটি বেশি সংখ্যক হাইড্রোজেন বন্ধন গঠন করে?",
+      "options": [
+        "NH3",
+        "HF",
+        "HCl",
+        "H20"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "H20 এর ক্ষেত্রে চারটি H বন্ধন গঠিত হয়।"
+    },
+    {
+      "question_no": 20,
+      "id": "134682",
+      "question": "অ্যামোনিয়া অণুতে কতটি সিগমা-ইলেকট্রন আছে?",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমোনিয়া অনুতে তিনটি সিগমা বন্ধন\r\nবিদ্যমান। তাই সিগমা ইলেকট্রন 6টি।"
+    },
+    {
+      "question_no": 21,
+      "id": "134683",
+      "question": "পর্যায় সারণির কোন ব্লকে অধাতুর সংখ্যা বেশি?",
+      "options": [
+        "f",
+        "d",
+        "p",
+        "s"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "134684",
+      "question": "পানির অণুতে ∠HOH এর মান কত?",
+      "options": [
+        "120°",
+        "109°",
+        "107°",
+        "104.5°"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পানিতে sp³ সংকরন ঘটে কিন্তু মুক্তজোড়\r\nইলেকট্রন থাকার কারনে বন্ধন কোণ 104.5° হয়।"
+    },
+    {
+      "question_no": 23,
+      "id": "134685",
+      "question": "কোনটির জ্যামিতিক আকৃতি সরল রৈখিক?",
+      "options": [
+        "CO2",
+        "H₂0",
+        "H₂S",
+        "SO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "CO₂ অনুতে sp সংকরন ঘটে তাই এর\r\nআকৃতি সরলরৈখিক।"
+    },
+    {
+      "question_no": 24,
+      "id": "134686",
+      "question": "পর্যায় সারণির কোন শ্রেণির মৌলসমূহ মুদ্রাধাতু নামে পরিচিত?",
+      "options": [
+        "11",
+        "12",
+        "16",
+        "17"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পর্যায় সারনির গ্রুপ 11 এর মৌলসমূহ মুদ্রা ধাতু নামে\r\nপরিচিত। তাছাড়া গ্রুপ 16 ও 17 এর মৌলসমূহ যথাক্রমে\r\nচ্যালকোজেন ও হ্যালোজেন নামে পরিচিত।"
+    },
+    {
+      "question_no": 25,
+      "id": "134687",
+      "question": "NH4CI যৌগে কত ধরনের বন্ধন বিদ্যমান?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "NH4Cl এর ক্ষেত্রে আয়নিক, সমযোজী ও সন্নিবেশ তিন ধরনের বন্ধন বিদ্যমান।"
+    },
+    {
+      "question_no": 26,
+      "id": "134688",
+      "question": "NH4+আয়নে N এর সংকরণ কোনটি?",
+      "options": [
+        "sp",
+        "sp²",
+        "sp3",
+        "sp³d"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "134689",
+      "question": "কোন আয়নের পোলারাইজেশন ক্ষমতা বেশি?",
+      "options": [
+        "Be2+",
+        "Mg2+",
+        "Ca2+",
+        "Ba2+"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Be2+ এর আকার সবচেয়ে ছোট হওয়ায় এর\r\nপোলারাইজেশন ক্ষমতা সবচেয়ে বেশি।"
+    },
+    {
+      "question_no": 28,
+      "id": "134690",
+      "question": "অ্যাসিটিলিনের অণুতে কোন বন্ধনসমূহ রয়েছে?",
+      "options": [
+        "3σ, 2π",
+        "1σ, 2π",
+        "2σ, 1π",
+        "1σ, 1π"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অ্যাসিটিলিনের ক্ষেত্রে, H – C=- C-H \r\nসিগমা বন্ধন ৩টি, পাই বন্ধন ২টি।"
+    },
+    {
+      "question_no": 29,
+      "id": "134691",
+      "question": "SO3 কোন ধরনের অক্সাইড?",
+      "options": [
+        "অম্লধর্মী অক্সাইড",
+        "ক্ষারধর্মী অক্সাইড",
+        "উভধর্মী অক্সাইড",
+        "নিরপেক্ষ অক্সাইড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অধাতুর অক্সাইড অম্লধর্মী এবং ধাতুর অক্সাইড ক্ষারধর্মী।"
+    },
+    {
+      "question_no": 30,
+      "id": "134692",
+      "question": "H₂S অণুর বন্ধন কোণ কত?",
+      "options": [
+        "109°",
+        "107°",
+        "92°",
+        "72°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "H₂S এ sp³ সংকরনের পরেও মুক্তজোড়\r\nইলেকট্রন ও তড়িৎ ঋনাত্মকতার পার্থক্যের জন্য বন্ধন\r\nকোণ 92° হয়।"
+    },
+    {
+      "question_no": 31,
+      "id": "134693",
+      "question": "কোন যৌগটিতে অধিক পোলারায়ন ঘটে?",
+      "options": [
+        "MgO",
+        "Na₂O",
+        "Al2O3",
+        "CaO"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফাজানের নীতি অনুসারে, ক্যাটায়নের চার্জ যত বেশি পোলারায়ন ক্ষমতা তত বেশি।"
+    },
+    {
+      "question_no": 32,
+      "id": "134694",
+      "question": "কোন অণুটির বন্ধন কোণের মান সর্বোচ্চ?",
+      "options": [
+        "H2S",
+        "PH3",
+        "NH3",
+        "BCl3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "BCl3 এর ক্ষেত্রে sp² সংকরন ঘটে এর বন্ধন কোণ 120°"
+    },
+    {
+      "question_no": 33,
+      "id": "134695",
+      "question": "ক্যালসিয়াম কার্বাইড পানির সাথে বিক্রিয়া করে কোন গ্যাসটি উৎপন্ন করে?",
+      "options": [
+        "CO2",
+        "CO",
+        "C2H4",
+        "C2H2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিক্রিয়াঃ CaC2 + 2H20 → Ca(OH)2 + C2H2"
+    },
+    {
+      "question_no": 34,
+      "id": "134696",
+      "question": "পানি গ্যাসের সংকেত কোনটি?",
+      "options": [
+        "H20 + СО",
+        "H2+СО",
+        "H2O+NH3",
+        "H2 + NO₂"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "134697",
+      "question": "কোনটি মৃৎ ক্ষার ধাতু?",
+      "options": [
+        "Rb",
+        "Cu",
+        "Fr",
+        "Ca"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গ্রুপ II এর মৌলসমূহকে মৃৎক্ষার ধাতু বলে। \r\n(Be, Mg, Ca, Sr, Ba, Ra)"
+    },
+    {
+      "question_no": 36,
+      "id": "134698",
+      "question": "স্ফুটনাংকের সঠিক ক্রম কোনটি?",
+      "options": [
+        "NH3 < HF < H20 < CH4",
+        "H2O>HF>NH3>CH4",
+        "CH4 < NH3 < H₂0 < HF",
+        "NH3 < CH4 < H20 < HF"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাইড্রোজেন বন্ধন থাকা এবং এর শক্তি বৃদ্ধির\r\nসাথে স্ফূটনাংক বৃদ্ধি পায়।\r\nতাই সঠিক ক্রমঃ CH4 < NH3 < HF < H₂0"
+    },
+    {
+      "question_no": 37,
+      "id": "134699",
+      "question": "কোনটির আয়নীকরণ শক্তি বেশি?",
+      "options": [
+        "Be",
+        "B",
+        "Mg",
+        "Al"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "134700",
+      "question": "CuS04.5H20 যৌগে কয় ধরনের বন্ধন বিদ্যমান?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "CuSO4.5H20 যৌগে আয়নিক, সমযোজী ও\r\nসন্নিবেশ 3 ধরনের বন্ধন বিদ্যমান।"
+    },
+    {
+      "question_no": 39,
+      "id": "134701",
+      "question": "রঙিন যৌগ কোনটি?",
+      "options": [
+        "TiCl4",
+        "MnO2",
+        "ScCl3",
+        "ZnSO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "MnO2 একটি রঙিন যৌগ, TiCl3 রঙিন\r\nহলেও TiCl4 বর্ণহীন।"
+    },
+    {
+      "question_no": 40,
+      "id": "134702",
+      "question": "পোলারাইজেশন ধর্ম কোনটির সবচেয়ে বেশি?",
+      "options": [
+        "Be2+",
+        "Mg2+",
+        "Ca2+",
+        "Ba²+"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ক্যাটায়নের আকার যত ছোট পোলারায়ন ক্ষমতা\r\nতত বেশি। Be2+ এর আকার সবচেয়ে ছোট হওয়ায়\r\nBe2+ এর পোলারাইজেশন ধর্ম সবচেয়ে বেশি।"
+    },
+    {
+      "question_no": 41,
+      "id": "134703",
+      "question": "XeF₂ যৌগে Xe এর কোন ধরনের সংকরিকরণ ঘটে?",
+      "options": [
+        "sp",
+        "sp²d",
+        "sp3d2",
+        "sp³d"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "134704",
+      "question": "কোনটি উভধর্মী অক্সাইড?",
+      "options": [
+        "Li20",
+        "BeO",
+        "CO2",
+        "Na20"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Be0,Al203 এরা এসিড ও ক্ষার উভয় ধর্ম\r\nপ্রদর্শন করে । তাই তাদের উভধর্মী অক্সাইড বলা\r\nহয়।"
+    },
+    {
+      "question_no": 43,
+      "id": "135227",
+      "question": "কপার মৌলটি পর্যায় সারণির কোন গ্রুপে অবস্থিত?",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কপার মৌলটি পর্যায় 4 এবং গ্রুপ 11\r\nঅবস্থিত। গ্রুপ 11 এর মৌলসমূহ মুদ্রাধাতু নামে\r\nপরিচিত।"
+    },
+    {
+      "question_no": 44,
+      "id": "135228",
+      "question": "নিচের কোনটির বন্ধন কোন সবচেয়ে বড়?",
+      "options": [
+        "CH4",
+        "BCl3",
+        "NH3",
+        "H20"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "135229",
+      "question": "কোনটি থেকে একটি ইলেকট্রন সরাতে সবচেয়ে বেশি শক্তি লাগে?",
+      "options": [
+        "Ne",
+        "Na+",
+        "Mg2+",
+        "Al3+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Al3+ এর নিউক্লিয়াসের প্রোটন সংখ্যা বেশি\r\nহওয়ায় আয়নীকরন বিভব সবচেয়ে বেশি।"
+    },
+    {
+      "question_no": 46,
+      "id": "135230",
+      "question": "ইলেকট্রন ত্যাগ করে ধনাত্মক আয়নে পরিণত হতে যে শক্তির প্রয়োজন হয় তাকে বলে-",
+      "options": [
+        "ইলেকট্রন আসক্তি",
+        "তড়িৎ ঋণাত্মকতা",
+        "আয়নিক শক্তি",
+        "আয়নিকরণ শক্তি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইলেকট্রনের সাথে যুক্ত হয়ে একক ঋনাত্মক\r\nআয়নে পরিনত হতে যে পরিমান শক্তি নির্গত হয় তা\r\nইলেকট্রন আসক্তি।"
+    },
+    {
+      "question_no": 47,
+      "id": "135231",
+      "question": "কোন বন্ধন (bond) দ্বারা দুইটি হাইড্রোজেন এ্যাটম যুক্ত থাকে?",
+      "options": [
+        "hydrophobic",
+        "hydrophilic",
+        "covalent",
+        "ionic"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "H এর দুটি পরমাণু তাদের বিজোড় ইলেকট্রন\r\nশেয়ারের মাধ্যমে অপোলার সমযোজী বন্ধন দ্বারা যুক্ত\r\nহয়ে H₂ গঠন করে।"
+    },
+    {
+      "question_no": 48,
+      "id": "135232",
+      "question": "নিচের কোনটি জারক ও বিজারক উভয় হিসাবেই কাজ করে?",
+      "options": [
+        "nitrogen peroxide",
+        "nitric acid",
+        "ammonia",
+        "nitrous acid"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "HNO₂ এর ক্ষেত্রে N এর জারন মান +3,\r\nএজন্য HNO₂ জারক ও বিজারক উভয় হিসেবে কাজ\r\nকরে।"
+    },
+    {
+      "question_no": 49,
+      "id": "135233",
+      "question": "নিচের কোনটি সহজে পানিতে দ্রবীভূত হয়?",
+      "options": [
+        "Carbon",
+        "Iodine",
+        "Ammonia",
+        "Nitrogen"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ammonia এর ক্ষেত্রে, N এর মুক্তজোড়\r\nইলেকট্রন পানির H এর দিকে আকৃষ্ট হয় তাই H\r\nবন্ধন তৈরি হয়। পোলারিটি তৈরি হয় বলে এটি\r\nসহজেই পানিতে দ্রবীভূত হয়।"
+    },
+    {
+      "question_no": 50,
+      "id": "135234",
+      "question": "নিচের কোনটি ভারী ধাতুর উদাহরণ নয়?",
+      "options": [
+        "Hg",
+        "Zn",
+        "Cd",
+        "Au"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Zn ছাড়া Hg, Cd, Au এরা প্রত্যেকেই ভারী\r\nধাতুর উদাহরণ।"
+    },
+    {
+      "question_no": 51,
+      "id": "135235",
+      "question": "পর্যায় সারণির কোন মৌলগুলোকে আদর্শ মৌল বলা হয়?",
+      "options": [
+        "গ্রুপ-1 এর মৌল",
+        "১ম পর্যায়ের মৌল",
+        "২য় ও ৩য় পর্যায়ের মৌল",
+        "গ্রুপ-II এর মৌল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পর্যায় সারণিতে ২য় পর্যায়ে (Li থেকে Ne) ও\r\n৩য় পর্যায়ে (Na - Ar) অবস্থিত মৌলসমূহকে\r\nআদর্শ বা মৌল বলে।"
+    },
+    {
+      "question_no": 52,
+      "id": "135236",
+      "question": "অপটিক্যাল ফাইবারের প্রধান উপাদান কোনটি?",
+      "options": [
+        "Ca0",
+        "Mg0",
+        "CuO",
+        "SiO2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অপটিক্যাল ফাইবারের প্রধান উপাদান হল SiO2"
+    },
+    {
+      "question_no": 53,
+      "id": "135237",
+      "question": "নিচের কোন সালফেট লবণ পানিতে অদ্রবণীয়?",
+      "options": [
+        "CuSO4",
+        "Na2S04",
+        "Al2(SO4)3",
+        "BaSO4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "135238",
+      "question": "অ্যাক্টিনাইড মৌল কোনটি?",
+      "options": [
+        "ক্রোমিয়াম",
+        "থোরিয়াম",
+        "সেলিনিয়াম",
+        "পটাশিয়াম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পর্যায় সারনির ৭ম পর্যায়ের গ্রুপ নং- III এর Ac\r\nথেকে Lr পর্যন্ত ১৫টি মৌলকে অ্যাক্টিনাইড মৌল বলা হয়"
+    },
+    {
+      "question_no": 55,
+      "id": "135239",
+      "question": "নিচের কোন অক্সাইড অম্লধর্মী?",
+      "options": [
+        "Mg0",
+        "Al203",
+        "Na₂0",
+        "CO2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ধাতুর অক্সাইড ক্ষারধর্মী এবং অধাতুর অক্সাইড অম্লধর্মী। তাই CO₂ একটি অম্লধর্মী অক্সাইড।"
+    },
+    {
+      "question_no": 56,
+      "id": "135240",
+      "question": "Na(11) এর ইলেক্ট্রন বিন্যাস কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "135241",
+      "question": "নিচের কোন আয়নের আকার সবচেয়ে ছোট??",
+      "options": [
+        "F-",
+        "02-",
+        "N3-",
+        "Na+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "135242",
+      "question": "অ্যামোনিয়া অণুতে বন্ধন কোণের পরিমাণ কত?",
+      "options": [
+        "104.5°",
+        "107°",
+        "104°",
+        "120°"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আমোনিয়া অনুতে sp³ সংকরণ ঘটে এবং মুক্তজোড় ইলেকট্রন থাকায় বন্ধন কোণ 107° হয়।"
+    },
+    {
+      "question_no": 59,
+      "id": "135243",
+      "question": "নিচের কোনটি ক্যান্সার চিকিৎসায় ব্যবহৃত হয়?",
+      "options": [
+        "He",
+        "Ne",
+        "Ar",
+        "Rn"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তেজস্ক্রিয় রেডন ক্যান্সার কোষ ধ্বংস করার\r\nকাজে ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 60,
+      "id": "135244",
+      "question": "নিম্নের কোনটি অম্লীয় জলীয় দ্রবণ তৈরি করে?",
+      "options": [
+        "Na20",
+        "ZnO",
+        "Al203",
+        "CO2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "CO₂ অম্লীয় জলীয় দ্রবণ তৈরি করে। CO2 + H20 → H2CO3"
+    },
+    {
+      "question_no": 61,
+      "id": "135245",
+      "question": "Al2Cl6 অণুতে সমযোজী ও সন্নিবেশ সমযোজী বন্ধনের সংখ্যা যথাক্রমে কোনটি?",
+      "options": [
+        "6,2",
+        "6,1",
+        "8,0",
+        "7,0"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Al2Cl6 এর ক্ষেত্রে ৬টি সমযোজী বন্ধন এবং\r\n২টি সন্নিবেশ সমযোজী বন্ধন বিদ্যমান।"
+    },
+    {
+      "question_no": 62,
+      "id": "135246",
+      "question": "প্রথম ট্রানজিশন (অবস্থান্তর) ধাতু সিরিজের একটি ধাতু হতে সৃষ্ট M3+ আয়নে 5টি ইলেকট্রন 3d সাবশেলে আছে। M3+ টি কী হবে?",
+      "options": [
+        "Cr3+",
+        "Mn3+",
+        "Fe3+",
+        "Sc3+"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 63,
+      "id": "135247",
+      "question": ".কোন লবণটি গাঢ় H₂S04 এর সাথে বিক্রিয়া করে S উৎপন্ন করে?",
+      "options": [
+        "NaF",
+        "NaCl",
+        "NaBr",
+        "Nal"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 64,
+      "id": "135248",
+      "question": "Sp³ হাইব্রিডাইজেশন প্রক্রিয়ায় কয়টি sp³ হাইব্রিড অরবিটাল তৈরি হয়?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "sp³ সংকরনের মাধ্যমে চারটি সংকর অরবিটাল তৈরি হয়।"
+    },
+    {
+      "question_no": 65,
+      "id": "135249",
+      "question": "নিচের কোনটির স্ফুটনাঙ্ক সবচেয়ে বেশি?",
+      "options": [
+        "CH4",
+        "NH3",
+        "PH3",
+        "H2S"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাইড্রোজেন বন্ধনের কারনে NH3 এর\r\nস্ফুটনাঙ্ক সবচেয়ে বেশি।"
+    },
+    {
+      "question_no": 66,
+      "id": "135250",
+      "question": "",
+      "options": [
+        "109.5°",
+        "107.5°",
+        "105.5°",
+        "120°"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 67,
+      "id": "135251",
+      "question": "কোনটি অ্যানায়নকে অধিক পোলারিত করবে?",
+      "options": [
+        "Na+",
+        "Mg²+",
+        "Al³+",
+        "Fe³+"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 68,
+      "id": "135252",
+      "question": "CH3-CH =CH-CHO যৌগটিতে অসংকরিত pঅরবিটালের সংখ্যা কয়টি?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 69,
+      "id": "135253",
+      "question": "ফ্রিয়ন এর সংকেত কোনটি?",
+      "options": [
+        "CF4",
+        "CF3CI",
+        "CF2Cl2",
+        "CHF3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 70,
+      "id": "135254",
+      "question": "",
+      "options": [
+        "+1",
+        "+3",
+        "+4",
+        "+5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 71,
+      "id": "135255",
+      "question": "Cr2O7- আয়নের কেন্দ্রীয় পরমাণুর জারণ সংখ্যা কোনটি?",
+      "options": [
+        "-2",
+        "0",
+        "+2",
+        "+6"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 72,
+      "id": "135256",
+      "question": "নিম্নের কোনটি s- ব্লক মৌল?",
+      "options": [
+        "Al",
+        "Si",
+        "K",
+        "Ca"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 73,
+      "id": "135257",
+      "question": "নিম্নের কোন অক্সাইডটি সর্বাধিক অম্লধর্মী?",
+      "options": [
+        "SiO2",
+        "P2O3",
+        "SO3",
+        "Cl2O7"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 74,
+      "id": "135258",
+      "question": "ক্ষারকত্ব হ্রাসের সঠিক ক্রম কোনটি?",
+      "options": [
+        "F- > Cl- > Br- > I-",
+        "Br- >CI- >F- >I-",
+        "I- > Cl- >Br- > F-",
+        "F- >Cl- > I- >Br-"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 75,
+      "id": "135259",
+      "question": "নিচের কোন যৌগটি সন্নিবেশ বন্ধন গঠন করে না?",
+      "options": [
+        "H2O",
+        "NH3",
+        "BCl3",
+        "CCl4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 76,
+      "id": "135260",
+      "question": "নিচের কোন যৌগটির গলনাঙ্ক সবচেয়ে কম?",
+      "options": [
+        "LiCl",
+        "NaCl",
+        "KCl",
+        "CsCl"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 77,
+      "id": "135261",
+      "question": "কোন যৌগটি আর্দ্রবিশ্লেষিত হয়?",
+      "options": [
+        "C6H6",
+        "NaCI",
+        "SiCI4",
+        "CCl4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 78,
+      "id": "135262",
+      "question": "কোন অরবিটালের অধিক্রমণের ফলে C2H4 যৌগে π-বন্ধন গঠিত হয়?",
+      "options": [
+        "sp²-sp²",
+        "sp²-d",
+        "2pz-2pz",
+        "2py-2py"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 79,
+      "id": "135263",
+      "question": "নিচের কোন আয়ন রঙিন যৌগ গঠন করে?",
+      "options": [
+        "Cu+",
+        "Sc³+",
+        "Ni2+",
+        "Zn2+"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 80,
+      "id": "135264",
+      "question": "কোন মৌলটি সর্বোচ্চ জারণসংখ্যা দেখায়?",
+      "options": [
+        "Cr",
+        "Mn",
+        "Co",
+        "V"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 81,
+      "id": "135265",
+      "question": "Ca3N2 + H₂O→ Ca(OH)2 +X; X যৌগটি কী?",
+      "options": [
+        "NO₂",
+        "HNO3",
+        "N2",
+        "NH3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 82,
+      "id": "135266",
+      "question": "পানির অণুতে বন্ধন কোণের মান কত?",
+      "options": [
+        "109.5°",
+        "107",
+        "104.5",
+        "90°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 83,
+      "id": "135267",
+      "question": "Al203 অম্লত্ব কত?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 84,
+      "id": "135268",
+      "question": "চালকোজেন মৌল বলা হয় কোন গ্রুপের মৌলকে?",
+      "options": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 85,
+      "id": "135269",
+      "question": "বন্ধন কোণের সঠিক ক্রম কোনটি?",
+      "options": [
+        "CH4 > NH3 >H₂S>H2О",
+        "NH3 >H₂0>H₂S> CH4",
+        "CH4> NH3 >H₂O>H₂S",
+        "H₂S> H₂O > NH3 < CH4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 86,
+      "id": "135270",
+      "question": "কোন মৌলটির আয়নিকরণ বিভব সবচেয়ে বেশি?",
+      "options": [
+        "B",
+        "C",
+        "N",
+        "O"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 87,
+      "id": "135271",
+      "question": "কোনটির ১ম আয়নিকরণ শক্তি বেশি?",
+      "options": [
+        "Be",
+        "C",
+        "O",
+        "N"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 88,
+      "id": "135272",
+      "question": "নিচের কোন আয়নিক যৌগের সবচেয়ে বেশি পোলারায়ন ঘটে?",
+      "options": [
+        "KCI",
+        "NaCl",
+        "MgCl2",
+        "BeCl2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 89,
+      "id": "135273",
+      "question": "CO2 যৌগের সংকরায়ন কোনটি?",
+      "options": [
+        "sp",
+        "sp²",
+        "sp³",
+        "sp³d"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 90,
+      "id": "135274",
+      "question": "কোন আয়নটি আকারে বড়?",
+      "options": [
+        "N³-",
+        "02-",
+        "F-",
+        "Na+"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 91,
+      "id": "135275",
+      "question": "সবচেয়ে দুর্বল বন্ধন কোনটি?",
+      "options": [
+        "সিগমা বন্ধন",
+        "পাই বন্ধন",
+        "হাইড্রোজেন বন্ধন",
+        "আয়নিক বন্ধন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 92,
+      "id": "135276",
+      "question": "চালকোজেন মৌলগুলোর অবস্থান পর্যায় সারণির কোন গ্রুপে?",
+      "options": [
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 93,
+      "id": "135277",
+      "question": "NH4+ আয়নের সংকরণ কোনটি?",
+      "options": [
+        "dsp2",
+        "sp3",
+        "sp2",
+        "sp"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 94,
+      "id": "135278",
+      "question": "চালকোজেন মৌল কোন ব্লকের অন্তর্ভুক্ত?",
+      "options": [
+        "f",
+        "d",
+        "p",
+        "S"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 95,
+      "id": "135279",
+      "question": "কোনটির ইলেকট্রন আসক্তি সর্বনিম্ন?",
+      "options": [
+        "N",
+        "P",
+        "S",
+        "O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 96,
+      "id": "135280",
+      "question": "কোন মৌলটির তড়িৎ ঋণাত্মকতা বেশি?",
+      "options": [
+        "Cl",
+        "Br",
+        "O",
+        "N"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 97,
+      "id": "135281",
+      "question": "কোনটি রঙিন যৌগ?",
+      "options": [
+        "TiCl4",
+        "MnO2",
+        "ScCl3",
+        "ZnSO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 98,
+      "id": "135282",
+      "question": "কোন যৌগটি আর্দ্র বিশ্লেষিত হবে?",
+      "options": [
+        "SiCl4",
+        "CCl4",
+        "BeCl",
+        "NaCl"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 99,
+      "id": "135283",
+      "question": "কোনটির আয়নিক ব্যাসার্ধ বড়?",
+      "options": [
+        "Na+",
+        "K+",
+        "Mg2+",
+        "Ca2+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 100,
+      "id": "135284",
+      "question": "কোনটি পানিতে অধিক দ্রবণীয়?",
+      "options": [
+        "KCl",
+        "NaCl",
+        "MgCl2",
+        "CaCl2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 101,
+      "id": "135285",
+      "question": "[Zn(NH3)4]²+ এ Zn এর সংকরণ কোনটি?",
+      "options": [
+        "sp³",
+        "sp³d",
+        "sp³d2",
+        "sp²d"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 102,
+      "id": "135288",
+      "question": "Cl₂ অণুর মধ্যে বন্ধন হবে-",
+      "options": [
+        "আয়নিক",
+        "অপোলার সমযোজী",
+        "পোলার সমযোজী",
+        "সন্নিবেশ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 103,
+      "id": "135289",
+      "question": "কক্ষ তাপমাত্রায় কোনটি তরল?",
+      "options": [
+        "F₂",
+        "Cl₂",
+        "Br₂",
+        "I₂"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 104,
+      "id": "135290",
+      "question": "পর্যায় সারীণতে Cu এর অবস্থান কোন শ্রেণিতে?",
+      "options": [
+        "10",
+        "13",
+        "11",
+        "12"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 105,
+      "id": "135291",
+      "question": "ইলেকট্রন ত্যাগ করে ধনাত্মক আয়নে পরিণত হতে যে শক্তির প্রয়োজন হয় তাকে বলে-",
+      "options": [
+        "ইলেকটন আসক্তি",
+        "তড়িৎ ঋণাত্মকতা",
+        "বেনজিন",
+        "আয়নিকরণ শক্তি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 106,
+      "id": "135292",
+      "question": "নিচের কোনটি তড়িৎ ঋণাত্মকতার সঠিক ক্রম?",
+      "options": [
+        "Li> Na > K > Rb > Cs",
+        "Li>Na >K > Cs > Rb",
+        "Li> K > Na > Cs > Rb",
+        "Na > Rb > Cs > Li>K"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 107,
+      "id": "135293",
+      "question": "X(g) → X+(g) +e; বিক্রিয়াটি সংঘটনে নিচের কোনটি প্রয়োজন?",
+      "options": [
+        "আয়নীকরণ শক্তি",
+        "স্ব-প্রভাবক",
+        "ইলেকট্রন আসক্তি",
+        "তড়িৎ ঋণাত্মকতা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 108,
+      "id": "135294",
+      "question": "নিচের কোনটি মৃৎক্ষার মৌল-",
+      "options": [
+        "Ca",
+        "Na",
+        "Si",
+        "P"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 109,
+      "id": "135296",
+      "question": "নিচের কোনটি সবচেয়ে কম তড়িৎ ধনাত্মক?",
+      "options": [
+        "Na",
+        "Mg",
+        "K",
+        "Ca"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 110,
+      "id": "135297",
+      "question": "কোন মৌল জোড়া পর্যায় সারণির একই পর্যায়ভুক্ত?",
+      "options": [
+        "Li, Na",
+        "Mn,Fe",
+        "Ar,Rn",
+        "Al,Ga"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 111,
+      "id": "135299",
+      "question": "কোন যৌগটি H- বন্ধন গঠন করে?",
+      "options": [
+        "CH4",
+        "C6H6",
+        "H2O",
+        "H₂S"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 112,
+      "id": "135300",
+      "question": "sp² হাইব্রিডাইজেশনে কয়টি হাইব্রিড অরবিটাল তৈরি হয়?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 113,
+      "id": "135301",
+      "question": "K4[Fe(CN)6] যৌগের কেন্দ্রীয় পরমাণুতে কী ধরনের সংকরণ ঘটে?",
+      "options": [
+        "sp³",
+        "sp³d",
+        "sp³d2",
+        "sp3d3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 114,
+      "id": "135302",
+      "question": "কোনটির কেন্দ্রীয় পরমাণুর সংকরায়ণ ভিন্ন?",
+      "options": [
+        "PH3",
+        "CO2",
+        "SiCl4",
+        "NH4+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 115,
+      "id": "135303",
+      "question": "নিচের কোন যৌগে মুক্তজোড় ইলেকট্রন সর্বাধিক?",
+      "options": [
+        "SF6",
+        "IF7",
+        "XeF2",
+        "H2O"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 116,
+      "id": "135304",
+      "question": "C2H4 অণুতে C-H বন্ধনগুলো নিচের কোন অরবিটালদ্বয়ের অধিক্রমণের ফলে গঠিত হয়?",
+      "options": [
+        "C(sp) + H(1s)",
+        "C(sp²) + H(1s)",
+        "C(sp²) + H(2s)",
+        "C(sp³)+H(1s)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 117,
+      "id": "135305",
+      "question": "কোনটি অম্লধর্মী অক্সাইড?",
+      "options": [
+        "CO2",
+        "ZnO",
+        "B2O3",
+        "Al203"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ZnO উভধর্মী অক্সাইড"
+    },
+    {
+      "question_no": 118,
+      "id": "135306",
+      "question": "",
+      "options": [
+        "Mg2+>Ne >Na+",
+        "F- >Ne>Mg2+>Na+",
+        "Mg2+>Na+>Ne>F-",
+        "F- >Ne > Na+ > Mg2+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 119,
+      "id": "135307",
+      "question": "হাইড্রোজেন বন্ধন গঠনকারী যৌগ কোনটি?",
+      "options": [
+        "CH3CN",
+        "SiH4",
+        "CH3OCH3",
+        "HCOOH"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 120,
+      "id": "135308",
+      "question": "অক্সাইডের সংকেত কোনটি?",
+      "options": [
+        "O₂",
+        "O²⁻",
+        "2O₂",
+        "O₂²⁻"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 121,
+      "id": "135309",
+      "question": "f- ব্লক মৌলগুলোকে কী বলা হয়?",
+      "options": [
+        "মুদ্রা ধাতু",
+        "অবস্থান্তর ধাতু",
+        "মৃৎক্ষার ধাতু",
+        "আন্তঃঅবস্থান্তর মৌল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 122,
+      "id": "135310",
+      "question": "আয়নীকরণ বিভবের সঠিক ক্রম কোনটি?",
+      "options": [
+        "N>O>F",
+        "F>Cl>Br",
+        "Li>N>K",
+        "Be>Mg>C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 123,
+      "id": "135311",
+      "question": "কোনটিতে পোলারায়ন বেশি ঘটবে?",
+      "options": [
+        "BeCl2",
+        "MgCl2",
+        "LiCl",
+        "NaCl"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 124,
+      "id": "135312",
+      "question": "স্ফুটনাংকের ক্রম অনুসারে নিচের কোনটি সঠিক?",
+      "options": [
+        "H₂O< NH3 < HF",
+        "NH3 >H2O >HF",
+        "HF < NH3 < H2O",
+        "NH3 < HF < H20"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 125,
+      "id": "135313",
+      "question": "কোনটি অবস্থান্তর মৌল?",
+      "options": [
+        "Zn",
+        "Cu",
+        "Sc",
+        "K"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 126,
+      "id": "135314",
+      "question": "নিচের কোনটি অধিক পোলার?",
+      "options": [
+        "HF",
+        "H2S",
+        "CO2",
+        "NH3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 127,
+      "id": "135315",
+      "question": "নিচের কোনটির আকার সবচেয়ে বড়?",
+      "options": [
+        "Na+",
+        "Mg2+",
+        "02-",
+        "F-"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 128,
+      "id": "135316",
+      "question": "বন্ধন কোণের কোন ক্রমটি সঠিক?",
+      "options": [
+        "H₂O> NH3 < BeCl₂ > BF3",
+        "BF3 >BeCl₂ > H₂O >NH3",
+        "BeCl2 > NH3 > BF3 > H2O",
+        "BeCl₂ > BF3 > NH3 > H₂O"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 129,
+      "id": "135317",
+      "question": "কোনটির গঠন ত্রিকোণাকার দ্বি-পিরামিডীয়?",
+      "options": [
+        "PCl5",
+        "PCl3",
+        "XeF4",
+        "XeF6"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 130,
+      "id": "135318",
+      "question": "কোন জোড়ার মধ্যে আকৃতি বৈসাদৃশ্য বিদ্যমান?",
+      "options": [
+        "BF3 ও SO3",
+        "H2O ও H2S",
+        "POCI3 ও BF4-",
+        "SO2 ও CO2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 131,
+      "id": "135319",
+      "question": "কোন মৌল জোড়া পর্যায় সারণির একই পর্যায়ভুক্ত?",
+      "options": [
+        "Li, Na",
+        "Mn, Fe",
+        "Kr, Xe",
+        "B, Al"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 132,
+      "id": "135320",
+      "question": "কোনটি সবচেয়ে বেশি আয়নিক?",
+      "options": [
+        "AlF3",
+        "AlCl3",
+        "AlBr3",
+        "All3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 133,
+      "id": "135321",
+      "question": "কোন যৌগে আয়নিক, সমযোজী ও সন্নিবেশ সমযোজী বন্ধন বিদ্যমান?",
+      "options": [
+        "KBF4",
+        "HCIO4",
+        "H30+",
+        "H₂SO4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 134,
+      "id": "135322",
+      "question": "কোনটি উভধর্মী অক্সাইড?",
+      "options": [
+        "Al2O3",
+        "SiO2",
+        "CaO",
+        "CO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 135,
+      "id": "135323",
+      "question": "কোনটিতে হাইড্রোজেন বন্ধন আছে?",
+      "options": [
+        "HI",
+        "H₂S",
+        "CH4",
+        "NH3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 136,
+      "id": "135324",
+      "question": "কোনটির মধ্যে কর্ণ সম্পর্ক রয়েছে?",
+      "options": [
+        "Mg, Cа",
+        "Na, K",
+        "B, Si",
+        "P,S"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 137,
+      "id": "135325",
+      "question": "পানির দ্রাব্যতার সঠিক ক্রম কোনটি?",
+      "options": [
+        "NaCl>MgCl2 > SiCl4 > AlCI3",
+        "AlCl3 > MgCl₂ > NaCl>SiCl4",
+        "SiCl4> AlCI3>MgCl2 > NaCl",
+        "NaCl> MgCl2 > AICl3 > SiCl4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 138,
+      "id": "135326",
+      "question": "কোনটি প্রশম অক্সাইড?",
+      "options": [
+        "NO",
+        "N2O5",
+        "N2O3",
+        "NO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 139,
+      "id": "135327",
+      "question": "কোনটি উভয়ধর্মী অক্সাইড?",
+      "options": [
+        "Al203",
+        "Na2O2",
+        "KO2",
+        "Fe203"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 140,
+      "id": "135328",
+      "question": "নিচের কোনটি অর্ধপরিবাহী নয়?",
+      "options": [
+        "গ্যালিয়াম আরসেনাইট",
+        "সিলিকন",
+        "আরজেনটাম",
+        "জারমেনিয়াম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 141,
+      "id": "135329",
+      "question": "Stainless Steel এ steel ছাড়া আর কি থাকে?",
+      "options": [
+        "chromium",
+        "vanadium",
+        "Nickle",
+        "manganese"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 142,
+      "id": "135330",
+      "question": "কত তাপমাত্রায় তুঁতে সাদা অনার্দ্র কপার সালফেটে পরিণত হয়?",
+      "options": [
+        "100°C",
+        "150°C",
+        "260°C",
+        "60°C"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 143,
+      "id": "135331",
+      "question": "PbO2 কে দ্রবীভূত করতে নিচের কোনটি ব্যবহার করা যাবে?",
+      "options": [
+        "HCl",
+        "H₂SO4",
+        "HNO3",
+        "H2O"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 144,
+      "id": "135332",
+      "question": "হীরক ও গ্রাফাইট হলো কার্বন মৌলের বহুরূপ। এদের ক্ষেত্রে কোন উক্তিটি সত্য নয়?",
+      "options": [
+        "উভয়েই কার্বন দ্বারা গঠিত",
+        "হীরক ও গ্রাফাইট যথাক্রমে sp³ ও sp² সংকরিত",
+        "উভয়ের দহন তাপ একই",
+        "উভয়ের বিদ্যুৎ পরিবাহিতা ভিন্ন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 145,
+      "id": "135333",
+      "question": "ব্যাসার্ধের সঠিক ক্রম নিচের কোনটি?",
+      "options": [
+        "Ne>Na+>Mg2+",
+        "Na+>Ne>Mg2+",
+        "Ne>Mg2+>Na+",
+        "Mg²+>Na+> Ne"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 146,
+      "id": "135334",
+      "question": "Li ও Ne এর মধ্যবর্তী ১টি মৌলের ১ম থেকে ৭ম আয়নিকরণ শক্তির মান হলো 1314, 3390, 5320, 7450, 11000, 13300, 71000 kJmol/L মৌলটির যোজ্যতা স্তরে ইলেকট্রন বিন্যাস কী?",
+      "options": [
+        "2s²",
+        "2s²2p¹",
+        "2s²2p⁴",
+        "2s²2p⁶"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    }
+  ]
+}

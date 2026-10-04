@@ -1,0 +1,218 @@
+{
+  "title": "Medical English 18-19",
+  "category": "Medical & Dental Questions > Medical English Question",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "139479",
+      "question": "Choose the correct sentence-",
+      "options": [
+        "I have been lived here since five years",
+        "I am living here for five years",
+        "I have been living here for five years",
+        "I live here for five years"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Present tense-এ সময়ের ব্যপ্তি (five years) বোঝাতে for বসে। তবে নির্দিষ্ট সময় বোঝালে since ব্যবহৃত হয়।\r\nযেমন: since monday, since April, since 2018 etc.."
+    },
+    {
+      "question_no": 2,
+      "id": "139481",
+      "question": "Poll took place peacefully _____ the country'.",
+      "options": [
+        "across",
+        "besides",
+        "into",
+        "for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাধারণত ব্যাপ্তি/জুড়ে বোঝাতে across prepostion টি ব্যবহৃত হয়। Across the country অর্থ সারাদেশ ব্যাপী/সারাদেশ জুড়ে। Across যোগে বাক্যটির বাংলা অর্থ: সারাদেশ ব্যাপী ভোটদান শান্তিপূর্ণভাবে অনুষ্ঠিত হলো।"
+    },
+    {
+      "question_no": 3,
+      "id": "139484",
+      "question": "'আমি তোমার নিকট বিশেষ কৃতজ্ঞ'। Which one is correct:?",
+      "options": [
+        "I am much obliged to you.",
+        "I am very much grateful to you.",
+        "I am very grateful to you.",
+        "I am most obliged to you."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কৃতজ্ঞতাকে জোর দিয়ে (বিশেষ কৃতজ্ঞ) বোঝানোর জন্য very grateful ব্যবহৃত হয়েছে।"
+    },
+    {
+      "question_no": 4,
+      "id": "139487",
+      "question": "'একজন নতুন শিক্ষার্থীকে ডাক্তার হবার জন্য পাঁচ বছর কঠোর পরিশ্রম করতে হয়'। Which one is the correct English translation?",
+      "options": [
+        "An entrant will have been working hard for five years to make him a physician",
+        "An entrant will be working hard for five years to be a physician",
+        "An entrant will have to require to work hard for five years to become a physician",
+        "Five years hard working for an entrant will make him a physician."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Entrant অর্থ শিক্ষানবীশ। কঠোর পরিশ্রম করতে হয় বোঝাতে have to require to work hard ব্যবহৃত হয়েছে।"
+    },
+    {
+      "question_no": 5,
+      "id": "139490",
+      "question": "Which one is the correct form of sentence?",
+      "options": [
+        "Mathematics is a subject of study in any school",
+        "Mathematics are subject of study in the school",
+        "Mathematics are hard in the school level",
+        "Mathematics are road to higher education"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Mathematics (গণিত) একটি বিষয়ের নাম যেটি S যুক্ত থাকা সত্ত্বেও singular, তাই is বসেছে। এরকম কিছু বিষয়ের নাম: News, Physics, Politics, Athletics, Economics, Statistics, Measles ইত্যাদি। এরা দেখতে plural হলেও বিষয়ের নাম হওয়ায় verb সর্বদা singular হবে।"
+    },
+    {
+      "question_no": 6,
+      "id": "139492",
+      "question": "The antonym to 'well mannered' is-",
+      "options": [
+        "decorous",
+        "courteous",
+        "chivalrous",
+        "sassy"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Well mannered অর্থ আদব-কায়দা আছে এমন, ভদ্র, সম্মান করতে জানে এমন। এর বিপরীত হবে sassy, rude (মূল্যবোধ বা শ্রদ্ধা নেই এমন)। Decorous এবং courteous শব্দের অর্থ বিনয়ী, নম্র; chivalrous শব্দের অর্থ সাহসী, যুদ্ধপ্রিয়।"
+    },
+    {
+      "question_no": 7,
+      "id": "139493",
+      "question": "Choose the correct sentence from below-",
+      "options": [
+        "Man poses but God disposes",
+        "Man propose but God dispose",
+        "Man propose but God dispropose",
+        "Man proposes but God disposes"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এটি একটি প্রবাদ বাক্য যার বাংলা অর্থ: মানুষ ভাবে এক, হয় আরেক অর্থাৎ, মাঝে মাঝে আশা পূরণ না হওয়া বা কোনো কিছু মনের ভাবনার ঠিক উল্টো হওয়া।"
+    },
+    {
+      "question_no": 8,
+      "id": "139494",
+      "question": "The antonym of 'revenge' is?",
+      "options": [
+        "reprisal",
+        "penalty",
+        "grace",
+        "wrath"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Revenge অর্থ প্রতিশোধ, প্রতিহিংসা। এর বিপরীত হবে grace (শুভেচ্ছা বা প্রশংসা)। Reprisal শব্দের অর্থ প্রতিহিংসা/প্রত্যাঘাত; penalty অর্থ শাস্তি/জরিমানা; wrath শব্দের অর্থ ক্রোধ।"
+    },
+    {
+      "question_no": 9,
+      "id": "139496",
+      "question": "He lives........ honest means.'",
+      "options": [
+        "by",
+        "on",
+        "within",
+        "for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "He lives by honest means অর্থ সে সৎভাবে উপার্জন করে বেঁচে আছে।"
+    },
+    {
+      "question_no": 10,
+      "id": "139499",
+      "question": "What is the synonym of 'exhausted'?",
+      "options": [
+        "plenty",
+        "stored",
+        "animated",
+        "drained"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Exhausted অর্থ নিঃশেষিত বা সম্পূর্ণরূপে ব্যয় করা। এর সমার্থক হবে drained (ক্ষয়প্রাপ্ত বা অপচয়িত হওয়া)। Plenty শব্দের অর্থ প্রচুর; stored অর্থ গুদামজাত; animated অর্থ জীবন্ত।"
+    },
+    {
+      "question_no": 11,
+      "id": "139502",
+      "question": "'ইচ্ছা থাকলেই উপায় হয়।' Which one is the correct English translation?",
+      "options": [
+        "Where there is a will, there is a way",
+        "Where there is will, there is way",
+        "Where there is a will, there is to way",
+        "Where there is to will, there is a way"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "একটি প্রবাদ বাক্য। Where there is a will (যেখানে একটি ইচ্ছা থাকে), there is a way (সেখানে একটি পথ থাকে) অর্থাৎ, ইচ্ছা থাকলে উপায় হয়।"
+    },
+    {
+      "question_no": 12,
+      "id": "139505",
+      "question": "Which of the following sentence is correct?",
+      "options": [
+        "I forbade him from going",
+        "I forbade him going",
+        "I forbade him to go",
+        "I forbade him not to go"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Forbid-বারণ করা, মানা করা; এক্ষেত্রে Forbid + from + verb-ing এবং forbid + infinitive এ দুটো ব্যবহারই প্রযোজ্য। উল্লেখ্য, forbid এর পরে কখনো negative (no/not) বসে না।"
+    },
+    {
+      "question_no": 13,
+      "id": "139506",
+      "question": "Pragmatic' শব্দের অর্থ কী?",
+      "options": [
+        "মরিচীকা",
+        "বাস্তবধর্মী",
+        "ঘৃণা",
+        "সৌহার্দ্যপূর্ণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Pragmatic অর্থ বাস্তবধর্মী বা প্রায়োগিক (Practical)."
+    },
+    {
+      "question_no": 14,
+      "id": "139509",
+      "question": "He was wise enough to accept the other. Here enough is-",
+      "options": [
+        "adjective",
+        "preposition",
+        "conjunction",
+        "adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Wise (adjective) এর পরে enough বাক্যটিতে adverb হিসেবে ব্যবহৃত হয়েছে।"
+    },
+    {
+      "question_no": 15,
+      "id": "139511",
+      "question": "What is the adjective form of the word home?",
+      "options": [
+        "homelike",
+        "homeful",
+        "homely",
+        "homage"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সাধারণত noun এর সাথে ly যুক্ত হয়ে adjective হয় এবং adjective এর সাথে ly যুক্ত হয়ে adverb হয়। Home শব্দটি হচ্ছে noun এবং home এর সাথে ly যুক্ত হয়ে (home+ly= homely) homely শব্দটি adjective হয়েছে।"
+    }
+  ]
+}

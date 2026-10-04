@@ -1,0 +1,608 @@
+{
+  "exam_id": 1452,
+  "title": "Group Verb",
+  "category": "ইংরেজিকে এক্সাম",
+  "duration_minutes": 18,
+  "total_questions": 40,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "1c5ce6d3-0143-4f79-984c-af430226ed7f",
+      "question": "The skirt does______ at the back.",
+      "options": [
+        "on",
+        "in",
+        "out",
+        "up"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "do up- to be fastened, বাধা থাকা, আটকে থাকা। Does this skirt do up at the side or at the back?do up = wrap, মোড়ানো/মোড়া। He was carrying a package done up in brown paper.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "009ac3f0-5cb6-4344-8aba-e0f745a0e5c8",
+      "question": "We have_______ the rules in order to simplify the process.",
+      "options": [
+        "put with",
+        "go with",
+        "get rid with",
+        "done away with"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Do away with (abolish, আইন বাতিল করা, বিলোপ করা; stop using something, কোনো কিছুর সমাপ্তি ঘটানো) This law should be done away with.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "cc03400a-ae4b-4052-a54d-9cf0d8d62f51",
+      "question": "Not a word fell_______ his lips.",
+      "options": [
+        "at",
+        "of",
+        "through",
+        "from"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Fall from (come out, বের হওয়া) Not a word fell from his lips. (তার মুখ থেকে একটা কথাও বের হলো না)",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "b3c0505b-3f23-4461-becb-79f823590468",
+      "question": "Instead of 'deteriorate' we can say______.",
+      "options": [
+        "fall off",
+        "fall away",
+        "fall back",
+        "fall under"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Fall off (decline, deteriorate, কমে যাওয়া) The quality of goods has fallen off.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "a040c35e-9298-4b9c-8df9-cdfe5a342403",
+      "question": "Bashir gets_____ well with his colleagues.",
+      "options": [
+        "on",
+        "upon",
+        "at",
+        "for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Get in with : become popular or friendly with someone, কারও নিকট জনপ্রিয় বা বন্ধুসুলভ হওয়া।Get on with : have a good relationship, কারও সাথে সুসম্পর্ক থাকা, সুসম্পর্ক বজায় রাখা।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "bb3e7f2a-d6f7-41e8-b3ae-b7c3e554e46d",
+      "question": "It's no longer possible to get by ______ a dollar a day.",
+      "options": [
+        "on",
+        "at",
+        "by",
+        "for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "get by (on money)-manage or deal with, অর্থের দ্বারা চালিয়ে নেওয়া বা চালিয়ে নিতে সক্ষম হওয়া।How can/does he get by on so little money/such a small salary? (সে কীভাবে এত কম টাকায় চলে?",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "f8c2f3fd-8f76-4034-985c-5521bc6d6b07",
+      "question": "The police are looking _____ the case.",
+      "options": [
+        "after",
+        "on",
+        "into",
+        "in"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Look into something - তদন্ত করা।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "23d0c916-3377-4739-b43a-ebf77fe80d10",
+      "question": "I could not _______ the meaning of the passage.",
+      "options": [
+        "make of",
+        "make in",
+        "make up",
+        "make out"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Make out (understand, discern, বুঝতে পারা, উপলব্ধি করা) I can't make out his words.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "7fd47d44-515b-4613-8068-819d69e84133",
+      "question": "We requested the chairperson to ______ the meeting until tomorrow.",
+      "options": [
+        "hang up",
+        "do over",
+        "put off",
+        "take off"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Put off (postpone, স্থগিত করা, ফেলে রাখা) Don't put off until tomorrow what you can do today.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "743e4831-d6b6-4e71-a540-0e88f59b0d53",
+      "question": "While living in poverty, the poet had to _____ a great deal of sufferings.un",
+      "options": [
+        "see through",
+        "put up with",
+        "pass by",
+        "fall back"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Put up with (tolerate, endure, সহ্য করা) I cannot put up with such insults.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "d9db4de0-4975-4d70-875c-db7d183fc3ea",
+      "question": "The judge _____ my objection.",
+      "options": [
+        "set off",
+        "set down",
+        "set in",
+        "set forth"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Set down (record, লিখে নেয়া) The judge set down my objection.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "4a6a9a52-6d29-455d-b758-40ba802fad68",
+      "question": "I took _____ walking, hoping ____ lose some weight.",
+      "options": [
+        "for, to",
+        "in, to",
+        "at , to",
+        "to , to"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Take to (অভ্যস্ত হওয়া) এর পরে verb + ing বসে এবং hope (verb) এর পরে to + base form বসে।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "03255b03-a52f-462b-bfee-ef83a8dec989",
+      "question": "Which one is correct for \"দয়া করে আপনার জুতা খুলুন\"?",
+      "options": [
+        "Please take out of your shoes.",
+        "Please take off your shoes.",
+        "Please take of your shoes.",
+        "Please take into your shoes."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Take on/put on/ have on/ do on পরিধান করা; take off/put off/have off/ do off -খুলে ফেলা",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "dffd57cb-6e6c-4513-8ef1-aea7a0d788b3",
+      "question": "Your report( bears out ) his history. What is the meaning of the bracketed phrasal verb of the sentence?",
+      "options": [
+        "Cancels",
+        "Confirms",
+        "Disregards",
+        "consolidates"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Bear out (Support, Confirm, সমর্থন করা) His evidence does not bear out the charge.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "2f620a80-4fc5-4222-ab9a-62e9517fb302",
+      "question": "The student( broke off) in the middle of the debate. What is the meaning of the bracketed phrasal verb of the sentence?",
+      "options": [
+        "To shout loudly",
+        "To feel weak",
+        "To stop suddenly",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Break off (stop suddenly, হঠাৎ থামা) The teacher broke off in the middle of his speech.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "d02db452-f1d2-43b7-85b9-63ff3ee63610",
+      "question": "'On behalf of' means 'act for'. True or false?",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Act for (act on behalf of, কারো হয়ে কিছু করা) The lawyer acts for the clients.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "9ddb845f-73b3-4ce4-9741-872d230fb56e",
+      "question": "His pride has _____ his ruin.",
+      "options": [
+        "Brought up",
+        "Brought down",
+        "Brought about",
+        "Brought around"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Bring about (cause to happen, ঘটানো) He tried to bring about a quarrel between us.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "7bc84638-032c-43fc-842f-c30f6f3483e4",
+      "question": "The widow then burst _____ tears at the sad news.",
+      "options": [
+        "into",
+        "to",
+        "out",
+        "for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Burst into tears (start to cry suddenly, হঠাৎ কান্নায় ভেঙ্গে পড়া) The girl burst into tears.oBurst out laughing/crying (suddenly say sth loudly, ফেটে পড়া) He burst out laughing.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "b00648d8-6841-4717-8737-0cb7d36e79da",
+      "question": "I called ____ his address on the computer.",
+      "options": [
+        "on",
+        "after",
+        "up",
+        "for"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "call up = stored or kept available (She called up her last reserve of strength.)",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "fc280f80-2995-4ca1-880a-71134700bbce",
+      "question": "He comes_____ a noble family.",
+      "options": [
+        "to",
+        "forth",
+        "of",
+        "off"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জন্মগ্রহণ করা বুঝাতে Traditional grammar এ come of ব্যবহৃত হয় এবং Modem grammar 4 come from ব্যবহৃত হয়। যেমন: He comes of a good family. (TG) He comes from a good family. (MG)",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "87a28067-abc5-4a59-9eb0-9dc23fa3679d",
+      "question": "Instead of 'Continue' which word may be used-",
+      "options": [
+        "Carry on",
+        "Carry out",
+        "Carry at",
+        "Carry away"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Carry on (continue, চালিয়ে যাওয়া) He will carry on the business.",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "ebcd6fe9-3518-4406-afbf-a23a0bf71553",
+      "question": "My nephew ______ chicken pox this weeken.",
+      "options": [
+        "came round with",
+        "came along with",
+        "came down with",
+        "came over with"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Come down with (become ill with, খুব গুরুতর নয় এমন রোগে আক্রান্ত হওয়া)",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "c1f7371c-dcc4-420e-97fb-84cfefd9ac37",
+      "question": "He cut _____ a slice of the cake for me",
+      "options": [
+        "off",
+        "of",
+        "Down",
+        "with"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Cut off (die, মারা যাওয়া) He was cut off at an early age. He was cut off in the prime of life.Cut off (separate, বিচ্ছিন্ন) He lives in a foreign country, cut off from his kith and kin.Cut off (separate, কেটে বিচ্ছিন্ন করা) Our water supply was cut off for two days last week.",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "4827d7a3-aae8-474c-ab27-7c031472a573",
+      "question": "Which one is wrong?",
+      "options": [
+        "Die through -অযত্নে বা অবহেলায় মারা যাওয়া",
+        "Die of - দুর্বলতর হওয়া",
+        "Die from ক্ষত, জখম, আঘাত, অতিরিক্ত কোনো কিছুর পরিণতিরূপে মারা যাওয়া",
+        "die for --মতাদর্শের জন্য জীবন দিল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Die of (অসুস্থতা, ক্ষুধা, তৃষ্ণা, রোগে মারা যাওয়া)Die down (become weaker, দুর্বলতর হওয়া)",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "8590c4ef-625f-4808-ba5a-ae2db2ed3c41",
+      "question": "If I thought I could ______it, I wouldn't pay my taxes at all.",
+      "options": [
+        "do away with",
+        "put up with",
+        "get away with",
+        "grow out of"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "get away with- succeed in avoiding punishment for sth= কোন কিছুর সাজা বা শাস্তি এড়াতে সক্ষম হওয়া",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "77867a83-2bfd-483f-aed4-145d7c97cf82",
+      "question": "The company came ____ strong criticism from the public.",
+      "options": [
+        "onto",
+        "Under",
+        "From",
+        "into"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "came under-অধীন হওয়া, শিকার হওয়া। বাক্যের অর্থ: কোম্পানিটি জনগণের কড়া সমালোচনার শিকার হলো",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "41a54312-d2dc-4b2e-b261-5bafc1a47dac",
+      "question": "I loved the trip. The beautiful scenery ____ the awful roads.",
+      "options": [
+        "made up",
+        "made up for",
+        "made out",
+        "made for"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "make up for- compensate, ক্ষতিপূরণ দেয়া, পুষিয়ে দেয়া, পূরণ করা",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "6ee067f0-1111-4dff-92ec-cf8cf54ba91a",
+      "question": "She _____ a brief appearance at the end of the party.",
+      "options": [
+        "put in",
+        "put up",
+        "put on",
+        "put across"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "put in a brief appearance - be present somewhere for a short time -কিছুক্ষণের জন্য উপস্থিত হওয়া",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "33414d8e-255e-4e06-bd6a-461738b6702f",
+      "question": "Nobody believed Ahmed at first but he _____ to be right.",
+      "options": [
+        "came out",
+        "Worked out",
+        "Carried out",
+        "Turned out"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Turn out to be/have (sth) = to be known or discovered finally and surprisingly; to prove to be, সবশেষে কোনো কিছু বিস্ময়করভাবে জানতে পারা, আবিষ্কার করা; অবশেষে প্রমাণিত হওয়া",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "217d1299-61cc-446c-b3e1-687596a06c44",
+      "question": "The phrasal verb 'write off' means-",
+      "options": [
+        "cancelling a debt",
+        "reducing rates",
+        "increasing money",
+        "writing a letter"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "write off-to cancel/cancelling a debt, ঋণ বাতিল বলে গণ্য করা, পরিশোধ করতে হবে না বলে মেনে নেয়া।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "b059169d-8a44-4668-97b1-08c680d01d47",
+      "question": "The Bangladesh Cricket team_____ with a victory against England",
+      "options": [
+        "Bounced up",
+        "Turned up",
+        "Bounced back",
+        "sprang up"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "bounce back -recover, রোগ, ব্যর্থতা, সমস্যা কাটিয়ে উঠে স্বাস্থ্যবান, আত্মবিশ্বাসী ও সফল হতে শুরু করা।Children often seem to bounce back from illness more quickly than adults do.",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "7906b982-a3be-4cab-8d84-a824c092c998",
+      "question": "Several new diseases ____ in the recent years.",
+      "options": [
+        "Have come up",
+        "Grown up",
+        "have discovered",
+        "have discovered"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "come up -appear, উপস্থিত হওয়া, দেখা দেয়া; বাক্যের অর্থ: সাম্প্রতিক বছরগুলোতে কতিপয় নতুন রোগ দেখা",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "d789c9ad-76bf-48e6-8205-fb21150cd9e2",
+      "question": "Sometimes kids ( act up ) because they just want attention. Here \"act up\" means -",
+      "options": [
+        "To behave rudely",
+        "Irritate",
+        "Cry",
+        "To make noise"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "act up - to behave badly, (বাচ্চাদের দ্বারা) খারাপ আচরণ করা",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "559300e1-42ad-43e3-b57b-ff401ce064f8",
+      "question": "Instead of eating at home, we decided to_____.",
+      "options": [
+        "Meal out",
+        "Eat out",
+        "Eat up",
+        "Lunch out"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "eat out = eat in a restaurant, রেস্টুরেন্টে খাওয়া; eat up = কাউকে প্রদত্ত খাবার সব খেয়ে সাবাড় করা/শেষ করা",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "cbdd7461-58c1-41b7-9b29-b4678e222b28",
+      "question": "Alcohol tells _____ your health.",
+      "options": [
+        "of",
+        "off",
+        "upon",
+        "at"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Tell upon- harm, affect, have a bad effect (শরীর, স্বাস্থ্যের) মারাত্মক ক্ষতি করা, হানি ঘটানো।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "ab5e5514-b51d-4b01-9708-b793717d0a13",
+      "question": "Trees have _____ off their leaves.",
+      "options": [
+        "cast",
+        "thrown",
+        "fallen",
+        "put"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "cast aside/off - get rid of, পরিত্যাগ করা, ছেড়ে দেওয়া, মুক্ত হওয়া; Throw off- আরোগ্য হওয়া, কাপড় খুলে ফেলা; fall off- কমে যাওয়া: put off- স্থগিত করা, (কাজ) ফেলে রাখা, কাপড় খুলে ফেলা",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "34809a4c-f105-43d7-88f7-fff3b3b06bdb",
+      "question": "I called the hotel, but they said they were booked_____.",
+      "options": [
+        "up",
+        "full",
+        "out",
+        "packed"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Book up- সম্পূর্ণ বুকিং করা",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "ecbbd801-242e-43d0-b262-89f3d7a88141",
+      "question": "The project___ for want of funds.",
+      "options": [
+        "Fell back",
+        "Fell through",
+        "Fell away",
+        "Fell down"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "fall down (মাটিতে) পড়ে যাওয়া; fall away কমে যাওয়া, খসে পড়া, ঝরে পড়া।fall back - retreat, সরে আসা, পিছু হটা; fall through (পরিকল্পনা, প্রকল্প) ব্যর্থ হওয়া, সম্পূর্ণ না হওয়া",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "9ad3a09a-dad0-4e7f-9600-6c7bd6153b94",
+      "question": "Let us not_____ your past mistakes.",
+      "options": [
+        "Dwell",
+        "Dwell at",
+        "Dwell on",
+        "Dwell about"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "dwell on/upon কোনো কিছু নিয়ে চিন্তাভাবনা করা বা বিশদভাবে আলোচনা করা।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "9db974e0-c2ec-40c7-bc0a-6c953e022f73",
+      "question": "The phrase 'Tide over' means:",
+      "options": [
+        "pass over",
+        "cross over",
+        "carry over",
+        "overcome"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Tide over overcome, (বিপদ/সমস্যা) কাটিয়ে উঠা, পার করা, কাটিয়ে উঠতে সাহায্য করা; cross over (the road) = রাস্তা পার হওয়া; pass (sb/sth) over ignore, উপেক্ষা করা; carry over- হিসাবের জের টানা",
+      "images": []
+    }
+  ]
+}

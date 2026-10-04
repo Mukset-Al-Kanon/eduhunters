@@ -1,0 +1,3326 @@
+{
+  "exam_id": 8438,
+  "title": "Correction (Unlimited Exam) 🎉",
+  "category": "Unlimited Exam",
+  "subtopic": "Grammar Unlimited Exam",
+  "duration_minutes": 15,
+  "total_questions": 221,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "ba7b5376-96eb-4033-b5cf-067ff76d7200",
+      "question": "Which of the following sentences is correct one ?[]",
+      "options": [
+        "Paper is made of wood",
+        "Paper is made from wood",
+        "Paper is made by wood",
+        "Paper is made on wood"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "4fad45a5-0fec-4e3c-bd50-843ba3f23352",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "The chair is made of wood.",
+        "The chair is made from wood.",
+        "The chair is made by wood.",
+        "The chair is made in wood."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "852c116c-6311-40b6-80e7-64750f2dfba7",
+      "question": "Which sentence is correct ?[]",
+      "options": [
+        "He casted his vote for you.",
+        "He offered his vote for you.",
+        "He cast his vote for you.",
+        "He dropped his vote for you."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "94f4fa47-0ed6-41dd-bfed-149cd334618f",
+      "question": "Choose the correct option.[]",
+      "options": [
+        "Come at nine o'clock in Friday.",
+        "Come on nine o'clock in Friday.",
+        "Come at nine o'clock on Friday.",
+        "Come at nine o'clock a Friday."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "479fe4f1-8f7f-4cb5-a209-069c85b984a8",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "I saw his pulse.",
+        "I felt his pulse.",
+        "I found his pulse.",
+        "I examined his pulse."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "3a002fc7-cd52-4b1a-8ee0-83266ef1b1a4",
+      "question": "The correct sentence is -----[]",
+      "options": [
+        "I asked Javed had he passed.",
+        "I asked Javed if he had passed.",
+        "I asked Javed if you had passed.",
+        "I asked Javed that she had passed."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "946b538d-0697-44e4-bda2-3da79c6e86a9",
+      "question": "কোনটি সঠিক ?[]",
+      "options": [
+        "He asked me did I pass.",
+        "He asked me if I passed.",
+        "He asked me if I had passed.",
+        "He asked me if I have passed."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "0ada2932-7fcf-4ab2-ad47-620b43c9d722",
+      "question": "Which one is <u>incorrect</u> ?[]",
+      "options": [
+        "I need an apple.",
+        "I need some apples.",
+        "I need apple.",
+        "I need the apple."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "afcd9432-a60f-452c-a3e7-447e39f0ed4d",
+      "question": "Choose the wrong sentence.[]",
+      "options": [
+        "The land is belonged to an old lady.",
+        "They parted them from one another suddenly.",
+        "The leader expressed himself forcibly.",
+        "Mother bought me an ice cream."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "c233dc8a-d508-4288-964e-15f918c7fcc9",
+      "question": "Which one is correct sentence ?[]",
+      "options": [
+        "The doctor found my pulse.",
+        "The doctor took my pulse.",
+        "The doctor examined my pulse.",
+        "The doctor saw my pulse."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "b0802adb-596a-4fed-a03f-6a695f4eaf74",
+      "question": "Doctors ----- our pulse.[]",
+      "options": [
+        "see",
+        "examine",
+        "verify",
+        "feel"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "f45d630b-d127-40c7-bfac-3f82a9f25531",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "How old are you ?",
+        "How are you old ?",
+        "How old you are ?",
+        "How are you old ?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "19edabbe-4f3b-46e8-9096-274529c79f6c",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He gave me some advice.",
+        "He requested for my help.",
+        "I am very better today.",
+        "The goods are of inferior qualities."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "607c1755-01e0-4b77-9f61-136b75f88b5b",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "Someone is knocking in the door.",
+        "They have gone for walk.",
+        "My son does not like the vegetable.",
+        "Discuss the matter in detail."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "4e22a54a-0340-4854-b2ad-a77286aab3b2",
+      "question": "Which sentence is correct ?[]",
+      "options": [
+        "I feel unwell.",
+        "I have a headache.",
+        "Open page 50.",
+        "I wish I could fly."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "b153a11f-fb55-46d8-b242-ba149f5eddec",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "There is an affinity two language.",
+        "I still adhere with my plan.",
+        "He is alarmed for any safety.",
+        "The meeting was adjourned for a week."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "b1f6d7de-8980-496c-8699-30ccfa955ec5",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "We were discussing about the whole matter.",
+        "We were discussing the matter.",
+        "We were discussing totally about the matter.",
+        "We were discussing about the matter."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "4281a161-7719-4f4d-899e-32c26aa0f908",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "She dyed her black hair.",
+        "She dyed her hair black.",
+        "She died her hair black.",
+        "She dye her black hair."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "de812c25-0439-4fbc-b991-0f43efb59d2f",
+      "question": "Which of the following sentences is correct ?[]",
+      "options": [
+        "I think him to be my best friend.",
+        "I think him as my best friend.",
+        "I think of him as my best friend.",
+        "I think him is my best friend."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "dbc0ccf4-af69-4ee2-84fe-bcb0d473631e",
+      "question": "Find out the incorrect sentence.[]",
+      "options": [
+        "See the word in the dictionary.",
+        "The rice of Dhaka is better than that of Rajshahi.",
+        "Mr. Rahim is on the committee.",
+        "The patient had died before the doctor came."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "84d70cdd-f05f-4793-b750-fbbcea0cd86b",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He prefers to read than to write.",
+        "He is comparatively better today.",
+        "He has scarcely any money.",
+        "He speaks fluent than I."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "72083c8a-8ad7-40aa-968f-2c49db1a573b",
+      "question": "Which one is below is a correct sentence ?[]",
+      "options": [
+        "They have seen me yesterday.",
+        "I like his childlike simplicity.",
+        "It is I who is to blame.",
+        "The girl resembles to her mother."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "03dca0ba-b9dc-4c9c-ac1c-f964237ace45",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He says me a fool.",
+        "He shook hands with her.",
+        "They know to swim.",
+        "We discussed about the matter."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "ed811110-6af7-41e8-83a2-d0604feb0ecb",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "I sold all of my furniture.",
+        "I sold all of my furnitures.",
+        "I like vegetable.",
+        "They have gone for walk."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "ddeac41c-c2fa-455b-a6d7-c560867eb7e5",
+      "question": "Which one is a correct sentence ?[]",
+      "options": [
+        "Every students are present today.",
+        "Ten kilometers are too far to walk.",
+        "Two-third of the students got degrees.",
+        "All the information is current."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "1a33498c-4bc4-4f70-a2af-565827244a2d",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Men usually want to have their own ways.",
+        "Men usually want to have their own way.",
+        "Men usually wants to have their own way.",
+        "Men usually want to have his own ways."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "0723ff19-cb9a-4a5e-8413-1026e92f3a2a",
+      "question": "Choose the correct expression.[]",
+      "options": [
+        "Five hundred taka.",
+        "Five hundreds takas.",
+        "Five hundred takas.",
+        "Five hundreds taka."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "c3612686-bd34-42f5-9d43-4e12bbcda5e0",
+      "question": "Find the incorrect sentence.[]",
+      "options": [
+        "He knows in and out of that affair.",
+        "He made light of his friend's warning.",
+        "The child was as good as gold.",
+        "I took him to task for his carelessness."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "d5ecb65b-fdc1-4ffe-8e98-0ae56ce3b505",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "One should take care of his health.",
+        "In the afternoon I stay home.",
+        "He was absent one time or two times.",
+        "I am very busy this morning."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "2c8de665-8a7f-4d0d-a7a4-9e903a092db0",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I noticed that the opposite man was staring at me.",
+        "Do you know anyone having lost an umbrella ?",
+        "Tell me when are you going on holiday.",
+        "He shared his property between his wife, his daughter and his sister."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "cfe2c31d-07b2-4f23-8a15-45598a602b54",
+      "question": "Choose the wrong sentence.[]",
+      "options": [
+        "He was always arguing with my brother.",
+        "His failure resulted for lack of attention.",
+        "When will you write to him about your plan ?",
+        "Who was the boy you all were laughing at ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "bb942419-36f3-4048-ad9d-4cf2d1134fe0",
+      "question": "Choose the wrong sentence.[]",
+      "options": [
+        "Neither you nor I am in sound position.",
+        "Laziness is detrimental for success.",
+        "He begged the favour of my granting him leave.",
+        "Your action is not in conformity with the law."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "fb7ad33c-0bbc-4985-8a99-f5fdda8cded7",
+      "question": "Choose the grammatically wrong sentence.[]",
+      "options": [
+        "He has no desire for fame.",
+        "I intend going to Rajshahi.",
+        "He has invited me for dinner.",
+        "He is too miserly to part with his money."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "585780eb-ac16-456b-b094-1303fe13f351",
+      "question": "Which sentence is incorrect ?[]",
+      "options": [
+        "I feel unwell.",
+        "He prefers tea than coffee.",
+        "Open at page 30.",
+        "I have a headache."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "2eb5031a-1e8c-4823-a7d0-9218b4666064",
+      "question": "নিচের কোন বাক্যটি শুদ্ধ ?[]",
+      "options": [
+        "I have urgent piece of business.",
+        "I have a urgent piece of business.",
+        "I have piece of urgent business.",
+        "I have an urgent piece of business."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "0741d091-0110-4893-a052-ac53fb85f1e8",
+      "question": "Which one is incorrect ?[]",
+      "options": [
+        "He has put on much weight.",
+        "He does not know how read the watch.",
+        "My watch is very slow every day.",
+        "I saw him only once after that."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "868feb3c-50cc-4727-aced-5b152b9ea9ac",
+      "question": "Which one is incorrect ?[]",
+      "options": [
+        "They have several offspring.",
+        "He insisted upon his innocence.",
+        "Her hairs are very long.",
+        "Fifty miles is a long distance."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "7cbf1c60-e08f-4f60-b324-0abf6087f980",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "His hair are not straight and curly.",
+        "His hair is not straight and curly.",
+        "His hair are straight and curly.",
+        "His hair are not straight but curly."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "20cadaff-339d-4622-871d-e5e39c8eedae",
+      "question": "Which of the following sentences is incorrect ?[]",
+      "options": [
+        "He lives quite far.",
+        "He will come short.",
+        "He came late.",
+        "Today is really stormy."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "68818c94-4cdd-40f3-94a5-3f60e0cab3c0",
+      "question": "Select the correct sentence.[]",
+      "options": [
+        "Did they wrote books ?",
+        "Did they writing books ?",
+        "Did they write books ?",
+        "Did they have written books ?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "bd553c2a-7e92-44e3-ba04-80e278381e64",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Do he have a house ?",
+        "Does he have a house ?",
+        "Does he has a house ?",
+        "Do he has a house ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "285fe38d-6734-4638-bbac-1e2b8ad6ec03",
+      "question": "Which one of the following is correct ?[]",
+      "options": [
+        "Did you finish the work yet ?",
+        "Did you finished the work yet ?",
+        "Have you finish the work yet ?",
+        "Have you finished the work yet ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "899ec7e1-1e27-4039-8843-d8e891a8eb66",
+      "question": "----- him yet ? Now is your chance to do so.[]",
+      "options": [
+        "Don't you meet",
+        "Haven't you met",
+        "Hadn't you met",
+        "Weren't you meeting"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "3ca7b026-ac08-4da7-a2d7-123d41e69bfe",
+      "question": "Which is not incorrect sentence ?[]",
+      "options": [
+        "He came this morning.",
+        "Asad is sick.",
+        "Anis told me a liar.",
+        "Put your sign here."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "5140408e-641f-4e96-9d59-6d437436774f",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He appeared at the exam.",
+        "My parents always gives me good advices.",
+        "He absented from college.",
+        "Our students went to a picnic."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "facfcfcc-96ba-49fd-98c4-6bb5b8f60af8",
+      "question": "নিচের বাক্যগুলোর মধ্যে শুদ্ধ বাক্য কোনটি ?[]",
+      "options": [
+        "I hanged my shirt on the wall.",
+        "I saw him playing football.",
+        "One must do his duty.",
+        "He has no appetite in food."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "04e39598-cb81-4df2-ae66-21442840e2e2",
+      "question": "Which of the following is grammatically correct ?[]",
+      "options": [
+        "I prefer walking to riding.",
+        "I do not know to write.",
+        "He gave me a pen to write.",
+        "He gave me a lot of informations."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "b5745b0a-826c-4ba7-a03f-7b1886917f65",
+      "question": "নিচের কোন বাক্যটি শুদ্ধ ?[]",
+      "options": [
+        "I will avail the opportunity.",
+        "I should take leave of you.",
+        "I have seen two deers.",
+        "Television is a wonderful discovery."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "5514c005-c514-4b03-b51b-43bb80520bed",
+      "question": "নিচের কোন বাক্যটি শুদ্ধ ?[]",
+      "options": [
+        "I feel out of sort today.",
+        "He tried hardly to succeed.",
+        "I have great deal of work to do.",
+        "Please give me attendance."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "e904f757-a08a-4d19-90b7-80d082afd21d",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I have used the first and second chapters of the book.",
+        "This is the most unique opportunity.",
+        "Four shoulders were wounded and one killed.",
+        "Let him to know all in details."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "8b9e5394-4508-45e3-9dd7-8eeabe82f2c1",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "It has been raining for two days.",
+        "He is senior than you.",
+        "Do you know who am I ?",
+        "Airport is busy place."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "177595eb-3f65-4d28-82cf-3b1c6ee45503",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Either he or me is mistaken.",
+        "Many a man has done so.",
+        "Everyone of the girls love to dance.",
+        "He gave me an advice."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "cf033dbb-71e7-4c56-b845-5066f6a9e3fd",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "She is one of the best mothers that ever lived.",
+        "All failed accept he.",
+        "That is a matter between you and I.",
+        "It is not us who are to blame."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "aa0af428-5d41-483a-8ef5-0e460f2932ca",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He appeared at the examination.",
+        "The more he gets,more he wants.",
+        "We write with ink.",
+        "He got the work being done."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "feb9b36d-9f41-43ee-80d3-a27dfe824de1",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "It rained for three days.",
+        "Bread and butter are necessary.",
+        "It has been raining for three days.",
+        "Shahid can do anything what he likes."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "435ee737-724f-455b-b1cf-e975d26b9747",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I have read a poetry.",
+        "I have read a piece of poetry.",
+        "I saw his pulse.",
+        "The man took his birth in 1968."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "ea23f644-d5b3-4c67-a546-bcc46d563210",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Fire and water do not agree.",
+        "Bread and butter are his only food.",
+        "Justice, as well as mercy, allow it.",
+        "He and me are playing."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "2c59704c-4a12-414d-afe8-53908fbfddd9",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "The horse and carriage at the door.",
+        "Time and tide wait for none.",
+        "You are not devoted to gambling.",
+        "We get up in dawn."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "6388b4ca-cece-4da5-93d5-f51bf7d109ba",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I saw him write something.",
+        "I saw him writing something.",
+        "There is no place for doubt in it.",
+        "He is deaf for hearing."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "79165e9f-e2bf-4d0d-bae9-2467aaf35e8a",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Panna is only present.",
+        "The man was born in 1968.",
+        "I feel myself hungry.",
+        "The sheeps are quite healthy."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "01571697-cef5-4ad8-a859-e3fd491c5336",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Sohel is taller than I.",
+        "We write with ink.",
+        "Sohel is taller than me.",
+        "I did not think it was her."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "9ec3bdf9-bfb2-493b-b655-3315023da533",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Sakib asked that how did he do.",
+        "My son is ill all this week.",
+        "The United States are a powerful country.",
+        "The game drew numerous spectators."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "46014dca-784b-49e9-b956-8253adcd7da9",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "This watch is belonged to my friend.",
+        "Three-fourths of the work has been done.",
+        "Five thousands dollars are a big amount.",
+        "You should not indulge to gossip."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": "0f7f3255-8d9f-44ca-b1c3-6fb4efbe775f",
+      "question": "Which one of the following sentences is correct ?[]",
+      "options": [
+        "She was taller than either of her five sisters.",
+        "I was the man whom they thought was dead.",
+        "Who do you think he is ?",
+        "Either of the scholars have done well."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": "bb8900d2-9ca6-47fe-afe3-025edb0d202e",
+      "question": "Choose the right sentence.[]",
+      "options": [
+        "I don't know who is he ?",
+        "I don't know who he is",
+        "They have gone for picnic",
+        "They have gone picnic"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": "fc9c8865-67f4-466d-89f0-ee948ab3991f",
+      "question": "Which one of the following sentences is correct ?[]",
+      "options": [
+        "A few boys are present today.",
+        "His dress is inferior than mine.",
+        "He prevented me to go there.",
+        "He as well as his brother was present."
+      ],
+      "correct_answer": null,
+      "correct_index": null,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": "f5e24be8-d379-484b-80da-e409167fa4b0",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "A big number of money.",
+        "I met two women here.",
+        "Put your sign here.",
+        "I have paid my schooling fees."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": "b5b64156-8de5-493a-9493-f38bb65af2ef",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He succeeded to win the prize.",
+        "He cannot pronounce the word.",
+        "See the word in the dictionary.",
+        "We got up in dawn."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": "c1935457-5095-4935-b4b0-7911fa150da3",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Among my friends he is eldest.",
+        "He is comparatively better today.",
+        "He is better than all the boys.",
+        "He is the best boy in the class."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": "9e94b26f-6041-4e25-a12f-7308554fc652",
+      "question": "Which sentence is correct ?[]",
+      "options": [
+        "I do not know to swim.",
+        "He told me a fool.",
+        "A drowning man catches at a straw.",
+        "He said a lie."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": "94a80675-cf67-4f0b-853e-93f79f399d5f",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He cannot pronunciate the word.",
+        "He appeared at the examination.",
+        "Tuhin is my lovely friend.",
+        "You always offer me many good advices."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": "600c55b3-288e-44a4-aa57-e1d77085a653",
+      "question": "Choose the correct answer.[]",
+      "options": [
+        "Idle man cannot prosper in life.",
+        "An idle man cannot prosper in life.",
+        "The idle man cannot prosper in life.",
+        "An idle man cannot prosper at life."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 73,
+      "id": "2c1d57d6-1e97-4742-891a-cbe2c8c80ae2",
+      "question": "Which of the following sentence is incorrect ?[]",
+      "options": [
+        "I watched the star fall.",
+        "The committee are debating on the merits of the proposal.",
+        "Many a man were present.",
+        "If you had come, I would have gone."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 74,
+      "id": "d6e2d9e9-08d5-4010-bb21-cb3576cba1ce",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "The news is true.",
+        "He gave me an advice.",
+        "The committee have issued its report.",
+        "Ten kilometers are a long walk."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 75,
+      "id": "21f11c50-0cf5-4d32-aaa3-55634cfb2e0c",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "There is no furnitures in my room.",
+        "Mangoes are comparatively cheaper today.",
+        "Neither of us was present.",
+        "I do not like fruits."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 76,
+      "id": "e2755638-9064-44ca-a0c8-ab0f2d732400",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "There is no place in the bench.",
+        "I got two bread.",
+        "It is a nice poem.",
+        "I went to my house."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 77,
+      "id": "5e495f30-9634-4a01-9a85-936c8e9137ae",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Quote this from memory.",
+        "I got boarding and lodging.",
+        "Put your sign here.",
+        "My father is sick."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 78,
+      "id": "75cb20a5-9b2c-4518-81d8-610fa05c2987",
+      "question": "He said me a fool. Which one is correct ?[]",
+      "options": [
+        "He said me fool.",
+        "He called me fool.",
+        "He called me a fool.",
+        "He said me a foolish."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 79,
+      "id": "db39c169-bbfb-430b-8e98-0e405430a738",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "There is no place for doubt in it.",
+        "There is no space for doubt in it.",
+        "There is no room for doubt in it.",
+        "There is no area for doubt in it."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 80,
+      "id": "95f20abb-bd23-45ed-a77d-fcb7116a25ed",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "There is no seat in the bench.",
+        "There is no seat on this bench.",
+        "There is no space on this bench.",
+        "There is no room in the bench."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 81,
+      "id": "4cb111be-76d6-4bf8-abfe-03d0fadacfc0",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "He got boarding and lodging.",
+        "He got board and lodging.",
+        "He got boarded and lodging.",
+        "He got board and lodged."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 82,
+      "id": "d2e17474-e351-42f5-983e-942885210d1d",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "Last night I went to bed lately.",
+        "The book deals in common errors.",
+        "She is one of the best student in the class.",
+        "The murderer was caught and hanged."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 83,
+      "id": "3eece3aa-a642-4dc5-b8ff-bd8c340e3974",
+      "question": "Choose the wrong sentence.[]",
+      "options": [
+        "We write in ink.",
+        "Neither of us was present.",
+        "Hot and cold are opposites.",
+        "I went to my home."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 84,
+      "id": "a9a2c49b-b87d-47a4-b316-42664f5288d2",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He went there walking on foot.",
+        "He went there on foot.",
+        "He went there by walking.",
+        "He went there on footing."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 85,
+      "id": "69e1df14-c301-4261-995f-69e57a42a407",
+      "question": "Which is a correct sentence ?[]",
+      "options": [
+        "I was bounded hand and feet.",
+        "No one can do this work.",
+        "He is ill of fever.",
+        "B + C"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 86,
+      "id": "a807e4b9-c3b5-4fbd-b3d5-a5e7cfec4115",
+      "question": "Which is the correct sentence ?[]",
+      "options": [
+        "The scissors is blunt.",
+        "One dozen of bananas are sufficient.",
+        "One of the boys are absent.",
+        "It is I who am responsible for this."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 87,
+      "id": "4ae579dd-e85f-47fd-8fab-f06d16bdc2ac",
+      "question": "Which is the <u>incorrect</u> sentence ?[]",
+      "options": [
+        "The colour of her eyes is blue.",
+        "The players in the field are strong.",
+        "Fifty miles is a long way.",
+        "He ran fast lest he miss the train."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 88,
+      "id": "cead68fd-ab22-47dd-b939-bd1db33155b2",
+      "question": "Which one is the correct sentence ?[]",
+      "options": [
+        "The man advanced as if he has killed me.",
+        "It is high time I do the work.",
+        "The wind was made blow.",
+        "He did everything except follow my example."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 89,
+      "id": "2aa30cd7-6f47-472c-9b37-b7b58266e233",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Honey is too sweet.",
+        "I saw him long before.",
+        "He took offence at my work.",
+        "Asif only is reliable."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 90,
+      "id": "5f32dc4c-1810-493f-b707-e70c29c3e3d3",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "We packed our luggages.",
+        "Listen to my advice.",
+        "Honey is too sweet.",
+        "Your informations are false."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 91,
+      "id": "6d8c95b2-118e-4470-88da-55e21854fa08",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I have an urgent business.",
+        "We get up at dawn.",
+        "The reason for success are known to me.",
+        "Suffice to say she did very well."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 92,
+      "id": "6f24866e-4515-414b-a187-971bced7f2e8",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Honour and glory are his reward.",
+        "Either you or he is to blame.",
+        "This is the same book which he lost.",
+        "He has written no less than four letters."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 93,
+      "id": "e929fa0e-489e-41c8-a17d-3a7197da5923",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Many died by the accident.",
+        "The examiner looked over my papers.",
+        "He came today morning.",
+        "I am feeling unwell."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 94,
+      "id": "a305c869-e661-4552-8346-782cb7fbb867",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I will go after a month.",
+        "He absented from the school.",
+        "One of the passers-by rescued her.",
+        "One of the passer-by rescued her."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 95,
+      "id": "7986d339-1093-4437-ba07-c44cd55bfc32",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He refused the debt.",
+        "I could not do justice to it.",
+        "I could not make justice to it.",
+        "I took a bath."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 96,
+      "id": "f6b4105d-d36b-4e6c-858d-ffdd0b25b9b9",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Sohel is taller than I.",
+        "Sohel is taller than me.",
+        "I did not think it was her.",
+        "She is out of her danger."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 97,
+      "id": "9fa4b5ae-b6fa-47b0-b4d0-5e5b0aaba379",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "There is no place for doubt.",
+        "I went to my house.",
+        "All passengers must show their ticket.",
+        "He called me a coward."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 98,
+      "id": "c2ff477e-1559-480c-8d0d-6056a4cf8a6a",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He is my elder brother.",
+        "He went for the examination.",
+        "It is raining for three days.",
+        "He was bitten by the snake while walking in the garden."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 99,
+      "id": "1fefef20-dfbb-443c-82aa-866fef2484ea",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "It rained for three days.",
+        "Grammar is better servant than master.",
+        "He is my elder teacher.",
+        "While he was walking in the garden,a snake bit him."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 100,
+      "id": "fd28b428-901a-4dcc-8cf8-b647bf826e24",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "We write by ink.",
+        "An Akbar is not born in every age.",
+        "More he gets,more he wants.",
+        "He got the work by doing."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 101,
+      "id": "3086c93a-0f70-4bbc-aaf3-47f85de2b654",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "I do not take fruits.",
+        "I have no appetite in food.",
+        "He gave me some good advices.",
+        "Neither of us was present."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 102,
+      "id": "5ca4c1d9-b631-4a4e-b3ac-256fc75dd8eb",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "Sharif absented from his college.",
+        "Selina prides on her beauty.",
+        "She is out of her danger.",
+        "Sharif absented himself from the college."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 103,
+      "id": "413b5bb8-0031-443a-bb6b-9c6863c6b3f0",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Bread and butter are necessary.",
+        "Rahim is not so coward.",
+        "We write by ink.",
+        "Have you nit finished the work yet ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 104,
+      "id": "2ed77517-4fb5-48b0-bd69-e92f175ce74d",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "She told me that she will come tomorrow.",
+        "They went back after we arrived.",
+        "That was a slip of the tongue.",
+        "My son is ill all this week."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 105,
+      "id": "f509b41b-fe6a-4b23-906c-04148efa1aaa",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "She resembled to her mother.",
+        "I was not at my home.",
+        "I could not but shed tears.",
+        "She reached at Sylhet."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 106,
+      "id": "35ca06c3-ac14-4c73-a6f5-d0ac4f091a91",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "No pains were spared.",
+        "Do not make noise.",
+        "He caught my hand.",
+        "We shall walk on foot."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 107,
+      "id": "85b58074-e922-4804-b0b8-7d1948575a2e",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "Inform the accident to him.",
+        "He succeeded for winning the prize.",
+        "I could not do justice to him.",
+        "I sold my furnitures."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 108,
+      "id": "b0c8c6c0-71c1-451d-a897-0419d285f74f",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "He went to his house.",
+        "Put your signature here.",
+        "Rasel only is reliable.",
+        "He told me a liar."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 109,
+      "id": "fc74b6d7-ba3a-4f24-8d6d-9ea701587ad2",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He gave me some advice.",
+        "Anwar requested for my help.",
+        "I am very better today.",
+        "He took nap."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 110,
+      "id": "3df90221-207e-4550-96d4-92df23677441",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "He denied to help me.",
+        "The doctor feels the pulse of the patient.",
+        "Honesty and truthfulness are necessary for happiness.",
+        "He along with his friends have come."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 111,
+      "id": "ccfd0334-7026-4dca-a2ad-f9ead8377014",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "His brother is sick.",
+        "I took my meal.",
+        "Do not throw the milk.",
+        "He took offence at my words."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 112,
+      "id": "56972071-7d16-41a7-9c0f-29d558a80dba",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "It is raining for three days.",
+        "You are an Hercules.",
+        "We write in ink.",
+        "He got the work by doing."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 113,
+      "id": "2a24b165-60c0-4616-b853-4f646f65fbd0",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "He cannot pronounce the word.",
+        "I saw his pulse.",
+        "Tell me what are you doing.",
+        "Dog is a faithful animal."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 114,
+      "id": "d7ed3de7-10e3-4d07-a785-1530dcf3a7eb",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "He requested for my help.",
+        "Time and tide wait for no man.",
+        "The ship with its crew,were lost.",
+        "The horse and carriage is at the door."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 115,
+      "id": "d2abc136-0a7c-4161-aede-7cf629ff8e9d",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "One of my friends are a lawyer.",
+        "It rained three days.",
+        "Do you have a complaint against me ?",
+        "You are proud of Bangladesh."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 116,
+      "id": "33f3e688-22d9-4727-80bf-18aa99f39348",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "He was too clever to grasp the point.",
+        "Scarcely had we started when it began to rain.",
+        "Why you have done this ?",
+        "A gold is a precious metal."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 117,
+      "id": "4c0153a2-9824-42e7-a90e-234adbafd74b",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "There is no room for doubt in it.",
+        "I found him write something.",
+        "There is no place for doubt in it.",
+        "Find out the word in the dictionary."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 118,
+      "id": "7092292a-45ee-4077-9e60-6ded8d780120",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Where are your luggages ?",
+        "Can you give me an advice ?",
+        "What beautiful sceneries !",
+        "What an awful weather !"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 119,
+      "id": "d114e35e-e264-48bb-b1d2-f2d04a5c2c53",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "Grammar is better servant than master.",
+        "Grammar is better servant than a master.",
+        "Grammar is a better servant than master.",
+        "Grammar is a better servant than a master."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 120,
+      "id": "8e3e5497-31df-4868-998a-61db066bf542",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "There is book and pen on the table.",
+        "There are a book and a pen on the table.",
+        "There is a book on the table.",
+        "There is a book and a pen on the table."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 121,
+      "id": "6964032f-a665-43ef-aeb2-f3f607b6b030",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "She is a person whom I know is sincere.",
+        "She is a person who I know is sincere.",
+        "Tuhin is my lovely friend.",
+        "There is no place in my class."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 122,
+      "id": "a76647c4-1a7b-48d4-b566-5661b0dd4cea",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "Every girls is at her desk.",
+        "Credit this amount against his name.",
+        "We made fun of it.",
+        "A little number of boys were present."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 123,
+      "id": "5c700486-02ff-4d9a-8301-f2b218ef8724",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "I feel hungry.",
+        "I feel myself hungry.",
+        "I am a man of words.",
+        "The sheeps are quite healthy."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 124,
+      "id": "7b4301be-bf7e-45cc-99f5-6addf6abd1c3",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "There is no place for doubt in it.",
+        "There is no suspension in it.",
+        "There is no room for doubt in it.",
+        "There is no misunderstanding in it."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 125,
+      "id": "bf6b40a0-428d-4327-8fe5-b8a10f411cd6",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "He shouted in the top of his voice.",
+        "He shouted with the top of his voice.",
+        "He shouted on the top of his voice.",
+        "He shouted at the top of his voice."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 126,
+      "id": "2dac96a0-dff4-4813-84f7-4c72d485e90a",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "I took my tea at 5 p.m.",
+        "He refused to help me.",
+        "Keep it on the table.",
+        "I saw him long before."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 127,
+      "id": "229d32b9-e5a7-447e-892c-673b68b1c509",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Put the book on the table.",
+        "The examiner saw my papers.",
+        "I feel some better.",
+        "He is not in the committee."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 128,
+      "id": "abefe284-875c-47d3-83f5-04bd0c7ffd05",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "I had a strong headache.",
+        "Asad alone is reliable.",
+        "His head was even.",
+        "He came today morning."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 129,
+      "id": "a07c5669-7062-4e57-bb13-e2b778d5b1ef",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "He dares go there.",
+        "I came in when he was writing.",
+        "Matin is good than his brother.",
+        "The police were informed of the matter."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 130,
+      "id": "0d6a0bca-680f-48e4-89da-3859bb9f235c",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I forbade him to go.",
+        "The moon shines by night.",
+        "Did they wrote the book ?",
+        "He stopped to write letters to me."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 131,
+      "id": "bf954996-1e06-4bcb-8331-1b85d75ed454",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "He came this morning.",
+        "Asad is sick.",
+        "Anis told me a liar.",
+        "Put your sign here."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 132,
+      "id": "3d3c288c-1d3b-4b47-91fc-a79b4b6a7a65",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "He gave me a piece of advice.",
+        "I went to my house.",
+        "He applied for freeship.",
+        "The meat is hard."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 133,
+      "id": "cb780093-9923-42af-ae8e-74b19644afb2",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I feel unwell.",
+        "I took a bath.",
+        "I am somewhat sure.",
+        "I sold my furnitures."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 134,
+      "id": "18b9548b-7485-45e7-8aa7-fdd9af396b59",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "The cart was landen fully.",
+        "Your information is false.",
+        "Listen to my advices.",
+        "Who brought these news ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 135,
+      "id": "a77545d4-035a-4ba6-ba13-92ad6e60b513",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "Good night,how are you ?",
+        "Ali took admission into that college.",
+        "He asked me where did I go.",
+        "He always speaks the truth."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 136,
+      "id": "2be799cb-a772-44de-befb-5ebd6cb5539c",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Ahshan is better today.",
+        "The bus service has been cancelled due to fog.",
+        "I have a lot of furnitures for sale.",
+        "He prevented me to go."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 137,
+      "id": "8f59b064-b853-42cd-85dd-8e31991ae053",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "Two-thirds of the money are lost.",
+        "I am senior to you by three years.",
+        "Whom do you think I am ?",
+        "He thought it will rain."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 138,
+      "id": "a555542e-6325-40e2-a451-8660425e5f74",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "She is always fond to talk.",
+        "Is today's film worth seeing ?",
+        "I asked him if he is going.",
+        "It has much hot in the summer."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 139,
+      "id": "cf9e8983-2268-4362-9a42-0c5673b362bc",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I went to my house.",
+        "I got my food expenses.",
+        "Do not throw the milk.",
+        "The tree was loaded with fruit."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 140,
+      "id": "6b88745c-6009-4514-bd87-993ecc823d26",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "I suffered fever for a week.",
+        "I found the boy crying.",
+        "Let you and he be the witness.",
+        "Rahim play everyday."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 141,
+      "id": "3de6d774-5498-4d1f-b61d-b72736b40340",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "He spoke me to wait.",
+        "He wishes for me to wait.",
+        "The boat was drowned.",
+        "Two-thirds of it is true."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 142,
+      "id": "2ccbe9cb-113a-4018-9867-a12e04ae357c",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "Matin is good than his brother.",
+        "Why you have done this ?",
+        "He was too clever to miss the point.",
+        "Your conduct admits at no excuses."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 143,
+      "id": "e4c3d94f-f6c6-4a2f-947a-87e3a5a590b5",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He says good English.",
+        "Yours is the most prettiest hat of all.",
+        "He could not avoid to do this.",
+        "I am quite sure of his honesty."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 144,
+      "id": "5c3d7a05-3ed5-432b-a479-01143f00322f",
+      "question": "What is the correct sentence ?[]",
+      "options": [
+        "The reason of my silence is due to my illness.",
+        "My silence is due to my illness.",
+        "The reason of my silence is a due to my illness.",
+        "My silence is due the my illness."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 145,
+      "id": "f5b3d94b-4f02-440c-9e6d-263049342940",
+      "question": "Which of the sentence is correct ?[]",
+      "options": [
+        "One of the boys was absent in the class.",
+        "Cowards die many times before their death.",
+        "He is a famous thief.",
+        "Only graduates are illegible for the post."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 146,
+      "id": "18c0bc39-a4a7-49af-a66a-c3f589cb00d2",
+      "question": "I shall not ----- the examination this year.[]",
+      "options": [
+        "give",
+        "appear at",
+        "sit",
+        "go for"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 147,
+      "id": "b3eb323e-6645-408b-acd8-7cd08b037c9d",
+      "question": "He will <u>take</u> examination.[]",
+      "options": [
+        "drop",
+        "give",
+        "appear at",
+        "discontinue"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 148,
+      "id": "380b9b6d-f82a-483d-aac6-4499478a5f1d",
+      "question": "He was debarred from ----- the examination.[]",
+      "options": [
+        "taking",
+        "sitting",
+        "appearing",
+        "giving"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 149,
+      "id": "9e976224-ddbf-4c94-8c3c-f0b269e71522",
+      "question": "Which of these sentences is <u>incorrect</u> ?[]",
+      "options": [
+        "We are sitting an exam.",
+        "We are taking an exam.",
+        "Students are giving an exam.",
+        "Teachers are giving an exam."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 150,
+      "id": "fbe2cb2c-3ebf-4b82-92a9-3a42c677b56f",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Each boy and each girl was given a prize.",
+        "Each boy and each girl have given a prize.",
+        "Each boy and each girl were given a prize.",
+        "Each boy and each girl are given a prize."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 151,
+      "id": "6e16b31a-ca94-46ba-bf53-027d90811b39",
+      "question": "I cannot bear his separation.' Choose the correct sentence. []",
+      "options": [
+        "I cannot bear him separation",
+        "I cannot bear separation from him",
+        "I cannot bear from his separation",
+        "None of these"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 152,
+      "id": "49b12f6d-d93f-4d7b-8aba-2ee759dc907a",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "You don't need to come unless you want to.",
+        "You come only when you want to.",
+        "You come unless you don't want to.",
+        "You needn't come until you don't want to."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 153,
+      "id": "98b560df-04d9-4511-87f9-5fb83ae765b5",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "Walking in the garden a snake bite him.",
+        "Grammar is the better servant than master.",
+        "It has been raining for three days.",
+        "He gave the examination."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 154,
+      "id": "af5cc80b-8b35-4ee9-a5ac-d181d4522bbf",
+      "question": "Which one is the correct sentence ?[]",
+      "options": [
+        "What is the time in your watch ?",
+        "What shoe size are you ?",
+        "What time it is by your watch ?",
+        "What are the sizes of your shoes have ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 155,
+      "id": "937b47ce-73aa-4557-a587-56c166f68f61",
+      "question": "Which of the following sentences is correct ?[]",
+      "options": [
+        "She has got cent percent marks.",
+        "You are a great thief.",
+        "Time and tide waits for none.",
+        "Has he got the information ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 156,
+      "id": "c4fcfab7-9ae6-46a8-a7ec-bb4ca36fe4c7",
+      "question": "The correct sentence is -----.[]",
+      "options": [
+        "I am feeling unwell.",
+        "The sceneries here are very beautiful.",
+        "Let you and I do.",
+        "Let you and me do it."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 157,
+      "id": "708319fa-0d8c-4e27-88a6-86783ba5066a",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He discussed about the matter.",
+        "He knows to swim.",
+        "He says me a fool.",
+        "He shook hands with me."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 158,
+      "id": "125264bb-42d8-4006-ac2b-fa92a8a63b3b",
+      "question": "Which is correct ?[]",
+      "options": [
+        "A Akbar is not born in every age.",
+        "The Akbar is not born in every age.",
+        "An Akbar is not born in every age.",
+        "An Akbar is not born in an every age."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 159,
+      "id": "4c45da98-4c24-44cf-a997-a8dd8968b58f",
+      "question": "Which is correct ?[]",
+      "options": [
+        "You are a pride of Bangladesh.",
+        "You are pride of Bangladesh.",
+        "You are the pride of Bangladesh.",
+        "You are a pride of the Bangladesh."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 160,
+      "id": "dc7ad117-f8c0-4289-9f45-304131ceaf4e",
+      "question": "Choose the right sentence.[]",
+      "options": [
+        "He is a boy of three.",
+        "He is a boy of three years old boy.",
+        "He is a boy of three years old.",
+        "He is a boy of three years age."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 161,
+      "id": "b238746a-ad77-47c4-98e8-9dc32a536b1f",
+      "question": "Which of the following is a correct expression ?[]",
+      "options": [
+        "I didn't master English before going to abroad but I should have done it in time.",
+        "I didn't master English before I have gone abroad but I should do it in time.",
+        "I didn't master English before going abroad but I should have done it in time.",
+        "I didn't master English before going abroad but I should have done it timely."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 162,
+      "id": "2ec0964b-3f83-4244-82cd-165288016966",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "The traffics are unmanageable in Dhaka.",
+        "The traffic is unmanageable in Dhaka.",
+        "The traffics are manageable in Dhaka.",
+        "The traffic are uncontrollable in Dhaka."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 163,
+      "id": "4fbc3ef8-456d-47d2-aa70-73f0a508d4b7",
+      "question": "Which of the following sentences is correct ?[]",
+      "options": [
+        "My principal objection is that I am tired.",
+        "My principle objection is that I am tired.",
+        "My principal objection is that I tired.",
+        "My principal objection that I am tired."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 164,
+      "id": "55b6d959-d05c-44a4-9824-19b0e1c9c3c4",
+      "question": "Which of the following sentences is CORRECT ?[]",
+      "options": [
+        "Forty miles is a long way.",
+        "One dozen of bananas are sufficient.",
+        "One of the boys are absent.",
+        "I, Habib and you are guilty."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 165,
+      "id": "3c42cd5d-6abf-4b41-beb4-d9db9b708f4d",
+      "question": "Pick up the INCORRECT sentence.[]",
+      "options": [
+        "Each of the sisters are clever.",
+        "Justice, as well as mercy, allows it.",
+        "The mob has dispersed.",
+        "Neither he nor I was there."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 166,
+      "id": "b0f575f6-2263-4414-8966-3597f961fd3a",
+      "question": "Which of the following is correct ?[]",
+      "options": [
+        "I was stuck in traffic for two hours.",
+        "I was stuck up in traffic for two hours.",
+        "I had stuck in traffic for two hours.",
+        "I are stuck in traffic for two hours."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 167,
+      "id": "cb1cdac8-2aa0-45ec-84ea-9df8751816bb",
+      "question": "Choose the right sentence.[]",
+      "options": [
+        "He came lately today.",
+        "He came in late today.",
+        "He came by late today.",
+        "He came late today."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 168,
+      "id": "921f27a9-83be-4015-a5d7-ac8275ea2ca4",
+      "question": "The correct sentence is -----.[]",
+      "options": [
+        "The girl laughed and entered the room.",
+        "The girl entered the room laughing.",
+        "The girl laughed entering the room",
+        "The girl laughingly entred the room."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 169,
+      "id": "5fb1cc15-0d7a-4f91-82b5-a2cc56e2af30",
+      "question": "Choose the correct verb form.[]",
+      "options": [
+        "The thickness of the books vary.",
+        "The thickness of the book vary.",
+        "The thickness of the books varying.",
+        "The thickness of the books varies."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 170,
+      "id": "bdaf515d-ed3f-4135-9436-27409f10523c",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I see you in a fortnight's time.",
+        "I saw you in a fortnight's time.",
+        "I have seen you in a fortnight's time.",
+        "I shall see you in a fortnight's time."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 171,
+      "id": "0abe4656-b463-4f0f-bfb7-2a46b903c4cd",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "Do you know where does he live ?",
+        "He has gone for a walk.",
+        "They will arrive by the by.",
+        "He sold all his furnitures."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 172,
+      "id": "dda90061-12ba-4e5c-be8f-146295fde1c6",
+      "question": "Which sentence is correct ?[]",
+      "options": [
+        "How do you like it ?",
+        "He is comparatively better today.",
+        "I prefer tea than coffee.",
+        "I shall prevent you to do this."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 173,
+      "id": "2077a96d-8764-4b03-a293-253401a16b94",
+      "question": "From your (=students') point of view, which sentence is not correct ?[]",
+      "options": [
+        "I am taking the admission test.",
+        "I am giving the admission test.",
+        "I am sitting the admission test.",
+        "I am sitting for the admission test."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 174,
+      "id": "81d31697-d289-4ac3-a70d-5fee1dd1f588",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Catherine gave her examination.",
+        "Catherine has given her examination.",
+        "Her examination was given by herself.",
+        "Catherine took her examination."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 175,
+      "id": "823601c1-e6e8-47e0-aab7-01d02be28d9e",
+      "question": "নিচের বাক্যগুলোর মধ্যে শুদ্ধ বাক্য কোনটি ?[]",
+      "options": [
+        "The flowers smell sweetly.",
+        "I am very glad to see you.",
+        "The novel is too interesting.",
+        "No one can write as neat as he does."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 176,
+      "id": "6986dbca-4310-470f-9eda-03c010266935",
+      "question": "The correct sentence is -----.[]",
+      "options": [
+        "We write on ink.",
+        "We write by ink.",
+        "We write in ink.",
+        "We write with ink."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 177,
+      "id": "db1b5219-daac-4862-80ea-927c7dcbe865",
+      "question": "I have no pen (to write).[]",
+      "options": [
+        "I have no pen to write with.",
+        "I have no pen to write.",
+        "I have no pen to writing.",
+        "I have no pen to write in."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 178,
+      "id": "0cd5bde9-a0ee-44e2-9807-c6294f5c70e8",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Open the knot.",
+        "Open the tie.",
+        "Untie the tie.",
+        "Put off the knot."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 179,
+      "id": "92662404-264f-45fc-9f8a-b9f370c85311",
+      "question": "Which one is the correct sentence ?[]",
+      "options": [
+        "I used to get up early in the morning.",
+        "I did get up early in the morning.",
+        "I had got up early in the morning.",
+        "I used get up early in the morning."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 180,
+      "id": "ee981237-0b82-415a-b746-94dfc1f005a8",
+      "question": "Select the correct sentence.[]",
+      "options": [
+        "He refused my invitation.",
+        "He declined my invitation.",
+        "He declined to accept my invitation.",
+        "B + A"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 181,
+      "id": "9cdc243e-69ca-45ac-97d4-7e20b7c10448",
+      "question": "Which of the following is a correct sentence ?[]",
+      "options": [
+        "He was too clever not to miss the point.",
+        "He was so clever to miss the point.",
+        "He was too clever to miss the point.",
+        "He was clever to grasp the point."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 182,
+      "id": "78480f18-76de-4fa9-8652-651f33ef2899",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Did you give him a visit ?",
+        "Did you pay him a visit ?",
+        "Did you take him a visit ?",
+        "Did you permit him a visit ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 183,
+      "id": "993f888d-25b0-4558-99d8-2d0d0def94ae",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "He paid a visit to his village.",
+        "He made a visit to his village.",
+        "He paid visit to his village.",
+        "He paid a visiting to his village."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 184,
+      "id": "963f5a2e-70fe-426d-a1ae-3684c4e54fdf",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Your writing is impossible to reading.",
+        "Your writing is impossible reading.",
+        "Your writing is impossible to read.",
+        "Your writing is impossible for read."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 185,
+      "id": "89e09db4-55b6-4893-935e-98b4d85f9caa",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "The rich are not always happy.",
+        "Rich is not always happy.",
+        "The rich is not always happy.",
+        "The Rich are not always happy."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 186,
+      "id": "65cf8476-58e8-465c-9f36-a2c7a42ae77f",
+      "question": "Which is correct ?[]",
+      "options": [
+        "The poor is born to suffer.",
+        "The poor are born to suffer.",
+        "Poor is born to suffer.",
+        "Poora are born to suffer."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 187,
+      "id": "4548d62a-f849-47d0-9f52-77f510b43b13",
+      "question": "Which is correct ?[]",
+      "options": [
+        "Pious man is happy.",
+        "Pious are happy.",
+        "The pious are happy.",
+        "The pious is happy."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 188,
+      "id": "171e4df5-70fe-4799-a5e2-ed74124b4ee7",
+      "question": "Choose the appropriate alternative.[]",
+      "options": [
+        "I already twice have read this book.",
+        "I have already read this book twice.",
+        "I have already twice read this book.",
+        "I twice have already read this book."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 189,
+      "id": "d7639346-7621-416b-aecb-4b41ab31cb06",
+      "question": "Which is the correct sentence ?[]",
+      "options": [
+        "I wish I was in your shoes.",
+        "I wish I were in your shoes.",
+        "I wish I got in your shoes.",
+        "I wish I gets in your shoes."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 190,
+      "id": "e92577ee-0ab7-4ab2-a949-10dcc1466942",
+      "question": "Pick up the incorrect sentence.[]",
+      "options": [
+        "Bacon as well as Shakespeare were dead.",
+        "Wait until I return.",
+        "The ship sank.",
+        "The road is shorter than that."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 191,
+      "id": "9d07140c-302e-4bf6-9f2e-27926ad1b0eb",
+      "question": "Which is the incorrect sentence ?[]",
+      "options": [
+        "He sat before me.",
+        "The earth goes round the sun.",
+        "She is good at drawing.",
+        "He is suffering of illness."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 192,
+      "id": "11ebf18b-e04e-411c-bb78-7968000aab11",
+      "question": "Which is the correct sentence of the following ?[]",
+      "options": [
+        "Hot and cold are opposite.",
+        "Hot and cold are opposites.",
+        "Hot and cold is opposite.",
+        "Hot and cold is opposites."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 193,
+      "id": "3be3c102-7d9a-4497-813e-82958008f523",
+      "question": "Which of the following sentences is the correct one ?[]",
+      "options": [
+        "I feel some better.",
+        "I feel somewhat better.",
+        "I feel to some extent better.",
+        "I feel some sort of better."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 194,
+      "id": "9efaf8fd-d226-47e2-9b40-3d679fd4f68f",
+      "question": "কোনটি শুদ্ধ বাক্য ?[]",
+      "options": [
+        "I feel somewhat well.",
+        "They are united together.",
+        "He is sick of fever.",
+        "He did not confess her guilt."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 195,
+      "id": "db5278f6-7812-43e6-9a86-c996964a4bab",
+      "question": "Find out the correct sentence.[]",
+      "options": [
+        "He succeeded to get a job.",
+        "He is suffering from fever for a week.",
+        "Guard the children against bad company.",
+        "The train is running in time."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 196,
+      "id": "2f272785-c509-4c9b-8589-1b10be9ad3e3",
+      "question": "Choose the correct one.[]",
+      "options": [
+        "He is caught of flattery.",
+        "He is ill of flattery.",
+        "He is sick of flattery.",
+        "He is angry of flattery."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 197,
+      "id": "cceaea3c-07d5-4686-8a88-5be47fc14e7d",
+      "question": "----- there ?[]",
+      "options": [
+        "Was anything occured",
+        "Did anything occur",
+        "Did anything occured",
+        "Was anything occur"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 198,
+      "id": "c90830d2-db6b-4820-8eca-9d2e036dbed5",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Rahim ate almost the whole fish.",
+        "Rahim almost ate the whole fish.",
+        "Almost Rahim ate the whole fish.",
+        "Rahim ate the whole fish almost."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 199,
+      "id": "662de28d-5321-4853-99c5-49619bb0103d",
+      "question": "Which of the following sentences is correct ?[]",
+      "options": [
+        "Time and tide waits for none.",
+        "Slow and steady win the race.",
+        "Either he or his brother is guilty.",
+        "I,you and Habib are present."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 200,
+      "id": "e2b9e2c7-a17d-48bf-8905-6da9f0da0087",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "The matter was informed to the police.",
+        "The matter has been informed of the police.",
+        "The police was informed of the matter.",
+        "The police were informed of the matter."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 201,
+      "id": "4e261a08-8be1-4cbb-9d03-1d72375f7d7d",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "You look you know a lot of people.",
+        "You claimed you know a lot of people.",
+        "You thought you know a lot of people.",
+        "You seem to know a lot of people."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 202,
+      "id": "c05e9521-b2a2-43d9-aad7-24ecbbabe9b6",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Your mistake hold this view.",
+        "Your mistake in hold this view.",
+        "You are mistaken in holding this view.",
+        "You are mistaken to hold this view."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 203,
+      "id": "4ccf32b5-3cfb-49a1-88d7-44578e2baf52",
+      "question": "Choose the correct sentence. []",
+      "options": [
+        "I earned nearly a hundred dollars last week.",
+        "I earned a nearly hundred dollars last week.",
+        "I earned a hundred dollars last week.",
+        "I earned a hundred dollars last week nearly."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 204,
+      "id": "7740c3c7-fae1-4a64-a66d-80ef9d0225d1",
+      "question": "The correct sentence is -------.[]",
+      "options": [
+        "He wears glasses.",
+        "He wears a glass.",
+        "He wears glass.",
+        "He wears a glasses."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 205,
+      "id": "914e278e-e887-4fa4-abc9-8094d5122538",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "He is wearing a sunglass.",
+        "He is wearing a pair of sunglasses.",
+        "He wears a sunglass.",
+        "He wears the sunglass."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 206,
+      "id": "000127ae-c059-4d18-b71c-a7ad0a8ef87a",
+      "question": "Which of the following sentences is incorrect ?[]",
+      "options": [
+        "Are you on this committee ?",
+        "What's the time by your watch ?",
+        "He repented of his action.",
+        "Each of the boys have a pen."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 207,
+      "id": "6ae1a46f-cfea-4f0e-8e29-6dafcec44625",
+      "question": "Which one of the following is not grammatically correct ?[]",
+      "options": [
+        "I shook him by the hand.",
+        "I have a piece of business.",
+        "Whole Bangladesh mourned his death.",
+        "He is a perfect administrator."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 208,
+      "id": "c281d11a-db11-4eef-8f1b-28cf10992d3c",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "It is I who is responsible for the mismanagement.",
+        "It is I who am responsible for the mismanage.",
+        "It is I who am responsible for the mismanagement.",
+        "It is I who has been responsible for the mismanagement."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 209,
+      "id": "8364f2da-5546-411b-82fc-3b185b811791",
+      "question": "Which of the following sentences is correct ?[]",
+      "options": [
+        "He started at six of the morning.",
+        "He started at six on the morning.",
+        "He started at six in the morning.",
+        "He started on six in the morning."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 210,
+      "id": "2b384c78-c7ab-4a4b-a318-d286622c6485",
+      "question": "নিচের কোন বাক্যটি শুদ্ধ ?[]",
+      "options": [
+        "Suffice to say, he is wrong.",
+        "Lake Chilka is in the Orissa.",
+        "See the word in the dictionary.",
+        "There is no place for doubt in it."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 211,
+      "id": "c673483f-775e-4f3d-8d2b-e713e6fb2832",
+      "question": "নিচের কোন বাক্যটি শুদ্ধ ?[]",
+      "options": [
+        "He got the work done.",
+        "A Daniel has come to the judgement.",
+        "He went to his elder.",
+        "I have read a poetry."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 212,
+      "id": "e422b14c-0f89-40bc-bf62-8a8be4329b05",
+      "question": "Which of the following sentences is correct ?[]",
+      "options": [
+        "That shirt which he bought is blue in colour.",
+        "The shirt that which he bought is blue in colour.",
+        "Which shirt he bought is blue in colour.",
+        "The shirt which he bought is blue in colour."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 213,
+      "id": "8a660e8f-a495-4646-8e78-6a9f39bfa5f0",
+      "question": "Choose the <u>incorrect</u> sentence.[]",
+      "options": [
+        "She was marry with a rich man.",
+        "The doctor cured the patient.",
+        "The patient died of Cholera.",
+        "He will succeed in his life."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 214,
+      "id": "dcbd1aa0-dabe-4f48-aef9-21496d1fc665",
+      "question": "Choose the correct one.[]",
+      "options": [
+        "I shall know him for a long time.",
+        "I have been knowing him for a long time.",
+        "I am knowing him for a long time.",
+        "I have known him for a long time."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 215,
+      "id": "509045a6-5896-410e-a582-f23470bcf105",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "She and her sister fights every day.",
+        "Both sisters fight each other every day.",
+        "She fights with her sister every day.",
+        "Every day she and her sisters fight."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 216,
+      "id": "6af4de34-7d09-4a54-85d8-197eaf363229",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "Fear makes where I stand tremble me.",
+        "Fear makes me tremble where I stand.",
+        "Fear where I stand makes me tremble.",
+        "Fear makes me stand where I tremble."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 217,
+      "id": "5a98868f-1007-4f4b-a3e5-525ac0036a90",
+      "question": "Which of the following sentence is correct ?[]",
+      "options": [
+        "The pile of bones on the table shows how much chicken the family had ate.",
+        "The pile of bones on the table shown how much chicken the family had ate.",
+        "The pile of bones on the table showed how much chicken the family had eaten.",
+        "The pile of bones on the table is shown how much chicken the family had ate."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 218,
+      "id": "16ff4e75-b02c-4817-a489-989536136f7f",
+      "question": "Which of the following sentences is correct ?[]",
+      "options": [
+        "The two parties have different views to democracy.",
+        "The two parties has different views to democracy.",
+        "The two parties differing on democracy.",
+        "The two parties have different views of democracy."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 219,
+      "id": "6e9b5b84-65e6-4563-b639-cb8b3ad66ffb",
+      "question": "Which of the following sentences is correct ?[]",
+      "options": [
+        "Over a billion people using Microsoft Windows Operating systems.",
+        "Over a billion people uses Microsoft Windows Operating systems.",
+        "Over a billion people use Microsoft Windows Operating systems.",
+        "Over a billion peoples use Microsoft Windows Operating systems."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 220,
+      "id": "e7c94112-898b-4d29-9406-e048247c5c31",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He has said that what is right.",
+        "He has said which is right.",
+        "What has he said is right.",
+        "What he has said is right."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 221,
+      "id": "bb915df1-6312-46d5-a1b8-b6bb1ba0ccfd",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Unless you do not work hard you will fail.",
+        "Unless you will not work hard you will fail.",
+        "Unless you work hard you will fail.",
+        "Unless you will work hard you will fail."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

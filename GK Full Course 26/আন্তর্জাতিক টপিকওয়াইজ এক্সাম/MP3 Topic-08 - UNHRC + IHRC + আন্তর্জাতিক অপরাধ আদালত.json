@@ -1,0 +1,206 @@
+{
+  "exam_id": 10484,
+  "title": "MP3 Topic-08 : UNHRC + IHRC + আন্তর্জাতিক অপরাধ আদালত",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "জাতিসংঘ-০২ Exam",
+  "duration_minutes": 6,
+  "total_questions": 13,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "04d32938-2e66-459b-950c-c9c2ec4161f6",
+      "question": "আন্তর্জাতিক মানবাধিকার কমিশনের সদর দপ্তর কোথায়?[]",
+      "options": [
+        "নিউইয়র্ক",
+        "প্যারিস",
+        "জেনেভা",
+        "লন্ডন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জেনেভায় আন্তর্জাতিক মানবাধিকার কমিশনের সদর দপ্তর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "bc103f94-3e98-48b9-8473-912ba98a088c",
+      "question": "আন্তর্জাতিক অপরাধ আদালতের সদর দপ্তর কোথায়?[]",
+      "options": [
+        "প্যারিস, ফ্রান্স",
+        "জেনেভা, সুইজারল্যান্ড",
+        "নিউইয়র্ক, যুক্তরাষ্ট্র",
+        "হেগ, নেদারল্যান্ডস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নেদারল্যান্ডসের হেগ শহরে আন্তর্জাতিক অপরাধ আদালত অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "13989b5f-23e8-407b-97d9-60d4de72b3f1",
+      "question": "Rome Statute 1998 দ্বারা কোন আদালতের সৃষ্টি?[]",
+      "options": [
+        "The International Court of Justice",
+        "The International Criminal Court",
+        "The Permanent Court of International Justice",
+        "The Permanent Court of Arbitration"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৯৮ সালের রোম স্ট্যাটিউট বা সংবিধি দ্বারা আন্তর্জাতিক অপরাধ আদালত (ICC) গঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "070882a8-a9f3-4606-b34c-0ffb988c7811",
+      "question": "রোম সংবিধি (Rome Statute) এর ফলে কোন সংস্থাটি প্রতিষ্ঠিত হয়?[]",
+      "options": [
+        "International Court of Justice (ICJ)",
+        "International Criminal Court (ICC)",
+        "International Atomic Energy Agency (IAEA)",
+        "European Union (EU)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রোম সংবিধির মাধ্যমে আন্তর্জাতিক অপরাধ আদালত প্রতিষ্ঠিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "dd1a0700-821d-4487-96c7-f374bc604816",
+      "question": "আন্তর্জাতিক অপরাধ বিষয়ক আদালত (International Criminal Court) চুক্তি কোথায় স্বাক্ষরিত হয়েছিল?[]",
+      "options": [
+        "রোমে",
+        "নিউইয়র্কেও",
+        "লন্ডনে",
+        "ওয়াশিংটনে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইতালির রোমে এই চুক্তি স্বাক্ষরিত হয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "fddde6f3-6020-4df9-8c98-20becbf75cb1",
+      "question": "আন্তর্জাতিক অপরাধ বিষয়ক আদালত সংক্রান্ত চুক্তি (International Criminal Court Treaty) কত সালে স্বাক্ষরিত হয়েছিল?[]",
+      "options": [
+        "১৯৯৭",
+        "১৯৯৮",
+        "১৯৯৯",
+        "২০০১"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই চুক্তি ১৯৯৮ সালে স্বাক্ষরিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "9960dd2a-774f-4178-9796-7632ef88402a",
+      "question": "আন্তর্জাতিক অপরাধ বিষয়ক আদালত কত সালে প্রতিষ্ঠিত হয়?[]",
+      "options": [
+        "১৯৯৮",
+        "২০০৩",
+        "২০০৯",
+        "২০১৩"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আদালতটি ১৯৯৮ সালে গঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "9a52b221-a992-4123-aca5-11ef58531eb4",
+      "question": "কোন সনদের ভিত্তিতে আন্তর্জাতিক ফৌজদারী আদালত প্রতিষ্ঠিত হয়েছিল?[]",
+      "options": [
+        "১৯৯৮ সালের রোম সনদ",
+        "২০০৩ সালের আন্তর্জাতিক ফৌজদারী আদালত",
+        "২০০৪ সালের ভিয়েনা সনদ",
+        "২০০ সালের প্যারিস সনদ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৯৯৮ সালের রোম সনদের ভিত্তিতে এটি প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "d4bd8364-fe46-47c8-8e96-cd7bac258d0d",
+      "question": "ইন্টারন্যাশনাাল ক্রিমিনাল কোর্ট (আইসিসি) কোন ধরনের অপরাধের বিচার করে না?[]",
+      "options": [
+        "মানবতার বিরুদ্ধে",
+        "মানব পাচার",
+        "যুদ্ধাপরাধ",
+        "গণহত্যা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আইসিসি মানব পাচার মামলার বিচার করে না।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "f3e1e8ce-0520-4046-8329-b8a9168a2186",
+      "question": "The International Court of Justice (ICJ) differs for the International Criminal Court (ICC) because[]",
+      "options": [
+        "ICJ handles disputes between states; ICC prosecutes individuals",
+        "ICJ focuses on human rights; ICC on war crimes",
+        "ICJ is a UN organ; ICC is independent",
+        "JCJ rulings are binding; ICC rulings are advisory"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ICJ রাষ্ট্রসমূহের বিরোধ নিষ্পত্তি করে এবং ICC ব্যক্তিদের বিচার করে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "9b1508fa-d86c-4d56-95ac-6640f297cfad",
+      "question": "Where is Darfur?[]",
+      "options": [
+        "Sudan",
+        "Congo",
+        "Nigeria",
+        "Zimbabwe"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দারফুর সুদানের একটি অঞ্চল।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "2f73e0b7-9d67-4b5c-b4ed-5bc8bec64df7",
+      "question": "‘দারফুর’ হলো -[]",
+      "options": [
+        "ইরাকের একটি শহরের নাম",
+        "ইরানের একটি শহরের নাম",
+        "সুদানের একটি অঞ্চলের নাম",
+        "আফগানিস্তানের একটি অঞ্চলের নাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দারফুর হলো সুদানের একটি অঞ্চলের নাম।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "09c56f88-f2fd-44dc-ac8c-99266f65b565",
+      "question": "দারফুর সংকটের সঙ্গে জড়িত-[]",
+      "options": [
+        "পরিবেশ দূষণ",
+        "জাতিগোষ্ঠী নির্মূলকরণ",
+        "ভৌগোলিক সীমানা",
+        "বাজারে প্রবেশ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "দারফুর সংকট জাতিগোষ্ঠী নির্মূলকরণের সাথে জড়িত।",
+      "images": []
+    }
+  ]
+}

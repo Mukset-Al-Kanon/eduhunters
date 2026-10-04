@@ -1,0 +1,761 @@
+{
+  "exam_id": 8373,
+  "title": "Number (Ques. No. 101-150)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Number (194 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "7cef24c6-4f70-4b0b-88e3-2fa420b6107d",
+      "question": "Select the correct sentence.[]",
+      "options": [
+        "His information is false",
+        "His informations are false",
+        "His information are false",
+        "His informationa are false"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সঠিক বাক্য: His information is false. (তার তথ্যটি ভুল/মিথ্যা।) \nব্যাখ্যা:\nইংরেজি গ্রামারে \"Information\" শব্দটি একটি Uncountable Noun.\nএই শব্দটির সাথে কখনো 's' বা 'es' যুক্ত করে একে plural (বহুবচন) করা যায় না. তাই \"informations\" বলা ভুল।\nযেহেতু এটি Uncountable, তাই এর পরে সর্বদা Singular Verb (যেমন: is) বসে, \"are\" নয়.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "624e6d08-2800-432e-85c4-b1815c11c419",
+      "question": "The plural form of 'information' is ---[]",
+      "options": [
+        "Informatics",
+        "Informations",
+        "Data",
+        "None"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Information' (তথ্য) শব্দটির plural form বা বহুবচন রূপ হলো 'information' নিজেই। \nসহজ কথায়, Information-এর সাথে 's' বা 'es' যুক্ত করে informations করা যায় না। \nবাংলায় ব্যাখ্যা:\nইংরেজি ব্যাকরণে 'Information' একটি Uncountable Noun (অগণন বিশেষ্য) বা mass noun, যা গোনা যায় না। এই ধরনের শব্দের কোনো আলাদা plural রূপ হয় না। \nভুল: informations (যেমন: \"I have some informations.\")\nসঠিক: information (যেমন: \"I have some information.\")",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "3951deff-ca96-430b-aa20-1224dc8da1eb",
+      "question": "The correct plural of the word 'advice' is ---[]",
+      "options": [
+        "Advice",
+        "Much advice",
+        "No plural",
+        "Many advices"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Advice' (পরামর্শ) ইংরেজি ব্যাকরণে একটি Uncountable Noun বা Mass Noun। \n১. কেন Advice-এর plural হয় না?\nপানি (water), তথ্য (information), বা খবরের (news) মতো 'advice' গণনা করা যায় না। তাই Advice-এর সাথে 's' বা 'es' যোগ করে (advices) কোনো plural করা যায় না। 'Advices' শব্দটি ব্যাকরণগতভাবে ভুল। \n২. কিভাবে বহুবচন বোঝাবো?\nযদি অনেকগুলো পরামর্শ বোঝাতে হয়, তবে 'advices' না বলে এর আগে 'pieces of' বা 'some' ব্যবহার করতে হয়। \nভুল: He gave me many advices.\nসঠিক: He gave me some advice / He gave me many pieces of advice.\n৩. বিশেষ নিয়ম:\nA piece of advice = একটি পরামর্শ।\nSome advice/Much advice = অনেক পরামর্শ।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "b0a488bf-9053-42f9-84b5-1462d1c987ac",
+      "question": "What is the plural form of 'Poetry' ?[]",
+      "options": [
+        "Poetries",
+        "Poetrys",
+        "Poetres",
+        "None of them"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "১. Poetry (Uncountable): যখন আপনি কোনো কবির সমস্ত কাজ বা সামগ্রিক কবিতাকে বোঝান, তখন 'Poetry' ব্যবহার করা হয়। যেমন: I love reading poetry. (আমি কবিতা পড়তে ভালোবাসি - এখানে কোনো নির্দিষ্ট সংখ্যক কবিতা বোঝানো হচ্ছে না)। \n২. 'Poetries' ভুল কেন? 'Poetry' কে গণনা করা যায় না। যেগুলোকে গণনা করা যায় না, সেগুলোর সাথে 's' বা 'es' যুক্ত করে plural করা যায় না।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "0de14294-fbec-41e5-a950-245c9feccc22",
+      "question": "Which one of the following words is not plural ?[]",
+      "options": [
+        "Men",
+        "Feet",
+        "Lice",
+        "News"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইংরেজি গ্রামারে 'News' শব্দটি দেখতে বহুবচন বা Plural (শেষে 's' থাকার কারণে) মনে হলেও এটি আসলে একটি Singular (একবচন) এবং Uncountable Noun. এটি কোনো নির্দিষ্ট তথ্যের সমষ্টিকে বোঝায় যা গণনা করা যায় না, তাই এর সাথে সবসময় Singular Verb (যেমন: is, was) ব্যবহৃত হয়. \nউদাহরণস্বরূপ:\nThe news is good. (খবরটি ভালো",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "929983df-c423-4b5e-a9fe-ae812385d967",
+      "question": "Which one of the following is a plural ?[]",
+      "options": [
+        "News",
+        "Mathematics",
+        "Crises",
+        "Economics"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Singular (একবচন): Crisis (ক্রাই-সিস) - অর্থ: সংকট বা কঠিন সময়।\nPlural (বহুবচন): Crises (ক্রাই-সীজ) - অর্থ: একাধিক সংকট। \nইংরেজি ব্যাকরণে '-is' দিয়ে শেষ হওয়া গ্রিক বা ল্যাটিন মূলের শব্দগুলো বহুবচন করার সময় '-is' উঠে গিয়ে '-es' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "9a0850ba-c673-4817-8b01-257404983bca",
+      "question": "Which plural word can be used as singular ?[]",
+      "options": [
+        "Books",
+        "Ethics",
+        "Princes",
+        "Universities"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "English ব্যাকরণে এমন অনেক শব্দ আছে যেগুলোর শেষে '-s' বা '-es' (plural এর লক্ষণ) থাকে, কিন্তু সেগুলো Singular (একবচন) হিসেবে ব্যবহৃত হয়। \nEthics (নীতিবিদ্যা/আচরণবিধি) এমন একটি শব্দ। \nরূপ (Form): 'Ethics' শব্দটি দেখতে plural, কারণ এর শেষে 's' আছে।\nব্যবহার (Usage): যখন 'Ethics' দিয়ে কোনো একটি নির্দিষ্ট বিষয়ের (Field of study/Academic subject) নাম বা আচরণবিধি (System/Principles) বোঝায়, তখন এটি Singular হিসেবে কাজ করে এবং এরপরে Singular Verb (যেমন: is, was, does) বসে। \nউদাহরণ:\nEthics is a branch of philosophy. (নীতিবিদ্যা দর্শনের একটি শাখা।) — এখানে এটি একটি বিষয়, তাই 'is' বসেছে।\nMedical ethics is very important. (চিকিৎসা নীতিবিদ্যা খুব গুরুত্বপূর্ণ।) — এখানে এটি একটি নিয়ম বা সিস্টেম।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "b50cd140-ad37-4563-9575-3c78f43458af",
+      "question": "Which one is singular ?[]",
+      "options": [
+        "Crowd",
+        "News",
+        "Measles",
+        "Deer"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"News\" শব্দের শেষে 's' থাকলেও এটি একটি Uncountable Noun (গণনা করা যায় না এমন বিশেষ্য) এবং ইংরেজিতে সর্বদা Singular হিসেবে গণ্য হয়। এর কোনো Plural form হয় না। \n২. কেন \"News are\" ভুল?\nযেহেতু \"News\" Singular, তাই এর সাথে Singular Verb (is/was) ব্যবহৃত হয়, Plural Verb (are/were) নয়। \nসঠিক: The news is true. (খবরটি সত্যি।)\nভুল: The news are true.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "d57c3de9-0ae9-4a5b-981b-344d88f62087",
+      "question": "Which of the following is not a plural noun ?[]",
+      "options": [
+        "Oases",
+        "Politics",
+        "Police",
+        "Shingles"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "রোগের নাম হিসেবে: \"Shingles\" (কোঁচদাদ) একটি নির্দিষ্ট রোগের নাম। যদিও এর শেষে '-s' আছে, তবুও এটি একটি Uncountable Noun এবং ব্যাকরণগতভাবে এটি Singular হিসেবে ব্যবহৃত হয়। যেমন: \"Shingles is a painful disease\" (এখানে 'is' ব্যবহৃত হয়েছে, 'are' নয়)।\nএকই ধরনের আরও উদাহরণ: Measles (হাম), Mumps (গলাফুলা রোগ), News (সংবাদ), Mathematics (গণিত) ইত্যাদি শব্দগুলোর শেষে 's' থাকলেও এরা সিঙ্গুলার।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "99a69465-57c2-45f6-a6d2-6e04babb7c87",
+      "question": "Select the singular number.[]",
+      "options": [
+        "Pianos",
+        "Premises",
+        "Politics",
+        "Index"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Index (সিঙ্গুলার/একবচন): এর অর্থ হলো নির্ঘণ্ট, সূচক বা তালিকার বিষয়।\nPlural (বহুবচন): \"Index\" এর দুটি বহুবচন আছে:\nIndices (সাধারণত বৈজ্ঞানিক বা গাণিতিক অর্থে ব্যবহৃত হয়)।\nIndexes (সাধারণত বইয়ের তালিকার ক্ষেত্রে ব্যবহৃত হয়)।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "ddc88424-fafd-4b68-8848-88f73235356e",
+      "question": "Identify the word which remains the same in its plural form []",
+      "options": [
+        "Aircraft",
+        "Intention",
+        "Mouse",
+        "Thesis"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Aircraft শব্দটি একবচন (Singular) এবং বহুবচন (Plural) উভয় ক্ষেত্রেই অপরিবর্তিত থাকে। অর্থাৎ, একটি বিমানের ক্ষেত্রেও 'aircraft' এবং অনেকগুলো বিমানের ক্ষেত্রেও 'aircraft' বলা হয়; 'aircrafts' বলা ভুল। \nSingular (একবচন): There is one aircraft on the runway.\nPlural (বহুবচন): There are five aircraft in the hangar.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "7ff5c8c0-e208-4bf1-99e8-2e2512f74bdf",
+      "question": "Identify the word that remains the same in plural form.[]",
+      "options": [
+        "Deer",
+        "Horse",
+        "Elephant",
+        "Tiger"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Deer (হরিণ) শব্দটি বহুবচনেও (plural) একই থাকে। ইংরেজিতে এর সাথে 's' বা 'es' যুক্ত হয়ে 'Deers' হয় না। অর্থাৎ, একটি হরিণ হলে 'one deer' এবং অনেকগুলো হরিণ হলেও 'many deer' হয়। \nনিয়ম: ইংরেজি ব্যাকরণে কিছু বিশেষ Noun (বিশেষ্য) আছে যাদের Singular (একবচন) এবং Plural (বহুবচন) রূপ সম্পূর্ণ একই থাকে। এদেরকে Zero-marked plural বলা হয়।\nউদাহরণ: \nDeer (singular) -> Deer (plural)।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "7810a0ba-0d51-4923-bf01-4b446c7af61b",
+      "question": "Plural form of 'Deer' ---[]",
+      "options": [
+        "Deer",
+        "Deers",
+        "Deeres",
+        "Deerers"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Deer'-এর plural (বহুবচন) রূপ হলো 'Deer'-ই। \nঅর্থাৎ, singular (একবচন) এবং plural (বহুবচন) উভয় ক্ষেত্রেই 'Deer' শব্দটি অপরিবর্তিত থাকে। \n১টি হরিণ: One deer.\nঅনেকগুলো হরিণ: Two/Many/Five deer (deers হবে না)। \n'Deer' একটি Irregular Noun (অনিয়মিত বিশেষ্য)। ইংরেজি ব্যাকরণে কিছু শব্দের singular এবং plural রূপ একই হয়, 'Deer' তাদের মধ্যে অন্যতম। \nউদাহরণ: The deer is eating grass. (singular)\nউদাহরণ: The deer are running. (plural - এখানে verb plural হলেও noun-টি একই থাকবে)।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "17fba7d2-6972-4a6c-858f-09366e5b23d8",
+      "question": "The plural form of 'Sheep' is ---[]",
+      "options": [
+        "Sheeps",
+        "Sheepes",
+        "Sheep",
+        "Sheepses"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজিতে কিছু কিছু শব্দ আছে যাদের Singular (একবচন) এবং Plural (বহুবচন) ফর্ম একই হয়। এদেরকে 'Zero Plural' বলা হয়। \n১টি ভেড়া: One sheep\n১০টি ভেড়া: Ten sheep (Ten sheeps নয়) \nThe sheep is eating grass. (একটি ভেড়া)\nThe sheep are grazing. (অনেকগুলো ভেড়া)",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "786aa61a-1371-44f8-99db-8cba04be6c7a",
+      "question": "I have done it ----- of times.[]",
+      "options": [
+        "hundreds",
+        "hundred",
+        "a hundred",
+        "hundredth"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"I have done it ----- of times\" — এই ইংরেজি বাক্যটির অর্থ হলো \"আমি এটি অসংখ্যবার/অনেকবার করেছি।\" \nশূন্যস্থানে সাধারণত many, hundreds, বা thousands বসে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "54f94299-4d49-4da8-b3e5-f9c9116e80cd",
+      "question": "The plural form of 'Swine' is ---[]",
+      "options": [
+        "Swine",
+        "Swung",
+        "Swing",
+        "Swong"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইংরেজি ব্যাকরণ অনুযায়ী, 'Swine' শব্দটি এমন একটি noun যা singular (একবচন) এবং plural (বহুবচন) উভয় ক্ষেত্রেই একই থাকে। \nOne swine (একটি শূকর)\nTwo swine (দুটি বা ততোধিক শূকর)",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "6a02226d-9844-4083-a5fb-f16b71bf7b16",
+      "question": "The plural form of 'Pice' is ---[]",
+      "options": [
+        "Pice",
+        "Pices",
+        "Picess",
+        "Picees"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Pice' (পায়সা/পয়সা - ব্রিটিশ আমলের তাম্রমুদ্রা) শব্দটির বহুবচন (Plural) হলো pice (একই থাকে) অথবা pices \nব্যাখ্যা:\nPice (একবচন/Singular): ১ পয়সা (a small copper coin) \nPice/Pices (বহুবচন/Plural): অনেকগুলো পয়সা (multiple coins) \nউদাহরণ:\n\"He had only two pice\" (তার কাছে মাত্র দুই পয়সা ছিল)।\n\"The price was a few pices\" (দাম ছিল কয়েক পয়সা)",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "c7c435d2-0f6f-44e7-bafb-d78fdc2ee7cc",
+      "question": "Which word is the same in both singular and plural ?[]",
+      "options": [
+        "Children",
+        "People",
+        "Oxen",
+        "Series"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইংরেজি ব্যাকরণে যে শব্দটি একবচন (Singular) এবং বহুবচন (Plural) উভয় ক্ষেত্রেই একই থাকে, তার একটি অন্যতম উদাহরণ হলো \"Series\"। \nSeries (Series): 'Series' শব্দটি singular এবং plural—উভয় ক্ষেত্রেই একই থাকে। এর সাথে বাড়তি কোনো 's' বা 'es' যোগ করার প্রয়োজন হয় না।\nব্যবহার: যখন একটি সেট বা ধারাবাহিকতা বোঝায়, তখন এটি singular। আবার যখন একাধিক সেট বা ধারাবাহিকতা বোঝায়, তখনও এটি 'series' হিসেবেই লেখা হয়।\nExample 1: The lecturer gave a series of lectures. (Singular - ১টি ধারাবাহিকতা)\nExample 2: The library has many series of books. (Plural - একাধিক ধারাবাহিকতা)",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "6b4a40e3-73af-477f-a665-bab7e6d19bfe",
+      "question": "What is the singular of 'Corps' ?[]",
+      "options": [
+        "Corps",
+        "Corp",
+        "Corpe",
+        "Corpes"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Corps' (কোর) শব্দটির singular (একবচন) এবং plural (বহুবচন) রূপ একই, অর্থাৎ 'Corps'-ই থেকে যায়। \nসহজ ব্যাখ্যা:\nSingular (একবচন): Corps (উচ্চারণ: কোর - 'p' এবং 's' উচ্চারিত হবে না)।\nPlural (বহুবচন): Corps (উচ্চারণ: কোরয - শেষে 's' বা 'z' এর মত উচ্চারণ হবে)।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "b70acc8c-617a-4770-a2f1-7b5b0322f69b",
+      "question": "They have several offspring. Here 'offspring' is ---[]",
+      "options": [
+        "Singular noun",
+        "Plural noun",
+        "Abstract noun",
+        "Proper noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Offspring মানে সন্তান-সন্ততি বা বংশধর। Offspring শব্দটি Singular (একবচন) এবং Plural (বহুবচন) উভয় ক্ষেত্রেই একই থাকে।\nকিন্তু বাক্যটিতে \"several\" (কয়েকটি/অনেক) শব্দটি রয়েছে, যা একের অধিক সংখ্যাকে নির্দেশ করে।\nতাই এখানে offspring বলতে \"কয়েকজন সন্তান\" বোঝানো হয়েছে, যা একে Plural Noun (বহুবচন)-এ পরিণত করেছে।\nউদাহরণ: The sheep has one offspring (Singular). The sheep has three offspring (Plural).",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "bee82696-3b8d-4f7e-8659-cf797cfbf58a",
+      "question": "Find out singular number[]",
+      "options": [
+        "Scissors",
+        "Measles",
+        "Spectacles",
+        "Phenomena"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Measles হলো একটি সংক্রামক রোগ (infectious disease)। এটি 'Mumps' বা 'News'-এর মতোই এমন একটি শব্দ যা শেষে 's' থাকলেও একটিমাত্র রোগকে নির্দেশ করে। \n২. Singular কেন?\nঅগণন বিশেষ্য (Uncountable Noun): Measles-কে সাধারণত গোনা যায় না, তাই এটি uncountable। আর সব Uncountable Noun-ই Singular হয়।\nক্রিয়ার ব্যবহার: বাক্যে Measles-এর সাথে Singular verb (যেমন- is, was) ব্যবহৃত হয়, plural verb নয়।\nউদাহরণ: Measles is a dangerous disease. (ঠিক)\nউদাহরণ: Measles are a dangerous disease. (ভুল)",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "3e3bc1df-765b-4e40-b068-0c9f1e016f29",
+      "question": "Which one of the nouns has no singular form ?[]",
+      "options": [
+        "Measles",
+        "Horses",
+        "Men",
+        "Brethren"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Measles হলো একটি সংক্রামক রোগ (infectious disease)। এটি 'Mumps' বা 'News'-এর মতোই এমন একটি শব্দ যা শেষে 's' থাকলেও একটিমাত্র রোগকে নির্দেশ করে। \nঅগণন বিশেষ্য (Uncountable Noun): Measles-কে সাধারণত গোনা যায় না, তাই এটি uncountable। আর সব Uncountable Noun-ই Singular হয়।\nক্রিয়ার ব্যবহার: বাক্যে Measles-এর সাথে Singular verb (যেমন- is, was) ব্যবহৃত হয়, plural verb নয়।\nউদাহরণ: Measles is a dangerous disease. (ঠিক)\nউদাহরণ: Measles are a dangerous disease. (ভুল)",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "98b7c41f-aaca-4133-aa00-48e8dde1c1a1",
+      "question": "Which one is a plural noun ?[]",
+      "options": [
+        "Expenditure",
+        "Alms",
+        "Gallows",
+        "Innings"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Alms\" (উচ্চারণ: আম্‌জ) একটি Plural Noun (বহুবচন বিশেষ্য)। \nব্যাখ্যা (Explanation in Bangla):\nঅর্থ: \"Alms\" শব্দের অর্থ হলো ভিক্ষা, খয়রাত বা গরিবদের দেওয়া দান (Money, food, or clothing given to the poor)।\nকেন এটি Plural? এটি একটি Plural-only Noun, অর্থাৎ এর শেষে 's' থাকলেও এটি সবসময় বহুবচন হিসেবে গণ্য হয়।\nVerb-এর সাথে ব্যবহার: যেহেতু এটি plural, তাই বাক্যে এরপরে plural verb (যেমন: were, are) বসে।\nউদাহরণ: \"Alms were given to the beggars\" (ভিক্ষুকদের ভিক্ষা দেওয়া হয়েছিল)।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "313f8a41-2496-412d-8abd-c3979829af81",
+      "question": "Which one is the plural form ?[]",
+      "options": [
+        "Physics",
+        "Mouse",
+        "Poultry",
+        "Agendum"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Poultry বলতে বোঝায় হাঁস, মুরগি, টার্কি বা কবুতরের মতো গৃহপালিত পাখিদের, যাদের মাংস বা ডিমের জন্য পালন করা হয়।\nএটি একটি 'Collective Noun' বা 'Mass Noun', যা সর্বদা বহুবচন হিসেবে গণ্য হয়।\nVerb-এর ব্যবহার: Poultry-এর পরে সর্বদা Plural Verb ব্যবহৃত হয়।\nউদাহরণ: The poultry are in the yard. (পোলট্রিগুলো উঠোনে আছে)।\nPoultry-এর সাথে 's' বা 'es' যোগ করে (যেমন- poultries) সাধারণত Plural করা হয় না, কারণ এটি নিজেই এক বা একাধিক পাখির দলকে বোঝায়।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "8e4ca6a2-563f-4945-8cf6-a4e71f6c42c8",
+      "question": "What is the plural form of 'it' ?[]",
+      "options": [
+        "Its",
+        "They",
+        "These",
+        "Those"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Singular (একবচন): যখন কোনো একটি বস্তু, প্রাণী বা বিষয়কে বোঝানো হয়, তখন 'It' ব্যবহৃত হয়।\nPlural (বহুবচন): যখন একাধিক বস্তু বা প্রাণীকে বোঝানো হয়, তখন 'They' (subject হিসেবে) বা 'Them' (object হিসেবে) ব্যবহৃত হয়। \nউদাহরণ (Examples):\nSingular: I have a book. It is on the table. (আমার একটি বই আছে। এটি টেবিলের উপর।)\nPlural: I have many books. They are on the table. (আমার অনেকগুলো বই আছে। সেগুলো টেবিলের উপর।)",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "08a8d682-3ffa-4651-8de2-85ee0bf7dd6e",
+      "question": "Singular of 'Ours' is ---[]",
+      "options": [
+        "My",
+        "Me",
+        "Mine",
+        "I"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ours (Plural - বহুবচন): এটি ১ম পুরুষ বহুবচন (We) এর Possessive Pronoun, যা 'আমাদের' বা 'আমাদের সম্পদ' বোঝায়।\nMine (Singular - একবচন): এটি ১ম পুরুষ একবচন (I) এর Possessive Pronoun, যা 'আমার' বা 'আমার সম্পদ' বোঝায়। \nউদাহরণ (Example):\nPlural: This house is ours. (এই বাড়িটি আমাদের - অনেকের)\nSingular: This house is mine. (এই বাড়িটি আমার - একার)",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "3d48c049-cfb7-48d6-b55b-f6fbe4605af4",
+      "question": "Liza had given me two -----.[]",
+      "options": [
+        "pair of jeans",
+        "pairs of jean",
+        "pair of jean",
+        "pairs of jeans"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Liza had given me two pairs of jeans\" (লিজা আমাকে দুই জোড়া জিন্স দিয়েছিল) হলো সঠিক বাক্য।\n যেহেতু 'two' (দুই) একটি plural সংখ্যা, তাই এর পরে pair-এর plural form pairs বসে। 'Jeans' সবসময় plural হিসেবে গণ্য হয়, তাই দুই জোড়ার জন্য 'pairs of jeans' ব্যবহার করা হয়। \nPair (জোড়া) শব্দটি যখন নির্দিষ্ট সংখ্যা (যেমন- two, three) দ্বারা নির্দেশিত হয়, তখন তা Pairs হয়ে যায়।\nJeans শব্দটি সবসময় plural (যেমন- scissors, trousers-এর মতো) ধরা হয়, কারণ এতে দুটি পা (legs) থাকে।\nসঠিক গঠন: Number + Pairs of + Item.\nউদাহরণ:\nOne pair of jeans (একটি জিন্স)\nTwo pairs of jeans (দুটি জিন্স/দুই জোড়া জিন্স)",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "3d28e9a2-5ca1-4176-baec-656b49764f02",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "He brought two pairs of shoes",
+        "He has brought two pairs of shoes",
+        "He brought two pair of shoes",
+        "All the above"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Option A uses the simple past tense (\"brought\") and the plural \"pairs\", which is grammatically correct.\nOption B uses the present perfect tense (\"has brought\") and the plural \"pairs\", which is also grammatically correct in a different context (e.g., if the action has just happened or is relevant to the present).\nOption C uses the simple past tense (\"brought\") and the singular form \"pair\" with a numeral \"two\". This is also a common and acceptable usage in English, where \"pair\" functions as a measure word and remains singular after a number.",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "10e1af2a-add7-41f0-b398-4507d5432375",
+      "question": "Identify the word that can be used as both singular and plural ?[]",
+      "options": [
+        "Wood",
+        "Light",
+        "Issue",
+        "Fish"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Fish শব্দটি একই সাথে singular (একবচন) এবং plural (বহুবচন) হিসেবে ব্যবহৃত হতে পারে। যখন আমরা অনেকগুলো মাছের কথা বলি (বিশেষ করে একই প্রজাতির), তখন \"fish\" ব্যবহার করাই সাধারণ নিয়ম (যেমন: \"I caught three fish\")\nইংরেজি ব্যাকরণে কিছু শব্দ আছে যাদের singular এবং plural রূপ একই হয়। \"Fish\" হলো এমন একটি শব্দ। \nSingular (একবচন): There is a fish in the pond. (পুকুরে একটি মাছ আছে।)\nPlural (বহুবচন): There are many fish in the net. (জালে অনেকগুলো মাছ আছে।)",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "a1e02135-3d6f-4b18-aa1b-8e53ba30ed9a",
+      "question": "What is the plural of fish ?[]",
+      "options": [
+        "Fish",
+        "Fisheries",
+        "Fishes",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Fish শব্দটি একই সাথে singular (একবচন) এবং plural (বহুবচন) হিসেবে ব্যবহৃত হতে পারে। যখন আমরা অনেকগুলো মাছের কথা বলি (বিশেষ করে একই প্রজাতির), তখন \"fish\" ব্যবহার করাই সাধারণ নিয়ম (যেমন: \"I caught three fish\")\nবাংলায় ব্যাখ্যা:\nইংরেজি ব্যাকরণে কিছু শব্দ আছে যাদের singular এবং plural রূপ একই হয়। \"Fish\" হলো এমন একটি শব্দ। \nSingular (একবচন): There is a fish in the pond. (পুকুরে একটি মাছ আছে।)\nPlural (বহুবচন): There are many fish in the net. (জালে অনেকগুলো মাছ আছে।)",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "40939d42-bb38-4d68-ae8b-c85c58be554b",
+      "question": "What is the singular form of the word 'Dice' ?[]",
+      "options": [
+        "Dis",
+        "Dise",
+        "Die",
+        "Disket"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Dice' (ডাইস) শব্দটির একবচন (singular) রূপ হলো 'Die' (ডাই)। \nDie (ডাই - একবচন): যখন একটিমাত্র পাশা বা ছক্কা বোঝানো হয়, তখন 'Die' বলা হয়।\nDice (ডাইস - বহুবচন): যখন দুই বা ততোধিক পাশা বোঝানো হয়, তখন 'Dice' বলা হয়। \nউদাহরণ:\nSingular: \"Roll a die\" (একটি ছক্কা নিক্ষেপ করো)।\nPlural: \"Roll the dice\" (ছক্কাগুলো নিক্ষেপ করো)।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "53dc43e7-bf96-45de-a8ec-643a8b61a793",
+      "question": "Which of the following words is plural ?[]",
+      "options": [
+        "Anybody",
+        "Nobody",
+        "Each",
+        "None of these"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Anybody: এটি একটি Singular প্রোনাউন। এর অর্থ \"যে কেউ\"। বাক্যে এটি সবসময় Singular verb গ্রহণ করে (যেমন: Anybody is welcome)।\nEach: এটি একটি Distributive Pronoun, যা সবসময় Singular হয়। এটি প্রতিটি ব্যক্তি বা বস্তুকে আলাদাভাবে বোঝায় (যেমন: Each student has a book)।\nNobody: এটিও একটি Singular প্রোনাউন। এর অর্থ \"কেউ না\"। এটি নির্দেশ করে যে কোনো ব্যক্তিই উপস্থিত নেই, তাই এটি একক হিসেবে বিবেচিত হয় (যেমন: Nobody knows the answer)।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "9404ccc0-3b72-455a-9c45-55c86dc60445",
+      "question": "Which one is in plural number ?[]",
+      "options": [
+        "Data",
+        "Goose",
+        "Basis",
+        "Formula"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মূল শব্দ (Singular): Data শব্দটির একবচন (Singular) রূপ হলো Datum (ডেটাম).\n২. বহুবচন (Plural): যখন অনেকগুলো তথ্য বা উপাত্ত বোঝানো হয়, তখন তাকে বলা হয় Data.\n৩. উৎপত্তি: এটি একটি ল্যাটিন শব্দ। ল্যাটিন ব্যাকরণ অনুযায়ী, -um থাকলে তা singular এবং -a থাকলে তা plural হয়. \nউদাহরণ:\nSingular: The datum is accurate. (তথ্যটি সঠিক - একটি মাত্র তথ্য)\nPlural: The data are accurate. (উপাত্তগুলো সঠিক - অনেকগুলো তথ্য)",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "b5d810c7-efb8-45e6-b1b6-5554f41d9698",
+      "question": "Which one of the following is in singular form ?[]",
+      "options": [
+        "Gentry",
+        "Aristocracy",
+        "Physics",
+        "Vermin"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Physics (পদার্থবিদ্যা) একটি বিষয়ের নাম (academic subject)। যদিও এর শেষে 's' আছে, তবুও এটি একটি একক ধারণা বা singular noun হিসেবে গণ্য হয়।\nইংরেজিতে কোনো বিষয়ের নামের শেষে 's' থাকলেও (যেমন: Mathematics, Economics, Politics, Physics) সেগুলোকে singular বা একবচন ধরা হয়।\nবাক্যে এর সাথে singular verb বসে। যেমন: \"Physics is my favorite subject\" (Physics 'are' বলা ভুল)।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "b6927a7b-6c63-4fbc-9854-442902791c38",
+      "question": "Which one of the following is singular ?[]",
+      "options": [
+        "Scenery",
+        "Peasantry",
+        "Government",
+        "Vermin"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Uncountable Noun: ইংরেজি গ্রামারে 'Scenery' একটি Uncountable Noun. যেসব নাউন গণনা করা যায় না, সেগুলো সবসময় singular হিসেবে গণ্য হয়.\nNo Plural Form: 'Scenery' শব্দটির কোনো সাধারণ plural বা বহুবচন রূপ নেই. অনেকে ভুল করে 'Sceneries' ব্যবহার করেন, যা ব্যাকরণগতভাবে অশুদ্ধ.\nVerb Usage: যেহেতু এটি singular, তাই এর পরে সবসময় singular verb (যেমন: is, was) বসে। যেমন: \"The scenery is beautiful,\" \"The sceneries are beautiful\" নয়.",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "1d20df4f-6dc5-49aa-b507-a497111cf908",
+      "question": "One of the most significant 'phenomenons' of our time has been the development of cinema.[]",
+      "options": [
+        "Phenomenon",
+        "Phenomena",
+        "Phenomenonna",
+        "Phenomenonns"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Phenomenon\" (singular) এবং \"Phenomena\" (plural) ইংরেজি ব্যাকরণে গুরুত্বপূর্ণ। 'Phenomenon' বলতে একটি অসাধারণ ঘটনা বা দৃশ্য বোঝায়, আর 'Phenomena' হলো একের অধিক ঘটনা। সিনেমা বা চলচ্চিত্রের বিকাশ আধুনিক যুগের একটি অন্যতম উল্লেখযোগ্য 'phenomenon' (ঘটনা)। \nব্যাখ্যা (Bangla Explanation):\nPhenomenon (একবচন/Singular): যখন একটিমাত্র ঘটনা বা অসাধারণ কিছু ঘটে।\nউদাহরণ: Cinema is a modern phenomenon. (সিনেমা একটি আধুনিক ঘটনা)।\nPhenomena (বহুবচন/Plural): যখন অনেকগুলো ঘটনা একসাথে বোঝানো হয়।\nউদাহরণ: There are many cultural phenomena in the 21st century. (একবিংশ শতাব্দীতে অনেক সাংস্কৃতিক ঘটনা/phenomena রয়েছে)।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "9997d9b8-ac9f-4837-9b39-99fe7ccf2322",
+      "question": "Which one is in plural number ?[]",
+      "options": [
+        "Data",
+        "Goose",
+        "Basis",
+        "Formula"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মূল শব্দ (Singular): ইংরেজি ব্যাকরণে 'Data' হলো Datum (ডেটা্ম) শব্দটির বহুবচন.\nঅর্থ:\nDatum (Singular): একটিমাত্র তথ্যের একক বা পরিমাপ (A single piece of information or measurement).\nData (Plural): অনেকগুলো তথ্য বা উপাত্তের সমষ্টি (Facts or pieces of information).",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "8170c4a9-0656-4de4-9092-2d9b3fa7d9ee",
+      "question": "Which is plural ?[]",
+      "options": [
+        "Oasis",
+        "Terminus",
+        "Vertex",
+        "Bureaux"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মূল শব্দ (Singular)\nBureau (একবচন): এর অর্থ অফিস, দপ্তর, কার্যালয় বা ড্রয়ারযুক্ত লেখার টেবিল। \n২. বহুবচন (Plural)\nBureaux (বহুবচন): এর অর্থ অফিসসমূহ, দপ্তরসমূহ বা একাধিক কার্যালয়। \n৩. বাংলা অর্থ ও ব্যবহার\nBureau (একবচন) = দপ্তর / অফিস / বিভাগ।\nBureaux (বহুবচন) = দপ্তরসমূহ / অফিসসমূহ।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "3dee3f11-6bab-4c96-9273-87b677555db4",
+      "question": "The plural of 'Fez' is ---[]",
+      "options": [
+        "Fez",
+        "Fezees",
+        "Feezes",
+        "Fezes"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Fez' (একটি বিশেষ ধরণের টুপি) শব্দের (plural) বা বহুবচন হলো Fezes (অথবা Fezzes)। \nবাংলায় ব্যাখ্যা:\n১. নিয়ম: ইংরেজি গ্রামারের নিয়ম অনুযায়ী, যেসব singular noun-এর শেষে 'z' থাকে, সেগুলোকে plural করার সময় সাধারণত শেষে '-es' যোগ করা হয়। যেহেতু 'Fez' শব্দটির শেষে 'z' আছে, তাই এটি Fezes হয়ে যায়। \n২. বিকল্প বানান: Fezes-এর পাশাপাশি Fezzes (একটি 'z' ডাবল হয়ে) বানানটিও বহুল প্রচলিত এবং সঠিক। \nউদাহরণ:\nSingular: Fez (একটি টুপি)\nPlural: Fezes / Fezzes (একাধিক টুপি)",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "1e9f16b1-cb3e-4455-9060-6d3b0bf32372",
+      "question": "Which of the following is singular number ?[]",
+      "options": [
+        "Geese",
+        "News",
+        "Customs",
+        "Scissors"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "News শব্দটি দেখতে Plural (বহুবচন) মনে হলেও এটি আসলে একটি Singular (একবচন) number. \nগঠন: এর শেষে -s থাকলেও এটি আসলে একটি Uncountable Noun (অগণনযোগ্য বিশেষ্য).\nব্যবহার: যেহেতু এটি singular, তাই এর পরে সবসময় singular verb (যেমন- is, was, has) ব্যবহৃত হয়.\nউদাহরণ: \"The news is good.\" (সংবাদটি ভালো)। এখানে news-এর সাথে 'is' বসেছে, 'are' নয়.",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "4b900b70-2cfe-40ab-8c44-834e82d492c6",
+      "question": "Which one is a singular number ?[]",
+      "options": [
+        "News",
+        "Samples",
+        "Effects",
+        "Sons"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "News শব্দটি দেখতে Plural (বহুবচন) মনে হলেও এটি আসলে একটি Singular (একবচন) number. \nগঠন: এর শেষে -s থাকলেও এটি আসলে একটি Uncountable Noun (অগণনযোগ্য বিশেষ্য).\nব্যবহার: যেহেতু এটি singular, তাই এর পরে সবসময় singular verb (যেমন- is, was, has) ব্যবহৃত হয়.\nউদাহরণ: \"The news is good.\" (সংবাদটি ভালো)। এখানে news-এর সাথে 'is' বসেছে, 'are' নয়.",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "c0b275c3-7570-4ab2-adbe-7d650c51f89f",
+      "question": "The plural of 'Mosquito' is ---[]",
+      "options": [
+        "Mosquiti",
+        "Mosquitoes",
+        "Mosquita",
+        "Mosquiter"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইংরেজি গ্রামারের নিয়ম অনুযায়ী, কোনো শব্দের শেষে যদি 'o' থাকে এবং তার আগে একটি consonant (ব্যঞ্জনবর্ণ) থাকে, তবে সাধারণত সেই শব্দের শেষে 'es' যোগ করে plural করা হয়। \nএখানে 'Mosquito' শব্দের শেষে 'o' আছে এবং তার ঠিক আগে ব্যঞ্জনবর্ণ 't' আছে।\nতাই এর সঠিক plural রূপটি হলো Mosquitoes।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "140a661c-2c67-43c4-a71c-632198eaef4e",
+      "question": "Which of the following is not a plural form of 'Buffalo' ?[]",
+      "options": [
+        "Buffaloes",
+        "Buffalos",
+        "Buffaloes",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইংরেজিতে 'Buffalo' শব্দের বহুবচন (Plural) হিসেবে তিনটি রূপই ব্যাকরণগতভাবে সঠিক হিসেবে গণ্য করা হয়: \nBuffaloes: এটি সবচেয়ে সাধারণ এবং প্রচলিত রূপ.\nBuffalos: এটিও বহুল ব্যবহৃত এবং সঠিক.\nBuffalo: কিছু ক্ষেত্রে 'Buffalo' শব্দের একবচন ও বহুবচন একই থাকে, বিশেষ করে যখন কোনো নির্দিষ্ট প্রাণীর দলকে বোঝানো হয়।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "010de6f1-85fe-4ad4-8458-dab90d310df4",
+      "question": "Identify the plural number[]",
+      "options": [
+        "Iron",
+        "Cattle",
+        "Studio",
+        "Poetry"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Cattle হলো একটি Plural Number (বহুবচন)। \n১. অর্থ: Cattle (উচ্চারণ: ক্যাটল) মানে গবাদিপশু (গরু, বাছুর ইত্যাদি)।\n২. Plural হিসেবে ব্যবহার: Cattle শব্দটি দেখতে singular (একবচন) এর মতো মনে হলেও, এটি সবসময় plural (বহুবচন) হিসেবে ব্যবহৃত হয়।\n৩. Verb-এর ব্যবহার: Cattle-এর পরে সবসময় Plural verb (যেমন: are, were, have) বসে। \nউদাহরণ: The cattle are grazing in the field. (গবাদিপশুগুলো মাঠে ঘাস খাচ্ছে)।\n৪. ব্যতিক্রম: Cattle-এর সাথে কখনো 's' যোগ করে (Cattles) বহুবচন করা হয় না।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "731b77f8-7d6c-4101-9d4e-da211d05c137",
+      "question": "Which one is plural number ?[]",
+      "options": [
+        "Basis",
+        "Formula",
+        "Arms",
+        "Dwarf"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"Arms\" (plural) এর বাংলা অর্থ হলো অস্ত্র, অস্ত্রশস্ত্র, অথবা বাহুসমূহ। \nএটি একটি Plural Number (বহুবচন) কারণ এটি \"arm\" (বাহু) এর বহুবচন রূপ বা \"অস্ত্রশস্ত্র\" অর্থে ব্যবহৃত হয়। \nমূল বিষয়সমূহ:\nArm (singular) = বাহু / হাত।\nArms (plural) = বাহুসমূহ / অস্ত্রশস্ত্র।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "b802f3ad-3457-4851-aed3-ba1b09bc8fb4",
+      "question": "Which one of the following is a singular number ?[]",
+      "options": [
+        "Geese",
+        "Customs",
+        "Poetry",
+        "Spectacles"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Poetry (Singular /Uncountable): যখন আপনি সমস্ত কবিতা বা কাব্য শিল্পকে একসাথে বোঝাবেন, তখন 'Poetry' ব্যবহৃত হয়। যেমন: She loves reading English poetry. (তিনি ইংরেজি কবিতা পড়তে ভালোবাসেন)।\nPoem (Singular /Countable): যদি একটি নির্দিষ্ট কবিতা বা নির্দিষ্ট সংখ্যক কবিতা বোঝাতে চান, তবে 'Poem' (singular) বা 'Poems' (plural) ব্যবহার করতে হবে। \nউদাহরণ:\nসঠিক: The poetry is beautiful. (কবিতাটি সুন্দর।)\nভুল: The poetries are beautiful. (Poetries শব্দটি ভুল)।\nঅনুরূপ শব্দসমূহ (Similar Examples):",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "02e56919-ec74-494f-803c-b54c67f7b2e5",
+      "question": "Which of the following words is not plural ?[]",
+      "options": [
+        "Boxes",
+        "Physics",
+        "Data",
+        "Children"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Physics একটি Singular (একবচন) শব্দ, যদিও এর শেষে 's' বর্ণটি যুক্ত আছে। ইংরেজি গ্রামারের নিয়ম অনুযায়ী, কিছু বিষয়ের নাম (যেমন: Physics, Mathematics, Economics, Statistics) দেখতে Plural মনে হলেও তারা প্রকৃতপক্ষে একটি নির্দিষ্ট বিষয় বা জ্ঞানকে বোঝায়, তাই তারা সর্বদা Singular হিসেবে গণ্য হয়. \nএসব শব্দের ক্ষেত্রে সর্বদা Singular Verb (যেমন: is, was) ব্যবহৃত হয়। \nউদাহরণ: \"Physics is a difficult subject.\" (এখানে 'are' হবে না)।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "663b1f25-44cd-43ac-b6ab-e5db8a6165b3",
+      "question": "Select the plural number[]",
+      "options": [
+        "Index",
+        "Goose",
+        "Issue",
+        "Quarters"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মূল শব্দ (Singular): Quarter (এক চতুর্থাংশ, বা এক-চতুর্থাংশ)।\nবহুবচন (Plural): Quarters (একের বেশি চতুর্থাংশগুলো, অথবা বাসস্থান/কোয়ার্টার্স)।\nব্যবহার: এটি সাধারণত 's' যোগ করে বহুবচন করা হয়েছে। যেমন- \"Three-quarters\" (তিন-চতুর্থাংশ) বা \"Living quarters\" (বাসস্থানসমূহ)।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "9800a7e1-6aa8-4b98-8ec3-ce96b153dc32",
+      "question": "Correct plural form of 'Half' is ---[]",
+      "options": [
+        "Half",
+        "Halfs",
+        "Halve",
+        "Halves"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইংরেজি গ্রামারের নিয়ম অনুযায়ী, যেসব Singular noun-এর শেষে '-f' বা '-fe' থাকে, সেগুলোর Plural করার সময় সাধারণত 'f' বা 'fe' উঠে গিয়ে '-ves' যুক্ত হয়। \nSingular: Half (একটি অংশ)\nPlural: Halves (একাধিক অংশ)",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "06c51215-c621-48eb-bbc9-9b09b53bf09c",
+      "question": "Which one is wrongly \nspelt ?[]",
+      "options": [
+        "Ladies",
+        "Monkies",
+        "Potatoes",
+        "Pianos"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইংরেজি গ্রামারের নিয়ম অনুযায়ী, যদি কোনো শব্দের শেষে 'y' থাকে এবং তার ঠিক আগে একটি ভাওয়েল (vowel - a, e, i, o, u) থাকে, তবে বহুবচন (plural) করার সময় শুধু 's' যোগ করতে হয়। 'y' উঠে গিয়ে 'ies' হয় না। \nMonkey: শেষে 'y' এর আগে 'e' (vowel) আছে। তাই plural হবে Monkeys।\nMonkies ভুল।",
+      "images": []
+    }
+  ]
+}

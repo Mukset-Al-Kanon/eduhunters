@@ -1,0 +1,288 @@
+{
+  "title": "44th BCS ENGLISH",
+  "category": "BCS Question Exams > BCS English Questions",
+  "duration_minutes": 30,
+  "total_questions": 20,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "145080",
+      "question": "Find out the active form of the sentence: 'By whom can our country be saved?'",
+      "options": [
+        "Who can save our country?",
+        "Our country has been saved by who?",
+        "Who save our country?",
+        "Who will save our country?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Active voice এর who 'passive voice' এ 'by whom' হয় এবং উল্টোটিও হয়। আর একমাত্র অপশন A তেই প্রশ্নের অনুরুপ modal auxiliary 'can' ব্যবহার করা হয়েছে। সুতরাং এটিই সঠিক।"
+    },
+    {
+      "question_no": 2,
+      "id": "145081",
+      "question": "Identify the correct passive form: 'Do not close the door.'",
+      "options": [
+        "Let not the door close.",
+        "Let not the door be closed.",
+        "Let not the door close.",
+        "Let not door closed."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Passive voice এর একদম Basic structure হল be verb + V3, যা একমাত্র অপশন B তেই আছে।"
+    },
+    {
+      "question_no": 3,
+      "id": "145082",
+      "question": "(Sitting happily), the chicken laid eggs. The underlined part is a/an-",
+      "options": [
+        "noun clause",
+        "subordinate clause",
+        "independent clause",
+        "coordinate clause"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি মূলত একটি phrase, clause নয়। তবে যেহেতু এটি এর অর্থের জন্য বাক্যের বাকি অংশের উপর নির্ভরশীল, সুতরাং এটি একটি subordinate phrase (clause)."
+    },
+    {
+      "question_no": 4,
+      "id": "145083",
+      "question": "What kind of noun is 'river'?",
+      "options": [
+        "Material",
+        "Collective",
+        "Proper",
+        "Common"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Common noun হল যেগুলো কোনো ব্যক্তি, বন্ধু, স্থান ইত্যাদি কোনো কিছুর সাধারণ ধরনকে নির্দেশ করে। এগুলোকে আবার নির্দিষ্ট করলে সেটাকে বলা হয় Proper noun. For example, 'river' is a common noun. But, 'The Padma' is a proper noun"
+    },
+    {
+      "question_no": 5,
+      "id": "145084",
+      "question": "Identify the right tense: 'My father _____ before I came.",
+      "options": [
+        "would be leaving",
+        "had been leaving",
+        "had left",
+        "will leave"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Past tense এর এটি একটি Common structure. অতীতকালে দুইটি কাজ ঘটলে যেটি আগে ঘটে সেটি Past perfect এবং যেটি পরে ঘটে সেটি Past indefinite হয়"
+    },
+    {
+      "question_no": 6,
+      "id": "145085",
+      "question": "The controlling sentence of a paragraph is known as-",
+      "options": [
+        "content modulator",
+        "terminator",
+        "thesis statement",
+        "topic sentence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "একটি paragraph এর প্রথমে একটি লাইন থাকে যা পুরো টপিকটি নির্ধারণ করে। তাই একে controlling sentence বলা হয়। [যদিও এটি সরাসরি grammatical/vocabulay প্রশ্ন নয়, তারপরেও শিক্ষার্থীদের জানার স্বার্থে দেয়া হল।"
+    },
+    {
+      "question_no": 7,
+      "id": "145086",
+      "question": "Choose the correct comparative form of the sentence: 'Very few boys are as industrious as Zaman.'",
+      "options": [
+        "Zaman is one of the most industrious boys.",
+        "Zaman is more industrious than most other boys.",
+        "Zaman is really industrious like other boys.",
+        "Zaman is as industrious as other boys."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Very few/a few যুক্ত positive sentence এর ক্ষেত্রে comparative করতে most other ব্যবহার করা হয়। আর একমাত্র অপশন B ছাড়া বাকি অপশনগুলোতে comparatvie from ব্যবহার করা হয়নি।"
+    },
+    {
+      "question_no": 8,
+      "id": "145087",
+      "question": "Identify the appropriate preposition: Your opinion is identical _______ mine.",
+      "options": [
+        "for",
+        "in",
+        "with",
+        "by"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Identical with/to দুটোই সঠিক। তবে with বেশি ব্যবহৃত হয় এবং native দের দ্বারা স্বীকৃত যে এটিই বেশি সঠিক।"
+    },
+    {
+      "question_no": 9,
+      "id": "145088",
+      "question": "The word 'Vital' is a/an-",
+      "options": [
+        "noun",
+        "adverb",
+        "adjective",
+        "verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Vital (adj)- Vitality, vitals [plural only] (noun)-Vitalize (verb)."
+    },
+    {
+      "question_no": 10,
+      "id": "145089",
+      "question": "'To get along with' means-",
+      "options": [
+        "to adjust",
+        "to interest",
+        "to accompany",
+        "to walk"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "To get along with means মানিয়ে নেয়া= to adjust."
+    },
+    {
+      "question_no": 11,
+      "id": "145090",
+      "question": "The synonym for 'panoramic' is-",
+      "options": [
+        "scenic",
+        "narrow",
+        "limited",
+        "restricted"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Panoramic বিস্তৃত দৃশ্য, দৃশ্য সংক্রান্ত Scenic; Narrow= সরু: Limited= সীমিত; Restricted- সীমাবদ্ধ"
+    },
+    {
+      "question_no": 12,
+      "id": "145091",
+      "question": "The antonym for 'Slothful' is-",
+      "options": [
+        "playful",
+        "sluggish",
+        "energetic",
+        "quarrelsome"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Slothful= অলস, কুঁড়ে, Energetic কর্মচঞ্চল; Playful= কৌতুকচ্ছল; Sluggish- ধীরগতিসম্পন্ন; Quarrelsome- ঝগড়াটে।"
+    },
+    {
+      "question_no": 13,
+      "id": "145092",
+      "question": "'By and large' means-",
+      "options": [
+        "everywhere",
+        "very large",
+        "mostly",
+        "far away"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "By and large = on the whole = everything considered= মোটের উপর = সাধারণত= mostly."
+    },
+    {
+      "question_no": 14,
+      "id": "145093",
+      "question": "'He could not win but learnt a lot.' Which part of speech is the word 'but'?",
+      "options": [
+        "an adverb",
+        "a verb",
+        "an adjective",
+        "a conjunction"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যেই part of speech দুইটি word, phrase, clause ইত্যাদিকে যুক্ত করে, সেটাই conjunction. এখানে but দুইটি clause কে যুক্ত করেছে, যেখানে পরের অংশে subject common থাকায় উহ্য আছে।"
+    },
+    {
+      "question_no": 15,
+      "id": "145094",
+      "question": "Select the appropriate preposition 'Are you doing anything special ______ the weekend?\"",
+      "options": [
+        "at",
+        "with",
+        "on",
+        "on"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Over the weekend- Are you doing anything over the weekend? On the weekend It happend on the weekend of 24 and 26 April. At the weekend- The office is closed at the weekend."
+    },
+    {
+      "question_no": 16,
+      "id": "145095",
+      "question": "What is the plural form of 'Sheep'?",
+      "options": [
+        "sheeps",
+        "sheep",
+        "sheepes",
+        "sheepses"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Moose, sheep, shrimp ইত্যাদি শব্দের আলাদা কোনো plural form নেই। তবে বহুবচন বুঝালে এই শব্দগুলোর পরে Plural verb, এবং একবচন বুঝালে Singular verb বসে।"
+    },
+    {
+      "question_no": 17,
+      "id": "145096",
+      "question": "What is the verb form of the word 'ability'?",
+      "options": [
+        "capable",
+        "inability",
+        "enable",
+        "unable"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ability (Noun)- Enable (Verb); Unable (adjective)= Capable (Adjective); Inability (Noun)."
+    },
+    {
+      "question_no": 18,
+      "id": "145097",
+      "question": "The word 'equivocation' refers to-",
+      "options": [
+        "stating like an author",
+        "two contradictory things in the same statement",
+        "free expression of opinions",
+        "a true statement"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Equivocation দ্ব্যর্থবাক্য, ভিন্ন ভিন্ন অর্থবোধক একই বাক্য = Two contradictory things in the same statement."
+    },
+    {
+      "question_no": 19,
+      "id": "145098",
+      "question": "Which of the following words is spelt incorrectly?",
+      "options": [
+        "reminescence",
+        "glycerin",
+        "idiosyncrasy",
+        "lexicography"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Correct spelling : Reminiscence= স্মৃতিচারণ।"
+    },
+    {
+      "question_no": 20,
+      "id": "145099",
+      "question": "Which of the following words is spelt correctly?",
+      "options": [
+        "authoratative",
+        "autheritative",
+        "authoritative",
+        "authoratitive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Authority (noun)- Authoritative (adj)- কর্তৃত্বপূর্ণ"
+    }
+  ]
+}

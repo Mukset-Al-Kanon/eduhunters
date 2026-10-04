@@ -1,0 +1,106 @@
+{
+  "title": "মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি ২০০৫-০৬",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 7,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "147590",
+      "question": "নিচের কোন দেশটি অতীতে কখনও অন্য কোন দেশের উপনিবেশ পরিণত হয়নি?",
+      "options": [
+        "ফিলিপাইন",
+        "ইন্দোনেশিয়া",
+        "মালেশিয়া",
+        "থাইল্যান্ড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "147591",
+      "question": "'নাসাউ' কোন দ্বীপপুঞ্জের রাজধানী?",
+      "options": [
+        "ফিজি",
+        "নিকোবর",
+        "মাদাগস্কার",
+        "বাহামা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "147592",
+      "question": "FIFA-এর বর্তমান বিশ্ব র‍্যাংকিং-এ শীর্ষ দল কোনটি?",
+      "options": [
+        "ইতালি",
+        "আর্জেন্টিনা",
+        "ব্রাজিল",
+        "জার্মানি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "147593",
+      "question": "কত সালে প্রথম বিশ্বযুদ্ধ বন্ধ হয়?",
+      "options": [
+        "১৯২৫",
+        "১৯১৬",
+        "১৯১৮",
+        "১৯১৯"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "147594",
+      "question": "জিব্রালটার প্রণালি কোন কোন দেশকে পৃথক করে?",
+      "options": [
+        "পর্তুগাল ও মরক্কো",
+        "মরিতানিয়া ও স্পেন",
+        "আলজারিয়া ও স্পেন",
+        "মরক্কো ও স্পেন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "147595",
+      "question": "যুক্তরাষ্ট্রকে \"স্ট্যাচু অব লিবার্টি” নিম্নের কোন দেশ উপহার দেয়?",
+      "options": [
+        "বেলজিয়াম",
+        "যুক্তরাজ্য",
+        "ফ্রান্স",
+        "ইতালি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "147596",
+      "question": "\"A Long Walk to Freedom” এই বিখ্যাত গ্রন্থটির রচয়িতা কে?",
+      "options": [
+        "ফিডেল ক্যাস্ট্রো",
+        "নেলসন ম্যান্ডেলা",
+        "আব্রাহাম লিংকন",
+        "মহাত্মা গান্ধী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

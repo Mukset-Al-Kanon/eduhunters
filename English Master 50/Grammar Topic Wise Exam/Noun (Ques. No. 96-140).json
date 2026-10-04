@@ -1,0 +1,686 @@
+{
+  "exam_id": 8367,
+  "title": "Noun (Ques. No. 96-140)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Classification of Noun (145 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 45,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "5dd91132-2d72-497b-abc2-80dd09223268",
+      "question": "Which group of words are collective nouns ?[]",
+      "options": [
+        "Unity, Poverty",
+        "Cattle, Army",
+        "Team, Steal",
+        "Milk, Water"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Collective noun = একাধিক ব্যক্তি/বস্তুর সমষ্টি",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "cb3b2c7d-e52d-4dc2-a32d-eeb6a87fe347",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "Kazi Nazrul Islam is the Shelley of Bangladesh",
+        "Kazi Nazrul Islam is the Shelley of the Bangladesh",
+        "Kazi Nazrul Islam is a Shelley of Bangladesh",
+        "Kazi Nazrul Islam is a Shelley of the Bangladesh"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "তুলনামূলক উপাধি হলে the + famous person ব্যবহৃত হয়",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "1fcbf6cc-3d95-4fc4-a87f-258d84d2338d",
+      "question": "Nazrul is the 'Byron' of Bangladesh.The word (Byron) is used as ---[]",
+      "options": [
+        "Proper noun",
+        "Common noun",
+        "Material noun",
+        "Abstract noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এখানে Byron একজন ব্যক্তি না, এক ধরনের কবির প্রতীক",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "d12a8015-21fd-42ef-94da-38e8cbe5908d",
+      "question": "The <u>charity</u> of Hatem Tai is known to all. The word 'Charity' is ---[]",
+      "options": [
+        "Material noun",
+        "Common noun",
+        "Abstract noun",
+        "Collective noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "(The + Abstract Noun + of), it is categorized as a Common Noun.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "18c6b272-11cf-4bb3-bdcf-815b5eaef304",
+      "question": "They praised the 'honesty' of the girl. Here the word (honesty) is a/an ---[]",
+      "options": [
+        "Material noun",
+        "Abstract noun",
+        "Common noun",
+        "Proper noun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "(The + Abstract Noun + of), it is categorized as a Common Noun.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "418ac7c5-8242-4af4-ad21-b8a8e79c2b00",
+      "question": "He is a justice of the High Court. The word 'Justice' is \na/an ----- noun.[]",
+      "options": [
+        "Abstract",
+        "Material",
+        "Proper",
+        "Common"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "(a/The + Abstract Noun + of), it is categorized as a Common Noun.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "74bf2db8-f583-4aa9-8f1e-37ada692ca4e",
+      "question": "Drive the nail into the table. 'Nail' শব্দটি কোন প্রকারের noun ?[]",
+      "options": [
+        "Proper",
+        "Common",
+        "Collective",
+        "Material"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যেসব নাম দিয়ে একই জাতীয় ব্যক্তি, বস্তু বা প্রাণীকে সাধারণভাবে বোঝানো হয়, সেগুলোই Common Noun। যেমন: Table, Pen, Chair, এবং Nail।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "100c1848-16da-4848-908d-e243fbfcd6bc",
+      "question": "The 'rice' of Dinajpur is fine. The word 'rice' in the sentence is a ---[]",
+      "options": [
+        "Proper noun",
+        "Common noun",
+        "Collective noun",
+        "Abstract noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "(The + Material Noun + of), it acts as a Common Noun.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "e87ab43c-d594-4aea-b0a5-6a74c31ac4dd",
+      "question": "The class consists of twenty public. The word 'public' is an example of ---[]",
+      "options": [
+        "Common noun",
+        "Proper noun",
+        "Abstract noun",
+        "Collective noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "public = people (general) → Common noun",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "f15714e5-8a4f-414e-9a37-90a4da568605",
+      "question": "There are ten classes in our school. What kind of noun is the word 'class' ?[]",
+      "options": [
+        "Proper noun",
+        "Common noun",
+        "Collective noun",
+        "Abstract noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এখানে ten classes = আলাদা আলাদা class\nনির্দিষ্ট কোনো নাম না\ngroup হিসেবে একক ধরা হয়নি\nতাই Common noun\n(Collective তখনই হবে: The class is noisy — একদল ছাত্র)",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "f33c1e9d-03d7-49f7-a8d3-7668f52f7e9a",
+      "question": "Which one of the following is an example of proper noun ?[]",
+      "options": [
+        "The police",
+        "Car",
+        "Bangladesh",
+        "Family"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "the police ❌ → common/collective\ncar ❌ → common noun\nBangladesh ✅ → নির্দিষ্ট দেশের নাম\nfamily ❌ → collective/common\n Trick:\n✔ Proper noun = নির্দিষ্ট নাম + Capital letter",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "237e534b-ccca-48c3-942a-ed37558ea7d1",
+      "question": "Which one of the following nouns is not a proper noun ?[]",
+      "options": [
+        "Team",
+        "Dhaka",
+        "Sunday",
+        "Kabir"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Team ✅ → সাধারণ group → proper না\nDhaka ❌ → proper noun\nSunday ❌ → proper noun (দিনের নাম)\nKabir ❌ → proper noun (ব্যক্তির নাম)",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "413be0a8-c005-4953-914a-4df30ad9a65f",
+      "question": "A noun referring to things that our five senses can't detect is called ---[]",
+      "options": [
+        "Proper noun",
+        "Common noun",
+        "Material noun",
+        "Abstract noun"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যা ৫ ইন্দ্রিয় দিয়ে ধরা যায় না (দেখা/শোনা/ছোঁয়া যায় না)\n✅ Abstract noun\n Trick:\nlove, honesty, fear, pain → Abstract noun",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "ecf1888e-0873-4e75-91af-cc1ee86fc406",
+      "question": "Which of the following is close to 'archipelago' in meaning ?[]",
+      "options": [
+        "A group of archives",
+        "Archeological sites",
+        "A group of islands",
+        "Arch of a building"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ A group of islands\n Trick:\narchipelago = দ্বীপপুঞ্জ\ngeography term",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "a09255bf-a6f5-4447-b3e0-b50d6f029077",
+      "question": "What kind of noun is 'Committee' ?[]",
+      "options": [
+        "Abstract",
+        "Proper",
+        "Collective",
+        "Common"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ Collective noun\nTrick:\nঅনেক মানুষ\nকিন্তু একসাথে এক unit হিসেবে ধরা\n team, committee, jury, family → Collective noun",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "32f00302-653f-4fef-af9a-ab3bf5b5c452",
+      "question": "কোনটি Abstract noun ?[]",
+      "options": [
+        "Long",
+        "Height",
+        "Man",
+        "Jury"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Abstract noun = গুণ, অবস্থা, পরিমাপ\nHeight = উচ্চতা (ধরা যায় না, অনুভব/মাপ বোঝায়)\n❌ Long → adjective\n❌ Man → common noun (মানুষ)\n❌ Jury → collective noun",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "b8856164-afa3-4d7f-8227-755c8a623747",
+      "question": "Which of the following is abstract noun ?[]",
+      "options": [
+        "Child",
+        "Boy",
+        "Family",
+        "Childhood"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Trick:\n যদি শব্দের শেষে –hood, –ship, –ness, –tion, –ment থাকে → বেশিরভাগ সময় Abstract noun\nChild → person (Concrete)\nBoy → person (Concrete)\nFamily → group (Collective)\nChildhood → condition/state (দেখা যায় না, ছোঁয়া যায় না)\n✔ Abstract noun = idea, quality, state",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "95ab673c-7030-4935-af75-ff46fef7929a",
+      "question": "Would you like to have ----- tea ?[]",
+      "options": [
+        "a little",
+        "any",
+        "some",
+        "a cup of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Trick:\n Tea হলো uncountable noun\n “Would you like to have” মানে নির্দিষ্ট কিছু চাই\n✔ Polite offer/request এ সাধারণত a cup of / a glass of / a piece of ব্যবহার হয়\na little → quantity বোঝায়\nsome → ঠিক আছে, কিন্তু এখানে specific serving চাইছে\na cup of → perfect and specific ✅",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "dd98176d-e26b-4892-b0c6-3bfcb580b610",
+      "question": "নিম্নের কোনটি Abstract noun নয় ?[]",
+      "options": [
+        "Air",
+        "Goodwill",
+        "Flavour",
+        "Water"
+      ],
+      "correct_answer": null,
+      "correct_index": null,
+      "explanation": "Abstract noun = যা দেখা/ছোঁয়া যায় না\nAir → physical substance\nWater → physical substance\nGoodwill → feeling (Abstract)\nFlavour → quality (Abstract)\n✔ তাই Air & Water abstract না",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "a9558885-0420-43fd-9cb7-1cb2cca3c502",
+      "question": "Iron' is a useful metal. এখানে 'Iron' শব্দটি কোন প্রকারের Noun ?[]",
+      "options": [
+        "Proper Noun",
+        "Material Noun",
+        "Collective Noun",
+        "Common Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যেসব noun দিয়ে জিনিস তৈরি হয় → Material noun\nExamples:\nGold, Silver, Wood, Iron\n✔ এখানে Iron = metal substance\nতাই Material noun",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "9f4ef732-f8bc-42fa-8793-60929a3bbf04",
+      "question": "Ali saw a 'flock' of sheep. বাক্যে 'flock' শব্দটি ---[]",
+      "options": [
+        "Proper noun",
+        "Common noun",
+        "Collective noun",
+        "Material noun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যদি একটি শব্দ দিয়ে অনেকগুলো একই জিনিসের দল বোঝায় → Collective noun\nFlock = sheep এর দল \n✔ One word + many members = Collective",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "3df3c782-420e-45ea-baee-c6a4c0347fe1",
+      "question": "Our 'team' is better than yours. Here 'team' is ---[]",
+      "options": [
+        "Common noun",
+        "Collective noun",
+        "Material noun",
+        "Abstract noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Team = অনেক player মিলে এক দল\n✔ Group name = Collective noun\nExamples: team, army, class, jury",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "13b96471-e62a-4de1-bed9-239b0928c474",
+      "question": "Which group of words are collective nouns ?[]",
+      "options": [
+        "Sajib, America",
+        "Water, Milk, Steel",
+        "Cattle, Army, Class",
+        "Unity, Health, Poverty"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Sajib, America → Proper noun\nWater, Milk, Steel → Material noun\nUnity, Health, Poverty → Abstract noun\nCattle, Army, Class → group names → Collective ✔\n Group মানেই Collective",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "c5f4aa4f-67db-442f-9d38-33ba429d7df8",
+      "question": "Flock' is a ---[]",
+      "options": [
+        "Proper noun",
+        "Common noun",
+        "Collective noun",
+        "Abstract noun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Flock = group of birds/sheep\n✔ Group word = Collective",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "177da936-2e48-4389-a502-d3fdf367eaa8",
+      "question": "কোনটি Abstract noun ?[]",
+      "options": [
+        "Elephant",
+        "Harbour",
+        "Strength",
+        "Dhaka"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যা দেখা যায় না, ছোঁয়া যায় না, কিন্তু অনুভব করা যায় → Abstract\nElephant → Common\nHarbour → Common (place)\nDhaka → Proper\nStrength → quality → Abstract ✔",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "b35ef0a9-9710-4b70-8a7a-c0065e6a6ecf",
+      "question": "কোনটি Abstract noun ?[]",
+      "options": [
+        "Agency",
+        "Infant",
+        "Anxious",
+        "Grand"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Ending –cy / –y / –ence / –ance → often Abstract\nInfant → person (Common)\nAnxious → adjective\nGrand → adjective\nAgency → idea/state (organization concept) → Abstract ✔",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "21b23fd5-6fc4-45c1-bc2c-3ede2a7787d5",
+      "question": "কোনটি Collective noun ?[]",
+      "options": [
+        "Boy",
+        "Books",
+        "Library",
+        "Mouth"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Library = collection of books\nEven though it’s a place, it means a collection/group\n✔ Collection/group idea → Collective",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "f3949649-15bc-45ee-927b-056db525c26c",
+      "question": "Abstract noun of the word 'Long' is ---[]",
+      "options": [
+        "Length",
+        "Longer",
+        "Lengthier",
+        "Lengthen"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Adjective → Noun form (quality) = Abstract\nLong (adj) → Length (quality)\n✔ Quality name = Abstract",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "95d65081-0751-4c97-9213-369448feec34",
+      "question": "The best word stands for Abstract noun is ---[]",
+      "options": [
+        "Beauty",
+        "Boat",
+        "Sail",
+        "Bird"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Beauty = quality (দেখা যায় না, অনুভব করা যায়)\nBoat, Sail, Bird → physical things\n✔ Quality word = Abstract",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "887729aa-f3cf-4432-851f-0aacddf0578e",
+      "question": "What kind of noun is 'Journey' ?[]",
+      "options": [
+        "Common",
+        "Collective",
+        "Proper",
+        "Abstract"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Abstract noun = quality/idea (love, honesty)\n∆Journey = an event/activity (you can see/experience it physically)\nSo it’s a Common noun, not abstract ✔",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "afc68647-1328-4ee3-bf31-73cc858683ab",
+      "question": "Find the collective noun from the following []",
+      "options": [
+        "Water",
+        "Cow",
+        "Kindness",
+        "Army"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Army = soldiers এর দল\n✔ Group word = Collective",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "1c47c85d-9570-4b61-869a-3897261d4636",
+      "question": "Which of the following words is not similar to 'school' ?[]",
+      "options": [
+        "Flock",
+        "Herd",
+        "College",
+        "Pack"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Flock → group\nHerd → group\nPack → group\nCollege → educational institution\n✔ বাকিগুলো collective sense দেয়, College দেয় না।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "dfc3c296-2e01-4da2-b55b-7e1121da56be",
+      "question": "Which one of the following is a common noun ?[]",
+      "options": [
+        "Pirate",
+        "Humility",
+        "Roguery",
+        "Straw"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Pirate = general name\nHumility, Roguery → Abstract\nStraw → Material\n✔ General person/thing = Common noun",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "75a0ce7f-af02-4fa7-bfb7-8f5169e48559",
+      "question": "Which class of noun 'Diamond' belongs to ?[]",
+      "options": [
+        "Common",
+        "Abstract",
+        "Proper",
+        "Material"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Substance দিয়ে জিনিস বানানো যায়\nGold, Silver, Diamond ✔",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "87524f2f-7c60-468d-a8ba-ee3f8d8611f2",
+      "question": "What kind of noun is 'Infant' ?[]",
+      "options": [
+        "Proper",
+        "Common",
+        "Material",
+        "Collective"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Infant = baby (general name)\n✔ Specific না → Common",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "bc73499a-b3ec-43f4-b6dd-60d6d3e21d64",
+      "question": "The word 'hatred' is ----- noun[]",
+      "options": [
+        "an abstract",
+        "a proper",
+        "a collective",
+        "a material"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Ending –ed / –red / –ness / –tion → often Abstract\nHatred = feeling ✔",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "4f259dc0-f81a-4773-ae12-afed4c7a44a5",
+      "question": "Love', 'courage' and 'childhood' are examples of ---[]",
+      "options": [
+        "Proper nouns",
+        "Abstract nouns",
+        "Countable nouns",
+        "Common nouns"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সবই quality/state\n✔ দেখা যায় না, অনুভব করা যায়",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "78fc072b-f672-4c57-bb00-be1ad6e775e9",
+      "question": "Which noun below is a collective noun ?[]",
+      "options": [
+        "Men",
+        "Duck",
+        "Family",
+        "Children"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "একাধিক সদস্য\n এক unit হিসেবে ধরা হয়\n✔ Group word",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "a3d6ab1f-e6a8-4ae7-9bab-8dd40c4da6f9",
+      "question": "An enormous --- of locusts ate all of the crops.[]",
+      "options": [
+        "swarm",
+        "bunch",
+        "herd",
+        "school"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Special collective words মুখস্থ রাখতে হবে:\nSwarm → insects\nHerd → cattle\nSchool → fish\nFlock → birds/sheep\n✔ Locust = insect → Swarm",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "25a1823f-9682-4a85-b67e-1648059d5c65",
+      "question": "A ----- of banknotes.[]",
+      "options": [
+        "bunch",
+        "wad",
+        "batch",
+        "group"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Special phrase:\nWad of notes\nBunch of keys\nBatch of students\n✔ Banknotes → Wad",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "5e31e919-cdda-4c91-a4ad-fcb9015623a5",
+      "question": "A ----- of fish.[]",
+      "options": [
+        "flock",
+        "group",
+        "school",
+        "fleet"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Special collective word মুখস্থ রাখতে হবে:\nFish → School\nBirds → Flock\nInsects → Swarm\nShips → Fleet\n✔ Fish = School",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "43e03b04-8e2b-49be-9621-9cf14b0b299a",
+      "question": "Which of the following is an abstract noun ?[]",
+      "options": [
+        "People",
+        "Honesty",
+        "Flock",
+        "Sugar"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Abstract = quality/feeling/state\nPeople → Common\nFlock → Collective\nSugar → Material\nHonesty → quality ✔",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "f8535581-5f5c-4161-8e6a-33a00fdad21a",
+      "question": "Which is not proper noun ?[]",
+      "options": [
+        "Sun",
+        "Karim",
+        "River",
+        "Padma"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Proper noun = specific name\nSun → Proper (specific star)\nKarim → Proper\nPadma → Proper (river name)\nRiver → general name ✔",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "cbc9e760-c443-481c-beeb-1040af5b4e73",
+      "question": "Paper, water, iron, gold and milk are ---[]",
+      "options": [
+        "Abstract nouns",
+        "Common nouns",
+        "Collective nouns",
+        "Material nouns"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Substance দিয়ে জিনিস তৈরি হয় → Material\n✔ All are physical substances",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "a355d330-2a8d-47a1-b11e-f71c3bb39f12",
+      "question": "What kind of noun the following words belongs to 'love, affection' ?[]",
+      "options": [
+        "Abstract",
+        "Common",
+        "Material",
+        "Collective"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Feeling = Abstract\n✔ দেখা যায় না, অনুভব করা যায়",
+      "images": []
+    }
+  ]
+}

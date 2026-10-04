@@ -1,0 +1,50 @@
+{
+  "title": "মেডিকেল সাধারণ জ্ঞান ০৩-০৪",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল সাধারণ জ্ঞান- বাংলাদেশ",
+  "duration_minutes": 30,
+  "total_questions": 3,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "148354",
+      "question": "কোন সালে বন্যপ্রাণী সংরক্ষণ আইন প্রণয়ন করা হয়েছে?",
+      "options": [
+        "১৯৭৩",
+        "১৯৬৮",
+        "১৯৫৬",
+        "১৯৮৫"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "148355",
+      "question": "প্রথম বাঙালি মুসলমান কবি কে?",
+      "options": [
+        "কায়কোবাদ",
+        "আলাওল",
+        "শাহ্ মুহাম্মদ সগীর",
+        "আবদুল হাকিম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "148356",
+      "question": "বাংলাদেশের সংসদ ভবনের স্থপতি কে?",
+      "options": [
+        "এফ. আর. রহমান",
+        "বব বুই",
+        "পল রুডলফ",
+        "লুই আই কান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    }
+  ]
+}

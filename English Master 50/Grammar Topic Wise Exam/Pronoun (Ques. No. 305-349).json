@@ -1,0 +1,686 @@
+{
+  "exam_id": 8381,
+  "title": "Pronoun (Ques. No. 305-349)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Pronoun (245 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 45,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "0b204903-9e28-4f82-9a6a-bbc8f1b40cdf",
+      "question": "নিচের কোনটি personal pronoun ?[]",
+      "options": [
+        "Any",
+        "This",
+        "You",
+        "Who"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ Explanation:\nPersonal Pronoun এমন pronoun যা কোনো ব্যক্তি বা বস্তুর পরিবর্তে সরাসরি ব্যবহৃত হয়।\n উদাহরণ:\nI, You, He, She, It, We, They\nএখানে —\nAny → Indefinite pronoun\nThis → Demonstrative pronoun\nYou → ✅ Personal pronoun\nWho → Interrogative pronoun",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "527ccf16-f6fd-484b-9997-d785f73ccee4",
+      "question": "The roads of Dhaka are wider than ----- Rajbari.[]",
+      "options": [
+        "that of",
+        "those of",
+        "this of",
+        "are"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Explanation:\nএখানে তুলনা করা হচ্ছে Dhaka-এর roads এবং Rajbari-এর roads এর মধ্যে।\nযেহেতু roads plural, তাই তার পরিবর্তে plural demonstrative pronoun those ব্যবহার করতে হবে।\nthat of → singular (ভুল, কারণ roads plural)\nthose of → ✅ plural (সঠিক)\nthis of → ভুল\nare → ব্যাকরণগতভাবে সঠিক নয়",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "3706d81c-4009-4e42-919e-b25f7bc7e5db",
+      "question": "Every opposition candidate 'except she was' defeated in the election.[]",
+      "options": [
+        "except she was",
+        "except her were",
+        "excepting she was",
+        "except her was"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Explanation:\nEvery → singular subject\nতাই verb হবে was (singular verb)\nExcept এর পরে objective case pronoun ব্যবহৃত হয় → her (not she)\n❌ except she was → pronoun ও verb দুটোই ভুল\n❌ except her were → verb ভুল (were plural)\n❌ excepting she was → pronoun ও verb ভুল\n✅ except her was → সঠিক গঠন",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "17d9a0b2-2d19-4fc7-8358-f442cfa3337a",
+      "question": "The specialist ----- you want to meet is available only on Thursday.[]",
+      "options": [
+        "whose",
+        "who",
+        "whom",
+        "which"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Explanation:\nএখানে clauseটি হলো:\nyou want to meet (___)\nএখানে you = subject\nwant = verb\nto meet (___) → এখানে যে pronoun বসবে, তা verb “meet”-এর object হবে।\nObject position-এ relative pronoun হলে whom ব্যবহার করা হয়।\nwhose → possession বোঝায় ❌\nwho → subject হিসেবে ব্যবহৃত হয় ❌\nwhom → object হিসেবে ব্যবহৃত হয় ✅\nwhich → জিনিসের জন্য ব্যবহৃত হয় ❌",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "44db431c-eeff-4ec7-8206-82bb1290584a",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "Everyone of the boy love to ride",
+        "Everyone of the boys loves to ride",
+        "Everyone of the boys love to ride",
+        "Everyone of the boy loves to ride"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Explanation:\nEveryone → singular pronoun\nতাই verb হবে loves (singular verb)\nEveryone of the + plural noun → boys (plural হবে)\n❌ Everyone of the boy love → noun ও verb দুটোই ভুল\n❌ Everyone of the boys love → verb ভুল (love plural)\n❌ Everyone of the boy loves → noun ভুল (boy singular)\n✅ Everyone of the boys loves → সঠিক",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "088aa267-7035-425b-a7d5-7249db5e9792",
+      "question": "Any of you may take it. I don't care -----.[]",
+      "options": [
+        "which",
+        "what",
+        "who",
+        "whom"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Explanation:\nএখানে “I don't care ___” clause-এর মধ্যে subject বা object বোঝাতে relative/interrogative pronoun লাগবে।\nWho → কাউকে নির্দেশ করে (subject বা object হিসেবে casual use, এখানে object)\nWhich → জিনিসের জন্য ❌\nWhat → “কি” বোঝায়, ব্যাকরণগতভাবে ঠিক নয় ❌\nWhom → strictly object, কিন্তু modern casual English-এ “who” বেশি ব্যবহৃত হয় এবং এখানে ঠিক বসে ✅",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "dd94f08d-96aa-44e9-b1bb-09b39b2f23f7",
+      "question": "I want a red shirt. But they only had -----.[]",
+      "options": [
+        "a one orange",
+        "one orange",
+        "an orange",
+        "an orange one"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Explanation:\n“one” এখানে shirt-এর পরিবর্তে ব্যবহৃত হচ্ছে → singular pronoun referring back to “shirt”\nColor + one pattern → correct usage: an orange one\na one orange → ভুল word order\none orange → color-এর আগে article “an” লাগে\nan orange → “orange” singular noun হিসেবে লাগবে, কিন্তু এখানে shirt বোঝানো হচ্ছে",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "884b30a4-a146-4606-af75-69c7843ee876",
+      "question": "The party was a disaster. There ----- there.[]",
+      "options": [
+        "wasn't nobody",
+        "was anybody",
+        "was nobody",
+        "was somebody"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Explanation:\nএখানে মূল অর্থ: “party-এর মধ্যে কেউই ছিল না”\nNegative meaning প্রকাশ করতে হবে → nobody\nVerb agreement: singular → was\n❌ wasn't nobody → double negative (ভুল)\n❌ was anybody → positive sense, কিন্তু sentence negative context\n❌ was somebody → positive sense",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "c1b3cefd-223a-47c8-8339-7ea760587408",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "I shall be glad to help everyone of my boys in their studies",
+        "I shall be glad to help everyone of my boy in his studies",
+        "I shall be glad to help everyone of my boys in his studies",
+        "I shall be glad to help everyone of my boy in studies"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Explanation:\nEveryone → singular pronoun, তাই his ব্যবহার হবে, না যে plural pronoun their।\nBoys → plural noun after “everyone of my …”\nVerb/Pronoun agreement:\n❌ Option A → their (plural pronoun) ভুল\n❌ Option B → boy (singular noun, but context says multiple boys)\n❌ Option D → boy singular & “in studies” incomplete",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "28cf6042-0619-4336-8cfd-706f79d9fcdd",
+      "question": "Either of these ----- to the airport.[]",
+      "options": [
+        "road lead",
+        "roads leads",
+        "roads lead",
+        "road leads"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ Explanation of options:\nA. road lead → singular noun + plural verb ❌\nB. roads leads → plural noun + singular verb ❌ (subject is “Either”, not “roads”)\nC. roads lead → plural noun + plural verb ❌\nD. road leads → singular noun + singular verb ❌ (doesn’t match “these”)",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "14eee881-f670-4471-8d31-dd8000c6f06e",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "Neither of the two player was successful",
+        "Neither of the two players were successful",
+        "Neither of the two players was successful",
+        "Neither of the two player were successful"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Explanation:\nNeither → always singular, so verb must be was (singular)\nof the two players → prepositional phrase, doesn’t change verb number\nCommon mistakes in options:\n❌ A → “player” singular, but should match plural “two players” in the phrase\n❌ B → “were” → plural verb ❌\n❌ D → “player” + “were” → both wrong",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "6f529f6b-6d6f-445c-ac53-c61999de8634",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "I wish I were them !",
+        "I wish I were he !",
+        "I wish I were his !",
+        "I wish I were him !"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A. I wish I were them! → “them” plural → wrong if referring to one person\nB. I wish I were he! → grammatically correct in formal English ✅\nC. I wish I were his! → ❌ “his” = possessive\nD. I wish I were him! → ✅ natural, correct in spoken & written modern English",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "d0390602-8929-4a71-8d0b-ebaed7ea544f",
+      "question": "Whoever' is a ---[]",
+      "options": [
+        "demonstrative pronoun",
+        "compound relative pronoun",
+        "distributive pronoun",
+        "personal pronoun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ Explanation:\nWhoever = compound relative pronoun\nIt is formed by combining who + ever and is used to introduce a subordinate clause.\nExamples:\nWhoever comes first will get a prize.\nYou may choose whoever you like.\nOther options:\nDemonstrative pronoun → this, that, these, those ❌\nDistributive pronoun → each, every, either, neither ❌\nPersonal pronoun → I, you, he, she, we, they ❌",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "034e69f4-76aa-4d70-952a-7059f1abf96e",
+      "question": "Nobel prize is considered the highest honour ----- can be achieved in certain fields of work.[]",
+      "options": [
+        "which",
+        "that",
+        "it",
+        "none of the above"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Explanation:\nHere, “that” introduces a relative clause describing “the highest honour.”\nSentence structure:\nthe highest honour (that) can be achieved → relative clause correctly modifies “honour.”\nOther options:\nwhich → could also work, but in restrictive clauses “that” is preferred ✅\nit → wrong, doesn’t fit grammatically ❌\nnone of the above → ❌",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "6508741b-593d-4a12-9d7a-621d9ae91b02",
+      "question": "I gave him all the money\n ----- I had.[]",
+      "options": [
+        "which",
+        "what",
+        "those",
+        "that"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Explanation:\nThat → relative pronoun used to introduce a restrictive relative clause describing “all the money.”\nSentence structure:\nall the money (that) I had → specifies which money\nOther options:\nwhich → could work, but “that” is preferred in restrictive clauses ✅\nwhat → ❌ doesn’t fit after “all the money”\nthose → ❌ refers to plural objects, not appropriate here",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "5e9dd8b3-b367-45d6-a0bd-3d82737bfe21",
+      "question": "It should be ----- []",
+      "options": [
+        "her with whom you share your ideas, not me",
+        "her with whom you share your ideas, not I",
+        "she with whom you share your ideas, not me",
+        "she with whom you share your ideas, not I"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "A → her … me ❌ first pronoun wrong\nB → her … I ❌ first pronoun wrong, second pronoun wrong\nC → she … me ✅ This is correct\nD → she … I ❌ second pronoun wrong",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "8aff9775-0995-4c66-a5fe-f5919fe15ec0",
+      "question": "Which of the following has an emphatic use of the reflexive pronoun ?[]",
+      "options": [
+        "She saw herself in the mirror",
+        "He did the work himself",
+        "I myself did the job",
+        "She cooked the meal herself"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ Explanation:\nReflexive pronouns can be used in two main ways:\nNormal reflexive → when the subject and object are the same:\nShe saw herself in the mirror → “herself” refers back to “she”\nEmphatic (intensive) use → to emphasize the subject:\nI myself did the job → “myself” emphasizes I\nAnalyze options:\nA → normal reflexive ❌\nB → intensive reflexive “himself” ✅ (emphasizing “he”), but less direct than C\nC → ✅ emphatic use (strong emphasis on “I”)\nD → normal reflexive / emphasis depending on context, but standard usage is normal",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "15e9d72a-540c-4088-ad3e-74e87ce90e92",
+      "question": "Please vote for the member ----- has done the most for our village.[]",
+      "options": [
+        "whom you believe",
+        "who you believed",
+        "that you believe",
+        "who you believe"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Explanation:\nThe clause “who you believe has done the most” is a relative clause modifying “member.”\nWho → relative pronoun referring to member (person)\nVerb tense in main clause: you believe (present tense) → matches naturally\nOther options:\nwhom you believe → technically could be object, but here “member” is subject of “has done,” so who is correct ❌\nwho you believed → past tense ❌ (changes meaning)\nthat you believe → grammatically possible, but for people “who” is preferred ✅",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "ed87f69c-96cb-4c47-b601-f3ca3adba2e1",
+      "question": "Correct the sentence : 'Whoever objects to me' going to the convention ought to state his position promptly.[]",
+      "options": [
+        "Whoever objects to me",
+        "Whomever objects to me",
+        "Whomever objects to my",
+        "Whoever objects to my"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "“Whoever” → subject of “objects”\n“to me” → object of preposition to\n“going to the convention” → participial phrase modifying “whoever”",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "e1dfe19b-25c9-4baf-89a5-a029e86bb6eb",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "It is I who am responsible for this",
+        "It is me who am responsible for this",
+        "It is me whom is responsible for this",
+        "It is that is responsible for this"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Explanation:\nAfter “It is …”, the pronoun should be in the subjective case → I (not me).\nRelative clause: who am responsible → “who” refers to “I” (singular), so the verb am agrees with “I.”\nOther options:\nB → “me who am …” ❌ object pronoun after “It is” is incorrect\nC → “me whom is …” ❌ both pronoun and verb are wrong\nD → “It is that is responsible” ❌ awkward and incorrect",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "2fe53848-eb00-4d9a-ab5a-a0e3af2b4f61",
+      "question": "The best of the correct sentences is ---[]",
+      "options": [
+        "I hope you will excuse my leaving early",
+        "I hope you will excuse me leaving early",
+        "I hope you will excuse me for my leaving early",
+        "I hope you will excuse of my  leaving early"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The word “excuse” is followed by a noun or a gerund (verb + -ing acting as a noun), not by a personal pronoun with a gerund.\nCorrect: excuse my leaving early → “my leaving” is a gerund phrase, properly acting as the object of “excuse.”\nIncorrect: excuse me leaving early → sounds informal and less grammatically precise.\nOption C (excuse me for my leaving early) is wordy and redundant. English prefers the simpler my leaving directly.\nOption D (excuse of my leaving early) is incorrect because “excuse of” is never used; “excuse” doesn’t take the preposition “of.”",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "28566bea-55f6-4683-baaf-78e13ad6c08d",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "Neither of them saw each other",
+        "Neither of them saw the other",
+        "Neither of them saw one another",
+        "Neither of them saw other"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "“Neither” refers to one of the two, so when talking about two people, the correct reference is “the other”, not “each other” or “one another.”\nEach other / One another → usually used for reciprocal actions involving more than two (for one another, sometimes for two as well, but “the other” is more precise with “neither”).\nOption A (Neither of them saw each other) is incorrect because “each other” is not the preferred choice with “neither.”\nOption C (Neither of them saw one another) is awkward; “one another” is generally for more than two people, though some might accept it.",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "c2709950-92c7-48c3-9c45-6a0e4f5038bc",
+      "question": "Mark the correct sentence[]",
+      "options": [
+        "One of the boys lost one's pen",
+        "One of the boys' lost one's pen",
+        "One of the boys lost his pen",
+        "One of the boy's lost his pen"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "“One of the boys” means a single boy from a group, so the pronoun referring back to “one” should be singular: “his”.\n✅ Correct: One of the boys lost his pen\nOption A (lost one's pen) is wrong because “one's” is a general, impersonal pronoun. Here, we are talking about a specific boy, not a generic “one.”\nOption B (boys' lost one's pen) is wrong because the apostrophe after boys would incorrectly make it plural possessive, which doesn’t fit the meaning.\nOption D (one of the boy's lost his pen) is wrong because boy's (singular possessive) cannot represent a group. We need boys (plural) to indicate the group.",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "d31d74aa-b653-49fc-abc8-4dc2a21d9a4f",
+      "question": "It was so dark that the security guard could not see ---[]",
+      "options": [
+        "nobody",
+        "somebody",
+        "anyone",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The sentence is negative in meaning: “could not see…”. After a negative idea, English uses “anyone” rather than “somebody” or “nobody.”\n✅ Correct: It was so dark that the security guard could not see anyone.\nOption A (nobody) could also make sense informally: “could not see nobody”—but in standard English, double negatives like that are grammatically wrong.\nOption B (somebody) is wrong, because “somebody” is used in positive statements, not negative ones.\nOption D (none) doesn’t fit grammatically here. “None” is usually used without a following object: e.g., None of the guards were able to see.",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "eb599724-e45a-4d38-b3de-047899aea5bf",
+      "question": "That young man to ----- we owe many thanks saved our mother's life after the car accident.[]",
+      "options": [
+        "whom",
+        "which",
+        "who",
+        "whose"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The sentence is talking about “that young man” as the object of the verb in the relative clause: “…we owe many thanks [to him]…”.\nIn formal English, the relative pronoun “whom” is used for the object of a verb or preposition.\nOption C (who) is used for the subject of a clause, not the object. Here, the young man is the object of “owe”, so “who” is incorrect.\nOption B (which) is for things, not people.\nOption D (whose) shows possession, which doesn’t fit here.\n✅ Correct sentence:\nThat young man, whom we owe many thanks, saved our mother’s life after the car accident.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "2af8028a-a15a-4b9f-984e-ff3e300f927e",
+      "question": "We cannot believe that the man 'whose' saved you from drowning.[]",
+      "options": [
+        "that",
+        "whom",
+        "who",
+        "by whom"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The sentence is talking about “the man” as the subject of the relative clause: “…who saved you from drowning.”\nWhen the person is the subject of the relative clause, we use who.\nOption A (that) could work in informal English, but “who” is preferred for people.\nOption B (whom) is used for the object of a verb or preposition, but here the man did the saving—he is the subject, so “whom” is wrong.\nOption D (by whom) would be used only if the sentence were in the passive voice: “…the man by whom you were saved…”\n✅ Correct sentence:\nWe cannot believe that the man who saved you from drowning.",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "b945ad1e-25b8-4ee4-bbcb-f67b19bdbf61",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "The announcer awarded the prize to Jamil and myself",
+        "The announcer awarded the prize to Jamil and me",
+        "The announcer awarded the prize to Jamil and I",
+        "The announcer awarded the prize to I and Jamil"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The preposition “to” requires an object pronoun, not a subject pronoun.\nObject pronouns: me, him, her, us, them\nSubject pronouns: I, he, she, we, they\nOption A (Jamil and myself) is incorrect because “myself” is a reflexive pronoun, which can only be used to refer back to the subject:\n✅ Correct: I awarded the prize to myself\n❌ Incorrect: awarded the prize to myself when the subject is someone else\nOption C (Jamil and I) and D (I and Jamil) are wrong because “I” is a subject pronoun, not the object of “to.”",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "c711d621-f02f-4e1b-9cef-483170ff261c",
+      "question": "When a man tended to know how I had got ----- contact number, I told him that I was given it by a relative of -----[]",
+      "options": [
+        "him/him",
+        "his/him",
+        "him/his",
+        "his/his"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Possessive pronouns are used when something belongs to someone. In this sentence, the contact number belongs to a relative of the man, so we need “his”:\n✅ Correct: …I was given it by a relative of his.\nBreaking the sentence down:\n“…a relative of his” = a relative belonging to him\nUsing him instead of his here would be grammatically wrong.\nOption A (him/him), B (his/him), C (him/his) are all wrong because the first or second pronoun must be possessive.",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "d3829c4a-5257-434a-a475-e949caf71cc3",
+      "question": "John's car runs better than -----.[]",
+      "options": [
+        "Mary's brother",
+        "Mary",
+        "Mary's",
+        "her brother"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The sentence is comparative: John's car runs better than ___.\nThe comparison is about the car, not the person.\nSo we need the possessive form to compare John’s car vs Mary’s car.\nOption breakdown:\nA (Mary’s brother) → wrong, we’re not comparing a brother, but the car.\nB (Mary) → wrong, would imply comparing a car to a person.\nC (Mary’s) → correct, shorthand for Mary’s car.\nD (her brother) → wrong for the same reason as A.",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "d8fff56e-3b46-40fc-9607-92473b5df69b",
+      "question": "A baby learns the meaning of words as ----- are spoken by others and later uses ----- in sentences.[]",
+      "options": [
+        "their, they",
+        "they, them",
+        "they, themselves",
+        "it, them"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "First blank: “A baby learns the meaning of words as ___ are spoken by others…”\nThe subject is words, which is plural, so we use they.\n✅ Correct: words as they are spoken by others\nSecond blank: “…and later uses ___ in sentences.”\nThe baby uses the words, so the object pronoun them is correct.\n✅ Correct: uses them in sentences\nOption A (their, they) → wrong, “their” is possessive, but we need a subject pronoun first.\nOption C (they, themselves) → wrong, “themselves” is reflexive and not needed here.\nOption D (it, them) → wrong, “words” is plural, so “it” is incorrect.",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "2714ca65-80a2-4de2-bfac-6858285778d7",
+      "question": "One should respect ----- parents.[]",
+      "options": [
+        "his",
+        "their",
+        "one's",
+        "ones"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The sentence is a general statement: “One should respect parents.”\nWhen making general statements with “one”, the corresponding possessive pronoun is “one’s”.\nOption breakdown:\nA (his) → could work in traditional usage, but modern English prefers one’s for general statements.\nB (their) → incorrect, “their” is plural and doesn’t match the singular “one.”\nC (one’s) → correct.\nD (ones) → incorrect, “ones” is plural, not possessive.",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "065745e5-bba3-463f-9e79-9b72d5de429e",
+      "question": "Find the correct sentence[]",
+      "options": [
+        "It is none of your business",
+        "It is no one your business",
+        "It is not one your business",
+        "It is not any your business"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "A(It is none of your business) → correct.\nB (It is no one your business) → wrong, “no one” refers to people, not things, and the syntax is incorrect.\nC (It is not one your business) → wrong, not idiomatic.\nD (It is not any your business) → incorrect syntax; “any” needs “of” (any of your business) but even then, it’s not standard.",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "9c04e05a-a953-454a-8a50-f7cb5c58a1e6",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "The rice of Dinajpur is better than that of Dhaka",
+        "The rice of Dinajpur is better than Dhaka",
+        "The rice of Dinajpur are better than Dhaka",
+        "Dinajpur's rice is better than Dhaka"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "A (The rice of Dinajpur is better than that of Dhaka) → correct.\nB (…better than Dhaka) → wrong, it incorrectly compares rice to a city.\nC (The rice of Dinajpur are…) → wrong, “rice” is uncountable, so we use is, not are.\nD (Dinajpur’s rice is better than Dhaka) → same mistake as B; comparing rice to a city.",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "710e48d7-04c5-4552-ad53-03d66748cad5",
+      "question": "The country is about to go bilingual , with two official languages, but ----- of them is English.[]",
+      "options": [
+        "Both",
+        "None",
+        "No",
+        "Neither"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "A  (Both) → would mean both are English, which is opposite of the meaning.\nB (None) → usually for more than two things, though sometimes acceptable for two.\nC (No) → grammatically incomplete here.\nD (Neither) → correct, properly refers to not one of the two languages.",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "e55051b0-d7c3-4af8-a132-f2a84675efcc",
+      "question": "Rahim found a laptop in the classroom, but could not determine ------- it belonged to.[]",
+      "options": [
+        "who",
+        "whose",
+        "who's",
+        "who is"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "A (whom) → used for the object of a verb or preposition, but here the person is the subject of “told,” so wrong.\nB (who) → correct, subject of “told.”\nC (whose) → shows possession, which is not needed here.\nD (that) → can sometimes replace “who,” but who is preferred for people in formal English.",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "3cd25536-8875-436b-9c7e-75b89ab4d6e5",
+      "question": "They asked us, Hamid and ----- whether we thought that the statistics has been presented fairly and accurately.[]",
+      "options": [
+        "I",
+        "me",
+        "my",
+        "mine"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A (I) → subject pronoun, incorrect here because it’s the object of “asked”.\nB (me) → correct, object pronoun.\nC (my) → possessive adjective, does not fit.\nD (mine) → possessive pronoun, does not fit as an object here",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "a216c553-717d-42b0-8f54-1961a70cdc35",
+      "question": "Tell me ----- told you about it.[]",
+      "options": [
+        "whom",
+        "who",
+        "whose",
+        "that"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A (whom) → used for the object of a verb or preposition, but here the person is the subject of “told,” so wrong.\nB (who) → correct, subject of “told.”\nC (whose) → shows possession, which is not needed here.\nD (that) → can sometimes replace “who,” but “who” is the more precise choice for a person.",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "16490235-ad94-481e-b40b-590c18ceb915",
+      "question": "Identify the correct syntax.[]",
+      "options": [
+        "You, he and I",
+        "He, you and I",
+        "I, you and he",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "A (You, he and I) → correct, follows the proper order.\nB (He, you and I) → wrong order; third person comes first instead of second.\nC (I, you and he) → wrong order; first person comes first, which is less formal and generally avoided.\nD (None) → incorrect because A is correct.",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "c8f76458-bf68-43fc-9182-da8a2b096cf9",
+      "question": "I asked you ------- of these shoes you think would go with my outfit.[]",
+      "options": [
+        "whose",
+        "who",
+        "which",
+        "that"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "A(whose) → shows possession, but this sentence is not about ownership.\nB (who) → refers to people, not things like shoes.\nC (which) → correct, used for selecting items from a set.\nD (that) → could work in defining clauses, but after “asked you ___ of these shoes,” the grammatically correct and natural choice is which.",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "e38cc9cc-5bb5-4c91-94af-5b852f1fd7c1",
+      "question": "I didn't buy ----- in the end.[]",
+      "options": [
+        "nothing",
+        "something",
+        "everybody",
+        "anything"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The sentence is negative: “I didn’t buy ___ in the end.”\nAfter a negative verb like didn’t, English uses any-words (anything, anyone, anywhere) instead of some-words.\nOption breakdown:\nA (nothing) → double negative if used with “didn’t”: I didn’t buy nothing ❌ (informal or nonstandard)\nB (something) → usually used in positive statements, not after a negative verb.\nC (everybody) → refers to people, not things you can buy.\nD (anything) → correct for negative statements about things.",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "16893c48-9e2d-4adb-a3f3-f632bd8b230e",
+      "question": "A laptop of ----- has been lost[]",
+      "options": [
+        "my",
+        "mine",
+        "me",
+        "I"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The sentence is: “A laptop of ___ has been lost.”\nWe are referring to ownership. The correct possessive pronoun to replace “my laptop” is mine.\nOption breakdown:\nA (my) → possessive adjective, must be followed by a noun (e.g., my laptop), so it doesn’t fit after “of.”\nB (mine) → correct; it stands alone as the object of “of.”\nC (me) → object pronoun, doesn’t show possession.\nD (I) → subject pronoun, not possessive, so wrong.",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "eee0550e-88b7-430f-8515-29b7b810b381",
+      "question": "I couldn't buy anything because ----- of the shop was open.[]",
+      "options": [
+        "all",
+        "no one",
+        "none",
+        "nothing"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The sentence is: “I couldn’t buy anything because ___ of the shop was open.”\nWe are talking about not a single one of the shops being open, so the correct pronoun is none (meaning “not one”).\nOption breakdown:\nA (all) → would mean everything was open, which is the opposite of the meaning.\nB (no one) → refers to people, but the subject here is shops, so wrong.\nC (none) → correct, refers to things (shops) and matches the negative meaning.\nD (nothing) → grammatically wrong here; “nothing of the shop” doesn’t fit.",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "7b9af271-e59f-4798-8b01-3d3d6042f0fb",
+      "question": "She was so fastidious that ----- of the three houses were to her liking.[]",
+      "options": [
+        "neither",
+        "either",
+        "none",
+        "no one"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The sentence is: “She was so fastidious that ___ of the three houses were to her liking.”\nNone means not one of them, which fits the meaning of the sentence: she didn’t like any of the houses.\nOption breakdown:\nA (neither) → only works for two items, but here there are three houses, so incorrect.\nB (either) → refers to one of two items, so wrong.\nC (none) → correct for three or more items.\nD (no one) → refers to people, not things like houses, so wrong.",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "168ed44d-227b-440e-bb06-43622c1bd2b4",
+      "question": "The red coat belonged to him but the brown one was -----.[]",
+      "options": [
+        "my",
+        "me",
+        "mine",
+        "mines"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The sentence is: “The red coat belonged to him but the brown one was ___.”\nWe are referring to ownership. The proper possessive pronoun for “I” is mine.\n✅ Correct: the brown one was mine\nOption breakdown:\nA (my) → possessive adjective, must be followed by a noun (e.g., my coat), so wrong here.\nB (me) → object pronoun, doesn’t show ownership, so wrong.\nC (mine) → correct, replaces the noun phrase and shows possession.\nD (mines) → incorrect; “mines” is plural or a noun unrelated to pronouns.",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "eb33af61-2b16-45fa-b0e7-5f5046612136",
+      "question": "Manzur with ------- I work, helped him.[]",
+      "options": [
+        "who",
+        "which",
+        "that",
+        "whom"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The sentence is: “Manzur, with ___ I work, helped him.”\nThe relative pronoun refers to Manzur, the object of the preposition “with”.\nWhen the person is the object of a preposition, we use whom.\nOption breakdown:\nA (who) → used for subjects, but here Manzur is the object of “with,” so wrong.\nB (which) → used for things, not people.\nC (that) → can sometimes replace “who/whom,” but after a preposition like “with,” standard grammar prefers whom.\nD (whom) → correct.",
+      "images": []
+    }
+  ]
+}

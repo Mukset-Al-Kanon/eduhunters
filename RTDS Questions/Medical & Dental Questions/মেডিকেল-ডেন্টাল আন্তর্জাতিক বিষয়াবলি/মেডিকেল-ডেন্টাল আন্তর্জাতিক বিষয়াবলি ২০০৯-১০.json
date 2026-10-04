@@ -1,0 +1,78 @@
+{
+  "title": "মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি ২০০৯-১০",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 5,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "146714",
+      "question": "বিখ্যাত সাহিত্যিক মার্ক টোয়েনের আসল নাম নিম্নের কোনটি?",
+      "options": [
+        "টম সাওয়ার",
+        "জেম্স ক্লাক ম্যাক্সওয়েল",
+        "স্যামুয়েল ল্যাগহরন ক্রেমেনসা",
+        "চার্লাস ওয়েবস্টার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "146715",
+      "question": "লেখক জে কে রাউলিং তার হ্যারি পটার সিরিজ নিম্নের কোন সালে প্রথম প্রকাশ করেন?",
+      "options": [
+        "1995",
+        "1985",
+        "1997",
+        "1987"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "146716",
+      "question": "বিশ্বে প্রথম নিম্নের কোন শহরে সেল ফোন চালু হয়?",
+      "options": [
+        "ওসলো",
+        "শিকাগো",
+        "নিউইয়র্ক",
+        "লন্ডন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "146717",
+      "question": "মিনাঙ্গকাবাউ জনগোষ্ঠী নিম্নের কোন দেশে বসবাস করে?",
+      "options": [
+        "ইন্দোনেশিয়া",
+        "থাইল্যান্ড",
+        "দি ফিলিপিনস",
+        "বোর্নিয়ো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "146718",
+      "question": "চার্লস দ্য গল নিম্নের কোন দেশের নেতা ছিলেন?",
+      "options": [
+        "ফ্রান্স",
+        "জার্মানি",
+        "স্পেন",
+        "পর্তুগাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

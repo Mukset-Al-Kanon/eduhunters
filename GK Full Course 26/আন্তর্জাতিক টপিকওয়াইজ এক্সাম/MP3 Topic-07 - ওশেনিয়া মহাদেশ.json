@@ -1,0 +1,341 @@
+{
+  "exam_id": 9699,
+  "title": "MP3 Topic-07 : ওশেনিয়া মহাদেশ",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "মহাদেশ পরিচিতি-০২ Exam",
+  "duration_minutes": 10,
+  "total_questions": 22,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "cb7eaf79-d919-48c2-a09d-e5cb2821369c",
+      "question": "সামগ্রিকভাবে দক্ষিণ প্রশান্ত মহাসাগরের সব দ্বীপ যে নামে পরিচিত-[]",
+      "options": [
+        "ইউরেশিয়া",
+        "পলিনেশিয়া",
+        "মাইক্রোনেশিয়া",
+        "ওশেনিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রশান্ত মহাসাগরীয় অঞ্চল ও দ্বীপসমূহকে সামগ্রিকভাবে ওশেনিয়া বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "82a6bc16-3381-428d-984b-fa14a03a1c6b",
+      "question": "কোন দেশটি ওশেনিয়া অঞ্চলের অন্তর্ভুক্ত?[]",
+      "options": [
+        "নাউরু",
+        "কেনিয়া",
+        "কিউবা",
+        "গায়ানা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নাউরু ওশেনিয়া মহাদেশের অন্তর্ভুক্ত একটি দ্বীপরাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "1090fca8-a5a3-4bcb-9de4-efc1a1f3b89e",
+      "question": "কোন দ্বীপটি পলিনেশিয়ার অন্তর্ভুক্ত?[]",
+      "options": [
+        "পালাউ",
+        "সামোয়া",
+        "কিরিবাতি",
+        "নাউরু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সামোয়া পলিনেশিয়া অঞ্চলের অন্তর্ভুক্ত একটি দ্বীপ।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "c06f6e74-b579-4a6a-9a92-4d914888338e",
+      "question": "What is Micronesia?[]",
+      "options": [
+        "Small islands situated in the Oceania area",
+        "Process to suck minerals from porous rock",
+        "A mother board used in smart phones",
+        "A category of porous rock that contains petroleum"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মাইক্রোনেশিয়া হলো ওশেনিয়া অঞ্চলে অবস্থিত ছোট ছোট দ্বীপপুঞ্জের একটি সমষ্টি।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "10daa0e2-1b96-4c6a-be8a-04b254a17dcf",
+      "question": "মাইক্রোনেশিয়ার অবস্থান হলো-[]",
+      "options": [
+        "এশিয়া ও আফ্রিকার মাঝে",
+        "প্রশান্ত মহাসাগরীয় অঞ্চলে",
+        "এশিয়া ও ইউরোপের মধ্যে",
+        "আটলান্টিক ও লোহিত সাগরের মাঝে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাইক্রোনেশিয়া প্রশান্ত মহাসাগরীয় অঞ্চলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "6c6b65b7-cd20-463b-a467-332288975696",
+      "question": "Which one of the following is a Micronesian country?[]",
+      "options": [
+        "Tokelau",
+        "Palau",
+        "Samoa",
+        "Tuvalu"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পালাউ মাইক্রোনেশিয়া অঞ্চলের একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "379885aa-a4fe-4c44-9430-e3553747027a",
+      "question": "নিচের কোন দেশটি ‘মিলেনেশিয়া’ অঞ্চলের অন্তর্ভুক্ত?[]",
+      "options": [
+        "সামোয়া",
+        "নাউরু",
+        "ফিজি",
+        "লাওস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফিজি মিলেনেশিয়া অঞ্চলের অন্তর্ভুক্ত দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "45ef7103-a3d7-441b-afd2-4bbfb9f66051",
+      "question": "সলোমন-দ্বীপপুঞ্জ কোন মহাসাগরে অবস্থিত?[]",
+      "options": [
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "প্রশান্ত মহাসাগর",
+        "আর্কটিক মহাসাগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সলোমন দ্বীপপুঞ্জ প্রশান্ত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "26e13644-2cd0-47d3-b04c-d5a7282d2dda",
+      "question": "গুয়াম দ্বীপটি কোন মহাসাগরে অবস্থিত?[]",
+      "options": [
+        "আটলান্টিক",
+        "ভারত",
+        "উত্তর",
+        "প্রশান্ত"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গুয়াম দ্বীপটি প্রশান্ত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "f0a536ef-9c2b-40f7-87a5-eebd7ff53947",
+      "question": "হাওয়াই দ্বীপপুঞ্জ কোথায় অবস্থিত?[]",
+      "options": [
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "প্রশান্ত মহাসাগর",
+        "ভূমধ্যসাগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাওয়াই দ্বীপপুঞ্জ প্রশান্ত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "37c30567-edaa-4af1-939f-e0a588c657e9",
+      "question": "কোনটি প্রশান্ত মহাসাগরীয় দেশ নয়?[]",
+      "options": [
+        "ফিজি",
+        "ভানুয়াতু",
+        "মালদ্বীপ",
+        "পালাউ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মালদ্বীপ ভারত মহাসাগরে অবস্থিত, প্রশান্ত মহাসাগরীয় দেশ নয়।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "a56b7b09-8421-4e8a-b295-e2d219ee68e9",
+      "question": "অস্ট্রেলিয়ার রাজধানী-[]",
+      "options": [
+        "সিডনি",
+        "মেলবোর্ন",
+        "ক্যানবেরা",
+        "পার্থ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অস্ট্রেলিয়ার রাজধানী ক্যানবেরা।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "63276045-cad2-47b5-a2e4-a54468596d6b",
+      "question": "নিচের কোন দেশটি দক্ষিণ গোলার্ধে অবস্থিত?[]",
+      "options": [
+        "অস্ট্রেলিয়া",
+        "ইন্দোনেশিয়া",
+        "ইরাক",
+        "সৌদি আরব"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অস্ট্রেলিয়া দক্ষিণ গোলার্ধে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "54e07531-251f-42af-8759-4dee90c2a674",
+      "question": "কুইন্সল্যান্ড কোন দেশের অংশ?[]",
+      "options": [
+        "আয়ারল্যান্ড",
+        "কানাডা",
+        "যুক্তরাষ্ট্র",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কুইন্সল্যান্ড অস্ট্রেলিয়ার একটি অঙ্গরাজ্য।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "a2b300c4-ea11-4420-9395-729bdd725433",
+      "question": "Which strait separates Australia and Tanzania?[]",
+      "options": [
+        "Bass",
+        "Bab-el Mandeb",
+        "Barring",
+        "Polk"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাশ প্রণালী অস্ট্রেলিয়াকে তাসমানিয়া থেকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "520b6465-732e-4bd5-bdcb-cfc74c57e395",
+      "question": "‘ব্রিসবেন’ কোন দেশের সমুদ্র বন্দর?[]",
+      "options": [
+        "যুক্তরাজ্য",
+        "জার্মানি",
+        "অস্ট্রেলিয়া",
+        "বেলজিয়াম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্রিসবেন অস্ট্রেলিয়ার একটি প্রধান সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "ad310503-8a50-459b-8e4a-edd0192624bc",
+      "question": "নিউজিল্যান্ডের রাজধানী-[]",
+      "options": [
+        "আমস্টারডাম",
+        "অকল্যান্ড",
+        "ওয়েলিংটন",
+        "ম্যানিলা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নিউজিল্যান্ডের রাজধানী ওয়েলিংটন।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "54018233-b85b-4ddf-ab40-b06d2668073e",
+      "question": "Suva is the capital of -[]",
+      "options": [
+        "Kenya",
+        "Fiji",
+        "Zambia",
+        "Sao Paulo"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সুভা ফিজির রাজধানী।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "637e359b-8499-4dc7-8451-398894afd6df",
+      "question": "ভানুয়াতুর রাজধানী -[]",
+      "options": [
+        "পোর্ট মোর্সবি",
+        "পোর্ট অব প্রিন্স",
+        "পোর্ট ভিলা",
+        "পোর্ট লুইস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভানুয়াতুর রাজধানী পোর্ট ভিলা।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "465a5e42-21e8-46aa-8fbe-7ad65b2cca2d",
+      "question": "What is the capital city of Papua New Guinea?[]",
+      "options": [
+        "Luanda",
+        "Baku",
+        "Sofia",
+        "Port Moresby"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পাপুয়া নিউ গিনির রাজধানী পোর্ট মোর্সবি।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "8e47fc8e-a896-4416-96cb-394856d8a1f3",
+      "question": "কোন দেশের রাজধানী নেই?[]",
+      "options": [
+        "সুইজারল্যান্ড",
+        "নাউরু",
+        "ইথিওপিয়া",
+        "কোরিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নাউরু প্রজাতন্ত্রের কোনো আনুষ্ঠানিকভাবে ঘোষিত রাজধানী শহর নেই।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "75da5cbb-aafb-4cdf-b3f5-367c8844e6ea",
+      "question": "Which one of the following is not a Polynesian country?[]",
+      "options": [
+        "Vanuatu",
+        "New Zealand",
+        "Tonga",
+        "Samoa"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভানুয়াতু মিলেনেশিয়া অঞ্চলের অন্তর্ভুক্ত দেশ।",
+      "images": []
+    }
+  ]
+}

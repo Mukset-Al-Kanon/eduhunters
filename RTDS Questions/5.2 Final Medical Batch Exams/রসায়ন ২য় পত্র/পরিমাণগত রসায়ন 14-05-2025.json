@@ -1,0 +1,708 @@
+{
+  "title": "পরিমাণগত রসায়ন 14/05/2025",
+  "category": "5.2 Final Medical Batch Exams > রসায়ন ২য় পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "120916",
+      "question": "সমআয়তনের 0.1M NaOH এবং 0.1M H2SO মিশ্রণের প্রকৃতি কীরূপ হবে?",
+      "options": [
+        "উভধর্মী",
+        "নিরপেক্ষ",
+        "অম্লীয়",
+        "ক্ষারীয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "120917",
+      "question": "বিশুদ্ধ পানির ঘনমাত্রা (মোল/লিটার) হলো -",
+      "options": [
+        "35.5",
+        "1.0",
+        "55.5",
+        "18.0"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "120918",
+      "question": "কোনটিকে milk of lime বলে?",
+      "options": [
+        "NaOH, CaO",
+        "Ca(OH)2",
+        "CaCO3",
+        "CaO"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "120919",
+      "question": "NaOH + Cl2 → NaCl + NaOCl + H2O বিক্রিয়াটি কোন শ্রেণিভুক্ত?",
+      "options": [
+        "ক্লোরিনেশন",
+        "সংযোজন",
+        "ডিসপ্রপোরশন",
+        "সংশ্লেষণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "120920",
+      "question": "গ্যাস ক্রোমাটোগ্রাফির বাহক গ্যাস হিসাবে কাজ করে কোনটি?",
+      "options": [
+        "O2",
+        "Cl2",
+        "NH3",
+        "N2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "120921",
+      "question": "কোনটি দ্বি-অম্লীয় ক্ষার নয়?",
+      "options": [
+        "Na2CO3",
+        "Ca(OH) 2",
+        "Mg(OH)2",
+        "NH4OH"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এক-অম্লীয় ক্ষার⇒ NaOH, KOH, NH4OH, LiOH দ্বি-অম্লীয় ক্ষার→Na2CO3, Ca(OH)2, Mg(OH)2"
+    },
+    {
+      "question_no": 7,
+      "id": "120922",
+      "question": "দুর্বল এসিড ও দুর্বল ক্ষার কীরূপে আয়নিত হয়?",
+      "options": [
+        "আংশিকভাবে",
+        "পূর্ণভাবে",
+        "আয়নিত হয়না",
+        "দ্বিগুণ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সবল এসিড ও সবল ক্ষার পূর্ণভাবে আয়নিক হয়- দুর্বল এসিড ও দুর্বল ক্ষার আংশিকভাবে আয়নিত হয় [Ref: হাজারী।"
+    },
+    {
+      "question_no": 8,
+      "id": "120923",
+      "question": "HCl & NaOH এর প্রশমন বিক্রিয়া শেষে প্রশমন বিন্দুতে pH কত হবে?",
+      "options": [
+        "10",
+        "12",
+        "7",
+        "4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সবল এসিড ও সবল ক্ষারের বিক্রিয়ায় প্রশমন বিন্দুতে  \r\npH = 7 হয়।  \r\n[Ref: হাজারী]"
+    },
+    {
+      "question_no": 9,
+      "id": "120924",
+      "question": "প্রশমন বিন্দু সঠিকভাবে পাওয়া যায় না কোন ক্ষেত্রে?",
+      "options": [
+        "দুর্বল এসিড-সবল ক্ষার",
+        "সবল এসিড-দুর্বল ক্ষার",
+        "দুর্বল এসিড-দুর্বল ক্ষার",
+        "সবল এসিড-সবল ক্ষার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "120925",
+      "question": "বিরঞ্জক Cl2 কোন ধরনের বিরঞ্জন বিক্রিয়া দেয়?",
+      "options": [
+        "জারণ",
+        "বিজারণ",
+        "বিয়োজন বিক্রিয়া",
+        "রিডক্স"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "120926",
+      "question": "অম্লীয় KMnO4 বিক্রিয়াকালে কেন্দ্রীয় পরমাণু কয়টি ইলেকট্রন গ্রহণ করে?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অম্লীয় দ্রবণে KMnO4 এর কেন্দ্রীয় পরমাণু Mn বিজারিত হয়ে Mn2+ আয়নে পরিণত হয়, ফলে Mn এর জারণ সংখ্যা +7 থেকে +2 এ হ্রাস পায় এবং তা ঘটার জন্য জারকের সঙ্গে 5টি e যুক্ত হয়।"
+    },
+    {
+      "question_no": 12,
+      "id": "120927",
+      "question": "গ্যাসীয় বিজারক কোনটা?",
+      "options": [
+        "O2",
+        "NO2",
+        "CO",
+        "F2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্যাসীয় জারক পদার্থ  F2, Cl, O2, O3, SO2, NO2  \r\nগ্যাসীয় বিজারক পদার্থ → H2, CO, H2S, SO2"
+    },
+    {
+      "question_no": 13,
+      "id": "120928",
+      "question": "কোনটি কঠিন জারক পদার্থ নয়-",
+      "options": [
+        "KMnO4",
+        "KClO3",
+        "FeCl3",
+        "অক্সালিক এসিড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অক্সালিক এসিড কঠিন বিজারক পদার্থ ।  \r\nকঠিন জারক পদার্থ → I2, KMnO4,KClO3,MnO2,  \r\nFeCl3, K2Cr2O7 |"
+    },
+    {
+      "question_no": 14,
+      "id": "120929",
+      "question": "নিচের কোনটি বিজারকের বৈশিষ্ট্য নয়-",
+      "options": [
+        "বিজারণ ঘটায়",
+        "এক বা একাধিক ইলেকট্রন হারায়",
+        "নিজের জারণ ঘটে",
+        "সংশ্লিষ্ট পরমাণুর জারণসংখ্যা হ্রাস পায়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিজারক  \r\n* বিজারণ ঘটায়  \r\n* নিজের জারণ ঘটে  \r\n* এক বা একাধিক ইলেকট্রন হারায়  \r\n* সংশ্লিষ্ট পরমাণুর জারণ সংখ্যা বৃদ্ধি পায়  \r\nজারক :  \r\n* জারণ ঘটায়  \r\n* এক বা একাধিক ইলেকট্রন লাভ করে * নিজের বিজারণ ঘটে  \r\n* সংশ্লিষ্ট পরমাণুর জারণ সংখ্যা হ্রাস পায়\r\n﻿"
+    },
+    {
+      "question_no": 15,
+      "id": "120930",
+      "question": "মৃৎক্ষার ধাতুর জারণ সংখ্যা কত?",
+      "options": [
+        "+1",
+        "+2",
+        "- 2",
+        "-3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্রুপ-1 বা ক্ষার ধাতুসমূহের জারণ সংখ্যা +1 . গ্রুপ-2 বা মৃৎক্ষার ধাতুসমূহের জারণ সংখ্যা +2 গ্রুপ-3 এর বেলায় জারণ সংখ্যা +3  \r\n- ধাতব হ্যালাইডে হ্যালোজেনের জারণ সংখ্যা – 1 হয় H এর অধাতব যৌগে O.N = + 1  \r\nH এর ধাতব যৌগে O.N = − 1  \r\n১. O এর সাধারণ অক্সাইডে O.N = – 2 O এর পার অক্সাইডে O.N = − 1  \r\nO এর সুপার অক্সাইডে O.N = – 1⁄2"
+    },
+    {
+      "question_no": 16,
+      "id": "120931",
+      "question": "হ্যালোজেন মৌলগুলোর জারণ ক্ষমতার সঠিক ক্রম-",
+      "options": [
+        "I2 < Br2 < Cl2 < F2",
+        "F2 < 2 < Br2 < Cl2",
+        "Cl2 < 2 < Br2 < F2",
+        "Br2 < I2 < F2 < Cl2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "120932",
+      "question": "কোনটিতে Cl এর জারণ সংখ্যা সর্বাধিক?",
+      "options": [
+        "HCI",
+        "HCIO2",
+        "HCIO3",
+        "HCIO4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "120933",
+      "question": "নির্দেশকের বর্ণ পরিবর্তনে pH পরিসরের ক্ষেত্রে সঠিক নয় কোনটি?",
+      "options": [
+        "ক্রিসল রেড, pH = 7.2 - 8.8",
+        "ফেনল রেড, pH = 6.8 - 8.4",
+        "লিটমাস, pH = 6-8",
+        "মিথাইল রেড, pH = 3.1 - 4.4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মিথাইল রেড, pH = 4.2 - 6.3  \r\nমিথাইল অরেঞ্জ, pH = 3.1 - 4.4  \r\n[Ref: হাজারী  \r\n﻿"
+    },
+    {
+      "question_no": 19,
+      "id": "120934",
+      "question": ". GC এর ক্ষেত্রে বাহক গ্যাস নয় কোনটি?",
+      "options": [
+        "He",
+        "N2",
+        "O2",
+        "CO2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্যাস ক্রোমাটোগ্রাফির ক্ষেত্রে চলমান বস্তু বা সচল দশা  \r\nহিসেবে নিষ্ক্রিয় গ্যাস (যেমন- He, Ar, N 2, CO2 প্রভৃতি)  \r\nএকটি নির্দিষ্ট হারে চালনা করা হয়।"
+    },
+    {
+      "question_no": 20,
+      "id": "120935",
+      "question": "বিয়ার ল্যাম্বার্ট সূত্রের সীমাবদ্ধতা নয়—",
+      "options": [
+        "দ্রবণের ঘনমাত্রা 0.01M এর বেশি হলে প্রযোজ্য নয়",
+        "উপাদানের মধ্যে সংযোজন, বিয়োজন ঘটলে প্রযোজ্য নয়",
+        "একবর্ণী আলো ব্যবহৃত না হলে প্রযোজ্য নয়",
+        "আলোর শোষণের পূর্বে প্রতিফলন বা বিচ্ছুরণ ঘটলে প্রযোজ্য নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দ্রবণের ঘনমাত্রা 0.001 M – 0.01M এর মধ্যে এ সূত্র কার্যকর। ঘনমাত্রা 0.1 M এর বেশি হলে এ সূত্র প্রযোজ্য নয়।\r\n﻿"
+    },
+    {
+      "question_no": 21,
+      "id": "120936",
+      "question": "সবচেয়ে শক্তিশালী বিজারক কোনটি?",
+      "options": [
+        "Fe",
+        "Al",
+        "Li",
+        "Zn"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "120937",
+      "question": ". K4[Fe(CN)6] অণুতে Fe- এর জারণ সংখ্যা কত?",
+      "options": [
+        ". +4",
+        "+6",
+        "+2",
+        ". +3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ধরি, Fe এর জারণ সংখ্যা = x \r\nK4[Fe(CN)6] এর জারণ মান মুক্ত অবস্থায় = 0\r\nOr, (+1) × 4 + x + (-1) × 6 = 0\r\nOr, 4 + x - 6 = 0\r\nOr, x = +6 - 4 = +2\r\nK4[Fe(CN)6] যৌগে কেন্দ্রীয় পরমাণু Fe এর জারণ মান +2"
+    },
+    {
+      "question_no": 23,
+      "id": "120938",
+      "question": "অম্লীয় KMnO4 দ্রবণ দ্বারা রিডক্স বিক্রিয়ায় Fe2+ আয়ন কী হিসাবে কাজ করে?",
+      "options": [
+        "নির্দেশক",
+        "দর্শক আয়ন",
+        "জারক",
+        "বিজারক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "﻿বিজারক:  \r\n• এক বা একাধিক ইলেকট্রন হারায়  \r\n• সংশ্লিষ্ট পরমাণুর ON (জারণ সংখ্যা) বৃদ্ধি পায়  \r\n• নিজের জারণ ঘটে  \r\n• বিজারণ ঘটায়"
+    },
+    {
+      "question_no": 24,
+      "id": "120939",
+      "question": "HPLC এর পূর্ণরূপ কোনটি?",
+      "options": [
+        "High Pressure Liquid Chromatography",
+        "High Performance Liquid Chromatography",
+        "High power Liquid Chromatography",
+        "High Plant Liquid Chromatography"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "120940",
+      "question": "একটি তীব্র এসিড ও মৃদু ক্ষার টাইট্রেশনে উপযুক্ত নির্দেশক কোনটি?",
+      "options": [
+        "ফেনলফথ্যালিন",
+        "মিথাইল অরেঞ্জ",
+        "লিটমাস",
+        "থাইমল ব্লু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সবল এসিড-সবল ক্ষার — সব ধরনের নির্দেশক  \r\nসবল এসিড-দুর্বল ক্ষার — মিথাইল অরেঞ্জ, মিথাইল রেড \r\nদুর্বল এসিড-সবল ক্ষার —ফেনলফথ্যালিন\r\n দুর্বল এসিড-দুর্বল ক্ষার — কোনো নির্দেশক উপযুক্ত নয়"
+    },
+    {
+      "question_no": 26,
+      "id": "120941",
+      "question": "নিচের কোন জোড়াটি জারক ও বিজারকের উদাহরণ?",
+      "options": [
+        "KMnO4, K2Cr2O7",
+        "Na2C2O4, KMnO4",
+        "CuSO4, K2Cr2O7",
+        "KMnO4, KI"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "120942",
+      "question": "HPLC তে সচল মাধ্যম হিসেবে কী ব্যবহৃত হয়?",
+      "options": [
+        "N2 গ্যাস",
+        "মিথানল ও পানি",
+        "অ্যালুমিনাজেল",
+        "সিলিকাজেল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "120943",
+      "question": "নিচের কোনটির বেলায় সচল মাধ্যমরূপে হিলিয়াম ব্যবহৃত হয়?",
+      "options": [
+        "TLC",
+        "HPLC",
+        "GLCP",
+        "CC"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "GLPC এর বেলায় সচল মাধ্যম রূপে হিলিয়াম ব্যবহৃত হয় (ref: হাজারী স্যার)"
+    },
+    {
+      "question_no": 29,
+      "id": "120944",
+      "question": "জারক পদার্থ সম্পর্কিত কোন তথ্যটি সঠিক নয়-",
+      "options": [
+        "ইলেকট্রন গ্রহীতা",
+        "ইলেকট্রন গ্রহণের প্রবণতা কম থাকলে বেশি সবল হয়",
+        "অপর বিক্রিয়ক পদার্থকে জারিত করে",
+        "নিজে বিজারিত হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "120945",
+      "question": "নিচের কোনটি জারক ও বিজারক উভয় হিসাবেই কাজ করে?",
+      "options": [
+        "H2O",
+        "03",
+        "H2SO4",
+        "KMnO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "120946",
+      "question": "জারণ প্রক্রিয়ায় কোনটি ঘটে?",
+      "options": [
+        "ইলেকট্রন বর্জন",
+        "ইলেকট্রন গ্রহণ",
+        "প্রোটন গ্রহণ",
+        "প্রোটন বর্জন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "120947",
+      "question": "কোনটি ত্রিক্ষারকীয় এসিড?",
+      "options": [
+        "H3PO4",
+        "H2PO3",
+        "H2SO4",
+        "HNO3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "120948",
+      "question": "সবচেয়ে তীব্র এসিডের pKa কত?",
+      "options": [
+        "1.0",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "120949",
+      "question": "প্রশমন বিক্রিয়ার মিশ্র দ্রবণে নীল লিটমাস-",
+      "options": [
+        ". লাল হয়",
+        "সবুজ হয়",
+        "অপরিবর্তিত থাকে",
+        "বর্ণহীন হয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "120950",
+      "question": "দুর্বল এসিড ও সবল ক্ষারের প্রশমন বিন্দুতে pH-",
+      "options": [
+        "7.5",
+        ". 5.27",
+        "8.80",
+        ". 9.2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "120951",
+      "question": "প্রশমন বিক্রিয়ায় সাম্য-ধ্রুবক ‘Kn’ পানির আয়নীকরণ ধ্রুবকের",
+      "options": [
+        "সমানুপাতিক",
+        "ব্যস্তানুপাতিক",
+        "বর্গের সমানুপাতিক",
+        "বর্গের ব্যস্তানুপাতিক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "120952",
+      "question": "অসামঞ্জস্য বিক্রিয়ার উদাহরণ-",
+      "options": [
+        "NaOH+Cl2 – 4 NaCl + NaClO3 +H2O",
+        "NaOH + HCl → NaCl + H2O",
+        "2KClO3 → KCl + 3O2",
+        "CH4+ O2 → CO2+H2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "120953",
+      "question": "সব সুপার অক্সাইডে O2 এর জারণ সংখ্যা কত?",
+      "options": [
+        "-1/2",
+        ".-1",
+        "- 2",
+        "+2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "120954",
+      "question": "বিয়ার ল্যাম্বার্ট সূত্র ব্যবহার করে কী নির্ণয় করা যায়?",
+      "options": [
+        "বর্ণহীন দ্রবণের ঘনমাত্রা",
+        "বর্ণযুক্ত দ্রবণের ঘনমাত্রা",
+        "দ্রবণের আয়তন",
+        "দ্রবণের ভর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "120955",
+      "question": "কোন নির্দেশকটি অম্লীয় মাধ্যমে লাল বর্ণ ধারণ করে না ?",
+      "options": [
+        "লিটমাস",
+        "মিথাইল অরেঞ্জ",
+        "থাইমল বু",
+        "ব্রোমোথাইমল ব্লু"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "120956",
+      "question": "জবা ফুলের নির্যাসে কি থাকে ?",
+      "options": [
+        "মিথাইল রেড",
+        "অ্যান্থোসায়ানিন",
+        "ফেনলফথ্যালিন",
+        "টাইরোসিন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "120957",
+      "question": "দ্রবণের মোলালিটি কোনটির সাথে সম্পর্কিত?",
+      "options": [
+        "দ্রবকের আয়তন ও দ্রবের ভর",
+        "দ্রাবকের ভর ও দ্রবের ভর",
+        "দ্রবণের আয়তন ও দ্রবের ভর",
+        "দ্রবকের আয়তন ও দ্রবের ভর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "120958",
+      "question": "কোনটি তরল জারক পদার্থ?",
+      "options": [
+        "H2S",
+        "H2O2",
+        "KMnO4",
+        "HNO2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "120959",
+      "question": "Fe3O4 এর Fe জারণ মান কত?",
+      "options": [
+        "+2",
+        "+2.5",
+        ". +2.67",
+        "+3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "120960",
+      "question": "কোনটির যোজনী ও জারণ মান উভয় শূন্য?",
+      "options": [
+        "CH2Cl2",
+        "MgO",
+        "Ne",
+        "F20"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "120961",
+      "question": "যোজনী ও জারণ সংখ্যা উভয় শূন্য কোনটির?",
+      "options": [
+        "Br2",
+        "Ar",
+        "CH2Cl2",
+        "HCHO"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সঠিক উত্তর: B. Ar ✅\r\n\r\nব্যাখ্যা:\r\nযোজনী (Valency) = কোনো পরমাণু কতটি বন্ধন গঠন করতে পারে।\r\nজারণ সংখ্যা (Oxidation number) = যৌগ/আয়নে পরমাণুর আপাত চার্জ।\r\n\r\nAr (Argon) একটি noble gas এবং এর বহিঃস্থ কক্ষে ৮টি ইলেকট্রন সম্পূর্ণ পূর্ণ থাকে।\r\n\r\nতাই:\r\n• Ar সাধারণত কোনো রাসায়নিক বন্ধন গঠন করে না → যোজনী = 0\r\n• মৌলিক অবস্থায় Ar-এর জারণ সংখ্যা = 0\r\n\r\nঅতএব,\r\nAr-এর যোজনী = 0\r\nAr-এর জারণ সংখ্যা = 0\r\n\r\nঅন্যদিকে:\r\nA. Br₂ → যোজনী = 1, জারণ সংখ্যা = 0 ❌\r\nC. CH₂Cl₂ → C-এর জারণ সংখ্যা 0 হলেও যোজনী 4 ❌\r\nD. HCHO → C-এর জারণ সংখ্যা 0 হলেও যোজনী 4 ❌\r\n\r\n📌 উত্তর: B. Ar ✅"
+    },
+    {
+      "question_no": 47,
+      "id": "120962",
+      "question": "সবুজ ভিট্রিয়লের সঠিক সংকেত কোনটি?",
+      "options": [
+        "Fe(II) সালফেট ও Fe(II) সালফাইড মিশ্রণ",
+        "CuSO4 এর সঙ্গে 5 অণু পানি",
+        "CoSO4 এর সঙ্গে 7 অণু পানি",
+        "Fe(II) সালফেট এর সঙ্গে 7 অণু পানি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "120963",
+      "question": "CO এর সহনীয় মাত্রা কত?",
+      "options": [
+        "40 ppm",
+        "100 ppm",
+        "500 ppm",
+        "1000 ppm"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "120964",
+      "question": "কঠিন পদার্থের রাসায়নিক গণনা কোনটির উপর ভিত্তি করে করা হয়?",
+      "options": [
+        "ভর",
+        "আয়তন",
+        "আপেক্ষিক গুরুত্ব",
+        "প্রতিসরাঙ্ক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "120965",
+      "question": "সদ্য প্রস্তুত দ্রবণ হিসেবে ব্যবহৃত হয় কোনটি?",
+      "options": [
+        "FeSO4",
+        "Na2CO3",
+        "K2Cr2O7",
+        "H2C2O4.2H2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

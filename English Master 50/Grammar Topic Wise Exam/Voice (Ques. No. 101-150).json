@@ -1,0 +1,761 @@
+{
+  "exam_id": 8447,
+  "title": "Voice (Ques. No. 101-150)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Voice (292 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "916cb988-4808-472e-b785-fe0c72af2c67",
+      "question": "Is he eating fruit ?[]",
+      "options": [
+        "Is fruit eaten by him ?",
+        "Is fruit being eaten by him ?",
+        "Is fruit eating by him ?",
+        "Is fruit be eating by him ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When converting \"ing\" forms to passive, you must use being + V3 (past participle).",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "1089dcc3-dc34-4c7e-8c4f-b5d776d90a41",
+      "question": "Who taught you French ?[]",
+      "options": [
+        "By whom you were taught French ?",
+        "By whom French was taught you ?",
+        "French was taught you by whom ?",
+        "By whom were you taught French ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The \"Who\" Rule: In passive questions, \"Who\" usually changes to \"By whom.\"\nâSubject-Verb Agreement: Because the object is \"you,\" the helping verb must be \"were\" (not was).",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "8eb1faea-39b1-4fa8-91d4-f6393bee560d",
+      "question": "Who taught you English ?[]",
+      "options": [
+        "By whom you were taught English ?",
+        "By whom English was taught to you ?",
+        "English was taught to you by whom ?",
+        "By whom were you taught English ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The \"Who\" Rule: In passive voice, \"Who\" must change to \"By whom\" at the beginning of the sentence.\nâThe Verb \"Taught\": This is Simple Past. The passive form requires was/were + V3 (taught).",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "d70c4dc9-be56-4f47-9012-2c951df413ce",
+      "question": "Who gave you this pen ?[]",
+      "options": [
+        "By whom were you got this pen ?",
+        "By whom were you given this pen ?",
+        "By whom were you have been given this pen ?",
+        "By whom was you given this pen ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Since the object is \"you,\" you must use \"were.\" Options that use \"was\" (like D) are grammatically incorrect with \"you.\"\nâPast Participle: The passive voice always uses the V3 form. The V3 of \"give\" is given",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "2855d592-a17a-4b6b-bc07-96f8a81b8a66",
+      "question": "Who will do the work ?[]",
+      "options": [
+        "Who will done the work ?",
+        "Who will be done the work ?",
+        "By whom will the work be done ?",
+        "By whom the work will be done ?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "In passive voice, \"Who\" changes to \"By whom\". Since the original sentence is in the Future Indefinite tense (will do), the passive structure requires will + be + past participle (V3).",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "fba3734a-ad6d-4f76-af97-6853e5aacd64",
+      "question": "Who has written Hamlet ?[]",
+      "options": [
+        "Hamlet has written by whom ?",
+        "By whom is Hamlet written ?",
+        "Who has Hamlet been written by ?",
+        "By whom Hamlet is written ?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "This is in the Present Perfect tense (has written). The passive form needs has/have + been + V3.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "57426521-1e48-4f67-958a-c02631b1d4ca",
+      "question": "Who is calling me ? (Passive)[]",
+      "options": [
+        "By whom am I called ?",
+        "By whom I am called ?",
+        "By whom I was called ?",
+        "By whom am I being called ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "This is the Present Continuous tense (is calling). Passive voice for continuous tenses requires the word \"being\".",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "82e86a6a-87a9-41f0-a621-bbcff280d7e7",
+      "question": "Who killed the bird ?[]",
+      "options": [
+        "Who was killed by the bird ?",
+        "Who was killed the bird ?",
+        "Whom was killed by the bird ?",
+        "By whom was the bird killed ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "When an active sentence starts with \"Who,\" the passive version usually begins with \"By whom.\" * Since \"killed\" is in the simple past tense, we use the auxiliary verb \"was\" followed by the past participle of the verb.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "f92b4d85-6478-43db-a797-dc227bd203b0",
+      "question": "Whom do you want ?[]",
+      "options": [
+        "Whom is wanted by you ?",
+        "Who is wanted by you ?",
+        "By whom are you wanted ?",
+        "By whom you are wanted ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When the active sentence starts with \"Whom\" (the object), the passive version starts with \"Who\" (the new subject).",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "f8362c66-88f5-4c30-95a9-8e777ae6a19f",
+      "question": "Whom does he love ?[]",
+      "options": [
+        "Who is loved by him ?",
+        "Who was loved by him ?",
+        "Who had he loved ?",
+        "Who loves him ?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "the active \"Whom\" becomes the passive \"Who.\"",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "b3c8b5f1-790a-41e7-a867-f44110cc2cef",
+      "question": "Whom did she accuse ?[]",
+      "options": [
+        "Who was accused by her ?",
+        "Who had been accused by her ?",
+        "Who was being accused by her ?",
+        "Who has been accused by her ?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The active voice is in Simple Past. To convert to passive, the object \"whom\" becomes the subject \"who,\" followed by the auxiliary \"was\" and the past participle \"accused.\"",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "c93a13c0-4931-468d-a6ce-f4ef004dfca0",
+      "question": "What do you want ?[]",
+      "options": [
+        "What was wanting by you ?",
+        "What is wanted by you ?",
+        "What was wanted by you ?",
+        "What is wanting by you ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The active voice is in Simple Present. In the passive structure, the auxiliary verb \"is\" is used because \"what\" acts as a singular subject, followed by the past participle \"wanted.\"",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "46680bbd-436a-446d-b0bc-114e64e66585",
+      "question": "What made the noise ?[]",
+      "options": [
+        "By what was the noise made ?",
+        "By what the noise was made ?",
+        "What was made the noise ?",
+        "What was the noise made ?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "When \"what\" is the subject of an active sentence, the passive form begins with \"By what.\" In interrogative passive sentences, the auxiliary verb (was) must precede the subject (the noise).",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "4ab05b41-b187-4ef7-80df-129a0f76352f",
+      "question": "Where did you see him ?[]",
+      "options": [
+        "Where did he seen by you ?",
+        "Where was he see by you ?",
+        "Where was seen by you ?",
+        "Where was he seen by you ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "In interrogative sentences starting with \"Where,\" the word order is: Question Word + Auxiliary + Subject + Past Participle. Since the active sentence is in Simple Past (\"did see\"), we use \"was\" and the third form of the verb (\"seen\").",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "8ba81608-378f-4dae-b1e8-ef03dfc7ea32",
+      "question": "How can you do this ? (Passive)[]",
+      "options": [
+        "How this can be done by you ?",
+        "How could this be done by you ?",
+        "How can this be done by you ?",
+        "How this could be done by you ?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "When modal verbs like \"can\" are used, the passive voice structure is: Modal + Object + be + Past Participle. The modal \"can\" remains in the sentence; we do not change it to \"could\" (which would be the past tense).",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "8547c20b-6c99-4d07-8486-da0988f5190f",
+      "question": "Why did your brother write such a letter ?[]",
+      "options": [
+        "Why was such a letter written by your brother ?",
+        "Why such a letter was written by your brother ?",
+        "Why such a letter was written by your brother.",
+        "Why was such a letter been written by your brother ?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The sentence is in Simple Past. The structure follows: Why + was + object (such a letter) + V3 (written) + by + agent (your brother).",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "6124e2b9-a15c-4b0a-8246-3c45736df493",
+      "question": "When did he finish the work ? (Passive)[]",
+      "options": [
+        "When the work was finished by him ?",
+        "When did the work finished by him ?",
+        "When was the work to be finished by him ?",
+        "When was the work finished by him ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "This follows the standard interrogative structure for Simple Past passive: Question word (When) + auxiliary (was) + object (the work) + past participle (finished) + agent (by him).",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "c098d2a9-620c-475b-83ee-2b9e3580534e",
+      "question": "I saw him playing football.[]",
+      "options": [
+        "Football was played and seen by him.",
+        "He was seen playing football by me.",
+        "Football was being played and seen by him.",
+        "Football was seen played by me and him."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "In sentences with a primary verb and a participle phrase (like \"playing football\"), we convert the primary verb (\"saw\") into the passive voice (\"was seen\") while keeping the secondary action attached to the object.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "b1c941a9-8c7a-434c-a355-49a0b30a03c1",
+      "question": "He was seen by me carrying a basket.[]",
+      "options": [
+        "I see him carrying a basket.",
+        "I had seen him carrying a basket.",
+        "I saw him carrying a basket.",
+        "He saw me carrying a basket."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "To convert from passive to active, the agent (\"by me\") becomes the subject (\"I\"), and the passive verb \"was seen\" reverts to its active form (\"saw\"). The participial phrase (\"carrying a basket\") remains attached to the object (\"him\").",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "9308cec6-a88d-4d39-8a6d-857b1d0a06f2",
+      "question": "You made him cook rice.[]",
+      "options": [
+        "He was made to cook rice.",
+        "He was made cook rice.",
+        "He is made to cook rice.",
+        "He had made to cook rice."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "This involves a causative verb (\"made\"). When converting \"made + [object] + [bare infinitive]\" to passive voice, the \"bare infinitive\" (cook) must change into a \"full infinitive\" (to cook).",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "d216a6e4-33ab-4262-8c7a-8cb045e14c39",
+      "question": "He heard her sing.[]",
+      "options": [
+        "She was heard to sing by him.",
+        "She was heard sing by him.",
+        "She was heard to sing.",
+        "She was heard to be sing."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Similar to Q20, verbs of perception like \"hear,\" \"see,\" or \"watch\" are followed by a bare infinitive in the active voice (\"sing\"). When converted to passive, that bare infinitive must change to a full infinitive (\"to sing\").",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "8deb02c6-bca7-4b88-ac22-6a04bac2e3ed",
+      "question": "I saw him go.[]",
+      "options": [
+        "He is seen to go by me.",
+        "He was seen to go by me.",
+        "He is being go by me.",
+        "He has seen to go by me."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "This is a classic case of a sensory verb (\"saw\") followed by a bare infinitive (\"go\"). In the passive voice, the verb \"saw\" becomes \"was seen,\" and the bare infinitive \"go\" must be converted to a full infinitive (\"to go\").",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "032af06f-6313-4b90-8f1c-70f697212e4c",
+      "question": "They made him tell them everything.[]",
+      "options": [
+        "He was made by them to tell them everything.",
+        "He was made to tell them everything.",
+        "He was made by them to tell everything to them.",
+        "Everything was made to be told them by him."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When using the causative verb \"made\" in the active voice, it takes a bare infinitive (\"tell\"). When shifting to passive, \"made\" becomes \"was made,\" and the infinitive must change to the full form (\"to tell\"). Option B is the most concise and grammatically standard way to express this",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "1c331a86-75dc-4c2a-9595-da5c2f177dc4",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He was let go.",
+        "He was let to go.",
+        "He was let going.",
+        "He was letting go."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "While other causative verbs (like \"make\") require the \"to\" infinitive in passive voice, the verb \"let\" is an exception. In the passive voice, it retains the bare infinitive (without \"to\").",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "bf17af0e-957d-471b-b703-25692c30b958",
+      "question": "He helped me do it.[]",
+      "options": [
+        "It was done by him to help me.",
+        "I was helped by him to do it.",
+        "It was helped me by him to do it.",
+        "I was helped by him do it."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The verb \"help\" can be followed by a bare infinitive in the active voice (\"helped me do\"). However, when converted to the passive voice, it must be followed by the full infinitive (\"to do\").",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "d068ecd1-5c30-4930-a524-d01f8b250e00",
+      "question": "I found it easy to do.[]",
+      "options": [
+        "It was found easy to do by me.",
+        "It was found easy to be done by me.",
+        "It was easy found to do by me.",
+        "None of these"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "This is a transformation of a complex sentence structure. We move the object (\"it\") to the subject position of the passive sentence, followed by the passive verb (\"was found\"), the adjective/complement (\"easy to do\"), and finally the agent (\"by me\").",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "931acb47-ccb6-4c2d-bdee-950d6ddd0fa4",
+      "question": "They elected him chairman.[]",
+      "options": [
+        "He was elected chairman (by them).",
+        "Chairman was elected by them.",
+        "Chairman was elected him by them.",
+        "By them was he elected chairman."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "This sentence uses a \"factitive verb\" (a verb that requires an object and a complement, like elect, name, call, appoint). In the passive voice, the object of the active sentence (\"him\") becomes the subject (\"He\"), and the complement (\"chairman\") remains to describe the subject.",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "40df9441-2547-4ccc-9eda-b2390bd949cc",
+      "question": "He is thought to be a teacher.[]",
+      "options": [
+        "We thought him to be a teacher.",
+        "We think him to be a teacher.",
+        "We think him a teacher.",
+        "We thought him a teacher."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "This is a passive construction involving an impersonal report or opinion. Since the passive verb is \"is thought\" (present tense), the active counterpart must be \"We think\" (present tense) followed by the object and the infinitive phrase.",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "c41f1b39-6ad3-4f18-9048-77438ee03c6a",
+      "question": "He is thought to be a poet by them.[]",
+      "options": [
+        "They thought him to be poet.",
+        "They think him to be a poet.",
+        "They think to him be a poet.",
+        "They think him be a poet."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "the passive \"is thought\" indicates a present tense active verb (\"think\"). The agent \"by them\" becomes the subject \"They.\" The structure follows: Subject (They) + Verb (think) + Object (him) + Complement/Infinitive phrase (to be a poet).",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "c052d243-157b-49a1-9c53-819aa39b3bd1",
+      "question": "Iron feels hard.[]",
+      "options": [
+        "Iron is hard by it is felt.",
+        "Iron is hard when it is felt.",
+        "Hard feels by Iron.",
+        "Iron was hard."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When a linking verb describes a sensory quality, we keep the subject (\"Iron\") and the adjective (\"hard\"), then add the clause \"when it is felt\" to explain how that state is determined.",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "9dd4bfe0-f40a-44d8-9e2a-8acd2b2c1525",
+      "question": "The pill tastes bitter.[]",
+      "options": [
+        "The pill is bitter when it is tasted.",
+        "The pill is bitter when it was tasted.",
+        "The pill is bitter when it tasted.",
+        "The pill is bitter when it tastes."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "the verb \"tastes\" refers to the quality of the subject. The passive construction requires us to state the quality (\"is bitter\") and add the passive condition (\"when it is tasted\"). Option B is incorrect because \"was\" changes the tense unnecessarily.",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "276c3bfe-9343-4c60-86d8-b01cfb2cb2e2",
+      "question": "Honey tastes sweet.[]",
+      "options": [
+        "Honey is tasted sweet.",
+        "Honey is sweet when it is tasted.",
+        "It is sweet when honey tasted.",
+        "Honey is sweet to taste."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Subject: Honey\nâState: is sweet\nâCondition: when it is tasted",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "ae349553-c457-425d-a70c-d1704fde203b",
+      "question": "Rice sells cheap.[]",
+      "options": [
+        "Rice is cheap when it is sold.",
+        "Rice is cheap sold.",
+        "Rice is being sold cheap.",
+        "Rice is cheap when it is selling."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "This is a \"quasi-passive\" verb. It describes a state of the subject (\"Rice\") rather than an action being performed by it. To convert this to a descriptive passive, we use the structure: [Subject] + [is/are] + [Adjective] + when + [it is] + [Past Participle].",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "822d6be2-9347-435b-bac8-2e5edf3b023f",
+      "question": "Roses smell sweet.[]",
+      "options": [
+        "Roses are sweet smelling which someone smells.",
+        "Roses are sweet when smelt.",
+        "Roses are sweet when we smell.",
+        "Roses are smelling sweet."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"smell\" here is a linking verb describing the property of the subject. The passive construction isolates the quality (\"are sweet\") and defines the condition under which it is perceived (\"when smelt\").",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "177d400c-f0c6-4d60-893f-653a7c28cf15",
+      "question": "The house is building.[]",
+      "options": [
+        "A house is being built by us.",
+        "The masons are building the house.",
+        "It is the house which is being built.",
+        "A house is being built."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "This is another \"quasi-passive\" structure. \"The house is building\" implies the house is undergoing the process of construction. In the standard passive voice, this requires the continuous form: [Object] + [is/are] + being + [Past Participle].",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "fd171faa-44d3-41e5-b9c7-fac70c4ae8ce",
+      "question": "It is time to shut up the shop.[]",
+      "options": [
+        "It is time for the shop to be shut up.",
+        "It is time to be shut up the shop.",
+        "It is time to shut the shop up.",
+        "It is time the shop be shut up."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "When a sentence begins with \"It is time to...,\" the passive conversion follows this specific structure: It is time + for + object + to be + past participle. The infinitive \"to shut\" becomes \"to be shut.\"",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "b7c61f5c-c414-45fb-aaf7-4fa5cb6c64dd",
+      "question": "There are lots of things to do.[]",
+      "options": [
+        "There are lots of things to done.",
+        "There are lots of things to be doing.",
+        "There are lots of things to be done.",
+        "None of them."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "In the active voice, the infinitive \"to do\" describes an action to be performed by someone. In the passive voice, it converts to \"to be + past participle\" (to be done) to indicate that the things must undergo the action.",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "4d136250-9ff1-4d73-9d37-961e52cb2456",
+      "question": "It is known to me how it was done by him.[]",
+      "options": [
+        "I know how he has done.",
+        "I knew how he has done.",
+        "I knew how he did it.",
+        "I know how he did it."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "This is a complex passive construction.\nâ\"It is known to me\" converts to the active \"I know.\"\nâ\"How it was done by him\" converts to the active \"how he did it.\"\nâTogether, the active sentence is: \"I know how he did it.\"",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "14e845cc-3cc6-47ad-a8fd-b4003b36834a",
+      "question": "Do it as I say.[]",
+      "options": [
+        "Let it be done as is said by me.",
+        "Let it be done as I say.",
+        "It should be done as I say.",
+        "But it done as it is said."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "This is an imperative sentence (a command). The standard passive structure for imperatives is: Let + object + be + past participle. The phrase \"as I say\" remains as a modifier at the end.",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "e6f61a3f-f5bf-43ea-81a0-2f50f3316000",
+      "question": "Lord knew what they cost.[]",
+      "options": [
+        "What they cost is known to Lord.",
+        "What they were cost is known to Lord.",
+        "What they are cost was known to Lord.",
+        "What they cost was known to Lord."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "This sentence consists of a main clause (\"Lord knew\") and a noun clause (\"what they cost\"). To make it passive, the entire noun clause becomes the subject, followed by the passive verb (\"was known\") and the agent (\"to Lord\").",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "bf81c04c-5587-4f3a-b10c-c37e7603f3ff",
+      "question": "I know that he did the work.[]",
+      "options": [
+        "It was known to me that the work was done by him.",
+        "It is known to me that the work was done by him.",
+        "It is known to me that the work has been done by him.",
+        "It was known to me that the work had been done by him."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When a sentence begins with a subject followed by a clause (like \"I know that...\"), it is often converted into an impersonal passive structure: It + is/was + past participle + to + agent + [original clause converted to passive].",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "3887aa99-2cd4-466a-b788-91a1ff1cbaa3",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Two criminals were punished and one released.",
+        "Two criminals were punished and one was released.",
+        "Two criminals were punished when one released.",
+        "Two criminals were punished while one was released."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When joining two passive clauses with a conjunction like \"and,\" the verb (or auxiliary verb) must be repeated or clearly implied for both parts to maintain parallel grammatical structure. Since both actions happened in the past, \"was\" is needed to show that \"released\" is also in the passive voice.",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "4a4c36d5-9683-4d62-bb4d-e30ce2ecb972",
+      "question": "People know that the earth is round.[]",
+      "options": [
+        "It is known that the earth is round.",
+        "It was known that the earth is round.",
+        "It was known that the earth was round.",
+        "It is knew that the earth was round."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "This follows the impersonal passive rule for general facts. When the active subject is generic (\"People\"), it is omitted in the passive voice. We use: It + [tense of the verb] + [past participle] + that-clause. Since \"know\" is present tense, we use \"is known.\"",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "2d2cc14d-8d78-4251-b55b-ff205ae5ac0e",
+      "question": "I cannot depend on what you say.[]",
+      "options": [
+        "What you say cannot be depended by me.",
+        "What is said by you cannot be depended on by me.",
+        "I cannot depend on what is said by you.",
+        "What is said cannot depended on by me."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "This sentence contains a prepositional phrase (\"depend on\"). In the passive voice, the preposition must remain attached to the verb (\"depended on\").",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "764dac3d-0e8f-4bc5-beaf-d3b0933c02ee",
+      "question": "One should keep one's promise.[]",
+      "options": [
+        "One's promise should be kept.",
+        "A promise should be kept.",
+        "One's promise should be kept by one.",
+        "Promise should be kept."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "When the subject is an indefinite pronoun like \"one,\" \"someone,\" or \"people,\" it is typically omitted in the passive voice. The structure follows: Object (A promise) + Modal (should) + be + past participle (kept).",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "ea72b63f-bf79-4e5b-828a-d4856112bf94",
+      "question": "One should take care of one's health.[]",
+      "options": [
+        "One's health should be taken care of.",
+        "One's health should be taken care of by one.",
+        "Health should be taken care of.",
+        "Health should be taken care."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "In passive voice, when the subject is a general pronoun like \"one,\" it is usually omitted to keep the sentence concise. The structure is: Object (Health) + Modal (should) + be + Past Participle (taken) + preposition (care of).",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "dbca5fd9-566f-4b5f-b594-e29d2493383d",
+      "question": "Somebody should have called the president this morning.[]",
+      "options": [
+        "The president should have been called this morning.",
+        "The president could have been called this morning.",
+        "The president might have been called this morning.",
+        "The president could be called this morning."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "This sentence uses the \"should have + past participle\" structure (modal perfect). To convert this to passive voice, we insert \"been\" after \"have\": Object (The president) + Modal Perfect (should have been) + Past Participle (called) + time (this morning).",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "81766b20-c3a4-4883-a595-490d34d57dcc",
+      "question": "That house has not been lived in for years.[]",
+      "options": [
+        "No one has been living in that house for years.",
+        "No one ever lived in that house for years.",
+        "Nobody has for years lived in that house.",
+        "Nobody had been living for years lived in that house."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "This is a conversion from passive to active. The passive agent (\"Nobody\" or \"No one\") becomes the subject. The passive verb \"has not been lived in\" reverts to the active present perfect \"has lived.\"",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "094ae02b-6962-48bd-a991-a03f13bc3035",
+      "question": "Nobody knows him here.[]",
+      "options": [
+        "He is known by nobody here.",
+        "Nobody known him here.",
+        "He is not known here.",
+        "He is not known to nobody here."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "When the subject is a negative pronoun like \"Nobody,\" the passive voice must negate the main verb. We use the structure: Object (He) + is/are + not + past participle (known) + place (here). We do not use \"He is known by nobody,\" as that creates a double negative.",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "96e3be49-0e24-4737-bad3-3fd5dda1b0f7",
+      "question": "He is not known here.[]",
+      "options": [
+        "He is known here.",
+        "Nobody knows him here.",
+        "Everybody knows him here.",
+        "Somebody knows him here."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "This is the reverse of Q49. We take the passive statement and change it back to the active form. The \"not known\" becomes the active \"knows,\" and the passive subject \"He\" becomes the object \"him,\" with \"Nobody\" as the active subject.",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "title": "মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি ২০০২-০৩",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 4,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "147622",
+      "question": "বিশ্বে সবচেয়ে বেশি আয়ূর দেশ কোনটি?",
+      "options": [
+        "যুক্তরাষ্ট্র",
+        "জাপান",
+        "সুইডেন",
+        "সুইজারল্যান্ড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "147625",
+      "question": "কোনটি পৃথিবীর উচ্চতম জলপ্রপাত?",
+      "options": [
+        "মুদারল্যান্ড জলপ্রপাত",
+        "ভিকটোরিয়া জলপ্রপাত",
+        "নায়াগ্রা জলপ্রপাত",
+        "গ্রেট ফলস জলপ্রপাত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "147626",
+      "question": "ট্রেজার আইল্যান্ড কার লেখা?",
+      "options": [
+        "R.L. Stevenson",
+        "Alexaner dumas",
+        "Shakespeare",
+        "Charles Diekens"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "147627",
+      "question": "জলাতঙ্কেরটিকা আবিষ্কারক হলেন",
+      "options": [
+        "লুই পাস্তুর",
+        "সোয়ান",
+        "ওয়ালেস",
+        "মর্গান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

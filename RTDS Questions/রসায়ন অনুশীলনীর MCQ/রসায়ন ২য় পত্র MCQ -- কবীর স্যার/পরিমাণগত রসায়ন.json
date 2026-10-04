@@ -1,0 +1,3298 @@
+{
+  "title": "কবির স্যার-রসায়ন ২য় পত্র-পরিমাণগত রসায়ন",
+  "category": "রসায়ন অনুশীলনীর MCQ > রসায়ন ২য় পত্র MCQ || কবীর স্যার",
+  "duration_minutes": 30,
+  "total_questions": 235,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "134584",
+      "question": "অম্লীয় KMnO4 বিক্রিয়াকালে কেন্দ্রীয় পরমাণু কয়টি ইলেকট্রন গ্রহণ করে?",
+      "options": [
+        "২",
+        "৩",
+        "৪",
+        "৫"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "134585",
+      "question": "A = 𝓔clসমীকরণে কোনটি সঠিক?",
+      "options": [
+        "A = শোষণাংক",
+        "𝓔 = দ্রবণের ঘনমাত্রা",
+        "I = সেলের দৈর্ঘ্য",
+        "c = শোষণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা :A= বিশেষণ মাত্রা, 𝓔 = মোলার শোষণ সহগ  c = দ্রবণের ঘনমাত্রা, I = সেলের দৈর্ঘ্য"
+    },
+    {
+      "question_no": 3,
+      "id": "134586",
+      "question": "প্রমাণ দ্রবণ কোনটি?",
+      "options": [
+        "1.0 M H2SO4",
+        "1.0 g H2SO4",
+        "1.0 mL H2SO4",
+        "1.0 mol H2SO4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :যে দ্রবণের ঘনমাত্রা জানা আছে সেটাই প্রমাণ দ্রবণ, 1 M H2SO4"
+    },
+    {
+      "question_no": 4,
+      "id": "134587",
+      "question": "(S4O6)^2- আয়নে ‘S’ এর জারণ মান কত?",
+      "options": [
+        "+2",
+        "+2.5",
+        "+3",
+        "+3.5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা :এখানে\r\nX x 4+6 x (-2) = -2\r\n> 4X -12 = -2\r\n> X = + 10/4 =(+2.5)"
+    },
+    {
+      "question_no": 5,
+      "id": "134588",
+      "question": "SnCl2 + 2HgCl2 = SnCl4 + 2HgCl বিক্রিয়ায় কোনটি জারিত হয়?",
+      "options": [
+        "Sn^2+",
+        "Hg^2+",
+        "Cl-",
+        "Sn^4+"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এখানে বিক্রিয়কেSn^2+ 2 টা e− ত্যাগ করে  SnCl4 যৌগে অর্থাৎ Sn^4+ এ পরিণত হয়েছে।"
+    },
+    {
+      "question_no": 6,
+      "id": "134589",
+      "question": "অম্ল-ক্ষার টাইট্রেশনের সমাপ্তি বিন্দুতে ফেনলফথ্যালিনের বর্ণ পরিবর্তনের PH সীমা কত?",
+      "options": [
+        "3.1-5.6",
+        "5.8-7.5",
+        "8.3-10",
+        "8.5-12"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা :অম্ল ক্ষার টাইট্রেশনের সমাপ্তি বিন্দুতে বর্ণ পরিবর্তনের PH \r\nসীমা → ফেনলফ্থ্যালিন → ৮.২ − ৯.৮ \r\n  থাইমল ব্ল  → ৮ − ৯.৬ \r\n  মিথাইল অরেঞ্জ → ৩.১ − ৪.৪"
+    },
+    {
+      "question_no": 7,
+      "id": "134590",
+      "question": "0.1 M Na2CO3 দ্রবণের ঘনমাত্রা ppm এককে কত?",
+      "options": [
+        "106",
+        "1060",
+        "5300",
+        "10600"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা :ঘনমাত্রা থাকলে ppm বের করার নিয়ম  \r\n ppm = M (আণবিক ভর) x S (ঘনমাত্রা) x1000\r\n          = 106 x 0.1 x 1000\r\n         = 10600.0\r\n       = 10600"
+    },
+    {
+      "question_no": 8,
+      "id": "134591",
+      "question": "K2Cr2O7 + FeSO4 + H2SO4 → K2SO4 + Cr2 (SO4)3 +Fe2 (SO4)3 +H2 বিক্রিয়াটিতে জারক ও বিজারকের মোলসংখ্যার অনুপাত কোনটি?",
+      "options": [
+        "1:6",
+        "6:1",
+        "7:1",
+        "7:6"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :মনে রাখব 1 মোল K2Cr2O7 ≡ 6 মোল   FeSO4"
+    },
+    {
+      "question_no": 9,
+      "id": "134592",
+      "question": "100 mL 0.1 M Na2CO3 দ্রবণের জন্য কতটুকু Na2CO3 প্রয়োজন?",
+      "options": [
+        "1.06 g",
+        "1.22 g",
+        "1.57 g",
+        "1.84 g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "S = 1000W / MV\r\n> W = SMV / 1000 = 0.1 x 106 x 100 / 1000 = 1.06 g"
+    },
+    {
+      "question_no": 10,
+      "id": "134593",
+      "question": "একটি পানির নমুনায় দ্রবীভূত O2 এর ঘনমাত্রা 2 x 10^-4 M এর মান ppm এককে কত?",
+      "options": [
+        "2.0",
+        "2.5",
+        "4.4",
+        "6.4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ppm = MS x 1000 = (2 x 10^-4) x 32 x 1000 = 6.4"
+    },
+    {
+      "question_no": 11,
+      "id": "134594",
+      "question": "নিচের কোন আয়নটি জারক ও বিজারক উভয় হিসেবে কাজ করে?",
+      "options": [
+        "Na^+",
+        "Fe^2+",
+        "Al^3+",
+        "Sn^4+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা : জারক বিজারক উভয়ইO3, SO2, FeO, H2O2"
+    },
+    {
+      "question_no": 12,
+      "id": "134595",
+      "question": "0.25 M H2SO4 এর ঘনমাত্রা ppm এককে কত হবে?",
+      "options": [
+        "24300",
+        "24400",
+        "24500",
+        "24600"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ppm = MS x 1000 = 0.25 x 98 x 1000 = 24500"
+    },
+    {
+      "question_no": 13,
+      "id": "134596",
+      "question": "10 g FeSO4 কে জারিত করতে কত গ্রাম K2Cr2O7 লাগে?",
+      "options": [
+        "3.23 g",
+        "3.87 g",
+        "4.12 g",
+        "6.44 g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "134597",
+      "question": "নিচের কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ ?",
+      "options": [
+        "NaOH",
+        "K2Cr2O7",
+        "KMnO4",
+        "H2SO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: \r\nপ্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                    Na2C2O4.2H2O, K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ =NaOH, HCl,H2SO4, KMnO4\r\n                                             Na2S2O3.5H2O"
+    },
+    {
+      "question_no": 15,
+      "id": "134598",
+      "question": "দ্রবণে মোলারিটি কোনটি?",
+      "options": [
+        "N / V",
+        "mol / kg",
+        "g / L",
+        "mol L^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা: মোলারিটি  mol / L\r\n     মোলালিটি mol / kg"
+    },
+    {
+      "question_no": 16,
+      "id": "134599",
+      "question": "0.0212 g Na2CO3 20 mL দ্রবণে দ্রবীভূত। দ্রবণটির শক্তিমাত্রা কত?",
+      "options": [
+        "1.0 M",
+        "0.01 M",
+        "0.001 M",
+        "0.1 M"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "W = smv \r\n> s = w / mv = 0.012 / 106 x 0.02 L = 0.1 M"
+    },
+    {
+      "question_no": 17,
+      "id": "134600",
+      "question": "এক মিলিমোল H2SO4 = কত?",
+      "options": [
+        "98 g",
+        "9.8 g",
+        "0.98 g",
+        "0.098 g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "1 mol H2SO4 = 98 g\r\n> 1 m mol H2SO4 = 98 / 1000 g =.098"
+    },
+    {
+      "question_no": 18,
+      "id": "134601",
+      "question": "এসিড-ক্ষার টাইট্রেশনে শেষ বিন্দুতে মিথাইল অরেঞ্জের বর্ণ পরিবর্তনের PH পরিসর কোনটি?",
+      "options": [
+        "3-5",
+        "6-8",
+        "8-10",
+        "10-12"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: এসিড ক্ষার ট্রাইট্রেশনে শেষ বিন্দুতে মিথাইল অরেঞ্জের বর্ণ পরিবর্তনের PH পরিসর 3 হতে 5।"
+    },
+    {
+      "question_no": 19,
+      "id": "134602",
+      "question": "HPLC এর পূর্ণ রূপ কোনটি?",
+      "options": [
+        "High Pressure Liquid Chromatography",
+        "High Performance Liquid Chromatography",
+        "High Power Liquid Chromatography",
+        "High Plant Liquid Chromatography"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "HPLC  = High Performance Liquid Chromatography"
+    },
+    {
+      "question_no": 20,
+      "id": "134603",
+      "question": "50 g CaCO3 এর তাপীয় বিয়োজনে উৎপন্ন CO2 এর ভর কত গ্রাম?",
+      "options": [
+        "11",
+        "22",
+        "44",
+        "88"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা  : \r\n CACO3 ∆ → CaO +CO2\r\n100g          56g    44g\r\n> 50 g CaCO3 হতে  (44 x 50 / 100 )= 22 g CO2 উৎপন্ন হবে।"
+    },
+    {
+      "question_no": 21,
+      "id": "134604",
+      "question": "250 cm^3 0.1 M H2SO4 দ্রবণে কত গ্রাম H2SO4 দ্রবীভূত থাকে?",
+      "options": [
+        "2.45 g",
+        "2.98 g",
+        "4.52 g",
+        "5.42 g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "S = 1000 /2 / MV \r\n> W = SMV / 1000 = 0.1 x 98 x 250 / 1000 = 2.45 g"
+    },
+    {
+      "question_no": 22,
+      "id": "134605",
+      "question": "একটি পাত্রে রাখা 16 g মিথেন গ্যাস থেকে NTPতে 11.2 L গ্যাস নির্গত হয়ে গেলে ঐ পাত্রে আর কতটি গ্যাস অণু অবশিষ্ট থাকে?",
+      "options": [
+        "6.023 x 10^23",
+        "3.0115 x 10^22",
+        "3.0115 x 10^23",
+        "5.023 x 10^23"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: 1 মোল CH4 = 16 g = 22.4 L=6.023 x 10^23 টি অণু \r\n> 1 g H2O = 3.01 x 10^23 টি H2 অণু"
+    },
+    {
+      "question_no": 23,
+      "id": "134606",
+      "question": "Na2CO3 এবং HCl প্রশমনের জন্য উপযুক্ত নির্দেশক কী?",
+      "options": [
+        "মিথাইল অরেঞ্জ",
+        "লিটমাস",
+        "ফেনলফথেলিন",
+        "মিথাইল রেড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :দুর্বল ক্ষার ও সবল এসিডের প্রশমনে উপযুক্ত নির্দেশক → মিথাইল অরেঞ্জ ও মিথাইল রেড। ANS : A AND D"
+    },
+    {
+      "question_no": 24,
+      "id": "134607",
+      "question": "1.008 g H2 -এ অণুর সংখ্যা-",
+      "options": [
+        "6.023 x 10^23 g",
+        "12.046 x 10^23 g",
+        "3.0115x 10^23 g",
+        "6.023 x 10^23 g"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: 1 মোল H2 = 2 g = 6.023 x 10^23 টি অণু \r\n >1 g H2O = 3.01 x 10^23টি H2 অণু"
+    },
+    {
+      "question_no": 25,
+      "id": "134609",
+      "question": "6.023 x 10^23 টি CO2 অণুর NTP-তে আয়তন-",
+      "options": [
+        "22.4 L",
+        "2.24L",
+        "0.224 L",
+        "22.4 m^3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :6.023 x 10^23   টি CO2 = 22.4 L = 1 মোল"
+    },
+    {
+      "question_no": 26,
+      "id": "134856",
+      "question": "2.0 L দ্রবণে 80 gm NaOH -দ্রবীভূত থাকলে দ্রবণের ঘনমাত্রা-",
+      "options": [
+        "1M",
+        ".1M",
+        "2M",
+        ".2M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "S = W / MV = 80 / 40 x 2= 1 M"
+    },
+    {
+      "question_no": 27,
+      "id": "134857",
+      "question": "10 cm^3 0.1 M HCl দ্রবণ প্রশমনের জন্য NaOH-এর ডেসিমোলার দ্রবণের কত আয়তন প্রয়োজন?",
+      "options": [
+        "10 cm^3",
+        "20 cm^3",
+        "15 cm^3",
+        "1.0 cm^3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "bS1V1 = a S2V2   [ b= ক্ষারের মোল সংখ্যা  ]\r\n10 x 0.1 = v2 x .1   [  a= এসিডের মোল সংখ্যা] \r\n> V2 = 10 x .1 / .1 = 10 cm^3"
+    },
+    {
+      "question_no": 28,
+      "id": "134858",
+      "question": "কোনটির আয়তন NTP তে 224 cm^3?",
+      "options": [
+        "6.023 x 10^21 টি H2 অণু",
+        "4.4 g CO2",
+        "0.4 g NaOH",
+        "0.1 মোল NH3 গ্যাস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "22.4 L = 22400 cm^3 = 6.023 x 10^23 টি  অণু \r\n> 224 cm^3 = (6.023 x 10^23 x 224 / 22400)  অণু \r\n= 6.02 x 10^21"
+    },
+    {
+      "question_no": 29,
+      "id": "134859",
+      "question": "50 g CaCO3 কে উত্তপ্ত করলে STP তে প্রাপ্ত CO2 এর আয়তন কত হবে?",
+      "options": [
+        "11.2 L",
+        "22.4 L",
+        "33.6 L",
+        "44.4L"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "CaCO3 → CaO + CO2\r\n100g           56 g     44g\r\nSTP তে 100 g  CaCO3  থেকে 1 মোল বা  22.4 LCO2 পাওয়া যায়। তাই 50 g থেকে 11.2 Lপাওয়া যাবে।"
+    },
+    {
+      "question_no": 30,
+      "id": "134860",
+      "question": "0.015 M ঘনমাত্রার CaCl2 দ্রবণের মাত্রা ppm এককে কত?",
+      "options": [
+        "1550",
+        "1650",
+        "1565",
+        "1665"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ppm = ms x 1000 \r\nCaCl2 এর আণবিক ভর =  (40+35,5 x 2) =111"
+    },
+    {
+      "question_no": 31,
+      "id": "134861",
+      "question": "কোনটি জারক ও বিজারক উভয় হিসাবে ক্রিয়া করতে পারে?",
+      "options": [
+        "Kl",
+        "H2O2",
+        "H2C2O4",
+        "Na2S2O3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা : জারক বিজারক উভয় : O3,SO2,H2O2,FeO"
+    },
+    {
+      "question_no": 32,
+      "id": "134862",
+      "question": "GC এর ক্ষেত্রে বাহক গ্যাস নয় কোনটি?",
+      "options": [
+        "He",
+        "N2",
+        "O2",
+        "CO2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা : Gas chromatography তে বাহক গ্যাস  \r\n নিষ্ক্রিয় হিলিয়াম (He), ক্রিয়াহীন N2,CO2"
+    },
+    {
+      "question_no": 33,
+      "id": "134865",
+      "question": "জারক কোনটি?",
+      "options": [
+        "IO3^-",
+        "I-",
+        "H^+",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা:  IO3^-তে আয়োডিনের O.N হলো + 5\r\n H+ তে O.N = + 1  উভয়ই e− গ্রহণ করবে।  ANS: A AND C"
+    },
+    {
+      "question_no": 34,
+      "id": "134866",
+      "question": "20 cm^3 0.25 M H2SO4 দ্রবণকে ডেসিমোলার দ্রবণে রূপান্তরিত করতে কী পরিমাণ পানি যোগ করতে হবে?",
+      "options": [
+        "50 cm^3",
+        "30 cm^3",
+        "20 cm^3",
+        "10 cm^3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "134867",
+      "question": "0.1 M ঘনমাত্রায় Na2CO3 এর একটি জলীয় দ্রবণের ঘনমাত্রাকে ppm এককে প্রকাশ করলে এর মান কত হবে?",
+      "options": [
+        "1.06",
+        "10.6",
+        "10.6 x 10^4",
+        "1.06 x 10^4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "134868",
+      "question": "10% Na2CO3 দ্রবণ এর ঘনমাত্রা কত?",
+      "options": [
+        "0.943 M",
+        "1.06 M",
+        "1.0 M",
+        "0.934 M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "% থাকলে ঘনমাত্রা S = 10 x  X(%) / m\r\n. s =10 x 10 / 106 = 100 / 106 = 0.943 M"
+    },
+    {
+      "question_no": 37,
+      "id": "134870",
+      "question": "1.0 ppm বলতে কী বুঝায়?",
+      "options": [
+        "1.0 mg L",
+        "1.0 mg L^-2",
+        "1.0 mg^-1 L^-1",
+        "1.0 mgL^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "1 parts per million = 1 mg per Litre"
+    },
+    {
+      "question_no": 38,
+      "id": "134874",
+      "question": "Br2 +-OH → BrO^-3 এ বিক্রিয়ায় Br এর জারণসংখ্যার কী পরিবর্তন ঘটে?",
+      "options": [
+        "০ থেকে + ৫",
+        "০ থেকে −৩",
+        "+১ থেকে +৫",
+        "− ১ থেকে +৫"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :Br2 তে O.N = O\r\nBrO^-3 এ \r\nX + 3(-2) = -1\r\nX = +5"
+    },
+    {
+      "question_no": 39,
+      "id": "134875",
+      "question": "সবচেয়ে তীব্র এসিডের PKa মান কত?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা : তীব্র এসিডের PKa =1"
+    },
+    {
+      "question_no": 40,
+      "id": "134876",
+      "question": "সবচেয়ে শক্তিশালী বিজারক কোনটি?",
+      "options": [
+        "Fe",
+        "AI",
+        "Li",
+        "Zn"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: সক্রিয়তা সিরিজে যার অবস্থান উপরে সেই ধাতুটি শক্তিশালী বিজারক \r\nLi > K>Ca>Na>AI....`>Zn"
+    },
+    {
+      "question_no": 41,
+      "id": "134879",
+      "question": "NaOH +CI2 → NaCI +NaOCI +H2O বিক্রিয়াটি কোন শ্রেণিভুক্ত?",
+      "options": [
+        "ক্লোরিনেশন",
+        "সংযোজন",
+        "ডিসপ্রপোরশন",
+        "সংশ্লেষণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "NaOH +CI2 → NaCI +NaOCI +H2O এটা অসামঞ্জস্যতা বিক্রিয়া বা Disproportional Reaction"
+    },
+    {
+      "question_no": 42,
+      "id": "134880",
+      "question": "সোডিয়াম টেট্রাথায়োনেটে কেন্দ্রীয় পরমাণুর জারণ সংখ্যা কত?",
+      "options": [
+        "+2.0",
+        "+2.5",
+        "+3.5",
+        "+4.0"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা সোডিয়াম টেট্রাথায়োনেটে Na2S4O6 এর S এর Oxidation Number = +2.5"
+    },
+    {
+      "question_no": 43,
+      "id": "134884",
+      "question": "100 g দ্রাবকে 5 g Na2CO3 দ্রবীভূত করে দ্রবণ তৈরি করা হলো। দ্রবণের ঘনমাত্রা কীভাবে প্রকাশ করা যায়?",
+      "options": [
+        "%(W / V)",
+        "%(V / W)",
+        "%(W / W)",
+        "%(V / V)"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা : ঘনমাত্রা প্রকাশক = %(W / W),%(V / V),%(W / V)\r\n%(V / W) → অসম্ভব।"
+    },
+    {
+      "question_no": 44,
+      "id": "134888",
+      "question": "একটি নাইট্রোজেন অণুর ভর কত?",
+      "options": [
+        "2.32 x 10^-26 kg",
+        "2.32 x 10^-23 kg",
+        "4.65 x 10^-26 kg",
+        "4.65 x 10^-23 kg"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: 1 মোল  N2 = 28g = 6.02 x 10^23 টি অণু  \r\n1 টি অনু ভর= 28 / 6.02 x 10^23  x 10^3 = 4.65 x 10^-26"
+    },
+    {
+      "question_no": 45,
+      "id": "134890",
+      "question": "নিচের কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "H2C2O4",
+        "HCI",
+        "NaOH",
+        "KMnO4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 46,
+      "id": "134891",
+      "question": "কোনটিতে ক্লোরিনের জারণ সংখ্যা সর্বাধিক?",
+      "options": [
+        "HCIO",
+        "HCIO3",
+        "HCIO2",
+        "HCIO4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা : O.N of CI  → HCIO তে(+1)\r\nHCIO3 তে(+5)\r\nHCIO2 তে(+3)\r\nHCIO4 তে(+7)"
+    },
+    {
+      "question_no": 47,
+      "id": "134892",
+      "question": "কোনটি বিজারক?",
+      "options": [
+        "KMnO4",
+        "I2",
+        "H2S",
+        "HNO3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: যে e− গ্রহণ করে সেটা জারক আর যে e− দান করে সেটা বিজারক।"
+    },
+    {
+      "question_no": 48,
+      "id": "134894",
+      "question": "সবুজ ভিট্রিয়লের সঠিক সংকেত কোনটি?",
+      "options": [
+        "Fe (II) সালফেট ও (II) সালফাইড মিশ্রণ",
+        "CuSO4 এর সঙ্গে 5 অণু পানি",
+        "CuSO4 এর সঙ্গে 7 অণু পানি",
+        "Fe (II) সালফেট এর সঙ্গে 7 অণু পানি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা : সবুজ ভিট্রিয়াল FeSO4.7 H2O"
+    },
+    {
+      "question_no": 49,
+      "id": "134897",
+      "question": "0.001 M HCI দ্রবণের PH কত?",
+      "options": [
+        "3.1",
+        "2.97",
+        "2.07",
+        "3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা: এক ক্ষারকীয় এসিডের PH হবে দশমিকের পর মোট অঙ্ক সংখ্যার সমান। এখানে 0.001 M \r\nPH হবে 3।"
+    },
+    {
+      "question_no": 50,
+      "id": "134899",
+      "question": "10 % Na2CO3 দ্রবণের সঠিক ঘনমাত্রা কোনটি?",
+      "options": [
+        "0.00043 M",
+        "0.0943 M",
+        "0.943 M",
+        "0.431 M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "% থাকলে S=10 x X(%) / M = 10 x 10 /106 = 100/106 =0.943 M"
+    },
+    {
+      "question_no": 51,
+      "id": "134900",
+      "question": "ক্রোমেটোগ্রাফির ক্ষেত্রে কোনটি সঠিক?",
+      "options": [
+        "একাধিক সচল দশা বর্তমান থাকতে হবে",
+        "স্থির দশা থাকার প্রয়োজন নেই",
+        "২টি সচল দশা ও ৩টি স্থির দশা থাকতে হবে",
+        "কমপক্ষে একটি সচল ও একটি স্থির দশা থাকতে হবে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা : ক্রোমাটোগ্রাফিতে কমপক্ষে ১টি সচল ও ১টি স্থির দশা থাকতে হবে।"
+    },
+    {
+      "question_no": 52,
+      "id": "134902",
+      "question": "শক্তিশালী এসিড ও দুর্বল ক্ষারের মধ্যকার টাইট্রেশনে নির্দেশক হিসেবে যেটি ব্যবহৃত হয়-",
+      "options": [
+        "থাইমল Blue",
+        "ফেনলফথেলিন",
+        "মিথাইল অরেঞ্জ",
+        "ফেনলফথেলিন ও মিথাইল রেড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "134904",
+      "question": "কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "Na2CO3",
+        "KMnO4",
+        "NaOH",
+        "Na2S2O3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 54,
+      "id": "134905",
+      "question": "বিশুদ্ধ পানির PH কত?",
+      "options": [
+        "8.5",
+        "7.5",
+        "7.0",
+        "6.5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বিশুদ্ধ পানির PH = 7\r\nKw = 1 x 10^-14\r\nমোলার ঘনমাত্রা= 55.5 M"
+    },
+    {
+      "question_no": 55,
+      "id": "134906",
+      "question": "কোনটিকে milk of Lime বলে?",
+      "options": [
+        "NaOH.CaO",
+        "Ca(OH)2",
+        "CaCO3",
+        "CaO"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: চুনাপাথর = CaCO3\r\nmilk of Lime = Ca(OH)2\r\nচুন = CaO"
+    },
+    {
+      "question_no": 56,
+      "id": "134908",
+      "question": "5 % (W / V ) KOH দ্রবণের ঘনমাত্রা কত?",
+      "options": [
+        "1.25 M",
+        "0.983 M",
+        "0.893 M",
+        "0.694 M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "S = 10 x X / M = 5 x 10 / (39+17) = 50/56 = 0.893 M"
+    },
+    {
+      "question_no": 57,
+      "id": "134912",
+      "question": "কোনটি সেকেন্ডারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "KMnO4",
+        "K2Cr2O7",
+        "C2H2O4",
+        "Na2C2O4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 58,
+      "id": "134916",
+      "question": "5g CO2 এ অণুর সংখ্যা কত?",
+      "options": [
+        "5.85 x 10^21",
+        "6.84 x 10^22",
+        "7.02 x 10^23",
+        "7.17 x 10^23"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: 1 মোল CO2 = 44 g = 6.02 x 10^23 টি অণু \r\n5 g CO2 =( 6.02 x 10^23 x 5 / 44)  টি অণু \r\n=6.84 x 10^22 টি অণু"
+    },
+    {
+      "question_no": 59,
+      "id": "134918",
+      "question": "প্রমাণ অবস্থায় 1.8 g পানিতে অক্সিজেন পরমাণুর সংখ্যা কত?",
+      "options": [
+        "1.2046 x 10^22",
+        "1.2046 x 10^23",
+        "6.023 x 10^22",
+        "6.023 x 10^23"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "1 মোল H2O = 18g = 6.02 x10^23 টি অক্সিজেন পরমাণু\r\n> 1.8 g পানিতে অক্সিজেন পরমাণু = =(6.02 x 10^23 x 1.8 /18) =6.023 x 10^22 টি"
+    },
+    {
+      "question_no": 60,
+      "id": "134919",
+      "question": "নিচের কোনটির প্রমাণ দ্রবণের ঘনমাত্রা সময়ের সাথে পরিবর্তিত হয়?",
+      "options": [
+        "K2Cr2O7",
+        "KMnO4",
+        "Na2C2O4",
+        "Na2CO3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: সেকেন্ডারি স্ট্যান্ডার্ড পদার্থের ঘনমাত্রা সময়ের সাথে পরিবর্তিত হয়। KMnO4একটা সেকেন্ডারি স্ট্যান্ডার্ড পদার্থ।"
+    },
+    {
+      "question_no": 61,
+      "id": "134920",
+      "question": "অম্লীয় দ্রবণে K2Cr2O7 বিক্রিয়াকালে কয়টি ইলেকট্রন গ্রহণ করে?",
+      "options": [
+        "৬টি",
+        "৫টি",
+        "৩টি",
+        "১টি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: অম্লীয় দ্রবণে K2Cr2O7 বা Cr2O7− এ Cr এর জারণ সংখ্যা (+ ৬ x ২) তে 2 Cr^3+ এ পরিণত হতে ৬টি e− গ্রহণ করে।"
+    },
+    {
+      "question_no": 62,
+      "id": "134921",
+      "question": "0.025 M KOH এর 1.0 L দ্রবণে KOH এর ভর কত থাকে?",
+      "options": [
+        "1.0 g",
+        "1.4 g",
+        "10.0 g",
+        "14.0 g"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "w =smv =0.025 x (39+1+16) x 1 = .025 x 56 =1.4 g"
+    },
+    {
+      "question_no": 63,
+      "id": "134922",
+      "question": "STP তে 1.0 L গ্যাসের ভর 1.43 g হলে গ্যাসটি কী?",
+      "options": [
+        "H2",
+        "O2",
+        "N2",
+        "CI2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা :1 মোল গ্যাস = 22.4 L\r\n দেওয়া আছে, 1 Lএর ভর 1.43 g\r\n 22.4 L এর ভর = 1.43 x 22.4 = 32.03 g  \r\n গ্যাসটি O2 (32g)"
+    },
+    {
+      "question_no": 64,
+      "id": "134923",
+      "question": "100 mL 0.15 M Na2S2O3 দ্রবণের ppm ঘনমাত্রা কত?",
+      "options": [
+        "2.37",
+        "23.7",
+        "23700",
+        "237000"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ppm = 0.15 x 1.58 x 1000 = 23700"
+    },
+    {
+      "question_no": 65,
+      "id": "134924",
+      "question": "0.6 g পানিতে অণুর সংখ্যা কত?",
+      "options": [
+        "2.01 x 10^22",
+        "3.01 x 10^22",
+        "2.01 x 10^23",
+        "6.02 x 10^23"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "1 মোল H2O = 18g = 6.02 x10^23 টি অক্সিজেন পরমাণু\r\n> 0.6 g পানিতে অণুর সংখ্যা  = =(6.02 x 10^23 x 0.6 /18) =2.01 x 10^22 টি"
+    },
+    {
+      "question_no": 66,
+      "id": "134925",
+      "question": "মিথাইল অরেঞ্জ অম্লীয় দ্রবণে কোন বর্ণ দেয়?",
+      "options": [
+        "লাল",
+        "কমলা",
+        "হলুদ",
+        "গোলাপি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা: অম্লীয় দ্রবণে মিথাইল অরেঞ্জ গোলাপি বর্ণ দেয়।"
+    },
+    {
+      "question_no": 67,
+      "id": "134926",
+      "question": "কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "FeSO4",
+        "NaOH",
+        "KMnO4",
+        "K2Cr2O7"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 68,
+      "id": "134927",
+      "question": "10 ML 0.5 M Na2CO3 দ্রবণ প্রশমিত করতে 12.6 mL H2SO4 দ্রবণ প্রয়োজন। এসিড দ্রবণটির ঘনমাত্রা কত?",
+      "options": [
+        "0.397 M",
+        "0.387 M",
+        "0.358 M",
+        "0.333 M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :জানা আছে \r\naS1V1 = bS2V2  [ S2=এসিডের ঘনমাত্রা  ,V2=এসিডের আয়তন  ]\r\n> S2 = aS1V1 / V2 = (1 x 10 x .5 / 12.50 = 0.396 M"
+    },
+    {
+      "question_no": 69,
+      "id": "134928",
+      "question": "গ্যাস ক্রোমাটোগ্রাফির বাহক গ্যাস হিসাবে কাজ করে কোনটি?",
+      "options": [
+        "O2",
+        "CI2",
+        "NH3",
+        "N2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা :গ্যাস ক্রোমাটোগ্রাফিতে (GC) বাহক গ্যাস হিসাবে নিষ্ক্রিয় He এবং ক্রিয়াহীন N2 ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 70,
+      "id": "134929",
+      "question": "0.01 250 mL H2SO4 দ্রবণের ঘনমাত্রা ppm এককে কত?",
+      "options": [
+        "9.8 ppm",
+        "98 ppm",
+        "2500 ppm",
+        "980 ppm"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ppm = CM x 10^3 =0.01 x 98 x 10^3 =980"
+    },
+    {
+      "question_no": 71,
+      "id": "134931",
+      "question": "সেকেন্ডারি স্ট্যান্ডার্ড পদার্থ কোনটি?",
+      "options": [
+        "H2C2O4.2H2O",
+        "Na2S2O3.5H2O",
+        "Na2C2O4.2H2O",
+        "K2Cr2O7"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 72,
+      "id": "134949",
+      "question": "একটি অক্সিজেন পরমাণুর ভর কত?",
+      "options": [
+        "2.66x 10^-23g",
+        "3.76x 10^-22g",
+        "1.33x 10^-23g",
+        "1.88x 10^-23g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :জানা আছে 6.02 x10^23 টি অক্সিজেন পরমাণুর ভর 16 g\r\n ১ টি অক্সিজেন পরমাণুর ভর = ( 16 / 6.02 x10^23 )g = 2.66x 10^-23g"
+    },
+    {
+      "question_no": 73,
+      "id": "134950",
+      "question": "100 mL ডেসিমোলার দ্রবণে কত গ্রাম H2SO4 দ্রবীভূত থাকে?",
+      "options": [
+        "98 g",
+        "49 g",
+        "4.9 g",
+        "0.98 g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "W =smv  [ H2SO4 এর আণবিক ভর  =98 ,V = 100 mL =0.1 L]\r\n= 0.1 x 9.8 x 0.1 =.98 g"
+    },
+    {
+      "question_no": 74,
+      "id": "134951",
+      "question": "কোনটি জারক ও বিজারক উভয়রূপে ক্রিয়া করে?",
+      "options": [
+        "Cu2^+",
+        "Sn2^+",
+        "Ag^+",
+        "Fe^3+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sn2^+,Fe^3+ জারক বিজারক উভয় হিসাবে কাজ করে।"
+    },
+    {
+      "question_no": 75,
+      "id": "134952",
+      "question": "(SO4)^2- - আয়নে সালফারের জারণ মান কত?",
+      "options": [
+        "+2",
+        "+2.3",
+        "+2.5",
+        "+6"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা : (SO4)^2-  − আয়নে সালফারের জারণ সংখ্যা  \r\nX +4(-2) = -2\r\n বা, X = -2+8 =+6"
+    },
+    {
+      "question_no": 76,
+      "id": "134953",
+      "question": "মিথাইল রেড ক্ষারীয় মাধ্যমে কোন বর্ণ প্রদর্শন করে?",
+      "options": [
+        "বেগুনি",
+        "হলুদ",
+        "নীল",
+        "লাল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা :মিথাইল রেড ক্ষারীয় মাধ্যমে → হলুদ  \r\n     মিথাইল রেড অম্লীয় মাধ্যমে → লাল"
+    },
+    {
+      "question_no": 77,
+      "id": "134954",
+      "question": "কোনটি প্রমাণ দ্রবণ?",
+      "options": [
+        "0.1 g Na2CO3 দ্রবণ",
+        "0.1 M Na2CO3 দ্রবণ",
+        "0.1 L Na2CO3 দ্রবণ",
+        "0.1 mL Na2CO3 দ্রবণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা : ঘনমাত্রার একক mol /L বা M\r\n জানা ঘনমাত্রার দ্রবণকে প্রমাণ দ্রবণ বলে।"
+    },
+    {
+      "question_no": 78,
+      "id": "134955",
+      "question": "অম্লীয় মাধ্যমে KMnO4 কতটি ইলেকট্রন গ্রহণ করে?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: অম্লীয় মাধ্যমে  KMnO4 5 টি e− গ্রহণ করে Mn^2+  \r\n এবং ক্ষারীয় মাধ্যমে  KMnO4 3টি e− গ্রহণ করে MnO2 তে পরিণত হয়।"
+    },
+    {
+      "question_no": 79,
+      "id": "134956",
+      "question": "কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "Na2CO3",
+        "KMnO4",
+        "NaOH",
+        "Na2S2O3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 80,
+      "id": "134957",
+      "question": "250-mL সেন্টিমোলার দ্রবণ প্রস্তুতিতে কত গ্রাম অক্সালিক এসিড প্রয়োজন হবে?",
+      "options": [
+        "0.225",
+        "0.315",
+        "11.250",
+        "15.75"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :অক্সালিক এসিড (COOH)2 = 90 g\r\n>W = 90 x 0.25 x 0.01 =90 x .25 x .01 = 0.225 g"
+    },
+    {
+      "question_no": 81,
+      "id": "134958",
+      "question": "নিচের কোনটি জারক ও বিজারক উভয় হিসেবে কাজ করে?",
+      "options": [
+        "HNO3",
+        "H2S",
+        "CI2",
+        "SO2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা :জারক বিজারক উভয়ই O2, SO2, FeO, H2O2"
+    },
+    {
+      "question_no": 82,
+      "id": "134959",
+      "question": "মিথাইল রেড এর বর্ণ পরিবর্তনের PH সীমা-",
+      "options": [
+        "10-4",
+        "10-8",
+        "4-2 - 6-3",
+        "1-3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা :মিথাইল রেড এর বর্ণ পরিবর্তনের সীমা 4.2 → 6.3\r\n মিথাইল অরেঞ্জের বর্ণ পরিবর্তনের সীমা 3.1→ 4.4"
+    },
+    {
+      "question_no": 83,
+      "id": "134960",
+      "question": "K2MnO4 এ কেন্দ্রীয় পরমাণুর জারণ মান কত?",
+      "options": [
+        "+5",
+        "+6",
+        "+7",
+        "+4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা:   K2MnO4 এর কেন্দ্রীয় মৌলের জারণ সংখ্যা \r\n(+10 x 2 + X +(-2) x 4 = 0 \r\n> X = 8-2 = +6"
+    },
+    {
+      "question_no": 84,
+      "id": "134961",
+      "question": "মিথাইল অরেঞ্জ-এর বর্ণ পরিবর্তনের PH পরিসর হলো-",
+      "options": [
+        "6.8 - 8.4",
+        "4.2 - 6.3",
+        "3.8 - 5.4",
+        "3.1 -  4.4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা :মিথাইল রেড এর বর্ণ পরিবর্তনের সীমা 4.2 → 6.3\r\n মিথাইল অরেঞ্জের বর্ণ পরিবর্তনের সীমা 3.1→ 4.4"
+    },
+    {
+      "question_no": 85,
+      "id": "134962",
+      "question": "অম্লীয় মাধ্যমে 1 / 2 মোল KMnO4কত মোল ফেরাস সালফেটকে জারিত করতে পারবে?",
+      "options": [
+        "10",
+        "6",
+        "5",
+        "2.5"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অম্লীয় মাধ্যমে 1 মোল KMnO4 ≡ 5 মোল FeSO4\r\n> 1 / 2 mol KMnO4 = 5 / 2\r\n> 2.5 মোল FeSO4"
+    },
+    {
+      "question_no": 86,
+      "id": "134963",
+      "question": "10 % মিথানলের ঘনমাত্রা মোলারিটি এককে কত?",
+      "options": [
+        "3.125",
+        "3.51",
+        "4.43",
+        "5.61"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "10 % CH3OH ঘনমাত্রা  \r\nS = 10 x 10 / 32 = 3.125"
+    },
+    {
+      "question_no": 87,
+      "id": "134964",
+      "question": "কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "H2SO4",
+        "HCI",
+        "KMnO4",
+        "K2Cr2O7"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 88,
+      "id": "134965",
+      "question": "0.15 M HCL দ্রবণের ঘনমাত্রা PPM এককে কত?",
+      "options": [
+        "3.65",
+        "1500",
+        "3650",
+        "5475"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ppm = M x s x 1000 = 36.5 x 10.5 x 1000 = 5475 mg/L"
+    },
+    {
+      "question_no": 89,
+      "id": "134966",
+      "question": "CH2CI2 যৌগ C পরমাণুর জারণ সংখ্যা কত?",
+      "options": [
+        "4",
+        "+2",
+        "-2",
+        "0"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "CH2CI2 এ C এর জারণ সংখ্যা \r\nX+2(-1)+2(-10 =0\r\n>X+2-2 =0\r\nX = 0"
+    },
+    {
+      "question_no": 90,
+      "id": "134967",
+      "question": "কোনটি সেকেন্ডারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "KMnO4",
+        "K2Cr2O7",
+        "Na2CO3",
+        "Na2C2O4.2H2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 91,
+      "id": "134968",
+      "question": "কোনটি তাপমাত্রার উপর নির্ভরশীল?",
+      "options": [
+        "মোলালিটি",
+        "মোল ভগ্নাংশ",
+        "শতকরা ভর ( W / W )",
+        "মোলারিটি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা: মোলারিটি এর একক সmol / L [তাপমাত্রার উপর আয়তন নির্ভরশীল]  \r\n মোলালিটি এর একক mol / kg"
+    },
+    {
+      "question_no": 92,
+      "id": "134969",
+      "question": "2Na2S2O3 + I2 → NaS4O6 +2NaI নিম্নের বিক্রিয়ায় কতটি ইলেকট্রন আদান প্রদান হয়?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 93,
+      "id": "134970",
+      "question": "Na2S2O3 + I2 → NaS4O6 +NaI ;এই বিক্রিয়ায় কোনটি দর্শক আয়ন?",
+      "options": [
+        "Na^+",
+        "I2",
+        "I^-",
+        "S2O3^-2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: বিক্রিয়ায় যে আয়নটির জারণ সংখ্যার হ্রাস বৃদ্ধি হয় না সেটা দর্শক আয়ন হিসাবে কাজ করে। এখানে বিক্রিয়ক এবং \r\nউৎপাদে Na এর জারণ সংখ্যা (+1) এর পরিবর্তন হয়নি।"
+    },
+    {
+      "question_no": 94,
+      "id": "134971",
+      "question": "14 g N2 গ্যাসে কতটি অণু বিদ্যমান?",
+      "options": [
+        "3.011 x 10^-23",
+        "3.011 x 10^23",
+        "6.023 x 10^-23",
+        "6.023 x 10^23"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "1 মোল N2 = 28g = 6.02 x10^23 টি  N2 অণু \r\n> 14 g এ ( 6.02 x10^23 / 2) = 3.011 x 10^23 টি   অণু"
+    },
+    {
+      "question_no": 95,
+      "id": "134972",
+      "question": "Na2S4O6 যৌগটির কেন্দ্রীয় পরমাণুর জারণ সংখ্যা কত?",
+      "options": [
+        "-2",
+        "-2.5",
+        "+2",
+        "+2.5"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Na2S4O6 যৌগে S এর O.N\r\n> 2 x (+1) +4X +6(-2) =0\r\n> 2+4X-12 = 0\r\n> X =+10 / 4 =2.5"
+    },
+    {
+      "question_no": 96,
+      "id": "134973",
+      "question": "50 mL 0.5 M NaOH দ্রবণকে ডেসিমোলার দ্রবণে পরিণত করতে কত mL পানি যোগ করতে হবে?",
+      "options": [
+        "250 mL",
+        "200 mL",
+        "150 mL",
+        "100 mL"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "S1V1 = S2V2\r\n> V2 = S1V1 / S2 = (50 x 0.5 / .1 )= 250 ml\r\nপানি যোগ করতে হবে (v2-v1) = (250-50) =200 ml"
+    },
+    {
+      "question_no": 97,
+      "id": "134974",
+      "question": "বিক্রিয়াকালে অম্লীয় KMnO4 এর কেন্দ্রীয় পরমাণু কয়টি ইলেকট্রন গ্রহণ করে?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা :অম্লীয় মাধ্যমে KMnO4 5টি e− গ্রহণ করে Mn^2+  \r\n এবং ক্ষারীয় মাধ্যমে  KMnO4  3টি e− গ্রহণ করে Mno2 তে পরিণত হয়"
+    },
+    {
+      "question_no": 98,
+      "id": "134975",
+      "question": "কোনটি জারণ-বিজারণ বিক্রিয়া?",
+      "options": [
+        "HCl(aq) + NaOH(aq) → NaCl(aq) + H2O(l)",
+        "Na2SO4(aq) + BaCl2(aq) → BaSO4(s) + 2NaCl(aq)",
+        "Zn(s) + H2SO4(aq) → ZnSO4(aq) + H2(g)",
+        "AlCl3(s) + H2O(l) → Al(OH)3(s) + 3HCl(aq)"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: কারণ Zn হতে Zn²⁺ এবং H⁺ হতে উৎপাদে H₂ এ পরিণত হয়েছে।"
+    },
+    {
+      "question_no": 99,
+      "id": "134976",
+      "question": "5% Na₂CO₃ এর মোলারিটি কত?",
+      "options": [
+        "0.98 M",
+        "0.89 M",
+        "0.79 M",
+        "0.471 M"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "5% Na₂CO₃ এর ঘনমাত্রা S = (10 × 5) / 106 = 0.4716 M"
+    },
+    {
+      "question_no": 100,
+      "id": "134977",
+      "question": "সমআয়তন 1.0m KOH এবং 1.0 m H2SO4 দ্রবণের প্রকৃতি কী হবে?",
+      "options": [
+        "ক্ষারীয়",
+        "অম্লীয়",
+        "উভধর্মী",
+        "নিরপেক্ষ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা :কারণ 2 মোল KOH  ≡ 1 মোল H2SO4 \r\nউভয়ের 1M ঘনমাত্রায় দ্রবণটা অম্লীয় হবে।"
+    },
+    {
+      "question_no": 101,
+      "id": "134978",
+      "question": "0.25 M H2SO4 এর ঘনমাত্রা ppm এককে কত হবে?",
+      "options": [
+        "24600",
+        "24500",
+        "24400",
+        "24300"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা :0.25 H2SO4 এর ঘনমাত্রা \r\nppm = m x s x1000 = 98 x 0.25 x 1000 = 24500 mg/L"
+    },
+    {
+      "question_no": 102,
+      "id": "134979",
+      "question": "500 mL 0.05 M H2SO4 দ্রবণের ঘনমাত্রা ppm এককে কত?",
+      "options": [
+        "2450 ppm",
+        "245000 ppm",
+        "490000 ppm",
+        "4900 ppm"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ppm = m x s x 1000 = 98 x 0.05 x 1000 = 4900 mg/L OR ppm"
+    },
+    {
+      "question_no": 103,
+      "id": "134980",
+      "question": "কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "KMnO4",
+        "K2Cr2O7",
+        "NaOH",
+        "H2SO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3, 5H2O"
+    },
+    {
+      "question_no": 104,
+      "id": "134981",
+      "question": "মৃদু অম্ল ও তীব্র ক্ষার টাইট্রেশনে কোন নির্দেশক উপযোগী?",
+      "options": [
+        "মিথাইল রেড",
+        "মিথাইল অরেঞ্জ",
+        "ফেনলফথ্যালিন",
+        "মিথাইল BLUE (অম্লীয়)"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: মৃদু অম্ল ও তীব্র ক্ষার ট্রাইট্রেশনে → ফেনলফথ্যালিন \r\n মৃদু অম্ল ও মৃদু ক্ষারের         → কোনো নির্দেশক নাই।"
+    },
+    {
+      "question_no": 105,
+      "id": "134982",
+      "question": "500 mL ডেসিমোলার দ্রবণে কত গ্রাম Na2CO3 দ্রবীভূত থাকবে?",
+      "options": [
+        "3.3 g",
+        "5.3 g",
+        "4.3 g",
+        "6.3 g"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "w = smv = .5 x .1 x 106 = 5.3 g"
+    },
+    {
+      "question_no": 106,
+      "id": "134983",
+      "question": "Na2S2O3 + I2 → Na2S4O6 +NAI বিক্রিয়ায় কোনটি জারক?",
+      "options": [
+        "Na2S2O3",
+        "I2",
+        "Na2S4O6",
+        "NAI"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: বিক্রিয়ায় I2  ২টি e− গ্রহণ করে 2I− এ পরিণত হয়েছে। অর্থাৎ I2 জারক।"
+    },
+    {
+      "question_no": 107,
+      "id": "134984",
+      "question": "টাইট্রেশন বিক্রিয়ায় কোন যৌগ দিয়ে প্রমাণ দ্রবণ তৈরি করা যায় না?",
+      "options": [
+        "KMnO4",
+        "Na2CO3",
+        "K2Cr2O7",
+        "H2C2O4.2H2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা :সেকেন্ডারি পদার্থ দিয়ে প্রমাণ দ্রবণ তৈরি করা যায় না।"
+    },
+    {
+      "question_no": 108,
+      "id": "134985",
+      "question": "KMnO3 এ Mn এর জারণ সংখ্যা কত?",
+      "options": [
+        "+4",
+        "+5",
+        "+6",
+        "+7"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "KMnO3 এ Mn এর জারণ সংখ্যা\r\n(+1) + X + 3(-2) =0\r\n> 1+X-6 =0\r\nX= +5"
+    },
+    {
+      "question_no": 109,
+      "id": "134986",
+      "question": "নিচের কোনটি 'oxidation-reduction reaction'?",
+      "options": [
+        "HF + KOH → KF + H₂O",
+        "2H₂S + SO₂ → 2H₂O + 3S",
+        "CaCO₃ → CaO + CO₂",
+        "NaCl + AgNO₃ → NaNO₃ + AgCl"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা : এখানে বিক্রিয়াকে S (+২ এবং +৪) হতে উৎপাদে S(০) তে oxidation number এর পরিবর্তন হয়েছে।"
+    },
+    {
+      "question_no": 110,
+      "id": "134987",
+      "question": "5% Sodium carbonate soluation এর মোলারিটি কত?",
+      "options": [
+        "0.74 M",
+        "0.98 M",
+        "0.47 M",
+        "0.88 M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "5% NaCO3 এর ঘনমাত্রা S= (10 x 5 / 106 )= 0.4716 M"
+    },
+    {
+      "question_no": 111,
+      "id": "134988",
+      "question": "নিচের কোনটি ' gaseous oxidizing agent '?",
+      "options": [
+        "H2SO4",
+        "KMnO4",
+        "O3",
+        "H2O2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "gaseous oxidizing agent >O3"
+    },
+    {
+      "question_no": 112,
+      "id": "134989",
+      "question": "একজন রোগীর রক্তে গ্লুকোজের পরিমাণ 190 mg/dl হলে, mmol/Lএককে এর মান কত?",
+      "options": [
+        "9.56 mmol/L",
+        "10.56 mmol/L",
+        "8.56 mmol/L",
+        "12.56 mmol/L"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 113,
+      "id": "134990",
+      "question": "কোনটি সত্য নয়?",
+      "options": [
+        "লিটমাস অম্লীয় মাধ্যমে - লাল বর্ণ ধারণ করে",
+        "মিথাইল রেড অম্লীয় মাধ্যমে - লাল বর্ণ ধারণ করে",
+        "ফেনল রেড অম্লীয় মাধ্যমে - লাল বর্ণ ধারণ করে",
+        "থাইমল blue অম্লীয় মাধ্যমে - লাল বর্ণ ধারণ করে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: লিটমাস অম্লীয় দ্রবণে = লাল  \r\n  ক্ষারীয় দ্রবণে = নীল  \r\n ফেনল রেড অম্লীয় দ্রবণে = হলুদ \r\n ফেনল রেড ক্ষারীয় দ্রবণে = লাল।"
+    },
+    {
+      "question_no": 114,
+      "id": "134991",
+      "question": "একটি ডেসিমোলার দ্রবণের ঘনমাত্রা হবে-",
+      "options": [
+        "0.1 M",
+        "0.5 M",
+        "0.001 M",
+        "1 M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ডেসিমোলার = 0.1 M"
+    },
+    {
+      "question_no": 115,
+      "id": "134992",
+      "question": "10% NaCI দ্রবণের মোলার ঘনমাত্রা হবে -",
+      "options": [
+        "0.1709 mol/L",
+        "1.709 mol/L",
+        "17.09 mol/L",
+        "170.9 mol/L"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "10 % NaCI এর S = (10 x 10 / 58.5) = 1.709 M"
+    },
+    {
+      "question_no": 116,
+      "id": "134993",
+      "question": "মৃদু এসিড ও সবল ক্ষারক টাইট্রেশনে ব্যবহৃত উপযোগী নির্দেশক নিম্নের কোনটি?",
+      "options": [
+        "ব্রোমোক্রিসল গ্রীন",
+        "ফেনফথ্যালিন",
+        "মিথাইল রেড",
+        "মিথাইল অরেঞ্জ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: মৃদু এসিড ও সবল ক্ষারক টাইট্রেশনে উপযুক্ত নির্দেশক = ফেনলফথ্যালিন।"
+    },
+    {
+      "question_no": 117,
+      "id": "134994",
+      "question": "0.98 g H2SO4 এসিড ব্যবহার করে 1.0 L জলীয় দ্রবণ তৈরি করা হলো। দ্রবণটির ঘনমাত্রা কত?",
+      "options": [
+        "0.1 m",
+        "0.1 M",
+        "0.01 M",
+        "0.01 m"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "1 mol H2SO4 = 98 g \r\n> 98 H2SO4 = 0.1 mol/L = 0.1 M"
+    },
+    {
+      "question_no": 118,
+      "id": "134995",
+      "question": "BaMnF4 এবং Li2MgFeF6 যৌগদ্বয়ে Mn ও Fe এর জারণ সংখ্যার ক্রম কোনটি?",
+      "options": [
+        "+2,+2",
+        "+5,+2",
+        "+4,+3",
+        "+5,+3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "BaMnF4 এ Mn এর O.N > (+2)+X+4(-1) =0\r\n> X+2-4 =0\r\nX= =2\r\n Li2MgFeF6 যৌগ এ Fe এর O.N  .(+1) x 2+(+2)+X+6(-10=0\r\n+4 + X-6 =0\r\n> X =+6-4 = +2"
+    },
+    {
+      "question_no": 119,
+      "id": "134996",
+      "question": "নিচের কোনটিতে বেশি পরমাণু আছে?",
+      "options": [
+        "1.10 g H atom",
+        "14.7 g Cr",
+        "2.0 g He",
+        "7.0 g N atom"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা : 1 মোল  H atom = 1.00 g\r\n   যেহেতু 1.10 g H atom , তাই এটার মোল সংখ্যা বাকি গুলোর মোল সংখ্যা অপেক্ষা বেশি।"
+    },
+    {
+      "question_no": 120,
+      "id": "134997",
+      "question": "0.125 M HCI এসিডের 500 ml দ্রবণকে 0.1 M লঘু দ্রবণে পরিণত করতে কতটুকু পানি যোগ করতে হবে?",
+      "options": [
+        "100 mL",
+        "150 mL",
+        "125 mL",
+        "75 mL"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "S1 V1 = S2 V2 \r\n>V2 = (0.125 x .500 / 0.1 0 = 625 ml\r\nঅতিরিক্ত পানি যোগ (625 -500) = 125 ml"
+    },
+    {
+      "question_no": 121,
+      "id": "134998",
+      "question": "2KNO₃ → 2KNO₂ + O₂ : এ বিক্রিয়াটিতে জারিত ও বিজারিত মৌল যথাক্রমে কী?",
+      "options": [
+        "N, O",
+        "O, N",
+        "K, O",
+        "N, K"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা: এখানে O এর জারণ হয় কারণ এটি e⁻ ত্যাগ করেছে এবং N বিজারিত (+5) হতে উৎপাদে (+3) এ পরিণত হয়েছে অর্থাৎ N এর বিজারণ তথা বিজারিত হয়েছে।"
+    },
+    {
+      "question_no": 122,
+      "id": "134999",
+      "question": "নিম্নলিখিত জারণ-বিজারণ বিক্রিয়াটির উৎপাদসমূহ কী? K₂Cr₂O₇(aq) + H₂SO₄ (aq) + FeSO₄ (aq) → উৎপাদসমূহ",
+      "options": [
+        "K₂SO₄, Fe₂(SO₄)₃, H₂O",
+        "K₂SO₄, Cr₂(SO₄)₃, H₂O",
+        "Cr₂(SO₄)₃, Fe₂(SO₄)₃, H₂O",
+        "K₂SO₄, Cr₂(SO₄)₃, Fe₂(SO₄)₃, H₂O"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা: 1 K₂Cr₂O₇ + 7 H₂SO₄ + 6FeSO₄ → K₂SO₄ + Cr₂(SO₄)₃ + 3Fe₂(SO₄)₃ + 7H₂O সমতাকৃত বিক্রিয়া।"
+    },
+    {
+      "question_no": 123,
+      "id": "135000",
+      "question": "2.2 g C₃H₈ কে পূর্ণ দহন করে CO₂ ও H₂O তৈরি করতে কত মোল O₂ প্রয়োজন?",
+      "options": [
+        "0.05",
+        "0.15",
+        "0.25",
+        "0.50"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O\r\n44g + 5 × 32\r\nপূর্ণ দহনে, 44g C₃H₈ বিক্রিয়া করে 5 মোল O₂ এর সাথে\r\n∴ 2.2g C₃H₈ \" \" \" = {5 x 2.2 / 44} = 0.25 মোল O₂ এর সাথে।"
+    },
+    {
+      "question_no": 124,
+      "id": "135001",
+      "question": "প্রমাণ তাপমাত্রা ও চাপে (STP) কোন গ্যাসের 1.0 গ্রাম সবচেয়ে বেশি আয়তন দখল করে?",
+      "options": [
+        "N2",
+        "H2",
+        "O2",
+        "Ar"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা : V ∝ n আছে   এখানে ১ম অর্থাৎ হাইড্রোজেনের 1 মোলকে বুঝায়।"
+    },
+    {
+      "question_no": 125,
+      "id": "135002",
+      "question": "5 L 0.1 M Na2CO3 দ্রবণ তৈরিতে কী পরিমাণ Na2CO3 দরকার?",
+      "options": [
+        "106 g",
+        "53 g",
+        "10.6 g",
+        "5.3 g"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা :  w = smv \r\n> w = 0.1 x 106 x 5 = 53 g"
+    },
+    {
+      "question_no": 126,
+      "id": "135003",
+      "question": "10 mL 0.1 M HCI দ্রবণে 5 mL 0.1 M NaOH যোগ করলে মিশ্র দ্রবণে কোন আয়নগুলো থাকবে?",
+      "options": [
+        "OH^+, CI^-, Na^+",
+        "OH^-, CI^-, H^+",
+        "H^+, CI^-, Na^+",
+        "H^+, Na^+, CI^-, OH^-"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা : যেহেতু 1 মোল NaOH বিক্রিয়া করে 1 মোল HCI এর সাথে।"
+    },
+    {
+      "question_no": 127,
+      "id": "135004",
+      "question": "বিশুদ্ধ পানির ঘনমাত্রা (mol L^-1) হলো কোনটি?",
+      "options": [
+        "35.5",
+        "1.0",
+        "55.5",
+        "18.0"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: বিশুদ্ধ পানির, ঘনমাত্রা = 55.5 M\r\n আয়নিক গুণফল = 10^-14\r\npH =7 \r\nNaCI>KCI>RbCI>NaBr"
+    },
+    {
+      "question_no": 128,
+      "id": "135005",
+      "question": "কোন বিক্রিয়াটি জারণ-বিজারণ নয়?",
+      "options": [
+        "2H2O2 → 2H2O +O2",
+        "CO2 + C → 2CO",
+        "CaCO3 → CaO + CO2",
+        "Fe2O3 + 3CO → 2Fe + 3CO2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: এখানে জারণ সংখ্যার কোন পরিবর্তন হয়নি।"
+    },
+    {
+      "question_no": 129,
+      "id": "135006",
+      "question": "কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "Na2C2O4.2H2O",
+        "Na2S2O3.5H2O",
+        "NaOH",
+        "KMnO4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: প্রাইমারি স্ট্যান্ডার্ড পদার্থ = Na2CO3,H2C2O4.2H2O\r\n                                                     Na2C2O4.2H2O.K2Cr2O7\r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ = NaOH,HCI,H2SO4,KMnO4,\r\n                                             Na2S2O3.5H2O"
+    },
+    {
+      "question_no": 130,
+      "id": "135007",
+      "question": "কোনটিতে Cl এর জারণ সংখ্যা সর্বাধিক?",
+      "options": [
+        "HCIO",
+        "HCIO2",
+        "HCIO3",
+        "HCIO4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "0.N of Cl → HCIO তে (+1)\r\nHCIO3 তে (+5)\r\nHCIO2তে (+3)\r\nHCIO4 তে (+7)"
+    },
+    {
+      "question_no": 131,
+      "id": "135008",
+      "question": "N এর সর্বোচ্চ জারণ অবস্থা নিচের কোনটিতে?",
+      "options": [
+        "N2O5",
+        "[NH_4]^+",
+        "NO2",
+        "NO_2^-"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "N2O5 N = X x 2 +5(-2) = 0\r\n> 2X = 10 \r\nX = 10/2 = 5"
+    },
+    {
+      "question_no": 132,
+      "id": "135009",
+      "question": "থায়োসালফেট আয়ন ও আয়োডিনের রিডক্স বিক্রিয়ায় নিচের কোনটি উৎপন্ন হয়?",
+      "options": [
+        "(SO_3)^2-",
+        "(S4O_6)^2-",
+        "(SO_2)^2-",
+        "(S2O_8)^2-"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "(S2O_3)^2- +I_2  ⎯→ (S4O_6)^2- + 2I-"
+    },
+    {
+      "question_no": 133,
+      "id": "135010",
+      "question": "500 mL ডেসি মোলার দ্রবণে কত গ্রাম H₂SO₄ থাকে?",
+      "options": [
+        "4.9",
+        "144.4",
+        "5.8",
+        "6.9"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: w = smv\r\nw = 0.1 × 0.5L × 98g/mol = 4.9g"
+    },
+    {
+      "question_no": 134,
+      "id": "135011",
+      "question": "0.44 g CO₂ এর অণু সংখ্যা কত?",
+      "options": [
+        "6.023 × 10²⁰",
+        "0.6023 × 10²³",
+        "6.023 × 10²⁴",
+        "6.023 × 10²¹"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্যাখ্যা: 1 mol CO₂ = 44g\r\n∴ 0.44g CO₂ = 0.01 mol = 6.02 × 10²¹ টি অণু।"
+    },
+    {
+      "question_no": 135,
+      "id": "135012",
+      "question": "হাইড্রোজেন পারঅক্সাইডের শতকরা সংযুক্তি কত?",
+      "options": [
+        "H = 5.93%, O = 94.07%",
+        "H = 59%, O = 41.0%",
+        "H = 53.0%, O = 47.0%",
+        "H = 5.50%, O = 94.5%"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: হাইড্রোজেন পারঅক্সাইডের সংকেত = H₂O₂\r\nH এর পরিমাণ = 2g\r\nO এর পরিমাণ = 32g\r\n∴ H এর  সংযুক্তি  = {2 x 100 / 34} = 5.9%"
+    },
+    {
+      "question_no": 136,
+      "id": "135013",
+      "question": "ক্ষারীয় দ্রবণে KMnO₄ কয়টি ইলেকট্রন গ্রহণ করে?",
+      "options": [
+        "1",
+        "3",
+        "5",
+        "7"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাখ্যা :  অম্লীয় মাধ্যমে KMnO₄ এর  Mn⁷⁺ বিক্রিয়া শেষে 5 টি e⁻ গ্রহণ করে Mn²⁺ এ পরিণত হয় এবং ক্ষারীয় KMnO₄ এ Mn⁷⁺ বিক্রিয়া শেষে 3 টি e⁻ গ্রহণ করে MnO₂ তে পরিণত হয়।"
+    },
+    {
+      "question_no": 137,
+      "id": "135014",
+      "question": "10% Na₂CO₃ দ্রবণের মোলারিটি কত?",
+      "options": [
+        "0.94 M",
+        "0.96 M",
+        "1.26 M",
+        "2.0 M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখ্যা: 10% Na₂CO₃ এর s = {10 x 10 / 106} = 0.943 M"
+    },
+    {
+      "question_no": 138,
+      "id": "135015",
+      "question": "[Fe(CN)₆]³⁻ আয়নে Fe এর জারণ সংখ্যা কত?",
+      "options": [
+        "0",
+        "+2",
+        "+3",
+        "-3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখ্যা: [Fe(CN)₆]³⁻ এ Fe এর\r\nO.N. x+(-1) × 6 = -3\r\n> x= +6 - 3= +3"
+    },
+    {
+      "question_no": 139,
+      "id": "135016",
+      "question": "নিচের কোন জুটিটি জারণ ও বিজারণের উদাহরণ?",
+      "options": [
+        "KMnO₄, K₂Cr₂O₇",
+        "Na₂C₂O₄, KMnO₄",
+        "CuSO₄, K₂Cr₂O₇",
+        "KMnO₄, KI"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 140,
+      "id": "135017",
+      "question": "Fe2O3 এর অম্লত্ব কত?",
+      "options": [
+        "2",
+        "3",
+        "6",
+        "1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 141,
+      "id": "135018",
+      "question": "H2SO4 এর মোলার দ্রবণের শতকরা মাত্রা কত?",
+      "options": [
+        "10%",
+        "9.8%",
+        "5.0 %",
+        "98%"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 142,
+      "id": "135019",
+      "question": "3 mL 0.1 M কস্টিক সোডা দ্রবণে 1 mL 0.3Mকস্টিক সোডা দ্রবণ যোগ করা হলো। মিশ্রিত দ্রবণের ppm কত? [কু.বো.’ ১৭]",
+      "options": [
+        "4000",
+        "6000",
+        "8000",
+        "12000"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 143,
+      "id": "135020",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 144,
+      "id": "135021",
+      "question": "24.5 g H2SO4 বিশিষ্ট 250 mL দ্রবণ আছে। 250mL পানি যোগ করলে মোলার ঘনমাত্রা কত হবে?",
+      "options": [
+        "0.1",
+        "0.25",
+        "0.5",
+        "1.0"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 145,
+      "id": "135022",
+      "question": "বায়ুতে অপরিবর্তিত থাকে কোনটি?",
+      "options": [
+        "Na₂C₂O₄·2H₂O",
+        "Na₂S₂O₃·5H₂O",
+        "KMnO₄",
+        "Na₂SO₄"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 146,
+      "id": "135023",
+      "question": "25mL 0.03M Na₂CO₃ দ্রবণের ঘনমাত্রা ppm এককে কত? [ য.বো.’ ১৯]",
+      "options": [
+        "75×10⁻²",
+        "31.80×10⁻²",
+        "7.5×10²³",
+        "6.02×10²³"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 147,
+      "id": "135024",
+      "question": "2.0 g গ্রাম KCl₃ কে উত্তপ্ত করলে প্রমাণ অবস্থায় 0.02L অক্সিজেন পাওয়া যায়?",
+      "options": [
+        "36.49 g",
+        "54.73 g",
+        "61.01 g",
+        "72.98 g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 148,
+      "id": "135025",
+      "question": "5.0g Fe²⁺ কে জারিত করতে কত গ্রাম KMnO₄ প্রয়োজন?",
+      "options": [
+        "1.04",
+        "2.83",
+        "4.02",
+        "4.01"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 149,
+      "id": "135026",
+      "question": "Fe3O4 এর Fe এর জারণ মান কত?",
+      "options": [
+        "+2",
+        "+2.5",
+        "+2.67",
+        "+3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Both a and d are correct"
+    },
+    {
+      "question_no": 150,
+      "id": "135027",
+      "question": "10 5 Na2CO3 দ্রবণে 25 mL আয়তনে কি পরিমাণ পানি মিশালে দ্রবণের ঘনমাত্রা সেমিমোলার হবে?[ সি.বো.’ ১৯]",
+      "options": [
+        "220 mL",
+        "235 mL",
+        "250 mL",
+        "1000 mL"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 151,
+      "id": "135028",
+      "question": "3 mL 0.1 M কস্টিক সোডা দ্রবণে সখ 1.0 mL 0.3 M কস্টিক সোডা দ্রবণ যোগ করা হল। মিশ্রিত দ্রবণের ঘনমাত্রা কত ppm?",
+      "options": [
+        "12000",
+        "8000",
+        "6000",
+        "4000"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 152,
+      "id": "135029",
+      "question": "95 % (W/W) বিশুদ্ধ চুনাপাথরের 120 g নিয়ে অতিরিক্ত HCI এসিডে দ্রবীভূত করলে STP তে কত লিটার CO2 গ্যাস পাওয়া যাবে? [ দি.বো.’ ১৯]",
+      "options": [
+        "29.75",
+        "28.26",
+        "26.89",
+        "25.55"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 153,
+      "id": "135030",
+      "question": "KMnO4 +H2SO4 +FeC2O4 → উৎপাদ; এ বিক্রিয়ার সমতাকৃত সমীকরণের জারক ও বিকারকের মোল সংখ্যা যথাক্রমে কত? [ দি.বো.’ ১৯]",
+      "options": [
+        "2 ও 5",
+        "2 ও 6",
+        "3 ও 5",
+        "3 ও 6"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 154,
+      "id": "135031",
+      "question": "200 mL 10% HCI দ্রবণের ঘনমাত্রা ppm এককে কত? [ ঢা.বো.’ ২১]",
+      "options": [
+        "5 x 10^4",
+        "1 x 10^5",
+        "5.48",
+        "2.74"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 155,
+      "id": "135032",
+      "question": "প্রমাণ অবস্থায় 9 g পানিতে কয়টি হাইড্রোজেন পরমাণু থাকে? [ রা.বো; ২১]",
+      "options": [
+        "6.023 x 10^23",
+        "3.0115x 10^23",
+        "6.023 x 10^21",
+        "12.046x 10^25"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 156,
+      "id": "135033",
+      "question": "দ্রবণের ঘনমাত্রা লঘুকরণের মূলভিত্তি কী? [য.বো.’ ২১]",
+      "options": [
+        "ক) দ্রবের ভর",
+        "দ্রাবকের আয়তন",
+        "দ্রবণের আয়তন",
+        "দ্রবের মোল সংখ্যা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 157,
+      "id": "135034",
+      "question": "কোনটির যোজনী ও জারণমান উভয় শূন্য? [য.বো.’ ২১]",
+      "options": [
+        "CH2CL2",
+        "MgO",
+        "Ne",
+        "F"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 158,
+      "id": "135035",
+      "question": "10% (W/V) H2SO4 দ্রবণের ঘনমাত্রা ppm এককে কত? [ চ.বো.’ ২১]",
+      "options": [
+        "10^2 ppm",
+        "10^3 ppm",
+        "10^4 ppm",
+        "10^5 ppm"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 159,
+      "id": "135036",
+      "question": "সেকেন্ডারি স্ট্যান্ডার্ড পদার্থ কোনটি? [চ.বো.’ ২১]",
+      "options": [
+        "KMnO4",
+        "K2Cr2O7",
+        "Na2CO3",
+        "Na2C2O4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 160,
+      "id": "135037",
+      "question": "কোনটি জারক পদার্থ?",
+      "options": [
+        "FESO4",
+        "H2C204",
+        "Na2S2O3",
+        "KMnO4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 161,
+      "id": "135038",
+      "question": "মিথাইল অরেঞ্জ নির্দেশকের pH পরিসর কত? [ ব.বো.’ ২১]",
+      "options": [
+        "৩.১-৪.৪",
+        "৪.২-৬.৩",
+        "৬.০-৮.০",
+        "৮.২-৯.৮"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 162,
+      "id": "135039",
+      "question": "Na2S2O3 + I2 →উৎপাদ; এই বিক্রিয়ায়-[ঢা.বো.’ ২২]",
+      "options": [
+        "Na2S2O3 জারক",
+        "I2 এর বিজারণ ঘটেছে",
+        "আয়োডিনের জারণ মানের বৃদ্ধি পেয়েছে",
+        "S এর জারণ মান হ্রাস পেয়েছে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 163,
+      "id": "135040",
+      "question": "12% (W/V) Na2CO3 দ্রবণের ঘনমাত্রা মোলারিটিতে কত? [ঢা.বো.’ ২২]",
+      "options": [
+        "1.13",
+        "1.31",
+        "0.11",
+        "1.20"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 164,
+      "id": "135041",
+      "question": "পারক্লোরিক এসিডের কেন্দ্রীয় পরমাণুর জারণ সংখ্যা কত? [ ঢা.বো.’ ২২]",
+      "options": [
+        "+1",
+        "+3",
+        "+5",
+        "+7"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 165,
+      "id": "135042",
+      "question": "কোনটি তাপমাত্রার উপর নির্ভরশীল নয়? [ রা.বো.’ ২২]",
+      "options": [
+        "মোলারিটি",
+        "মোলালিটি",
+        "নরমালিটি",
+        "শতকরা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 166,
+      "id": "135043",
+      "question": "20% NaOH দ্রবণের মোলারিটি কত? [ রা.বো.’ ২২]",
+      "options": [
+        "5M",
+        "4M",
+        "3M",
+        "2M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 167,
+      "id": "135044",
+      "question": "[Co(NH3)_6]^3+ আয়নটিতে কেন্দ্রীয় পরমাণুর জারণ মান কত? [ রা.বো.’ ২২]",
+      "options": [
+        "+1",
+        "+2",
+        "+3",
+        "+6"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 168,
+      "id": "135045",
+      "question": "NaOH এর ২.৫% দ্রবণের ঘনমাত্রা ppm এককে কত? [ য.বো.’ ২২]",
+      "options": [
+        "2.5 x 10^2",
+        "2.5 x 10^3",
+        "2.5 x 10^4",
+        "2.5 x 10^5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 169,
+      "id": "135046",
+      "question": "500 mL ডেসিমোলার দ্রবণে দ্রবীভূত সোডিয়াম কার্বনেট এর পরিমাণ কত গ্রাম? [ য.বো.’ ২২]",
+      "options": [
+        "2.65 gm",
+        "5.30 gm",
+        "6.30 gm",
+        "10.60 gm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 170,
+      "id": "135047",
+      "question": "CuSO4 +KI → Cu2I2 +K2SO4 +I2 ; বিক্রিয়াটিতে বিজারক কোনটি?",
+      "options": [
+        "Cu^2+",
+        "I2",
+        "K^+",
+        "I^-"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 171,
+      "id": "135048",
+      "question": "কোন যৌগের অণুতে নাইট্রোজেন সর্বোচ্চ জারণ অবস্থা প্রদর্শন করেছে? [ কু.বো.’ ২২]",
+      "options": [
+        "NH2OH",
+        "N2H2",
+        "NH3",
+        "N3H"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 172,
+      "id": "135049",
+      "question": "3H2S+2HNO3 → 2NO+3S+4H2O; বিক্রিয়াটিতে H2S এর ভূমিকা কী? [কু.বো.’ ২২]",
+      "options": [
+        "টাইট্রান্ট",
+        "টাইট্রেট",
+        "জারক",
+        "বিজারক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 173,
+      "id": "135050",
+      "question": "একটি অক্সিজেন পরমাণুর ভর কত? [ কু.বো.’ ২২]",
+      "options": [
+        "2.66 x 10^-23 g",
+        "3.76 x 10^-23 g",
+        "1.33 x 10^-22 g",
+        "1.88 x x 10^-22 g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 174,
+      "id": "135051",
+      "question": "2H2O (aq) → 2H2O(I) +O1(g); এই বিক্রিয়ার মাধ্যমে 16 g O2 তৈরিতে কত গ্রাম H2O লাগবে?[চ.বো.’ ২২]",
+      "options": [
+        "68",
+        "34",
+        "17",
+        "8.5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 175,
+      "id": "135052",
+      "question": "মিথাইল অরেঞ্জ অম্লীয় দ্রবণে কোন বর্ণ প্রদর্শন করে?[চ.বো.’ ২২]",
+      "options": [
+        "বর্ণহীন",
+        "কমলা",
+        "হলুদ",
+        "গোলাপী লাল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 176,
+      "id": "135053",
+      "question": "30 mL 0.1 M FeSO4 অম্লীয় দ্রবণকে টাইট্রেশন করতে 30 mL কত ঘনমাত্রার KMnO4 দ্রবণ লাগবে?[ চ.বো.’ ২২]",
+      "options": [
+        "0.01 M",
+        "0.02 M",
+        "0.03 M",
+        "0.06 M"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 177,
+      "id": "135054",
+      "question": "নিচের কোনটি প্রাইমারী স্ট্যান্ডার্ড পদার্থ? [চ.বো.’২২]",
+      "options": [
+        "সালফিউরিক এসিড",
+        "হাইড্রোক্লোরিক এসিড",
+        "ফসফরিক এসিড",
+        "অক্সালিক এসিড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 178,
+      "id": "135055",
+      "question": "25 mL 0.25 M H2SO4 দ্রবণের ঘনমাত্রা ppm এককে কত? [চবো.’ ২২]",
+      "options": [
+        "12225",
+        "24500",
+        "3650",
+        "5475"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 179,
+      "id": "135056",
+      "question": "প্রশম মাধ্যমে KMnO4 কোনটিতে পরিণত হয়? [ চ.বো.’২২]",
+      "options": [
+        "MnSO4",
+        "MnO",
+        "MnS",
+        "MnO2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 180,
+      "id": "135057",
+      "question": "যোজনী ও জারণ সংখ্যা উভয় শূন্য কোনটির?[সি.বো.’২২]",
+      "options": [
+        "Br2",
+        "Ar",
+        "CH2CI2",
+        "HCHO"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 181,
+      "id": "135058",
+      "question": "HBr দ্রবণে ফেনলফথ্যালিন কী বর্ণ ধারণ করে? [সি.বো.’ ২২]",
+      "options": [
+        "লাল",
+        "হলুদ",
+        "গোলাপী",
+        "বর্ণহীন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 182,
+      "id": "135059",
+      "question": "100 mL সেমিমোলার দ্রবণ তৈরিতে কী পরিমাণ Na2CO3 প্রয়োজন? [সি.বো.’ ২২]",
+      "options": [
+        "0.53 g",
+        "1.06 g",
+        "5.30 g",
+        "10.60 g"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 183,
+      "id": "135060",
+      "question": "250 mL 0.1 M NaOH দ্রবণে কত গ্রাম NaOH বিদ্যমান? [ ব.বো.’ ২০২২]",
+      "options": [
+        "0.5",
+        "1.0",
+        "1.5",
+        "2.0"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 184,
+      "id": "135061",
+      "question": "CH3COOH (aq) + KOH (aq) → CH3COOK_(aq) +H2O উক্ত বিক্রিয়ায় উপযুক্ত নির্দেশক হলো-",
+      "options": [
+        "মিথাইল অরেঞ্জ",
+        "ফেনলফথ্যালিন",
+        "মিথাইল রেড",
+        "যে কোনো নির্দেশক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 185,
+      "id": "135062",
+      "question": "",
+      "options": [
+        "5:2",
+        "1:5",
+        "5:1",
+        "2:5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 186,
+      "id": "135063",
+      "question": "সমআয়তন 0.1 M NaOH এবং 0.1 M H2SO4 দ্রবণের প্রকৃতি কী হবে? [দি.বো.’ ২২]",
+      "options": [
+        "নিরপেক্ষ",
+        "উভধর্মী",
+        "অম্লীয়",
+        "ক্ষারীয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 187,
+      "id": "135064",
+      "question": "0.5 M HNO3 দ্রবণের ঘনমাত্রা ppm এককে কত হবে? [দি.বো.’ ২২]",
+      "options": [
+        "15750",
+        "31500",
+        "63000",
+        "49000"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 188,
+      "id": "135065",
+      "question": "কোন যৌগে ক্লোরিনের জারণ মান সর্বোচ্চ ?[ ম.বো.’২২]",
+      "options": [
+        "HCIO",
+        "HCIO2",
+        "HCIO3",
+        "HCIO4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 189,
+      "id": "135066",
+      "question": "3H2S +2HNO3 → 2NO + 3S + 4H2O ;বিক্রিয়াটিতে H2S এর ভূমিকা কী? [ ম.বো.’ ২২]",
+      "options": [
+        "জারক",
+        "বিজারক",
+        "টাইট্রেট",
+        "টাইট্রান্ট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 190,
+      "id": "135067",
+      "question": "কোনটি সেমিমোলার দ্রবণ? [ ম.বো.’ ২২]",
+      "options": [
+        "0.1 M",
+        "0.05 M",
+        "0.01 M",
+        "0.5 M"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 191,
+      "id": "135068",
+      "question": "ম্যাগনেসিয়াম কার্বাইডে কার্বনের জারণ সংখ্যা? [ঢা.বো.’ ২৩]",
+      "options": [
+        "-4",
+        "-1",
+        "+1",
+        "+4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 192,
+      "id": "135069",
+      "question": "কোন নির্দেশকের pH সীমা 8-10 এর মধ্যে ?[ ঢা.বো.’ ২৩]",
+      "options": [
+        "ফেনলফথ্যালিন",
+        "মিথাইল রেড",
+        "মিথাইল অরেঞ্জ",
+        "থাইমল blue"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 193,
+      "id": "135070",
+      "question": "অ্যামোনিয়াম ক্লোরাইড ও ক্যালসিয়াম অক্সাইড বিক্রিয়া করে STP তে 44.8 L NH3 গ্যাস প্রস্তুত করতে ব্যবহৃত ক্যালসিয়াম অক্সাইডের পরিমাণ কত?[ঢা.বো.’ ২৩]",
+      "options": [
+        "56 g",
+        "28 g",
+        "14 g",
+        "7 g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 194,
+      "id": "135071",
+      "question": "কোন দ্রবণটি দীর্ঘদিন সঠিকভাবে সংরক্ষণ করা যায়?[দি.বো.’ ২৩]",
+      "options": [
+        "KMnO4",
+        "NaOH",
+        "K2Cr2O7",
+        "H2SO4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 195,
+      "id": "135072",
+      "question": "টাইট্রেশানে ব্যবহৃত অজানা দ্রবণকে বলা হয়-[ দি.বো.’ ২৩]",
+      "options": [
+        "টাইট্যান্ট",
+        "টাইট্রেট",
+        "টাইটার",
+        "ট্রাইমার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 196,
+      "id": "135076",
+      "question": "STP তে 2 mol CaCO3 ও HCI এর বিক্রিয়ায় উৎপন্ন CO2 গ্যাসের আয়তন কত লিটার? [দি.বো.’ ২৩]",
+      "options": [
+        "11.2",
+        "22.4",
+        "34.8",
+        "44.8"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 197,
+      "id": "135080",
+      "question": "কোনটি সেকেন্ডারি স্ট্যান্ডার্ড পদার্থ- [ ম.বো.’ ২৩]",
+      "options": [
+        "সোডিয়াম অক্সালেট",
+        "পটাশিয়াম ডাইক্রোমেট",
+        "কস্টিক সোডা",
+        "অক্সালিক এসিড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 198,
+      "id": "135083",
+      "question": "0.001 M HCI এসিড দ্রবণের pH এর মান কত? [ ম.বো.’ ২৩]",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 199,
+      "id": "135086",
+      "question": "কোনটি জারক ও বিজারক উভয় হিসেবে ক্রিয়া করে? [ ম.বো.’ ২৩]",
+      "options": [
+        "SO2",
+        "H2S",
+        "CI2",
+        "O3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 200,
+      "id": "135089",
+      "question": "পাকস্থলীর কোন কোষ থেকে হাইড্রোক্লোরিক এসিড নিঃসৃত হয়? [ বর্ষ: ১৯-২০]",
+      "options": [
+        "পেপটিক কোষ",
+        "মিউকাস কোষ",
+        "জি-কোষ",
+        "প্যারাইটাল কোষ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 201,
+      "id": "135109",
+      "question": "",
+      "options": [
+        "Fe²⁺ + 2Br₂ → Fe²⁺ + 2Br⁻",
+        "Fe²⁺ + Br₂ → Fe³⁺ + 2Br⁻",
+        "Fe + Br₂ → Fe²⁺ + 2Br⁻",
+        "Fe²⁺ + Br₂ → Fe³⁺ + 2Br⁻"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 202,
+      "id": "135113",
+      "question": "নিচের 2% (w/v) জলীয় দ্রবণগুলোর কোনটির স্ফুটনাঙ্ক সবচেয়ে বেশি?",
+      "options": [
+        "NaCl",
+        "KCl",
+        "RbCl",
+        "NaBr"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 203,
+      "id": "135115",
+      "question": "65g বেরিয়াম নাইট্রেট 1L পানিতে দ্রবীভূত করলে ঐ দ্রবণের মোলার ঘনমাত্রা ? [জা.বি. ভর্তি]",
+      "options": [
+        "0.15M",
+        "0.17M",
+        "0.25M",
+        "0.20M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 204,
+      "id": "135118",
+      "question": "কোনো মিশ্রণে 100g আইসো প্রোপাইল অ্যালকোহল ও 50g পানি আছে, এতে অ্যালকোহলের মোল ভগ্নাংশ কত? [জা.বি.ভর্তি]",
+      "options": [
+        "0.375",
+        "0.625",
+        "0.466",
+        "0.534"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 205,
+      "id": "135119",
+      "question": "CuSO₄ + KI → Cu₂I₂ + I₂ + 2K₂SO₄ ;বিক্রিয়ার ক্ষেত্রে কোনটি সঠিক?",
+      "options": [
+        "Cu²⁺ আয়ন জারিত হয়েছে",
+        "I⁻ আয়ন জারিত হয়েছে",
+        "I⁻ আয়ন বিজারিত হয়েছে",
+        "Cu²⁺ আয়ন বিজারক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 206,
+      "id": "135120",
+      "question": "10% (w/w) NaOH এর জলীয় দ্রবণে NaOH এবং পানির মোল ভগ্নাংশসমূহ যথাক্রমে কত হবে?",
+      "options": [
+        "0.0325 ও 0.96675",
+        "0.9675 ও 0.0325",
+        "0.0476 ও 0.9524",
+        "0.9524 ও 0.0476"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 207,
+      "id": "135121",
+      "question": "একটি কার্বনেট যৌগের 1.0g একটি 100.0cm³ আয়তনমিতিক ফ্লাস্কে নিয়ে পানি যোগ করে up to the mark করা হলো। আয়তনমিতিক বিশ্লেষণ করে দেখা গেল দ্রবণটির ঘনমাত্রা 0.1M। যৌগটির সংকেত নির্ণয় কর। [দ্রবটি ক্ষারীয়] [কুয়েট: ১৮-১৯]",
+      "options": [
+        "(CH₃)₂CO₃",
+        "Na₂CO₃",
+        "SrCO₃",
+        "CaCO₃"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 208,
+      "id": "135122",
+      "question": "250 mL 2.0M HNO₃ প্রস্তুত করতে কত গ্রাম গাঢ় নাইট্রিক এসিড লাগবে? এসিডের গাঢ়ত্ব হলো 70% HNO₃।",
+      "options": [
+        "45.0g",
+        "31.5g",
+        "63.0 g",
+        "126.5 g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 209,
+      "id": "135123",
+      "question": "কোনো এলাকার ভূগর্ভস্থ পানিতে 877.5ppm NaCl থাকলে, উক্ত পানিতে NaCl এর ঘনমাত্রা মোলারিটিতে কত হবে?",
+      "options": [
+        "0.01M",
+        "0.05M",
+        "0.015M",
+        "0.025M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 210,
+      "id": "135124",
+      "question": "খুলনা এলাকায় কৃষিজমির পানিতে 585ppm NaCl আছে। ঐ পানিতে NaCl এর মোলারিটি কত?",
+      "options": [
+        "0.05M",
+        "0.04M",
+        "0.01M",
+        "0.03M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 211,
+      "id": "135125",
+      "question": "300mL 0.2M ঘনমাত্রার NaOH দ্রবণকে 100mL 0.1M ঘনমাত্রার H₂SO₄ সহযোগে আংশিক প্রশমিত করা হয়। অবশিষ্ট NaOH দ্রবণের ঘনমাত্রা নির্ণয় কর। [ চুয়েট: ১৫-১৬]",
+      "options": [
+        "0.14M",
+        "0.15M",
+        "0.04M",
+        "0.1M"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 212,
+      "id": "135126",
+      "question": "চুনাপাথর 96% ক্যালসিয়াম কার্বনেট আছে। যদি সম্পূর্ণরূপে এসিডে 150gm চুনাপাথর দ্রবীভূত করে প্রমাণ অবস্থায় কত লিটার CO₂ পাওয়া যাবে?[চুয়েট: ১৪ ১৫]",
+      "options": [
+        "32.256L",
+        "3.2256L",
+        "322.56L",
+        "0.32256L"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 213,
+      "id": "135127",
+      "question": "একটি টাইট্রেশনে 25mL NaOH দ্রবণকে প্রশমিত করতে 16.5mL 0.125M H₂SO₄ দ্রবণ প্রয়োজন হলে NaOH দ্রবণের ঘনমাত্রা কত হবে?[চুয়েট: ১৪ -১৫]",
+      "options": [
+        "0.0825M",
+        "0.1894M",
+        "0.0125M",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 214,
+      "id": "135128",
+      "question": "কোন দ্রবণটি দীর্ঘাদিন সঠিকভাবে সংরক্ষণ করা যায়?",
+      "options": [
+        "KMnO₄",
+        "NaOH",
+        "K₂Cr₂O₇",
+        "H₂SO₄"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 215,
+      "id": "135129",
+      "question": "টাইট্রেশনে ব্যবহৃত অজানা দ্রবণের নাম হয়-",
+      "options": [
+        "টাইটার",
+        "টাইট্রান্ড",
+        "টাইটোর",
+        "টাইট্রিমার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 216,
+      "id": "135130",
+      "question": "STP তে 2 mol CaCO₃ ও HCl এর বিক্রিয়ায় উৎপন্ন CO₂ গ্যাসের আয়তন কত লিটার?",
+      "options": [
+        "11.2",
+        "22.4",
+        "34.8",
+        "44.8"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 217,
+      "id": "135131",
+      "question": "কোনটি সেকেন্ডারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "সোডিয়াম অক্সালেট",
+        "পটাশিয়াম ডাইক্রোমেট",
+        "কস্টিক সোডা",
+        "অক্সালিক এসিড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 218,
+      "id": "135132",
+      "question": "0.001 M HCL এসিড দ্রবণের pH এর মান কত?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 219,
+      "id": "135133",
+      "question": "0.001M HCl এসিড দ্রবণের pH এর মান কত?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 220,
+      "id": "135134",
+      "question": "ClO₃⁻ + 5Cl⁻ + 6H⁺ → 3Cl₂ + 3H₂O এখানে জারণ ঘটেছে-",
+      "options": [
+        "ClO₃⁻",
+        "Cl⁻",
+        "H⁺",
+        "ClO₃⁻ ও Cl⁻"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 221,
+      "id": "135135",
+      "question": "পাকস্থলীতে কোন কোষ থেকে হাইড্রোক্লোরিক এসিড নিঃসৃত হয়?",
+      "options": [
+        "পেপটিক কোষ",
+        "মিউকাস কোষ",
+        "জি-কোষ",
+        "প্যারাইটাল কোষ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 222,
+      "id": "135136",
+      "question": "",
+      "options": [
+        "Fe²⁺ + Br₂ → Fe²⁺ + 2Br⁻",
+        "Fe + 2Br⁻ → Fe²⁺ + Br₂",
+        "Fe + Br₂ → Fe²⁺ + 2Br⁻",
+        "Fe + Br₂ → Fe³⁺ + 2Br⁻"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 223,
+      "id": "135137",
+      "question": "নিচের 2% (w/v) জলীয় দ্রবণগুলোর কোনটির স্ফুটনাঙ্ক সবচেয়ে বেশি?",
+      "options": [
+        "NaCl",
+        "KCl",
+        "RbCl",
+        "NaBr"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 224,
+      "id": "135138",
+      "question": "65g বেরিয়াম নাইট্রেট 1 L পানিতে দ্রবীভূত করলে ঐ দ্রবণের মোলার ঘনমাত্রা কত?",
+      "options": [
+        "0.15 M",
+        "0.17 M",
+        "0.25 M",
+        "0.20 M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 225,
+      "id": "135139",
+      "question": "95% বিশুদ্ধ 1kg চুনাপাথরকে সম্পূর্ণরূপে বিয়োজিত করলে STP তে কত লিটার CO₂ উৎপন্ন হবে?",
+      "options": [
+        "102.8",
+        "212.8",
+        "112.8",
+        "202.8"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 226,
+      "id": "135140",
+      "question": "কোনো মিশ্রণে 100g আইসো প্রোপাইল অ্যালকোহল ও 50g পানি আছে, এতে অ্যালকোহলের মোল ভগ্নাংশ কত?",
+      "options": [
+        "0.375",
+        "0.625",
+        "1.26",
+        "0.534"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 227,
+      "id": "135141",
+      "question": "CuSO4 + KI → Cu2I2 +I2 + 2K2SO4; এ বিক্রিয়ার ক্ষেত্রে কোনটি সঠিক? [চ.বি. ভর্তি]",
+      "options": [
+        "Cu²⁺ আয়ন জারিত হয়েছে",
+        "I⁻ আয়ন জারিত হয়েছে",
+        "I⁻ আয়ন বিজারিত হয়েছে",
+        "Cu²⁺ আয়ন বিজারক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 228,
+      "id": "135142",
+      "question": "10% (w/w) NaOH এর জলীয় দ্রবণে NaOH এবং পানির মোল ভগ্নাংশসমূহ যথাক্রমে কত হবে?[কুয়েট: ১৮১৯]",
+      "options": [
+        "0.0325 ও 0.9675",
+        "0.9675 ও 0.0325",
+        "0.0476 ও 0.9524",
+        "0.924 ও 0.0476"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 229,
+      "id": "135143",
+      "question": "250 mL 2.0M HNO₃ প্রস্তুত করতে কত গ্রাম গাঢ় নাইট্রিক এসিড লাগবে? এসিডের গাঢ়ত্ব হলো 70% HNO₃।[কুয়েট: 17-18]",
+      "options": [
+        "45.0g",
+        "31.5g",
+        "63.0g",
+        "126.g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 230,
+      "id": "135144",
+      "question": "কোনো এলাকার ভূগর্ভস্থ পানিতে 877.5 ppm NaCl থাকলে উক্ত পানিতে NaCl এর ঘনমাত্রা মোলারিটিতে কত হবে?[ কুয়েট: ১৭-১৮]",
+      "options": [
+        "0.01 M",
+        "0.05 M",
+        "0.015 M",
+        "0.025 M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 231,
+      "id": "135145",
+      "question": "252 মিলিয়াম দানাদার অক্সালিক এসিডে কয়টি অক্সিজেন পরমাণু আছে?[ কুয়েট: ১৭-১৮]",
+      "options": [
+        "4.8×10²¹",
+        "2.4×10²¹",
+        "4.8×10²¹",
+        "7.23×10²¹"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 232,
+      "id": "135146",
+      "question": "খুলনা এলাকায় কৃষিজমির পানিতে 585 ppm NaCI আছে। ঐ পানিতে NaCI এর মোলারিটি কত? [চুয়েট: ১৫-১৬]",
+      "options": [
+        "0.05 M",
+        "0.04 M",
+        "0.01 M",
+        "0.03 M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 233,
+      "id": "135147",
+      "question": "300 mL 0.2M ঘনমাত্রার NaOH দ্রবণকে 100mL 0.1M ঘনমাত্রার H₂SO₄ সহযোগে আংশিক প্রশমিত করা হয়। অবশিষ্ট NaOH দ্রবণের ঘনমাত্রা নির্ণয় কর। [চুয়েট: ১৫-১৬]",
+      "options": [
+        "0.14M",
+        "0.15M",
+        "0.04M",
+        "0.1M"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 234,
+      "id": "135148",
+      "question": "চুনাপাথর 96% ক্যালসিয়াম কার্বনেট আছে। লঘু হাইড্রোক্লোরিক এসিডে 150gm চুনাপাথর দ্রবীভূত করে প্রমাণ অবস্থায় কত লিটার CO₂ পাওয়া যাবে? [ চুয়েট: ১৪-১৫]",
+      "options": [
+        "32.256 L",
+        "3.2256 L",
+        "322.56 L",
+        "0.32256 L"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 235,
+      "id": "135149",
+      "question": "একটি টাইট্রেশনে 25mL NaOH দ্রবণকে প্রশমিত করতে 16.5mL 0.125M H₂SO₄ দ্রবণ প্রয়োজন হলে NaOH দ্রবণের ঘনমাত্রা কত হবে? [ চুয়েট: ১৪-১৫]",
+      "options": [
+        "0.0825M",
+        "0.1894M",
+        "0.0125M",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    }
+  ]
+}

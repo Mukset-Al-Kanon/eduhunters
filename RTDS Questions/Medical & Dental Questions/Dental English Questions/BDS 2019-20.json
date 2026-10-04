@@ -1,0 +1,218 @@
+{
+  "title": "BDS 2019-20",
+  "category": "Medical & Dental Questions > Dental English Questions",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "140727",
+      "question": "What is the meaning of the phrase 'Hold water'?",
+      "options": [
+        "keep water",
+        "bear examination",
+        "drink water",
+        "store"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Hold water অর্থ কার্যকরি হওয়া। Bear examination এর অর্থ কার্যকরি হওয়া।"
+    },
+    {
+      "question_no": 2,
+      "id": "140733",
+      "question": "Synonym for 'deceive' is-",
+      "options": [
+        "guide",
+        "enlighten",
+        "mislead",
+        "advise"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Deceive শব্দের অর্থ ভুল পথে চালিত করা বা প্রতারণা করা। এর সমার্থক শব্দ হবে mislead Guide অর্থ সঠিক পথে চালিত করা; enlighten অর্থ আলোকিত করা; advise অর্থ উপদেশ দেওয়া"
+    },
+    {
+      "question_no": 3,
+      "id": "140736",
+      "question": "I have told you twice. Here 'twice' is-",
+      "options": [
+        "adverb",
+        "adjective",
+        "noun",
+        "preposition"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Twice শব্দটি verb (told) কে modify করায় এটা adverb হবে। বাক্যটির বাংলা অর্থ: আমি তোমাকে দুইবার বলেছি।"
+    },
+    {
+      "question_no": 4,
+      "id": "140737",
+      "question": "'I will be leaving tomorrow'. what is the correct tense is this sentence?",
+      "options": [
+        "present continuous",
+        "present simple",
+        "future continuous",
+        "future perfect"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Future Continuous Tense এর গঠন: Subject + shall be/will be + মূল verb এর সাথে ing + extension"
+    },
+    {
+      "question_no": 5,
+      "id": "140738",
+      "question": "Which one is the correct word for the Blank? Farid and I have known. ____ for quite a long time.",
+      "options": [
+        "both",
+        "us",
+        "ourselves",
+        "each other"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দুইজনের মধ্যে জানাশোনা বা পরিচিত এরকম বোঝাতে 'each other' এবং দুইজনের অধিক হলে \"one another' রসে।"
+    },
+    {
+      "question_no": 6,
+      "id": "140739",
+      "question": "Antonym for the word 'strict' is-",
+      "options": [
+        "sly",
+        "strong",
+        "lenient",
+        "weak"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Strict (শক্ত/ ঠিক আচরণ প্রত্যাশী) এর বিপরীত lenient (ক্ষমাশীল/ দয়ালু)। Sly শব্দের অর্থ চতুর, চালাক; strong অর্থ শক্তিশালী; weak অর্থ দুর্বল"
+    },
+    {
+      "question_no": 7,
+      "id": "140746",
+      "question": "Antonym of the word 'intrepid' is-",
+      "options": [
+        "chivalrous",
+        "fearless",
+        "dauntless",
+        "timid"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Intrepid (অকুতোভয়) এর বিপরীতার্থক শব্দ timid- ভীরু/ লাজুক। Chivalrous শব্দের অর্থ সাহসী; fearless অর্থ ভয়হীন; dauntless অর্থ নির্ভীক, ভয়হীন।"
+    },
+    {
+      "question_no": 8,
+      "id": "140748",
+      "question": "Which is the correct word for the blank? Rafiq ________ while we were having dinner.",
+      "options": [
+        "phoned",
+        "was phoning",
+        "will phone",
+        "has phoned"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দুটি সমসাময়িক অতীত ঘটনা When/ while দ্বারা যুক্ত হলে When/while যুক্ত অংশটি Past Continuous হয়, অন্যটি Past Indefinite হয়।"
+    },
+    {
+      "question_no": 9,
+      "id": "140750",
+      "question": "\"The workers were working on the building\"-what is the correct tense in this sentence?",
+      "options": [
+        "present perfect",
+        "past continuous",
+        "present continuous",
+        "Perfect continuous"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Past continuous tense এর structure subject + was/were + verb + ing + extension। সুতরাং, গঠনগত দিক থেকে বাক্যটি past continuous tense এ আছে।"
+    },
+    {
+      "question_no": 10,
+      "id": "140754",
+      "question": "Appropriate preposition to be used with 'beware' is-",
+      "options": [
+        "of",
+        "for",
+        "to",
+        "with"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Beware of- সতর্ক হওয়া।"
+    },
+    {
+      "question_no": 11,
+      "id": "140756",
+      "question": "Past participle of 'choose' is-",
+      "options": [
+        "chose",
+        "chosen",
+        "choosen",
+        "choice"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Choose (পছন্দ করা) irregular verb টির past tense হবে chose এবং past participle হবে chosen|"
+    },
+    {
+      "question_no": 12,
+      "id": "140758",
+      "question": "Which is the correct word for the blank? 'I don't remember _________ about the accident'.",
+      "options": [
+        "everything",
+        "something",
+        "nothing",
+        "anything"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সাধারণত negative sentence এ anything এবং positive sentence এ nothing ব্যবহৃত হয়। বাক্যটির বাংলা অর্থ দুর্ঘটনা সম্পর্কে আমি কিছুই মনে করতে পারি না। Something অর্থ কিছু আছে এমন এবং everything অর্থ সবকিছু। সুতরাং, এই দুটির একটিও শূন্যস্থানে বসবে না। আবার বাক্যটি না-বোধক হওয়ায় nothing ও বসবে না।"
+    },
+    {
+      "question_no": 13,
+      "id": "140759",
+      "question": "Antonym of 'sluggish' is",
+      "options": [
+        "somnolent",
+        "enervated",
+        "brisk",
+        "weary"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Sluggish অর্থ নিষ্ক্রিয়। এর বিপরীত brisk (কর্মচঞ্চল/ দ্রুত)। Somnolent অর্থ নিদ্রালু, enervate অর্থ শারীরিক ও মানসিকভাবে দুর্বল করা; weary অর্থ ক্লান্ত।"
+    },
+    {
+      "question_no": 14,
+      "id": "140761",
+      "question": "What is the correct word for the blank? 'I am accustomed___________ such a life.'",
+      "options": [
+        "to",
+        "by",
+        "of",
+        "with"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Accustomed to অভ্যস্ত হওয়া। বাক্যটির বাংলা অর্থ: আমি এরকম জীবনে অভ্যন্ত।"
+    },
+    {
+      "question_no": 15,
+      "id": "140763",
+      "question": "What is the correct tense in this sentence? \"Mansur has been using this pen for the last five years\".",
+      "options": [
+        "past perfect continuous",
+        "present perfect continuous",
+        "past perfect",
+        "present perfect"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Have been/has been এবং মূল verb এর সাথে ing থাকলে present perfect continuous tense হয়।"
+    }
+  ]
+}

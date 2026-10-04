@@ -1,0 +1,446 @@
+{
+  "exam_id": 8423,
+  "title": "Same Word Used as Different Parts of Speech (Ques. No. 51-79)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Same Word Used as Different Parts of Speech (79 Marks)",
+  "duration_minutes": 15,
+  "total_questions": 29,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "7b666b25-66a0-4c6a-81d7-40d501bff99c",
+      "question": "He has done <u>wrong</u>.[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": null,
+      "correct_index": null,
+      "explanation": "Adverb → verb modify করে\nNoun → object হিসেবে বসতে পারে\nএখানে wrong\n✔ \"done wrong\" → verb কে modify করলে Adverb\n✔ \"done a wrong\" অর্থে নিলে Noun\nতাই দুইভাবেই সম্ভব।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "1d118515-108d-44c6-9a2d-342a9ff320ea",
+      "question": "There is more talk <u>yet</u> to be told.[]",
+      "options": [
+        "A noun",
+        "A pronoun",
+        "An adverb",
+        "An adjective"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Adverb infinitive phrase (to be told) modify করতে পারে।\nyet এখানে সময় বোঝাচ্ছে → তাই Adverb",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "f0dd96ca-63cd-4b12-8a4a-3008a4d706cc",
+      "question": "Yet there is time to mend the thing. Here 'yet' is -----.[]",
+      "options": [
+        "Preposition",
+        "Adverb",
+        "Adjective",
+        "Interjection"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sentence এর শুরুতে বসে পুরো clause modify করলে Adverb হয়।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "0735537b-5548-4bf0-8210-6de12e6b7e68",
+      "question": "Which but is a preposition ?[]",
+      "options": [
+        "It is but right to admit our faults.",
+        "What can we do but sit and wait ?",
+        "We tried hard, but did not succeed.",
+        "There is no one but likes him."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Preposition এর অর্থ হয় “except”\nStructure: Preposition + Verb (bare form)\nএখানে but = except",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "fe288c10-fc15-4036-b459-bf41d40d1812",
+      "question": "Who's that ?' In the sentence that is a/an -----.[]",
+      "options": [
+        "pronoun",
+        "conjunction",
+        "adjective",
+        "adverb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Pronoun noun এর বদলে বসে।\nএখানে that = a person → তাই Pronoun",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "5e4b2a4a-21c5-4728-b205-8f64503251cb",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "He is a miserly.",
+        "He is a miserly man.",
+        "He is miserly.",
+        "He is miser."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Linking verb (is/am/are) এর পরে Adjective বসে।\nStructure: Subject + be verb + Adjective",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "5d95211c-7417-4412-ac08-ba28b470e7ba",
+      "question": "In which sentence is the word 'past' used as a preposition ?[]",
+      "options": [
+        "Writing letters is a thing of the past.",
+        "I look back on the past without regret.",
+        "I called out to him as he ran past.",
+        "Tania was a wonderful singer, but she's past her prime."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Preposition এর পরে Noun phrase বসে।\npast + her prime → তাই Preposition",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "6500e348-7f36-463a-95ae-8ab282c57e23",
+      "question": "The sun went <u>down.</u> The underlined word is used here as a/an -----.[]",
+      "options": [
+        "Preposition",
+        "Adverb",
+        "Noun",
+        "Conjunction"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Verb এর পরে বসে verb modify করলে Adverb।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "ba9ec99d-fb5a-4901-9a85-95d040079c8e",
+      "question": "The children were playing outside. Here 'outside' is a -----.[]",
+      "options": [
+        "Preposition",
+        "Conjunction",
+        "Verb",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "play' verb, যাকে modify করছে 'outside', \nসুতরাং এটি adverb",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "f07871a4-143b-4f6d-a82e-3d3221666158",
+      "question": "<u>Down</u> with the tyrant! Here 'down' is -----.[]",
+      "options": [
+        "Verb",
+        "Adjective",
+        "Noun",
+        "Preposition"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Imperative sentence এ অনেক সময় মূল verb বাদ পড়ে যায়, শুধু verb-এর অংশ ব্যবহার হয়। grammar বই অনুযায়ী\n“down” সাধারণত adverb / adjective / preposition\nকিন্তু এই ধরনের slogan expression এ এটা verb sense এ ব্যবহৃত হয়।\nExam point of view থেকে → Verb ধরতে হবে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "a19f9e7d-2029-403a-a632-9f08b5599802",
+      "question": "She was found <u>unhurt</u>'. The underlined word is a/an -----.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Verb",
+        "Adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Verb কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "3c3f104f-3d11-4db6-a91c-86517ba5a663",
+      "question": "We work everyday except Friday. What part of speech is 'except' ?[]",
+      "options": [
+        "Adjective",
+        "Preposition",
+        "Conjunction",
+        "Adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Rule:\nPreposition + Noun",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "20ff44aa-c3a1-4f4f-89f5-ed013ef83ea6",
+      "question": "If we finish our work <u>quickly,</u> we can go to the movies.\nToday they have returned <u>home</u> earlier. \nHere the underlined word is a/an ---[]",
+      "options": [
+        "Noun",
+        "Adverb",
+        "Adjective",
+        "Preposition"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "verb কে modify করে",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "e7c76b9f-2fcd-46ff-8cca-fff6565f8318",
+      "question": "The time for sleep is past. The word 'past' is -----.[]",
+      "options": [
+        "A noun",
+        "An adverb",
+        "A preposition",
+        "An adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Be verb এর পরে Adjective বসে",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "12631bfe-e31b-4de9-ab7d-d3cd029d3d4a",
+      "question": "<u>Justice</u> should be done to the victim.\nHere the underlined word is a/an -----.[]",
+      "options": [
+        "Noun",
+        "Pronoun",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Modal verb এর আগে Subject থাকে → Subject সাধারণত Noun",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "0450e61e-0430-409e-b5f7-baa42e98d4f5",
+      "question": "Which 'up' in the following sentences is adverb ?[]",
+      "options": [
+        "The <u>up</u> train will come soon.",
+        "Our system should be <u>up</u> by the noon.",
+        "They live <u>up</u> in the mountains.",
+        "We had our <u>ups</u> and downs of fortune."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Verb + particle → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "6057c81e-14d4-4957-874c-8c47a8745311",
+      "question": "Which of the following words can be used as a verb ?[]",
+      "options": [
+        "Green",
+        "Orrange",
+        "Red",
+        "Blue"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অনেক Adjective verb হিসেবেও হয়",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "d99882be-29ce-4613-965d-fdd27738fc96",
+      "question": "Shefali is taller than Rupali. / He is taller than I. Here 'than' is a -----.[]",
+      "options": [
+        "Adjective",
+        "Noun",
+        "Preposition",
+        "Conjunction"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Than clause introduce করে।\nClause + than + clause",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "11684a86-db61-4fdb-958b-b2959c56d642",
+      "question": "By the end of the day we were tired <u>but</u> happy. / He is poor <u>but</u> honest. The underlined word is a -----.[]",
+      "options": [
+        "A preposition",
+        "An adjective",
+        "A conjunction",
+        "An adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Coordinating conjunction দুই clause যুক্ত করে",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "313c807c-400f-4410-83b6-d2a07c16a5dd",
+      "question": "In which sentence 'that' is used as a conjunction ?[]",
+      "options": [
+        "That is what I want.",
+        "The evil that men do remains after them.",
+        "What is that noise ?",
+        "He works hard that he may succeed."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Subordinating conjunction clause যুক্ত করে",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "e4fb7763-6905-4b12-8fd7-273e5e5172df",
+      "question": "English grammar is not too difficult to understand. Here 'English' is -----.[]",
+      "options": [
+        "Adverb",
+        "Adjective",
+        "Verb",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Rule:\nNoun এর আগে বসে অন্য noun কে describe করলে Adjective",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "e2d77ed3-64a1-4312-afa5-8a7b41931675",
+      "question": "Although she was tired, she went to work. In the sentence, 'Although' is a/an -------.[]",
+      "options": [
+        "Preposition",
+        "Interjection",
+        "Adverb",
+        "Conjunction"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Subordinating conjunction subordinate clause শুরু করে",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "5a571d15-abc8-42a1-9c96-944cc8d145c5",
+      "question": "The sun is up'. Here 'up' is -----.[]",
+      "options": [
+        "A noun",
+        "A pronoun",
+        "An adverb",
+        "An adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "verb কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "37ecb777-9217-4f9b-8845-4d8d3b2f7ab8",
+      "question": "<u>Each</u> boy will get a prize'. Here 'Each' is a/an -----.[]",
+      "options": [
+        "Noun",
+        "Adverb",
+        "Pronoun",
+        "Adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Noun কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "57e9d454-1909-49cd-b89c-18c80ffb908f",
+      "question": "We travelled by a <u>fast</u> train from Dhaka to Rajshahi.[]",
+      "options": [
+        "Adverb",
+        "Noun",
+        "Adjective",
+        "Preposition"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Adjective noun কে modify করে",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "7de74adf-9ed7-4026-8168-411d9e240b30",
+      "question": "I went away after I had finished the work. Here 'after' is -----.[]",
+      "options": [
+        "Adjective",
+        "Conjunction",
+        "Noun",
+        "Pronoun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "After + clause → subordinating conjunction",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "91a14687-ac31-4bff-bbf4-55aa1bdb27bc",
+      "question": "It is <u>no</u> joke. The underlined word in the sentence is a -----.[]",
+      "options": [
+        "Noun",
+        "Adverb",
+        "Adjective",
+        "Conjunction"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Determiner হিসেবে noun modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "d5eeb790-ff8d-4325-975e-10bdc07145a4",
+      "question": "You are but a child. Here 'but' is used as -----.[]",
+      "options": [
+        "Preposition",
+        "Adjective",
+        "Adverb",
+        "Conjunction"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "but = only → Adverb",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "e85f67cd-a6dc-43b3-af07-5284002cc38d",
+      "question": "There are many coconut trees on ----- side of the road.[]",
+      "options": [
+        "either",
+        "both",
+        "many",
+        "every"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Determiner + Noun",
+      "images": []
+    }
+  ]
+}

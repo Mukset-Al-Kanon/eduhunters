@@ -1,0 +1,1884 @@
+{
+  "title": "হাজারী স্যার রসায়ন ২য় পত্র-পরিবেশ রসায়ন",
+  "category": "রসায়ন অনুশীলনীর MCQ > রসায়ন ২য় পত্র MCQ || হাজারী স্যার",
+  "duration_minutes": 30,
+  "total_questions": 134,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "133813",
+      "question": "মেসোস্ফিয়ারের উচ্চতা কত কি.মি. পর্যন্ত বিস্তৃত?",
+      "options": [
+        "5-10 km",
+        "10-40 km",
+        "50-85 km",
+        "150-200 km"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বায়ুমণ্ডলের ৩য় স্তর হলো 50-85 km পর্যন্ত বিস্তৃত মেসোস্ফিয়ার"
+    },
+    {
+      "question_no": 2,
+      "id": "133814",
+      "question": "বায়ুমণ্ডলের স্ট্র্যাটোস্ফিয়ার স্তরের প্রধান উপাদান কোনটি?",
+      "options": [
+        "অক্সিজেন",
+        "নিয়ন",
+        "ওজোন",
+        "কার্বন ডাইঅক্সাইড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বায়ুমণ্ডলের স্ট্র্যাটোস্ফিয়ারে ওজোন স্তর গঠিত হয়"
+    },
+    {
+      "question_no": 3,
+      "id": "133970",
+      "question": "বায়ুমণ্ডলের হোমোস্ফিয়ারে নিচের কোনটি থাকে না?",
+      "options": [
+        "আর্গন",
+        "O2",
+        "O",
+        "CH4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বায়ুমণ্ডলের হোমোস্ফিয়ারে 78% N2, 21% O₂ ও 1% আর্গনসহ অন্যান্য গ্যাস থাকে।\r\nহোমোস্ফিয়ার এ,\r\nমুখ্য উপাদান- N2, O2 \r\nগৌণ উপাদান- Ar, CO2, CO, O3 \r\nআরো 12টি গ্যাস থাকে অল্প পরিমাণে"
+    },
+    {
+      "question_no": 4,
+      "id": "133971",
+      "question": "বায়ুমণ্ডলের কোন স্তরের তাপমাত্রা সর্বাপেক্ষা বেশি?",
+      "options": [
+        "ট্রপোস্ফিয়ার",
+        "স্ট্র্যাটোস্ফিয়ার",
+        "মেসোস্ফিয়ার",
+        "থার্মোস্ফিয়ার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "থার্মোস্ফিয়ারে তাপমাত্রা সর্বাপেক্ষা বেশি যেটি 427°C থেকে 1727°C এর মধ্যে পরিবর্তিত হয়। থার্মো শব্দটি দ্বারাই তাপমাত্রাকে indicate করছে"
+    },
+    {
+      "question_no": 5,
+      "id": "133972",
+      "question": "বায়ুমণ্ডলের শীতলতম অঞ্চল কোনটি?",
+      "options": [
+        "মেসোস্ফিয়ার",
+        "আয়নোস্ফিয়ার",
+        "ট্রপোস্ফিয়ার",
+        "স্ট্র্যাটোস্ফিয়ার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মেসোস্ফিয়ারে তাপমাত্রা হ্রাস পেতে থাকে এবং 83 km উচ্চতায় -93° C তাপমাত্রায় বায়ুমণ্ডল শীতলতম অবস্থায় পৌছে।"
+    },
+    {
+      "question_no": 6,
+      "id": "133973",
+      "question": "ওজোন স্তর বায়ুমণ্ডলের কোন অঞ্চলে অবস্থিত?",
+      "options": [
+        "ট্রপোস্ফিয়ার",
+        "স্ট্র্যাটোস্ফিয়ার",
+        "মেসোস্ফিয়ার",
+        "থার্মোস্ফিয়ার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ওজোন স্তর স্ট্র্যাটোস্ফিয়ারে অবস্থিত।"
+    },
+    {
+      "question_no": 7,
+      "id": "133974",
+      "question": "বায়ুমণ্ডলের কোন অঞ্চলে ঝড়-ঝঞ্ঝার উৎপত্তি ঘটে?",
+      "options": [
+        "ট্রপোস্ফিয়ার",
+        "স্ট্র্যাটোস্ফিয়ার",
+        "মেসোস্ফিয়ার",
+        "থার্মোস্ফিয়ার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ট্রপোস্ফিয়ার অঞ্চলে ঝড়-ঝঞ্ঝার উৎপত্তি ঘটে, তাই একে ক্ষুব্ধ মন্ডলও বলা হয়।"
+    },
+    {
+      "question_no": 8,
+      "id": "133975",
+      "question": "সাইক্লোন তৈরি হতে সাগরের পানির তাপমাত্রায় সর্বনিম্ন কত থাকতে হয়?",
+      "options": [
+        "25° C",
+        "27° C",
+        "30° C",
+        "40° C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সাইক্লোন তৈরি হতে সাগরের পানির তাপমাত্রা সর্বনিম্ন (80° F)27°C থাকতে হয়।"
+    },
+    {
+      "question_no": 9,
+      "id": "133976",
+      "question": "নিচের কোন সমীকরণটি বয়েলের সূত্র প্রকাশ করে?",
+      "options": [
+        "P1T1 = P2T2",
+        "P1/TI = P2/T2",
+        "P1V1= P2V2",
+        "P1/V1 = P2/V2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যেহেতু বয়েলের সূত্রানুসারে স্থির তাপমাত্রায় নির্দিষ্ট\r\nভরের কোনো গ্যাসের আয়তন ঐ গ্যাসের ওপর প্রযুক্ত চাপের ব্যস্তানুপাতিক"
+    },
+    {
+      "question_no": 10,
+      "id": "133977",
+      "question": "কোনটি পরমশূন্য তাপমাত্রা?",
+      "options": [
+        "0°C",
+        "-273°C",
+        "25°C",
+        "273°C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কেলভিন বা পরম তাপমাত্রা স্কেলের সর্বনিম্ন তাপমাত্রা 0K বা - 273.15° C কে পরম শূন্য তাপমাত্রা বলা হয়।"
+    },
+    {
+      "question_no": 11,
+      "id": "133978",
+      "question": "তত্ত্বীয়ভাবে কোন তাপমাত্রায় গ্যাসের আয়তন শূন্য হয়?",
+      "options": [
+        "- 270°C",
+        "-273°C",
+        "-100°C",
+        "-100K"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যেহেতু পরম শূন্য তাপমাত্রায় গ্যাসের আয়তন শূন্য হয়। আবার, T = O হলে, \r\nPV = nRT \r\nPV = nRO \r\n.:. V = O —> আয়তন শূন্য।"
+    },
+    {
+      "question_no": 12,
+      "id": "133979",
+      "question": "আদর্শ গ্যাসের সমীকরণ কোনটি?",
+      "options": [
+        "PV = nRT",
+        "PV = 1/3mNc²",
+        "PV = RT",
+        "P1V1 = P2V2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "133980",
+      "question": "আদর্শ গ্যাসের গতীয় সমীকরণ কোনটি?",
+      "options": [
+        "PV = nRT",
+        "PV = 1/3 mNc²",
+        "PV = RT",
+        "P1V1 = P2V2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আদর্শ গ্যাসের গতীয় সমীকরণ; PV = 1/3 mNc²"
+    },
+    {
+      "question_no": 14,
+      "id": "133981",
+      "question": "SATP-তে কোনো গ্যাসের মোলার আয়তন কত?",
+      "options": [
+        "22.4 L",
+        "42.2 L",
+        "74.4 L",
+        "24.789 L"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "STP তে গ্যাসের মোলার আয়তন 22.414 L এবং SATP তে গ্যাসের মোলার আয়তন 24.789 L। NTP তে মোলার আয়তন 24. 04L।"
+    },
+    {
+      "question_no": 15,
+      "id": "133982",
+      "question": "STP-তে 1 mol SO2 গ্যাসের আয়তন কত?",
+      "options": [
+        "22.4 L",
+        "24.789 L",
+        "224 L",
+        "22400 dm³"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যেহেতু STP তে 1 mol গ্যাসের আয়তন 22.414/L³"
+    },
+    {
+      "question_no": 16,
+      "id": "133983",
+      "question": "গ্যাসের ঘনত্ব নির্ণয়ের সমীকরণ কোনটি?",
+      "options": [
+        "D = RM/PT",
+        "D = RT/PM",
+        "D = PM/RT",
+        "D = PT/RM"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্যাসের ঘনত্বের সমীকরণ, D = PM/RT"
+    },
+    {
+      "question_no": 17,
+      "id": "133984",
+      "question": "Latm এককে R এর মান কোনটি?",
+      "options": [
+        "0.082 Latm mol^-1K^-1",
+        "8.314 J mol^-1K^-1",
+        "8.32 × 10 ^ 7 erg mol^-1K^-1",
+        "1.987 cal mol^-1K^-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "SI এককে R এর মান 8.314J mol^-1K^-1 এবং\r\nL.atm এককে R এর মান 0.082 Latmmol^-1K^-1"
+    },
+    {
+      "question_no": 18,
+      "id": "133985",
+      "question": "SI এককে R এর মান কোনটি?",
+      "options": [
+        "0.082 Latm mol ^ -1 K^ -1",
+        "8.314 J mol ^ -1 K^ -1",
+        "8.32 ×10 ^ 7 erg mol ^ - 1 K ^ - 1",
+        "1.987 cal mol ^ -1 K^ -1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "SI এককে R এর মান 8.314 J mol ^ - 1 K ^ - 1 এবং L.atm এককে R এর মান 0.082 Latm mol ^ - 1 K ^ - 1"
+    },
+    {
+      "question_no": 19,
+      "id": "133986",
+      "question": "C.G.S এককে R এর মান কোনটি?",
+      "options": [
+        "8.316 erg mol ^ - 1 K ^ - 1",
+        "8.316×10 ^ 7 erg mol ^ - 1 K ^ - 1",
+        "8.316J mol ^ - 1 K ^ - 1",
+        "8.316 erg K ^ - 1 mol ^ - 1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "C.G.S এককে R এর মান 8.32 × 10 ^ 7 erg mol^-1K^-1 ; 1J = 10 ^ 7 erg তাই 10 ^ 7  দিয়ে গুণ হবে"
+    },
+    {
+      "question_no": 20,
+      "id": "133987",
+      "question": "SI এককে বোল্টজম্যান ধ্রুবকের মান কত?",
+      "options": [
+        "6.023 × 10 ^ 23",
+        "6.023 × 10 ^ - 23",
+        "1.38 × 10 ^ - 23",
+        "1.36 × 10 ^ - 25"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "133991",
+      "question": "1 atm = কত প্যাসকেল?",
+      "options": [
+        "1.01325 × 10 ^ 2",
+        "1.01325 × 10 ^ - 2",
+        "1.01325 × 10 ^ 5",
+        "1.01325 × 10 ^ - 5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "latm = 1.01325 × 10 ^ 5"
+    },
+    {
+      "question_no": 22,
+      "id": "133993",
+      "question": "স্থির তাপমাত্রায় গ্যাসের চাপ বাড়ালে ঘনত্বের মান কীরূপ হয়?",
+      "options": [
+        "বাড়ে",
+        "কমে",
+        "শূন্য হয়",
+        "অপরিবর্তিত থাকে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যেহেতু স্থির তাপমাত্রায় ঘনত্ব, d ∝ p \r\n d= PM/RT ⇒ PM = dRT সূত্রানুসারে"
+    },
+    {
+      "question_no": 23,
+      "id": "133995",
+      "question": "প্রমাণ অবস্থায় 1 mol গ্যাসের আয়তন কত?",
+      "options": [
+        "22.4 m ^ 3",
+        "22.4 × 10 ^ - 3 m ^ 3",
+        "22400 m ^ 3",
+        "22.4 × 10 ^ 3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যেহেতু STP তে গ্যাসের মোলার আয়তন 22.4 L\r\n 1L = 10 ^ - 3  m ^ 3"
+    },
+    {
+      "question_no": 24,
+      "id": "133997",
+      "question": "বায়ুমণ্ডলে এর আংশিক চাপ কত?",
+      "options": [
+        "1.0 atm",
+        "0.78 atm",
+        "0.21 atm",
+        "0.14 atm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বায়ুমণ্ডলের N2 এর আংশিক চাপ 0.78 atm\r\nO2 এর আংশিক চাপ 0.21 atm।"
+    },
+    {
+      "question_no": 25,
+      "id": "133998",
+      "question": "STP-তে 3.2 g একটি গ্যাস 2.24 L আয়তন দখল করলে গ্যাসটি হতে পারে কোনটি?",
+      "options": [
+        "CO",
+        "CO2",
+        "N2",
+        "O2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যেহেতু STP তে এক মোল O2 অথবা 32g O2 এর মোলার আয়তন হবে 22.414 L"
+    },
+    {
+      "question_no": 26,
+      "id": "134000",
+      "question": "0.5 মোল N₂ এবং 0.3 মোল O₂ একত্রে মেশানো হলো। O₂ এর মোল ভগ্নাংশ কত?",
+      "options": [
+        "0.089",
+        "0.215",
+        "0.317",
+        "0.375"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "134002",
+      "question": "6 মোল O2 এবং 14 মোল N2 একত্রে মেশানো হলো। মিশ্রিত গ্যাসের চাপ 200 mm (Hg) হলে, O2 এর আংশিক চাপ কত?",
+      "options": [
+        "50 mm(Hg)",
+        "55 mm(Hg)",
+        "60 mm(Hg)",
+        "65 mm(Hg)"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "134003",
+      "question": "গ্যাসের ব্যাপন হারের সাথে সম্পর্ক আছে কোনটি?",
+      "options": [
+        "তুল্যভরের",
+        "পারমাণবিক ভরের",
+        "আণবিক ভরের",
+        "গ্যাসের আয়তনের"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "134006",
+      "question": "নিচের কোনটি গ্রাহামের ব্যাপন সূত্র?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "134008",
+      "question": "নিচের কোন গ্যাসটির ব্যাপন হার বেশি?",
+      "options": [
+        "HCl",
+        "NH3",
+        "CH4",
+        "Cl2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "134009",
+      "question": "একই শর্তাধীন নিচের কোন গ্যাসটি ব্যাপিত হতে অধিক সময় লাগবে?",
+      "options": [
+        "SO2",
+        "CO2",
+        "HCl",
+        "NH3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যেহেতু SO2 এর আণবিক বেশি এবং ব্যাপন হার, আণবিক ভর বেশি হলে, ব্যাপিত হতে সময় লাগবে বেশি। r ∝ 1/√M ;"
+    },
+    {
+      "question_no": 32,
+      "id": "134010",
+      "question": "নিচের কোন গ্যাসটির ব্যাপন হার সর্বাধিক?",
+      "options": [
+        "NH3",
+        "CH4",
+        "N2",
+        "CO"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "134011",
+      "question": "নিচের কোন গ্যাসটির ব্যাপন হার সর্বাধিক?",
+      "options": [
+        "CO2",
+        "O2",
+        "H2",
+        "NH3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "134177",
+      "question": "কোনটির ব্যাপন হার বেশি?",
+      "options": [
+        "NH3",
+        "C2H6",
+        "CO2",
+        "O2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "134178",
+      "question": "কোন গ্যাসদ্বয়ের ব্যাপন হার সমান?",
+      "options": [
+        "N2 ও CO",
+        "C2H4 ও O2",
+        "N2 ও O2",
+        "CO ও O2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যেহেতু গ্যাসদ্বয়ের আণবিক ভর সমান। N2 = 28\r\n CO = 12 + 16 = 28"
+    },
+    {
+      "question_no": 36,
+      "id": "134179",
+      "question": "27°C তাপমাত্রায় কোন গ্যাসটির RMS গতিবেগ বেশি?",
+      "options": [
+        "N2",
+        "H2",
+        "O2",
+        "Cl2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "134180",
+      "question": "STP-তে O2 গ্যাসের RMS বেগ কত?",
+      "options": [
+        "46.134 ms ^ - 1",
+        "461.34 ms ^ - 1",
+        "561.34 ms ^ - 1",
+        "600.5 ms ^ - 1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "134181",
+      "question": "স্থির তাপমাত্রায় সঠিক ক্রম কোনটি?",
+      "options": [
+        "H2 > N2 > CO2",
+        "CO2 > N2 > H2",
+        "N2 > CO2 > H2",
+        "N2 > H2 > CO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যেহেতু C ∝ 1/√M এর বেলায় CO2 > N2 > H2\r\nতাই RMS হবে এর উল্টো H2 > N2 > CO2"
+    },
+    {
+      "question_no": 39,
+      "id": "134182",
+      "question": "কোন গ্যাসটি দ্রুত ব্যাপিত হয়?",
+      "options": [
+        "ফ্লোরিন",
+        "অক্সিজেন",
+        "নিয়ন",
+        "ক্লোরিন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নিষ্ক্রিয় গ্যাসসমূহ দ্রুত ব্যাপিত হয়।"
+    },
+    {
+      "question_no": 40,
+      "id": "134183",
+      "question": "1 মোল গ্যাসের গতিশক্তি কোনটি?",
+      "options": [
+        "3R/2NA",
+        "3/2 nRT",
+        "3/2 R",
+        "3/2 RT"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যেহেতু গ্যাসের গতিশক্তি = 3/2 nRT \r\n[n = 1] = 3/2 RT"
+    },
+    {
+      "question_no": 41,
+      "id": "134184",
+      "question": "দুটি গ্যাসের গড় গতিশক্তি কখন সমান হয়?",
+      "options": [
+        "চাপ সমান",
+        "আণবিক ভর সমান",
+        "তাপমাত্রা সমান",
+        "আয়তন সমান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্যাসের গতিশক্তি তাপমাত্রার ওপর নির্ভরশীল E= 3/2 nRT;\r\nযখন নির্দিষ্ট মোল সংখ্যার দুটি গ্যাসের T সমান হয়, তখন E ও সমান হবে।"
+    },
+    {
+      "question_no": 42,
+      "id": "134185",
+      "question": "44 g CO2 এর জন্য আদর্শ গ্যাস সমীকরণ কোনটি?",
+      "options": [
+        "PV = RT",
+        "PV = 4RT",
+        "PV = 2RT",
+        "2PV = RT"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যেহেতু আদর্শ গ্যাসের সমীকরণ, PV = nRT n =W/M=44/44=1"
+    },
+    {
+      "question_no": 43,
+      "id": "134186",
+      "question": "8.0 g He গ্যাসের জন্য আদর্শ গ্যাস সমীকরণ কোনটি?",
+      "options": [
+        "PV = nRT",
+        "PV = RT",
+        "PV = 2RT",
+        "2PV = RT"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "PV = nRT এই সূত্রানুসারে\r\n8 g He = 2 mole He\r\n সুতরাং PV = 2RT"
+    },
+    {
+      "question_no": 44,
+      "id": "134187",
+      "question": "4.0 g H2 গ্যাসের জন্য আদর্শ সমীকরণ কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "134188",
+      "question": "4.0 g H2 গ্যাসের জন্য ভ্যানডার ওয়ালস সমীকরণ কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "134189",
+      "question": "28.0 g N2 গ্যাসের জন্য ভ্যানডার ওয়ালস সমীকরণ কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "134190",
+      "question": "ভ্যানডার ওয়ালস সমীকরণের ধ্রুবক 'a' দ্বারা কী বোঝায়?",
+      "options": [
+        "গ্যাসের গতিশক্তি",
+        "আন্তঃআণবিক আকর্ষণ",
+        "গ্যাসের আয়তন",
+        "আন্তঃআণবিক বিকর্ষণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভ্যানডার ওয়ালস সমীকরণে, এ আন্তঃআণবিক আকর্ষণ বোঝায় এবং  b আণবিক আয়তন বোঝায়"
+    },
+    {
+      "question_no": 48,
+      "id": "134191",
+      "question": "কোন শর্তে একটি বাস্তব গ্যাস আদর্শ গ্যাসের মতো আচরণ করে?",
+      "options": [
+        "উচ্চ তাপমাত্রা ও নিম্ন চাপে",
+        "উচ্চ তাপমাত্রা ও উচ্চ চাপে",
+        "নিম্ন তাপমাত্রা ও উচ্চ চাপে",
+        "নিম্ন তাপমাত্রা ও নিম্ন চাপে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নিম্ন চাপ ও উচ্চ তাপমাত্রায় বাস্তব গ্যাসসমূহ আদর্শ গ্যাসের ন্যায় আচরণ করে।"
+    },
+    {
+      "question_no": 49,
+      "id": "134192",
+      "question": "আদর্শ গ্যাসের সংকোচনশীলতা গুণাঙ্ক, Z এর মান কোনটি?",
+      "options": [
+        "3.0",
+        "2.O",
+        "1.O",
+        "0.5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আদর্শ গ্যাসের সংকোচনশীলতা গুণাঙ্ক, Z = 1"
+    },
+    {
+      "question_no": 50,
+      "id": "134193",
+      "question": "নিচের কোন গ্যাসটির সংকোচনশীলতা গুণাঙ্ক, Z > 1 হয়?",
+      "options": [
+        "H2",
+        "Cl2",
+        "CO2",
+        "NH3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "H2,He,N2 ইত্যাদি গ্যাসের পেষণ গুণাঙ্ক, Z > 1"
+    },
+    {
+      "question_no": 51,
+      "id": "134194",
+      "question": "নিচের কোন গ্যাসটির সংকোচনশীলতা গুণাঙ্ক, Z < 1 হয়?",
+      "options": [
+        "H2",
+        "He",
+        "CH4",
+        "Ne"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "CO2, O2, CH4 ইত্যাদি গ্যাসের পেষণ গুণাঙ্ক, Z < 1"
+    },
+    {
+      "question_no": 52,
+      "id": "134195",
+      "question": "CNG স্টেশনে ব্যবহৃত প্রাকৃতিক গ্যাস মিথেনের পরিমাণ কত?",
+      "options": [
+        "79%",
+        "88%",
+        "90%",
+        "96%"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "CNG স্টেশনে ব্যবহৃত গ্যাস 95-99% CH4 থাকে। \r\nLPG তে Propane 25%, Butane = 75%"
+    },
+    {
+      "question_no": 53,
+      "id": "134196",
+      "question": "বজ্রপাতের সময় বায়ুমণ্ডলের কোন গ্যাসটি সক্রিয় হয়?",
+      "options": [
+        "CO2",
+        "N2",
+        "H2",
+        "H2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বজ্রপাতের সময় বায়ুমণ্ডলের N2 গ্যাসটি সক্রিয় হয় এবং NO তৈরি হয়। \r\nN2 + O2 বিদ্যুৎ ক্ষরণ/3000° C 2NO"
+    },
+    {
+      "question_no": 54,
+      "id": "134197",
+      "question": "বজ্রপাতের সময় যেকোনো স্থানের বায়ুমণ্ডলে কোন এসিডটি উৎপন্ন হয়?",
+      "options": [
+        "H2SO4",
+        "HCl3",
+        "H3PO4",
+        "HNO3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বজ্রপাতের সময় NO তৈরি হয়; যেটি পরে O2 ও H2O এর সাথে বিক্রিয়া করে HNO3 তৈরি হয়।"
+    },
+    {
+      "question_no": 55,
+      "id": "134198",
+      "question": "নিচের কোনটি প্রাইমারি দূষক?",
+      "options": [
+        "SO3",
+        "N2O5",
+        "NO",
+        "HNO3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "CO, CO2, SO2 NO, NH2, H2S, ধূলিকণা,\r\nধোঁয়া, ছাই, হাইড্রোকার্বন ইত্যাদি প্রাইমারি বায়ু দূষক।"
+    },
+    {
+      "question_no": 56,
+      "id": "134199",
+      "question": "নিচের কোনটি সেকেন্ডারি দূষক?",
+      "options": [
+        "CO2",
+        "CO",
+        "SO2",
+        "O3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "SO3, H2SO4 বাষ্প, NO2, N2O5, PAN ইত্যাদি সেকেন্ডারি বায়ু দূষক।"
+    },
+    {
+      "question_no": 57,
+      "id": "134200",
+      "question": "ফটোকেমিক্যাল স্মোগ তৈরিতে কোন বায়ুদূষক ভূমিকা রাখে না?",
+      "options": [
+        "হাইড্রোকার্বন",
+        "NO2",
+        "O3",
+        "CFC"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "NO, NO2, O3 হাইড্রোকার্বন বাষ্প এবং বিভিন্ন ফ্রি-রেডিকেল ফটোকেমিক্যাল স্মোগ তৈরিতে ভূমিকা রাখে।"
+    },
+    {
+      "question_no": 58,
+      "id": "134201",
+      "question": "গ্রিন হাউস গ্যাসসমূহের মধ্যে নিচের কোনটি বায়ুমণ্ডলে সবচেয়ে বেশি থাকে?",
+      "options": [
+        "CH4",
+        "CO2",
+        "O3",
+        "CFC"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "CO2 কে প্রধান গ্রিন হাউস গ্যাস বলা হয়। কারণ তাপমাত্রা বৃদ্ধিতে এর ভূমিকা ৫০%।"
+    },
+    {
+      "question_no": 59,
+      "id": "134202",
+      "question": "নিচের কোনটি গ্রিন হাউস হিসাবে অধিক দায়ী?",
+      "options": [
+        "CFC",
+        "CO2",
+        "CH4",
+        "O3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 60,
+      "id": "134203",
+      "question": "বায়ুমণ্ডলে তাপমাত্রা বৃদ্ধিতে কোন গ্যাসটির ভূমিকা সবচেয়ে বেশি?",
+      "options": [
+        "CO2",
+        "CFC",
+        "CH4",
+        "HNO3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গ্লোবাল ওয়ার্মিং এর জন্য CO2 গ্যাস সবচেয়ে বেশি দায়ী"
+    },
+    {
+      "question_no": 61,
+      "id": "134204",
+      "question": "ফ্রিয়ন-12 এর সংকেত কোনটি?",
+      "options": [
+        "CF3Cl",
+        "CCl3F",
+        "CCl2F2",
+        "CF2Cl, CFCl2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফ্রিয়ন-12 এর সংকেত CF2Cl2\r\n90 + 12 = 102 -> C = 1H = O; F = 2; Cl = 2\r\n∴ CCl2F2"
+    },
+    {
+      "question_no": 62,
+      "id": "134205",
+      "question": "ওজোন ক্ষয় করে কোনটি?",
+      "options": [
+        "CF2Cl2",
+        "HCl",
+        "HFC",
+        "HCFC"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ক্লোরোফ্লোরো কার্বন নামক জৈব যৌগকে CFC বলে এবং CFC ওজোন স্তরের ক্ষয় করে।"
+    },
+    {
+      "question_no": 63,
+      "id": "134206",
+      "question": "এসিড বৃষ্টির বেলায় অধঃক্ষেপণ বৃষ্টিতে pH মান কত থাকে?",
+      "options": [
+        "5.2",
+        "6.5",
+        "6.1",
+        "2.7"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বায়ুমণ্ডলে অধঃক্ষেপণ বৃষ্টিতে pH এর মান 5.6 এর কম হলে, ঐ অধঃক্ষেপণকে এসিড বৃষ্টি বলে।"
+    },
+    {
+      "question_no": 64,
+      "id": "134207",
+      "question": "এসিড বৃষ্টির জন্য দায়ী কোনটি?",
+      "options": [
+        "CO2",
+        "CO",
+        "NH3",
+        "SO2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এসিড বৃষ্টির জন্য SO2 গ্যাস প্রধানত দায়ী। অন্য ২টি দায়ী গ্যাস হলো SO3, NO3"
+    },
+    {
+      "question_no": 65,
+      "id": "134208",
+      "question": "কোন এসিডটি বেশি তীব্র এসিড?",
+      "options": [
+        "CH3COOH",
+        "CH3CH2COOH",
+        "CH3CH2CH2COOH",
+        "H-COOH"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "H-COOH দ্রুত বিয়োজিত হয়ে দ্রবণে H+ দেয়।"
+    },
+    {
+      "question_no": 66,
+      "id": "134209",
+      "question": "HCO3- এর অনুবন্ধী ক্ষারক কোনটি?",
+      "options": [
+        "H2CO3",
+        "CO",
+        "CO3^2-",
+        "CO2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অনুবন্ধী ক্ষারকে এর অম্লের চেয়ে একটি H+ আয়ন কম; ফলে একটি ঋণাত্মক চার্জ বেশি অথবা ধণাত্মক চার্জ কম থাকে"
+    },
+    {
+      "question_no": 67,
+      "id": "134210",
+      "question": "সবচেয়ে তীব্র এসিডের pKa এর মান কোনটি?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সবচেয়ে তীব্র এসিডের pKa এর মান 1। তীব্র এসিডের Ka এর মান সর্বাধিক তাই pKa হবে সর্বনিম্ন।"
+    },
+    {
+      "question_no": 68,
+      "id": "134211",
+      "question": "নিচের কোন জোড়া লুইস এসিড?",
+      "options": [
+        "H2O ও AlCl3",
+        "AlCl3 ও BCl3",
+        "BF3 ও NH3",
+        "NH3 ও AlCl3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "লুইস এসিড হলো CO2, SO2, SO3, BF3, AlCl3,\r\n BCl3, Cu2+ H2O, NH3হলো লুইস ক্ষারক"
+    },
+    {
+      "question_no": 69,
+      "id": "134212",
+      "question": "কোনটি তীব্র এসিড?",
+      "options": [
+        "HNO3",
+        "HNO2",
+        "H2SO4",
+        "H2SO3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যেহেতু কেন্দ্রীয় পরমাণুর জারণ সংখ্যা সবচেয়ে বেশি।\r\nHNO3 তে N = +5\r\nHNO2 তে N = +3\r\n[জারণ সংখ্যা যত বেশি এসিডের তীব্রতা তত বেশি]\r\nH2SO4 তে S = +6\r\nH2SO3 তে S = +4"
+    },
+    {
+      "question_no": 70,
+      "id": "134213",
+      "question": "লুইস এসিডের উদাহরণ কোনটি?",
+      "options": [
+        "AlCl3",
+        "H2SO4",
+        "H2O",
+        "NH3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লুইস এসিড: CO2, SO2, SO3, BF3, AlCl3, BCl3, Cu2+"
+    },
+    {
+      "question_no": 71,
+      "id": "134214",
+      "question": "NO2- এর অনুবন্ধী এসিড কোনটি?",
+      "options": [
+        "HNO3",
+        "HNO2",
+        "NO3-",
+        "NH4+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অনুবন্ধী অম্লে এর ক্ষারকের চেয়ে একটি H+ আয়ন বেশি; ফলে একটি ঋণাত্মক চার্জ কম অথবা ধনাত্মক চার্জ বেশি থাকে।"
+    },
+    {
+      "question_no": 72,
+      "id": "134215",
+      "question": "নিচের কোনটি লুইস ক্ষারক?",
+      "options": [
+        "AlCl3",
+        "CO",
+        "FeCl3",
+        "SO3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "লুইস ক্ষারক হলো CO, NH3, H2O, OH-, CN-,\r\nCI-\r\nসতর্কতা: CO2 হলো লুইস এসিড"
+    },
+    {
+      "question_no": 73,
+      "id": "134216",
+      "question": "HCO3- + H2O —> উৎপাদ; এ বিক্রিয়ায় H2O এর অনুবন্ধী অম্ল কোনটি?",
+      "options": [
+        "HCO3",
+        "H2CO3",
+        "CO3 ^ 2-",
+        "H3O+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অনুবন্ধী অম্লে এর ক্ষারকের চেয়ে একটি H+ আয়ন বেশি; ফলে একটি ঋণাত্মক চার্জ কম অথবা ধণাত্মক চার্জ বেশি থাকে"
+    },
+    {
+      "question_no": 74,
+      "id": "134217",
+      "question": "H2CO3 + H2O → HCO3 + H3O+; এ বিক্রিয়ার H2CO3 এর অনুবন্ধী ক্ষারক কোনটি?",
+      "options": [
+        "HCO3-",
+        "H2CO3",
+        "H3O+",
+        "H2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অনুবন্ধী ক্ষারকে এর অম্লের চেয়ে একটি H+ আয়ন কম; ফলে একটি ঋণাত্মক চার্জ বেশি অথবা ধণাত্মক চার্জ কম থাকে।"
+    },
+    {
+      "question_no": 75,
+      "id": "134218",
+      "question": "NH3 + HCl → NH4+ + Cl- ; এ বিক্রিয়ায় অনুবন্ধী অম্ল কোনটি?",
+      "options": [
+        "NH3",
+        "Cl-",
+        "HCl",
+        "NH4+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অনুবন্ধী অম্লে এর ক্ষারকের চেয়ে একটি H+ আয়ন বেশি; ফলে একটি ঋণাত্মক চার্জ কম অথবা ধণাত্মক চার্জ বেশি থাকে।"
+    },
+    {
+      "question_no": 76,
+      "id": "134219",
+      "question": "বাংলাদেশে মিঠা পানির প্রধান উৎস কোনটি?",
+      "options": [
+        "সমুদ্রের পানি",
+        "ভূগর্ভস্থ পানি",
+        "নদীর পানি",
+        "পুকুরের পানি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মিঠা পানির উৎস হিমবাহ ও তুষার আচ্ছাদান হলেও বাংলাদেশে মিঠা পানির প্রধান উৎস ভূগর্ভস্থ পানি"
+    },
+    {
+      "question_no": 77,
+      "id": "134220",
+      "question": "মাঝে মাঝে পুকুরের মাছ পানির ওপরের অংশে হা করে শ্বাস নেয়। এ অবস্থার কারণ কী?",
+      "options": [
+        "পানির pH এর মান 7 এর বেশি",
+        "পানিতে DO এর মান খুব কম",
+        "পানির TDS এর মান কম",
+        "পানির খরতার মান বেশি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যেহেতু পানিতে DO অর্থাৎ পানিতে দ্রবীভূত অক্সিজেনের পরিমাণ কমে যায়।"
+    },
+    {
+      "question_no": 78,
+      "id": "134221",
+      "question": "কোন ধরনের দূষক পানির DO এর মান হ্রাস করে?",
+      "options": [
+        "অজৈব দূষক",
+        "জৈব দূষক",
+        "তেজস্ক্রিয়",
+        "কণা জাতীয় দূষক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জৈব দূষকের কারণে পানির DO এর মান হ্রাস পায়।"
+    },
+    {
+      "question_no": 79,
+      "id": "134222",
+      "question": "কৃষিকাজে সারফেস ওয়াটারের উপযুক্ততার মানদণ্ড কোনটি?",
+      "options": [
+        "TDS",
+        "pH এর মান",
+        "COD",
+        "BOD"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "pH এর মান কৃষিকাজে সারফেস ওয়াটারের উপযুক্ততার মানদণ্ড।"
+    },
+    {
+      "question_no": 80,
+      "id": "134223",
+      "question": "CO2 এর দুটি প্রধান সিংক (Sink) নিচের কোনটি?",
+      "options": [
+        "উদ্ভিদ ও বাতাস",
+        "সমুদ্র ও উদ্ভিদ",
+        "বনভূমি ও মাটি",
+        "উদ্ভিদ ও জীবাশ্ম জ্বালানি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সমূদ্র ও উদ্ভিদ CO2 এর দুটি প্রধান সিংক।\r\nপরিবেশের যে মাধ্যম দৃষককে শোষণ করে এর পরিমাণ হ্রাস করে তাকে সিংক বলে"
+    },
+    {
+      "question_no": 81,
+      "id": "134224",
+      "question": "বাংলাদেশে পানীয় জলে আর্সেনিকের গ্রহণযোগ্য মাত্রা কত?",
+      "options": [
+        "0.10 ppm",
+        "0.05 ppm",
+        "0.05 g/L",
+        "0.01 ppm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলাদেশে পানীয় জলে আর্সেনিকের সর্বোচ্চ গ্রহণযোগ্য মাত্রা হলো 0.05 ppm। আর নিরাপদ মাত্রা হলো 0.01 ppm।"
+    },
+    {
+      "question_no": 82,
+      "id": "134225",
+      "question": "WHO এর নির্দেশনা মতে পানিতে আর্সেনিকের নিরাপদ মাত্রা কত?",
+      "options": [
+        "0.01 ppm",
+        "0.04 ppm",
+        "0.05 ppm",
+        "0.06 ppm"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "WHO এর নির্দেশনা মতে As এর নিরাপদ মাত্রা 0.01 ppm |"
+    },
+    {
+      "question_no": 83,
+      "id": "134226",
+      "question": "WHO এর মতে পানিতে আর্সেনিকের সর্বোচ্চ সহনীয় মাত্রা কত ppm?",
+      "options": [
+        "0.05 ppm",
+        "0.01 pmm",
+        "0.005 pmm",
+        "0.001 pmm"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পানিতে আর্সেনিকের সর্বোচ্চ সহনীয় মাত্রা 0.05 ppm;\r\n ppm এর বদলে mg/L এককও থাকতে পারে।"
+    },
+    {
+      "question_no": 84,
+      "id": "134227",
+      "question": "বায়ুতে H2S এর কত ppm মাত্রা মানুষের মৃত্যু ঘটাতে পারে?",
+      "options": [
+        "20 ppm",
+        "30 ppm",
+        "40 ppm",
+        "50 ppm"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বায়ুতে H2S এর 50 ppm মাত্রা মানুষের মৃত্যু ঘটাতে পারে।"
+    },
+    {
+      "question_no": 85,
+      "id": "134228",
+      "question": "CO এর সহনীয় মাত্রা কত?",
+      "options": [
+        "40 ppm",
+        "0.15 ppm",
+        "500 ppm",
+        "1000 ppm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "CO এর সহনীয় মাত্রা 0.15 ppm।"
+    },
+    {
+      "question_no": 86,
+      "id": "134229",
+      "question": "মানব শরীরে নিচের কোন ধাতুর আয়নের আধিক্যে রক্তে হিমোগ্লোবিন উৎপাদন বাধা প্রাপ্ত হয়?",
+      "options": [
+        "Cd",
+        "Cr",
+        "Fe",
+        "As"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অধিক Cr3+ দূষণের ফলে RBC তে লৌহ (Fe2+) শোষণে বাধা পায় ফলে হিমোগ্লোবিন কম তৈরি হয়। ফলে রক্তশূন্যতা বা অ্যানিমিয়া হয়।"
+    },
+    {
+      "question_no": 87,
+      "id": "134230",
+      "question": "মানব শরীরে কোন ভারী ধাতুর আয়নের কারণে ব্ল‍্যাক-ফুট ডিজিজ হয়?",
+      "options": [
+        "Pb",
+        "As",
+        "Cd",
+        "Cr"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "As দূষণের ফলে মানব শরীরে ব্ল‍্যাক-ফুট ডিজিজ হয়। এটি আর্সেনিকোসিস এর প্রধান উপসর্গ।"
+    },
+    {
+      "question_no": 88,
+      "id": "134231",
+      "question": "মানব শরীরে কোন ধাতুর আয়নের আধিক্যের কারণে হাড় ভঙ্গুর বা অস্টিওপোরোসিস রোগ হয়?",
+      "options": [
+        "As3+",
+        "Cr3+",
+        "Pb2+",
+        "Cd2+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মানব শরীরে Cd2+ আয়নের আধিক্যের কারণে অস্টিওপোরোসিস রোগ হয়।"
+    },
+    {
+      "question_no": 89,
+      "id": "134232",
+      "question": "কোন ভারী ধাতুর আয়ন দ্বারা পানীয় জল দূষণের কারণে শিশুর বুদ্ধিবৃত্তি বা IQ হ্রাস পায়?",
+      "options": [
+        "As3+",
+        "Cr3+",
+        "Pb2+",
+        "Cd2+"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 90,
+      "id": "134233",
+      "question": "কোন অবস্থায় বাস্তব গ্যাস বয়েলের সূত্র মেনে চলে?",
+      "options": [
+        "নিম্ন তাপমাত্রায়",
+        "0° C তাপমাত্রায়",
+        "কক্ষ তাপমাত্রায়",
+        "উচ্চ তাপমাত্রায়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নিম্ন চাপ ও উচ্চ তাপমাত্রায় বাস্তব গ্যাসসমূহ আদর্শ গ্যাসের ন্যায় আচরণ করে।"
+    },
+    {
+      "question_no": 91,
+      "id": "134234",
+      "question": "অ্যাভোগাড্রো সূত্রের গাণিতিক রূপ কোনটি?",
+      "options": [
+        "P ∝ T(n, V স্থির)",
+        "V ∝ 1/P (n, T স্থির)",
+        "V ∝ T (n,p স্থির)",
+        "V ∝ n (P,T স্থির)"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অ্যাভোগাড্রোর সূত্র: স্থির তাপমাত্রা ও চাপে কোনো গ্যাসের আয়তন-এর পরিমাণ বা মোল সংখ্যার সমানুপাতিক"
+    },
+    {
+      "question_no": 92,
+      "id": "134235",
+      "question": "গে-লুসাকের চাপের সূত্রের গাণিতিক রূপ কোনটি?",
+      "options": [
+        "V ∝ n (P, T স্থির)",
+        "P ∝ T (n, V স্থির)",
+        "V ∝ T (n, P স্থির)",
+        "V ∝ 1/p (n,T স্থির)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গে-লুসাকের সূত্র: স্থির আয়তনের নির্দিষ্ট পরিমাণ যেকোনো গ্যাসের প্রযুক্ত চাপ গ্যাসের কেলভিন তাপমাত্রার সমানুপাতিক।"
+    },
+    {
+      "question_no": 93,
+      "id": "134236",
+      "question": "নির্দিষ্ট ভরের কোনো গ্যাসের চাপ অর্ধেক হ্রাস ও তাপমাত্রা দ্বিগুণ করা হলে আয়তন কত হবে?",
+      "options": [
+        "পূর্বের সমান",
+        "পূর্বের দ্বিগুণ",
+        "এক-চতুর্থাংশ",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 94,
+      "id": "134239",
+      "question": "স্থির তাপমাত্রায় ও 1 amt চাপে নির্দিষ্ট ভরের অক্সিজেন গ্যাসের আয়তন 3.15 L হয়। 2.5 atm চাপে ঐ গ্যাসের আয়তন কত হবে?",
+      "options": [
+        "1.62 L",
+        "216 L",
+        "621 L",
+        "1.26 L"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "P1V1 = P2V2 \r\nV2 = 3.15/2.5 = 1.26 L"
+    },
+    {
+      "question_no": 95,
+      "id": "134240",
+      "question": "নিচের কোন সূত্রটি আদর্শ গ্যাসের জন্য গুরুত্বপূর্ণ নয়?",
+      "options": [
+        "গে-লুসাকের সূত্র",
+        "রাউল্টের সূত্র",
+        "গ্রাহামের সূত্র",
+        "অ্যাভোগেড্রো সূত্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আদর্শ গ্যাসের জন্য গুরুত্বপূর্ণ সূত্র হলো:\r\nগে-লুসাকের সূত্র, গ্রাহামের সূত্র, অ্যাভোগেড্রো-এর সূত্র।"
+    },
+    {
+      "question_no": 96,
+      "id": "134241",
+      "question": "নিচের কোন সমীকরণটি গ্যাসের গতিতত্ত্ব থেকে উদ্ভুত?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 97,
+      "id": "134242",
+      "question": "ভ্যানডার ওয়ালস সমীকরণে ধ্রুবক 'a' এর সাথে সম্পর্কযুক্ত কোনটি?",
+      "options": [
+        "আন্তঃআণবিক আকর্ষণ",
+        "আন্তঃআণবিক বিকর্ষণ",
+        "অণুসমূহের প্রকৃত আয়তন",
+        "এক্ষেত্রে (খ) ও (গ) উভয়েই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভ্যানডার ওয়ালস সমীকরণ, a আন্তঃআণবিক আকর্ষণ এবং b আণবিক আয়তন বোঝায়"
+    },
+    {
+      "question_no": 98,
+      "id": "134243",
+      "question": "বোল্টজম্যান ধ্রুবকের একক কোনটি?",
+      "options": [
+        "J .K^-1(molecule) ^-1",
+        "J.s",
+        "J.K^-1",
+        "gcm^-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বোল্টজম্যান ধ্রুবকের একক J .K^-1(molecule) ^-1"
+    },
+    {
+      "question_no": 99,
+      "id": "134244",
+      "question": "নিচের কোনটি ওজোন স্তর ধ্বংসের জন্য দায়ী নয়?",
+      "options": [
+        "UV-রাশি",
+        "CFC-12",
+        "Cl",
+        "CO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "CO ওজোন স্তর ধ্বংসের জন্য দায়ী নয়"
+    },
+    {
+      "question_no": 100,
+      "id": "134245",
+      "question": "নিচের কোন যৌগটি ফ্রিয়ন-12 নামে পরিচিত?",
+      "options": [
+        "CF2Cl2",
+        "CFCl3",
+        "CHF2Cl",
+        "CHFCl2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ফ্রিয়ন-12 এর CF2Cl2"
+    },
+    {
+      "question_no": 101,
+      "id": "134246",
+      "question": "ফটোকেমিকেল স্মোগ তৈরিতে কোন বায়ু দূষক ভূমিকা রাখে না?",
+      "options": [
+        "NO2",
+        "CFC",
+        "হাইড্রোকার্বন",
+        "O3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "NO, NO2, O3 হাইড্রোকার্বন বাষ্প এবং বিভিন্ন ফ্রি-রেডিকেল ফটোকেমিক্যাল স্মোগ তৈরিতে ভূমিকা রাখে"
+    },
+    {
+      "question_no": 102,
+      "id": "134247",
+      "question": "কোনটিকে নীরব ঘাতক বলা হয়?",
+      "options": [
+        "CO",
+        "SO2",
+        "KMnO4",
+        "NH3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "CO গ্যাসকে নীরব ঘাতক বলা হয়"
+    },
+    {
+      "question_no": 103,
+      "id": "134248",
+      "question": "নিচের কোনটি লুইস এসিড?",
+      "options": [
+        "HNO3",
+        "H2SO4",
+        "AlCl3",
+        "NH3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "লুইস এসিড হলো CO2, SO2, SO3, BF3,\r\nAlCl3, FeCl3, Cu2+"
+    },
+    {
+      "question_no": 104,
+      "id": "134249",
+      "question": "তাপমাত্রার সাথে গ্যাসের আয়তনের পরিবর্তন হয় কোনটিতে",
+      "options": [
+        "বয়েলের সূত্র",
+        "চার্লসের সূত্র",
+        "ডাল্টনের আংশিক চাপ সূত্র",
+        "গ্রাহামের ব্যাপন সূত্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "চার্লসের সূত্র: স্থির চাপে নির্দিষ্ট ভরের কোনো গ্যাসের আয়তন এর পরম তাপমাত্রা বা কেলভিন তাপমাত্রার সমানুপাতিক হয়।"
+    },
+    {
+      "question_no": 105,
+      "id": "134250",
+      "question": "নিচের কোনটি লুইস এসিড?",
+      "options": [
+        "NH3",
+        "AlCl3",
+        "H2O",
+        "C2H4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "লুইস এসিড হলো CO2, SO2, SO3, BF3, AlCl3, FeCl3, Cu2+"
+    },
+    {
+      "question_no": 106,
+      "id": "134251",
+      "question": "নিচের কোন মানটি দূষিত পানির নির্দেশক?",
+      "options": [
+        "pH মান 6.4-7.4",
+        "DO মান 6 mgL^- 1",
+        "BOD মান 2 mgL^- 1",
+        "COD মান 100 mgL^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "WHO অনুমোদিত COD এর সর্বোচ্চ মাত্রা হলো 10 ppm"
+    },
+    {
+      "question_no": 107,
+      "id": "134252",
+      "question": "He এর উৎক্রম তাপমাত্রা কত?",
+      "options": [
+        "240°C",
+        "80°C",
+        "-80°C",
+        "-240°C"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "He এর উৎক্রম তাপমাত্রা -240°C"
+    },
+    {
+      "question_no": 108,
+      "id": "134253",
+      "question": "হাইড্রোকার্বন দূষকযুক্ত বায়ুকে দূষক মুক্ত করতে নিচের কোন মাধ্যমে চালনা করা উচিত?",
+      "options": [
+        "এসিড",
+        "ক্ষার",
+        "তেল",
+        "পানি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যেহেতু জৈব যৌগ অপোলার দ্রাবকে দ্রবীভূত হয়। তেল অপোলার।"
+    },
+    {
+      "question_no": 109,
+      "id": "134254",
+      "question": "পানির অস্থায়ী খরতার জন্য দায়ী কোনটি?",
+      "options": [
+        "SO4^2-",
+        "CO3^2-",
+        "Cl-",
+        "HCO3-"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পানিতে Ca2+ , Mg2+ ও Fe2+ আয়নের বাইকার্বনেট লবণ অধিক দ্রবীভূত থাকার কারণে সৃষ্ট খরতাকে অস্থায়ী খরতা বলে। যদি এসব আয়নের সালফেট বা ক্লোরাইড লবণ থাকে তবে তা হবে স্থায়ী ক্ষরতা"
+    },
+    {
+      "question_no": 110,
+      "id": "134255",
+      "question": "WHO কর্তৃক অনুমোদিত পানীয় জলের pH মাত্রা কত?",
+      "options": [
+        "3.5-6.4",
+        "6.5-8.5",
+        "7.5-9.4",
+        "9.5-10.5"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "WHO কর্তৃক অনুমোদিত পানীয় জলের pH 6.5-8.51"
+    },
+    {
+      "question_no": 111,
+      "id": "134256",
+      "question": "CO2 গ্যাসের সন্ধিচাপ কত atm?",
+      "options": [
+        "31.1",
+        "72.9",
+        "76",
+        "760"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "CO2 গ্যাসের সন্ধিচাপ 72.9 atm। CO2 এর সন্ধি তাপমাত্রা 31.1 ° C"
+    },
+    {
+      "question_no": 112,
+      "id": "134257",
+      "question": "মোলার গ্যাস ধ্রুবক (R) এর মাত্রা কোনটি?",
+      "options": [
+        "কাজ ^-1 K^ -1 মোল^-1",
+        "কাজ K^ -1 মোল^-1",
+        "কাজ K^ -1 মোল",
+        "কাজ^1 k মোল^-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 113,
+      "id": "134458",
+      "question": "18°C তাপমাত্রায় 0.8atm চাপে কোনো গ্যাসের ঘনত্ব 2.25gL^-1 হলে এর আণবিক ভর কত?",
+      "options": [
+        "67.11g mol^-1",
+        "36.24g mol^-1",
+        "24.36g mol^-1",
+        "36.63g mol^-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 114,
+      "id": "134459",
+      "question": "25°C তাপমাত্রায় কোনো গ্যাসের ক্ষেত্রে চাপ 1atm হলে 1/V এর মান 0.05L হয়। 1/V এর মান 0.042 হলে চাপ (P) এর মান কত হবে?",
+      "options": [
+        "0.05 atm",
+        "20 atm",
+        "0.035 atm",
+        "0.84 atm"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 115,
+      "id": "134460",
+      "question": "A ও B গ্যাসের মোল সংখ্যা যথাক্রমে 10 ও 30; এর মিশ্রণের মোট চাপ 12 atm হলে A গ্যাসের আংশিক চাপ কত হবে?",
+      "options": [
+        "3.0 atm",
+        "9 atm",
+        "16 atm",
+        "48 atm"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 116,
+      "id": "134461",
+      "question": "1.032 g অক্সিজেন ও 0.573g CO2 এর মিশ্রণের CO2 এর মোল ভগ্নাংশ কত?",
+      "options": [
+        "0.713",
+        "0.8323",
+        "0.287",
+        "0.1677"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 117,
+      "id": "134462",
+      "question": "সমভরের CH4 ও H2 কে শূন্যপাত্রে 25°C এর রাখা হলো। H2 এর আংশিক চাপ মোট চাপের ভগ্নাংশ কোনটি?",
+      "options": [
+        "1/2",
+        "1/9",
+        "8/9",
+        "16/17"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 118,
+      "id": "134463",
+      "question": "STP-তে 3.2g একটি গ্যাস 2.24L আয়তন দখল করলে গ্যাসটি হতে পারে কোনটি?",
+      "options": [
+        "CO",
+        "CO2",
+        "N2",
+        "O2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 119,
+      "id": "134464",
+      "question": "25cm কাচ নলের ১ম মুখে HCI ও ২য় মুখে NH3 গ্যাস একসাথে ঢুকলে NH4CI এর সাদা ধোঁয়া সৃষ্টি হয় কোথায়?",
+      "options": [
+        "নলের মাঝখানে",
+        "১ম মুখ থেকে 15 cm ভেতরে",
+        "১ম মুখ থেকে 10 cm ভেতরে",
+        "12cm ভেতরে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 120,
+      "id": "134465",
+      "question": "27°C তাপমাত্রায় O2 এর RMS বেগ কত?",
+      "options": [
+        "453.23ms^-1",
+        "463.34ms^-1",
+        "473.45ms^-1",
+        "483.56ms^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 121,
+      "id": "134466",
+      "question": "17° C তাপমাত্রায় এক মোল N2 এর গতিশক্তি কত?",
+      "options": [
+        "3606.59 J",
+        "3616.59 J",
+        "5936.16 J",
+        "5916.36 J"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 122,
+      "id": "134467",
+      "question": "কক্ষ তাপমাত্রায় N2 এর ১টি অণুর গতিশক্তি কত আর্গ?",
+      "options": [
+        "6.209 × 10 ^ - 20",
+        "6.58 × 10 ^ - 18",
+        "6.098 × 10 ^ - 4",
+        "6.17 × 10^ -14."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 123,
+      "id": "134468",
+      "question": "কক্ষ তাপমাত্রায় N2 এর ১টি অণুর গতিশক্তি হয় কত?",
+      "options": [
+        "617.13 ×10 ^ 23 J",
+        "617.13 ×10 ^ -23 J",
+        "671.13 ×10 ^ -23 J",
+        "671.13 ×10 ^ 23 J"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 124,
+      "id": "134469",
+      "question": "29° C তাপমাত্রায় 3.0gN2 এর মোট গতিশক্তি কত?",
+      "options": [
+        "403J",
+        "806J",
+        "831J",
+        "1612J"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 125,
+      "id": "134470",
+      "question": "বৈশ্বিক উষ্ণতা সৃষ্টিতে প্রধান ভূমিকা রাখে কোনটি?",
+      "options": [
+        "CO2",
+        "CFC",
+        "জলীয়বাষ্প",
+        "ওজোন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 126,
+      "id": "134471",
+      "question": "",
+      "options": [
+        "HCO3-",
+        "H2CO3",
+        "H3O+",
+        "H2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 127,
+      "id": "134472",
+      "question": "একটি পুকুরের পানির DO এর মান 4.0 হলে পানিটি হবে কোনটি?",
+      "options": [
+        "বিশুদ্ধ পানি",
+        "দূষিত পানি",
+        "মৃদু পানি",
+        "খর পানি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 128,
+      "id": "134473",
+      "question": "300K তাপমাত্রায় বাতাসের N2 অণুর RMS বেগ কত?",
+      "options": [
+        "450ms^-1",
+        "516ms^-1",
+        "400ms^-1",
+        "600ms^-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 129,
+      "id": "134474",
+      "question": "",
+      "options": [
+        "HCl",
+        "H2O",
+        "HCO3-",
+        "CO3-"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 130,
+      "id": "134475",
+      "question": "FGD প্লান্টের মাধ্যমে কোনটি দূর করা যায় না?",
+      "options": [
+        "SOx",
+        "NOx",
+        "CO2",
+        "CO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 131,
+      "id": "134476",
+      "question": "STP-তে 1.0L গ্যাসের ভর 1.43g হলে গ্যাসটি হবে কোনটি?",
+      "options": [
+        "H2",
+        "O2",
+        "N2",
+        "Cl2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 132,
+      "id": "134477",
+      "question": "Vt = (Vo + Vo × t/273) সমীকরণে Vo/273 কে কী বলা হয়?",
+      "options": [
+        "তাপ প্রসারাঙ্ক",
+        "আয়তন প্রসারাঙ্ক",
+        "পরম আয়তন",
+        "পরম তাপমাত্রা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 133,
+      "id": "134478",
+      "question": "অ্যামাগা বক্ররেখার মূলভিত্তি কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 134,
+      "id": "134479",
+      "question": "অনুবন্ধী অম্লক্ষারক যুগলের মধ্যে পার্থক্য কী?",
+      "options": [
+        "১টি H পরমাণু",
+        "১টি H+ আয়ন",
+        "১ অণু পানি",
+        "১টি OH- আয়ন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

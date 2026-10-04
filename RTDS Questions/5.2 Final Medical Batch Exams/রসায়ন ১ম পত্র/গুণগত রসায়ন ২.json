@@ -1,0 +1,708 @@
+{
+  "title": "গুণগত রসায়ন ২",
+  "category": "5.2 Final Medical Batch Exams > রসায়ন ১ম পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "120389",
+      "question": "DOT পদ্ধতিতে কোন ধরনের রশ্মি ব্যবহৃত হয়?",
+      "options": [
+        "Far IR",
+        "Middle IR",
+        "Near IR",
+        "Medical IR"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "DOT (Diffuse Optical Tomography) পদ্ধতিতে ব্যবহৃত হয় Near Infrared (NIR) রশ্মি, কারণ এটি জৈব টিস্যুর মধ্যে সহজে প্রবেশ করতে পারে এবং অল্প বিচ্ছুরিত আলো দিয়ে অভ্যন্তরীণ কাঠামোকে চিত্রায়িত করতে সাহায্য করে।"
+    },
+    {
+      "question_no": 2,
+      "id": "120390",
+      "question": "ফসফোর কত তরঙ্গ দৈর্ঘ্যের রশ্মি বিকিরণ করে?",
+      "options": [
+        "230nm-375nm",
+        "360nm-560nm",
+        "450nm-840nm",
+        "380nm-780nm"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "120391",
+      "question": "নিচের কোন সালফেট লবণ পানিতে অদ্রবণীয়?",
+      "options": [
+        "CuSO4",
+        "Na2SO4",
+        "l2(SO4) 3",
+        "BaSO4"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "120392",
+      "question": "Far-IR রশ্মির ব্যবহার নয় কোনটি?",
+      "options": [
+        "ব্যথা বেদনা উপশম",
+        "স্নায়ু গঠন প্রক্রিয়া",
+        "রোগ প্রতিরোধ ক্ষমতা বৃদ্ধি",
+        "লোহিত কণিকা বৃদ্ধি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "120393",
+      "question": "নিচের কোনটি NMR সক্রিয় পরমাণু?",
+      "options": [
+        "19Fe",
+        "12C",
+        "16O",
+        "24Mg"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "120394",
+      "question": "শিখা পরীক্ষায় ইটের মত লাল শিখা দেয় কোনটি?",
+      "options": [
+        "Cu2+",
+        "Ca2+",
+        "Na+",
+        "K+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "120395",
+      "question": "কোন দ্রবণে NH4OH যোগ করলে প্রাপ্ত ফলাফল সঠিক নয়?",
+      "options": [
+        "Fe3+→বাদামি",
+        "Fe2+→সবুজ",
+        "Al3+→গাড় নীল",
+        "Zn2+→ সাদা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Al³⁺ → সাদা (White) ❌ (আপনার অপশনে “গাড় নীল” লেখা আছে, যা সঠিক নয়)"
+    },
+    {
+      "question_no": 8,
+      "id": "120396",
+      "question": "দ্রাব্যতা সম্পর্কিত কোনটি সঠিক?",
+      "options": [
+        "সমআয়ন প্রভাবে দ্রাব্যতা ধ্রুব থাকে",
+        "দ্রাব্যতার ওপর তাপমাত্রার প্রভাব নেই",
+        "আয়নিক ও সমযোজী উভয় যৌগের ক্ষেত্রে দ্রাব্যতা প্রযোজ্য",
+        "দ্রাবকের প্রকৃতির ওপর দ্রাব্যতা নির্ভর করে না"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "120397",
+      "question": "নিচের কোন সেটটিতে সম-আয়ন প্রভাব বিদ্যমান?",
+      "options": [
+        "NaCl, CH2Cl",
+        "H₂S, HCI",
+        "CH3, HCI",
+        "CaCl2, C6H5Cl"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "120398",
+      "question": "25°C তাপমাত্রায় CaF2 এর দ্রাব্যতা 0. 0002 mol L-1 হলে দ্রাব্যতা গুণফল কত?",
+      "options": [
+        "8 x 10^-12",
+        "3. 2 x 10^-11",
+        "2. 4 x 10^-11",
+        "4 x 10^-12"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "120399",
+      "question": "কোন যৌগটি পানিতে দ্রবণীয় হবে?",
+      "options": [
+        "CaSO4",
+        "CaCO3",
+        "(NH4) 2CO3",
+        "AgCl"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "120400",
+      "question": "MRI মেশিনে ব্যবহৃত চৌম্বকক্ষেত্রের মান কত?",
+      "options": [
+        "0. 5-0. 1 Tesla",
+        "0. 5 - 3. 0 Tesla",
+        "1. 5-3. 5 Tesla",
+        "2. 5 - 4. 5 Tesla"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "120401",
+      "question": "শিখা পরীক্ষায় নিচের কোন আয়নটি বেগুনি বর্ণ দেখায়?",
+      "options": [
+        "K+",
+        "Ca2+",
+        "Na+",
+        "Cu²+"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "120402",
+      "question": "কোনটি পটাসিয়াম পাইরো অ্যান্টিমোনেট?",
+      "options": [
+        "K2H2Sb2O7",
+        "K2H2SbO7",
+        "KH2Sb2O7",
+        "HSb2O7"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "120403",
+      "question": "50 ml সম্পৃক্ত দ্রবণে 5 g CaCl2 আছে। লিটার প্রতি CaCl2 এর দ্রাব্যতা কত?",
+      "options": [
+        "10. 0 g/L",
+        "100 g/L",
+        "1011 g/L",
+        "0. 01g/L"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "120404",
+      "question": "NaCl এর ল্যাটিস শক্তি কত?",
+      "options": [
+        "+788kj/mol",
+        "+320kj/mol",
+        "-520kj/mol",
+        "-788kj/mol"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "120405",
+      "question": "NH4+ আয়ন শনাক্তকরণে ব্যবহৃত বিকারক কোনটি?",
+      "options": [
+        "AgNO3",
+        "নেসলার দ্রবণ",
+        "NH4OH দ্রবণ",
+        "Bacl2 দ্রবণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "120406",
+      "question": "Far-IR রশ্মি দেহের ত্বক ভেদ করে কত গভীরে যেতে পারে?",
+      "options": [
+        "0. 4cm",
+        "4cm",
+        "4mm",
+        "0. 4mm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "120407",
+      "question": "ন্যাফথালিন আলাদা করতে কোন প্রক্রিয়াটি ব্যবহৃত হয়?",
+      "options": [
+        "স্টিমপাতন",
+        "ঊর্ধ্বপাতন",
+        "আংশিক পাতন",
+        "দ্রাবক নিষ্কাশন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "120408",
+      "question": "মরিচের গুঁড়া থেকে লাল রং পৃথক করা হয় কোন পদ্ধতিতে?",
+      "options": [
+        "আংশিক পাতন",
+        "স্টিম পাতন",
+        "দ্রাবক নিষ্কাশন",
+        "কলাম ক্রোমাটোগ্রাফি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "120409",
+      "question": "শিখা পরীক্ষায় ব্যবহৃত কোবাল্ট -গ্লাস কোন আলো সম্পূর্ণ শোষণ করে?",
+      "options": [
+        "হালকা বেগুনি,",
+        "সোনালী হলুদ",
+        "নীলাভ সবুজ",
+        "গোলাপী লাল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "120410",
+      "question": "কোন এসিড শিখা পরীক্ষায় ব্যবহৃত হয়?",
+      "options": [
+        "গাঢ় H2SO4",
+        "দ্রবনীয় HCl",
+        "গাঢ় HCl",
+        "পাতলা H2SO4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "120411",
+      "question": "কোনটি ফুলের নির্যাস হতে সুগন্ধি সংগ্রহ করার পদ্ধতি?",
+      "options": [
+        "পাতন",
+        "আংশিক পাতন",
+        "বাষ্প পাতন",
+        "ঊর্ধ্বপাতন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "120412",
+      "question": "নিম্নের কোনটি তরল-তরল ক্রোমাটোগ্রাফির উদাহরণ",
+      "options": [
+        "পেপার ক্রোমোটোগ্রাফি",
+        "গ্যাস ক্রোমোটোগ্রাফি",
+        "কলাম ক্রোমাটোগ্রাফি",
+        "পাতলা স্তর ক্রোমোটোগ্রাফি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "120413",
+      "question": "কোনটি গ্লোবার লবণ?",
+      "options": [
+        "Na2SO4. 10H2O",
+        "CaSO4. 5H2O",
+        "NaNO3. 10H₂O",
+        "Ca(NO3) 2. 5H2O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "120414",
+      "question": "পেপার ক্রোমাটোগ্রাফিতে স্থির মাধ্যমে হিসেবে কোনটি ব্যবহৃত হয?",
+      "options": [
+        "চকের গুড়া",
+        "অ্যালুমিনা",
+        "সিলিকা",
+        "পানি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পেপার ক্রোমাটোগ্রাফি মূলত কাগজের (cellulose) উপর নির্ভর করে। কাগজের অণুগুলিতে পানি আবদ্ধ থাকে, যা দ্রাবকের (mobile phase) সাথে বিক্রিয়ায় অংশ নেয়। তাই কার্যকরী স্থির মাধ্যম হলো কাগজে আবদ্ধ পানি, না যে কোন কঠিন পদার্থ যেমন চকের গুড়া, অ্যালুমিনা বা সিলিকা।"
+    },
+    {
+      "question_no": 27,
+      "id": "120415",
+      "question": "যে কোন ক্রোমাটোগ্রাফিতে কোন যৌগের Rf এর মান নিচের কোনটির বেশি হতে পারে না?",
+      "options": [
+        "2",
+        "0.5",
+        "0.1",
+        "1.0"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "120416",
+      "question": "পেট্রোলিয়াম বিশোধনে যে প্রক্রিয়া অধিকতর কার্যকর?",
+      "options": [
+        "পাতন",
+        "স্টিম পাতন",
+        "আংশিক পাতন",
+        "দ্রাবক নিষ্কাশন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "120417",
+      "question": "নিচের কোন বিকারকটি Cu2+ আয়ন শনাক্তকরণে ব্যবহৃত হয়?",
+      "options": [
+        "AgNO3",
+        "NH4SCN",
+        "K4[Fe(CN6) ]",
+        "(NH4) C2O4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "K₄[Fe(CN)₆] → Cu²⁺ আয়নের সঙ্গে বিক্রিয়ায় নীল বা লালবেরঙের পদার্থ দেয়।\r\n\r\nঅন্য বিকারকগুলো সাধারণত অন্য আয়নের জন্য ব্যবহৃত হয়:\r\n\r\nAgNO₃ → Cl⁻, Br⁻, I⁻ শনাক্তকরণে\r\n\r\nNH₄SCN → Fe³⁺ শনাক্তকরণে\r\n\r\n(NH₄)₂C₂O₄ → Ca²⁺ শনাক্তকরণে"
+    },
+    {
+      "question_no": 30,
+      "id": "120418",
+      "question": "শিল্প ক্ষেত্রে চিনি উৎপাদনে কোন পদ্ধতি ব্যবহৃত হয়?",
+      "options": [
+        "পাতন",
+        "কেলাসন",
+        "সমস্ফুটন-পাটন",
+        "ক্রোমাটোগ্রাফি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "120419",
+      "question": "MRI যন্ত্রের সাহায্যে মানব দেহের রোগ নির্ণয়ে কোন মৌলটির ভূমিকা আছে?",
+      "options": [
+        "oxygen",
+        "hydrogen",
+        "neon",
+        "silicon"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "120420",
+      "question": "ক্রোমোটোগ্রাফিতে সাধারণত স্থির মাধ্যমে কোনটি ব্যবহার করা হয় না?",
+      "options": [
+        "সিলিকা",
+        "অ্যালুমিনা",
+        "জিংক",
+        "ম্যাগনেসিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "120421",
+      "question": "জাল পাসপোর্ট শনাক্ত করার জন্য নিচের কোনটি ব্যবহার করা হয়?",
+      "options": [
+        "X ray",
+        "IR",
+        "UV",
+        "Radio wave"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "120422",
+      "question": "মাথার খুলির (Cortex) কার্যপদ্ধতি নির্ণয় করা হয় কোন পদ্ধতিতে?",
+      "options": [
+        "LASER",
+        "MRI",
+        "NMR",
+        "DOT"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "120423",
+      "question": "দ্রাব্যতা গুণফল কোন ক্ষেত্রে প্রযোজ্য?",
+      "options": [
+        "দূর্বল তড়িৎ বিশ্লেষ্য",
+        "অধিক দ্রবণীয় আয়নিক যৌগ",
+        "সমযোজী যৌগ",
+        "সকল যৌগ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "120424",
+      "question": "আয়নিক গুণফল দ্রাব্যতার গুণফল থেকে বেশি হলে দ্রবণটি কেমন হবে?",
+      "options": [
+        "Unsaturated",
+        "Supersaturated",
+        "Saturated",
+        "Sub-saturated"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "120425",
+      "question": "কোনটি পানিতে বেশি দ্রবণীয়?",
+      "options": [
+        "Sr(OH) 2",
+        "Ca(OH) 2",
+        "Ba(OH) 2",
+        "Mg(OH) 2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পানি দ্রবণে ধাতব হাইড্রোক্সাইডের দ্রবণীয়তা সাধারণত অ্যালকালাইন অর্থাৎ ঘনত্ব অনুযায়ী বৃদ্ধি পায় Periodic Table এ নিচ থেকে উপরে কমে।\r\n\r\nMg(OH)₂ → খুব কম দ্রবণীয়\r\n\r\nCa(OH)₂ → সামান্য দ্রবণীয়\r\n\r\nSr(OH)₂ → বেশি দ্রবণীয়\r\n\r\nBa(OH)₂ → সবচেয়ে বেশি দ্রবণীয়"
+    },
+    {
+      "question_no": 38,
+      "id": "120426",
+      "question": "রেকটিফাইড স্পিরিটকে কত তাপমাত্রায় উত্তপ্ত করে বিশুদ্ধ ইথানল পাওয়া যায়?",
+      "options": [
+        "86°C",
+        "78. 3°C",
+        "95. 6°C",
+        "100°C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রেকটিফাইড স্পিরিট (rectified spirit) মূলত 95–96% ইথানল ধারণ করে। বিশুদ্ধ ইথানলকে উত্তপ্ত করলে এর উৎপ্লবনের তাপমাত্রা ≈ 78.3°C।"
+    },
+    {
+      "question_no": 39,
+      "id": "120427",
+      "question": "নিচের কোন মৌলটি বুনসেন শিখায় বিশেষ কোন বর্ণ সৃষ্টি করে না?",
+      "options": [
+        "Cr",
+        "Be",
+        "Li",
+        "Ba"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "120428",
+      "question": "আংশিক পাতন প্রক্রিয়ার জন্য তরলের মধ্যে স্ফুটনাংকের ন্যূনতম পার্থক্য থাকা উচিত-",
+      "options": [
+        "20°C",
+        "30°C",
+        "50°C",
+        "40°C"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "120429",
+      "question": "উর্দ্ধপাতনযোগ্য পর্দাথ নয়",
+      "options": [
+        "কর্পুর",
+        "ন্যাপথালিন",
+        "আয়োডিন",
+        "সোডা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "120430",
+      "question": "নারিকেলের শাসেঁর গুড়াঁ থেকে নারিকেল তৈল নিস্কাশন করা হয় কোন প্রক্রিয়ায়?",
+      "options": [
+        "বাম্প পাতন",
+        "দ্রাবক নিস্কাশন",
+        "আংশিক পাতন",
+        "কেলাসন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "120431",
+      "question": "কোন পদ্ধতিতে ন্যাপথালিন কে বিশোধন করা হয়?",
+      "options": [
+        "উর্দ্ধপাতন",
+        "আংশিক পাতন",
+        "নিম্নচাপ পাতন",
+        "বাম্প পাতন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "120432",
+      "question": "চিনি শিল্পে আখের রসকে গাঢ় করা হয় কোনটির মাধ্যমে?",
+      "options": [
+        "উর্ধ্বপাতন",
+        "স্টিমপাতন",
+        "আংশিক পাতন",
+        "নিম্নচাপ পাতন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "120433",
+      "question": "বৃস্টির পানি হতে লবণ পৃথক করার সঠিক প্রণালি নিম্নের কোনটি?",
+      "options": [
+        "পাতন",
+        "ছাকন",
+        "থিতন",
+        "উর্দ্ধপাতন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "120434",
+      "question": "সক্সলেট নিস্কাশন কোণ ধরনের বিশোধন পদ্ধতির সাথে জড়িত?",
+      "options": [
+        "উর্দ্ধপাতন",
+        "দ্রাবক নিস্কাশন",
+        "আংশিক কেলাসন",
+        "নিম্নচাপ পাতন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "120435",
+      "question": "নিম্নের কোনটি অধিশোষণ ক্রোমাটোগ্রাফি?",
+      "options": [
+        "গ্যাস তরল",
+        "গ্যাস",
+        "পাতলা স্তর",
+        "পেপার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "120436",
+      "question": "নিচের কোন মূলকটি ক্রোমাটোগ্রাফিতে অধিক অধিশোষিত হবে?",
+      "options": [
+        "-CHOমূলক",
+        "-COOHমূলক",
+        "-NH2 মূলক",
+        "-OH মূলক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "120437",
+      "question": "বন্টন বা বিভাজনের উপর নির্ভর করে যে ক্রোমাটোগ্রাফি তা হচ্ছে",
+      "options": [
+        "কলাম ক্রোমাটোগ্রাফি",
+        "পাতলা স্তর ক্রোমাটোগ্রাফি",
+        "পেপার ক্রোমাটোগ্রাফি",
+        "স্তর ক্রোমাটোগ্রাফি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "120438",
+      "question": "ক্রোমাটোগ্রাফি দশা কয়টি?",
+      "options": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ক্রোমাটোগ্রাফি মূলত ২ ধরনের অবস্থায় (state) করা হয়:\r\n\r\n1. স্থির অবস্থায় (Stationary phase)\r\n\r\n\r\n2. চলমান অবস্থায় (Mobile phase)"
+    }
+  ]
+}

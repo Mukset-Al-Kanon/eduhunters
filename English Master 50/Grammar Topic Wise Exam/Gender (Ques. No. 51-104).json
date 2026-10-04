@@ -1,0 +1,821 @@
+{
+  "exam_id": 8376,
+  "title": "Gender (Ques. No. 51-104)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Gender (104 Marks)",
+  "duration_minutes": 21,
+  "total_questions": 54,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "51496f66-bf34-4ef4-a041-d8d3c0ad44aa",
+      "question": "An unmarried woman is called ---[]",
+      "options": [
+        "Seamstress",
+        "Bachelor",
+        "Nurse",
+        "Spinster"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "ab668bc5-7164-43c1-8a0e-8ef68868da7f",
+      "question": "The feminine form of the word 'Author' is ---[]",
+      "options": [
+        "Authoress",
+        "Authores",
+        "Authors",
+        "Authorss"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "5cf3f654-1f5c-471e-8c82-1cce6ab80ca3",
+      "question": "The opposite gender of 'Emperor' is ---[]",
+      "options": [
+        "Emperori",
+        "Empress",
+        "Empros",
+        "Emprossi"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "42d8f4e4-f3a1-460b-b6a4-02cd6973a39f",
+      "question": "Masculine gender of 'Abbot' is ---[]",
+      "options": [
+        "Abess",
+        "Abbes",
+        "Abbess",
+        "Abbotess"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "7c148205-d67b-491c-9003-1e55159a0144",
+      "question": "Duchess' is the feminine of ---[]",
+      "options": [
+        "Earl",
+        "Dutchman",
+        "Duke",
+        "Chess"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "39d88e50-aa8a-4b19-a018-31e2bd2ac3c7",
+      "question": "What is the opposite gender of 'Poet' ?[]",
+      "options": [
+        "Poetess",
+        "Female poet",
+        "Poet",
+        "Poetress"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "a8a0f670-6792-4930-b49a-7ce07786fb24",
+      "question": "What is the feminine gender of 'Tiger' ?[]",
+      "options": [
+        "Trigren",
+        "Tigress",
+        "Tigeri",
+        "Tigerian"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "6481c027-ff72-46ee-8c82-fc38f2424b78",
+      "question": "Which one is the correct masculine form of 'she-ass' ?[]",
+      "options": [
+        "He-ass",
+        "Pea-ass",
+        "Jack-ass",
+        "Jhone-ass"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "e906e6d4-671e-42a0-aa08-26b8c21e739f",
+      "question": "The masculine gender of 'Bride' is ---[]",
+      "options": [
+        "Husband",
+        "Bridegroom",
+        "Brider",
+        "Bride"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "0f650326-fe2c-441b-b598-bdc601d19115",
+      "question": "The feminine form of 'Prosecutor' is ---[]",
+      "options": [
+        "Prosecutrix",
+        "Prosecutress",
+        "Prosecutora",
+        "Prosecuter"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "c4dae6dd-fa50-4441-ad2b-2375e5e14e17",
+      "question": "The feminine gender of the word 'John' is ---[]",
+      "options": [
+        "Jane",
+        "Jun",
+        "June",
+        "Junee"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "56e9dc1c-4b1c-45a3-ab8e-e63999967db1",
+      "question": "The feminine gender of 'Signor' is ---[]",
+      "options": [
+        "Signora",
+        "Signorr",
+        "Signoress",
+        "Signorer"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "918cb92a-9609-4182-a7f5-b27123052f6b",
+      "question": "Opposite gender of 'Administrator' is ---[]",
+      "options": [
+        "Administratrix",
+        "Administrix",
+        "Administratess",
+        "Female administrator"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "e914b233-5009-4ea1-8541-238f6aa4a793",
+      "question": "What is the feminine equivalent of the word 'Comedian' ?[]",
+      "options": [
+        "Comedienne",
+        "Comedic",
+        "Comedi",
+        "Commodious"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "086d0a78-cc02-46bd-a0fb-345779847338",
+      "question": "Which one is feminine noun ?[]",
+      "options": [
+        "Abbot",
+        "Enchanter",
+        "Pea-cock",
+        "Executrix"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "75305176-4310-45be-8004-3ee887d6303d",
+      "question": "Which one is masculine gender ?[]",
+      "options": [
+        "Nurse",
+        "Judge",
+        "Virgin",
+        "Shrew"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "1d9bc99e-6643-4093-90ed-f177056dd66c",
+      "question": "Which one of the following is always feminine ?[]",
+      "options": [
+        "Fowl",
+        "Foal",
+        "Spouse",
+        "Shrew"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "df278f6a-abda-4448-b305-23add4ccfebb",
+      "question": "Which one is masculine noun ?[]",
+      "options": [
+        "Miss",
+        "Spring",
+        "Liberty",
+        "Death"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "1318f081-ce25-4fa4-8cea-7f49aa150b2b",
+      "question": "Which of the following nouns is used in the masculine form ?[]",
+      "options": [
+        "Autumn",
+        "Moon",
+        "Peace",
+        "Time"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "0dfd30f4-c0a3-4f53-9ad3-ea7d2b3a12a9",
+      "question": "Which of the following nouns is used in the masculine form ?[]",
+      "options": [
+        "Autumn",
+        "Moon",
+        "Peace",
+        "Time"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "f66d1700-2367-44ae-b3b6-7a489b33cfc8",
+      "question": "The moon has hidden her face behind the cloud'. Here the moon is ------- gender.[]",
+      "options": [
+        "Masculine",
+        "Feminine",
+        "Common",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "f5eab126-3c1f-48b3-a9bd-74966b6a3064",
+      "question": "Which gender is the word 'Orphan' ?[]",
+      "options": [
+        "Neuter",
+        "Feminine",
+        "Common",
+        "Masculine"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "d56283ae-8f0c-4d6e-8b6f-911f097940e8",
+      "question": "Which of the following is a common gender ?[]",
+      "options": [
+        "King",
+        "Sovereign",
+        "Emperor",
+        "Queen"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "83634471-d960-4c6d-b1b6-3423b730a51c",
+      "question": "The word 'Sibling' means ---[]",
+      "options": [
+        "A brother",
+        "A sister",
+        "An infant",
+        "A brother or sister"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "0142d420-9643-4561-809b-b074e4759129",
+      "question": "Which of the following is the masculine gender of 'Deer' ?[]",
+      "options": [
+        "Mate",
+        "Duck",
+        "Doe",
+        "Buck"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "0030268f-6140-45b0-bafa-8233d7707b53",
+      "question": "The word 'parent' means ---[]",
+      "options": [
+        "Father",
+        "Mother",
+        "Father and mother",
+        "Father or mother"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "3f4c5c3f-62d4-41c6-8317-ea0fafb83f82",
+      "question": "Which one of the following is a common gender ? []",
+      "options": [
+        "Teacher",
+        "Book",
+        "Boy",
+        "Madam"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "c5c29df7-3e8b-4cb8-b715-6a12c8f43799",
+      "question": "Which of the following is a neutral gender ?[]",
+      "options": [
+        "Rooster",
+        "Server",
+        "Stallion",
+        "Waiter"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "4a861e33-18c9-4606-bff2-18055a1adc99",
+      "question": "Which of the following word can be used as both masculine and feminine ?[]",
+      "options": [
+        "Actor",
+        "Gander",
+        "Spinster",
+        "Spouse"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "e2ac4209-2335-4f72-a6fb-f6605957c316",
+      "question": "What does spouse mean ?[]",
+      "options": [
+        "Family member",
+        "Parents",
+        "Husband",
+        "Husband or Wife"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "67923304-3a2b-485e-9602-68bde92fa4d0",
+      "question": "Which of the following is a common gender ?[]",
+      "options": [
+        "Orphan",
+        "Gander",
+        "Cock",
+        "Pea-hen"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "1ee7d2ab-a067-4960-8560-cc09b14bac60",
+      "question": "Which one is common gender ?[]",
+      "options": [
+        "Baby",
+        "Girl",
+        "Man",
+        "Boy"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "679b6e22-0f4a-41e7-9b19-3de589207a9f",
+      "question": "The opposite gender of 'Teacher' is ---[]",
+      "options": [
+        "Miss",
+        "Madam",
+        "Sir",
+        "None"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "4830ed11-ae97-444f-9bd8-c752f318cdce",
+      "question": "The child cried for ----- mother./The horse fell and broke ----- legs.[]",
+      "options": [
+        "it",
+        "her",
+        "its",
+        "his"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "65313d81-ba50-432e-8643-570ae4543da3",
+      "question": "The committee has met and -----.[]",
+      "options": [
+        "they have reached a decision",
+        "has formulated themselves some opinions",
+        "took their decision",
+        "it has reached a decision"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "1b11a9ac-9ec1-4c58-b334-6e44d2c58199",
+      "question": "A noun that denotes a thing that is neither male or female is called ---[]",
+      "options": [
+        "masculine gender",
+        "feminine gender",
+        "neuter gender",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "316bcaac-9bcf-47e4-9cfa-ab25c45a0e9e",
+      "question": "Identify masculine gender.[]",
+      "options": [
+        "Spinster",
+        "Ewe",
+        "Sow",
+        "Stag"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "ce8cbc44-a8d9-4280-85ef-814a5331c1e0",
+      "question": "Which one of the following is a masculine ?[]",
+      "options": [
+        "Mare",
+        "Lad",
+        "Pillow",
+        "Pony"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "7bf1e022-ca63-4546-9429-f2035af4b32e",
+      "question": "Which one of the following words is an odd to others ?[]",
+      "options": [
+        "Joey",
+        "Filly",
+        "Vixen",
+        "Calf"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "7c6c08d4-2c92-4a9c-8f08-407523f72332",
+      "question": "Which one is the opposite gender of deer ?[]",
+      "options": [
+        "Goose",
+        "Doe",
+        "Pea hen",
+        "Hare"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "03d64162-df2d-4d49-b836-f184da53ebed",
+      "question": "A female 'administrator' is called ---[]",
+      "options": [
+        "an administratoress",
+        "an administress",
+        "an administratrix",
+        "an administrer"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "4c3278ba-7ef3-43f1-a6e4-1bf91289859e",
+      "question": "Find out the feminine gender.[]",
+      "options": [
+        "Tutor",
+        "Duck",
+        "Bachelor",
+        "Prince"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "51dc94f9-a60e-460c-baa0-083fdfbf102e",
+      "question": "Which of the following is not used as a dual gender ?[]",
+      "options": [
+        "Professor",
+        "Doctor",
+        "Steward",
+        "Cook"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "a998639c-cb2c-470d-9c5d-3c82ee694179",
+      "question": "Which of the following one is a common gender ?[]",
+      "options": [
+        "Prince",
+        "Ewe",
+        "Spouse",
+        "Mare"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "f4b40cad-83a6-454b-8e2a-2c14ab6bfcbb",
+      "question": "Which one is the example of common gender ?[]",
+      "options": [
+        "Hart",
+        "Buck",
+        "Deer",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "e2a1c1a2-2e9a-420b-a5ee-cf6d4db2a38c",
+      "question": "Which of the following is a feminine gender ?[]",
+      "options": [
+        "Spinster",
+        "Bachelor",
+        "Duke",
+        "Count"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "fe806112-2a3f-47c1-ad78-f1d4d8c6d443",
+      "question": "Which one of the following is a masculine gender ?[]",
+      "options": [
+        "Doe",
+        "Wizard",
+        "Testatrix",
+        "Friend"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "cfd5a913-faaf-4ba6-aada-97eb663c0cbe",
+      "question": "Identify the masculine gender[]",
+      "options": [
+        "The Sun",
+        "The Moon",
+        "The Earth",
+        "Spring"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "a724355c-1d60-4ab3-ae02-d5eea23d4dbf",
+      "question": "What is the Feminine gender of 'Duke' ?[]",
+      "options": [
+        "Duck",
+        "Duchies",
+        "Dukies",
+        "Duchess"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "5ccf0065-b38e-445b-bdc3-26ec2b857ecc",
+      "question": "Masculine form of 'sow' is ---[]",
+      "options": [
+        "bull",
+        "fox",
+        "hart",
+        "boar"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "e3f0382e-8245-4e17-9d58-b949320061ca",
+      "question": "The masculine gender of the word 'lady' is ---[]",
+      "options": [
+        "lord",
+        "lad",
+        "man",
+        "husband"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "6659a79a-b219-4f04-be66-3e63ad0d98a9",
+      "question": "The feminine gender of the word 'horse' is --- []",
+      "options": [
+        "Bitch",
+        "Mare",
+        "Stallion",
+        "Vixen"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "5601055d-1b11-40b9-98fc-7b5454583f7b",
+      "question": "Which of the following is a common gender ?[]",
+      "options": [
+        "Calf",
+        "Ram",
+        "Boar",
+        "Sow"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "1134b386-e258-4f34-9df7-7f47cd757297",
+      "question": "A gander is a male ---[]",
+      "options": [
+        "goose",
+        "horse",
+        "duck",
+        "rhinoceros"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

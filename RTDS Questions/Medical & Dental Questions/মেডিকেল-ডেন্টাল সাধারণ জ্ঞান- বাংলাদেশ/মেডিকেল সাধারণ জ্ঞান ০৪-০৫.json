@@ -1,0 +1,50 @@
+{
+  "title": "মেডিকেল সাধারণ জ্ঞান ০৪-০৫",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল সাধারণ জ্ঞান- বাংলাদেশ",
+  "duration_minutes": 30,
+  "total_questions": 3,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "148351",
+      "question": "বাংলাদেশকে সবচেয়ে বেশি ঋণ প্রদানকারী দেশ কোনটি?",
+      "options": [
+        "জাপান",
+        "যুক্তরাষ্ট্র",
+        "যুক্তরাজ্য",
+        "সুইডেন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "148352",
+      "question": "সুপ্রিম কোর্টের আপিল বিভাগের ফুল বেঞ্চ কয়জন বিচারপতি নিয়ে গঠিত হয়?",
+      "options": [
+        "নয় জন",
+        "সাত জন",
+        "পাঁচ জন",
+        "তিন জন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": ":বর্তমানে ৮ জন রয়েছে।"
+    },
+    {
+      "question_no": 3,
+      "id": "148353",
+      "question": "বাংলাদেশে কতটি ক্যাডেট কলেজ রয়েছে?",
+      "options": [
+        "১২টি",
+        "১০টি",
+        "৯টি",
+        "৭টি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বর্তমানে ক্যাডেট কলেজ ১২টি।"
+    }
+  ]
+}

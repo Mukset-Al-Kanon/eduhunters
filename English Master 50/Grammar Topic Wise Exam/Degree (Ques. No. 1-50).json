@@ -1,0 +1,761 @@
+{
+  "exam_id": 8398,
+  "title": "Degree (Ques. No. 1-50)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Degree (200 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "12b05421-5308-47b0-b291-4b8707de9b32",
+      "question": "There is much to be said on <u>both</u> sides.[]",
+      "options": [
+        "Positive",
+        "Comparative",
+        "Superlative",
+        "None"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "908ad11e-0adc-46bc-a92c-03f6cae1820c",
+      "question": "Which one is the correct sentence ?[]",
+      "options": [
+        "He is taller than we.",
+        "He is more taller than I.",
+        "He is more taller than we.",
+        "He is taller than I."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "a)a তে we এর পরিবর্তে I হবে কারণ, Comparative degree diye দুটি বস্তুর মধ্যে তুলনা বোঝায়,b)তে taller হবে., c) তে more taller এর পরিবর্তে শুধু taller হবে",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "de0faa2c-25e4-43df-b13e-ec35fc40b0c5",
+      "question": "What is the superlative degree of the word 'shy' ?[]",
+      "options": [
+        "Shy",
+        "Shyer",
+        "Shyesle",
+        "Shiest"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "f2ebe8ec-1d97-47ed-9aed-b6c94596334b",
+      "question": "The superlative degree of the word 'able' is -----[]",
+      "options": [
+        "most able",
+        "ablest",
+        "best able",
+        "abler"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "d2183335-497e-40b6-9942-af7db352c873",
+      "question": "What is the superlative degree of 'costly' ?[]",
+      "options": [
+        "costier",
+        "costly",
+        "costliest",
+        "costlyest"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "7a7bcd43-07cc-494a-8d31-6b983db39c17",
+      "question": "The superlative degree of 'easy' is -----[]",
+      "options": [
+        "easier",
+        "easiest",
+        "easy",
+        "none"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "4598b5b7-d20b-4875-a0fc-370731069245",
+      "question": "The examination was quite easy ; ----- we expected.[]",
+      "options": [
+        "more easy that",
+        "more easy than",
+        "easier than",
+        "more easier than"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "7b9311bd-a4d3-4cd2-ab5b-68fede77f27d",
+      "question": "Difficult (Superlative)[]",
+      "options": [
+        "Most difficult",
+        "Very difficult",
+        "difficultest",
+        "very very difficult"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "06b43d83-2f7c-4609-98f5-ceb551d79597",
+      "question": "Which one is the example of comparative degree ?[]",
+      "options": [
+        "Most famous",
+        "Easy",
+        "Beautiful",
+        "More obedient"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "52ec2b56-a78a-4893-a98b-a1acab3f4ca2",
+      "question": "Superlative degree of 'careful' is ---[]",
+      "options": [
+        "carefully",
+        "very careful",
+        "most careful",
+        "more careful"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "b0124114-e98e-48c4-b5b3-dd474f00a4c5",
+      "question": "The word 'Least' is the superlative degree of -----[]",
+      "options": [
+        "little",
+        "less",
+        "none",
+        "lesser"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "cbbf9275-96db-4006-8ca8-6529eb0f6a40",
+      "question": "I found the <u>worse</u> condition. The underlined word is -----.[]",
+      "options": [
+        "positive",
+        "comparative",
+        "assertive",
+        "superlative"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "c73a40e7-31e1-4b50-97e1-af307c151696",
+      "question": "Which one is an example of a positive degree ?[]",
+      "options": [
+        "more",
+        "much",
+        "less",
+        "last"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "460188a0-ecf2-4cee-b6dd-ef3f80b01241",
+      "question": "Which one of the following is an example of superlative degree ?[]",
+      "options": [
+        "much",
+        "least",
+        "less",
+        "worse"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "83b9618e-e4f4-4273-95ae-3abb5ca890e2",
+      "question": "Write the superlative degree of 'good'.[]",
+      "options": [
+        "better",
+        "worst",
+        "best",
+        "immune"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "12fe619f-a8d5-44e7-9004-d7aaa93fd0f8",
+      "question": "Which one is the superlative of 'little' ?[]",
+      "options": [
+        "More little",
+        "Less",
+        "Least",
+        "Lest"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "5bef8841-d8ac-493a-ba7b-ddb0aadfe564",
+      "question": "Which one is the superlative degree of 'bad' ?[]",
+      "options": [
+        "evil",
+        "worse",
+        "worst",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "70060410-1f41-4ec0-8862-19567e238d6e",
+      "question": "The superlative degree of 'Fore' is -----.[]",
+      "options": [
+        "Forer",
+        "Forest",
+        "Forerest",
+        "Fruthest"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "972317d1-3b50-45fd-ab5e-441924474cb6",
+      "question": "Which one is superlative degree ?[]",
+      "options": [
+        "Worth",
+        "Farther",
+        "Better",
+        "Worse"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "f1fe39f7-7b5f-4bd2-8128-6c5796cbd98d",
+      "question": "The superlative form of the word 'late' ---[]",
+      "options": [
+        "Latter",
+        "Last",
+        "Lasted",
+        "Least"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "9f282bc1-0f78-4f6c-934f-911481fcd189",
+      "question": "He learned to read and write quite ----- in his life.[]",
+      "options": [
+        "lately",
+        "late",
+        "latest",
+        "latter"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "2c830fbe-03dc-480f-87c3-4a33e62c9664",
+      "question": "The ----- part of this book is interesting.[]",
+      "options": [
+        "Latter",
+        "Later",
+        "Late",
+        "Leter"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "9f402439-d7af-44c5-a567-68194a49a8c8",
+      "question": "The ----- chapters of the book are more interesting and informative.[]",
+      "options": [
+        "last",
+        "later",
+        "latter",
+        "late"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "ce3e20f1-f471-4ee3-aee5-55b5cc227af8",
+      "question": "The book is so exciting, I can hardly wait to get to the ----- chapter.\n[]",
+      "options": [
+        "last",
+        "latest",
+        "new",
+        "youngest"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "5df0d2f0-eb1b-433f-991a-25060a0057d6",
+      "question": "We will do our work -----.[]",
+      "options": [
+        "latter",
+        "later",
+        "longer",
+        "after"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "fd488f58-ede5-4c10-ab47-6727374ca4af",
+      "question": "Superlative degree of 'Up' is -----[]",
+      "options": [
+        "More up",
+        "Most up",
+        "Uppermost",
+        "Upper"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "2485031e-58f8-42c4-94d7-37b852ba2932",
+      "question": "Select the correct adjective having no comparative degree form.[]",
+      "options": [
+        "good",
+        "happy",
+        "top",
+        "little"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Good,happy ও little এর comparative degree হচ্ছে যথাক্রমে better,happier এবং less",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "183ef8f9-2965-4e7a-9901-830a190adb21",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "He reached most extreme point.",
+        "He reached the most extreme point.",
+        "He reached the extreme point.",
+        "He reached the more extreme point."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "5f2ee70f-f263-42a8-86c2-1a3d7b62c09d",
+      "question": "Which one is the correct sentence ?[]",
+      "options": [
+        "He is a most perfect judge.",
+        "He is the most perfect judge.",
+        "He is a very helpful judge.",
+        "He is a perfect judge."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "a5b10510-fc8e-4cc7-80c5-49f055fc9033",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He has the most supreme power.",
+        "He has the supreme power.",
+        "He has supreme power.",
+        "He has most supreme power."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "cb77f972-05af-4c08-9e5c-91f93b7252e6",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "This is a uniquest opportunity.",
+        "This is a most unique opportunity.",
+        "This is most unique opportunity.",
+        "This is a unique opportunity."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "64b3dbc6-fbe6-4a22-beb7-79551b26480f",
+      "question": "Which sentence is correct ?[]",
+      "options": [
+        "This is an unique case.",
+        "This is a unique case.",
+        "This is a very unique case.",
+        "This is the most unique case."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "unique এর উচ্চারণ  ইউনিক তাই পূর্বে an না বসে a বসবে,অনুরূপ, uniform,unanimous",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "c2aa791c-c665-4f91-9b1f-301d8694ba29",
+      "question": "Which of the following is incorrect ?[]",
+      "options": [
+        "Tallest",
+        "Largest",
+        "Biggest",
+        "Hugest"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Huge(extremely large, বিপুল/বিশাল)নিজেই superlative এর অর্থ প্রদান করে বলে এর superlative হয় না",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "9d37e13e-90ea-463a-9690-78c79b8cfe93",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He is the most perfect gentleman.",
+        "He is one of the most perfect gentleman.",
+        "He is a perfect gentleman.",
+        "He is more perfect than any other gentleman."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "7d204224-3bfa-459a-9b8f-0c988a0c5d0f",
+      "question": "Prices for bicycles can run ----- TK. 2000.00[]",
+      "options": [
+        "as high as",
+        "so high as",
+        "as high to",
+        "as high for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "46eca5c6-1d09-46dc-bc71-aa06deaf6fbd",
+      "question": "I can speak German a little but ----- you do.[]",
+      "options": [
+        "not as well as",
+        "not well than",
+        "not so better as",
+        "not as better as"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "415a0216-2007-4916-a8b1-39c986b21e06",
+      "question": "The chain was ----- than we thought.[]",
+      "options": [
+        "strongest",
+        "strong",
+        "stronger",
+        "much strong"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "78867fdf-7119-4593-863b-0bcd8820a6fc",
+      "question": "A boat journey is ----- than journey by road.[]",
+      "options": [
+        "safe",
+        "safest",
+        "more safer",
+        "safer"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "e05201d1-5b39-4adc-8fba-215fd6caa81d",
+      "question": "Easier said ----- done.[]",
+      "options": [
+        "be",
+        "than",
+        "and",
+        "one"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "d97ebf4f-bca9-4826-a623-8ce8b4992142",
+      "question": "Your performance is ----- than it was a month ago, I'm sorry to say.[]",
+      "options": [
+        "bad",
+        "worse",
+        "the worst",
+        "worst"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "c9ae006c-ab02-48f2-9ee4-41cfaab786a0",
+      "question": "Dhaka is ----- than any other city in Bangladesh.[]",
+      "options": [
+        "large",
+        "largest",
+        "larger",
+        "ladger"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "87f6a329-0d01-488a-a903-7654e32c721f",
+      "question": "My daughter ----- than both of you.[]",
+      "options": [
+        "weaker",
+        "strong",
+        "so weak",
+        "tolerably weak"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "17d300a7-98f7-4c2d-a742-1191772304f4",
+      "question": "The situation is ----- than over.[]",
+      "options": [
+        "aggravate",
+        "graver",
+        "grave",
+        "worst"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "115f02dd-6d98-4ed0-b3f7-9700383b97f5",
+      "question": "John is ----- than Rahim.[]",
+      "options": [
+        "elderly",
+        "senior",
+        "older",
+        "more aged"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "b1c1c55f-dfad-4d0d-82ab-b0e03472fd91",
+      "question": "Larger' is a degree of -----[]",
+      "options": [
+        "Positive",
+        "Comparative",
+        "Superlative",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "62ad6a1c-de06-4b0d-832a-7276f454d6fe",
+      "question": "His job is ----- than his friends.[]",
+      "options": [
+        "too important",
+        "very important",
+        "more important",
+        "much important"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "5e24d2b6-a821-4049-ba36-f09d8841d138",
+      "question": "The Radisson is ----- than most other restaurants.[]",
+      "options": [
+        "as expensive as",
+        "expensive",
+        "more expensive",
+        "most expensive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "e79c01c8-aade-4995-be54-adfaaa269c26",
+      "question": "This pen is inferior ----- your pen.\nRahim is inferior ----- Karim in intelligence.[]",
+      "options": [
+        "than",
+        "that",
+        "from",
+        "to"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "27391116-e9cd-41d8-9757-82c51e7d7911",
+      "question": "He is superior ----- me.\nHe is superior ----- me in all respects.\n[]",
+      "options": [
+        "than",
+        "to",
+        "with",
+        "of"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "6a2ed6c7-0ff6-498e-af71-c5eb66106438",
+      "question": "I am senior ----- him ----- point of length of service.[]",
+      "options": [
+        "to, in",
+        "of, to",
+        "of, in",
+        "to, at"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

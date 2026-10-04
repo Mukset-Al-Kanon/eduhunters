@@ -1,0 +1,326 @@
+{
+  "exam_id": 10466,
+  "title": "MP3 Topic-08 : নেপোলিয়ন বোনাপার্টের উত্থান",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "আধুনিক পাশ্চাত্যের উত্থান + প্রথম বিশ্বযুদ্ধ + দ্বিতীয় বিশ্বযুদ্ধ Exam",
+  "duration_minutes": 10,
+  "total_questions": 21,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "f98d5363-bc64-47a8-befb-050a14a05211",
+      "question": "নেপোলিয়ান কোথায় জন্মগ্রহণ করেন?[]",
+      "options": [
+        "সিসিলি",
+        "মাল্টা",
+        "কর্সিকা",
+        "সার্ডিনিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নেপোলিয়ান কর্সিকা দ্বীপে জন্মগ্রহণ করেন",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "05f7d2bc-cd4b-45bb-b595-a682f8604571",
+      "question": "“Impossible is a word to be found in a fools dictionary” was the observation of -[]",
+      "options": [
+        "Che Guevara",
+        "Plato",
+        "Einstein",
+        "Napoleon"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এই উক্তিটি নেপোলিয়ান বোনাপার্টের",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "d27fa614-11c5-4b94-a019-bd8b355ae3ec",
+      "question": "‘I am the Revolution’ উক্তিটি করেছিলেন -[]",
+      "options": [
+        "এডলফ হিটলার",
+        "নেপোলিয়ান বোনাপার্ট",
+        "বেনিটো মুসোলিনি",
+        "অট্টোভন বিসমার্ক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই উক্তিটি নেপোলিয়ান বোনাপার্টের",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "2e8f35ee-b925-41d9-886f-9f0082ee2518",
+      "question": "“তোমরা আমাকে একজন শিক্ষিত মা দাও, আমি তোমাদেরকে একটি শিক্ষিত জাতি দিব”- উক্তিটি কার?[]",
+      "options": [
+        "নেপোলিয়ানের",
+        "রুশোর",
+        "মন্টেস্কুর",
+        "লুইয়ের"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এই বিখ্যাত উক্তিটি নেপোলিয়ান বোনাপার্টের",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "ae93c3ac-2a76-41e6-aab0-eb7b4bc8ed26",
+      "question": "‘লিটল করপোরেল’ কার উপাধি?[]",
+      "options": [
+        "লাল বাহাদুর শাস্ত্রী",
+        "নেপোলিয়ান বোনাপার্ট",
+        "সাদা বাহাদুর শাস্ত্রী",
+        "আল খাওয়াজমি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘লিটল করপোরেল’ নেপোলিয়ান বোনাপার্টের উপাধি",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "acb6f8a8-2262-46c0-b7d9-67399864d50d",
+      "question": "ফ্রান্সে নেপোলিয়ান বোনাপার্ট ক্ষমতায় এসেছিলেন?[]",
+      "options": [
+        "১৭৮৯",
+        "১৭৯৯",
+        "১৮০২",
+        "১৭৫৪"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নেপোলিয়ান ১৭৯৯ সালে ক্ষমতায় আসেন",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "dcd839e5-a043-4423-b03b-4e277cd55c3d",
+      "question": "‘সেন্ট হেলেনা’ দ্বীপটি কোন মহাসাগরে অবস্থিত?[]",
+      "options": [
+        "ভারত মহাসাগরে",
+        "আটলান্টিক মহাসাগরে",
+        "প্রশান্ত মহাসাগরে",
+        "উত্তর মহাসাগরে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সেন্ট হেলেনা দ্বীপটি আটলান্টিক মহাসাগরে অবস্থিত",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "c5b89cc7-1062-44e4-a5c2-7583bef582e0",
+      "question": "আটলান্টিক মহাসাগরের কোন দ্বীপে নেপোলিয়ানকে কারারুদ্ধ করে রাখা হয়েছিল?[]",
+      "options": [
+        "সেন্ট চার্লস",
+        "সেন্ট হেলেনা",
+        "সেন্ট জন",
+        "সেন্ট পল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নেপোলিয়ানকে সেন্ট হেলেনা দ্বীপে কারারুদ্ধ করে রাখা হয়েছিল",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "7d3e971f-695f-4706-afca-d73d9562352f",
+      "question": "ফ্রান্সের মহান সম্রাট নেপোলিয়নের জীবনাবসান হয় কোথায়?[]",
+      "options": [
+        "সেন্ট হেলেনা দ্বীপে",
+        "ওয়াটার লু নামক স্থানে",
+        "আসাই নগরীতে",
+        "দ্বীপ এনাবাতে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নেপোলিয়নের জীবনাবসান হয় সেন্ট হেলেনা দ্বীপে",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "92a2da54-960b-4632-bcf6-29a0c4c80f82",
+      "question": "ট্রাফালগার যুদ্ধে কোন দেশ জয় লাভ করে?[]",
+      "options": [
+        "ফ্রান্স",
+        "স্পেন",
+        "ইতালি",
+        "ইংল্যান্ড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ট্রাফালগার যুদ্ধে ইংল্যান্ড জয় লাভ করে",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "cc211b4d-230c-46e8-929a-940483781172",
+      "question": "Trafalgar Square-এর অবস্থান-[]",
+      "options": [
+        "রাশিয়ায়",
+        "ইংল্যান্ড",
+        "ফ্রান্সে",
+        "চীনে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Trafalgar Square ইংল্যান্ডে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "503d81e3-8f94-4f34-a279-94ab3be9aa35",
+      "question": "‘ট্রাফালগার স্কোয়ার’ কোন শহরে অবস্থিত?[]",
+      "options": [
+        "ওয়াশিংটন",
+        "প্যারিস",
+        "মস্কো",
+        "লন্ডন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ট্রাফালগার স্কোয়ার লন্ডনে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "f35d4413-ad32-4bcc-a558-a266dc0ca832",
+      "question": "পলমল কী?[]",
+      "options": [
+        "একটি বার্তা সংস্থা",
+        "বিখ্যাত একটি রেল স্টেশন",
+        "ইংল্যান্ডের একটি ফুলের নাম",
+        "লন্ডনের একটি রাজপথের নাম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পলমল হলো লন্ডনের একটি রাজপথের নাম.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "d0d0d052-d418-4f3b-ba42-919365241b36",
+      "question": "“England expects every man to do his duty”-Who told it.[]",
+      "options": [
+        "Nelson",
+        "Churchill",
+        "Wilson",
+        "Thatcher"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এই উক্তিটি নেলসনের.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "5fb22532-e740-441d-abd0-785f1b9380bf",
+      "question": "বিখ্যাত যুদ্ধক্ষেত্র ‘ওয়াটার লু’ কোন দেশে অবস্থিত?[]",
+      "options": [
+        "সুইডেন",
+        "বেলজিয়াম",
+        "ইংল্যান্ড",
+        "ইতালি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ওয়াটার লু বেলজিয়ামে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "9a64f3ed-afc5-4055-a7fe-01829b076680",
+      "question": "কত সালে ওয়াটার লু যুদ্ধ সংঘটিত হয়?[]",
+      "options": [
+        "১৮১৫ সালে",
+        "১৮২০ সালে",
+        "১৯১২ সালে",
+        "১৯১৪ সালে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ওয়াটার লু যুদ্ধ ১৮১৫ সালে সংঘটিত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "84f3e847-d6cf-4377-91ef-2a8ee09e994b",
+      "question": "ওয়াটার লু যুদ্ধে বিজয়ী সেনাপতির নাম কী?[]",
+      "options": [
+        "নেপোলিয়ান",
+        "লর্ড নেলসন",
+        "ডিউক অব ওয়েলিংটন",
+        "জেনারেল আইসেন হাওয়ার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ওয়াটার লু যুদ্ধে বিজয়ী সেনাপতি ডিউক অব ওয়েলিংটন.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "5b3f54b2-4982-4ec7-9e9d-9d3c0a2c9a1a",
+      "question": "ওয়াটার লু যুদ্ধে কে পরাজিত হন?[]",
+      "options": [
+        "রবার্ট ক্লাইভ",
+        "ম্যাকআর্থার",
+        "ক্লিনটন",
+        "নেপোলিয়ান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ওয়াটার লু যুদ্ধে নেপোলিয়ান পরাজিত হন.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "c451b75c-b500-4d21-91c8-0e81226d456d",
+      "question": "ফরাসি বিপ্লব ও ভিয়েনা কংগ্রেস -[]",
+      "options": [
+        "১৭৮৯ ও ১৭৯০ সালে",
+        "১৭৮৯ ও ১৮১৫ সালে",
+        "১৭৭৯ ও ১৮১৫ সালে",
+        "১৭৮৯ ও ১৯১১ সালে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফরাসি বিপ্লব ১৭৮৯ সালে এবং ভিয়েনা কংগ্রেস ১৮১৫ সালে হয়েছিল.",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "32ab377e-767a-4004-9719-c7cc6f300828",
+      "question": "Which country has not fought in a war since 1815?/ কোন দেশটি ১৮১৫ সাল থেকে অদ্যাবধি কোন যুদ্ধ করেনি?[]",
+      "options": [
+        "Japan",
+        "Norway",
+        "Switzerland",
+        "Sweden"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুইজারল্যান্ড ১৮১৫ সাল থেকে অদ্যাবধি কোন যুদ্ধ করেনি.",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "48a818b1-8052-4f43-9065-228623e34ccb",
+      "question": "আন্তর্জাতিক ক্ষেত্রে সুইজারল্যান্ডের মর্যাদা কী?[]",
+      "options": [
+        "জোটনিরপেক্ষ",
+        "নিরপেক্ষ",
+        "নিরপেক্ষতা",
+        "পশ্চিমের মিত্র"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আন্তর্জাতিক ক্ষেত্রে সুইজারল্যান্ডের মর্যাদা নিরপেক্ষতা.",
+      "images": []
+    }
+  ]
+}

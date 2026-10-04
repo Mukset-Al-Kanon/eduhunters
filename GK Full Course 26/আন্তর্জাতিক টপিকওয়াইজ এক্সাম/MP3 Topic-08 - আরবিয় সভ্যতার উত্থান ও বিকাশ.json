@@ -1,0 +1,476 @@
+{
+  "exam_id": 10444,
+  "title": "MP3 Topic-08 : আরবিয় সভ্যতার উত্থান ও বিকাশ",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "সভ্যতার উত্তরণ + মধ্যযুগ Exam",
+  "duration_minutes": 15,
+  "total_questions": 31,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "481ac2be-11c1-4d12-8805-b7d2a137d021",
+      "question": "‘কুব্বাত আস-সাখরা’ নির্মাণ করেন-[]",
+      "options": [
+        "হাজ্জাজ বিন ইউসুফ",
+        "আব্দুল্লাহ ইবনে যুবায়ের",
+        "আব্দুল মালিক",
+        "আল ওয়ালিদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আব্দুল মালিক 'কুব্বাত আস-সাখরা' নির্মাণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "6ba44789-b5cd-4cff-9bd7-9d3ea26cd4b8",
+      "question": "কোন খলিফার রাজত্বকালে স্পেন বিজিত হয়?[]",
+      "options": [
+        "হজরত ওমর রা.",
+        "ওমর বিন আব্দুল আজিজ",
+        "ওয়ালিদ",
+        "ইয়াজিদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ওয়ালিদের রাজত্বকালে স্পেন বিজিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "77ae1672-8837-4b83-addb-be55a063220c",
+      "question": "মুসলমানরা স্পেন বিজয় করে কত খ্রিস্টাব্দে?[]",
+      "options": [
+        "৭১১",
+        "৭১৩",
+        "৭১৪",
+        "৭১৫"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মুসলমানরা ৭১১ খ্রিস্টাব্দে স্পেন বিজয় করে।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "ecbafa69-9db2-4d6b-bc7d-1675adc1f1cc",
+      "question": "কোন মুসলিম সেনাপতি স্পেন জয় করেন?[]",
+      "options": [
+        "মুসা বিন নুসায়ে",
+        "খালিদ বিন ওয়ালিদ",
+        "মুহম্মদ বিন কাসিম",
+        "তারিক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তারিক স্পেন জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "c1d230db-98c8-4b0a-89cc-de5854fd74bf",
+      "question": "আরবরা স্পেনকে কি নামে অভিহিত করত?[]",
+      "options": [
+        "আইবেরীয় উপদ্বীপ",
+        "গ্যালিসিয়া",
+        "আন্দালুসিয়া",
+        "মুরসিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আরবরা স্পেনকে আন্দালুসিয়া নামে অভিহিত করত।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "8a3b038c-9971-4c21-8bb4-779a7e31e84a",
+      "question": "আন্দালুসিয়া যে দেশের পুরাতন নাম-[]",
+      "options": [
+        "ফ্রান্স",
+        "স্পেন",
+        "জার্মানি",
+        "পর্তুগাল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আন্দালুসিয়া স্পেনের পুরাতন নাম।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "504c9def-4f4a-460e-b432-5765d1d8edcd",
+      "question": "মধ্যযুগে মুসলিম শাসিত কোন শহরকে ‘Light House of the Europe’ বলা হতো?[]",
+      "options": [
+        "কায়রোয়ান",
+        "কায়রো",
+        "বাগদাদ",
+        "কর্ডোভা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মধ্যযুগে কর্ডোভাকে 'Light House of the Europe' বলা হতো।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "0fc678b8-f496-4c31-9a8a-575724aad0b7",
+      "question": "Muslim conquests of the middle East & North Africa took place:[]",
+      "options": [
+        "In the 13th century A.D",
+        "Between 7th and 12th century A.D",
+        "In the 6th century A.D",
+        "None of the above"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মধ্যপ্রাচ্য এবং উত্তর আফ্রিকায় মুসলিম বিজয় সপ্তম থেকে অষ্টম শতাব্দীর প্রথমভাগে (৬২২-৭৫০ খ্রিস্টাব্দ) ঘটেছিল।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "2992a578-408d-4b04-b229-89b13abe6857",
+      "question": "ইসলামের ইতিহাসে স্বর্ণযুগ-[]",
+      "options": [
+        "উমাইয়া শাসনকাল",
+        "ফাতেমী শাসনকাল",
+        "আব্বাসীয় শাসনকাল",
+        "মুঘল শাসনকাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আব্বাসীয় শাসনকালকে ইসলামের ইতিহাসের স্বর্ণযুগ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "8c416f41-3a12-4cf9-8cb7-adce493820ce",
+      "question": "আব্বাসীয় বংশের প্রতিষ্ঠাতা ছিলেন-[]",
+      "options": [
+        "সাময়িক বিধান",
+        "আবু জাফর আল মনসুর",
+        "আবুল আব্বাস আস-সাফফাহ",
+        "হারুন অর রশীদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আবুল আব্বাস আস-সাফফাহ আব্বাসীয় বংশের প্রতিষ্ঠাতা ছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "a1931a3b-592f-4ff5-ba64-2855e1827c05",
+      "question": "আব্বাসীয় খলিফাদের রাজধানী ছিল- [SABAS][]",
+      "options": [
+        "মক্কায়",
+        "মদীনায়",
+        "দামেশকে",
+        "বাগদাদে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আব্বাসীয় খিলাফতের রাজধানী ছিল বাগদাদ.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "7aedbe7d-94bb-496d-99e5-09273ea5b333",
+      "question": "মুসলিম প্রশাসনে উজির পদের সৃষ্টি হয়- [SABAS][]",
+      "options": [
+        "সুলতানী আমলে",
+        "মহানবি (স.) এর আমলে",
+        "উমাইয়া আমলে",
+        "আব্বাসীয় আমলে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আব্বাসীয় আমলেই মুসলিম প্রশাসনে উজির পদের উদ্ভব হয়েছিল.",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "ca58ce95-b117-4d63-ba88-548f28cc1df1",
+      "question": "Baghdad was known as- [SABAS][]",
+      "options": [
+        "Green city",
+        "Desert City",
+        "Abode of Peace",
+        "Democratic City"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাগদাদকে ‘Abode of Peace’ বা শান্তির নিবাস বলা হতো.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "b032a467-a062-496a-95c1-756348e5e8fa",
+      "question": "‘নহর-ই-যুবাইদা’ যেখানে অবস্থিত- [SABAS][]",
+      "options": [
+        "মক্কা",
+        "মদিনা",
+        "বাগদাদ",
+        "দামেস্ক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "‘নহর-ই-মুআইদা’ বাগদাদে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "dd8b6e32-a3e6-475e-bfcb-1681223676f8",
+      "question": "খলিফা মামুন কোথাকার শাসনকর্তা ছিলেন? [SABAS][]",
+      "options": [
+        "বাগদাদ",
+        "দামেস্ক",
+        "সিরিয়া",
+        "ইরান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "খলিফা মামুন বাগদাদের শাসনকর্তা ছিলেন.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "9ceb8a8b-1f07-495e-a4cf-d41c2178bde7",
+      "question": "Where ‘Bayt al-Hikmah’ is situated? [SABAS][]",
+      "options": [
+        "Rome",
+        "Baghdad",
+        "Madina",
+        "Iran"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘বায়তুল হিকমা’ বাগদাদে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "06bae7a2-cd40-4dc6-babb-6531f0bddc3c",
+      "question": "‘বায়তুল হিকমা’ কী? [SABAS][]",
+      "options": [
+        "আব্বাসী রাজপ্রাসাদ",
+        "জ্ঞানচর্চা কেন্দ্র",
+        "প্রমোদ কেন্দ্র",
+        "কারাগার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি ছিল জ্ঞানচর্চার একটি কেন্দ্র.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "f2a9b44b-5ccf-4fb5-a7c6-6255a00bd290",
+      "question": "‘বায়তুল হিকমা’ প্রতিষ্ঠা করেন- [SABAS][]",
+      "options": [
+        "আল-মামুন",
+        "আল-আমীন",
+        "হারুন-আল-রশীদ",
+        "আল-মনসুর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি খলিফা আল-মামুন প্রতিষ্ঠা করেছিলেন.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "70191ddf-93e5-4412-8281-1f828626133e",
+      "question": "ইসলামের ইতিহাসে জ্ঞান-বিজ্ঞানের উৎকর্ষ সাধিত হয়- [SABAS][]",
+      "options": [
+        "উমাইয়া যুগে",
+        "খুলাফায়ে রাশেদিনের যুগে",
+        "উসমানীয় যুগে",
+        "আব্বাসীয় যুগে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আব্বাসীয় যুগে জ্ঞান-বিজ্ঞানের ব্যাপক উন্নতি ঘটেছিল.",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "b6907d47-eb84-499b-be5a-56b9a0284ed5",
+      "question": "আব্বাসীয় বংশের পতন ঘটে- [SABAS][]",
+      "options": [
+        "১২০০ সালে",
+        "১২৫৮ সালে",
+        "১৫২৬ সালে",
+        "১৫৩০ সালে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১২৫৮ খ্রিস্টাব্দে আব্বাসীয় বংশের পতন হয়েছিল.",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "4cdfa85f-33a7-4f64-97cc-d27fd271210f",
+      "question": "বাগদাদ নগরী ধ্বংসকারী হিসেবে কুখ্যাত মোঙ্গল নেতা- [SABAS][]",
+      "options": [
+        "মেদু খান",
+        "চেঙ্গিস খান",
+        "হালাকু খান",
+        "কুবলাই খান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হালাকু খান বাগদাদ নগরী ধ্বংস করেছিলেন.",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "e99b85e8-5c56-4f17-9c2f-b8de7cd58350",
+      "question": "ইসলামের প্রথম খলিফা কে ছিলেন?[]",
+      "options": [
+        "হজরত ওমর (রা.)",
+        "হজরত আবু বকর (রা.)",
+        "হজরত আলী (রা.)",
+        "হজরত ওসমান (রা.)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইসলামের প্রথম খলিফা ছিলেন হজরত আবু বকর (রা.).",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "d20494d4-e8da-43ed-8f4c-06f47d4e6919",
+      "question": "‘বায়তুল মাল’ কে প্রতিষ্ঠা করেন?[]",
+      "options": [
+        "হজরত ওমর (রা.)",
+        "হজরত আবু বকর (রা.)",
+        "হজরত ওসমান (রা.)",
+        "হজরত আলী (রা.)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "64686ed8-43c5-4d31-80a5-19488e965755",
+      "question": "কোন খলিফার শাসনামলে মুসলিম সাম্রাজ্য সবচেয়ে বেশি বিস্তার লাভ করে?[]",
+      "options": [
+        "হারুনর রশিদ",
+        "আল মামুন",
+        "হজরত উমর রা.",
+        "আল ওয়ালিদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "be4d4ab3-37c0-4f0f-a577-a1cb4241a9ba",
+      "question": "হজরত ওসমান ইসলামের ইতিহাসে কততম খলিফা?[]",
+      "options": [
+        "প্রথম",
+        "দ্বিতীয়",
+        "তৃতীয়",
+        "চতুর্থ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হজরত ওসমান ইসলামের ইতিহাসে তৃতীয় খলিফা.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "516ba2d4-64db-42b3-a4d9-76a0a07e9904",
+      "question": "‘আসাদুল্লাহ’ কার উপাধি?[]",
+      "options": [
+        "আলী রা.",
+        "হামজা রা.",
+        "খালিদ বিন ওয়ালিদ রা.",
+        "জাফর বিন আবী তালিব রা."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "‘আসাদুল্লাহ’ হলো আলী (রা.)-এর উপাধি.",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "0e81c050-3c62-454c-932d-c31663536fd9",
+      "question": "আলী (রা.) শহিদ হন-[]",
+      "options": [
+        "বসরায়",
+        "মদীনায়",
+        "কুফায়",
+        "মক্কায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আলী (রা.) কুফায় শহিদ হন.",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "c06d269a-81e7-42ef-aa8a-2e7998c3bac3",
+      "question": "Where is the Mazar of Hazrat Ali (R) located?[]",
+      "options": [
+        "UAE",
+        "Saudi Arabia",
+        "Moscow",
+        "Iraq"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হজরত আলী (রা.)-এর মাজার ইরাকে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "6a4064e6-460c-47da-81f1-c62330feb098",
+      "question": "উমাইয়া বংশের প্রতিষ্ঠাতা-[]",
+      "options": [
+        "আল-ওয়ালিদ",
+        "মুয়াবিয়া",
+        "মামুন",
+        "হজরত আলী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উমাইয়া বংশের প্রতিষ্ঠাতা মুয়াবিয়া.",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "04bf7d1d-361b-4e36-88db-ef57156ca4c5",
+      "question": "মুসলিম জাহানে বংশানুক্রমিক শাসন এর প্রবর্তক-[]",
+      "options": [
+        "হজরত ওমর",
+        "খলিফা আব্দুল মালিক",
+        "হজরত ওসমান",
+        "খলিফা মুয়াবিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মুসলিম জাহানে বংশানুক্রমিক শাসনের প্রবর্তক খলিফা মুয়াবিয়া.",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "8217cba5-5b8a-429f-849d-0c68f993813a",
+      "question": "উমাইয়া খলিফার রাজধানী ছিল?[]",
+      "options": [
+        "মক্কা",
+        "মদিনা",
+        "দামেস্ক",
+        "বাগদাদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "উমাইয়া খলিফার রাজধানী ছিল দামেস্ক.",
+      "images": []
+    }
+  ]
+}

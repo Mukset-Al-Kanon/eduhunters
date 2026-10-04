@@ -1,0 +1,64 @@
+{
+  "title": "মেডিকেল আন্তর্জাতিক বিষয়াবলি ২০১৪-১৫",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 4,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "146694",
+      "question": "বিশ্বস্বাস্থ্য দিবস উদযাপিত হয়",
+      "options": [
+        "৭ই এপ্রিল",
+        "৭ই ডিসেম্বর",
+        "১লা এপ্রিল",
+        "১লা ডিসেম্বর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "146695",
+      "question": "২০১৪ সালেচিকিৎসা বিজ্ঞানে নোবেল পুরস্কার পেয়েছেন?",
+      "options": [
+        "দুইজন",
+        "তিনজন",
+        "একজন",
+        "কেউ পান নাই"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "146696",
+      "question": "'ইয়াহু মেইল' সেবা চালু হয় কোন সালে?",
+      "options": [
+        "১৯৯৭",
+        "২০০৭",
+        "১৯৮৭",
+        "২০০৩"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "146697",
+      "question": "ফিনল্যান্ডের রাজধানীরনাম কি?",
+      "options": [
+        "হেলসিংকি",
+        "জেনেভা",
+        "মাদ্রিদ",
+        "অসলো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

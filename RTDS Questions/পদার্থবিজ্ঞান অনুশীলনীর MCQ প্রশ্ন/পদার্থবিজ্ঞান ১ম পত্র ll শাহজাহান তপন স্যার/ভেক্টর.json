@@ -1,0 +1,1394 @@
+{
+  "title": "ড. শাহজাহান তপন স্যার || পদার্থ ১ম পত্র || Chapter 2: দ্বিতীয় অধ্যায়: ভেক্টর",
+  "category": "পদার্থবিজ্ঞান অনুশীলনীর MCQ প্রশ্ন > পদার্থবিজ্ঞান ১ম পত্র ll শাহজাহান তপন স্যার",
+  "duration_minutes": 30,
+  "total_questions": 99,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "128572",
+      "question": "নিচের কোনটি ভেক্টর রাশি?",
+      "options": [
+        "আয়তন",
+        "চাপ",
+        "ক্ষেত্রফল",
+        "কাজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যে রাশির মান ও দিক উভয়ই রয়েছে, তা হলো ভেক্টর\r\nরাশি। যেমন: সরণ, ত্বরণ, ক্ষেত্রফল, বল।\r\nক্ষেত্রফলের মান রয়েছে এবং তা তলের সাথে লব্ধ।"
+    },
+    {
+      "question_no": 2,
+      "id": "128573",
+      "question": "নিচের কোনটি একক ভেক্টর নির্দেশ করে?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "128574",
+      "question": "নিচের কোন ভেক্টরের আদিবিন্দু ও শেষবিন্দু একই?",
+      "options": [
+        "সমরেখ ভেক্টর",
+        "নাল ভেক্টর",
+        "একক ভেক্টর",
+        "সমতলীয় ভেক্টর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে ভেক্টর রাশির মান শূন্য এবং যার আদিবিন্দু ও\r\nশেষবিন্দু একই হয়, তাই নাল ভেক্টর। এ ভেক্টর রাশির দিক\r\nনির্দিষ্ট নয়"
+    },
+    {
+      "question_no": 4,
+      "id": "128575",
+      "question": "মান শূন্য নয় এরকম একটি ভেক্টর রাশিকে তার মান দিয়ে ভাগ করলে কী পাওয়া যায়?",
+      "options": [
+        "একক ভেক্টর",
+        "সমতলীয় ভেক্টর",
+        "অবস্থান ভেক্টর",
+        "নাল ভেক্টর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "128576",
+      "question": "",
+      "options": [
+        "0",
+        "1",
+        "‍A",
+        "2A"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "128577",
+      "question": "নিচের কোন ভেক্টর রাশির দিক নির্দিষ্ট নয়?",
+      "options": [
+        "বিপ্রতীপ ভেক্টর",
+        "শূন্য ভেক্টর",
+        "সমান ভেক্টর",
+        "বিপরীত ভেক্টর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে ভেক্টর রাশির মান শূন্য এবং যার আদিবিন্দু ও\r\nশেষবিন্দু একই হয়, তাই নাল ভেক্টর। এ ভেক্টর রাশির দিক\r\nনির্দিষ্ট নয়"
+    },
+    {
+      "question_no": 7,
+      "id": "128578",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "128579",
+      "question": "একটি বস্তু নির্দিষ্ট দিকে যে দূরত্ব অতিক্রম করে তাকে কী বলে?",
+      "options": [
+        "অবস্থান ভেক্টর",
+        "সরণ ভেক্টর",
+        "একক ভেক্টর",
+        "নাল ভেক্টর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "128580",
+      "question": "নিচের কোন দুটি ভেক্টর রাশি?",
+      "options": [
+        "ত্বরণ, তাপমাত্রা",
+        "তড়িৎ ক্ষেত্র, বল",
+        "গতিশক্তি, বেগ",
+        "বিভব, ত্বরণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভেক্টর রাশির মান ও দিক উভয়ই রয়েছে। ত্বরণ ভেক্টর রাশি কিন্তু তাপমাত্রা স্কেলার রাশি। সকল শক্তি ও কাজ স্কেলার রাশি।  তড়িৎ ক্ষেত্র ও বলের নির্দিষ্ট দিক ও অভিমুখ রয়েছে তা এ দুটি ভেক্টর রাশি।"
+    },
+    {
+      "question_no": 10,
+      "id": "128581",
+      "question": "দুটি ভেক্টর রাশি একই দিকে ক্রিয়া করলে লব্ধির মান হবে-",
+      "options": [
+        "সর্বোচ্চ",
+        "সর্বনিম্ন",
+        "শূন্য",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "128582",
+      "question": "15 N ও 10N মানের দুটি বল একটি কণার উপর প্রযুক্ত হলে নিম্নের কোন বলটি কণাটির উপর লব্ধি হতে পারে না?",
+      "options": [
+        "5N",
+        "10N",
+        "15N",
+        "20N"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "128583",
+      "question": "দুটি সমান ভেক্টর থেকে শূন্য ভেক্টর পেতে হলে এদের মধ্যবর্তী কোণ হবে?",
+      "options": [
+        "0°",
+        "45°",
+        "90°",
+        "180°"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "128584",
+      "question": "",
+      "options": [
+        "AxB",
+        "A-B",
+        "A+B",
+        "A÷B"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "128585",
+      "question": "নিচের কোনটি বিনিময় সূত্র?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "128586",
+      "question": "",
+      "options": [
+        "3",
+        "√3",
+        "1",
+        "-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "128587",
+      "question": "",
+      "options": [
+        "9",
+        "7",
+        "49",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "128588",
+      "question": "",
+      "options": [
+        "5",
+        "",
+        "",
+        "12"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "128589",
+      "question": "",
+      "options": [
+        "√25",
+        "√34",
+        "√41",
+        "√50"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "128590",
+      "question": "",
+      "options": [
+        "3i^+4j^",
+        "6i^",
+        "5k^",
+        "4j^"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "128591",
+      "question": "",
+      "options": [
+        "41^+3j^",
+        "6i^",
+        "7k^",
+        "3j^"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "128592",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "128593",
+      "question": "স্কেলার গুণনের উদাহরণ-",
+      "options": [
+        "কাজ",
+        "বল",
+        "টর্ক",
+        "কৌণিক ভরবেগ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "128594",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "128595",
+      "question": "",
+      "options": [
+        "Fও S এর দিক একই",
+        "F ও S বিপরীতমুখ",
+        "F ও S পরস্পরের উপর লম্ব",
+        "F ও S পরস্পর সমান্তরাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "128596",
+      "question": "",
+      "options": [
+        "9",
+        "11",
+        "12",
+        "13"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "128597",
+      "question": "",
+      "options": [
+        "0°",
+        "45°",
+        "90°",
+        "180°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "128598",
+      "question": "",
+      "options": [
+        "-4",
+        "-6",
+        "6",
+        "2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "128599",
+      "question": "",
+      "options": [
+        "3",
+        "5",
+        "7",
+        "9"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "128600",
+      "question": "",
+      "options": [
+        "-1",
+        "",
+        "0",
+        "2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "128601",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "128602",
+      "question": "নিচের কোন ক্রিয়াটি বিনিময় সূত্র মেনে চলে না?",
+      "options": [
+        "ভেক্টর রাশির ডট গুণন",
+        "ভেক্টর রাশির ক্রস গুণন",
+        "ভেক্টর রাশির যোগ",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "128603",
+      "question": "",
+      "options": [
+        "-A^2",
+        "0",
+        "-B^2",
+        "1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "128604",
+      "question": "দুটি ভেক্টরের স্কেলার গুণফল 18 এবং ভেক্টর গুণফল 6√3। ভেক্টরদ্বয়ের মধ্যবর্তী কোণ কত হবে?",
+      "options": [
+        "60°",
+        "90°",
+        "30°",
+        "120°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "128605",
+      "question": "i^ এবং j ^ যে তলে অবস্থিত সেই তলের উপর লম্ব ভেক্টর হলো)",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "128606",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "128607",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "128608",
+      "question": "নিচের কোনটি x অক্ষের সমান্তরাল?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "128609",
+      "question": "",
+      "options": [
+        "90°",
+        "0°",
+        "180°",
+        "45°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "128610",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "128611",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "128612",
+      "question": "দুটি ভেক্টর রাশির মান যথাক্রমে ৪ এবং 6 একক। তারা পরস্পরের সাথে 30° কোণ ক্রিয়া করে। এদের ভেক্টর গুণফল কত?",
+      "options": [
+        "16",
+        "20",
+        "24",
+        "48"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "128613",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "128614",
+      "question": "",
+      "options": [
+        "15√2",
+        "10√3",
+        "15√3",
+        "15√5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "128615",
+      "question": "",
+      "options": [
+        "0",
+        "+1",
+        "√3",
+        "- 1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "128616",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "128617",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "128618",
+      "question": "",
+      "options": [
+        "15/2",
+        "10/3",
+        "15/3",
+        "15/5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "128619",
+      "question": "",
+      "options": [
+        "0",
+        "+1",
+        "3",
+        "-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "128620",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "128621",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 51,
+      "id": "128622",
+      "question": "",
+      "options": [
+        "1",
+        "-1",
+        "0",
+        "k^"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 52,
+      "id": "128623",
+      "question": "নিচের কোনটি অপারেটর নয়?",
+      "options": [
+        "sinθ",
+        "√",
+        "log",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "128624",
+      "question": "কোনো অন্তরীকরণযোগ্য ভেক্টর অপেক্ষকের ডাইভারজেন্স হচ্ছে-",
+      "options": [
+        "",
+        "",
+        "",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "128625",
+      "question": "স্কেলার অপেক্ষকের গ্রেডিয়েন্ট হচ্ছে-",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 55,
+      "id": "128626",
+      "question": "কোনো অন্তরীকরণযোগ্য ভেক্টর আপেক্ষকের কার্ল হচ্ছে-",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 56,
+      "id": "128627",
+      "question": "সলিনয়ডাল হলো-",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "128628",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "128629",
+      "question": "কোনটি স্কেলার রাশি?",
+      "options": [
+        "গ্রাডিয়েন্ট",
+        "ডাইভারজেন্স",
+        "কার্ল",
+        "সরণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ডাইভারজেন্স হলো স্কেলার রাশি যা দ্বারা ভেক্টর ক্ষেত্রের\r\nফ্লাক্সের প্রকৃতি জানা যায়। গ্রেডিয়েন্ট, কার্ল ও সরণ ভেক্টর রাশি।"
+    },
+    {
+      "question_no": 59,
+      "id": "128630",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "শূন্য",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 60,
+      "id": "128631",
+      "question": "",
+      "options": [
+        "0°",
+        "45°",
+        "90°",
+        "180°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 61,
+      "id": "128632",
+      "question": "একটি লন রোলার টানা ও ঠেলার জন্য অনুভূমিকের সাথে 30° কোণে 20N বল প্রয়োগ করা হলো। টানার সময় ঠেলা অপেক্ষা কম হবে-",
+      "options": [
+        "20N",
+        "10N",
+        "15N",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 62,
+      "id": "128633",
+      "question": "দুটি লব্ধির মান 40N। বল দুটির মধ্যে ছোটো বলটির মান 30N এবং এটি লব্ধি বলের লম্ব বরাবর ক্রিয়া করে। বড়ো বলটির মান কত?",
+      "options": [
+        "40N",
+        "45N",
+        "50N",
+        "60N"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 63,
+      "id": "128634",
+      "question": "স্রোতের বেগের মানের √2 গুণ মানের বেগে সাঁতার কেটে একজন সাঁতারু নদীর অপর পাড়ে সোজাসুজি গিয়ে পৌঁছলো। নদীর তীরের সাথে সাঁতারুর বেগের কোণ নির্ণয় করো।",
+      "options": [
+        "120°",
+        "130°",
+        "135°",
+        "65°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 64,
+      "id": "128635",
+      "question": "বায়ু উত্তরদিক ও পূর্বদিকের মধ্যে প্রবাহিত হচ্ছে। বায়ুর বেগের উত্তরদিকের অংশক 5km/hr এবং পূর্বদিকের অংশক 12km/hr। লব্ধিবেগ কত?",
+      "options": [
+        "17km/hr",
+        "13km/hr",
+        "60km/hr",
+        "7km/hr"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 65,
+      "id": "128636",
+      "question": "দুটি দিক রাশির প্রত্যেকটির মান 10 একক। এদের লব্ধি মান 10√2 একক হলে তাদের মধ্যবর্তী কোণ কত?",
+      "options": [
+        "0°",
+        "60°",
+        "90°",
+        "120°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 66,
+      "id": "128637",
+      "question": "",
+      "options": [
+        "",
+        "3 একক",
+        "",
+        "6 একক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 67,
+      "id": "128638",
+      "question": "P ও Q এর স্থানাঙ্ক (3,-2,1) এবং (3,-4,5), PQ এর মান কত?",
+      "options": [
+        "√20",
+        "√29",
+        "√56",
+        "6√3"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 68,
+      "id": "128639",
+      "question": "",
+      "options": [
+        "√14",
+        "√17",
+        "√19",
+        "√23"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 69,
+      "id": "128640",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 70,
+      "id": "128641",
+      "question": "",
+      "options": [
+        "0°",
+        "30°",
+        "90°",
+        "180°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 71,
+      "id": "128642",
+      "question": "",
+      "options": [
+        "3",
+        "7",
+        "9",
+        "11"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 72,
+      "id": "128643",
+      "question": "",
+      "options": [
+        "8",
+        "6",
+        "4",
+        "-4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 73,
+      "id": "128644",
+      "question": "",
+      "options": [
+        "0°",
+        "45°",
+        "90°",
+        "180°"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 74,
+      "id": "128645",
+      "question": "",
+      "options": [
+        "60°",
+        "30°",
+        "90°",
+        "120°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 75,
+      "id": "128646",
+      "question": "",
+      "options": [
+        "-2",
+        "3",
+        "1",
+        "-3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 76,
+      "id": "128647",
+      "question": "",
+      "options": [
+        "78.51°",
+        "105.25°",
+        "11.49°",
+        "101.59°"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 77,
+      "id": "128648",
+      "question": "",
+      "options": [
+        "25.12°",
+        "26.57°",
+        "90.67°",
+        "180.25°"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 78,
+      "id": "128649",
+      "question": "",
+      "options": [
+        "60°",
+        "30°",
+        "45°",
+        "90°"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 79,
+      "id": "128650",
+      "question": "",
+      "options": [
+        "45°",
+        "60°",
+        "90°",
+        "180°"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 80,
+      "id": "128651",
+      "question": "",
+      "options": [
+        "i^",
+        "i²",
+        "",
+        "1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 81,
+      "id": "128652",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 82,
+      "id": "128653",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 83,
+      "id": "128654",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 84,
+      "id": "128655",
+      "question": "",
+      "options": [
+        "1",
+        "i^",
+        "j^",
+        "k^"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 85,
+      "id": "128656",
+      "question": "",
+      "options": [
+        "A²",
+        "1",
+        "0",
+        "-A²"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 86,
+      "id": "128657",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 87,
+      "id": "128658",
+      "question": "দুটি ভেক্টরের স্কেলার গুণফল 18 একক এবং ভেক্টর গুণফল 6√3 একক হলে ভেক্টরদ্বয়ের মধ্যবর্তী কোণ কত?",
+      "options": [
+        "20°",
+        "25°",
+        "30°",
+        "35°"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 88,
+      "id": "128659",
+      "question": "",
+      "options": [
+        "8√5",
+        "5√6",
+        "3√14",
+        "6√5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 89,
+      "id": "128660",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 90,
+      "id": "128661",
+      "question": "",
+      "options": [
+        "12",
+        "60",
+        "25",
+        "15"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 91,
+      "id": "128662",
+      "question": "",
+      "options": [
+        "C",
+        "C²",
+        "শূন্য",
+        "2C"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 92,
+      "id": "128663",
+      "question": "",
+      "options": [
+        "-k^",
+        "0",
+        "k^",
+        "i^"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 93,
+      "id": "128664",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 94,
+      "id": "128665",
+      "question": "",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 95,
+      "id": "128666",
+      "question": "",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 96,
+      "id": "128667",
+      "question": "স্কেলার ফাংশনকে ভেক্টর রাশিতে রূপান্তরিত করে-",
+      "options": [
+        "ক্রস গুণন",
+        "ডট গুণন",
+        "গ্র্যাডিয়েন্ট",
+        "ডাইভারজেন্স"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 97,
+      "id": "128668",
+      "question": "যদি Q(x, y) = 3x²y হয়, তবে (1,-2) বিন্দুতে ∇Q নির্ণয় করো।",
+      "options": [
+        "-6i^-3j^",
+        "-12i^+3j^",
+        "3i^+6j^",
+        "6i^-12j ^"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 98,
+      "id": "128669",
+      "question": "",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 99,
+      "id": "128670",
+      "question": "যদি φ(x,y,z) একটি ব্যবকলনীয় স্কেলার ক্ষেত্র হয় তবে তাকে কী বলে?",
+      "options": [
+        "অপারেটর",
+        "কার্ল",
+        "গ্র্যাডিয়েন্ট",
+        "ডাইভারজেন্স"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

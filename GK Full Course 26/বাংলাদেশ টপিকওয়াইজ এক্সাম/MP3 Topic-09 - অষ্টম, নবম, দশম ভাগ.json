@@ -1,0 +1,236 @@
+{
+  "exam_id": 10990,
+  "title": "MP3 Topic-09 : অষ্টম, নবম, দশম ভাগ",
+  "category": "বাংলাদেশ টপিকওয়াইজ এক্সাম",
+  "subtopic": "বাংলাদেশের সংবিধান-০৩ Exam",
+  "duration_minutes": 8,
+  "total_questions": 15,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "143d7563-7017-472f-8e9e-6aa3c7f12c05",
+      "question": "গণপ্রজাতন্ত্রী বাংলাদেশের সংবিধানে কোন ভাগে মহা হিসাব নিরীক্ষক ও নিয়ন্ত্রক পদের উল্লেখ আছে? [SABAS][]",
+      "options": [
+        "৯ম ভাগে",
+        "৭ম ভাগে",
+        "৮ম ভাগে",
+        "১০ম ভাগে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সংবিধানের অষ্টম ভাগের ১-এ অনুচ্ছেদে (১২৭-১৩২) মহা হিসাব নিরীক্ষক ও নিয়ন্ত্রক সম্পর্কে আলোচনা করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "ce64bf45-f497-4993-8b6d-24376efb5ca3",
+      "question": "গণপ্রজাতন্ত্রী বাংলাদেশের প্রধান হিসাবরক্ষকের পদবী হলো- [SABAS][]",
+      "options": [
+        "Controller of Accounts",
+        "Controller of Accounts and Finance",
+        "Comptroller of Audit",
+        "Comptroller and Auditor General"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাংলাদেশের প্রধান হিসাবরক্ষক ও নিরীক্ষক কর্মকর্তা হলেন Comptroller and Auditor General (CAG)।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "38352b7d-d450-4006-8f23-a75e7779f069",
+      "question": "বাংলাদেশের মহা হিসাব নিরীক্ষক ও নিয়ন্ত্রককে নিয়োগদান করেন- [SABAS][]",
+      "options": [
+        "জাতীয় সংসদ",
+        "প্রধানমন্ত্রী",
+        "রাষ্ট্রপতি",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সংবিধান অনুযায়ী বাংলাদেশের মহা হিসাব নিরীক্ষক ও নিয়ন্ত্রককে রাষ্ট্রপতি নিয়োগদান করেন।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "7ad663c2-f68b-4ada-acfc-ff769b6713c6",
+      "question": "Doctrine of Pleasure' নীতিটি গণপ্রজাতন্ত্রী বাংলাদেশের সংবিধানের কোন অনুচ্ছেদে বর্ণিত হয়েছে? [SABAS][]",
+      "options": [
+        "১৩৬",
+        "১৩৪",
+        "১৩৩",
+        "১৩৫"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সংবিধানের ১৩৪ নং অনুচ্ছেদে Doctrine of Pleasure বা সন্তোষজনকভাবে দায়িত্ব পালনের নীতি বর্ণিত আছে।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "cc9bb5a0-3abb-40d0-9016-d70732c21dff",
+      "question": "বাংলাদেশ সরকারি কর্ম কমিশনের বিষয়টি সংবিধানের কোন ভাগে সন্নিবেশিত হয়েছে? [SABAS][]",
+      "options": [
+        "নবম ভাগে",
+        "দ্বিতীয় ভাগে",
+        "পঞ্চম ভাগে",
+        "অষ্টম ভাগে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সংবিধানের নবম ভাগে সরকারি কর্ম কমিশন (১৩৭-১৪১) আলোচনা করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "8fd56e67-0e4e-4e9a-a5c4-dff184ab3f34",
+      "question": "What is 'Public Service Commission' in Bangla? [SABAS][]",
+      "options": [
+        "সরকারি কর্মকমিশন",
+        "সরকারি চাকুরি কমিশন",
+        "জনকল্যাণ কমিশন",
+        "জনসেবা কমিশন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Public Service Commission এর বাংলা অর্থ হলো সরকারি কর্ম কমিশন।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "aa4ae015-de1b-4319-bbef-214e85591cf0",
+      "question": "বাংলাদেশ সরকারি কর্ম কমিশন সংবিধানের কত অনুচ্ছেদ অনুযায়ী গঠিত? [SABAS][]",
+      "options": [
+        "১৩৬",
+        "১৩৭",
+        "১৩৮",
+        "১৪০ (২)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সংবিধানের ১৩৭ নং অনুচ্ছেদ অনুযায়ী বাংলাদেশ সরকারি কর্ম কমিশন গঠিত।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "d0d09918-f4ae-45a2-9803-aaca9f7ba8f2",
+      "question": "বাংলাদেশের পাবলিক সার্ভিস কমিশনের চেয়ারম্যান ও সদস্যদের কে মনোনীত করেন- [SABAS][]",
+      "options": [
+        "প্রধানমন্ত্রী",
+        "রাষ্ট্রপতি",
+        "মন্ত্রিপরিষদ",
+        "জাতীয় সংসদ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রাষ্ট্রপতি পিএসসির চেয়ারম্যান ও সদস্যদের নিয়োগ দেন।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "66ae4c78-d1b7-4298-a47d-efe37a772a09",
+      "question": "কর্ম কমিশনের সদস্য পদ পেতে হলে ন্যূনতম কত বছর প্রজাতন্ত্রের সরকারি পদে নিযুক্ত থাকতে হয়? [SABAS][]",
+      "options": [
+        "২০ বছর",
+        "১৮ বছর",
+        "২৫ বছর",
+        "১২ বছর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সংবিধান অনুযায়ী কর্ম কমিশনের সদস্যদের অর্ধেক এমন ব্যক্তি হতে হবে যারা অন্তত ২০ বছর সরকারি পদে কর্মরত ছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "fa83fde7-aa28-4089-ba4d-88148e5b21dd",
+      "question": "সংবিধান মতে পিএসসির একজন সদস্যের দায়িত্বের মেয়াদ ৫ বছর বা স্বীয় বয়সের কত বছর পর্যন্ত হবে? [SABAS][]",
+      "options": [
+        "৬৪ বছর",
+        "৬৭ বছর",
+        "৬৫ বছর",
+        "৬৩ বছর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পিএসসির সদস্যদের মেয়াদ ৫ বছর বা ৬৫ বছর বয়স পূর্ণ হওয়া পর্যন্ত, যা আগে ঘটে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "7938f8b8-d573-40b5-a94f-5f90b58aeee4",
+      "question": "কোন ঘটনায় মৌলিক অধিকার রহিত হয়? [SABAS][]",
+      "options": [
+        "হরতাল",
+        "জরুরি আইন",
+        "অবরোধ",
+        "লক-আউট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জরুরি অবস্থা ঘোষণার সময় সংবিধানের কিছু মৌলিক অধিকার স্থগিত বা রহিত হতে পারে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "570a3dea-aa75-4dac-9d6f-b9db429425d5",
+      "question": "জরুরি অবস্থা ঘোষণার পূর্বেই উক্ত ঘোষণার বৈধতার জন্য কার প্রতি-স্বাক্ষরের প্রয়োজন? [SABAS][]",
+      "options": [
+        "রাষ্ট্রপতি",
+        "প্রধানমন্ত্রী",
+        "স্পিকার",
+        "প্রধান বিচারপতি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জরুরি অবস্থা ঘোষণার পূর্বে প্রধানমন্ত্রীর প্রতি-স্বাক্ষর আবশ্যক।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "5d5c8fc4-0843-406f-9ff1-7d911e595b92",
+      "question": "সংবিধানের ১৪১(ক) অনুচ্ছেদের বিষয়বস্তু কি? [SABAS][]",
+      "options": [
+        "নির্বাচন কমিশন গঠন",
+        "জরুরি অবস্থা ঘোষণা",
+        "ইন্ডেমনিটি অধ্যাদেশ বাতিল",
+        "সরকারি কর্মকমিশন গঠন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সংবিধানের ১৪১(ক) অনুচ্ছেদে জরুরি অবস্থা ঘোষণার বিধান রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "46c49b86-8825-49d4-b9aa-20c4df010df6",
+      "question": "সংবিধানের ১৪১ক অনুচ্ছেদ অনুযায়ী জরুরি অবস্থা জারি করা হলে তার সর্বোচ্চ মেয়াদ কত হতে পারে? [SABAS][]",
+      "options": [
+        "১৮০ দিন",
+        "৩৬৫ দিন",
+        "১২০ দিন",
+        "৯০ দিন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "30b831d7-3aa7-4bea-8fc3-a41d78bdcfe6",
+      "question": "Which of the following remains suspended when the emergency provision are declared in Bangladesh? [SABAS][]",
+      "options": [
+        "All government recruitment",
+        "Fundamental principles of State policies",
+        "Fundamental rights of the citizens",
+        "All cultural activities the citizens"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জরুরি অবস্থায় নাগরিকদের মৌলিক অধিকারগুলো স্থগিত হয়ে যায়।",
+      "images": []
+    }
+  ]
+}

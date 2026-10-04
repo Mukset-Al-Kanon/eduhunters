@@ -1,0 +1,851 @@
+{
+  "exam_id": 10479,
+  "title": "MP3 Topic-03 : বিশেষায়িত সংস্থা",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "জাতিসংঘ-০১ Exam",
+  "duration_minutes": 30,
+  "total_questions": 56,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "cb431c47-8875-44a3-b15e-78c465a2f47d",
+      "question": "জাতিসংঘের কোন সংস্থা খাদ্য ব্যবস্থার সঙ্গে সংশ্লিষ্ট? [SABAS][]",
+      "options": [
+        "ILO",
+        "UNESCO",
+        "IMF",
+        "FAO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "FAO (Food and Agriculture Organization) জাতিসংঘের খাদ্য ও কৃষি বিষয়ক সংস্থা।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "f1211d27-179b-4ebb-80e1-4b0d24e5aea6",
+      "question": "Food and Agricultural Organization-এর বাংলা অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "খাদ্য ও কৃষি সংস্থা",
+        "বিশ্ব খাদ্য ও কৃষি সংস্থা",
+        "বিশ্ব খাদ্য ও কৃষিবিষয়ক সংস্থা",
+        "খাদ্য বিষয়ক ও কৃষিবিষয়ক সংস্থা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "FAO-এর পূর্ণরূপ Food and Agriculture Organization, যার বাংলা অর্থ খাদ্য ও কৃষি সংস্থা।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "aa4ccc0b-61b0-43a8-8479-7c250889bbf8",
+      "question": "FAO গঠিত হয় - [SABAS][]",
+      "options": [
+        "সুলেমবার্গ",
+        "কোপেন হেগেন শহরে",
+        "সিডনিতে",
+        "কুইবেকে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "FAO ১৯৪৫ সালের ১৬ অক্টোবর কানাডার কুইবেকে প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "2ca49931-aff3-4897-8d7e-92be5e0e5f6a",
+      "question": "ICAO কী? [SABAS][]",
+      "options": [
+        "International Cultural Organization",
+        "International Community Advancement Organization",
+        "International Civil Aviation Organization",
+        "International Community for advancement of the Old"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ICAO-এর পূর্ণরূপ International Civil Aviation Organization।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "1a323e4b-f3a7-4a70-84c0-7064cab9e9a2",
+      "question": "International Civil Aviation Organization প্রতিষ্ঠিত হয় কত সালে? [SABAS][]",
+      "options": [
+        "১৯৪৫",
+        "১৯৪৭",
+        "১৯৫০",
+        "১৯৬১"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "a061cb5d-8892-4e87-a874-bd8a14cd6939",
+      "question": "IMO' এর পূর্ণরূপ কী? [SABAS][]",
+      "options": [
+        "International Maritime Organization",
+        "International Monetary Organization",
+        "International Management Organization",
+        "International Meteorological Organization"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "IMO-এর পূর্ণরূপ হলো International Maritime Organization।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "1204c41c-f664-415d-9e31-3c14e5cec4f4",
+      "question": "আন্তর্জাতিক শ্রম সংস্থার সংক্ষিপ্ত রূপ কোনটি? [SABAS][]",
+      "options": [
+        "IDA",
+        "IFC",
+        "IMF",
+        "ILO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আন্তর্জাতিক শ্রম সংস্থার সংক্ষিপ্ত রূপ হলো ILO (International Labour Organization)।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "7c1067e0-925d-4915-8ef3-80e9c261d024",
+      "question": "The UN specialized agency which seeks the promotion of social justice and internationally recognized human and labour rights is called- [SABAS][]",
+      "options": [
+        "OPEC",
+        "ILO",
+        "FAO",
+        "WHO"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ILO আন্তর্জাতিক শ্রম ও মানবাধিকার নিশ্চিত করতে কাজ করে।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "98f9952e-c368-4f43-8d80-a2633115f08b",
+      "question": "প্রথম বিশ্ব তথ্যসমাজ শীর্ষ সম্মেলন (World Summit on the Information Society) কোন শহরে অনুষ্ঠিত হয়েছিল? [SABAS][]",
+      "options": [
+        "নিউইয়ার্ক",
+        "ডারবান",
+        "জেনেভা",
+        "লন্ডন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রথম বিশ্ব তথ্যসমাজ শীর্ষ সম্মেলন ২০০৩ সালে সুইজারল্যান্ডের জেনেভাতে অনুষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "17a06499-a0bd-4132-9727-d3ae75d6b78c",
+      "question": "আন্তর্জাতিক ডাক সংস্থার সংক্ষিপ্ত রূপ - [SABAS][]",
+      "options": [
+        "WPU",
+        "IPO",
+        "UPU",
+        "IPU"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আন্তর্জাতিক ডাক সংস্থার (Universal Postal Union) সংক্ষিপ্ত রূপ UPU।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "df83c3e9-c128-49f5-b6ef-79378d49c719",
+      "question": "ইউনেস্কো (UNESCO) প্রতিষ্ঠা হয় কবে? [SABAS][]",
+      "options": [
+        "১ নভেম্বর, ১৯৪৬",
+        "৩ নভেম্বর, ১৯৪৬",
+        "২ নভেম্বর, ১৯৪৬",
+        "৪ নভেম্বর, ১৯৪৬"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইউনেস্কো ৪ নভেম্বর, ১৯৪৬ সালে আনুষ্ঠানিকভাবে প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "790974ef-72af-41d1-807b-a5619d69b8c7",
+      "question": "UNESCO এর পূর্ণ নাম কী? [SABAS][]",
+      "options": [
+        "United Nations Emergency Social and Cultural Organization",
+        "United Nations Essential Scientific and Community Organization",
+        "United Nations Establishment for Scientific and Commercial Organization",
+        "United Nations Educational, Scientific and Cultural Organization"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "UNESCO-এর পূর্ণরূপ United Nations Educational, Scientific and Cultural Organization।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "8488fc43-0a79-4289-9601-960fc3b612ee",
+      "question": "ইউনেস্কো'র প্রধান লক্ষ্য - [SABAS][]",
+      "options": [
+        "শিক্ষা-সংস্কৃতি",
+        "প্রশাসনিক উন্নয়ন",
+        "অর্থনৈতিক",
+        "সামরিক উন্নয়ন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইউনেস্কোর প্রধান লক্ষ্য হলো শিক্ষা, বিজ্ঞান ও সংস্কৃতির প্রসারের মাধ্যমে বিশ্বে শান্তি ও নিরাপত্তা নিশ্চিত করা।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "d39a77ff-71c5-4c05-9349-bc99497f570d",
+      "question": "জাতিসংঘের কোন তিনটি শাখা নিয়ে ১৯৪৫ সালে ইউনেস্কো গঠিত হয়? [SABAS][]",
+      "options": [
+        "শিক্ষা, খাদ্য ও সংস্কৃতি",
+        "খাদ্য, বিজ্ঞান ও খেলাধুলা",
+        "স্বাস্থ্য, বিজ্ঞান ও সংস্কৃতি",
+        "শিক্ষা, বিজ্ঞান ও সংস্কৃতি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইউনেস্কো শিক্ষা, বিজ্ঞান ও সংস্কৃতি বিষয়ক সংস্থা হিসেবে গঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "616fa86a-df92-4c7d-9e22-2c0c75255911",
+      "question": "যুক্তরাষ্ট্র কত সালে জাতিসংঘের শিক্ষা, বিজ্ঞান ও সংস্কৃতি বিষয়ক সংস্থা (UNESCO) থেকে নিজেকে প্রত্যাহার করে নিয়েছিল? [SABAS][]",
+      "options": [
+        "১৯৭৯ সালে",
+        "১৯৮৪ সালে",
+        "১৯৮১ সালে",
+        "২০০১ সালে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "e559fab6-33df-4b28-ad85-e7877624914c",
+      "question": "WHO works in the area of- [SABAS][]",
+      "options": [
+        "Health care",
+        "Telecommunication",
+        "Woman Empowerment",
+        "Business"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "WHO (World Health Organization) বিশ্ব স্বাস্থ্য নিয়ে কাজ করে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "50ce0893-ebe9-4a7e-b996-8043d9856956",
+      "question": "বিশ্ব স্বাস্থ্য সংস্থা (WHO) কত সালে প্রতিষ্ঠিত হয়? [SABAS][]",
+      "options": [
+        "১৯৪৫",
+        "১৯৪৮",
+        "১৯৪২",
+        "১৯৫০"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিশ্ব স্বাস্থ্য সংস্থা (WHO) ১৯৪৮ সালের ৭ এপ্রিল প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "08d32aec-e42e-445c-bd88-9044ac904964",
+      "question": "বিশ্ব স্বাস্থ্য দিবস' (World Health Day) প্রতিপালিত হয় প্রতিবছর - [SABAS][]",
+      "options": [
+        "৫ মে",
+        "১ ডিসেম্বর",
+        "৭ এপ্রিল",
+        "১ মে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বিশ্ব স্বাস্থ্য সংস্থা প্রতিষ্ঠার দিন ৭ এপ্রিল 'বিশ্ব স্বাস্থ্য দিবস' হিসেবে পালিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "8449a08c-b8e8-49b2-80bf-f98c7901069d",
+      "question": "WHO জাতিসংঘের বিশেষ সংস্থার মর্যাদা লাভ করে - [SABAS][]",
+      "options": [
+        "০৭ এপ্রিল, ১৯৪৮",
+        "১০ জুলাই, ১৯৪৮",
+        "১০ আগস্ট, ১৯৪৮",
+        "৩১ ডিসেম্বর, ১৯৪৮"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "WHO ১৯৪৮ সালের ১০ জুলাই জাতিসংঘের বিশেষ সংস্থার মর্যাদা লাভ করে।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "4a2d734a-6a29-4d25-96ca-8c28c6c1fb8a",
+      "question": "প্রাথমিক স্বাস্থ্য পরিচর্যা বিষয়ক 'আলমাআতা' ঘোষণা গৃহীত হয় কোন সালে? [SABAS][]",
+      "options": [
+        "১৯৭৪",
+        "১৯৭৫",
+        "১৯৭৮",
+        "১৯৭৯"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১৯৭৮ সালে কাজাখস্তানের আলমাআতা শহরে প্রাথমিক স্বাস্থ্য পরিচর্যা বিষয়ক ঘোষণা গৃহীত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "78102738-9098-463e-aa40-2f12b6ecffe2",
+      "question": "বিশ্ব স্বাস্থ্য সংস্থা (WHO) পোলিওমুক্ত বিশ্ব গড়ার লক্ষ্যে পোলিও টিকাদান কর্মসূচি গ্রহণ করে কত সালে? [SABAS][]",
+      "options": [
+        "১৯৭৮",
+        "১৯৮০",
+        "১৯৮৬",
+        "১৯৮৮"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিশ্ব স্বাস্থ্য সংস্থা ১৯৮৮ সালে পোলিও নির্মূলের বৈশ্বিক উদ্যোগ গ্রহণ করে।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "2ce2ccde-a2c6-4e54-9063-69d6aa514147",
+      "question": "বিশ্ব তামাকমুক্ত দিবস' (World No-Tobacco day) প্রতিপালিত হয় প্রতি বছরের - [SABAS][]",
+      "options": [
+        "May 25",
+        "May 28",
+        "May 30",
+        "May 31"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রতি বছর ৩১ মে 'বিশ্ব তামাকমুক্ত দিবস' হিসেবে পালিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "7d4c5bcb-2d91-4398-b27f-9fe16ce81558",
+      "question": "বিশ্ব এইডস দিবস পালিত হয়- [SABAS][]",
+      "options": [
+        "১ সেপ্টেম্বর",
+        "৩১ অক্টোবর",
+        "১ ডিসেম্বর",
+        "১৫ ডিসেম্বর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রতি বছর ১ ডিসেম্বর বিশ্ব এইডস দিবস পালিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "fdff6499-d824-46b2-b40d-04d07726b8bf",
+      "question": "WIPO- এর পূর্ণরূপ- [SABAS][]",
+      "options": [
+        "World International Property Organization",
+        "World Intellectual Property Organization",
+        "World International Players Organization",
+        "World Intelligence Property Organization"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "WIPO-এর পূর্ণরূপ World Intellectual Property Organization।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "4cf7d798-5482-4859-9227-7b62f48fa35a",
+      "question": "UNDP এর ইংরেজি পূর্ণরূপ কি? [SABAS][]",
+      "options": [
+        "United Nations Development Programme",
+        "United National Development Programme",
+        "Unity Nations Development Programme",
+        "United Nations Develop programme"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "UNDP-এর পূর্ণরূপ United Nations Development Programme।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "27da416d-1f38-4a04-96af-f27eac575cad",
+      "question": "UNDP কবে প্রতিষ্ঠিত হয়? [SABAS][]",
+      "options": [
+        "১৯৪৫ সালে",
+        "১৯৬৫ সালে",
+        "১৯৮২ সালে",
+        "১৯৭৫ সালে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জাতিসংঘ উন্নয়ন কর্মসূচি (UNDP) ১৯৬৫ সালে প্রতিষ্ঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "66ed6f4a-0be0-4e5a-82a6-470e5adc5b4c",
+      "question": "HDI stands for- [SABAS][]",
+      "options": [
+        "Human Development Industries",
+        "Human Development Index",
+        "High Density Industrialization",
+        "High Developed Industries"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "HDI-এর পূর্ণরূপ Human Development Index।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "5dcc2730-ff37-4042-b6ac-aa0b94acaab7",
+      "question": "বিশ্ব মানব উন্নয়ন সূচক (HDI) প্রকাশ করে কোন সংস্থা? [SABAS][]",
+      "options": [
+        "World Bank",
+        "ADB",
+        "UNDP",
+        "JICA"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জাতিসংঘ উন্নয়ন কর্মসূচি (UNDP) মানব উন্নয়ন সূচক প্রকাশ করে।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "3a99c49b-3157-4839-9165-de77b05cacda",
+      "question": "মানব উন্নয়ন সূচক'- এর মৌলিক নির্দেশক- [SABAS][]",
+      "options": [
+        "সুদের হার",
+        "প্রতিরক্ষা উন্নয়ন বাজেট",
+        "জনসংখ্যা বৃদ্ধির হার",
+        "মাথাপিছু জাতীয় আয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মানব উন্নয়ন সূচকের একটি মৌলিক নির্দেশক হলো মাথাপিছু জাতীয় আয়।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "fab49f23-0392-47c5-a4b1-62189ba9d7fb",
+      "question": "HDI is an index that present the development of a country by considering - [SABAS][]",
+      "options": [
+        "Income, education & health",
+        "Income, education & child mortality",
+        "Income, education & corruption",
+        "Income, growth & inflation"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মানব উন্নয়ন সূচক মূলত আয়, শিক্ষা এবং স্বাস্থ্য বিবেচনা করে নির্ধারণ করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "6c57690f-d1ff-4398-be7b-066b25b887b0",
+      "question": "HDI (Human Development Index) একটি দেশের মূলত কী পরিমাপ করে? [SABAS][]",
+      "options": [
+        "দেশের মোট উৎপাদন ও রপ্তানি",
+        "দেশের মানুষের শিক্ষা, স্বাস্থ্য (গড় আয়ু) এবং আয়",
+        "দেশের সরকার স্বাস্থ্য ও শিক্ষার কতটুকু খরচ করে?",
+        "দেশের সরকারি ব্যয় ও বাজেট ঘাটতি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "5629bf3c-5129-44b6-9291-985e2476652e",
+      "question": "কোনটি জাতিসংঘের বহুমুখী কারিগরি ও প্রাক-বিনিয়োগ সহযোগিতা বাস্তবায়নের সর্বোত্তম মাধ্যম? [SABAS][]",
+      "options": [
+        "UNVA",
+        "DTCD",
+        "UNFPA",
+        "UNDP"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জাতিসংঘের বহুমুখী কারিগরি ও প্রাক-বিনিয়োগ সহযোগিতার মাধ্যম হলো UNDP.",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "633f6438-4355-45f6-beb7-4b5a8d732cd4",
+      "question": "What does UNICEF stand for? [SABAS][]",
+      "options": [
+        "United Nations Children Emergency Fund",
+        "United Nations Industrial Credit Fund",
+        "United Nations Children's Fund",
+        "United Nation Capital Fund"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "UNICEF-এর পূর্ণরূপ United Nations Children's Fund.",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "25e94694-250a-481b-baa8-0eddba61058d",
+      "question": "Which global organization focuses on protecting and promoting children's rights, including the right to education and healthcare? [SABAS][]",
+      "options": [
+        "UNESCO",
+        "WHO",
+        "FAO",
+        "UNICEF"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শিশুদের অধিকার ও স্বাস্থ্য সুরক্ষায় কাজ করে UNICEF.",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "d6f868aa-2103-4441-ae22-2d309e811bab",
+      "question": "বিশ্ব খাদ্য কর্মসূচি (WFP) কত সালে প্রতিষ্ঠিত হয়? [SABAS][]",
+      "options": [
+        "১৯৬০",
+        "১৯৬১",
+        "১৯৬২",
+        "১৯৬৯"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিশ্ব খাদ্য কর্মসূচি (WFP) ১৯৬১ সালে প্রতিষ্ঠিত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "58e66670-b2fa-4bc5-9cf6-18546fc18d3c",
+      "question": "The elaboration of UNFPA is - [SABAS][]",
+      "options": [
+        "United Nation's Freedom of Press Association",
+        "United Nations Fair Prize Association",
+        "United Nations Fund Poverty Alleviation",
+        "United Nation's Population Fund"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "UNFPA-এর পূর্ণরূপ United Nation's Population Fund.",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "70c8996f-4d98-455c-a000-87019bcc3b07",
+      "question": "Which UN body deals with population problem? [SABAS][]",
+      "options": [
+        "UNFPA",
+        "UNDP",
+        "UNICEF",
+        "UNESCO"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জনসংখ্যা সমস্যা নিয়ে কাজ করে UNFPA.",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "c358a4ea-0c3a-41e2-8c3e-ecca82ab86de",
+      "question": "কোন সংস্থাটি পরিবার পরিকল্পনা সেবা প্রদান করে? [SABAS][]",
+      "options": [
+        "UNFPA",
+        "UNDP",
+        "UNICEF",
+        "IDB"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পরিবার পরিকল্পনা সেবা প্রদানকারী সংস্থা হলো UNFPA.",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "6fc04244-238c-413c-a012-411184f123fc",
+      "question": "United Nations Conference on Trade and Development এর সংক্ষিপ্ত রূপ- [SABAS][]",
+      "options": [
+        "UNCOTD",
+        "UNCOTAD",
+        "UNCTAD",
+        "UNCITD"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সংক্ষিপ্ত রূপ হলো UNCTAD.",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "7a4f75b2-e25b-40de-8a2a-0854377e9d3f",
+      "question": "জাতিসংঘের কোন সংস্থা বার্ষিক বিশ্ব বিনিয়োগ প্রতিবেদন প্রকাশ করে? [SABAS][]",
+      "options": [
+        "WTO",
+        "MIGA",
+        "World Bank",
+        "UNCTAD"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিশ্ব বিনিয়োগ প্রতিবেদন প্রকাশ করে UNCTAD.",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "a7a1e114-f0d8-47a5-8a97-2e45b3ce2056",
+      "question": "UNCTAD - এর কাজ কী? [SABAS][]",
+      "options": [
+        "উন্নয়নশীল রাষ্ট্রের বাণিজ্যিক স্বার্থ রক্ষা করা",
+        "উন্নয়নশীল রাষ্ট্রের আর্থিক স্বার্থ রক্ষা করা",
+        "উন্নয়নশীল রাষ্ট্রের জনস্বার্থ স্বার্থ রক্ষা করা",
+        "উন্নয়নশীল রাষ্ট্রের স্বাস্থ্যগত স্বার্থ রক্ষা করা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "UNCTAD মূলত উন্নয়নশীল দেশগুলোর বাণিজ্যের উন্নয়নের জন্য কাজ করে.",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "d73f2f1d-dcac-46f0-af17-53463a3af146",
+      "question": "রিফিউজি' সমস্যাটি যে সংস্থার সঙ্গে বেশি সম্পর্কিত - [SABAS][]",
+      "options": [
+        "UNDP",
+        "UNFPA",
+        "UNHCR",
+        "IUCN"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "UNHCR (United Nations High Commissioner for Refugees) শরণার্থীদের নিয়ে কাজ করে.",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "e7196d0a-4966-483b-9842-d77275793007",
+      "question": "UNHCR is the abbreviation of- [SABAS][]",
+      "options": [
+        "United Nations High Commission for Rights",
+        "United Nations High Commission for Refugees",
+        "United Nations Human Commission for Refugees",
+        "United Nations High Commissioner for Refugees"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "UNHCR-এর পূর্ণরূপ United Nations High Commissioner for Refugees.",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "8ddfc6c8-7363-4601-b585-798ffaa3ffe5",
+      "question": "UNODC-এর পূর্ণ রূপ- [SABAS][]",
+      "options": [
+        "United Nations Office on Drugs & Corruption",
+        "United Nations Office on Drugs & Chemicals",
+        "United Nations Office on Drugs & Crime",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "UNODC-এর পূর্ণরূপ United Nations Office on Drugs and Crime.",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "8d6cdbf8-8eb4-4e04-bc5d-66bd832a945d",
+      "question": "জেন্ডার সমতা ও নারীর ক্ষমতায়নের সঙ্গে সম্পর্কিত জাতিসংঘের সংস্থা হলো - [SABAS][]",
+      "options": [
+        "ইউএন উইমেন",
+        "জেন্ডার ইক্যুইটি ফান্ড",
+        "ইক্যুইটি ফান্ড",
+        "উইমেন ফান্ড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নারীর ক্ষমতায়ন ও জেন্ডার সমতার জন্য কাজ করা সংস্থাটি হলো ইউএন উইমেন (UN Women).",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "7443c7b8-6901-4315-9c15-f9585e0cd1d2",
+      "question": "জাতিসংঘের নারী-উন্নয়ন বিষয়ক তহবিলটির নাম- [SABAS][]",
+      "options": [
+        "ইউএন উইমেন (UN Women)",
+        "জেন্ডার সমতা তহবিল (Gender Equity Fund)",
+        "সমতা তহবিল (Equity Fund)",
+        "ইউনিফেম (UNIFEM)"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নারী উন্নয়ন বিষয়ক জাতিসংঘের তহবিলটি হলো ইউনিফেম (UNIFEM).",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "6b601fc8-6ae5-486e-a07c-df4b69b152b6",
+      "question": "What is the role of OPCW? [SABAS][]",
+      "options": [
+        "Trial of war crimes",
+        "Destruction of chemical weapons",
+        "Proliferation of chemical weapons",
+        "Peace keeping"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "OPCW (Organisation for the Prohibition of Chemical Weapons) রাসায়নিক অস্ত্র ধ্বংস করার কাজ করে.",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "8a459a78-8435-4205-b5ff-dd3c042039ae",
+      "question": "IAEA এর পূর্ণ রূপ কি? [SABAS][]",
+      "options": [
+        "International Association for Environmental Aid",
+        "International Atomic Energy Agency",
+        "International Academy for Environmental Research",
+        "International Association for Economic Aid"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "IAEA-এর পূর্ণরূপ International Atomic Energy Agency.",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "b45e1b0c-5bd4-4579-89de-23ee008c0448",
+      "question": "জাতিসংঘ বিশ্ববিদ্যালয় কোথায়? [SABAS][]",
+      "options": [
+        "যুক্তরাজ্যে",
+        "চীনে",
+        "যুক্তরাষ্ট্রে",
+        "জাপানে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জাতিসংঘ বিশ্ববিদ্যালয় জাপানে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "ce9d30fe-3ed8-43ee-9e90-def5652070da",
+      "question": "The United Nations University (জাতিসংঘ বিশ্ববিদ্যালয়) কোন শহরে অবস্থিত? [SABAS][]",
+      "options": [
+        "লন্ডন",
+        "ব্রাসেলস",
+        "নিউইয়ার্ক",
+        "টোকিও"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জাতিসংঘ বিশ্ববিদ্যালয় টোকিও শহরে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "e3f18f45-2d85-4e23-880e-dc3723c8f4cc",
+      "question": "UNRISD-এর পূর্ণরূপ কি? [SABAS][]",
+      "options": [
+        "United Nations Research Institute for Social Development",
+        "United Nations Relief Institute for Social Development",
+        "United Nations Resources Institute for Social Development",
+        "United Nations Regional Institute for Social Development"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "UNRISD-এর পূর্ণরূপ United Nations Research Institute for Social Development.",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "ccd34e49-f353-4137-996e-e3e96ef2b75f",
+      "question": "কোনটি জাতিসংঘের অঙ্গসংগঠন নয়? [SABAS][]",
+      "options": [
+        "CARE",
+        "UNDP",
+        "ILO",
+        "WFP"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "CARE জাতিসংঘের অঙ্গসংগঠন নয়.",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "09402a78-0b46-4d9a-b0e5-dba3c6012afe",
+      "question": "নিম্নের কোনটি জাতিসংঘের সংস্থা নয়? [SABAS][]",
+      "options": [
+        "আন্তর্জাতিক কৃষি উন্নয়ন তহবিল (IFAD)",
+        "আসিয়ান আঞ্চলিক ফোরাম (ARF)",
+        "আঞ্চলিক শ্রম সংস্থা (ILO)",
+        "খাদ্য ও কৃষি সংস্থা (FAO)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আসিয়ান আঞ্চলিক ফোরাম (ARF) জাতিসংঘের কোনো সংস্থা নয়.",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "19d37b3b-acaa-402e-8089-95def146c14d",
+      "question": "কোনটি জাতিসংঘের সহযোগী নয়? [SABAS][]",
+      "options": [
+        "ILO",
+        "WHO",
+        "ASEAN",
+        "উপরের সবকটি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "39f85ff8-817c-4a6d-b319-703a5fcb616a",
+      "question": "কোনটি অন্যগুলো থেকে আলাদা? [SABAS][]",
+      "options": [
+        "ILO",
+        "UNIDO",
+        "FAO",
+        "ECO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এখানে ECO জাতিসংঘের বিশেষায়িত কোনো সংস্থা নয়.",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "f2b4bbaf-358c-4f74-b140-0b6dd1dc3f8d",
+      "question": "কোনটি জাতিসংঘের বিশেষায়িত সংস্থা নয়? [SABAS][]",
+      "options": [
+        "IBRD",
+        "ICAO",
+        "WTO",
+        "ILO"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বিশ্ব বাণিজ্য সংস্থা (WTO) জাতিসংঘের বিশেষায়িত সংস্থা নয়.",
+      "images": []
+    }
+  ]
+}

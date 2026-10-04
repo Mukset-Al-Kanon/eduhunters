@@ -1,0 +1,218 @@
+{
+  "title": "Medical English 16-17",
+  "category": "Medical & Dental Questions > Medical English Question",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "139572",
+      "question": "The play HAMLET is written by-",
+      "options": [
+        "W.H. Auden",
+        "W. Wordsworth",
+        "W.B. Yeats",
+        "William Shakespeare"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Hamlet' William Shakespeare রচিত বিখ্যাত tragedy (বিয়োগান্তক) নাটক। তাঁর কয়েকটি জনপ্রিয় বিখ্যাত tragedy ধর্মী গ্রন্থ: Julius Caesar, Macbeth, King Lear, Othello, Romeo and Juliet, Antony and Cleopatra etc"
+    },
+    {
+      "question_no": 2,
+      "id": "139574",
+      "question": "'তিনি কদাচিৎ মিথ্যা বলেন'- Which one is the correct English translation?",
+      "options": [
+        "He sometimes tells a lie",
+        "He seldom tells a lie",
+        "Somewhat he tells a lie",
+        "He tells a lie sometimes"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Seldom' শব্দের অর্থ কদাচিৎ বা নাই বললেই চলে।"
+    },
+    {
+      "question_no": 3,
+      "id": "139575",
+      "question": "Choose the correct group verb to complete the following sentence- 'Why are you looking so much______?'",
+      "options": [
+        "run-down",
+        "run after",
+        "run into",
+        "run off"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "'Run-down' অর্থ বিধ্বস্ত, কাহিল অবস্থা। বাক্যটির অর্থ তোমাকে এত বেশি বিধ্বস্ত দেখাচ্ছে কেন?। Run after অর্থ পিছনে ছোটা, লেগে থাকা; run off অর্থ হঠাৎ ছুটে পালানো।"
+    },
+    {
+      "question_no": 4,
+      "id": "139578",
+      "question": "Identify the word in the plural form:",
+      "options": [
+        "Agendum",
+        "Physics",
+        "Radii",
+        "Civics"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Radii হচ্ছে Plural এবং এর singular হলো radius। এমন গুরুত্বপূর্ণ কিছু উদাহরণ নিম্নরূপ:"
+    },
+    {
+      "question_no": 5,
+      "id": "139580",
+      "question": "Walking is a good exercise'. Here 'walking' is a-",
+      "options": [
+        "Verb",
+        "Noun",
+        "Pronoun",
+        "Adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Verb + ing হচ্ছে gerund যেটি subject (noun) এবং object (noun) হিসেবে ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 6,
+      "id": "139582",
+      "question": "Choose the correct sentence:",
+      "options": [
+        "We have many works to do in summer.",
+        "We have much works to do in summer",
+        "We have a lot of work to do in summer",
+        "We have a lot of works to do in summer"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Work একটি Uncountable noun-এর উদাহরণ, তাই এর সাথে যুক্ত হয় না। Uncountable noun-এর determiner হিসেবে much/lot of/some ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 7,
+      "id": "139585",
+      "question": "Choose the correct sentence-",
+      "options": [
+        "One should obey their parents",
+        "One should obey parent",
+        "One should obey one's parent",
+        "One should obey the parent"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "One-এর Possessive হিসেবে one's ব্যবহৃত হয়, তবে one's না থাকলে his/her বসে। Everybody, everyone, somebody প্রভৃতি body ও one-এর সাথে Possessive হিসেবে সাধারণত his/her বসে।"
+    },
+    {
+      "question_no": 8,
+      "id": "139589",
+      "question": "What part of speech is the word \"extraordinary\"?",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Extraordinary হচ্ছে adjective যার অর্থ অসাধারণ/ অনবদ্য।"
+    },
+    {
+      "question_no": 9,
+      "id": "139591",
+      "question": "The best passive form of the sentence 'What do you want'? - is",
+      "options": [
+        "What was wanting by you?",
+        "What is wanted by you?",
+        "What was wanted by you?",
+        "What is wanting by you?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যটি যেহেতু Present indefinite tense-এ রয়েছে, তাই What + is + Past participle (wanted) + by + object (you)?-এ নিয়মে Passive করতে হবে।"
+    },
+    {
+      "question_no": 10,
+      "id": "139593",
+      "question": "An antonym of 'combination' is-",
+      "options": [
+        "Mixture",
+        "Aggregate",
+        "Fusion",
+        "Separation"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "'Combination' শব্দটির অর্থ একত্রীকরণ। এর বিপরীত হবে Separation (পৃথকীকরণ)। Mixture শব্দের অর্থ মিশ্রণ; aggregate শব্দের অর্থ একত্র করা; fusion অর্থ একত্রীকরণ, একীভবন।"
+    },
+    {
+      "question_no": 11,
+      "id": "139595",
+      "question": "A synonym for 'Legendary'-",
+      "options": [
+        "Famous",
+        "Fictitious",
+        "Intelligent",
+        "Legitimate"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Legendary (কাল্পনিক) শব্দের সমার্থক fictitious ও famous"
+    },
+    {
+      "question_no": 12,
+      "id": "139597",
+      "question": "Which one of the followings is the correct spelling?",
+      "options": [
+        "abborigines",
+        "aboriginnes",
+        "aborigines",
+        "aboregence"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সঠিক বানান হচ্ছে aborigines যার অর্থ আদিবাসী।"
+    },
+    {
+      "question_no": 13,
+      "id": "139601",
+      "question": "Choose the correct sentence-",
+      "options": [
+        "He died of poison.",
+        "He died from cholera",
+        "He died by overeating",
+        "He died for his country"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কোনো মহৎ উদ্দেশ্য, আদর্শ বা দেশের জন্য মারা গেলে die-এর পর preposition 'for' বসে। রোগে মারা যাওয়া বোঝাতে die of এবং অতিরিক্ত কোনোকিছু (ভোজন) হতে মারা গেলে die from বসে। দুর্ঘটনা, বন্দুকের গুলিতে মারা গেলে die by এবং শান্তিতে মৃত্যু হলে die in বসে।"
+    },
+    {
+      "question_no": 14,
+      "id": "139603",
+      "question": "'I cannot but go' বাক্যটির সঠিক বাংলা অনুবাদ হচ্ছে-",
+      "options": [
+        "আমি যাবই",
+        "আমাকে যেতে হবে",
+        "আমি না যেয়ে পারি না",
+        "আমি যেতে পারি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "cannot but/cannot help অর্থ কোনো কাজ না করে পারা যায় না এমন।"
+    },
+    {
+      "question_no": 15,
+      "id": "139605",
+      "question": "A synonym for 'Synergy' is-",
+      "options": [
+        "Conflict",
+        "Autonomy",
+        "Antagonism",
+        "Alliance"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Synergy অর্থ অনেকগুলো বস্তুর একত্রিত অবস্থায় একসাথে কাজ করা অর্থাৎ, জোটভুক্ত (alliance)। Antagonism অর্থ: বৈরিতা, বিরোধ, শত্রুতা। Conflict শব্দের অর্থ দ্বন্দ্ব; autonomy অর্থ স্বায়ত্তশাসন; alliance অর্থ জোট।"
+    }
+  ]
+}

@@ -1,0 +1,761 @@
+{
+  "exam_id": 8451,
+  "title": "Narration (Ques. No. 1-50)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Narration (207 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "df552921-28a0-4ce7-b329-c390cccb6971",
+      "question": "We use a ----- before the indirect speech.[]",
+      "options": [
+        "linker",
+        "article",
+        "adjective",
+        "preposition"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "bf8597f0-1b39-4051-bc44-65dff4691c0b",
+      "question": "Munmun says that she did not go there'. (Make it direct)[]",
+      "options": [
+        "Munmun says,\"I didn't go there\".",
+        "Munmun says,\"I do not go there\".",
+        "Munmun said,\"I didn't went there\".",
+        "Munmun says that I did not go there."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "78a8d650-ae55-4287-9c5c-ba63f141f830",
+      "question": "Report the following in indirect speech : You will say, 'I am ill'.[]",
+      "options": [
+        "You will say that you are ill.",
+        "You will say that I am ill.",
+        "You will say that you were ill.",
+        "You would say that I was ill."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "ba88c3ea-434f-4a73-b335-dfd4f9c63ccc",
+      "question": "He has said to me,\"I shall go out but you will stay\". Make it indirect speech.[]",
+      "options": [
+        "He has told me that he would go out but I should stay.",
+        "He has told me that he will go out but I shall stay.",
+        "He told me that he will go out but I shall stay.",
+        "He has told me that he would go out but I would stay."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "4705d357-80c2-4111-b7c9-746588d4515f",
+      "question": "Karim says that he did not go'. (Make it direct).[]",
+      "options": [
+        "Karim says, \"He did not go\".",
+        "Karim says, \"I do not go\".",
+        "Karim says, \"I have not gone\".",
+        "Karim says, \"I did not go\"."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "8ab4fe15-8db0-425a-8991-84299b06927e",
+      "question": "Meena said to me, 'I want to go to Dhaka now'. The indirect speech of the sentence is -----[]",
+      "options": [
+        "Meena said to me that she wanted to go to Dhaka now.",
+        "Meena said to me that she wanted to go to Dhaka then.",
+        "Meena told to me that she wanted to go to Dhaka then.",
+        "Meena told to me that she had wanted to go to Dhaka then."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "3067bebd-70cd-4ea5-96f6-4fdc28ad5104",
+      "question": "The correct narration of \"He said, I am well\"-[]",
+      "options": [
+        "He said that I am well.",
+        "He said that I was well.",
+        "He said that he was well.",
+        "He said that he is well."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "2b3e9fd5-2e6d-4b00-9e29-732ad7e94f2d",
+      "question": "My friend said, \"I was ill\". (Change the narration)[]",
+      "options": [
+        "My friend said that he was ill.",
+        "My friend told that I was ill.",
+        "My friend said that he had been ill.",
+        "My friend said that I were ill."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "4353e127-04fa-493d-b187-254c9fd5b994",
+      "question": "Rahim said,\"I am ill\".[]",
+      "options": [
+        "Rahim said that he is ill.",
+        "Rahim told about his illness.",
+        "Rahim described that his state of health.",
+        "Rahim said that he was ill."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "b680c635-50c9-4df2-94fc-b4efdbc3c1a7",
+      "question": "Kalpana said,\"I am ill\". Makes direct speech.[]",
+      "options": [
+        "Kalpana said that she is ill.",
+        "Kalpana said that she had been ill.",
+        "Kalpana said that she was ill.",
+        "Kalpana said that she was not well."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "ef8ab154-d773-4200-b160-9ad1df3275bf",
+      "question": "You said to me,'You do not do your duty'. Make indirect speech -[]",
+      "options": [
+        "You told me that I do not my duty.",
+        "You said to me that I do not do my duty.",
+        "You said to me that I do not did my duty.",
+        "You told me that I did not do my duty."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "5be57b69-45cd-402d-8909-d99b128b55a8",
+      "question": "You said to me,'You are right' ? Indirect form is -[]",
+      "options": [
+        "You told that you are right.",
+        "You told me that I am right.",
+        "You told me that I was right.",
+        "You told me that you were right."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "ca753611-53bc-4701-aace-710026ecd2a7",
+      "question": "He said to me,\"He was unreliable \".[]",
+      "options": [
+        "He said to me that I am going to be unreliable.",
+        "He told me that I was always unreliable.",
+        "He told me that I had been always unreliable.",
+        "He told me that I would be unreliable."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "03c59e3a-de50-4358-8436-4df68bfde5ac",
+      "question": "He said,\"I finished reading the book\".[]",
+      "options": [
+        "He said that he finished reading the book.",
+        "He said that he had finished reading the book.",
+        "He said that he have finished reading the book.",
+        "He said that he finished to have read the book."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "4dcf6f89-94d6-4b4a-b06f-01a56ea1827d",
+      "question": "He said,\"The horse died in the night\".[]",
+      "options": [
+        "He said that the horse died in the night.",
+        "He said that the horse had died in the night.",
+        "He said that the horse was died in the night.",
+        "He said that the horse will be died in the night."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "7f9c3584-7df5-4ef0-a6f7-0e06c0eb300a",
+      "question": "He said,\"The train reached at nine\".[]",
+      "options": [
+        "He said that the train has reached at nine.",
+        "He said that the train had reached at nine.",
+        "He said that the train reached at nine.",
+        "He said that train reached at nine."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "77326202-9cd8-4665-99c4-7e4fd734263c",
+      "question": "He said,\"I went to Tangail\".[]",
+      "options": [
+        "He said that had he gone to Tangail.",
+        "He said that I had gone to Tangail.",
+        "He said that he had gone to Tangail.",
+        "He said that I went to Tangail."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "ec2eda36-2838-470c-833d-7f19631b7afa",
+      "question": "Halima ----- that she would not attend classes next week.[]",
+      "options": [
+        "told to her professors",
+        "said her professors",
+        "told her professors",
+        "is telling her professors"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "7229af2c-4790-419b-87ef-94a636dde6b5",
+      "question": "He said that he had come to see me এর direct speech -[]",
+      "options": [
+        "He said,\"he has come to see you\".",
+        "He said,\"I came to see you\".",
+        "He said,\"I have come to see you\".",
+        "He said,\"I had come to see you\"."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "23eeb47b-c097-4e4b-94de-cb228344bc28",
+      "question": "He said,\"I met her long ago\". The correct indirect speech is -[]",
+      "options": [
+        "He said that he met her long ago.",
+        "He said that he had met her long ago.",
+        "He said that he was met her long ago.",
+        "He said that he has met her long ago."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "ee3cfc9c-8fac-471d-9a4d-26cd333beeb7",
+      "question": "Arif told us that he had wanted an hour.[]",
+      "options": [
+        "Arif said to us,'I waited an hour'.",
+        "Arif said to us,'I have been waiting an hour'.",
+        "Arif said to us,'I had to wait an hour'.",
+        "Arif told to us,'I have waited an hour'."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "11062b8f-519a-4075-b9db-ffd1524ee6f9",
+      "question": "Shumi said,'I was suffering from fever'.[]",
+      "options": [
+        "Shumi said that she was suffering from fever.",
+        "Shumi said that she had suffering from fever.",
+        "Shumi said that she had been suffering from fever.",
+        "Shumi said that she was being suffering from fever."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "e5ebb75f-eda0-4f4a-b4f6-7e3f8e179698",
+      "question": "He said,\"I have been working since sunrise \".[]",
+      "options": [
+        "He said that he has been working since sunrise.",
+        "He said that he has worked for sunrise.",
+        "He said that he had been working since sunrise.",
+        "He said that he is working since sunrise."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "f970eb85-7700-48b8-9b6f-c67b622fd25e",
+      "question": "He said that he had been writing a letter. Make it direct -[]",
+      "options": [
+        "He said,\"I was writing a letter\".",
+        "He said,\"I wrote a letter\".",
+        "He said,\"I write a letter\".",
+        "He said,\"I have written a letter\"."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "c6e3501d-768e-4a00-889f-dd3138573095",
+      "question": "He said that he had seen him long before.[]",
+      "options": [
+        "He said,\"I saw him long ago\".",
+        "He said,\"I have seen him long before\".",
+        "He said,\"I did see him long ago\".",
+        "He said,\"I had seen him long before\"."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "bca813ab-b026-4412-b8a0-bda41cfed43d",
+      "question": "\"When I got home,I found I had lost my umbrella\",Laila said.[]",
+      "options": [
+        "Laila said that when she had got home she found that she had lost her umbrella.",
+        "Laila said that when she got home she found that she had lost her umbrella.",
+        "Laila said that when she got home she had found that she had lost her umbrella.",
+        "Laila said that when she had got home she found that she lost her umbrella."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "8fd3b979-567f-45ec-90de-8bb668529625",
+      "question": "He said,\"I take bath in the Padma every morning \".[]",
+      "options": [
+        "He said that he took bath in the Padma every morning.",
+        "He said that he take bath in the Padma every morning.",
+        "He said that he takes bath in the Padma every morning.",
+        "He said that he taken bath in the Padma every morning."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "122a4039-32a2-41e0-bdd5-6c2ebf943419",
+      "question": "He said to me,\"Regular exercise is good for health\".[]",
+      "options": [
+        "He told me that regular exercise is good for health.",
+        "He told me that regular exercise is to be good for health.",
+        "He told me that regular exercise was good for health.",
+        "He told me that regular exercise is best for health."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "152abd9f-8aba-46ce-b91e-c255497c7581",
+      "question": "Soya said,\"I walk a mile every day\".[]",
+      "options": [
+        "Soya said that she walked a mile every day.",
+        "Soya said that she walks a mile every day.",
+        "Soya said that I am walking a mile every day.",
+        "Soya said that I walk a mile every day."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "bad30a02-5e33-4ef7-8b3a-388046e46054",
+      "question": "Zinnia said,\"I read all sorts of magazine\".[]",
+      "options": [
+        "Zinnia said that she reads all sorts of magazines.",
+        "Zinnia said that I read all sorts of magazines.",
+        "Zinnia said that she were reading all magazines.",
+        "Zinnia reported that she had been reading magazines."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "c8573b46-c969-4455-abaa-13c360019ff8",
+      "question": "He said,\"We are all sinners\".[]",
+      "options": [
+        "He said that all of them were sinners.",
+        "All of them were sinners was told by them.",
+        "All of us are sinners was told by him.",
+        "He said that we are all sinners."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "dc00d68b-f92a-47d2-8dab-71854f45b1f1",
+      "question": "He said that we are all sinners.[]",
+      "options": [
+        "He opined,\"We are all sinners\".",
+        "He told that,\"You are all sinners\".",
+        "He said,\"We are all sinners\".",
+        "He said,\"You are all sinners\"."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "1b87b53c-44d7-4352-b4c9-45b7a77b0cfc",
+      "question": "The saint said,\"Man is mortal\".[]",
+      "options": [
+        "The saint says that man is mortal.",
+        "The saint said that man is mortal.",
+        "The saint told that man was mortal.",
+        "The saint says that man be mortal."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "7f47fbda-52ca-4536-b170-9b068aafffaa",
+      "question": "The teacher said,\"The earth moves round the sun\".[]",
+      "options": [
+        "The teacher said that the earth moved round the sun.",
+        "The teacher said that the earth moves round the sun.",
+        "The teacher said that the earth has moved round the sun.",
+        "The teacher said that the earth had moved round the sun."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "6849790f-59ee-4294-8ab0-e311583e0e3a",
+      "question": "Anis said,\"I must write a letter\".[]",
+      "options": [
+        "Anis said he must write a letter",
+        "Anis said that he must write a letter",
+        "Anis said he had to write a letter",
+        "Anis said that he had to write a letter"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "2212ae69-adc0-4527-9efb-f29d8f1ed38c",
+      "question": "He said,\"All must go\".[]",
+      "options": [
+        "He said that they should go.",
+        "He told that they ought to go.",
+        "He said that they ought to go.",
+        "He said that they must go."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "e44674ae-524b-4a65-a51b-8fa438a46db3",
+      "question": "\"Must you leave now\" ? he asked me.[]",
+      "options": [
+        "He asked me if I had to leave now.",
+        "He asked me if I must have to leave now.",
+        "He asked me if I had to leave then.",
+        "He asked me if I must have left then."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "a1ae071c-4312-42a0-87b4-5034701b40e3",
+      "question": "Anee : \"must I do shopping\" ?[]",
+      "options": [
+        "Anee asked if she had to do the shopping.",
+        "Anee wanted to know if she must have done the shopping.",
+        "Anee wanted to know if she should do the shopping.",
+        "Anee asked if she should do the shopping."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "09a07626-ff33-4951-a2f5-2e5e4e9b068f",
+      "question": "He said,\"I know this boy\".[]",
+      "options": [
+        "He said he knew this boy.",
+        "He said that he knew that boy.",
+        "He said that he knows this boy.",
+        "He said that he knew the boy."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "7bcdd098-0e76-4ad3-9001-d5a0adfbac1c",
+      "question": "Come here'. Choose the correct indirect speech.[]",
+      "options": [
+        "He told come here.",
+        "He told that I should come here.",
+        "He ordered that I go there.",
+        "He told me to go there."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "713209a4-4aa2-4a6f-a24d-657fab2035ae",
+      "question": "He said to,\"You cannot do it thus \".[]",
+      "options": [
+        "He told me that I could not do it that way.",
+        "He said to me that I could not have done it that way.",
+        "He told me that I could not do that thus.",
+        "None of the above."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "da8f46fe-f715-4c0c-bb74-34c9412c17f6",
+      "question": "Munna said to Zuhan,\"I shall come to you tomorrow \".[]",
+      "options": [
+        "Munna told Zuhan that he would be going to him the next day.",
+        "Munna told Zuhan that he would go to him the following day.",
+        "Munna told Zuhan that he should come to him the next day.",
+        "Munna informed Juhan that he would come to him the following day."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "66a6d9c8-6d0f-4f8f-9734-cecaac973b5f",
+      "question": "I will have a cup of tea.My father said,\"Because I am not hungry\".[]",
+      "options": [
+        "My father said that he will have a cup of tea because he wasn't hungry.",
+        "My father said that he would have had a cup of tea because he wasn't hungry.",
+        "My father said that he would have a cup of tea because he wasn't hungry.",
+        "My father said that he will had a cup of tea because he wasn't hungry."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "c9868d71-188f-4aa8-9638-416464a0bd82",
+      "question": "Farid said to her mother,\"I shall go to bed now\".[]",
+      "options": [
+        "Farid said to her mother that she should go to bed now.",
+        "Farid told her mother that she will go to bed now.",
+        "Farid said to her mother that she would go to bed now.",
+        "Farid said to her mother that she should goes to bed now."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "01f82d66-4d45-46ae-953a-dd7dafe8db08",
+      "question": "The teacher said,\"I shall not teach him English\".[]",
+      "options": [
+        "The teacher said he would not teach him English.",
+        "The teacher said that he would not taught him English.",
+        "The teacher said that he would not teach him English.",
+        "The teacher said that he will not teach him English."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "eeb14232-2e8c-45b0-a196-561318a02c7f",
+      "question": "He said to me,'He cannot do it'.[]",
+      "options": [
+        "He told me that I could not do it.",
+        "He told me that I could not do that.",
+        "He told me that I could not have done it.",
+        "None of the above"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "d6f942f8-64c4-4173-a31f-d6ac227cd08b",
+      "question": "She said to him,\"I will call you as soon as possible\".[]",
+      "options": [
+        "She told that she will call him as soon as possible.",
+        "She told him she called him  as soon as possible.",
+        "She told him that she would call him  as soon as possible.",
+        "She told him she will call him  as soon as possible."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "919b50f4-3338-46b2-8101-29ffd479510d",
+      "question": "She asked me,\"Are you happy in your new job\" ?[]",
+      "options": [
+        "She asked me if I was happy in my new job.",
+        "She asked me if I have been happy in my new job.",
+        "She asked me whether I am happy in my new job.",
+        "She asked me if I had been happy in my new job."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "37384631-b97d-4d75-ba48-4e3ee0e8d6e0",
+      "question": "The indirect speech of Mother said to me,'Did you spread the rumour' ?[]",
+      "options": [
+        "Mother asked to me if I had spread the rumour.",
+        "Mother asked to me if I spread the rumour.",
+        "Mother asked to me whether I had spread the rumour.",
+        "Mother asked to me whether I had spreaded the rumour."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "092dc71e-6a51-435c-82c6-edd8e32d51f1",
+      "question": "The indirect form of \"How dare you wake me up\" ? The lion roared at the mouse.[]",
+      "options": [
+        "The lion roared and said to the mouse why he wakes me up.",
+        "The lion said to the mouse why is got him up.",
+        "The lion questioned the mouse why its waking up.",
+        "The lion roared and asked the mouse how it dared to wake him up."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

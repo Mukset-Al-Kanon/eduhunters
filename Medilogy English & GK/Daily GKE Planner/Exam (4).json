@@ -1,0 +1,385 @@
+{
+  "exam_id": 592,
+  "title": "Exam (4)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 12,
+  "total_questions": 25,
+  "negative_mark": 0,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "0a2ca86f-fe73-4085-8a70-700f509ee129",
+      "question": "Choose the correct synonym for \"Lugubrious\" -",
+      "options": [
+        "Cheerful",
+        "Mournful",
+        "Excited",
+        "Jubilant"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Mournful (শোকার্ত, দুঃখপূর্ণ)Lugubrious(দুঃখজনক)",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "b1dda2f1-b936-49f0-8b5f-b0060d867b19",
+      "question": "Choose the correct antonym for \"Lassitude\" -",
+      "options": [
+        "Fatigue",
+        "Lethargy",
+        "Energy",
+        "Weariness"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Lassitude(অবসন্নতা)Energy (শক্তি, উদ্যম)",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "2325451e-d8a7-4699-8dc3-6e213ec97a6a",
+      "question": "Choose the correct synonym for \"Mellifluous\" -",
+      "options": [
+        "Harsh",
+        "Sweet- sounding",
+        "Noisy",
+        "Rough"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sweet-sounding (সুরেলা, শ্রুতিমধুর)Mellifluous (মধুর, সুরেলা)",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "e2987363-42ea-4e45-9dc0-4deadc59ff42",
+      "question": "Choose the correct antonym for \"Munificent\" -",
+      "options": [
+        "Generous",
+        "Charitable",
+        "Kind",
+        "Stingy"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Stingy (কৃপণ)Munificent(উদার, দানশীল)",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "00f8c1cf-ba60-4a92-9050-f0c03aae6dcf",
+      "question": "Choose the correct antonym for \"Nebulous\" -",
+      "options": [
+        "Vague",
+        "Cloudy",
+        "Clear",
+        "Indistinct"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Clear (পরিষ্কার, সুস্পষ্ট)Nebulous (অস্পষ্ট, অনির্দিষ্ট)",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "e557e4b3-668c-4ed5-814f-38393917eb9c",
+      "question": "Choose the correct synonym for \"Obsequious\"-",
+      "options": [
+        "Arrogant",
+        "Submissive",
+        "Independent",
+        "Proud"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Obsequious-তোষামোদকারীSubmissive - নমনীয়, অনুগত",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "5fa056e1-53d4-43fd-baed-56e3690b964c",
+      "question": "Choose the correct antonym for \"Obdurate\" -",
+      "options": [
+        "Stubborn",
+        "Flexible",
+        "Unyielding",
+        "Rigid"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Obdurate(একগুঁয়ে)Flexible (নমনীয়)",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "9a04815b-a827-4b40-8311-e2690739c999",
+      "question": "Choose the correct synonym for \"Nascent\"-",
+      "options": [
+        "Mature",
+        "Emerging",
+        "Old",
+        "Ancient"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Nascent/ emerging - উদীয়মান",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "57e48e39-3ecc-4517-adaf-009d7eae843c",
+      "question": "Choose the correct antonym for \"Lethargic\"-",
+      "options": [
+        "Lazy",
+        "Energetic",
+        "Drowsy",
+        "Sleepy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Lethargic - অলসEnergetic - সক্রিয়",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "97f5155c-5a95-4109-a444-6e7965a79d91",
+      "question": "Choose the correct antonym for \"Nonchalant\"-",
+      "options": [
+        "Carefree",
+        "Indifferent",
+        "Concerned",
+        "Uninterested"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Nonchalant(উদাসীন)Concerned - চিন্তিত",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "1957786b-c03a-464f-ba10-d5509957d908",
+      "question": "Choose the correct antonym for \"Lurid\"-",
+      "options": [
+        "Dull",
+        "Shocking",
+        "Vivid",
+        "Horrifying"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Dull (নীরস)Lurid (উজ্জ্বল)",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "3f1b29e1-a382-4759-8195-8ba6339c210c",
+      "question": "Choose the correct synonym for \"Obfuscate\" -",
+      "options": [
+        "Clarify",
+        "Explain",
+        "Illuminate",
+        "Confuse"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Confuse/Obfuscate -দ্ব্যর্থতা সৃষ্টি করা, বিভ্রান্ত করা",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "544a6d49-11cc-4846-bd09-0db6d7aeff69",
+      "question": "বাবর শব্দের অর্থ কি?",
+      "options": [
+        "বিড়াল",
+        "বাঘ",
+        "সিংহ",
+        "মুকুট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাবর শব্দের অর্থ বাঘ।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "f1f9ea4c-8a39-412e-b5b8-5fc39e03e8c8",
+      "question": "জালাল উদ্দিন মুহাম্মদ আকবর কত বছর বয়সে দিল্লীর সিংহাসনে আরোহণ করেন?",
+      "options": [
+        "৯",
+        "১১",
+        "১৩",
+        "১৭"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জালাল উদ্দিন মুহাম্মদ আকবর মাত্র তেরো বছর বয়সে দিল্লীর সিংহাসনে আরোহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "cc457766-86a0-4b1d-9f90-c43a3e2a2b58",
+      "question": "জিন্দাপীর কাকে বলা হতো?",
+      "options": [
+        "দ্বিতীয় বাহাদুর শাহ",
+        "আওরঙ্গজেব",
+        "খুররম",
+        "জালালউদ্দিন মুহাম্মদ আকবর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অতিশয় ধর্মপ্রাণ হওয়ায় তাকে জিন্দাপীর বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "f04a2f09-f9b5-42da-938b-70b29176bf55",
+      "question": "কে বাংলার নামকরণ জান্নাতবাদ করেন?",
+      "options": [
+        "দ্বিতীয় বাহাদুর শাহ",
+        "আওরঙ্গজেব",
+        "নাসিরুদ্দিন মুহম্মদ হুমায়ুন",
+        "জালালউদ্দিন মুহাম্মদ আকবর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নাসিরুদ্দিন মুহম্মদ হুমায়ুন বাংলার নামকরণ করেন জান্নাতবাদ।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "96d4a0bb-0b50-42b4-a90f-31e8a5d12ec9",
+      "question": "মমতাজ কার স্ত্রী?",
+      "options": [
+        "দ্বিতীয় বাহাদুর শাহ",
+        "আওরঙ্গজেব",
+        "নাসিরুদ্দিন মুহম্মদ হুমায়ুন",
+        "খুররম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মমতাজ ছিলেন খুররম এর স্ত্রী।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "9def2f3e-c640-4577-8207-b458323245f0",
+      "question": "দিল্লি থেকে ইংরেজদেরকে বিতারিত করেন কে?",
+      "options": [
+        "দ্বিতীয় বাহাদুর শাহ",
+        "আওরঙ্গজেব",
+        "নাসিরুদ্দিন মুহম্মদ হুমায়ুন",
+        "শের শাহ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শের শাহ দিল্লি থেকে ইংরেজদেরকে বিতারিত করেন।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "3dbe9ce1-08fa-420b-b0a2-0f48980b5647",
+      "question": "কত সালে বাবর মুঘল সাম্রাজ্য প্রতিষ্ঠা করেন?",
+      "options": [
+        "১২২৯",
+        "১৩৪৫",
+        "১৫২৬",
+        "১৭৭৭"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১৫২৬ সালে জহিরউদ্দিন মুহম্মদ বাবর ইব্রাহীম লোদীকে পানিপথের প্রথম যুদ্ধে পরাজিত করে মুঘল সাম্রাজ্য প্রতিষ্ঠা করেন।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "8aa31048-9a04-43d6-b399-cf0e0503ae2c",
+      "question": "গ্র্যান্ড ট্রাঙ্ক রোড-",
+      "options": [
+        "ঢাকা থেকে করাচি পর্যন্ত ছিলো",
+        "সোনারগাঁও থেকে করাচি পর্যন্ত ছিলো",
+        "ঢাকা থেকে লাহোর পর্যন্ত ছিলো",
+        "সোনারগাঁও থেকে লাহোর পর্যন্ত ছিলো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গ্র্যান্ড ট্রাঙ্ক রোড/সড়ক ই আযম (সোনারগাও থেকে লাহোর)",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "cb3be90c-d742-47c4-b2f9-3c2396fc8aab",
+      "question": "ছোট কাটরা কোথায় অবস্থিত?",
+      "options": [
+        "মুহাম্মদপুর",
+        "ফার্মগেট",
+        "গুলিস্তান",
+        "চকবাজার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বড়&ছোট কাটরা চকবাজারে অবস্থিত ।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "0593fe56-766a-433b-9907-d0c4136e61b0",
+      "question": "শায়েস্তা খান এর সাথে সম্পর্কিত নয়-",
+      "options": [
+        "লালবাগ কেল্লা",
+        "সাত গম্বুজ মসজিদ",
+        "বিনত বিবির মাজার",
+        "হোসেনী দালান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হোসেনী দালান শাহ সুজা এর স্থাপত্য।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "7d2e799a-c56f-4cf0-b564-0f493e6144b9",
+      "question": "ঢাকা গেইট এর নির্মাতা কে ?",
+      "options": [
+        "শের শাহ",
+        "শাহ সুজা",
+        "শায়েস্তা খান",
+        "মীর জুমলা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ঢাকা গেইট এর নির্মাতা মীর জুমলা।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "852bc62e-a20b-4c8e-81d6-94bebc17f896",
+      "question": "বাংলার নাম 'বুগলাকপুর' কে দিয়েছিলেন?",
+      "options": [
+        "শের শাহ",
+        "শাহ সুজা",
+        "শায়েস্তা খান",
+        "জিয়াউদ্দিন বারানী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জিয়াউদ্দিন বারানী বাংলার নাম দিয়েছিলেন 'বুগলাকপুর' বা 'বিদ্রোহের নগরী'।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "fcc707c8-2d82-4f1b-9894-872a999bfc27",
+      "question": "নিচের কোনটি ব্যতিক্রম?",
+      "options": [
+        "দেওয়ান ই আযম",
+        "দেওয়ান ই খাস",
+        "তাজমহল",
+        "আফগান দূর্গ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "একমাত্র আফগান দূর্গ (পূর্বের ঢাকা কেন্দ্রীয় কারাগার) বাংলাদেশে অবস্থিত।",
+      "images": []
+    }
+  ]
+}

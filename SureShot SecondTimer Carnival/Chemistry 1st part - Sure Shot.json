@@ -1,0 +1,1510 @@
+{
+  "exam_id": 3715,
+  "title": "Chemistry 1st part - Sure Shot",
+  "category": "SureShot SecondTimer Carnival",
+  "duration_minutes": 40,
+  "total_questions": 100,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": 250318,
+      "question": "3p অরবিটালের বেলায় n ও l-এর মান কোনটি হবে?",
+      "options": [
+        "n = 3, l = 0",
+        "n= 3, l = 1",
+        "n = 2, l = 3",
+        "n=3, l=2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": 250230,
+      "question": "পল-বুঙ্গি ব্যালেন্সের সূক্ষ্ম-পরিমাপের ক্ষমতা কত পর্যন্ত?",
+      "options": [
+        "0.1 g",
+        "0.01 g",
+        "0.003 g",
+        "0.0001 g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": 254905,
+      "question": "কোল্ড ক্রিমে পিচ্ছিলকারক কোনটি?",
+      "options": [
+        "গ্লিসারিন",
+        "তরল প্যারাফিন",
+        "প্রোফাইল প্যারাফিন",
+        "পানি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": 250225,
+      "question": "কেমিস্ট্রি ল্যাবে শ্বাস-প্রশ্বাসের ক্ষেত্রে নিরাপদ থাকার জন্য নিচের কোনটি ব্যবহার করা হয়?",
+      "options": [
+        "নিরাপদ চশমা",
+        "অ্যাপ্রন",
+        "গ্লাভস",
+        "মাস্ক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": 253720,
+      "question": "মাইক্রোবিশ্লেণী পদ্ধতিতে ব্যবহৃত হয় না কোনটি?",
+      "options": [
+        "TLC",
+        "Dropping tube",
+        "NMR",
+        "Capillary tube"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": 250736,
+      "question": "নিচের কোনটি তাপহারী বিক্রিয়া?",
+      "options": [
+        "C + O<sub>2</sub> = CO<sub>2</sub>",
+        "N<sub>2</sub> + O<sub>2</sub> = 2NO",
+        "2H<sub>2</sub> + O<sub>2</sub> = 2H<sub>2</sub>O",
+        "CH<sub>4</sub> + 2O<sub>2</sub> = CO<sub>2</sub> + 2H<sub>2</sub>O"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": 250508,
+      "question": "<sub>39</sub>Y মৌলটির পর্যায় সারণিতে অবস্থান কোনটি?",
+      "options": [
+        "পর্যায়-5 গ্রুপ-1",
+        "পর্যায়-5 গ্রুপ-2",
+        "পর্যায়-5 গ্রুপ-3",
+        "পর্যায়-5 গ্রুপ-13"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": 254904,
+      "question": "Na<sub>2</sub>O.CaO.xSiO<sub>2</sub> নিম্নের কোন বস্তুটির উপাদান?",
+      "options": [
+        "কাঁচ",
+        "সিরামিক",
+        "সিমেন্ট",
+        "পাউডার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": 250227,
+      "question": "পল-বুঙ্গি ব্যালেন্সের জন্য নিচের কোনটি প্রযোজ্য নয়?",
+      "options": [
+        "Pointer",
+        "Rider",
+        "Tare",
+        "Agate plate"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": 250737,
+      "question": "কোনটি ঋণাত্মক প্রভাবক?",
+      "options": [
+        "SO<sub>2</sub>",
+        "Na",
+        "SO<sub>3</sub>",
+        "গ্লিসারিন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": 250321,
+      "question": "নিচের ৪টি কোয়ান্টাম সংখ্যার মানের কোন সেটটি একটি d-ইলেকট্রনের জন্য সঠিক?",
+      "options": [
+        "4, 3, 2, +1/2",
+        "4, 2, 1, 0",
+        "4, 3, -2, +1/2",
+        "4, 2, 1, -1/2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": 250231,
+      "question": "পল-বুঙ্গি ব্যালেন্সে ওজন করতে 5 g, 2 g, 500 mg, 50 mg ওজন ডান পাল্লায় চাপানো হলো। 100 দাগবিশিষ্ট বিমের 20 নম্বর দাগে 10 mg রাইডার রাখলে পয়েন্টারটি শূন্য দাগে থাকে। বাম পাল্লায় রাখা Na<sub>2</sub>CO<sub>3</sub> ভর্তি ওজন বোতলের ওজন কত?",
+      "options": [
+        "7.550 g",
+        "7.554 g",
+        "7.0552 g",
+        "7.0554 g"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": 254208,
+      "question": "A এর তড়িৎঋণাত্মকতা 0.9 এবং B এর তড়িৎঋণাত্মকতা 3.0। মৌল A এবং B এর মধ্যে গঠিত যৌগের বন্ধন কী ধরণের?",
+      "options": [
+        "আয়নিক",
+        "সমযোজী",
+        "সন্নিবেশ",
+        "ধাতব বন্ধন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": 253698,
+      "question": "সালফিউরিক এসিড ল্যাবেরেটরিতে ব্যাপকভাবে ব্যবহৃত হয়। এটি একটি জারক,এসিড এবং নিরুদক।সালফিউরিক এসিড-",
+      "options": [
+        "ল্যাবেরেটরিতে এটি বিকারক হিসেবে ব্যবহৃত হয়",
+        "প্রমাণ দ্রবণ হিসেবে টাইট্রেশনে ব্যবহৃত হয়",
+        "পরিবেশের জন্য ক্ষতিকর নয়",
+        "এর একটি 1.0 L আয়তনের সেমিমোলার দ্রবণে 98g H<sub>2</sub>SO<sub>4</sub> থাকে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": 250233,
+      "question": "স্প্যাচুলা কোন কাজে ব্যবহৃত হয়?",
+      "options": [
+        "আয়তন পরিমাপে",
+        "ভর পরিমাপে",
+        "ঘনত্ব পরিমাপে",
+        "তাপমাত্রা নির্ণয়ে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": 250730,
+      "question": "বিক্রিয়া হারের একক নিচের কোনটি?",
+      "options": [
+        "molLs<sup>-1</sup>",
+        "molL<sup>-1</sup>s",
+        "molL<sup>-1</sup>s<sup>-1</sup>",
+        "mol<sup>-1</sup>L<sup>-1</sup>s<sup>-1</sup>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": 253860,
+      "question": "ভারী পানি কী?",
+      "options": [
+        "H<sub>2</sub>O",
+        "D<sub>2</sub>O",
+        "H<sub>2</sub>O<sub>2</sub>",
+        "উচ্চ ঘনত্বের খনিজ পানি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": 254907,
+      "question": "বিষনাশক ও জীবানু নাশক কোনটি?",
+      "options": [
+        "লেসিথিন",
+        "গোলাপজল",
+        "মেন্থল",
+        "অ্যালোভেরা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": 253858,
+      "question": "12<sub>6</sub> C নিউক্লিয়াসে ২টি নিউট্রন সংযোজন করলে কী ঘটে?",
+      "options": [
+        "14<sub>6</sub>C",
+        "12<sub>8</sub>C",
+        "14<sub>8</sub>C",
+        "কোন পরিবর্তন নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": 254560,
+      "question": "নিম্নের বিক্রিয়ায় উপাদান 'D' এর ঘনমাত্রা বৃদ্ধি করলে সাম্যবস্থা কোনদিকে স্থানান্তরিত হবে?A(aq) + B(aq) ⇌ C(aq) + D(aq)",
+      "options": [
+        "ডানে",
+        "স্থির থাকে",
+        "বামে",
+        "সম্পর্ক নেই"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": 254551,
+      "question": "NH<sub>3</sub> + HCl = NH<sub>4</sub><sup>+</sup> + Cl<sup>-</sup>উপরের বিক্রিয়াটির জন্য নিচের কোনটি সঠিক?",
+      "options": [
+        "এ বিক্রিয়াটি একটি প্রশমন বিক্রিয়া",
+        "বিক্রিয়ায় তাপ শোষিত হয়",
+        "তাপমাত্রা বৃদ্ধি করলে সম্মুখ বিক্রিয়ায় গতির হার বৃদ্ধি পায়",
+        "সাম্যবস্থার উপর তাপের কোন প্রভাব নেই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": 250732,
+      "question": "তাপমাত্রার সাথে বিক্রিয়ার হারের সম্পর্ক কীরূপ?",
+      "options": [
+        "ব্যস্তানুপাতিক",
+        "অধিবৃত্তীয়",
+        "সমানুপাতিক",
+        "পরাবৃত্তীয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": 250880,
+      "question": "কৃত্রিম খাদ্য প্রিজারভেটিভস কোনটি?",
+      "options": [
+        "NaCl",
+        "C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>",
+        "HCHO এর 40% দ্রবণ",
+        "C<sub>6</sub>H<sub>5</sub>COOH"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": 253715,
+      "question": "আয়তনিক ফ্লাস্ক ব্যবহৃত হয় কোন ক্ষেত্রে?",
+      "options": [
+        "প্রমাণ দ্রবণ তৈরিতে",
+        "মূল দ্রবণ তৈরীতে",
+        "গুণগত বিশ্লেষণে",
+        "দ্রবণ সংরক্ষণে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": 253712,
+      "question": "সেমি মাইক্রো পদ্ধতিতে ব্যবহৃত নমুনার গ্রহণযোগ্য পরিমাণ কোনটা?",
+      "options": [
+        "60mg",
+        "260mg",
+        "300mg",
+        "250mg"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": 254568,
+      "question": "HSO<sub>4</sub><sup>-</sup> আয়নের অনুবন্ধী ক্ষারক কোনটি?",
+      "options": [
+        "H<sub>2</sub>SO<sub>4</sub>",
+        "SO<sub>4</sub><sup>2-</sup>",
+        "H<sub>2</sub>O",
+        "H<sub>3</sub>O<sup>+</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": 250323,
+      "question": "15<sub>7</sub> N আইসোটোপে নিউট্রন সংখ্যা কত?",
+      "options": [
+        "7",
+        "8",
+        "15",
+        "22"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": 254205,
+      "question": "একটি মৌলের পরমাণুর যোজ্যতাস্তরের ইলেকট্রনীয় গঠন ---3d<sup>1</sup> 4s<sup>2</sup> পর্যায়সারণিতে মৌলটির অবস্থান কোনটি সঠিক?",
+      "options": [
+        "Gr 13, পর্যায় 4",
+        "Gr 3, পর্যায় 3",
+        "Gr 3, পর্যায় 4",
+        "Gr 13, পর্যায় 3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": 253849,
+      "question": "24<sub>12 </sub>Mg<sup>+2</sup> এর শক্তিস্তরে ইলেকট্রন কয়টি?",
+      "options": [
+        "12",
+        "24",
+        "10",
+        "14"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": 250504,
+      "question": "s-ব্লকের মৌল সংখ্যা কয়টি?",
+      "options": [
+        "১৪টি",
+        "২৪টি",
+        "২৬টি",
+        "৩৬টি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": 250731,
+      "question": "বিক্রিয়ার বেগ হ্রাসের জন্য কোন তথ্যটি সঠিক?",
+      "options": [
+        "বিক্রিয়কের ঘনমাত্রা বৃদ্ধি",
+        "তাপমাত্রা বৃদ্ধি",
+        "সক্রিয়ণ শক্তি বৃদ্ধি",
+        "বিক্রিয়কের পৃষ্ঠতল বৃদ্ধি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": 253714,
+      "question": "ল্যাবেরেটরির নিরাপত্তা সামগ্রী কোনটি?",
+      "options": [
+        "ফিউম হুড",
+        "লাইফ জ্যাকেট",
+        "রেইন কোট",
+        "O2 গ্যাস সিলিন্ডার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": 250320,
+      "question": "বিদ্যুৎ চুম্বকীয় বিকিরণের সর্বাধিক তরঙ্গদৈর্ঘ্য পরিসর নিচের কোনটিতে?",
+      "options": [
+        "UV-রশ্মি",
+        "X-ray",
+        "অবলোহিত রশ্মি",
+        "টেলিভিশন তরঙ্গ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": 253856,
+      "question": "Cu পরমাণুর ইলেকট্রন বিন্যাস কোনটি?",
+      "options": [
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>9 </sup>4s<sup>2</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>10 </sup>4s<sup>1</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>6p<sup>6 </sup>3s<sup>2 </sup>3d<sup>3 </sup>4s<sup>2 </sup>4p<sup>6</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>9 </sup>4s<sup>1 </sup>4p<sup>1</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": 253701,
+      "question": "Na<sub>2</sub>CO<sub>3</sub> এর একটি প্রমাণ দ্রবণ প্রস্তুতির জন্য নিম্নের কোনটি প্রয়োজন পড়ে না?",
+      "options": [
+        "ব্যালেন্স",
+        "ফানেল",
+        "মাপন সিলিন্ডার",
+        "আয়তনিক ফ্লাস্ক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": 253845,
+      "question": "একটি মৌলের ইলেকট্রন বিন্যাস নিম্নরূপ :1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sub>x</sub><sup>1 </sup>3p<sub>y</sub><sup>1 </sup>3p<sub>z</sub><sup>1</sup>মৌলটির জন্য কোনটি সঠিক-",
+      "options": [
+        "একটি ধাতু",
+        "এর যোজনী স্থির",
+        "পর্যায় সারণির Gr 13 তে অবস্থিত",
+        "সমযোজী যৌগ গঠন করে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": 250735,
+      "question": "কোনটি সাম্যাবস্থার বৈশিষ্ট্য নয়?",
+      "options": [
+        "সাম্যের স্থায়িত্ব",
+        "উভয় দিক থেকে সুগম্যতা",
+        "বিক্রিয়ার হার",
+        "বিক্রিয়ার অসম্পূর্ণতা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": 250509,
+      "question": "কোন ইলেকট্রন বিন্যাসটি সঠিক?",
+      "options": [
+        "Zn<sup>2+ </sup>: [Ar] 3d<sup>10</sup>",
+        "Ni<sup>2+</sup> : [Ar] d<sup>6</sup>4s<sup>2</sup>",
+        "Fe<sup>2+</sup> : [Ar] 3d<sup>4</sup>4s<sup>2</sup>",
+        "Cu<sup>2+</sup> : [Ar] 3d<sup>6</sup>4s<sup>1</sup>"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": 253718,
+      "question": "ব্যুরেটের সাহায্যে সর্বনিম্ন কত আয়তন মাপা যায়?",
+      "options": [
+        "0.1 cm<sup>3</sup>",
+        "0.01 cm<sup>3</sup>",
+        "1.0 cm<sup>3</sup>",
+        "0.5 cm<sup>3</sup>"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": 254899,
+      "question": "সাইট্রিক এসিড, ভিনেগার, লবণ, SO<sub>2</sub>। এ পদার্থগুলো নিম্নের কোন শ্রেনীর অন্তর্ভুক্ত?",
+      "options": [
+        "ভিটামিন",
+        "প্রোটিন",
+        "ফুড প্রিজারভেটিভস",
+        "খাদ্য সংযোজনী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": 250881,
+      "question": "নিচের কোনটি এন্টিমাইক্রোবিয়াল প্রিজারভেটিভ নয়?",
+      "options": [
+        "সোডিয়াম বাইসালফাইট",
+        "পটাশিয়াম বাইসালফাইট",
+        "সোডিয়াম নাইট্রাইট",
+        "ফরমালিন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": 250882,
+      "question": "প্রিজারভেটিভস রূপে ব্যবহৃত সাইট্রিক এসিডের pH কত?",
+      "options": [
+        "4.74",
+        "4.50",
+        "3.14",
+        "3.01"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": 250729,
+      "question": "গ্রিন কেমিস্ট্রির ১২টি নীতির মধ্যে নিচের কোনটি সঠিক নয়?",
+      "options": [
+        "বর্জ্য পদার্থ রোধকরণ",
+        "সর্বোত্তম এটম ইকোন্যামি",
+        "শ্রমিকদের স্বাস্থ্য সেবা",
+        "দুর্ঘটনা প্রতিরোধ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": 254207,
+      "question": "একটি মৌলের পারমাণবিক সংখ্যা 35 মৌলটির অবস্থান কোন ব্লকে?",
+      "options": [
+        "s-ব্লক",
+        "p-ব্লক",
+        "d-ব্লক",
+        "f-ব্লক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": 254192,
+      "question": "ইলেকট্রন আসক্তির মান Cl = - 361 kJ mol<sup>-1</sup>, Br = - 340 kJ mol<sup>-1</sup>, I = - 308 kJ mol<sup>-1</sup>. কোন মৌলটির ঋণাত্মক আয়ন গঠনের প্রবণতা সর্বাধিক?",
+      "options": [
+        "Br",
+        "I",
+        "Cl",
+        "Cl এবং Br"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": 253719,
+      "question": "টাইট্রেশন করতে নিম্নের কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "শীতক",
+        "গোলতলী ফ্লাস্ক",
+        "কনিক্যাল ফ্লাস্ক",
+        "চ্যাপ্টাতলী ফ্লাস্ক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": 250728,
+      "question": "আন্তর্জাতিকভাবে রসায়নবিদ দ্বারা স্বীকৃত সবুজ রসায়নের মূলনীতি কয়টি?",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "15"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": 254211,
+      "question": "নিম্নের কোন মৌলটির সক্রিয়তা সবচেয়ে কম? প্রদত্ত প্রথম আয়নীকরণ বিভবের মান–",
+      "options": [
+        "A ⇒ 900 kJ mol<sup>-1</sup>",
+        "B ⇒ 2100 kJ mol<sup>-1</sup>",
+        "C ⇒ 500 kJ mol<sup>-1</sup>",
+        "D ⇒ 280 kJ mol<sup>-1</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": 250887,
+      "question": "সবজি সংরক্ষণের জন্য নিচের কোনটিকে সবজিতে ডুবিয়ে রাখা হয়?",
+      "options": [
+        "চিনির দ্রবণ",
+        "লবণের দ্রবণ",
+        "ফরমালিন",
+        "তৈল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": 254200,
+      "question": "পোলারণ ক্ষমতা দেখানো হলো, নিম্নের কোনটি সঠিক?",
+      "options": [
+        "Al<sup>3+</sup> ≈ Mg<sup>2+</sup>",
+        "Mg<sup>2+</sup> > Al<sup>3+</sup>",
+        "Be<sup>2+</sup> > Mg<sup>2+</sup>",
+        "Mg<sup>2+</sup> > Be<sup>2+</sup>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": 250226,
+      "question": "কেমিস্ট্রি ল্যাবে কখন নিরাপত্তা চশমা ব্যবহার করা আবশ্যক?",
+      "options": [
+        "দ্রবণ প্রস্তুতিতে",
+        "রাসায়নিক বস্তুর ওজন নিতে",
+        "রাসায়নিক পদার্থ উদ্বায়ী হলে",
+        "যন্ত্রপাতি পরিষ্কার করার সময়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": 250511,
+      "question": "প্রথম p-ব্লক মৌল কোনটি?",
+      "options": [
+        "B",
+        "C",
+        "S",
+        "N"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": 250885,
+      "question": "BHA এর পূর্ণরূপ কি?",
+      "options": [
+        "Butylated hydroxy anisole",
+        "Butalated hydroxy acetate",
+        "Butahydrated hydroxy anisol",
+        "Butahydrated hydroxy amine"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": 250317,
+      "question": "রাদারফোর্ডের α–কণা বিচ্ছুরণ পরীক্ষায় কোন পদার্থের প্রলেপযুক্ত পর্দা ব্যবহৃত হয়?",
+      "options": [
+        "Au",
+        "ZnS",
+        "PbS",
+        "NiS"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": 250229,
+      "question": "পল-বুঙ্গি ব্যালেন্সে 5 mg রাইডার ব্যবহার করা হলে তখন ব্যালেন্সটির সূক্ষ্মতম পরিমাপের ক্ষমতা কত?",
+      "options": [
+        "0.1 g",
+        "0.005 g",
+        "0.0001 g",
+        "0.05 g"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": 254549,
+      "question": "বিভিন্ন বিক্রিয়ার সক্রিয়ন শক্তি দেওয়া হল কোন বিক্রিয়াটির গতির হার সর্বোচ্চ?",
+      "options": [
+        "1.32 kjmol<sup>-1</sup>",
+        "2.31 kjmol-1",
+        "1.02 kjmol<sup>-1</sup>",
+        "0.5 × 10<sup>-2</sup> kjmol<sup>-1</sup>"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": 250224,
+      "question": "ল্যাবরেটরিতে নিজের নিরাপত্তা নিশ্চিত করতে নিচের কোন প্রাথমিক ব্যবস্থা নিলে ভুল হবে?",
+      "options": [
+        "অ্যাপ্রন পরা",
+        "নিরাপদ চশমা পকেটে থাকা",
+        "হাতে গ্লাভ্স পরা",
+        "পায়ে জুতা পরা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": 250319,
+      "question": "একটি মৌলের পরমাণুর বহিঃস্তরের দুটি অরবিটালের ইলেকট্রন বিন্যাস হলো ..... 3d<sup>10</sup> 4s<sup>1</sup> হলে পর্যায় সারণিতে মৌলটির অবস্থান কোনটি হবে?",
+      "options": [
+        "৪র্থ পর্যায় Gr-IB(11)",
+        "৪র্থ পর্যায় Gr-IA(1)",
+        "৪র্থ পর্যায় Gr-3B(3)",
+        "৩য় পর্যায় Gr-IB(11)"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": 250512,
+      "question": "'s' ব্লক মৌল কোনটি?",
+      "options": [
+        "Al",
+        "K",
+        "Mn",
+        "As"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": 250232,
+      "question": "পল-বুঙ্গি ব্যালেন্সের (বামে 0 থেকে ডানে 100 দাগযুক্ত) ডান পাল্লায় 5 g + 2 g + 20 mg এবং 10 mg রাইডারকে বিমের 20 নং দাগে স্থাপন করে ওজন নেয়া হলো। বস্তুটির ওজন কত?",
+      "options": [
+        "7.034 g",
+        "7.30 g",
+        "27.20 g",
+        "37.00 g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": 250228,
+      "question": "পল-বুঙ্গি ব্যালেন্সের ক্ষেত্রে 10mg রাইডার ব্যবহার করা হলে তখন রাইডার ধ্রুবকের মান নিচের কোনটি?",
+      "options": [
+        "0.0001 g",
+        "0.001 g",
+        "0.0002 g",
+        "0.002 g"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": 250879,
+      "question": "নিরাপদ কৃত্রিম খাদ্য সংরক্ষক হিসেবে পরিচিত কোনটি?",
+      "options": [
+        "সোডিয়াম বেনজোয়েট",
+        "সোডিয়াম নাইট্রেট",
+        "ক্যালসিয়াম প্রপানোয়েট",
+        "ক্যালসিয়াম কার্বাইড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": 250878,
+      "question": "কোনটি প্রাকৃতিক খাদ্য সংরক্ষক?",
+      "options": [
+        "ফরমালিন",
+        "সালফার ডাই অক্সাইড",
+        "সোডিয়াম নাইট্রেট",
+        "সোডিয়াম ক্লোরাইড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": 250507,
+      "question": "কোনো মৌলের পরমাণুর যোজ্যতাস্তরে ns<sup>2</sup>np<sup>5</sup> ইলেকট্রন বিন্যাস থাকলে ঐ মৌলের অবস্থান পর্যায় সারণিতে কোন গ্রুপে হবে?",
+      "options": [
+        "15(5A)",
+        "5(5B)",
+        "17(7A)",
+        "2(2A)"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": 250325,
+      "question": "জালনোট শনাক্তকরণে তুমি কোন পদ্ধতির সাহায্য নিবে?",
+      "options": [
+        "UV রশ্মি",
+        "MRI",
+        "NMR",
+        "DOT"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": 250326,
+      "question": "বোর পরমাণুতে একটি ইলেকট্রন ৪র্থ শক্তিস্তরে একটি পূর্ণ আবর্তন করতে কয়টি পূর্ণ তরঙ্গ সৃষ্টি করবে?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": 254889,
+      "question": "সর্বোচ্চ শক্তি পাওয়া যায় নিম্নের কোন খাদ্য থেকে?",
+      "options": [
+        "মাখন",
+        "ডিম",
+        "দুধ",
+        "চিনি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": 250510,
+      "question": "পর্যায় সারণির কোন শ্রেণির মৌলকে চ্যালকোজেন বলে?",
+      "options": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": 253844,
+      "question": "A (দ্রাব্যতা ২৫), B (দ্রাব্যতা ৬২) এবং C (দ্রাব্যতা ১২) বিশিষ্ট ৩টি কঠিন পদার্থের মিশ্রণ থেকে উপাদানগুলোকে কীভাবে পৃথক করা যায়?",
+      "options": [
+        "দ্রাবক নিষ্কাশন",
+        "কেলাসন",
+        "আংশিক কেলাসন",
+        "আংশিক পাতন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": 250734,
+      "question": "রাসায়নিক বিক্রিয়ায় কখন ΔH = ΔE হয়?",
+      "options": [
+        "তাপমাত্রা স্থির হলে",
+        "আয়তন স্থির হলে",
+        "চাপ স্থির হলে",
+        "মোল সংখ্যা সমান হলে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": 254556,
+      "question": "নিম্নের কোন বিক্রিয়ায় K<sub>c</sub> ও K<sub>p</sub> এর মান সমান?",
+      "options": [
+        "N<sub>2</sub>(g) + 3H<sub>2</sub>(g) ⇌ 2NH<sub>3</sub>",
+        "N<sub>2</sub>O<sub>4</sub> ⇌ 2NO<sub>2</sub>",
+        "2HI ⇌ H<sub>2</sub> + I<sub>2</sub>",
+        "A<sub>2</sub> + B ⇌ C<sub>2</sub> + D<sub>2</sub>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": 254903,
+      "question": "রাসায়নিক সংযুক্তির দিক থেকে একই কোন যুগল?",
+      "options": [
+        "দুধ ও মাখন",
+        "মাখন ও ঘি",
+        "গ্লাস ক্লিনার ও টয়লেট ক্লিনার",
+        "সাবান ও ডিটারজেন্ট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 73,
+      "id": 254202,
+      "question": "CaCl<sub>2</sub> এবং AlCl<sub>3</sub> এর মধ্যে কোনটি অধিক সমযোজী?",
+      "options": [
+        "CaCl<sub>2</sub> > AlCl<sub>3</sub>",
+        "AlCl<sub>3</sub> > CaCl<sub>2</sub>",
+        "উভয়ই আয়নিক",
+        "উভয়ই সমযোজী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 74,
+      "id": 254554,
+      "question": "N<sub>2</sub> + O<sub>2</sub> ⇌ 2NO    ∆H = 180 KJএই বিক্রিয়াটির সাম্যাবস্থায় তাপমাত্রা বৃদ্ধি করলে সাম্যাবস্থার অবস্থান কোন দিকে স্থানান্তরিত হয়?",
+      "options": [
+        "ডানে",
+        "বামে",
+        "স্থির থাকে",
+        "এক্ষেত্রে তাপমাত্রা পরিবর্তনের সঙ্গে সাম্য অবস্থার কোন সম্পর্ক নেই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 75,
+      "id": 250506,
+      "question": "d-ব্লকের মৌল সংখ্যা কয়টি?",
+      "options": [
+        "১৪টি",
+        "৩৬টি",
+        "৪১টি",
+        "২৭টি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 76,
+      "id": 253852,
+      "question": "M মৌলের আয়ন M<sup>+</sup> সম্ভব, M<sup>2+ </sup>সম্ভব নয়। মৌলটির পরমাণুর বহিস্তরের ইলেকট্রনীয় কাঠামো কোনটি?",
+      "options": [
+        "np<sup>1 </sup>",
+        "ns<sup>1</sup>",
+        "(n-1) d<sup>10 </sup>s<sup>1</sup>",
+        "(n-1) d<sup>1 </sup>ns<sup>2</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 77,
+      "id": 250513,
+      "question": "'d' ব্লকের প্রথম মৌল কোনটি?",
+      "options": [
+        "V",
+        "Cr",
+        "Mn",
+        "Sc"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 78,
+      "id": 250883,
+      "question": "খাদ্য সংরক্ষণে ব্যবহৃত অ্যান্টিঅক্সিডেন্ট কোনটি?",
+      "options": [
+        "C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>",
+        "EDTA",
+        "CH<sub>3</sub>COOH",
+        "BHT"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 79,
+      "id": 250884,
+      "question": "কৃত্রিম এন্টিঅক্সিডেন্ট কোনটি?",
+      "options": [
+        "ভিটামিন -C",
+        "NaCl",
+        "সুগার",
+        "প্রোপাইল গ্যালেট"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 80,
+      "id": 254566,
+      "question": "একটি  মৃদু এসিড ও তীব্র ক্ষারের টাইট্রেশনে উপযুক্ত নির্দেশক কোনটি?",
+      "options": [
+        "ফেনফথালিন",
+        "মিথাইল অরেঞ্জ",
+        "মিথাইল রেড",
+        "থাইমল ব্লু"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 81,
+      "id": 254895,
+      "question": "কোনটি কীটনাশক ?",
+      "options": [
+        "DDT",
+        "BHT",
+        "TSP",
+        "LAB"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 82,
+      "id": 253859,
+      "question": "দুটি মৌলের পরমাণুর বহিস্তরে ইলেকট্রনীয় কাঠামো ns<sup>2</sup> np<sup>1</sup> এবং ns<sup>2</sup> np<sup>6</sup> হলে মৌল দু'টি পর্যায় সারণির কোন কোন গ্রুপে অবস্থিত?",
+      "options": [
+        "গ্রুপ 11, গ্রুপ 16",
+        "গ্রুপ 13, গ্রুপ 18",
+        "গ্রুপ 13, গ্রুপ 16",
+        "গ্রুপ 11, গ্রুপ 18"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 83,
+      "id": 250322,
+      "question": "নিচের ৪টি কোয়ান্টাম সংখ্যার মানের কোন সেটটি অবাস্তব?",
+      "options": [
+        "3, 2, -2, +1/2",
+        "4, 0, 0, +1/2",
+        "3, 2, -3, +1/2",
+        "5, 3, 0, -1/2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 84,
+      "id": 254216,
+      "question": "ক্যালসিয়াম ফসফাইড এর সংকেত কোনটি?",
+      "options": [
+        "CaP<sub>2</sub>",
+        "Ca<sub>3</sub>P<sub>2</sub>",
+        "Ca<sub>2</sub>P<sub>3</sub>",
+        "CaP"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 85,
+      "id": 250733,
+      "question": "কোন বিক্রিয়ার হার সবচেয়ে বেশি?",
+      "options": [
+        "CH<sub>4</sub>+Cl<sub>2</sub> → CH<sub>3</sub>Cl+HCl",
+        "Na<sup>+</sup> + Cl<sup>-</sup> → NaCl",
+        "Mg + O<sub>2</sub> → MgO",
+        "CuSO<sub>4</sub>.5H<sub>2</sub>O → CuSO<sub>4</sub> + 5H<sub>2</sub>O"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 86,
+      "id": 254557,
+      "question": "সাম্যাঙ্কের উপর কোন নিয়ামকের প্রভাব রয়েছে?",
+      "options": [
+        "তাপমাত্রা",
+        "চাপ",
+        "ঘনমাত্রা",
+        "তাপমাত্রা ও চাপ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 87,
+      "id": 250505,
+      "question": "p-ব্লকের মৌল সংখ্যা কয়টি?",
+      "options": [
+        "১৪টি",
+        "৩৬টি",
+        "৪১টি",
+        "২৭টি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 88,
+      "id": 250877,
+      "question": "খাদ্যদ্রব্য পচনে অন্যতম সহায়ক কোনটি?",
+      "options": [
+        "SO<sub>2</sub>",
+        "N<sub>2</sub>O",
+        "NO<sub>2</sub>",
+        "O<sub>2</sub>"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 89,
+      "id": 254901,
+      "question": "কোনটি প্রোটিন?",
+      "options": [
+        "ক্যাসিন",
+        "ল্যাকটোজ",
+        "সাইট্রিক এসিড",
+        "BHT"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 90,
+      "id": 253702,
+      "question": "মোটামুটি 0.1M ঘনমাত্রার H<sub>2</sub>SO<sub>4</sub> দ্রবণ প্রস্তুতির জন্য কোনটির প্রয়োজন পড়ে না?",
+      "options": [
+        "ব্যালেন্স",
+        "ফানেল",
+        "মাপন সিলিন্ডার",
+        "আয়তনিক ফ্লাস্ক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 91,
+      "id": 254896,
+      "question": "বার্লি, খেজুর গুড় ও আঙ্গুরের নিচের কোন খাদ্য উপাদান রয়েছে?",
+      "options": [
+        "কার্বোহাইড্রেট",
+        "প্রোটিন",
+        "ভিটামিন",
+        "স্নেহ জাতীয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 92,
+      "id": 254553,
+      "question": "নিম্নের কোন বিক্রিয়ায় সাম্যবস্থার উপর চাপের প্রভাব নেই?",
+      "options": [
+        "N<sub>2</sub>O<sub>4</sub> ⇌ 2NO<sub>2</sub>",
+        "2SO<sub>2</sub> + O<sub>2 </sub>⇌ 2SO<sub>3</sub>",
+        "H<sub>2</sub> + I<sub>2</sub> ⇌ 2HI",
+        "CaCO<sub>3</sub> ⇌ CaO + CO<sub>2</sub>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 93,
+      "id": 254881,
+      "question": "গ্লুকোজের আণবিক সংকেত C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> এটি কী?",
+      "options": [
+        "একটি অ্যালডিহাইড",
+        "কার্বোহাইড্রেট",
+        "একটি এসিড",
+        "একটি এস্টার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 94,
+      "id": 253857,
+      "question": "Cr এর ইলেকট্রন বিন্যাস কোনটি?",
+      "options": [
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>4 </sup>4s<sup>2</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>5 </sup>4s<sup>1</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>3d<sup>4 </sup>4s<sup>1 </sup>4p<sup>1</sup>",
+        "1s<sup>2 </sup>2s<sup>2 </sup>2p<sup>6 </sup>3s<sup>2 </sup>3p<sup>6 </sup>4s<sup>2 </sup>4p<sup>4</sup>"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 95,
+      "id": 253842,
+      "question": "2p অরবিটালের n এবং l এর মান কত?",
+      "options": [
+        "n = 3, l = 1",
+        "n = 2, l = 1",
+        "n = 1, l = 2",
+        "n = 2, l = 0"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 96,
+      "id": 253709,
+      "question": "নিম্নের কোন রাসায়নিক দ্রব্য জন্ডিস /লিভার সিরোসিসের জন্য দায়ী?",
+      "options": [
+        "NaOH/KOH",
+        "HCl/H<sub>2</sub>SO<sub>4</sub>",
+        "হ্যালোজেন যুক্ত যৌগ",
+        "Na/NaH"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 97,
+      "id": 254209,
+      "question": "কোন যৌগটি অধিক সমযোজী?",
+      "options": [
+        "AlCl<sub>3</sub>",
+        "NaCl",
+        "CCl<sub>4</sub>",
+        "MgCl<sub>2</sub>"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 98,
+      "id": 254204,
+      "question": "A মৌলের তড়িৎঋণাত্মকতা 4.0 । মৌলটি হাইড্রোজেনের সঙ্গে HA যৌগ গঠন করে। 'N' অ্যাভোগাড্রো সংখ্যা হলে HA এর একটি অণুর ভর, কোনটি সঠিক?",
+      "options": [
+        "N/20",
+        "2.0N",
+        "20 N",
+        "20/N"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কবির স্যার",
+      "images": []
+    },
+    {
+      "question_no": 99,
+      "id": 250324,
+      "question": "মস্তিষ্কের টিউমার শনাক্তকরণে সর্বাধিক ব্যবহৃত হয় কোনটি?",
+      "options": [
+        "IR",
+        "UV",
+        "MRI",
+        "NIR"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যার",
+      "images": []
+    },
+    {
+      "question_no": 100,
+      "id": 254558,
+      "question": "বিক্রিয়কের ঘনমাত্রা বৃদ্ধি করলে সাম্যাবস্থা কোনদিকে স্থানান্তরিত হয়?",
+      "options": [
+        "ডানে",
+        "বামে",
+        "স্তির থাকে",
+        "সম্পর্ক নেই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কবির স্যার",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,708 @@
+{
+  "title": "নগ্নবীজী ও আবৃতবীজী",
+  "category": "5.2 Final Medical Batch Exams > জীববিজ্ঞান ১ম পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "106597",
+      "question": "বাংলাদেশে কত প্রজাতির বাঁশ জন্মে?",
+      "options": [
+        "২৮",
+        "২২",
+        "৩৫",
+        "৩২"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লাদেশে ২৮ প্রজাতির বাঁশ জন্মে।"
+    },
+    {
+      "question_no": 2,
+      "id": "116337",
+      "question": "নিষেকের পূর্বে কোনটিতে শস্য উৎপন্ন হয়?",
+      "options": [
+        "মসে",
+        "ফার্নে",
+        "জিমনোস্পার্মে",
+        "অ্যানজিওস্পার্মে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জিমনোস্পার্মে খাদ্য সঞ্চয়কারী টিস্যু (যাকে অনেক সময় endosperm বলা হয়) গঠিত হয় নিষেকের পূর্বে। এটি স্ত্রী গ্যামেটোফাইটের হ্যাপলয়েড (n) টিস্যু।\r\nঅন্যদিকে, অ্যানজিওস্পার্মে দ্বৈত নিষেক (double fertilization)-এর ফলে ট্রিপলয়েড (3n) endosperm নিষেকের পরে সৃষ্টি হয়।"
+    },
+    {
+      "question_no": 3,
+      "id": "116359",
+      "question": "জীবন্ত জীবাশ্ম (ফসিল) হলো-",
+      "options": [
+        "Cycas sp.",
+        "Semibarbula sp.",
+        "Pinus sp.",
+        "Funaria sp."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "116367",
+      "question": "টেপাল কার অংশ",
+      "options": [
+        "দলমণ্ডল",
+        "পুষ্পপুট",
+        "বৃতি",
+        "উপবৃতি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "116369",
+      "question": "ধানের পুষ্পবিন্যাস কোনটি?",
+      "options": [
+        "রেসিম",
+        "স্পাইক",
+        "স্পাইকলেট",
+        "ক্যাপিচুলাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "116429",
+      "question": "গমের বৈজ্ঞানিক নাম কী?",
+      "options": [
+        "Hordeum vulgare",
+        "Zea mays",
+        "Saccharum offcinarum",
+        "Triticum aestivum"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "116432",
+      "question": "ধানের শূণ্য গ্লুম কয়টি?",
+      "options": [
+        "২",
+        "৩",
+        "৪",
+        "৬"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Poaceae (ঘাস গোত্র)-এর ধানে প্রতিটি spikelet-এ সাধারণত ২টি sterile glume (শূন্য গ্লুম) থাকে। এগুলোকে lower glume ও upper glume বলা হয়।\r\nএগুলো reproductive flower অংশ নয়, শুধু spikelet-কে রক্ষা করে।\r\nধানের spikelet গঠনে এরপর থাকে lemma, palea এবং ফুলের আসল অংশ।"
+    },
+    {
+      "question_no": 8,
+      "id": "116433",
+      "question": "Malvaceae গোত্রের দলের পুষ্পপত্র বিন্যাস কোন ধরনের?",
+      "options": [
+        "ওপেন",
+        "ভালভেট",
+        "ইমব্রিকেট",
+        "টুইস্টেড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "116434",
+      "question": "Malvaceae গোত্রের শনাক্তকারী বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "উদ্ভিদের কচি অংশ মিউসিলেজপূূর্ণ",
+        "মুক্তপার্শ্বীয় উপপত্র অনুপস্থিত",
+        "পরাগরেুণ ক্ষুদ্র ও কন্টকিত",
+        "পুষ্পবিন্যাস স্পাইকলেট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "116436",
+      "question": "কোনটি Poaceae গোত্রের উদ্ভিদ?",
+      "options": [
+        "Hibiscus rosa sinensis",
+        "Zea mays",
+        "Gossypium herbaceum",
+        "Abelmoschus esculentus"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Zea mays হলো Poaceae (ঘাস গোত্র)-এর একটি গুরুত্বপূর্ণ উদ্ভিদ, যা ভুট্টা (maize/corn) নামে পরিচিত।\r\nঅন্যগুলো—\r\nHibiscus rosa sinensis → Malvaceae (জবা)\r\nGossypium herbaceum → Malvaceae (তুলা)\r\nAbelmoschus esculentus → Malvaceae (ঢেঁড়স)"
+    },
+    {
+      "question_no": 11,
+      "id": "116446",
+      "question": "বহুমূত্র রোগে কোনটি উপকারী?",
+      "options": [
+        "জবা",
+        "ধুতুরা",
+        "ঢেঁড়স",
+        "স্থলপদ্ম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ঢেঁড়স (Abelmoschus esculentus) বহুমূত্র (ডায়াবেটিস/diabetes mellitus)-এ উপকারী বলে বিবেচিত, কারণ এতে থাকা soluble fiber (mucilage) রক্তে গ্লুকোজ শোষণ ধীর করে এবং শর্করা নিয়ন্ত্রণে সাহায্য করে।\r\nজবা → মূলত ঔষধি হলেও ডায়াবেটিসে প্রধান ব্যবহার নয়\r\nধুতুরা → বিষাক্ত উদ্ভিদ\r\nস্থলপদ্ম → এভাবে বহুমূত্রে নির্দিষ্টভাবে ব্যবহৃত নয়"
+    },
+    {
+      "question_no": 12,
+      "id": "117299",
+      "question": "Cycas উদ্ভিদ এর শুক্রাণু কিরূপ?",
+      "options": [
+        "ফ্ল্যাজেলাবিহীন",
+        "এক ফ্ল্যাজেলাযুক্ত",
+        "দ্বিফ্ল্যাজেলাযুক্ত",
+        "বহু ফ্ল্যাজেলাযুক্ত"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "117300",
+      "question": "কোনটি নগ্নবীজি উদ্ভিদ এর বৈশিষ্ট্য নয়?",
+      "options": [
+        "এদের গর্ভাশয় ও গর্ভদন্ড নেই",
+        "আর্কিগোনিয়া উপস্থিত",
+        "এন্ডোর্স্পাম ট্রিপ্লয়েড",
+        "দ্বি নিষেক হয় না"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "117301",
+      "question": "পাতায় বোটাঁ না থাকলে তাকে বলে-",
+      "options": [
+        "পিটিওলেট",
+        "সেসাইল",
+        "ল্যামিনা",
+        "স্টিপিউল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "117302",
+      "question": "নিচের কোনটি ফুলের স্ত্রীস্তবকের অংশ নয়?",
+      "options": [
+        "অ্যান্থার",
+        "গর্ভাশয়",
+        "গর্ভদন্ড",
+        "গর্ভমুন্ড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "117303",
+      "question": "গর্ভপাদ পুষ্প নিচের কোন উদ্ভিদ এ পাওয়া যায়?",
+      "options": [
+        "কুমড়া",
+        "পেয়াজ",
+        "শিম",
+        "সরিষা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "117304",
+      "question": "Cycas এর মূলের শৈবাল অঞ্চল কোনটি?",
+      "options": [
+        "বহিঃকর্টেক্স",
+        "মধ্য কর্টেক্স",
+        "অন্তঃকর্টেক্স",
+        "এন্ডোডার্মিস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "117305",
+      "question": "কোন ধরনের উদ্ভিদে দ্বিনিষেক ঘটে?",
+      "options": [
+        "নগ্নবীজী উদ্ভিদে",
+        "আবৃতবীজী উদ্ভিদে",
+        "ব্রায়োফাইটা",
+        "টেরিডোফাইটা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "117306",
+      "question": "ড্রুপ এর উদাহরণ কোনটি?",
+      "options": [
+        "সরিষা",
+        "শসা",
+        "আম",
+        "ধনে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "117307",
+      "question": "আদর্শ পাতায় কয়টি অংশ থাকে?",
+      "options": [
+        "২ টি",
+        "৩ টি",
+        "৪ টি",
+        "৫ টি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "117308",
+      "question": "ক্ষুদ্র শল্কপত্রের ন্যায় পুষ্পপুটকে কি বলা হয়?",
+      "options": [
+        "Lodicule",
+        "Glume",
+        "Lemma",
+        "Palea"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "117309",
+      "question": "মূলীয় অমরাবিন্যাস দেখা যায় কোথায়?",
+      "options": [
+        "শিম",
+        "সূর্যমুখী",
+        "শাপলা",
+        "ধনিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "117310",
+      "question": "রক্তপাত বন্ধ ও ক্ষত নিরাময়ে কোনটি ভেষজ হিসেবে ব্যবহৃত হয়?",
+      "options": [
+        "Oryza sativa",
+        "Zea mays",
+        "Cynodon dactylon",
+        "Bambusa bambos"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "117311",
+      "question": "রক্ত আমাশয় এর রোগের চিকিৎসায় কোনটি ব্যবহার করা হয়?",
+      "options": [
+        "ঢেঁড়স",
+        "জবা ফুল",
+        "কেনাফ",
+        "স্থলপদ্ম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "117312",
+      "question": "জীবন্ত ফসিল কোনটি?",
+      "options": [
+        "G. montanum",
+        "G. oblongum",
+        "Ginkgo biloba",
+        "G. latifolium"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "117313",
+      "question": "একটি সোরাসে কয়টি স্পোরোন্জ্ঞিয়া একত্রে অবস্থান করে?",
+      "options": [
+        "1-4 টি",
+        "1-5 টি",
+        "1-6 টি",
+        "2-5 টি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "117314",
+      "question": "দ্বিবীজপত্রী উদ্ভিদের বৈশিষ্ট্য নয় কোনটি?",
+      "options": [
+        "মূল গুচ্ছমূল",
+        "গর্ভপত্র ৫-১০ টি",
+        "ক্যাম্বিয়াম আছে",
+        "পাতা জালিকা শিরাবিন্যাস বিশিষ্ট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "117315",
+      "question": "কোনটি বীরুৎ উদ্ভিদ?",
+      "options": [
+        "কালকাসুন্দা",
+        "আম",
+        "ধান",
+        "কলা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "117316",
+      "question": "একবীজপত্রী উদ্ভিদের শনাক্তকারী বৈশিষ্ট্য নিচের কোনটি?",
+      "options": [
+        "প্রধান মূল",
+        "জালিকাকার শিরাবিন্যাস",
+        "পুস্প পেন্টামেরাস",
+        "গৌণবৃদ্ধি ঘটে নাহ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "117317",
+      "question": "নিচের কোনটি বহুমূত্র রোগের উপসম করে?",
+      "options": [
+        "জবা",
+        "ঢেড়ঁস",
+        "স্থলপদ্ম",
+        "দুর্বাঘাস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "117318",
+      "question": "কোরালয়েড মূলের ভিতরে থাকে-",
+      "options": [
+        "Funaria,Riccia",
+        "Spirogyra,Navicula",
+        "Anabaena,Nostoc",
+        "Azolla,Polysiphoria"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "117319",
+      "question": "নিচের কোন নগ্নবীজী উদ্ভিদের মাএ দুটি পাতা থাকে?",
+      "options": [
+        "Ephedra",
+        "Ginkgo biloba",
+        "Welwitschea",
+        "Aurucaria"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "117320",
+      "question": "নিচের কোন উদ্ভিদের স্ত্রীরেণুপএ 'সর্পমণি 'নামে বাজারে বিক্রি করা হয়?",
+      "options": [
+        "Cycas",
+        "Pinus",
+        "Riccia",
+        "Agaricus"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "117321",
+      "question": "'লঙ্কা জবা' নামে পরিচিত নিচের কোনটি?",
+      "options": [
+        "স্থলপদ্ম",
+        "মরিচ ফুল",
+        "ইন্ডিয়ান টিউলিপ",
+        "কেনাফ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "117322",
+      "question": "দ্বিপক্ষল যৌগিক পএের উদাহরণ কোনটি?",
+      "options": [
+        "গোলাপ",
+        "বাদঁর লাঠি",
+        "সজিনা",
+        "কৃষ্ণচূড়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "117323",
+      "question": "নিম্নের কোনটি অমরা বিন্যাসের প্রকার নয়?",
+      "options": [
+        "প্যারাইটাল",
+        "রেটিকুলেট",
+        "সুপারফিশিয়াল",
+        "মার্জিনার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "117324",
+      "question": "ভূ নিম্নস্থ অতি সংক্ষিপ্ত রূপান্তরিত কান্ড কোনটি?",
+      "options": [
+        "রাইজোম",
+        "টিউবার",
+        "বাল্ব",
+        "রানার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "117325",
+      "question": "Shrub এর উদাহরণ নিচের কোনটি?",
+      "options": [
+        "দুর্বাঘাস",
+        "কালকাসুন্দা",
+        "কেয়া",
+        "গোলাপ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "117326",
+      "question": "কোনটি যৌগিক পাতাযুক্ত উদ্ভিদ নয়?",
+      "options": [
+        "জবা",
+        "গোলাপ",
+        "নারিকেল",
+        "লজ্জাবতি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Hibiscus rosa-sinensis (জবা) উদ্ভিদে সরল পাতা (simple leaf) থাকে, যৌগিক পাতা নয়।\r\nগোলাপ (Rosa) → যৌগিক পাতা\r\nনিম (Azadirachta indica) → যৌগিক (pinnate) পাতা\r\nলজ্জাবতি (Mimosa pudica) → যৌগিক (bipinnate) পাতা"
+    },
+    {
+      "question_no": 40,
+      "id": "117327",
+      "question": "কচি ঢেড়ঁসে পাওয়া যায় -",
+      "options": [
+        "Fe",
+        "Mn",
+        "Mg",
+        "I"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "117328",
+      "question": "আর্কিগোনিয়াম সৃষ্ট হয় না কোনটিতে?",
+      "options": [
+        "Gymnosperm",
+        "Angiosperm",
+        "Cycadopsida",
+        "Pteridophyta"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "117329",
+      "question": "নগ্নবীজী উদ্ভিদে কোনটি উপস্থিত?",
+      "options": [
+        "আর্কিগোনিয়াম",
+        "দলমন্ডল",
+        "গর্ভমুন্ড",
+        "গর্ভাশয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "117330",
+      "question": "Cycas এর স্ট্রোবিলাস বা কোন গঠিত হয় কিসের দ্বারা?",
+      "options": [
+        "শল্কপএ",
+        "পর্ণপএ",
+        "পুংরেণুপএ",
+        "স্ত্রীরেণুপএ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "117331",
+      "question": "প্রকৃত ফল নয় কোনটি?",
+      "options": [
+        "লিচু",
+        "আম",
+        "জাম",
+        "আপেল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রকৃত ফল হলো\r\n✅ আম \r\n✅জাম\r\n✅ লিচু\r\n✅ পেয়ারা"
+    },
+    {
+      "question_no": 45,
+      "id": "117332",
+      "question": "নিচের কোনটি নগ্নবীজী উদ্ভিদে থাকে না?",
+      "options": [
+        "সিভনল",
+        "সঙ্গীকোষ",
+        "প্যারেনকাইমা",
+        "ফ্লোয়েম ফাইবার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "117333",
+      "question": "কোনটি অপ্রকৃত ফল?",
+      "options": [
+        "আনারস",
+        "আম",
+        "লিচু",
+        "পেয়ারা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "117334",
+      "question": "নিচের কোন বাক্যটি সঠিক?",
+      "options": [
+        "বেরীর উদাহরণ হলো টমোটো",
+        "কাঠাঁল একটি সরল ফল",
+        "আতা একটি যৌগিক ফল",
+        "সিলিকুয়ার উদাহরণ হলো ধনে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "117335",
+      "question": "পৃথিবীর সবচেয়ে উচু বৃক্ষটি কোন শ্রেণির?",
+      "options": [
+        "আবৃতবীজীঙ",
+        "ছত্রাক",
+        "শৈবাল",
+        "নগ্নবীজী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "117336",
+      "question": "স্পাইকলেট পুষ্পপুটকে কী বলে?",
+      "options": [
+        "লেমা",
+        "প্যালিয়া",
+        "গ্লুম",
+        "লোডিকিউল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "117337",
+      "question": "টেপাল কার অংশ?",
+      "options": [
+        "দলমন্ডল",
+        "পুষ্পপুট",
+        "বৃতি",
+        "উপবৃতি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "টেপাল (Tepal) হলো সেই অংশ যেখানে বৃতি (sepal) ও দলমণ্ডল (petal) আলাদা না হয়ে একসাথে একই রকম গঠন তৈরি করে, অর্থাৎ perianth বা পুষ্পপুট-এর অংশ হিসেবে থাকে।\r\nA. দলমণ্ডল → শুধু পাপড়ি অংশ\r\nC. বৃতি → শুধু সেপাল অংশ\r\nD. উপবৃতি → বাহ্যিক অতিরিক্ত সেপাল সদৃশ অংশ"
+    }
+  ]
+}

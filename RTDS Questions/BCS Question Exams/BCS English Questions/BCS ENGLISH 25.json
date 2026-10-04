@@ -1,0 +1,288 @@
+{
+  "title": "BCS ENGLISH 25",
+  "category": "BCS Question Exams > BCS English Questions",
+  "duration_minutes": 30,
+  "total_questions": 20,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "105539",
+      "question": "She told me his name after he_____ .",
+      "options": [
+        "left",
+        "had left",
+        "has left",
+        "has been leaving"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো sentence-এ after-এর পূর্ববর্তী Clause টি Past Indefinite tense-এর হলে after-এর পরবর্তী Clause টি Past Perfect tense-এ হবে।"
+    },
+    {
+      "question_no": 2,
+      "id": "105540",
+      "question": "He advised me _____smoking.",
+      "options": [
+        "giving up",
+        "to give up",
+        "in giving up",
+        "from giving up"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Advise verb-এর পরে object না থাকলে Infinitive না বসে verb-এর সাথে ing যুক্ত হয়। কিন্তু object থাকলে infinitive ব্যবহৃত হয়। এ নিয়মানুযায়ী যেহেতু advise-এর পর me আছে।"
+    },
+    {
+      "question_no": 3,
+      "id": "105541",
+      "question": "'The day of my sister's marriage is drawing (near)'. The selected word is a/an.",
+      "options": [
+        "adjective",
+        "verb",
+        "preposition",
+        "adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Near এখানে adverb। কারণ drawing verb কে modify করেছে। সাধারণত Noun, Pronoun বা Interjection ছাড়া অন্য যে কোনো word কে modify করলেই তা adverb"
+    },
+    {
+      "question_no": 4,
+      "id": "105542",
+      "question": "Which of the following sentences is the correct one?",
+      "options": [
+        "My father was in hospital during six weeks in summer",
+        "In summer during six weeks my father was in hospital",
+        "My father was in a hospital during six weeks in summer",
+        "My father was in hospital for six weeks during the summer"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নির্দিষ্ট সময় ধরিয়া/যাবৎ অর্থে for কোনো সময়কালে বুঝাতে during ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 5,
+      "id": "105543",
+      "question": "He intends to ______ in the country for two months.",
+      "options": [
+        "live",
+        "stay",
+        "stop",
+        "halt"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এখানে, live-বসবাস করা (Reside) যা অনেকটা স্থায়ী জীবন যাপনকে বুঝায়। stay-অবস্থান করা, বিশেষত স্বল্প সময়ের জন্য। stop-থামা বা থামানো। halt - থামানো। বাক্যের ধরন অনুযায়ী C এবং D হওয়ার কোনো সম্ভাবনা নেই। A এবং B এর মধ্যে B অধিকতর সঠিক। কারণ ২ মাস অবস্থান করা (stay) বুঝায়, বসবাস করা (live) বসালে অর্থবোধক হয় না।"
+    },
+    {
+      "question_no": 6,
+      "id": "105544",
+      "question": "'I _____ remember the holiday I spent in your home,' she said.",
+      "options": [
+        "ever",
+        "hardly",
+        "usually",
+        "always"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এখানে, sentenceটি positive অর্থে ব্যবহার করা হয়েছে। যেমন- তোমার বাড়িতে কাটানোর স্মৃতি আমার সবসময় মনে পড়ে। ever এবং hardly সাধারণত negative অর্থে ব্যবহৃত হয়। তাছাড়া usually এখানে অপ্রাসঙ্গিক।"
+    },
+    {
+      "question_no": 7,
+      "id": "105545",
+      "question": "Shaheen would never have taken the job if _____ what great demand it would make on his time.",
+      "options": [
+        "he knew",
+        "he had been knowing",
+        "he had known",
+        "he was knowing"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "principal clause যদি perfect conditional (would have, could have, might have এর হয় তাহলে if যুক্ত conditional sentence এর if যুক্ত clause টি past perfect tense- এর হবে। এখানে A হলো past indefinite, B হলো past perfect continuous, C হলো past perfect এবং D হলো past continuous tense."
+    },
+    {
+      "question_no": 8,
+      "id": "105546",
+      "question": "Stockings are ______socks.",
+      "options": [
+        "long",
+        "small",
+        "big",
+        "short"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Stockings- লম্বা মোজা এবং socks হচ্ছে মোজা। সুতরাং socks stockings হচ্ছে long socks."
+    },
+    {
+      "question_no": 9,
+      "id": "105547",
+      "question": "Many Students will now be starting to ______ about their exams result.",
+      "options": [
+        "worry",
+        "reflect",
+        "inquire",
+        "comment"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "worry-উদ্বিগ্ন হওয়া; reflect-প্রতিফলিত: Inquire-খোঁজখবর নেয়া; comment-মন্তব্য করা। সাধারণত পরীক্ষার পর ফলাফল সম্পর্কে মন্তব্য করা বা খোঁজখবর নেয়ার চেয়ে উদ্বিগ্ন থাকাই স্বাভাবিক।"
+    },
+    {
+      "question_no": 10,
+      "id": "105548",
+      "question": "Climate is a ______of the environment.",
+      "options": [
+        "state",
+        "situation",
+        "rank",
+        "size"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Climate অর্থ জলবায়ু যা একটি নির্দিষ্ট এলাকার কয়েক বছরের আবহাওয়ার গড় অবস্থাকে নির্দেশ করে। state-অবস্থান। situation- অবস্থা। তবে এটি গ্রাম, শহরের অবস্থান বুঝাতে ব্যবহৃত হয়। rank- সারি বা ক্রম। size- আকার। এখানে state দিয়ে জলবায়ুর অবস্থা বুঝায়।"
+    },
+    {
+      "question_no": 11,
+      "id": "105549",
+      "question": "I finally killed the fly ___ a rolled up newspaper.",
+      "options": [
+        "by",
+        "with",
+        "through",
+        "from"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Instrument দ্বারা আঘাত করা বুঝালে 'with' preposition বসে।"
+    },
+    {
+      "question_no": 12,
+      "id": "105550",
+      "question": "We must look pleased I or else he'll be_____ .",
+      "options": [
+        "dissatisfied",
+        "cross",
+        "happy",
+        "delighted"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "dissatisfied-অসন্তুষ্ট; cross-কাটাকাটি: happy-সুখী; delight-আনন্দ। বাক্যটি বোঝাচ্ছে যে, আমরা অবশ্যই আনন্দিত থাকব নতুবা সে-। এখানে 'নতুবা' শব্দটি 'আনন্দিত' এর বিপরীত কিছু বোঝাচ্ছে।"
+    },
+    {
+      "question_no": 13,
+      "id": "105551",
+      "question": "The man died _____over eating.",
+      "options": [
+        "by",
+        "of",
+        "for",
+        "from"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Die by- কোনো আঘাতে মারা যাওয়া; Die of- রোগে মারা যাওয়া; Die for- আত্মত্যাগ করা; Die from- কোনো কারণে মারা যাওয়া। এখানে অতিভোজনের (over eating) কারণে মারা যাওয়া বুঝাচ্ছে বলে die from হবে।"
+    },
+    {
+      "question_no": 14,
+      "id": "105552",
+      "question": "The expression 'after one's own heart' means ____",
+      "options": [
+        "To be in low spirit",
+        "with complete devotion",
+        "To one's own liking",
+        "to be in high spirit"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "After one's own heart অর্থাৎ কারো সর্বোত্তম পছন্দের অনুরূপ কিছু (of exactly the type one likes best)"
+    },
+    {
+      "question_no": 15,
+      "id": "105553",
+      "question": "What are you so angry ___?",
+      "options": [
+        "about",
+        "at",
+        "with",
+        "for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোনো ব্যক্তির (somebody) ওপর রাগান্বিত হলে angry-এর সাথে with/at বসে। কিন্তু কোনো কিছু নিয়ে রাগান্বিত হলে angry-এর সাথে about বসে।"
+    },
+    {
+      "question_no": 16,
+      "id": "105554",
+      "question": "The parents became extremely _____ when their son had not returned by eleven O'clock.",
+      "options": [
+        "angry",
+        "annoyed",
+        "disturbed",
+        "anxious"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "angry-রাগান্বিত; annoy-বিরক্ত করা; disturb বিরক্ত করা; anxious-উদ্বিগ্ন। ১১টার মধ্যে সন্তান ঘরে না ফিরলে মা-বাবার উদ্বিগ্ন হবারই কথা।"
+    },
+    {
+      "question_no": 17,
+      "id": "105555",
+      "question": "He knew it was a very ____ operation, but he was determined to carry it out.",
+      "options": [
+        "difficult",
+        "dangerous",
+        "risky",
+        "troublesome"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এখানে, difficult-কঠিন; dangerous-বিপদজনক; risky-ঝুঁকিপূর্ণ। troublesome-কঠিন। যেহেতু operation কঠিন বা বিপজ্জনক অর্থ প্রকাশ করে না। কিন্তু operation ঝুঁকিপূর্ণ হয়।"
+    },
+    {
+      "question_no": 18,
+      "id": "105556",
+      "question": "Misanthropist means ______",
+      "options": [
+        "One who flirt with ladies",
+        "A person of narrow views",
+        "A hater of mankind",
+        "One who believe that God is in everything"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Misanthropist অর্থ হলো যে মানব জাতিকে ঘৃণা করে।"
+    },
+    {
+      "question_no": 19,
+      "id": "105557",
+      "question": "First language means the _____language.",
+      "options": [
+        "important",
+        "main",
+        "natural",
+        "official"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এখানে, First Language বলতে মানব শিশু জন্মের পর যে ভাষা তার পরিবেশ ও পারিপার্শ্বিকতা থেকে শিখে তা-ই বুঝায়।"
+    },
+    {
+      "question_no": 20,
+      "id": "105558",
+      "question": "She has _____ her hair a beautiful shade of brown.",
+      "options": [
+        "coloured",
+        "given",
+        "dried",
+        "dyed"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "colored- রঙিন; given-দেওয়া; dried- শুকনো; dyed- রঙ করা। সুতরাং চুলে রঙ করা অর্থে"
+    }
+  ]
+}

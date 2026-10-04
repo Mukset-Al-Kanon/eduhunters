@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Edu Hunters | সেরা এডটেক লার্নিং ও এক্সাম প্ল্যাটফর্ম</title>
+    <!-- Google Fonts: Hind Siliguri & Inter (Medilogy Standard) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Tailwind CSS with class-based dark mode -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary-charcoal': '#111827',
+              'neutral-text': '#4b5563',
+              'neutral-warm': '#f3f4f6',
+              'neutral-border': '#e5e7eb',
+              'primary-orange': '#ea580c',
+            },
+            fontFamily: {
+              sans: ['Hind Siliguri', 'Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      // Apply saved theme immediately to prevent flashing
+      try {
+        const savedTheme = localStorage.getItem('eduhunters_theme') || 'dark';
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,1091 @@
+{
+  "exam_id": 9795,
+  "title": "MP3 Topic-09 : ভৌগোলিক উপনাম",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "মহাদেশ পরিচিতি-০২ Exam",
+  "duration_minutes": 35,
+  "total_questions": 72,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "99311371-65d6-4f85-9923-fa2c9aef45bb",
+      "question": "The place known as the roof of the world is - / কোন স্থানকে পৃথিবীর ছাদ বলা হয়? [SABAS][]",
+      "options": [
+        "Bolivia",
+        "Kenya",
+        "Tibet",
+        "Mongolia"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "তিব্বত ও পামীর মালভূমিকে পৃথিবীর ছাদ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "ce6ca063-08aa-4a94-b62d-5696054fa94c",
+      "question": "কোন মালভূমিকে পৃথিবীর ছাদ বলা হয়? [SABAS][]",
+      "options": [
+        "পামীর",
+        "তিব্বত",
+        "কলোরাডো",
+        "আরব"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পামীর মালভূমিকে পৃথিবীর ছাদ (Roof of the World) বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "2f572658-bd9b-4ddd-a9ad-bff0040c1ed6",
+      "question": "বিশ্বের রাজধানী বলা হয় কোন নগরীকে? [SABAS][]",
+      "options": [
+        "লন্ডন",
+        "নিউইয়র্ক",
+        "প্যারিস",
+        "বেইজিং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জাতিসংঘের সদর দপ্তর ও আন্তর্জাতিক বাণিজ্যিক গুরুত্বের কারণে নিউইয়র্ককে বিশ্বের রাজধানী বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "65e6798e-01c0-44cd-9c2a-f5fd22e6b7e2",
+      "question": "কোন শহরকে 'পৃথিবীর কসাইখানা' বলা হয়? [SABAS][]",
+      "options": [
+        "লন্ডন",
+        "ফিলিপিন",
+        "শিকাগো",
+        "কাশ্মীর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "শিকাগোতে বিশ্বের বৃহত্তম মাংস প্রক্রিয়াজাতকরণ শিল্প গড়ে ওঠায় একে পৃথিবীর কসাইখানা বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "c08887ed-b62b-4aa0-8d62-255adfb21e88",
+      "question": "কাকে 'ভূ-স্বর্গ' বলা হয়? [SABAS][]",
+      "options": [
+        "সিঙ্গাপুর",
+        "সুইজারল্যান্ড",
+        "কাশ্মীর",
+        "নেপাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রাকৃতিক সৌন্দর্যের প্রাচুর্যের কারণে কাশ্মীরকে ভূ-স্বর্গ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "08caf98d-4a84-45d9-9bf0-3bf6547c731e",
+      "question": "Dead Heart of Africa' কোন দেশ? [SABAS][]",
+      "options": [
+        "সুদান",
+        "বুরুন্ডি",
+        "উগান্ডা",
+        "শাদ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আফ্রিকান অঞ্চলের শাদ (Chad) দেশটিকে ভৌগোলিক অবস্থানের কারণে 'Dead Heart of Africa' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "29754c04-33ce-4833-aa0e-db52d0059f73",
+      "question": "রুটির ঝুড়ি বলা হয়- [SABAS][]",
+      "options": [
+        "আর্জেন্টিনার অঞ্চলকে",
+        "সাইবেরিয়া অঞ্চলকে",
+        "প্রেইরি অঞ্চলকে",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "উত্তর আমেরিকার প্রেইরি অঞ্চল গম উৎপাদনের জন্য বিখ্যাত, তাই একে বিশ্বের রুটির ঝুড়ি বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "dde82785-82d0-4810-934f-dd2d764886d5",
+      "question": "পৃথিবীর রুটির ঝুড়ি বলা হয় কোন দেশকে? [SABAS][]",
+      "options": [
+        "যুক্তরাষ্ট্র",
+        "ইউক্রেন",
+        "রাশিয়া",
+        "বাংলাদেশ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইউক্রেন তাদের বিশাল গমের ফলনের জন্য 'বিশ্বের রুটির ঝুড়ি' হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "5973f69a-15ac-4b38-a586-ccc7266ca98a",
+      "question": "কোন দেশকে 'ইউরোপের রুটির ঝুড়ি' বলা হয়? [SABAS][]",
+      "options": [
+        "জার্মানি",
+        "ইতালি",
+        "পোল্যান্ড",
+        "ইউক্রেন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইউক্রেনের উর্বর ভূমিতে প্রচুর গম উৎপাদিত হয় বলে একে ইউরোপের রুটির ঝুড়ি বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "8358a91d-9143-44a1-9b36-5067e1629976",
+      "question": "Which country also known as 'Country of copper' is - [SABAS][]",
+      "options": [
+        "Zambia",
+        "Nigeria",
+        "South Africa",
+        "Kenya"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জাম্বিয়া বিশ্বের অন্যতম বৃহত্তম তামা উৎপাদনকারী দেশ, তাই একে 'Country of Copper' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "d6ab7140-5d63-4783-b2c4-d4b30655506a",
+      "question": "কোনটি 'শ্বেতহস্তীর দেশ' (Land of White Elephant) নামে পরিচিত? [SABAS][]",
+      "options": [
+        "থাইল্যান্ড",
+        "সিঙ্গাপুর",
+        "কাম্পুচিয়া",
+        "ইন্দোনেশিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "থাইল্যান্ডে সাদা হাতি দেখা যায় এবং ঐতিহাসিকভাবে এটি তাদের কাছে পবিত্র ও রাজকীয় সম্মানের প্রতীক।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "7e4bda13-b203-470f-ac35-4401746d37e5",
+      "question": "কোন দেশকে হাজার হ্রদের দেশ বলা হয়? [SABAS][]",
+      "options": [
+        "নরওয়ে",
+        "সুইডেন",
+        "ফিনল্যান্ড",
+        "সুইজারল্যান্ড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফিনল্যান্ডে প্রায় ১,৮৮,০০০ টি হ্রদ রয়েছে, যা দেশটির ভৌগোলিক বৈশিষ্ট্যের কারণে একে এই নামে পরিচিত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "41c4a104-f430-4b23-93f6-1083bea9a215",
+      "question": "হাজার দ্বীপের দেশ বলা হয় কোন দেশকে? [SABAS][]",
+      "options": [
+        "মালয়েশিয়া",
+        "আয়ারল্যান্ড",
+        "ইন্দোনেশিয়া",
+        "ফিনল্যান্ড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইন্দোনেশিয়া বিশ্বের বৃহত্তম দ্বীপরাষ্ট্র, যেখানে ১৭,০০০-এর বেশি দ্বীপ রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "1d3338d9-5b6a-45c5-9e13-f7ce02e0a99a",
+      "question": "কোনটি নিশীথ সূর্যের দেশ নামে পরিচিত? [SABAS][]",
+      "options": [
+        "হ্যামারফেস্ট",
+        "কুইবেক",
+        "তিব্বত",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নরওয়ের হ্যামারফেস্ট শহরটি উত্তর মেরু অঞ্চলে অবস্থিত, যেখানে গ্রীষ্মকালে সূর্য মধ্যরাতেও দেখা যায়।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "2c40e5c9-3329-4fa8-805d-dd157c30d910",
+      "question": "কোন দেশকে নিশীথ সূর্যের দেশ (the country of midnight sun) বলা হয়? [SABAS][]",
+      "options": [
+        "নরওয়ে",
+        "জাপান",
+        "নিউজিল্যান্ড",
+        "রাশিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নরওয়ে আর্কটিক সার্কেলের মধ্যে অবস্থিত হওয়ায় এখানে গ্রীষ্মকালে সূর্য দীর্ঘ সময় দিগন্তের উপরে থাকে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "75f7b1fa-799f-47de-bf44-d60630dbf2bb",
+      "question": "Which country is called the 'Land of Rising Sun'? Or, সূর্যোদয়ের দেশ- [SABAS][]",
+      "options": [
+        "নরওয়ে",
+        "থাইল্যান্ড",
+        "জাপান",
+        "ভিয়েতনাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জাপান পৃথিবীর পূর্বতম প্রান্তে অবস্থিত, তাই বিশ্ব মানচিত্রে প্রথম সূর্যোদয় এখানেই হয় বলে একে সূর্যোদয়ের দেশ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "0ced680a-1138-42b4-aea0-4e9e98c304bf",
+      "question": "কোন দেশকে 'ধীবরের দেশ' বলা হয়? [SABAS][]",
+      "options": [
+        "বাংলাদেশ",
+        "জাপান",
+        "মালদ্বীপ",
+        "নরওয়ে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নরওয়ের বিশাল সমুদ্র উপকূল এবং মাছ আহরণের ওপর ভিত্তি করে অর্থনীতি টিকে থাকায় একে ধীবরের দেশ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "28d92ac8-cac5-48d9-9f48-56ca5c064a67",
+      "question": "টিউলিপ' এর দেশ কোনটি? [SABAS][]",
+      "options": [
+        "থাইল্যান্ড",
+        "সুইজারল্যান্ড",
+        "ফিনল্যান্ড",
+        "নেদারল্যান্ডস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নেদারল্যান্ডস সারা বিশ্বে টিউলিপ ফুলের চাষ ও রপ্তানির জন্য সবচেয়ে জনপ্রিয়, তাই একে টিউলিপের দেশ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "75856cb9-0cb9-47ca-9a64-93655bcc79f5",
+      "question": "সকল বেলার শান্তি বলা হয় কোনটিকে? [SABAS][]",
+      "options": [
+        "ফিনল্যান্ডকে",
+        "কোরিয়াকে",
+        "থাইল্যান্ডকে",
+        "ইতালিকে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোরিয়াকে ঐতিহাসিকভাবে 'Land of Morning Calm' বা 'শান্তি ও প্রভাতের দেশ' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "9652cfaa-f1d7-4198-ac2c-1da4f289b81c",
+      "question": "পৃথিবীর কোন দেশকে 'বজ্রপাতের দেশ' (The land of the thunderbolt) বলা হয়? [SABAS][]",
+      "options": [
+        "জাপান",
+        "ভুটান",
+        "ভিয়েতনাম",
+        "ক্যামেরুন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভুটান হিমালয়ের পাদদেশে অবস্থিত এবং পাহাড়ি এলাকায় ঘন ঘন বজ্রপাত ও বিদ্যুৎ চমকানোর জন্য একে 'বজ্রপাতের দেশ' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "08f8f5c7-602e-41ec-8b82-6980d8ba3a25",
+      "question": "The Land of the Thunder Dragon'(বজ্র ড্রাগনের দেশ) হিসেবে পরিচিত কোন দেশ? [SABAS][]",
+      "options": [
+        "ভুটান",
+        "চীন",
+        "হংকং",
+        "নেপাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভুটানের স্থানীয় নাম 'দ্রুক ইউল', যার অর্থ বজ্র ড্রাগনের দেশ। তাদের জাতীয় পতাকায় ড্রাগনের ছবি রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "fb7bce88-019e-4bdb-af3d-aefbd8a9bd98",
+      "question": "Which Country is called 'Land of Fertile Fields'? [SABAS][]",
+      "options": [
+        "Australia",
+        "Algeria",
+        "Switzerland",
+        "Newzeland"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আলজেরিয়াকে ভৌগোলিক ঐতিহ্যের কারণে 'Land of Fertile Fields' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "38a37365-effe-4d0a-9636-42de20074e7f",
+      "question": "ল্যান্ড অব মার্বেল' বলা হয় কোন দেশকে? [SABAS][]",
+      "options": [
+        "জাপান",
+        "ইতালি",
+        "সুইজারল্যান্ড",
+        "বেলজিয়াম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইতালি তার উৎকৃষ্ট মানের মার্বেল পাথরের খনি ও ভাস্কর্যের জন্য বিশ্বজুড়ে বিখ্যাত, তাই একে 'ল্যান্ড অব মার্বেল' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "fabf425e-3962-4c93-abe8-37fd6a37274a",
+      "question": "সিল্ক রুটের দেশ'- [SABAS][]",
+      "options": [
+        "বাহরাইন",
+        "ইরান",
+        "সৌদি আরব",
+        "আফগানিস্তান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রাচীনকালে ইরান সিল্ক রুটের (Silk Route) প্রধান সংযোগস্থল ও বাণিজ্য কেন্দ্র ছিল বলে একে এই নামে অভিহিত করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "aeea62e8-82d4-4231-a992-54cfb45bf181",
+      "question": "নীরব খনির দেশ কোনটি? [SABAS][]",
+      "options": [
+        "কিউবা",
+        "ঘানা",
+        "বাংলাদেশ",
+        "মেক্সিকো"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ঘানা খনিজ সম্পদে সমৃদ্ধ হওয়া সত্ত্বেও অনেক খনি অব্যবহৃত বা সংরক্ষিত থাকায় একে নীরব খনির দেশ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "ec94c7d2-7587-4edd-a09c-da3139622f1a",
+      "question": "সোনালী দেশ- [SABAS][]",
+      "options": [
+        "ভারত",
+        "শ্রীলঙ্কা",
+        "পাকিস্তান",
+        "বাংলাদেশ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাংলাদেশ পাটের সোনালী আঁশের জন্য বিশ্বজুড়ে সমাদৃত, তাই একে সোনালী দেশ বা সোনালী আঁশের দেশ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "f449c64d-bd42-48fa-b0e8-fbdeb6f274de",
+      "question": "চির সবুজের দেশ- [SABAS][]",
+      "options": [
+        "বাংলাদেশ",
+        "নাটাল",
+        "দক্ষিণ কোরিয়া",
+        "কিউবা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাংলাদেশ বর্ষাকালের সুজলা-সুফলা ও শ্যামল প্রকৃতি এবং সারা বছর সবুজের সমারোহের কারণে চির সবুজের দেশ হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "ed467740-e49d-4f3a-95c7-9b66842557dd",
+      "question": "বাংলাদেশের ভৌগোলিক উপনাম কি? [SABAS][]",
+      "options": [
+        "ভাটির দেশ",
+        "হাউড়ের দেশ",
+        "নদীর দেশ",
+        "বজ্রপাতের দেশ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাংলাদেশ বিশ্বের বৃহত্তম বদ্বীপ এবং হিমালয় থেকে আসা নদীসমূহের মোহনায় অবস্থিত হওয়ায় একে 'ভাটির দেশ' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "7c48f131-7657-44c3-a3d0-ae276c984d8d",
+      "question": "হোয়াইট রাশিয়া' বলা হয় কোন দেশকে? [SABAS][]",
+      "options": [
+        "পোল্যান্ড",
+        "বেলারুশ",
+        "লাটভিয়া",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বেলারুশ (Belarus) শব্দের আক্ষরিক অর্থই হলো 'White Russia' বা সাদা রাশিয়া।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "69f29552-a683-44ed-b5bd-db4f45284690",
+      "question": "কোন দেশকে 'সোভিয়েত ইউনিয়নের শস্যভাণ্ডার' বলা হতো? [SABAS][]",
+      "options": [
+        "পূর্ব জার্মানি",
+        "ইউক্রেন",
+        "পোল্যান্ড",
+        "লাটভিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইউক্রেনের উর্বর কালো মাটি (Chernozem) এবং ব্যাপক গম উৎপাদনের ক্ষমতার কারণে সোভিয়েত আমলে একে তাদের শস্যভাণ্ডার বলা হতো।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "9bc64104-7d1f-4d8e-a111-dd1367fbb045",
+      "question": "সমুদ্রের বধু'- এই ভৌগোলিক উপনামটি কোন দেশের? [SABAS][]",
+      "options": [
+        "কিউবা",
+        "গ্রেট ব্রিটেন",
+        "শ্রীলঙ্কা",
+        "জাপান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্রেট ব্রিটেন দ্বীপরাষ্ট্র এবং সমুদ্রপথে তাদের আধিপত্য ও ভৌগোলিক অবস্থানের কারণে একে ঐতিহাসিকভাবে 'সমুদ্রের বধু' বা 'Queen of the Sea' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "d971f232-3ca7-4655-b99b-cacc331584be",
+      "question": "আইসল্যান্ড হলো- [SABAS][]",
+      "options": [
+        "মুক্ত দ্বীপ",
+        "পামীর দ্বীপ",
+        "লবণ দ্বীপ",
+        "আগুনের দ্বীপ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আইসল্যান্ডে প্রচুর আগ্নেয়গিরি ও ভূ-তাত্ত্বিক উত্তাপ থাকায় একে 'Land of Fire and Ice' বা আগুনের দ্বীপ বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "4d2580b4-5a6e-4144-b8ed-066512f401a0",
+      "question": "বাগান শহর' বলা হয় কোন শহরকে? [SABAS][]",
+      "options": [
+        "কায়রো",
+        "দুবাই",
+        "রাবাত",
+        "কুয়ালালামপুর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কুয়ালালামপুরকে তার বিস্তৃত উদ্যান, গাছপালা ও পরিকল্পিত সবুজের জন্য 'বাগান শহর' বা 'Garden City' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "082b31ff-433f-4cb5-ad2a-1f73ba477e8e",
+      "question": "Which city is called 'The City of Flowering Trees'? [SABAS][]",
+      "options": [
+        "Harare",
+        "Switzerland",
+        "Paris",
+        "Venice"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জিম্বাবুয়ের রাজধানী হারারে (Harare) তার রাস্তার দুপাশে ফুটে থাকা ফুলেল গাছের জন্য এই নামে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "0408ea49-a789-48ae-bdb3-13e02849050c",
+      "question": "Which of the following is known as the silent city? [SABAS][]",
+      "options": [
+        "Sydney",
+        "Rome",
+        "Venice",
+        "Bangkok"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভেনিসে কোনো গাড়ি চলাচল করে না, কেবল নৌযান চলে বলে শব্দদূষণহীন শান্ত পরিবেশের জন্য একে 'Silent City' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "b18589bc-6129-442b-b0e0-2aaedf8cb9e6",
+      "question": "কোন শহরকে 'সাত পাহাড়ের দেশ' বলা হয়? [SABAS][]",
+      "options": [
+        "টোকিও",
+        "শিকাগো",
+        "নাইরোবি",
+        "রোম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইতালির রাজধানী রোম ঐতিহাসিক সাতটি পাহাড়ের ওপর প্রতিষ্ঠিত, তাই একে 'সাত পাহাড়ের শহর' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "1d1baa04-1850-4d46-984b-fc9c4eeb369e",
+      "question": "এশিয়ার গার্ডেন সিটি বলা হয় কোন দেশকে? [SABAS][]",
+      "options": [
+        "মালদ্বীপ",
+        "সিঙ্গাপুর",
+        "থাইল্যান্ড",
+        "ভারত"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিঙ্গাপুরকে তার অত্যাধুনিক নগর পরিকল্পনায় প্রচুর গাছপালা ও সবুজের ব্যবহারের জন্য 'এশিয়ার গার্ডেন সিটি' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "3dc199c9-5f9c-4a4b-8db6-19cc283f072a",
+      "question": "নিচের কোন শহরটিকে 'বাতাসের শহর' (Windy City) বলা হয়? [SABAS][]",
+      "options": [
+        "শিকাগো",
+        "নিউইয়র্ক",
+        "লন্ডন",
+        "ঢাকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যুক্তরাষ্ট্রের শিকাগো শহরটি মিশিগান হ্রদের তীরে অবস্থিত হওয়ায় সেখানে প্রচুর বাতাস প্রবাহিত হয়, তাই একে 'Windy City' বলে।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "da498891-8412-4c3d-aafd-6def71575132",
+      "question": "New York is popularly known as a city of - [SABAS][]",
+      "options": [
+        "Light",
+        "Skyscrapers",
+        "Crime",
+        "Terrorists"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নিউ ইয়র্ক তার বিশাল গগনচুম্বী অট্টালিকা বা আকাশচুম্বী দালানের জন্য 'City of Skyscrapers' নামে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "9cb5e8e3-ef41-43e0-b250-50e9e1a2a42a",
+      "question": "Which city of India is called 'Pink City'? [SABAS][]",
+      "options": [
+        "দার্জিলিং",
+        "জয়পুর",
+        "মানালী",
+        "আগ্রা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রাজস্থানের জয়পুর শহরের দালানকোঠাগুলো গোলাপি রঙের পাথরে তৈরি হওয়ায় একে 'Pink City' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "bca83402-c4a1-41b0-891e-55a7c7fc2e60",
+      "question": "স্বর্ণ নগরী বলা হয় কোন নগরীকে? [SABAS][]",
+      "options": [
+        "অমৃতসর",
+        "শিকাগো",
+        "জোহানেসবার্গ",
+        "লন্ডন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অমৃতসরে শিখদের প্রধান পবিত্র স্থান 'স্বর্ণ মন্দির' অবস্থিত, তাই এই শহরকে স্বর্ণ নগরী বা গোল্ডেন সিটি বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "17e3aa8e-51a1-4416-b99b-7c36f175f4fd",
+      "question": "City of Golden Gate' is situated in - [SABAS][]",
+      "options": [
+        "London",
+        "San Francisco",
+        "Paris",
+        "New York"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "স্যান ফ্রান্সিসকোতে অবস্থিত বিখ্যাত 'গোল্ডেন গেট ব্রিজ'-এর নামানুসারে এই শহরকে 'City of Golden Gate' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "ca5993dc-4ac8-4ee1-a253-ce9cb3ba2dae",
+      "question": "খালের নগরী কোনটি? Or, The city which is known as 'The City of Canals' is- [SABAS][]",
+      "options": [
+        "কায়রো",
+        "প্যারিস",
+        "ভেনিস",
+        "শিকাগো"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইতালির ভেনিস শহরটি অসংখ্য খাল ও জলপথের ওপর নির্মিত এবং নৌচলাচলের জন্য বিখ্যাত, তাই একে 'খালের নগরী' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "be18194c-e52f-49bf-b2c8-4cf659e1c665",
+      "question": "কোন ইউরোপীয় শহর 'ভালবাসার শহর' নামে পরিচিত? [SABAS][]",
+      "options": [
+        "রোম",
+        "তেনিস",
+        "প্যারিস",
+        "আমস্টারডাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্যারিস তার শিল্প, সংস্কৃতি, স্থাপত্য এবং রোমান্টিক পরিবেশের জন্য বিশ্বজুড়ে 'ভালবাসার শহর' বা 'City of Love' হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "942c7723-d296-4d6f-95b0-12f62f66b12e",
+      "question": "City of Love & Light' কোথায়? [SABAS][]",
+      "options": [
+        "বার্লিন",
+        "হেগ",
+        "প্যারিস",
+        "লাস ভেগাস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্যারিসকে তার আলোকসজ্জা এবং রোমান্টিক ইতিহাসের কারণে 'City of Love & Light' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "88b0758c-1927-4a3e-a087-e6325a998294",
+      "question": "চির বসন্তের শহর' নামে পরিচিত কোন দেশ? [SABAS][]",
+      "options": [
+        "রোম",
+        "ডেনিস",
+        "এথেন্স",
+        "অসলো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "রোম তার নাতিশীতোষ্ণ জলবায়ু এবং বছরের অধিকাংশ সময় মনোরম আবহাওয়ার জন্য 'চির বসন্তের শহর' হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "00f40703-047f-4a7a-9875-b59b92fc71b9",
+      "question": "কোন শহরকে 'The City of Culture' বলা হয়? [SABAS][]",
+      "options": [
+        "কলকাতা",
+        "ভিয়েনা",
+        "নিউইয়র্ক",
+        "প্যারিস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্যারিসকে বিশ্ব সংস্কৃতির কেন্দ্রবিন্দু ও শিল্পকলার রাজধানী মনে করা হয় বলে একে 'The City of Culture' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "24eeda85-bb28-4bba-933d-cb2d5a90cc70",
+      "question": "দক্ষিণ আমেরিকার চির বসন্তের দেশ কোনটি? [SABAS][]",
+      "options": [
+        "ইকুয়েডর",
+        "আর্জেন্টিনা",
+        "ব্রাজিল",
+        "চিলি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইকুয়েডর নিরক্ষরেখায় অবস্থিত হলেও এর উচ্চভূমি অঞ্চলের জলবায়ু সারা বছর নাতিশীতোষ্ণ থাকে, তাই একে 'চির বসন্তের দেশ' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "aac64568-ec23-45d5-8744-b1f9019191d0",
+      "question": "চির বসন্তের শহর নামে পরিচিত কোন দেশ? [SABAS][]",
+      "options": [
+        "ইকুয়েডর",
+        "নরওয়ে",
+        "ডেনিস",
+        "এথেন্স"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইকুয়েডর ভৌগোলিকভাবে বছরের বেশিরভাগ সময় মনোরম ও আরামদায়ক আবহাওয়ার জন্য 'চির বসন্তের' দেশ বা শহর হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "49f0d02d-83e3-4881-acda-9be2d6464fcc",
+      "question": "চির বসন্তের নগরী- [SABAS][]",
+      "options": [
+        "কিউটা",
+        "শিকাগো",
+        "ডেনাস",
+        "স্টকহোম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কিউটো (Quito) নিরক্ষরেখার কাছে অবস্থিত হলেও এর উচ্চতার কারণে এখানে সারা বছর বসন্তের মতো তাপমাত্রা বিরাজ করে।",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "985fc272-d539-43b4-ba65-11406f928a69",
+      "question": "কোনটি চির শান্তির শহর নামে পরিচিত? [SABAS][]",
+      "options": [
+        "রোম",
+        "ডেনিস",
+        "এথেন্স",
+        "ওসলো"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এথেন্সকে ঐতিহাসিকভাবে এবং এর শান্ত পরিবেশের জন্য 'চির শান্তির শহর' বা 'City of Eternal Peace' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "2ca310e5-dce6-4bed-ab32-6742a804a326",
+      "question": "নিচে কোন শহরটিকে ঝরনার শহর বলা হয়? [SABAS][]",
+      "options": [
+        "এথেন্স",
+        "মিলান",
+        "তাসখন্দ",
+        "রোম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "তাসখন্দ শহরে প্রচুর ফোয়ারা ও ঝরনা থাকায় একে ঝরনার শহর বা 'City of Fountains' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "7e2e1c9b-5dc5-4cf5-b3ae-d5a7c1486940",
+      "question": "পৃথিবীর নিমজ্জমান নগরী কোনটি? [SABAS][]",
+      "options": [
+        "মেক্সিকো",
+        "ভেনিস",
+        "হেগ",
+        "বন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভেনিস শহরটি ইতালির ভেনিস লেগুনের ওপর অবস্থিত এবং এটি ক্রমাগত সমুদ্রপৃষ্ঠের নিচে তলিয়ে যাচ্ছে বলে একে নিমজ্জমান নগরী বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "451bc38b-6515-4a49-b66b-82db8cb67128",
+      "question": "দ্য সিটি অব ড্রিমস' নামে পরিচিত শহর কোনটি? [SABAS][]",
+      "options": [
+        "মুম্বাই",
+        "কায়রো",
+        "ম্যানিলা",
+        "বার্লিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মুম্বাইকে স্বপ্নপূরণের শহর বা 'City of Dreams' বলা হয়, কারণ এখানে মানুষ তাদের ক্যারিয়ার ও ভাগ্যের সন্ধানে সারা দেশ থেকে আসে।",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "59da721d-7045-43d8-9962-9eee31e36d43",
+      "question": "কোনটি 'সম্মেলনের শহর' বলে খ্যাত? [SABAS][]",
+      "options": [
+        "জেনেভা",
+        "টোকিও",
+        "কায়রো",
+        "লন্ডন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জেনেভায় জাতিসংঘের ইউরোপীয় সদর দপ্তর এবং অসংখ্য আন্তর্জাতিক সংস্থার কার্যালয় থাকায় একে 'সম্মেলনের শহর' বা 'City of Conferences' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "3edaaee3-35bd-434e-800f-b76fe30c2c3d",
+      "question": "Which of the following country is known as 'Holy City'? [SABAS][]",
+      "options": [
+        "Italy",
+        "Vatican City",
+        "Switzerland",
+        "Australia"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভ্যাটিকান সিটি রোমান ক্যাথলিক চার্চের প্রধান কেন্দ্র এবং পোপের আবাসস্থল, তাই একে 'Holy City' বা পবিত্র শহর বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "f187f57a-5c63-4e3a-9f6c-dfe3f54cd8d2",
+      "question": "ইউরোপের প্রবেশদ্বার কোনটি? [SABAS][]",
+      "options": [
+        "ভিয়েনা",
+        "বুদাপেস্ট",
+        "রোম",
+        "লিসবন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভিয়েনাকে তার ভৌগোলিক অবস্থানের কারণে ইউরোপের প্রবেশদ্বার বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "3c3ba183-9755-4ef3-8203-457c0cd4f002",
+      "question": "নিচের কোনটিকে 'ইউরোপের রণক্ষেত্র' বলা হয়? [SABAS][]",
+      "options": [
+        "নেদারল্যান্ডস",
+        "বেলজিয়াম",
+        "ফিনল্যান্ড",
+        "সুইজারল্যান্ড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বেলজিয়ামে ঐতিহাসিকভাবে ইউরোপের প্রধান যুদ্ধগুলো সংঘটিত হওয়ায় একে ইউরোপের রণক্ষেত্র বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "a3ea12f6-efa1-455f-ac87-1ce43306d90a",
+      "question": "ইউরোপের ককপিট' বলা হয় কোন দেশকে? [SABAS][]",
+      "options": [
+        "বেলজিয়াম",
+        "ফ্রান্স",
+        "জার্মানি",
+        "ফিনল্যান্ড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বেলজিয়ামকে ইউরোপের যুদ্ধক্ষেত্র ও কৌশলগত অবস্থানের জন্য 'ইউরোপের ককপিট' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "d99cc775-552a-4753-8d64-53cbe06d182e",
+      "question": "Which country is called the 'Playground of Europe'? [SABAS][]",
+      "options": [
+        "সুইজারল্যান্ড",
+        "জার্মানি",
+        "ফ্রান্স",
+        "ইংল্যান্ড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সুইজারল্যান্ড তার প্রাকৃতিক সৌন্দর্য ও পর্যটনকেন্দ্রের জন্য 'Playground of Europe' নামে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "1cfd2bc1-dbb7-4bdb-95ec-3e76f7ccf1c1",
+      "question": "উত্তরের ভেনিস' বলা হয়- [SABAS][]",
+      "options": [
+        "কুইবেক",
+        "স্টকহোম",
+        "রোম",
+        "অসলো"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সুইডেনের স্টকহোম শহরটি অনেকগুলো দ্বীপ ও খালের ওপর অবস্থিত হওয়ায় একে 'উত্তরের ভেনিস' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "4f2ebae7-c571-4985-be1c-aa990ea5127a",
+      "question": "প্রাচ্যের ভেনিস কোনটি? [SABAS][]",
+      "options": [
+        "সিঙ্গাপুর",
+        "চট্টগ্রাম",
+        "ব্যাংকক",
+        "ওসাকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাংকক ও ওসাকা শহরগুলোকে তার খাল ও জলপথের জন্য 'প্রাচ্যের ভেনিস' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "4d59a025-f69a-4871-8528-7bcd1b209d0d",
+      "question": "জাপানের কোন শহর প্রাচ্যের ম্যানচেস্টার হিসেবে খ্যাত? [SABAS][]",
+      "options": [
+        "হনসু",
+        "ওসাকা",
+        "টোকিও",
+        "নারা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ওসাকা শহরটি বস্ত্র শিল্পের জন্য বিখ্যাত হওয়ায় একে 'প্রাচ্যের ম্যানচেস্টার' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": "05ae31d5-4dac-40a5-aa24-3504a37567d1",
+      "question": "Which country is called 'Great Britain of the East'? [SABAS][]",
+      "options": [
+        "Korea",
+        "Thailand",
+        "Japan",
+        "Bangladesh"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জাপান দ্বীপরাষ্ট্র হওয়ায় এবং সমুদ্রপথে শক্তিশালী অবস্থানে থাকায় একে 'Great Britain of the East' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": "0d6f2f07-fb83-4606-bb4c-3d514f0b467e",
+      "question": "কোন দেশকে মুক্তার দেশ বলা হয়? [SABAS][]",
+      "options": [
+        "গ্রানাডা",
+        "বাহামা",
+        "কিউবা",
+        "কোস্টা রিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কিউবা ভৌগোলিক ও ঐতিহাসিকভাবে মুক্তার দেশ নামে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": "98d10920-fd3d-4a31-a337-cfae60b5fcdb",
+      "question": "Pearl Island নামে খ্যাত দেশ কোনটি? [SABAS][]",
+      "options": [
+        "Bahrain",
+        "Greenland",
+        "Ireland",
+        "Thailand"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাহরাইন ঐতিহাসিকভাবে মুক্তা সংগ্রহের জন্য বিখ্যাত হওয়ায় একে 'Pearl Island' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": "e5977843-243f-4c4b-ae72-44a6c20fed40",
+      "question": "বিশ্বের কোন শহরকে 'দক্ষিণের রানি' বলা হয়? [SABAS][]",
+      "options": [
+        "ওসাকা",
+        "ওয়েলিংটন",
+        "সিডনি",
+        "নিউইয়র্ক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সিডনি তার চমৎকার ভৌগোলিক অবস্থান, বন্দর এবং সমুদ্র সৈকতের সৌন্দর্যের জন্য ঐতিহাসিকভাবে 'দক্ষিণের রানি' বা 'Queen of the South' নামে পরিচিত.",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": "b7043ce1-2258-4799-b40f-72f60ec7ef87",
+      "question": "আফ্রিকার পার্ল' কোন দেশকে বলা হয়? Or, Which one of the following countries is called the 'Pearl of Africa'? [SABAS][]",
+      "options": [
+        "উগান্ডা",
+        "দক্ষিণ আফ্রিকা",
+        "কেনিয়া",
+        "মিশর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "উগান্ডাকে তার মনোমুগ্ধকর প্রাকৃতিক দৃশ্য, বৈচিত্র্যময় বন্যপ্রাণী এবং সমৃদ্ধ পরিবেশের কারণে 'Pearl of Africa' বলা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": "693939dd-aaba-4255-bfd2-16bc6aed4e61",
+      "question": "নিষিদ্ধ দেশ বলা হয়- [SABAS][]",
+      "options": [
+        "ইসরায়েলকে",
+        "আফগানিস্তানকে",
+        "তিব্বতকে",
+        "কিউবাকে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভৌগোলিক বিচ্ছিন্নতা এবং ঐতিহাসিকভাবে বাইরের জগতের জন্য প্রবেশাধিকার সীমিত থাকায় তিব্বতকে 'Forbidden Country' বা নিষিদ্ধ দেশ বলা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": "4abf120c-e211-4748-bad4-0396f033488e",
+      "question": "বিশ্বের কোন শহর 'নিষিদ্ধ শহর' নামে পরিচিত? [SABAS][]",
+      "options": [
+        "লাসা",
+        "উলানবাটর",
+        "পিয়াংইয়ং",
+        "কাবুল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "তিব্বতের লাসা শহরটি ঐতিহাসিক ও ধর্মীয়ভাবে বহিরাগতদের জন্য দুর্গম ও নিষিদ্ধ থাকায় একে 'Forbidden City' বলা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": "f8f289df-3003-4ec1-819e-7611d3fc624a",
+      "question": "কোন শহরটি 'বিগ আপেল' (Big Apple) পরিচিত- [SABAS][]",
+      "options": [
+        "প্যারিস",
+        "নিউইয়র্ক",
+        "লন্ডন",
+        "সিঙ্গাপুর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নিউইয়র্ক শহরটি তার বিশালতা, কর্মচাঞ্চল্য এবং জনপ্রিয়তার কারণে 'Big Apple' নামে পরিচিত.",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": "34fbe418-94e6-44b4-87f2-3fc0e54dc592",
+      "question": "কোন মার্কিন রাজ্যটি 'সানশাইন স্টেট' নামে পরিচিত? [SABAS][]",
+      "options": [
+        "ক্যালিফোর্নিয়া",
+        "টেক্সাস",
+        "ফ্লোরিডা",
+        "নেভাদা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফ্লোরিডা রাজ্যে সারা বছর প্রচুর রোদ পাওয়া যায় এবং চমৎকার জলবায়ুর জন্য একে 'Sunshine State' বলা হয়.",
+      "images": []
+    }
+  ]
+}

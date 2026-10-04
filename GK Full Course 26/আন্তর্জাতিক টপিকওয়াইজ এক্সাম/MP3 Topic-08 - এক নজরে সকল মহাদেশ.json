@@ -1,0 +1,656 @@
+{
+  "exam_id": 9700,
+  "title": "MP3 Topic-08 : এক নজরে সকল মহাদেশ",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "মহাদেশ পরিচিতি-০২ Exam",
+  "duration_minutes": 20,
+  "total_questions": 43,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "cb2163bc-d895-4dd9-bc4d-fdd60982116d",
+      "question": "আয়তনের দিক থেকে বিশ্বের বৃহত্তম দেশ [SABAS][]",
+      "options": [
+        "জাপান",
+        "রাশিয়া",
+        "ব্রাজিল",
+        "ইউক্রেন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আয়তন অনুযায়ী রাশিয়া পৃথিবীর বৃহত্তম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "6a1e2a73-2442-476a-8d53-b75fc69d7fe2",
+      "question": "সোভিয়েত ইউনিয়ন ভেঙে যাওয়ার পর আয়তনে পৃথিবীর বৃহত্তম দেশ কোনটি? [SABAS][]",
+      "options": [
+        "চীন",
+        "কানাডা",
+        "যুক্তরাষ্ট্র",
+        "রাশিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সোভিয়েত ইউনিয়নের উত্তরসূরি রাষ্ট্র হিসেবে রাশিয়া বর্তমানে আয়তনে বিশ্বের বৃহত্তম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "23fae765-c8ec-4a87-8d2e-74ddb92ea32b",
+      "question": "আয়তন বিবেচনায় পৃথিবীর দ্বিতীয় বৃহত্তম রাষ্ট্র কোনটি? [SABAS][]",
+      "options": [
+        "রাশিয়া",
+        "কানাডা",
+        "আমেরিকা",
+        "চীন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রাশিয়া প্রথম এবং কানাডা আয়তনে বিশ্বের দ্বিতীয় বৃহত্তম রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "ed46c619-8fda-413f-86ec-f7560794f497",
+      "question": "আয়তনে পৃথিবীর তৃতীয় বৃহত্তম দেশ [SABAS][]",
+      "options": [
+        "চীন",
+        "মার্কিন যুক্তরাষ্ট্র",
+        "অস্ট্রেলিয়া",
+        "ব্রাজিল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আয়তনের দিক থেকে মার্কিন যুক্তরাষ্ট্র পৃথিবীর তৃতীয় বৃহত্তম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "81131645-9c6e-4074-856d-855a3d837188",
+      "question": "আয়তনে পৃথিবীর সবচেয়ে ছোট দেশ [SABAS][]",
+      "options": [
+        "ফিজি",
+        "ভ্যাটিকান",
+        "কুয়েত",
+        "মালদ্বীপ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভ্যাটিকান সিটি আয়তনে পৃথিবীর ক্ষুদ্রতম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "450938c2-5dac-4c3c-8a02-26ea4124fa20",
+      "question": "আয়তন ও লোকসংখ্যায় কোনটি পৃথিবীর ক্ষুদ্রতম দেশ? [SABAS][]",
+      "options": [
+        "মালদ্বীপ",
+        "ভ্যাটিকান",
+        "তাইওয়ান",
+        "সিঙ্গাপুর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভ্যাটিকান সিটি আয়তন ও জনসংখ্যা উভয় দিক থেকেই বিশ্বের ক্ষুদ্রতম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "35fcc9c6-4748-4213-bc9e-fba7ff082a89",
+      "question": "নিচের কোন মহাদেশের সর্বাধিক স্বাধীন ও সার্বভৌম দেশ রয়েছে? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আফ্রিকা",
+        "দক্ষিণ আমেরিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আফ্রিকা মহাদেশে স্বাধীন ও সার্বভৌম দেশের সংখ্যা সবচেয়ে বেশি।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "e0ebe3cd-f511-4010-9e27-39f41b22fc9c",
+      "question": "East Timor is in the continent of: [SABAS][]",
+      "options": [
+        "Africa",
+        "Asia",
+        "Europe",
+        "Oceania"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পূর্ব তিমুর দক্ষিণ-পূর্ব এশিয়ার একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "54ea4e39-b18a-4593-9690-85790953eb15",
+      "question": "In which continent brunei Darussalam is situated? [SABAS][]",
+      "options": [
+        "Asia",
+        "Europe",
+        "Africa",
+        "America"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্রুনাই দারুসসালাম এশিয়া মহাদেশের দক্ষিণ-পূর্ব অংশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "12abae43-ba1b-44b8-9882-1367879ff009",
+      "question": "জর্ডান - এর অবস্থান কোন মহাদেশে? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আফ্রিকা",
+        "আমেরিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জর্ডান পশ্চিম এশিয়া বা মধ্যপ্রাচ্যের একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "df65359c-a292-45fa-8ec7-e00411c7e8c8",
+      "question": "ফিনল্যান্ড কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "দক্ষিণ আমেরিকা",
+        "উত্তর আমেরিকা",
+        "এশিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ফিনল্যান্ড উত্তর ইউরোপের একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "43700cf1-9db9-4b90-9b7f-f88299717689",
+      "question": "ভ্যাটিকান সিটি কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভ্যাটিকান সিটি ইউরোপ মহাদেশের অন্তর্গত একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "0332e9ad-12a9-4914-8866-0a11dce84f2b",
+      "question": "রাশিয়া কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "এশিয়া",
+        "আমেরিকা",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "রাশিয়া ইউরেশিয়া মহাদেশে অবস্থিত এবং রাজনৈতিকভাবে ইউরোপীয় অংশেই এর রাজধানী অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "7a1d31e6-f01e-4de8-b2d6-3e5296eb373a",
+      "question": "ইউক্রেন কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "এশিয়া",
+        "আফ্রিকা",
+        "আমেরিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইউক্রেন পূর্ব ইউরোপের একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "041c5663-ba00-4a42-a2d6-4a9fe3a5a982",
+      "question": "Eritrea, which became the 182th member of the UN, is in the continent of? [SABAS][]",
+      "options": [
+        "Africa",
+        "Asia",
+        "Europe",
+        "Australia"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইরিত্রিয়া পূর্ব আফ্রিকা বা হর্ন অব আফ্রিকায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "eeaac3eb-2b58-43a8-89e2-75df42a86d8a",
+      "question": "বেনিন প্রজাতন্ত্র কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "দক্ষিণ আমেরিকা",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বেনিন পশ্চিম আফ্রিকার একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "ffc06ffb-ed58-4bbd-b14a-7e7a7781b83b",
+      "question": "মিশর কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "আফ্রিকা",
+        "ইউরোপ",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মিশর ভৌগোলিকভাবে উত্তর-পূর্ব আফ্রিকা মহাদেশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "1e6977a7-737b-4250-affb-394d0542ceb5",
+      "question": "লিবিয়া কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "এশিয়া",
+        "ইউরোপ",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লিবিয়া উত্তর আফ্রিকার একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "67902119-ebce-4b9b-b248-996fd310e301",
+      "question": "মরক্কো কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "এশিয়া",
+        "ইউরোপ",
+        "উত্তর আমেরিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মরক্কো উত্তর আফ্রিকার মাগরেব অঞ্চলের একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "df160858-3b9a-4901-bf18-4e8085064f04",
+      "question": "বুরকিনা ফাসো দেশটি কোন মহাদেশের অন্তর্গত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "এশিয়া",
+        "ইউরোপ",
+        "দক্ষিণ আমেরিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বুরকিনা ফাসো পশ্চিম আফ্রিকার একটি স্থলবেষ্টিত দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "0eba1c57-60ae-4d3a-a6ff-1a24d0281af0",
+      "question": "সোয়াজিল্যান্ড (এসোয়াতিনি) কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "এশিয়া",
+        "ইউরোপ",
+        "ওশেনিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এসোয়াতিনি বা সোয়াজিল্যান্ড দক্ষিণ আফ্রিকার একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "d676ecca-1770-41bf-8e45-12ff24fda0aa",
+      "question": "সেনেগাল কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "এশিয়া",
+        "ইউরোপ",
+        "উত্তর আমেরিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সেনেগাল পশ্চিম আফ্রিকার আটলান্টিক উপকূলের একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "419ca766-6b52-4d09-b1ce-26aedc00b81d",
+      "question": "সোমালিয়া কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "উত্তর আমেরিকা",
+        "এশিয়া",
+        "ইউরোপ",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সোমালিয়া আফ্রিকার শিং (Horn of Africa) অঞ্চলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "75242ca0-7c26-4f5b-9335-edf32371c4df",
+      "question": "চাঁদ' (Chad) কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আফ্রিকা",
+        "দক্ষিণ আমেরিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "চাদ উত্তর-মধ্য আফ্রিকার একটি স্থলবেষ্টিত দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "65c11080-a1f2-4de9-8bc8-69624cb7f905",
+      "question": "In which continent is Mauritius situated? [SABAS][]",
+      "options": [
+        "Africa",
+        "North America",
+        "Asia",
+        "Australia"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Mauritius is an island nation located in the Indian Ocean, off the coast of East Africa.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "9e60c12d-54b2-4205-bd43-0189fc499784",
+      "question": "হন্ডুরাস কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "ইউরোপ",
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হন্ডুরাস মধ্য আমেরিকার (উত্তর আমেরিকা মহাদেশের অংশ) একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "0d974aa8-2f75-42a6-b132-86617217aed8",
+      "question": "নিকারাগুয়া কোন মহাদেশের অন্তর্গত? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "আফ্রিকা",
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নিকারাগুয়া উত্তর আমেরিকা মহাদেশের অন্তর্ভুক্ত একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "dee86fae-3546-4459-ba22-114274e00b06",
+      "question": "কানাডা কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "উত্তর আমেরিকা",
+        "আফ্রিকা",
+        "ইউরোপ",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কানাডা উত্তর আমেরিকা মহাদেশের একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "7af6cf39-1a7d-4a61-8639-1a054ac783f9",
+      "question": "মেক্সিকো কোন মহাদেশের অন্তর্গত? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মেক্সিকো উত্তর আমেরিকা মহাদেশের একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "56750442-2407-4a20-8277-97a4d30c41fb",
+      "question": "কলম্বিয়া কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "উত্তর আমেরিকা",
+        "আফ্রিকা",
+        "দক্ষিণ আমেরিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কলম্বিয়া দক্ষিণ আমেরিকা মহাদেশে অবস্থিত একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "80ec5d65-1ec6-4989-9833-bd333ae5816a",
+      "question": "চিলি কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "দক্ষিণ আমেরিকা",
+        "উত্তর আমেরিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "চিলি দক্ষিণ আমেরিকা মহাদেশের একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "d969bee4-c8d8-4205-8453-0c8dc2c2471c",
+      "question": "ব্রাজিল কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "দক্ষিণ আমেরিকা",
+        "উত্তর আমেরিকা",
+        "এশিয়া",
+        "ইউরোপ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্রাজিল দক্ষিণ আমেরিকা মহাদেশের বৃহত্তম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "b1b11eb4-c04d-40ec-8d54-ec0d5b3c28e4",
+      "question": "ভেনিজুয়েলা কোন মহাদেশের অন্তর্ভুক্ত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "ইউরোপ",
+        "দক্ষিণ আমেরিকা",
+        "এশিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভেনিজুয়েলা দক্ষিণ আমেরিকা মহাদেশের উত্তর প্রান্তে অবস্থিত একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "ab3aa9b3-4b94-468c-864f-9d310ab4b148",
+      "question": "তাসমানিয়া দ্বীপ কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আফ্রিকা",
+        "ওশেনিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তাসমানিয়া অস্ট্রেলিয়া মহাদেশের অন্তর্গত একটি দ্বীপ, যা ওশেনিয়া অঞ্চলের অংশ।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "08d11fb6-ab55-456f-ba33-453913bf08a5",
+      "question": "পালাউ' দেশটি কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আফ্রিকা",
+        "ওশেনিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পালাউ ওশেনিয়া অঞ্চলের মাইক্রোনেশিয়া উপ-অঞ্চলে অবস্থিত একটি দ্বীপ রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "afab51aa-2d1f-4e4f-a688-0607d2047684",
+      "question": "এই দেশগুলোর মধ্যে কোনটি একই মহাদেশভুক্ত নয়? [SABAS][]",
+      "options": [
+        "থাইল্যান্ড",
+        "বার্মা",
+        "উগান্ডা",
+        "ভিয়েতনাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "থাইল্যান্ড, বার্মা ও ভিয়েতনাম এশিয়া মহাদেশের অন্তর্ভুক্ত। উগান্ডা আফ্রিকা মহাদেশের দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "3b65d919-dc59-489d-9d81-c8f35aa14a69",
+      "question": "বিশ্বের ক্ষুদ্রতম রাজধানী হলো- [SABAS][]",
+      "options": [
+        "থিম্পু",
+        "কাঠমান্ডু",
+        "ভ্যাটিকান সিটি",
+        "কলম্বো"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভ্যাটিকান সিটি বিশ্বের ক্ষুদ্রতম স্বাধীন রাষ্ট্র এবং এর রাজধানীও ভ্যাটিকান সিটি।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "c624332a-3de8-42ab-9cff-20091d4d3b78",
+      "question": "পৃথিবীর উচ্চতম রাজধানীর নাম কী? [SABAS][]",
+      "options": [
+        "সান্তিয়াগো",
+        "লাপাজ",
+        "আসুনসিওন",
+        "বোগোটা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বলিভিয়ার প্রশাসনিক রাজধানী লাপাজ সমুদ্রপৃষ্ঠ থেকে প্রায় ৩,৬৪০ মিটার উচ্চতায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "a807bcb5-0f66-47c6-b81b-62685d7bc5cb",
+      "question": "কোন দেশ ও রাজধানীর নাম একই? [SABAS][]",
+      "options": [
+        "তাইওয়ান",
+        "উগান্ডা",
+        "জিবুতি",
+        "কোস্টা রিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জিবুতি দেশটির রাজধানীর নামও জিবুতি সিটি।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "5c41d142-883f-4146-a0e0-4c21f6e1a3c1",
+      "question": "কোন দেশ ও তার রাজধানীর নাম একই? [SABAS][]",
+      "options": [
+        "লেবানন",
+        "সিঙ্গাপুর",
+        "ভুটান",
+        "মালদ্বীপ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিঙ্গাপুর একটি নগর রাষ্ট্র, যার রাজধানীর নামও সিঙ্গাপুর।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "6294355a-98d9-4cee-a922-4a2d59a31864",
+      "question": "কোনটি রাজধানী শহর নয়? [SABAS][]",
+      "options": [
+        "উলানবাটর",
+        "আবুজা",
+        "বৈরুত",
+        "লিয়ন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "লিয়ন ফ্রান্সের একটি শহর, এটি দেশটির রাজধানী নয়। ফ্রান্সের রাজধানী প্যারিস।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "0aa6c1d2-1fb3-4d0d-9f9f-79b0a5531f9d",
+      "question": "Which of the following cities is not a capital of a country? [SABAS][]",
+      "options": [
+        "New York",
+        "Washington D.C",
+        "Paris",
+        "London"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নিউ ইয়র্ক যুক্তরাষ্ট্রের বৃহত্তম শহর হলেও রাজধানী নয়। যুক্তরাষ্ট্রের রাজধানী ওয়াশিংটন ডি.সি।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "871835d7-f4ec-44eb-9648-32dce3424151",
+      "question": "নিম্নের কোনটি ব্যতিক্রম? [SABAS][]",
+      "options": [
+        "মোগাদিসু",
+        "পোর্ট অব প্রিন্স",
+        "নাইরোবি",
+        "ডাকার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মোগাদিসু, নাইরোবি ও ডাকার হলো আফ্রিকার রাজধানীর নাম। পোর্ট অব প্রিন্স হাইতির রাজধানী (ক্যারিবীয় অঞ্চল)।",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "exam_id": 1561,
+  "title": "Daily GKE Planner (1)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 12,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "7e8ccadb-d285-4c45-bdc4-4e16bfb53223",
+      "question": "passive form of \"He made me drive his car \"-",
+      "options": [
+        "I was made drive his car by him",
+        "I was driven his car by him",
+        "I was made to drive his car by him",
+        "I am made to drive his car by him."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Active voice এ see,here,make,help ইত্যাদি verb এর object এর পরে verb base form এ থাকলে  passive voice এ দ্বিতীয় verb(base form) এর পূর্বে উহ্য থাকা to বসাতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "ebc9f2c5-1b06-4f99-a290-2ed895f63900",
+      "question": "\"Who broke the Pencil?\" the passive form of this sentence is-",
+      "options": [
+        "By whom the pencil was broken?",
+        "By whom was the pencil broken?",
+        "The pencil was broken by whom?",
+        "By whom had the pencil been broken?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Who যুক্ত interrogative sentence কে passive করতে হলে এক্ষেত্রে -By/To/with whom+auxiliary verb( tense অনুযায়ী)+subject +V3+Extention",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "fca5d9f9-4237-434c-8e9e-822c4dc80f3a",
+      "question": "\"Health should be taken care of \" the active form of this sentence is-",
+      "options": [
+        "we should take care of one's health",
+        "We must take care of our health",
+        "One should take care of their health",
+        "one should take care of One's health"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "95c1b588-66be-4397-8cf7-2ecd524d4142",
+      "question": "passive form of  \"The cat is running after the rat\"-",
+      "options": [
+        "the rat has been Run after by the cat",
+        "The cat is being Run after by the rat",
+        "the rat is Run after by the cat",
+        "the rat is being Run after by the cat."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Present continuous tense এর ক্ষেত্রে passive করার সময় being যুক্ত হবে।(কে কাকে তাড়া করছে সেটাও খেয়াল রাখতে হবে)",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "87f7e3d7-8b97-4a81-9972-bd9539cbccbb",
+      "question": "\"We do not hate the poor\".Make it passive.",
+      "options": [
+        "The poor are not hated  by us",
+        "The poor is not hated by us.",
+        "We are not hated by the poor.",
+        "The poor had not been hated by us."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The poor বলতে সমগ্র গরিব মামুষদের বুঝায়।তাই plural হওয়ায় are বসবে is নয়।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "35f5914d-0491-440b-abe1-f8923f2acd5a",
+      "question": "The correct active form of \"I was deceived by the stranger\" is -",
+      "options": [
+        "The stranger deceived me",
+        "The Stranger had received me",
+        "The stranger has deceived me",
+        "The stranger has been deceived me."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "9acb990f-c34a-4329-af53-9dd45c433f99",
+      "question": "\"Do you know him?\"এর passive form-",
+      "options": [
+        "Is he known by you?",
+        "Is he known to you?",
+        "does he known by you?",
+        "Is he known with you?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "eb1a8db2-c040-47d6-9543-5220e9567cf5",
+      "question": "Active form of \"He is called a genius\"-",
+      "options": [
+        "People call him a genius",
+        "He is familiar as a genius.",
+        "You may call him a genious",
+        "People have called him a genius."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "3472906a-469a-46d5-815c-b664ed2141b9",
+      "question": "passive voice of \"We called him a fool \"-",
+      "options": [
+        "he had been called a fool by us.",
+        "He has called been a fool by us.",
+        "He was called a fool by us",
+        "He has been called a fool by us."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "9ab267ed-9a65-4c71-9f10-4f34f2ee7283",
+      "question": "Don't laugh at me.(choose the passive form) -",
+      "options": [
+        "Let me be laughted at",
+        "Let me be not laughed.",
+        "Let me not be laughed",
+        "Let me be not laughed at"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "983da890-6051-4344-adcb-f9821683b668",
+      "question": "Passive form of \"Who did it?\"-",
+      "options": [
+        "By whom had it been done?",
+        "Who is it done by?",
+        "By whom has it been done?",
+        "By whom was it done?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "dc8d6985-ebe6-4272-863d-6cbe89c200a0",
+      "question": "\"Let us write a letter.\" make it passive.",
+      "options": [
+        "Let a letter been written by us.",
+        "Let a letter wrote by us.",
+        "Let a letter be written by us.",
+        "Let a letter written by us"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "af220b0d-6543-4c25-bdca-bc4c947eacce",
+      "question": "\"You will be helped my me\" The active form of this sentence is-",
+      "options": [
+        "I shall help you.",
+        "I must help you",
+        "I should help you",
+        "I shall have helped you"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "6f2b5405-9075-464d-97f1-77bad1ccb121",
+      "question": "\"What did they pay you for doing the job?\" make it passive.",
+      "options": [
+        "What had you been paid for doing this job?",
+        "What were you paid for doing this job?",
+        "What have you been for doing this job?",
+        "What were you being paid for doing this job?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "2e84c167-a8af-4acf-b6ad-9880f35feb82",
+      "question": "Passive voice of \"Whom were you calling?\"-",
+      "options": [
+        "Who called by you?",
+        "Who was being called by you?",
+        "Who were you being called?",
+        "Who were being called by you?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "b210c068-4469-4f7b-a2c5-857e14dc81b5",
+      "question": "লোকসংখ্যায় ইউরোপের বৃহত্তম দেশ -",
+      "options": [
+        "চীন",
+        "রাশিয়া",
+        "ফ্রান্স",
+        "ভ্যাটিকান সিটি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "চীন ইউরোপে না,এশিয়া মহাদেশে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "6220e46a-8a99-4ae1-a906-26cffc6b5299",
+      "question": "পৃথিবীর বৃহত্তম টানেল কোন মহাদেশে অবস্থিত?",
+      "options": [
+        "এশিয়া",
+        "আমেরিকা",
+        "ইউরোপ",
+        "ওশেনিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "ee797409-665a-45cc-b5b1-2efe1f92ca8b",
+      "question": "যুক্তরাজ্য এর সাংবিধানিক রাষ্ট্র নয় কোনটি?",
+      "options": [
+        "স্কটল্যান্ড",
+        "ওয়েলস",
+        "দক্ষিণ আয়ারল্যান্ড",
+        "উত্তর আয়ারল্যান্ড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "c1920862-386e-4520-811a-4d5775fbb9f2",
+      "question": "Iron Lady বলা হয় কাকে?-",
+      "options": [
+        "মার্গারেট থ্যাচার",
+        "ফ্লোরেন্স নাইটিঙ্গেল",
+        "প্রিন্সেস ডায়ানা",
+        "রানী এলিজাবেথ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মার্গারেট ব্রিটেনের প্রথম নারী প্রধানমন্ত্রী ছিলেন।ফকল্যান্ড যুদ্ধে জয়লাভের জন্য তিনি এই উপাধি পান",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "170261e5-f003-4c5f-99c9-0ca1dd8f2198",
+      "question": "দ্বিতীয় বিশ্বযুদ্ধের সময় ব্রিটেনের প্রধানমন্ত্রী ছিলেন -",
+      "options": [
+        "লয়েড জর্জ",
+        "উইনস্টন চার্চিল",
+        "হেনরি আসকুইথ",
+        "এডওয়ার্ড হিথ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "04ce5521-59c2-4029-b311-7244174e7c8c",
+      "question": "ব্রিটিশ প্রধানমন্ত্রীর সরকারি বাসভবন -",
+      "options": [
+        "হোয়াইট হাউজ",
+        "বাকিংহাম প্যালেস",
+        "১০নং ডাইনিং স্ট্রিট",
+        "ওয়েস্ট মিনিস্টার হল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "5df505a6-a40a-4494-aa41-62bcfbc26a95",
+      "question": "যুক্তরাজ্যের রাজা কোন দেশের সাংবিধানিক রাষ্ট্রপ্রধান নন?",
+      "options": [
+        "কানাডা",
+        "ফিজি",
+        "অস্ট্রেলিয়া",
+        "অস্ট্রিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "147f5050-6a80-4551-874b-0e8adb7a93a2",
+      "question": "রাজনীতিবিদ হতেও সাহিত্যে নোবেল পান কে?",
+      "options": [
+        "উইলিয়াম ই গ্ল্যাডস্টোন",
+        "জো বাইডেন",
+        "উইনস্টন চার্চিল",
+        "মার্গারেট থ্যাচার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The second world war বইয়ের জন্য নোবেল পান চার্চিল।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "cc5e5dbf-396f-49fe-879e-2fce465d643a",
+      "question": "প্রিন্সেস ডায়ানা কোন সুড়ঙ্গপথ এ সড়ক দুর্ঘটনায় নিহত হন?",
+      "options": [
+        "আলমা ডি টানেল",
+        "রস্কো টানেল",
+        "আর্ল বার্গ টানেল",
+        "ইউরো টানেল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি ফ্রান্সে অবস্থিত",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "d488cb4d-aca2-4f41-8d70-136184decf7f",
+      "question": "ইংল্যান্ডে শিল্পবিপ্লব এর ফলে উপমহাদেশের কোন শিল্পের ধ্বংস হয়?",
+      "options": [
+        "পাট শিল্প",
+        "কুটির শিল্প",
+        "বস্ত্র শিল্প",
+        "কাগজ শিল্প"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

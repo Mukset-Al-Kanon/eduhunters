@@ -1,0 +1,155 @@
+[
+    {
+        "id":  "Botany Exam (Sure Shot)",
+        "title":  "Botany Exam (Sure Shot)",
+        "fileName":  "Botany Exam (Sure Shot).json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Chemistry 1st paper - Sure shot",
+        "title":  "Chemistry 1st paper - Sure shot",
+        "fileName":  "Chemistry 1st paper - Sure shot.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Chemistry 1st part - Sure Shot",
+        "title":  "Chemistry 1st part - Sure Shot",
+        "fileName":  "Chemistry 1st part - Sure Shot.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Chemistry 2nd Paper - Sure shot",
+        "title":  "Chemistry 2nd Paper - Sure shot",
+        "fileName":  "Chemistry 2nd Paper - Sure shot.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Chemistry 2nd part - Sure Shot",
+        "title":  "Chemistry 2nd part - Sure Shot",
+        "fileName":  "Chemistry 2nd part - Sure Shot.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "English grammar",
+        "title":  "English grammar",
+        "fileName":  "English grammar.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "English subject Final - Sure Shot",
+        "title":  "English subject Final - Sure Shot",
+        "fileName":  "English subject Final - Sure Shot.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "English Vocabulary",
+        "title":  "English Vocabulary",
+        "fileName":  "English Vocabulary.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "GK - Subject Final",
+        "title":  "GK - Subject Final",
+        "fileName":  "GK - Subject Final.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "GK Bangladesh part (Sure Shot)",
+        "title":  "GK Bangladesh part (Sure Shot)",
+        "fileName":  "GK Bangladesh part (Sure Shot).json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "GK international - sure shot",
+        "title":  "GK international - sure shot",
+        "fileName":  "GK international - sure shot.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Mega exam - Sure Shot",
+        "title":  "Mega exam - Sure Shot",
+        "fileName":  "Mega exam - Sure Shot.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Physics 1st Paper (Sure Shot)",
+        "title":  "Physics 1st Paper (Sure Shot)",
+        "fileName":  "Physics 1st Paper (Sure Shot).json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Physics 2nd Paper (Sure Shot)",
+        "title":  "Physics 2nd Paper (Sure Shot)",
+        "fileName":  "Physics 2nd Paper (Sure Shot).json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Sure shot - Botany extra writer",
+        "title":  "Sure shot - Botany extra writer",
+        "fileName":  "Sure shot - Botany extra writer.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Zoology - Other writers",
+        "title":  "Zoology - Other writers",
+        "fileName":  "Zoology - Other writers.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    },
+    {
+        "id":  "Zoology Exam Sure Shot",
+        "title":  "Zoology Exam Sure Shot",
+        "fileName":  "Zoology Exam Sure Shot.json",
+        "totalQuestions":  100,
+        "durationMinutes":  40,
+        "negativeMarking":  0.25,
+        "category":  "Sure Shot"
+    }
+]

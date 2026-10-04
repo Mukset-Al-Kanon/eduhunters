@@ -1,0 +1,671 @@
+{
+  "exam_id": 8374,
+  "title": "Number (Ques. No. 151-194)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Number (194 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 44,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "d6639de0-f49f-4efd-9900-a0eb3f45092d",
+      "question": "Identify the singular number[]",
+      "options": [
+        "Data",
+        "Fungi",
+        "Agenda",
+        "Formula"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইংরেজিতে সাধারণত শব্দের শেষে 's' বা 'es' যোগ করে বহুবচন করা হয় (যেমন: Book -> Books)। কিন্তু কিছু শব্দ, বিশেষ করে ল্যাটিন বা গ্রিক মূলের শব্দ, তাদের বহুবচন করার বিশেষ নিয়ম অনুসরণ করে। \nFormula শব্দটি একটি ল্যাটিন শব্দ, যার শেষে '-a' থাকে। \nনিয়ম: যেসব ল্যাটিন শব্দের শেষে -a থাকে, সেগুলোকে বহুবচন করার সময় '-a' এর পরিবর্তে -ae যোগ করা হয়।\nব্যবহার: বর্তমানে আধুনিক ইংরেজি ব্যাকরণে Formulas (s যোগ করে) এবং প্রথাগত ইংরেজি ব্যাকরণে Formulae (-ae যোগ করে)—উভয়ই Plural হিসেবে গ্রহণযোগ্য। \n৩. উদাহরণ (Formula/Formulae Rules)\nSingular: Formula (একটি সূত্র)\nPlural: Formulae / Formulas (একাধিক সূত্র)",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "05953a0f-9d85-4aa2-a578-0ccdfd9855d3",
+      "question": "Which of the following is a singular noun ?[]",
+      "options": [
+        "Cliffs",
+        "Index",
+        "Crises",
+        "Mice"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Index একটি Singular Noun (একবচন). এর অর্থ হলো \"সূচক\" বা বইয়ের শেষে থাকা \"বর্ণানুক্রমিক তালিকা\". \nSingular (একবচন): Index\nPlural (বহুবচন): Indexes অথবা Indices \nসাধারণত যে শব্দগুলোর শেষে -ex থাকে, সেগুলোকে বহুবচন করার সময় -ices যোগ করা হয় (যেমন: Appendix → Appendices). তবে আধুনিক ইংরেজিতে indexes শব্দটিও বহুল প্রচলিত.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "5a01b598-20c2-46f1-b3ba-5fb46ea78980",
+      "question": "The 'zero plural marker' is used in ---[]",
+      "options": [
+        "Canon",
+        "Mouse",
+        "Physics",
+        "Medium"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Physics' শব্দটি দেখতে একবচনের মতো মনে হলেও, এটি নিজেই একটি বিষয় বা ক্ষেত্র বোঝায়, যাকে 's' যোগ করে plural করার প্রয়োজন নেই। \nকেন এটি Zero Plural? কিছু নির্দিষ্ট Noun আছে যাদের শেষে s/es যুক্ত হয় না কিন্তু তারা plural-এর কাজ করে, যেমন: sheep, deer, fish, series, physics।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "b9674272-6b14-4560-ac3e-2ac804f06b4e",
+      "question": "Canon' শব্দটির বহুবচন ---[]",
+      "options": [
+        "Canons",
+        "Canones",
+        "Cannons",
+        "Canon"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Canon' শব্দটির বহুবচন (Plural) হলো Canons। \nব্যাখ্যা:\nসাধারণ বহুবচন: ইংরেজি গ্রামারের সাধারণ নিয়ম অনুযায়ী কোনো বিশেষ্য বা Noun-এর শেষে 's' যোগ করে বহুবচন করা হয়। সেই অনুযায়ী Canon শব্দের সাথে 's' যুক্ত হয়ে Canons হয়।\nভুল ধারণা: অনেকে 'Canon' এবং 'Cannon' (কামান) শব্দ দুটি গুলিয়ে ফেলেন। 'Cannon' (কামান) শব্দটির বহুবচন Cannon অথবা Cannons উভয়ই হতে পারে। কিন্তু 'Canon' (নিয়ম বা ধর্মযাজক) শব্দের ক্ষেত্রে শুধুমাত্র Canons-ই সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "503ac54f-cc1e-4d92-b43f-2dff4b21e29e",
+      "question": "নিচের কোন শব্দটি Plural ?[]",
+      "options": [
+        "Actress",
+        "Princess",
+        "Princes",
+        "News"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Princes: এটি Prince (রাজকুমার) শব্দের Plural বা বহুবচন রূপ। ইংরেজি গ্রামারের নিয়ম অনুযায়ী, কোনো শব্দের শেষে 'e' থাকলে তার সাথে শুধু 's' যোগ করে বহুবচন করা হয় (Prince + s = Princes)।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "c0f022c9-04f6-46fa-8790-8e4e4a5f9466",
+      "question": "Which one is the singular ?[]",
+      "options": [
+        "Public",
+        "Crowd",
+        "Mice",
+        "Knife/Doll/Kite"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Singular (একবচন): যখন কোনো ব্যক্তি, বস্তু বা প্রাণীর সংখ্যা একটি বোঝায়।\nPlural (বহুবচন): যখন একের অধিক বোঝায় (সাধারণত শেষে s, es, ies, ves যোগ হয়)। \nবিশ্লেষণ (Explanation):\nKnife (ছুরি): এটি একটি ছুরির কথা বলছে (Singular)। [প্লুরাল হবে: Knives]\nDoll (পুতুল): এটি একটি পুতুলের কথা বলছে (Singular)। [plural হবে: Dolls]\nKite (ঘুড়ি): এটি একটি ঘুড়ির কথা বলছে (Singular)। [প্লুরাল হবে: Kites] \nযেহেতু কোনো শব্দের শেষে 's' বা 'es' বা 'ves' যুক্ত নেই, তাই এরা সবাই Singular।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "3993bb9a-09c0-4711-ac59-eac10888ccf9",
+      "question": "Which one is in singular number ?[]",
+      "options": [
+        "Data",
+        "Oxen",
+        "Criteria",
+        "Thesis"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Singular: Thesis (একটি গবেষণাপত্র বা থিসিস)\nPlural: Theses (একাধিক গবেষণাপত্র) \nইংরেজি ভাষায় গ্রিক উৎস থেকে আসা অনেক শব্দের শেষে যদি '-is' থাকে, তবে সেটিকে Plural করার সময় '-es' এ পরিবর্তন করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "aa761564-022d-40e4-ac1d-b1f17ccc7678",
+      "question": "Which one of the following words is singular ?[]",
+      "options": [
+        "Physics",
+        "Bushes",
+        "Roads/Roofs",
+        "Boxes"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যদিও Physics শব্দের শেষে 's' আছে, তবুও এটি বহুবচন (plural) নয়। এটি একটি বিষয়ের নাম (academic subject), যা একবচন হিসেবে গণ্য হয়। \nনিয়ম: কিছু বিশেষ্য (nouns) দেখতে বহুবচনের মতো হলেও (যেমন- -s, -ics-এ শেষ হয়), সেগুলো আসলে একবচন। যেমন- Physics (পদার্থবিজ্ঞান), Mathematics (গণিত), Economics (অর্থনীতি), News (খবর)।\nব্যবহার: বাক্যে Physics-এর সাথে singular verb (যেমন- is) বসে, are বসে না।\nউদাহরণ: Physics is my favorite subject. (পদার্থবিজ্ঞান আমার প্রিয় বিষয়)।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "11711045-22da-4d02-888a-f75063722bc4",
+      "question": "What is the singular form of 'Leaves' ?[]",
+      "options": [
+        "Leaf",
+        "Leav",
+        "Leave",
+        "Leafe"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Leaves' (পাতাগুলো) শব্দটির Singular form বা একবচন হলো Leaf (পাতা)। \nব্যাখ্যা (Explanation):\nLeaf (একবচন/Singular): গাছ বা উদ্ভিদের একটি পাতাকে 'Leaf' বলা হয়।\nLeaves (বহুবচন/Plural): যখন একটির বেশি পাতা (পাতাগুলো) বোঝানো হয়, তখন 'Leaf'-এর শেষে থাকা 'f' উঠে গিয়ে 'ves' যোগ হয়।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "a26b219d-7c81-4b1d-9fd4-a699a3305b17",
+      "question": "Which of the following words is not singular ?[]",
+      "options": [
+        "Mathematics",
+        "Physics",
+        "Box",
+        "Mice"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Mouse (মাউস) একটি Singular noun, যার অর্থ একটি ইঁদুর.\nMice (মাইস) হলো এর Plural form, যার অর্থ একাধিক ইঁদুর.\nএটি একটি Irregular Plural (অনিয়মিত বহুবচন). ইংরেজিতে সাধারণত শব্দের শেষে 's' বা 'es' যোগ করে Plural করা হয়, কিন্তু 'mouse' এর ক্ষেত্রে মাঝের vowel পরিবর্তিত হয়ে 'mice' হয়.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "e91459ff-f6bc-457a-9ffb-df00339943cf",
+      "question": "Find the noun in plural form but singular in use ---[]",
+      "options": [
+        "Headmaster",
+        "Gentleman",
+        "News",
+        "Participant"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "English Grammar-এ এমন কিছু Noun আছে যেগুলোর শেষে 's' বা 'es' থাকে, যার ফলে দেখতে Plural (বহুবচন) মনে হলেও, এগুলোর অর্থ বা ব্যবহার Singular (একবচন) হিসেবে হয়। \n\"News\" তেমনই একটি Noun।\n'News' এর বিস্তারিত ব্যাখ্যা (Explanation in Bengali):\n১. গঠন (Form): News শব্দটির শেষে 's' আছে, তাই এটি দেখতে Plural Form-এর মতো।\n২. ব্যবহার (Usage): কিন্তু ইংরেজিতে News একটি Uncountable Noun (গণনা করা যায় না এমন বিশেষ্য) এবং এটিকে Singular হিসেবে ব্যবহার করা হয়।\n৩. Verb-এর ব্যবহার: যেহেতু এটি Singular, তাই এর সাথে Singular Verb (যেমন: is, was) ব্যবহৃত হয়, Are বা Were নয়।\n৪. ভুল ও সঠিক উদাহরণ:\n* ভুল: The news are very good.\n* সঠিক: The news is very good. (খবরটি খুব ভালো)\n* ভুল: I have a news.\n* সঠিক: I have some news / a piece of news.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "2d47ebe9-2d81-4d5c-89b7-cbfeaaa54faf",
+      "question": "Identify the plural word[]",
+      "options": [
+        "Cactus",
+        "Diagnosis",
+        "Foci",
+        "Goose"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "'Foci' (উচ্চারণ: ফোক্সাই /'foʊsaɪ/) হলো 'Focus' (ফোকাস) শব্দের বহুবচন বা plural রূপ। \n১. অর্থ: 'Focus' মানে কেন্দ্রবিন্দু বা নাভি (center/point of interest)। আর 'Foci' মানে হলো অনেকগুলো কেন্দ্রবিন্দু (multiple points of focus/concentration)।\n২. উৎপত্তি: এটি একটি লাতিন (Latin) শব্দ থেকে এসেছে, যেখানে -us এর পরিবর্তে -i যোগ করে বহুবচন করা হয় (যেমন: Cactus -> Cacti)।\n৩. ব্যবহার: সাধারণত বিজ্ঞান, অংক (যেমন: উপবৃত্ত বা ellipse-এর Foci), বা আলোকবিজ্ঞানে (optics) এই শব্দটি বেশি ব্যবহৃত হয়।\n৪. বিকল্প রূপ: 'Focus' এর বহুবচন হিসেবে 'Focuses' (ফোকাসেস) শব্দটিও সঠিক এবং বহুল ব্যবহৃত, তবে 'Foci' বেশি প্রাতিষ্ঠানিক। \nসহজ উদাহরণ:\nSingular: That point is the focus of this lens. (ঐ বিন্দুটি এই লেন্সের কেন্দ্রবিন্দু।)\nPlural: The ellipse has two foci. (উপবৃত্তটির দুটি কেন্দ্রবিন্দু আছে।)",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "94742af7-08a6-49df-b556-7948bb548906",
+      "question": "Which has one meaning in the singular but two in the\n plural ?[]",
+      "options": [
+        "Book",
+        "House",
+        "Part",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Singular (একবচন) - Part: এর অর্থ হলো 'অংশ' বা 'অংশবিশেষ'\nPlural (বহুবচন) - Parts: যখন 'Part' এর সাথে 's' যোগ করে 'Parts' করা হয়, তখন এর দুটি অর্থ দাঁড়ায়:\nঅংশগুলো (অনেকগুলো টুকরো বা খণ্ড) \nযন্ত্রাংশ (যন্ত্রের বিভিন্ন অংশ বা Spare Parts)",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "67343d1d-57f8-441c-931f-bd9d234fa89b",
+      "question": "Which one is a singular number ?[]",
+      "options": [
+        "Phenomenon",
+        "Lice",
+        "Mice",
+        "Errata"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Phenomenon (ফেনোমেনন) হলো singular number (একবচন)। \nএর ব্যাখ্যা নিচে দেওয়া হলো:\nPhenomenon (একবচন/Singular): যখন কোনো একটি নির্দিষ্ট প্রাকৃতিক বা বৈজ্ঞানিক ঘটনা বা অসাধারণ বিষয়কে বোঝানো হয়, তখন phenomenon ব্যবহৃত হয়।\nউদাহরণ: \"Solar eclipse is a natural phenomenon.\" (সূর্যগ্রহণ একটি প্রাকৃতিক ঘটনা)।\nPhenomena (বহুবচন/Plural): যখন একের অধিক ঘটনা বা বিষয়কে বোঝানো হয়, তখন 'a' যুক্ত হয়ে phenomena (ফেনোমেনা) হয়।\nউদাহরণ: \"There are many strange phenomena on Earth.\" (পৃথিবীতে অনেক অদ্ভুত ঘটনা আছে)।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "724a8919-6dc7-4798-adcd-0b7b5e248648",
+      "question": "Which one is a singular number ?[]",
+      "options": [
+        "Data",
+        "Errata",
+        "Criteria",
+        "Phenomenon"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Phenomenon (ফেনোমেনন) হলো singular number (একবচন)। \nএর ব্যাখ্যা নিচে দেওয়া হলো:\nPhenomenon (একবচন/Singular): যখন কোনো একটি নির্দিষ্ট প্রাকৃতিক বা বৈজ্ঞানিক ঘটনা বা অসাধারণ বিষয়কে বোঝানো হয়, তখন phenomenon ব্যবহৃত হয়।\nউদাহরণ: \"Solar eclipse is a natural phenomenon.\" (সূর্যগ্রহণ একটি প্রাকৃতিক ঘটনা)।\nPhenomena (বহুবচন/Plural): যখন একের অধিক ঘটনা বা বিষয়কে বোঝানো হয়, তখন 'a' যুক্ত হয়ে phenomena (ফেনোমেনা) হয়।\nউদাহরণ: \"There are many strange phenomena on Earth.\" (পৃথিবীতে অনেক অদ্ভুত ঘটনা আছে)।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "14fb9bc0-6b33-424a-b09e-3da8f1f7934b",
+      "question": "Which expression is correct ?[]",
+      "options": [
+        "Ten cattles",
+        "One cattle",
+        "Ten head of cattle",
+        "Ten heads of cattle"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ten head of cattle\" সঠিক অভিব্যক্তি। এখানে \"cattle\" নিজেই একটি বহুবচন (plural) শব্দ, তাই এর সাথে 's' যোগ করে \"cattles\" বলা ভুল। গবাদি পশুর সংখ্যা বোঝাতে \"head\" (মাথা/সংখ্যা) শব্দটি ব্যবহার করা হয়, যা বহুবচন হলেও \"head\" হিসেবেই থাকে, \"heads\" হয় না। \nব্যাখ্যা (Explanation):\nসঠিক: Ten head of cattle (দশটি গবাদি পশু)।\nভুল: Ten cattles / Ten heads of cattle.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "e5eeca70-3d72-4d96-b624-db607803cf9b",
+      "question": "Which noun is in plural form ?[]",
+      "options": [
+        "Diagnoses",
+        "Crisis",
+        "Goose",
+        "Class"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Singular (একবচন): Diagnosis (রোগ নির্ণয়)\nPlural (বহুবচন): Diagnoses (রোগ নির্ণয়সমূহ) \nকেন Diagnoses বহুবচন?\n'Diagnosis' শব্দটি গ্রিক/ল্যাটিন মূল থেকে এসেছে। ইংরেজি ব্যাকরণের নিয়ম অনুযায়ী, যেসব ইংরেজি নাউন (Noun) '-is' (যেমন: crisis, analysis, thesis) দিয়ে শেষ হয়, সেগুলোকে বহুবচন করার সময় শেষের 'is' পরিবর্তন হয়ে '-es' হয়ে যায়",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "547c137d-b0aa-4ba1-ae2a-dc153f18808b",
+      "question": "He is one of the honest ----- in our society.[]",
+      "options": [
+        "man",
+        "mans",
+        "men",
+        "mens"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নিয়ম: English Grammar-এ যখন \"One of the...\" বাক্যে ব্যবহার করা হয়, তার পরের নাউন (Noun) বা শব্দটি সর্বদা Plural (বহুবচন) হয়। \nভুল: One of the honest man (singular)\nসঠিক: One of the honest men (plural)\nব্যাখ্যা: \"One of the honest men\" মানে হলো—\"সৎ মানুষদের মধ্যে একজন\"। সমাজ তো অনেকজন সৎ মানুষ নিয়ে গঠিত, তাদের মধ্যে তিনি একজন। তাই 'men' (plural) ব্যবহার করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "d7f90273-af83-4ac4-92d0-9b2db6597533",
+      "question": "Only ----- can be affected by the grammatical category known as 'number'[]",
+      "options": [
+        "conjunction",
+        "adverbs",
+        "nouns",
+        "adjectives"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাকরণে 'নাম্বার' (Number বা বচন) বলতে বোঝায় একটি বস্তু বা ব্যক্তি একটি (Singular) নাকি একাধিক (Plural)। এই Number বা বচনের নিয়মটি মূলত Noun (বিশেষ্য)-এর ক্ষেত্রেই সরাসরি প্রযোজ্য হয়।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "b0e32ab9-387f-46ce-b0fb-af3f765d8685",
+      "question": "The plural of 'Wildlife' is ---[]",
+      "options": [
+        "Wildlives",
+        "Wildlifes",
+        "Wildlife",
+        "Wildlive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Uncountable Noun: Wildlife একটি uncountable noun বা অগণন বিশেষ্য। অর্থাৎ, এটিকে সাধারণত গণনা করা যায় না বা এর শেষে 's' যোগ করে (wildlifes) বহুবচন করা হয় না।\nCollective Meaning: এটি একটি collective noun বা সমষ্টিবাচক বিশেষ্য হিসেবে কাজ করে, যা একটি নির্দিষ্ট এলাকার সমস্ত বন্যপ্রাণী ও উদ্ভিদকে একসাথে বোঝায়।\nব্যবহার: একবচন (singular) এবং বহুবচন (plural) উভয় ক্ষেত্রেই \"wildlife\" ব্যবহৃত হয়।\nউদাহরণ: The park is full of wildlife. (পার্কটি বন্যপ্রাণীতে পূর্ণ।) - এখানে অনেক প্রাণী বোঝালেও wildlife-ই ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "239c21d1-f99e-4457-a478-bfcd4b39fcd8",
+      "question": "Choose the plural number[]",
+      "options": [
+        "News",
+        "Physics",
+        "Syllabus",
+        "Agenda"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Singular (একবচন): Agendum (অ্যাজেন্ডাম - আলোচ্য বিষয়)।\nPlural (বহুবচন): Agenda (অ্যাজেন্ডা - আলোচ্য বিষয়সমূহ)। \nইংরেজি ব্যাকরণের নিয়ম অনুযায়ী, ল্যাটিন থেকে আগত যেসব শব্দের শেষে -um থাকে, সেগুলোকে বহুবচন করার সময় -um বাদ দিয়ে -a যোগ করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "663733a7-361d-45b1-8720-ecc2a6a05f63",
+      "question": "Which one is singular form ?[]",
+      "options": [
+        "News",
+        "Cattle",
+        "Oats",
+        "Scissors"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১. দেখতে Plural হলেও Singular: 'News' শব্দের শেষে 's' থাকায় এটিকে Plural (বহুবচন) মনে হতে পারে, কিন্তু আসলে এটি একটি Singular noun। এটি একটি অগণন বিষয় (Uncountable), তাই এর সাথে is বা was ব্যবহৃত হয়।\n২. অগণন (Uncountable): 'News' গোনা যায় না, তাই \"a news\" বা \"many news\" বলা ভুল। এর পরিবর্তে \"a piece of news\" বা \"some news\" বলা যেতে পারে।\n৩. উদাহরণ: \nসঠিক: The news is true. (খবরটি সত্য।)\nভুল: The news are true.\nসঠিক: I have some good news. (আমার কাছে কিছু ভালো খবর আছে।)",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "0791a0e2-536f-415d-88cf-aba692f7b9ed",
+      "question": "What time ----- on television ?[]",
+      "options": [
+        "is the news",
+        "is news",
+        "are the news",
+        "none"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১. দেখতে Plural হলেও Singular: 'News' শব্দের শেষে 's' থাকায় এটিকে Plural (বহুবচন) মনে হতে পারে, কিন্তু আসলে এটি একটি Singular noun। এটি একটি অগণন বিষয় (Uncountable), তাই এর সাথে is বা was ব্যবহৃত হয়।\n২. অগণন (Uncountable): 'News' গোনা যায় না, তাই \"a news\" বা \"many news\" বলা ভুল। এর পরিবর্তে \"a piece of news\" বা \"some news\" বলা যেতে পারে।\n৩. উদাহরণ: \nসঠিক: The news is true. (খবরটি সত্য।)\nভুল: The news are true.\nসঠিক: I have some good news. (আমার কাছে কিছু ভালো খবর আছে।)",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "deeff20f-2184-4541-a541-b5cbb805736b",
+      "question": "Plural number of 'woman novelist' is ---[]",
+      "options": [
+        "woman-novelists",
+        "women-novelists",
+        "women-novelist",
+        "woman-novelist"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই শব্দগুচ্ছটি (phrase) Compound Noun হিসেবে কাজ করে, যেখানে 'woman' শব্দটি 'novelist' কে বিশেষায়িত (modify) করছে। নিয়ম অনুযায়ী, যখন কোনো Compound Noun-এর প্রথম শব্দটি নারী/পুরুষ (gender) নির্দেশ করে, তখন Plural করার সময় উভয় শব্দকেই বহুবচন করতে হয়। \nWoman (একবচন/Singular) \n Women (বহুবচন/Plural)\nNovelist (একবচন/Singular) \n Novelists (বহুবচন/Plural) \nতাই, woman + novelist = women novelists।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "96de2223-b215-44c2-b7c5-5291662c6cea",
+      "question": "Which one is correct \nplural ?[]",
+      "options": [
+        "Man-Servants",
+        "Men-Servant",
+        "Men-Servants",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Man-servant একটি Compound Noun (যৌগিক বিশেষ্য)। ইংরেজি ব্যাকরণের নিয়ম অনুযায়ী, যখন Man বা Woman দিয়ে কোনো যৌগিক বিশেষ্য গঠিত হয় এবং তারপরে কোনো পদ বা পদবি থাকে, তখন বহুবচন করার সময় দু'টি অংশকেই (Man এবং Servant) পরিবর্তন করতে হয়। \nSingular (একবচন): Man-servant (একজন পুরুষ ভৃত্য)\nPlural (বহুবচন): Men-servants (অনেকজন পুরুষ ভৃত্য)",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "db9c4f6a-3a71-47e0-8b7c-b0f08197e120",
+      "question": "Choose the correct singular form[]",
+      "options": [
+        "Corrigenda",
+        "Formulae",
+        "Oases",
+        "Radius"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Radius-এর সঠিক Singular form (একবচন) হলো Radius-ই। \nব্যাখ্যা (Explanation):\nRadius (একবচন): যখন একটিমাত্র ব্যাসার্ধ বোঝানো হয়, তখন Radius ব্যবহার করা হয়।\nRadii (বহুবচন): যখন একের অধিক ব্যাসার্ধ (Plural) বোঝানো হয়, তখন Radii (উচ্চারণ: রেডি-আই) ব্যবহার করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "237d50c8-29ce-4b72-ae5c-c49e52ec92f6",
+      "question": "Which of the following has no plural form ?[]",
+      "options": [
+        "Analysis",
+        "Crisis",
+        "Soap",
+        "Louse"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি গ্রামারে Soap (সাবান) একটি বস্তুবাচক নাম (Material Noun), যা গণনা করা যায় না। তাই একে বহুবচন করতে সরাসরি 's' বা 'es' যোগ করা হয় না। \nUncountable Nature: সাবান একটি পদার্থ বা উপাদান হিসেবে বিবেচিত হয়, যা সংখ্যা দিয়ে না মেপে সাধারণত পরিমাণ (Quantity) দিয়ে বোঝা যায়।\nMeasure Words: আপনি যদি একাধিক সাবান বোঝাতে চান, তবে আপনাকে নির্দিষ্ট একক বা পরিমাপক শব্দ (Measure words) ব্যবহার করতে হবে। যেমন:\nএকটি সাবান = A bar of soap\nতিনটি সাবান = Three bars of soap (এখানে 'bar' শব্দটি বহুবচন হয়েছে, 'soap' নয়)\nA piece of soap বা A cake of soap-ও ব্যবহার করা যায়।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "29927692-00f3-456f-a7e2-113f4afe39a7",
+      "question": "Which of the following words is singular ?[]",
+      "options": [
+        "Analysis",
+        "Data",
+        "Furniture",
+        "A & C"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Analysis: This is a singular noun. It is a Greek-origin word that ends in -is. To make it plural, you must change the -is to -es, making it analyses.\nSingular: Analysis\nPlural: Analyses\nFurniture: This is an uncountable noun (non-count noun). In English, uncountable nouns are grammatically treated as singular and always take a singular verb (e.g., \"The furniture is old\"). It does not have a plural form like \"furnitures\".",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "5ff0d6ff-4400-42c3-a32d-79fda9e1b0b3",
+      "question": "Which one is singular ?[]",
+      "options": [
+        "Bacteria",
+        "Phenomena",
+        "Radius",
+        "Criteria"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Radius (singular - একবচন): এটি ল্যাটিন থেকে আসা একটি শব্দ, যার অর্থ ব্যাসার্ধ। এটি একটি মাত্র ব্যাসার্ধকে বোঝায়।\nRadii (plural - বহুবচন): যখন একের অধিক ব্যাসার্ধ বোঝানো হয়, তখন Radius-এর বহুবচন রূপটি হলো Radii।\nনিয়ম: যেসব ইংরেজি শব্দের শেষে '-us' থাকে, সেগুলোর বহুবচন করার সময় প্রায়শই 'us' উঠে গিয়ে 'i' বসে (যেমন: Focus \n Foci)।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "a2bee6ec-b9da-41dd-a76f-9d2ee95fc3b5",
+      "question": "Which of the following words is the plural form of 'brother' ?[]",
+      "options": [
+        "Gaudy",
+        "Brethren",
+        "Buddy",
+        "Bro"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The word 'brother' has two plural forms, each used in different contexts: \nBrothers: Used for male siblings born of the same parents (একই বাবা-মায়ের সন্তান বা ভাইদের বোঝাতে ব্যবহৃত হয়).\nBrethren: Used for male members of a religious group, society, or profession (একই ধর্মীয় সম্প্রদায় বা কোনো সমিতির সদস্যদের বোঝাতে ব্যবহৃত হয়).",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "cf35a522-89c9-4c21-811e-865d51306ea5",
+      "question": "Which one is plural ?[]",
+      "options": [
+        "Mathematics",
+        "Ox",
+        "Phenomena",
+        "Leaf"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Singular (একবচন): Phenomenon (ফেনোমেনন) — অর্থ: কোনো একটি ঘটনা বা দৃশ্য।\nPlural (বহুবচন): Phenomena (ফেনোমেনা) — অর্থ: একের অধিক ঘটনা বা দৃশ্য। \nইংরেজি ব্যাকরণে গ্রীক বা ল্যাটিন থেকে আসা অনেক শব্দের শেষে 'on' থাকলে তা singular হয়, আর 'a' থাকলে তা plural হয়।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "40caf6d9-1328-4fec-860a-d3040371bae3",
+      "question": "What is the plural form of the word 'Chief' ?[]",
+      "options": [
+        "Chieves",
+        "Chiefen",
+        "Chiefies",
+        "Chiefs"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সাধারণত যেসব শব্দের শেষে '-f' বা '-fe' থাকে, সেগুলোর প্লুরাল করার সময় '-ves' যোগ হয় (যেমন- Thief থেকে Thieves)। কিন্তু 'Chief' শব্দটির ক্ষেত্রে এটি প্রযোজ্য নয়। 'Chief' এর শেষে '-f' এর আগে একটি স্বরবর্ণ (vowel - 'e') থাকায়, এর সাথে শুধু 's' যোগ করে বহুবচন করা হয়। \nউদাহরণ:\nSingular: Chief (প্রধান)\nPlural: Chiefs (প্রধানগণ/নেতৃবৃন্দ)",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "14bb5c3b-3118-4f51-99f9-6d5c4eec5917",
+      "question": "Which one is singular form ?[]",
+      "options": [
+        "Agenda",
+        "Data",
+        "Phenomena",
+        "Radius"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Radius (singular): এটি দ্বারা একটিমাত্র ব্যাসার্ধ বা রেখাকে বোঝায়।\nRadii (plural): Radius-এর বহুবচন (Plural) হলো Radii \nনিয়ম: ল্যাটিন থেকে আগত যেসব শব্দের শেষে -us থাকে, তাদের বহুবচন করার সময় -us উঠে গিয়ে -i যুক্ত হয়। যেমন: Radius -> Radii, Focus -> Foci.",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "a7016d47-6556-44d9-a743-462dd6c0a858",
+      "question": "Which one is singular ?[]",
+      "options": [
+        "Mitochondria",
+        "Data",
+        "Focus",
+        "Fungi"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Singular (একবচন): Focus (ফোকাস - কেন্দ্রবিন্দু বা মনোযোগ)\nPlural (বহুবচন): Foci (ফোকাসাই) অথবা Focuses (ফোকাসেস)",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "654c27d0-459b-4df6-af22-bf781ff6b7b9",
+      "question": "Find out the correct sentence[]",
+      "options": [
+        "Five deers and ten sheeps are grazing in the field",
+        "Five deer and ten sheeps are grazing in the field",
+        "Five deer and ten sheep are grazing in the field",
+        "Five deers and ten sheep are grazing in the field"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি ব্যাকরণে Deer (হরিণ) এবং Sheep (ভেড়া) এমন কিছু বিশেষ শব্দ, যেগুলোর একবচন (Singular) এবং বহুবচন (Plural) একই থাকে। তাই 'five deers' বা 'ten sheeps' বলা ভুল; সঠিক হলো 'five deer' এবং 'ten sheep'।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "6e6a922d-7dd5-41c8-aba2-38d3a652fc55",
+      "question": "Which one is singular ?[]",
+      "options": [
+        "Data",
+        "Media",
+        "Criteria",
+        "Rabies"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যদিও 'Rabies' শব্দের শেষে 's' আছে, তবুও এটি একটি রোগের নাম, যা সাধারণত Uncountable Noun (অগণন বিশেষ্য) বা Singular noun হিসেবে ব্যবহৃত হয়।\nসংজ্ঞা: র‍্যাবিস হলো ভাইরাসজনিত এক ধরনের জুনোটিক রোগ, যা মূলত প্রাণী থেকে মানুষের মধ্যে ছড়ায়।\nনিয়ম: ইংরেজি ব্যাকরণে কিছু রোগের নাম (যেমন- Rabies, Measles, Mumps, Diabetes) দেখতে plural-এর মতো হলেও, এগুলি সবসময় singular verb গ্রহণ করে।\nউদাহরণ: \"Rabies is a fatal disease\" (র‍্যাবিস একটি মারাত্মক রোগ) - এখানে 'is' (singular verb) বসেছে, 'are' নয়।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "23e3bc5a-8e8c-4e64-a5e6-5e87a081f51c",
+      "question": "Identify the singular number[]",
+      "options": [
+        "Oases",
+        "Data",
+        "Crises",
+        "Axis"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইংরেজি গ্রামারে যে সমস্ত শব্দের শেষে \"-is\" থাকে এবং সেগুলোকে বহুবচন (Plural) করতে হলে \"-is\" তুলে দিয়ে \"-es\" যোগ করতে হয়, 'Axis' সেগুলোর মধ্যে একটি। \nAxis = একটি অক্ষ (Singular)\nAxes = একের অধিক অক্ষ (Plural)",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "d0c3026c-ab1c-4ffc-99e5-232a59bde750",
+      "question": "What is the plural of the word 'Index' ?[]",
+      "options": [
+        "Indices",
+        "Indexes",
+        "Index",
+        "Indexs"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Indices: এটি সবচেয়ে সাধারণ plural ফর্ম, বিশেষ করে গণিত (mathematics) বা কোনো টেকনিক্যাল সূচক (indicators) বোঝাতে এটি বেশি ব্যবহৃত হয়।\nIndexes : এটি সাধারণত বইয়ের শেষের নির্ঘণ্ট বা তালিকার (lists/catalogs) বহুবচন হিসেবে ব্যবহৃত হয়।\nনিয়ম: 'Index' শব্দটি ল্যাটিন ভাষা থেকে আসায়, ইংরেজি Grammar-এর সাধারণ নিয়ম (s/es যোগ করা) ছাড়াও এর একটি ল্যাটিন বহুবচন রূপ (indices) রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "cb1d7f2e-028f-4276-ba9d-e850449c0877",
+      "question": "The singular form of 'Appendices' is ---[]",
+      "options": [
+        "Appendice",
+        "Appendix",
+        "Appendex",
+        "Appendixes"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Appendix (একবচন/Singular): বই, দলিল বা চুক্তির শেষে অতিরিক্ত যে অংশ সংযুক্ত করা হয় (পরিশিষ্ট)।\nAppendices (বহুবচন/Plural): যখন একের অধিক পরিশিষ্ট থাকে, তখন 'Appendices' বা 'Appendixes' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "c6e564cc-0e17-4f02-9f91-3a70ea45b68f",
+      "question": "Identify the word in the plural form[]",
+      "options": [
+        "Radii",
+        "Stadium",
+        "Physics",
+        "Agendum"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মূল শব্দ (Singular): Radius (ব্যাসার্ধ) — যা ল্যাটিন ভাষা থেকে এসেছে।\nবহুবচন (Plural): Radii — ল্যাটিন ভাষার নিয়ম অনুযায়ী, যেসব শব্দের শেষে '-us' থাকে, তাদের বহুবচনে '-us' বাদ দিয়ে '-i' যোগ করা হয়।\nব্যবহার: Radius মানে একটি ব্যাসার্ধ (singular), আর Radii মানে একের অধিক ব্যাসার্ধ (plural)।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "4575db45-d7d4-45a4-a106-a97555e1772c",
+      "question": "Which of the following word is the plural number ?[]",
+      "options": [
+        "Fixture",
+        "Machinery",
+        "Scenery",
+        "Public"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইংরেজি গ্রামারে কিছু Noun রয়েছে যেগুলো দেখতে Singular (একবচন) মনে হলেও অর্থগতভাবে সেগুলো Plural (বহুবচন) হিসেবে কাজ করে। 'Public' শব্দটি তেমনি একটি Collective Noun যা সাধারণ জনগণকে বোঝায়। \nকেন এটি Plural? 'Public' দ্বারা একটি জনসমষ্টি বা অনেক মানুষকে একত্রে বোঝানো হয়। তাই বাক্য গঠনের সময় এটি সাধারণত Plural Verb গ্রহণ করে (যেমন: The public are aware)।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "7bfea4d1-4b52-4f34-85d4-5f32be182483",
+      "question": "Which of the following words has no plural form ?[]",
+      "options": [
+        "Analysis",
+        "Crisis",
+        "Information",
+        "Louse"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "In English grammar, Information is an uncountable noun (অগণনযোগ্য বিশেষ্য). Uncountable nouns represent abstract concepts or masses that cannot be counted as individual units; therefore, they do not have a plural form. \nYou cannot add an 's' to make it \"informations\".\nIt always takes a singular verb (e.g., \"The information is useful\").\nTo express a specific quantity, you must use a phrase like \"a piece of information\" or \"two pieces of information\".",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "aaf34479-5678-4d3c-90a1-853c26c92635",
+      "question": "Memorandum শব্দের পরিভাষা ---[]",
+      "options": [
+        "অনুলিপি",
+        "স্বারকলিপি",
+        "প্রতিলিপি",
+        "অভিযোগপত্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আভিধানিক অর্থ: ল্যাটিন শব্দ 'Memorandum' থেকে এর উৎপত্তি, যার অর্থ হলো \"যা মনে রাখতে হবে\" (something to be remembered)।\nব্যবহারিক অর্থ: দাপ্তরিক বা ব্যবসায়িক ক্ষেত্রে কোনো গুরুত্বপূর্ণ তথ্য, প্রস্তাব বা নির্দেশাবলী লিখিতভাবে জানানোর মাধ্যমকে স্মারকলিপি বলা হয়। একে সংক্ষেপে 'মেমো' (Memo) ও বলা হয়ে থাকে।\nঅন্যান্য সমার্থক শব্দ: প্রসঙ্গের ওপর ভিত্তি করে একে স্মারক, চিঠিপত্র, বা চীরকুট হিসেবেও অভিহিত করা যায়।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "42ced273-4e74-4faf-adbf-d188a1c4aa32",
+      "question": "Which one is plural ?[]",
+      "options": [
+        "Ethics",
+        "Mathematics",
+        "Bowels",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Bowels সাধারণত মানুষের বা প্রাণীর অন্ত্রের (intestines) সম্পূর্ণ অংশকে বোঝাতে ব্যবহৃত হয়, যা একের অধিক অংশ নিয়ে গঠিত, তাই এটি বহুবচন হিসেবে গণ্য হয়। এছাড়াও, অনেক সময় এটি 'গভীর অভ্যন্তর' (deep inside) বোঝাতেও ব্যবহৃত হয় (যেমন: the bowels of the earth)।",
+      "images": []
+    }
+  ]
+}

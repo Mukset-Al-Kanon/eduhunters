@@ -1,0 +1,385 @@
+{
+  "exam_id": 1305,
+  "title": "Exam (37)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 10,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "cdc69fc9-c131-4bed-abde-9ea1a8dd2620",
+      "question": "United Nations এর সদর দপ্তর কোথায় অবস্থিত?",
+      "options": [
+        "লন্ডন",
+        "প্যারিস",
+        "নিউ ইয়র্ক",
+        "জেনেভা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "UN(United Nations) এর সদর দপ্তর নিউ ইয়র্কে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "0da91c7b-8940-44da-a35b-1cabab046894",
+      "question": "ফ্রান্সের সরকারি ভাষা -",
+      "options": [
+        "ইংরেজি",
+        "জার্মান",
+        "ফরাসি",
+        "স্প্যানিশ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফ্রান্সের সরকারি ভাষা - ফরাসি।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "6a9a7fe0-4cf5-4275-9fdf-47ab12fc574b",
+      "question": "অস্ট্রেলিয়ার রাজধানী -",
+      "options": [
+        "সিডনি",
+        "মেলবোর্ন",
+        "পার্থ",
+        "ক্যানবেরা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অস্ট্রেলিয়ার রাজধানী হলো ক্যানবেরা।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "8dac6387-aaf5-4d0e-b032-631a922e1d12",
+      "question": "জাপানের মুদ্রার নাম কী?",
+      "options": [
+        "রিঙ্গিত",
+        "ডলার",
+        "ইউয়ান",
+        "ইয়েন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জাপানের মুদ্রার নাম ইয়েন।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "cc144111-9eab-4a86-b288-cb84a76ae730",
+      "question": "'পার্লামেন্ট' শব্দটি কোন দেশের আইনসভাকে বোঝায়?",
+      "options": [
+        "ভারত",
+        "যুক্তরাজ্য",
+        "চীন",
+        "জাপান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "'পার্লামেন্ট'  হলো যুক্তরাজ্যের আইনসভা।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d9133998-ba20-46d2-9bc3-efc5ffbff52f",
+      "question": "কোন দেশের সরকারি ভাষা 'Dzongkha'?",
+      "options": [
+        "নেপাল",
+        "ভুটান",
+        "তিব্বত",
+        "মিয়ানমার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জংখা একটি তিব্বত-বর্মন ভাষা যা ভুটানের সরকারী এবং জাতীয় ভাষা।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "30a6b8e1-f91c-4a02-abbe-9de68d8e6138",
+      "question": "'Riksdag' কোন দেশের আইনসভা?",
+      "options": [
+        "নরওয়ে",
+        "ফিনল্যান্ড",
+        "সুইডেন",
+        "ডেনমার্ক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "'Riksdag' সুইডেনের আইনসভা।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "1587d532-9bdb-462d-847d-7a191e5ae422",
+      "question": "'Falkland Islands' বর্তমানে কোন দেশের উপনিবেশ?",
+      "options": [
+        "আর্জেন্টিনা",
+        "স্পেন",
+        "ফ্রান্স",
+        "যুক্তরাজ্য"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "'Falkland Islands' বর্তমানে যুক্তরাজ্যের উপনিবেশ।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "82e561e4-9f7b-40b1-ae35-01911148ce1b",
+      "question": "'Bundestag' কী?",
+      "options": [
+        "ফ্রান্সের সর্বোচ্চ আদালত",
+        "জার্মানির নিম্নকক্ষ আইনসভা",
+        "রাশিয়ার সামরিক বাহিনী",
+        "নেদারল্যান্ডসের নির্বাচন কমিশন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "'Bundestag' হলো জার্মানির নিম্নকক্ষ আইনসভা",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "8543a879-0392-4de9-add2-2e8b10de6111",
+      "question": "'Dutch' ভাষাটি মূলত কোন দেশের সরকারিভাবে ব্যবহৃত ভাষা?",
+      "options": [
+        "ডেনমার্ক",
+        "সুইজারল্যান্ড",
+        "নরওয়ে",
+        "নেদারল্যান্ডস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "'Dutch' ভাষাটি মূলত নেদারল্যান্ডস এ সরকারিভাবে ব্যবহৃত ভাষা।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "47275d1d-c39e-4000-b69b-72f5b5bf8740",
+      "question": "'La Moneda Palace' কোন দেশের রাষ্ট্রপতির দপ্তর?",
+      "options": [
+        "আর্জেন্টিনা",
+        "ম্যাক্সিকো",
+        "ব্রাজিল",
+        "চিলি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "'La Moneda Palace'  চিলির রাষ্ট্রপতির সদর দপ্তর।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "4efe9267-045e-45b5-87ae-859f13bb23f3",
+      "question": "Which of the following words is a verb?",
+      "options": [
+        "Intension",
+        "Intellect",
+        "Interest",
+        "Interim"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Intention (উদ্দেশ্য, অভিপ্রায়), Intellect (বোধশক্তি) এরা প্রত্যেকে noun; Interim- noun. মধ্যকাল, adj. মধ্যকালীন, adv. ইতঃপূর্বে; Interest-noun. মনোযোগ, আগ্রহ,verb মনোযোগ আকর্ষণ করা",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "dcc804d3-114d-421e-bc8d-54a93ecf8e2f",
+      "question": "Which word is verb?",
+      "options": [
+        "Dance",
+        "Some",
+        "Little",
+        "Rose"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Dance-noun. নৃত্য, verb, নৃত্য করা; Little (অল্প পরিমাণ)-adjective; Rose (গোলাপ ফুল)- noun  ,Some (কতিপয় ব্যক্তি/বস্তু)- pronoun & adj.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "46c08fe3-d4b7-4455-ac02-1889c3b841fe",
+      "question": "Which word is both a noun and a verb?",
+      "options": [
+        "Achieve",
+        "Practice",
+        "Believe",
+        "Brush"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "advice (উপদেশ), practice (অনুশীলন), belief (বিশ্বাস) এরা প্রত্যেকে নাম বুঝায় বিধায় noun এবং brush (বুরুশ, বুরুশ/ব্রাশ করা)- noun & verb",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "ead6d836-7426-4775-9df7-7f90c686530e",
+      "question": "Which word can be used as noun and verb?",
+      "options": [
+        "Furniture",
+        "Information",
+        "Book",
+        "Today"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "furniture (আসবাবপত্র), information (তথ্য, সংবাদ) এরা প্রত্যেকে noun;today- n.আজ, adv. বর্তমান সময়ে; book- n. বই, গ্রন্থ, v. টিকিট কাটা",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "ca55e49e-d381-45f4-bf10-69100e0f8930",
+      "question": "The word 'massacre' is -",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Both noun and verb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Massacre- n. নির্বিচারে হত্যাকাণ্ড v. নির্বিচারে হত্যা করা; (বিশেষত: নির্দয়ভাবে ও দলে দলে হত্যা বা হত্যা করা",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "601cdc83-0a71-4a8b-b269-65602346b0a0",
+      "question": "Which of the following is a verb?",
+      "options": [
+        "Economic",
+        "Economize",
+        "Economical",
+        "Economy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "economy (মিতব্যয়িতা)- noun; economical (সঞ্চয়ী, মিতব্যয়ী)- adjective;economic (অর্থনৈতিক) -adjective: economize (সতর্কভাবে খরচ করা)-verb",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "17611258-a65f-40e9-8b32-7689f40e5d0e",
+      "question": "Which word is not noun?",
+      "options": [
+        "Articulation",
+        "Simulation",
+        "Defame",
+        "Indemnity"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "articulation (স্পষ্ট উচ্চারণ), simulation (ছলনা), indemnity (নিরাপত্তা) এরা প্রত্যেকে নাম বুঝায় বিধায় noun এবং defame এর অর্থ মানহানি করা যা এক ধরনের কাজ করা বুঝায় তাই defame হচ্ছে verb",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "9bb6f92f-82e7-4f96-b8f5-b2bb49b50bfc",
+      "question": "Which one of the following is not an adjective?",
+      "options": [
+        "Humble",
+        "Humane",
+        "humour",
+        "Humid"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "humble (বিনয়ী), humid (স্যাতসেতে), humane (মানুষোচিত) এয়া প্রত্যেকে adjective; humour (খেয়াল) যা একটি মানুষিক অবস্থার নাম তাই humour হচ্ছে noun",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "a564e9e3-1720-4502-9224-a25c50872b39",
+      "question": "The word 'diabetic' is -",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Noun adjective",
+        "Both a noun or a adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "diabetic n. বহুমূত্র রোগগ্রস্ত লোক; adj. বহুমূত্র রোগগ্রস্ত, বহুমূত্র রোগ সংক্রান্ত।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "7fda5b29-0f54-4ccb-a39d-2778463fb90d",
+      "question": "Which of the following is a noun?",
+      "options": [
+        "Pontificate",
+        "Imprimatur",
+        "Ricochet",
+        "Ordain"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ordain (বিন্যস্ত করা, ভাগ্যে লেখা), pontificate (নিজেকে সঠিক ভাবা), ricochet (সবেগে ঠিকরে ওঠা) এরা প্রত্যেকে কাজ করা বুঝায় তাই প্রত্যেকে হচ্ছে verb; imprimatur (অনুমোদন, অনুমতি)-noun",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "33a3b17b-5234-4676-8077-28db09a8b082",
+      "question": "Which is the adjective among the following words?",
+      "options": [
+        "Diploma",
+        "Diplomatic",
+        "Diplomacy",
+        "Diplomat"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Diploma (প্রাতিষ্ঠানিক উপাধি), Diplomacy (কুটনীতি), Diplomat (কুটনীতিক দূত) এয়া প্রত্যেকে নাম বুঝায় বিধায় noun এবং Diplomatic (কুটনীতি সংক্রান্ত) হচ্ছে adjective",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "a0323da5-a23f-495b-8d1c-973903fd814f",
+      "question": "Which of the following is noun?",
+      "options": [
+        "Advise",
+        "Guise",
+        "Practise",
+        "Advertise"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "advise (উপদেশ দেয়া), practise (চর্চা করা, অনুশীলন করা), advertise (বিজ্ঞাপন করা/দেয়া) হচ্ছে verb; guise (গাইল- বেশ, পোশাকের ধরন) হচ্ছে noun; auspicious (ওচপিশাচ- শুভ, অনুকূল) হচ্ছে adjective",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "21820004-2b93-4a1e-a564-c6f5cfad0e12",
+      "question": "The word 'accessory' is-",
+      "options": [
+        "Noun",
+        "Adverb",
+        "Preposition",
+        "Verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Accessory - noun, অতিরিক্ত অংশ, সহায়ক বস্তু, উপাঙ্গ; adjective অতিরিক্ত, উপ-, আনুষঙ্গিক।প্রশ্নে adjective হিসেবে কোনো option নেই। সুতরাং সঠিক উত্তর হবে noun",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "c698f1e8-5bd4-4aa0-a2db-2f651dbded3c",
+      "question": "Which one is noun?",
+      "options": [
+        "Speech",
+        "Speak",
+        "Say",
+        "Tell"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Speak (কথা বলা), Say (কথা বলা), tell (কথা বলা) এরা প্রত্যেকে কাজ করা বুঝায় তাই প্রত্যেকে হচ্ছে verb; Speech (বক্তব্য, উক্তি, বাণী) এক ধরনের কথোপকথনের নাম বুঝায় বিধায় Speech হচ্ছে noun",
+      "images": []
+    }
+  ]
+}

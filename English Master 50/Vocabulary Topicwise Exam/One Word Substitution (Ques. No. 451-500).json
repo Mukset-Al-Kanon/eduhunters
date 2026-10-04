@@ -1,0 +1,761 @@
+{
+  "exam_id": 8113,
+  "title": "One Word Substitution (Ques. No. 451-500)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "One Word Substitution Exam (560 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "34ac9552-b87f-4b05-8651-7decc3f22621",
+      "question": "The word fish, feed and pond all have something to do with ---[]",
+      "options": [
+        "Poultry farming",
+        "Horticulture",
+        "Aquaculture",
+        "Pisciculture"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "6c7808b4-23ad-47ed-b997-96f6fcd03835",
+      "question": "The study of activity of growing garden plants =[]",
+      "options": [
+        "Apiculture",
+        "Agriculture",
+        "Horticulture",
+        "Viniculture"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "3aabe42c-8564-4292-aa40-3a795d24d0e7",
+      "question": "Investment is always for good returns. Here 'returns' means ---[]",
+      "options": [
+        "Returning a purchased article",
+        "Getting money as profit",
+        "Enjoying good will",
+        "Economic system"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "b59dd8ca-5f0b-4a33-bba2-514ae5bf958f",
+      "question": "A cliche is ---[]",
+      "options": [
+        "A noble expression",
+        "An exception to the rule",
+        "A universal truth",
+        "An overused expression"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "28c88545-a21e-46e6-bd20-51e4f1644a35",
+      "question": "A cliche is a ---[]",
+      "options": [
+        "A witty statement",
+        "A worn out statement",
+        "A false evidence",
+        "Irish humour"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "e9103765-77f3-4a76-99ef-1aef4f7a4215",
+      "question": "Blue-book' means ---[]",
+      "options": [
+        "Literary book",
+        "Government publication",
+        "Records of court",
+        "Copy of judgement"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "d64b0dbb-5f7f-44db-bb1a-deb690ed2f04",
+      "question": "A person who does not want to see the realities of life and tries to escape ---[]",
+      "options": [
+        "Escapist",
+        "Hovel",
+        "Plunderer",
+        "Scavenger"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "70e53d96-f858-4298-95da-38407adf4792",
+      "question": "A process involving too much official formality ---[]",
+      "options": [
+        "Nepotism",
+        "Diplomacy",
+        "Red-tapism",
+        "Bureaucracy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "e0582f77-b1a5-4171-a26e-e148b19a6046",
+      "question": "A person who performs the art of making statues using clay ---[]",
+      "options": [
+        "Mediator",
+        "Arbitrator",
+        "Sculptor",
+        "Miniature"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "9be35725-35ee-4943-a5f7-510eb9581b59",
+      "question": "A statement based on supposition is said to be ---[]",
+      "options": [
+        "Erroneous",
+        "Hypothetical",
+        "Ambiguous",
+        "Distorted"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "24759464-315f-457c-8dfa-78612080372d",
+      "question": "A man who is averse to change and progress is said to be ---[]",
+      "options": [
+        "Liberal",
+        "Democratic",
+        "Conservative",
+        "Radial"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "f7edc0cb-8be8-4388-8749-2a393653cd52",
+      "question": "Deja vu' means ---[]",
+      "options": [
+        "Amnesia",
+        "Recollection",
+        "Prediction",
+        "Day dreaming"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "e1d580cb-2f57-43d7-a806-56a9b952b825",
+      "question": "The feeling of having seen or experienced before is called ---[]",
+      "options": [
+        "Deja vu",
+        "Surrel",
+        "Bon voyage",
+        "Hallucination"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "7bd4ed5f-0195-4647-a67c-8f819e6cd36d",
+      "question": "Easy to shape in desired form ---[]",
+      "options": [
+        "Malleable",
+        "Stiff",
+        "Rigid",
+        "Brittle"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "f197e569-799e-4446-b6e1-a02a2095ba3f",
+      "question": "Disease that spreads by means of germ carried in the atmosphere ---[]",
+      "options": [
+        "Hygienic",
+        "Limited",
+        "Harmless",
+        "Infectious"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "4379623f-dfd8-445c-bc9a-8c3e3c7bcba3",
+      "question": "Giving undue favour to one's own kith and kin ---[]",
+      "options": [
+        "Nepotism",
+        "Favouritism",
+        "Worldliness",
+        "Corruption"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "614a3cff-2465-4788-9452-683fd9079a00",
+      "question": "Code of diplomatic etiquette and precedence ---[]",
+      "options": [
+        "Formalism",
+        "Statemanship",
+        "Hierarchy",
+        "Protocol"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "474468ed-d0da-4e1b-abc5-4ef844fb13b0",
+      "question": "One looking only to the drak side of things ---[]",
+      "options": [
+        "Optimist",
+        "Pessimist",
+        "Theist",
+        "Atheist"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "2ae33ace-e5df-4d92-8713-90224dca0dae",
+      "question": "An unexpected piece of good fortune ---[]",
+      "options": [
+        "Turnsitle",
+        "Windfall",
+        "Philanthropy",
+        "Benevolence"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "8cfbd9fe-2465-46a2-a224-308f3b0b999e",
+      "question": "A small shop that sells fashionable clothes, cosmetics etc.[]",
+      "options": [
+        "Stall",
+        "Store",
+        "Boutique",
+        "Superstore"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "456c81f8-7ded-4653-8643-2b1175b8b436",
+      "question": "Habitually silent and talk less is ---[]",
+      "options": [
+        "Teciturn",
+        "Servile",
+        "Unequivocal",
+        "Quiet"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "6c3e9380-e662-4194-bc5b-8742bf0fabf6",
+      "question": "A radiologist is most often employed in ---[]",
+      "options": [
+        "Power plants",
+        "Workshops",
+        "Finances",
+        "Hospitals"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "c54ab83c-aedd-427a-988d-c83c3ae16d8a",
+      "question": "Something bought cheaply or for less than the usual price is called ---[]",
+      "options": [
+        "A bargain",
+        "A inheritance",
+        "A reward",
+        "A refund"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "ccf29667-770b-4f55-9508-26a9c6c0afae",
+      "question": "An area or individual that is not well known is ---[]",
+      "options": [
+        "Unknown",
+        "Common",
+        "Obvious",
+        "Obscure"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "9cde4a3e-e119-4961-88b4-1c7a3b24e6bd",
+      "question": "The ability to use language appropriately in different circumtances is called ---[]",
+      "options": [
+        "Communicative capability",
+        "Communicative competence",
+        "Communicative skill",
+        "Linguist skill"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "4f3eb88a-9fa6-422b-bbe7-a06882d57f2e",
+      "question": "Be the embodiment of perfect example ---[]",
+      "options": [
+        "Idol",
+        "Characterise",
+        "Personify",
+        "Signify"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "4fcf4b8e-5851-4f61-9a56-f8fcc19e90bc",
+      "question": "Zoonotic transmission' means ---[]",
+      "options": [
+        "Coming from monkey",
+        "Coming from plant",
+        "Coming from human being",
+        "Coming from animal"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "05c66549-25fb-4be8-9069-649d47b2b244",
+      "question": "He decorated the cake with edible flower. Here edible means ---[]",
+      "options": [
+        "A type of flower that can be eaten",
+        "A type of flower that is not meant to be eaten",
+        "A type of flower that is only drawn on the cake",
+        "A type of flower that has beautiful scent"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "e16a6b1b-6e14-47d6-843f-792e7e8f220f",
+      "question": "To doctor an animal means ---[]",
+      "options": [
+        "To treat it",
+        "To sterilize it",
+        "To poison it",
+        "To cure it"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "2a15650c-7811-45fc-9008-a7d8b97d0279",
+      "question": "Musk means ---[]",
+      "options": [
+        "A form of drama",
+        "Face cover",
+        "A substance used in making perfume",
+        "A disguise"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "a346b40b-4a94-4c96-a1d4-df937b851f50",
+      "question": "A man whose wife is died is called ---[]",
+      "options": [
+        "Widow",
+        "Widower",
+        "Spinster",
+        "Bachelor"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "16169788-9efc-4ee2-8ff2-43bba654221b",
+      "question": "An extra message added at the end if a letter after it is signed is called ---[]",
+      "options": [
+        "Corrigendum",
+        "Postscript",
+        "NB",
+        "RSVP"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "4e8900d9-f3b2-4c2e-9e7a-7825e599d7ca",
+      "question": "Some one who is capricious is ---[]",
+      "options": [
+        "Easily irritated",
+        "Wise and willing to cooperate",
+        "Exceedingly conceided and arrogant",
+        "Known for sudden changes in attitude or behaviour"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "d2f4303e-9305-4943-b908-c7a730544c6e",
+      "question": "Theocracy' is the rule of ---[]",
+      "options": [
+        "Military",
+        "Nobility",
+        "Aristocrats",
+        "Church"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "da9b15bb-0983-428e-9fb0-654104c057ac",
+      "question": "Howl' is the sound of ---[]",
+      "options": [
+        "Apes",
+        "Dogs",
+        "Jackals",
+        "Tigers"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "7b9095e0-967f-4132-b54c-101c3de7cb7b",
+      "question": "A person habitually silent and talking little' is called ---[]",
+      "options": [
+        "Teciturn",
+        "Servile",
+        "Unequivocal",
+        "Synoptic"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "6b09f82f-046d-4da7-82b0-093aace33ce9",
+      "question": "The word illiterate means a person who does not know how to ---[]",
+      "options": [
+        "Read or write",
+        "Read",
+        "Write",
+        "Speak"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "b8d55376-a9af-4422-8ce6-1395d850ad1c",
+      "question": "The word 'omnipotent' refers to one who ---[]",
+      "options": [
+        "Knows everything",
+        "Has total power",
+        "Is present everywhere",
+        "Eats all types of food"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "1f30d0f5-2187-45cf-bd6c-2ac73a248f8e",
+      "question": "The treat of skin disease is known as ---[]",
+      "options": [
+        "Dermitology",
+        "Darmitology",
+        "Dermatology",
+        "Dormitology"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "4a71bd69-0473-4696-80d3-9527ffd77af6",
+      "question": "The word 'urbane' is related to ---[]",
+      "options": [
+        "City life",
+        "Manners",
+        "Village life",
+        "Slum dwellers"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "57e70bde-7700-4c36-b0a9-106f29e5a734",
+      "question": "Etymology is the branch of ---[]",
+      "options": [
+        "Economics",
+        "Linguistics",
+        "Statistics",
+        "History"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "66e7f73f-746a-4d1d-a1f9-19d2e8c7ab67",
+      "question": "A 'sceptic' is one who ---[]",
+      "options": [
+        "Is considered to be strange or unusual",
+        "Always expects bad things to happen",
+        "Believe that people are motivated purely by self-interest",
+        "Has doubts about things that other people believe"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "82ef8733-5f04-49cc-a29a-bb3f50d85dc7",
+      "question": "A maiden journey' means ---[]",
+      "options": [
+        "A journey made by a young man",
+        "A journey made by a new ship",
+        "Bridegroom",
+        "The first journey made by a ship"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "19b7888f-e7dd-4db7-92cf-c505f69c7241",
+      "question": "Having two possible meanings and not very clear is called ---[]",
+      "options": [
+        "Amphibious",
+        "Anonymous",
+        "Confiscate",
+        "Ambiguous"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "d1611b58-efaa-4ad3-8a51-fa14efff3e4e",
+      "question": "The science of teaching is called ---[]",
+      "options": [
+        "Phonetics",
+        "Pedagogy",
+        "Ethics",
+        "Biology"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "f04c58c9-e5fe-49a5-b24f-649c552e0b74",
+      "question": "The word 'adulteration' means ---[]",
+      "options": [
+        "To mix something intensely",
+        "To use unsual methods",
+        "To take impure by adding inferior ingredients",
+        "To mix poison"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "e29d761a-3e8e-43c4-8e2c-bd6a9942aad7",
+      "question": "Stage of growth between boyhood and youth[]",
+      "options": [
+        "Infancy",
+        "Teenage",
+        "Adolescence",
+        "Old age"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "d09b756b-d7d1-41de-aa23-bcee098f7650",
+      "question": "A way of making a group of people all think about something at the same time to solve a problem is known as ---[]",
+      "options": [
+        "Cooperation",
+        "Instruction",
+        "Collaborating",
+        "Brainstorming"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "682e4f00-ea69-4bb6-999c-f88c37017fc2",
+      "question": "A organ of body cut off by surgery ---[]",
+      "options": [
+        "Imitation",
+        "Amputation",
+        "Adaptation",
+        "Impartial"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "1d1b9651-1dce-4f4e-87a4-3abdf1c7973d",
+      "question": "Yearly celebration of a date or an event ---[]",
+      "options": [
+        "Anniversary",
+        "Birthday",
+        "Jubilee",
+        "Centenary"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

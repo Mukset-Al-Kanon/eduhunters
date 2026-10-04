@@ -1,0 +1,761 @@
+{
+  "exam_id": 8460,
+  "title": "Subject Verb Agreement (Ques. No. 251-300)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Subject Verb Agreement (324 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "d1f84216-f2c7-4062-a73e-558838ecb77e",
+      "question": "The influence of diverse branches of science ---.[]",
+      "options": [
+        "had captured widespread attention",
+        "has captured widespread attention",
+        "have had captured widespread attention",
+        "had had captured widespread attention"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "d05c3783-f252-4145-86b3-eb96b8c4d85b",
+      "question": "Identify the correct sentence[]",
+      "options": [
+        "Three-fourths of the people are absent",
+        "Three-fourth of the people are absent",
+        "Three-fourths of the people is absent",
+        "Three-fourth of the people is absent"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "6e36dcb7-c81b-4fa5-a8c2-e4ddb8b60167",
+      "question": "Which of the following is written in correct form ?[]",
+      "options": [
+        "Each of the girl is responsible for it",
+        "Each of the girls are responsible for it",
+        "Each of the girls is responsible for it",
+        "Each of the girl are responsible for it"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "55b8bc68-1d4a-47d3-93f6-08a879781b0b",
+      "question": "Mr.A Mannan along with his four children --- the island[]",
+      "options": [
+        "visit",
+        "has visited",
+        "have visited",
+        "A & C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "429fac61-7956-48d9-9610-748b3275b4ea",
+      "question": "A bouquet of yellow roses --- colour and fragrance to the room[]",
+      "options": [
+        "lend",
+        "have lent",
+        "has lent",
+        "lends"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "806c5433-b646-43d0-9d56-09dea3f9ce6b",
+      "question": "Either of the boys --- done the work[]",
+      "options": [
+        "is",
+        "has",
+        "are",
+        "have"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "3bab716c-330f-42db-aa14-54f11806ef98",
+      "question": "Nowadays, price of every necessary thing ---[]",
+      "options": [
+        "is rising",
+        "is raising",
+        "are raising",
+        "are rising"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "78b3c714-ad7f-4f7c-be54-de4005303f10",
+      "question": "The bed and breakfast ---[]",
+      "options": [
+        "are entertaining",
+        "was entertaining",
+        "has entertaining",
+        "have entertained"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "c09da4f8-9f83-4ac6-967e-2529a5d6b117",
+      "question": "Select the correct sentence[]",
+      "options": [
+        "The rich do not last for ever",
+        "Riches does not last for ever",
+        "Rich do not last for ever",
+        "Riches do not last for ever"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "83e8d958-80be-42e5-8f5a-0ca2242415e0",
+      "question": "Neither Bulbul nor his parents --- come[]",
+      "options": [
+        "have",
+        "has",
+        "has to",
+        "shall have been"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "1b97707c-0c17-40d6-9733-15cb3a1aa2b2",
+      "question": "Neither the teacher nor the students --- to use this book again[]",
+      "options": [
+        "wants",
+        "want",
+        "wanting",
+        "is wanting"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "7c3101ae-fafd-42a1-87f7-8fd3f3161d29",
+      "question": "Refrigerating meats --- the spread of bacteria[]",
+      "options": [
+        "slows",
+        "slowing",
+        "to slow",
+        "is slowed"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "3ce28aac-ac43-4b34-8978-a639c6dbb393",
+      "question": "Storing raw fishes long time in refrigerators --- the taste gradually[]",
+      "options": [
+        "suicide",
+        "decreases",
+        "destroy",
+        "augmemts"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "9d0bc9c1-a2f7-4abd-b4bc-7feaec3b573f",
+      "question": "A doctor --- with patients in the big room[]",
+      "options": [
+        "working",
+        "to work",
+        "is working",
+        "work"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "b7b42bd8-bbe5-409b-b487-e1815a6125ad",
+      "question": "Either my shoes or your coat --- always on the floor[]",
+      "options": [
+        "is",
+        "are",
+        "were",
+        "have"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "524e0872-3dfe-4527-8fab-4204270d9ba3",
+      "question": "Sweet --- the uses of adversity[]",
+      "options": [
+        "are",
+        "is",
+        "has",
+        "have"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "71e20696-37ca-4c87-905b-c93b263b5f2f",
+      "question": "There is no denying fact that the sufferings of the Rohingyas ---[]",
+      "options": [
+        "are beggar description",
+        "beggar description",
+        "have beggar description",
+        "beggars description"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "aad8b67d-af29-481e-bf2e-8631259c6cdb",
+      "question": "Two-thirds of the mega city ---[]",
+      "options": [
+        "have been destroyed by dynamyte",
+        "have  destroyed by dynamyte",
+        "has been destroyed by dynamyte",
+        "has destroyed by dynamyte"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "ccac00f4-0770-48e1-94a2-007c8115dc1d",
+      "question": "Which sentence of the following is incorrect ?[]",
+      "options": [
+        "Slow and steady win the race",
+        "Slow and steady wins the race",
+        "Slow and steady won the race",
+        "Slow and steady has won the race"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "078cb308-da20-4805-b1fc-f3c8d5192192",
+      "question": "The inmates of the juvenile home --- well by their caretakers[]",
+      "options": [
+        "were not being treated",
+        "were not treating",
+        "have not being treated",
+        "was not being treated"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "bba36f86-15e6-486d-8d37-039317535e56",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "Fame as well as fortune were his goals",
+        "Fame as well as fortune was his goals",
+        "Fame as well fortune were his goals",
+        "Fame and fortune  were his goals"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "4df1fe44-b135-4f07-9d39-3638dde29cbb",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "It is you who is to say",
+        "It is you who has won the prize",
+        "It is you who is late",
+        "It is you who are to leave"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "b50135b6-ef19-422f-802b-efea41aa4619",
+      "question": "Select the correct sentence[]",
+      "options": [
+        "The jury was unanimous in its decision",
+        "The jury was unanimous in their decision",
+        "The jury was unanimous in the decision",
+        "The jury were unanimous in its decision"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "aafd336f-a47f-41aa-a055-8c70e95253fa",
+      "question": "Majority --- present in the meeting[]",
+      "options": [
+        "am",
+        "are",
+        "is",
+        "have"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "57c59336-e874-4c82-898c-edfb7c61c295",
+      "question": "Every leaf and every flower --- fallen off the tree[]",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "was"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "a73f30eb-1574-4026-9ee5-3bf3a32161d3",
+      "question": "Identify the incorrect sentence[]",
+      "options": [
+        "The news is true",
+        "Neither of the two men was very strong",
+        "The United States has a big navy",
+        "Fifty thousand dollars are a large sum"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "e217e09a-77ca-4391-ae87-2543043fdc34",
+      "question": "Much of the machinery on these farms --- unusable[]",
+      "options": [
+        "is",
+        "are",
+        "have",
+        "has"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "4c9a5251-6933-4eba-8db2-0725e05581c8",
+      "question": "Which one is correct sentence ?[]",
+      "options": [
+        "Each of the students have applied for the football match",
+        "Either of the two boys are talent",
+        "There are two pens ; neither are good",
+        "I have three dogs ; none of them is ferocious"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "31c5e4bf-2e68-45f6-ba61-103a14df0ec1",
+      "question": "My brother, together with his friends always ---- round collecting wood for bonfire night[]",
+      "options": [
+        "Are going",
+        "Have gone",
+        "Was going",
+        "Goes"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "7cd8d4d4-47ce-46df-9610-4dfe8b2a5cfb",
+      "question": "Now a good number of courses --- the internet[]",
+      "options": [
+        "are offered in",
+        "offer on",
+        "are offering in",
+        "are offered on"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "efa60a8f-e095-4597-9856-a1a168ffdc57",
+      "question": "The movie including the previews --- about two hours to watch[]",
+      "options": [
+        "need",
+        "takes",
+        "has fixed",
+        "have required"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "eb316108-aa68-43e3-8ff2-3cee3b7ff6c2",
+      "question": "The secretary as well as the members --- to submit the proposal to the minister[]",
+      "options": [
+        "need",
+        "needs",
+        "have",
+        "are likely"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "ebc6ff6c-8d72-4112-a17b-06db6bb5643e",
+      "question": "Identify the correct sentence[]",
+      "options": [
+        "Time and tide waits for no one",
+        "Fire and water does not agree",
+        "The novelist and poet are dead",
+        "The mayor, with the councillors are to be present"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "15a37381-4e7a-49d6-bc80-d445986ac351",
+      "question": "Which of the following sentences is not correct ?[]",
+      "options": [
+        "Fire and water does not agree",
+        "Every boy and girl was ready",
+        "You and I have done our dury",
+        "The majority is against any compromise"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "d3a09853-9a1c-4f14-9687-bc49c748fee7",
+      "question": "Twenty divided by ten --- two[]",
+      "options": [
+        "are",
+        "were",
+        "make",
+        "is"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "5092e9e1-fe0f-4c6f-ae1e-19bb5dc7d1ef",
+      "question": "Many a student --- present in the class[]",
+      "options": [
+        "are",
+        "have",
+        "is",
+        "has"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "1a9a1dfc-c730-4fd3-9309-b47cf7e8fe20",
+      "question": "Identify the error : Either of the solutions you have proposed are acceptable to the committee , whose member are willing to compromise []",
+      "options": [
+        "have",
+        "are",
+        "whose",
+        "are willing"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "f6483777-7d56-434a-8c80-7684631942e6",
+      "question": "At present, the upsetting issue of abusing children ---[]",
+      "options": [
+        "was made people concern",
+        "have made people concern",
+        "are made people concern",
+        "has made people concern"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "0640f9f9-446b-4b8d-b34c-803b995dda25",
+      "question": "His furniture including a dining table and six chairs --- being sold[]",
+      "options": [
+        "are",
+        "is",
+        "will",
+        "shall"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "37efef34-bea7-44a1-8242-6a53cbc6ef48",
+      "question": "Karim as well as his classmates --- present in today's meeting[]",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "remain"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "a9add94d-7f37-4a7c-810a-1e17d48c8d2b",
+      "question": "Either my sister, or the neighbours --- looking after the dogs[]",
+      "options": [
+        "is",
+        "are",
+        "A & B",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "cd59f949-0a2b-4fa0-b56f-9d209141579c",
+      "question": "I --- you who should have completed the task in time[]",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "can"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "4d642983-ff45-4376-88fe-e09a944284a3",
+      "question": "Shormi as well as her sisters --- to buy fashionable jewellery[]",
+      "options": [
+        "like",
+        "likes",
+        "is liked",
+        "were liked"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "c9b15b7f-a5ea-407c-a631-bf4a1d325ae5",
+      "question": "The man as well as the woman --- much money[]",
+      "options": [
+        "have",
+        "has",
+        "will",
+        "were"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "03f1c4d4-e31c-4ecc-9b99-98cba60e8e00",
+      "question": "Praising all alike --- praising none[]",
+      "options": [
+        "is",
+        "are",
+        "will",
+        "had"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "27056f10-1017-44a4-a34b-b1fe684ab0b2",
+      "question": "The chairman and the secretary --- present in the meeting[]",
+      "options": [
+        "was",
+        "were",
+        "had",
+        "had been"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "7bcdfeed-42fa-493e-980d-35627ba3ad91",
+      "question": "The captain and teem manager --- personally met the president of the club[]",
+      "options": [
+        "has",
+        "have",
+        "was",
+        "there"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "aba70f9c-0018-40a2-a710-2588c44da9fa",
+      "question": "Economics --- my favourite subject[]",
+      "options": [
+        "are",
+        "is",
+        "were",
+        "have"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "a443dfee-585f-4d8d-b26f-aa5ef7c8bcf4",
+      "question": "A great deal of thought --- into the designing of the auditorium[]",
+      "options": [
+        "go",
+        "have gone",
+        "went",
+        "has gone"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "b17fbce9-7b98-4486-9579-af4bdc7f1313",
+      "question": "The majority --- that he is an honest man[]",
+      "options": [
+        "believes",
+        "believe",
+        "is believing",
+        "are believing"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

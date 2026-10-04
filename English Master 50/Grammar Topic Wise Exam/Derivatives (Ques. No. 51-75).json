@@ -1,0 +1,386 @@
+{
+  "exam_id": 8487,
+  "title": "Derivatives (Ques. No. 51-75)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Derivatives (75 Marks)",
+  "duration_minutes": 10,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "4433184b-6964-4cf8-886f-be8980f12873",
+      "question": "The verb form of 'politics' is -----.[]",
+      "options": [
+        "political",
+        "politically",
+        "politicize",
+        "policy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "9da96d51-229a-4fd0-82da-18ea36084bbc",
+      "question": "The verb form of the noun 'Humanity' is -----.[]",
+      "options": [
+        "Human",
+        "Humane",
+        "Humanitarian",
+        "Humanize"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "63256006-e353-4fba-9944-237a0de6b590",
+      "question": "The noun form of 'universal' is -----.[]",
+      "options": [
+        "universalty",
+        "university",
+        "universiality",
+        "universality"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "579d8d7a-9c5a-4c74-95e8-dc730dfdb1ed",
+      "question": "Verb form of the word 'woman' []",
+      "options": [
+        "womanly",
+        "womanish",
+        "womanify",
+        "womanize"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "11b804b9-833b-43b8-9695-e5bd9a720677",
+      "question": "Which one is a verb ?[]",
+      "options": [
+        "Presumption",
+        "Presumptive",
+        "Presumtuous",
+        "Persume"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "4f46ce85-d22e-43e2-a972-cad7c83d0d0b",
+      "question": "The word 'fragrant' is a/an -----.[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adverb",
+        "Adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "a9ec8e39-4149-4091-9927-bc0e451eede8",
+      "question": "Identify the parts of speech of 'seldom'.[]",
+      "options": [
+        "An adjective",
+        "A pronoun",
+        "An adverb",
+        "A noun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "6b20ee07-e0df-412e-86dc-d43bcc291917",
+      "question": "The word 'apparent' is a/an -----.[]",
+      "options": [
+        "noun",
+        "adjective",
+        "adverb",
+        "verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "1fc43be7-ab5f-481c-b6fd-9eb6bd31a36c",
+      "question": "What kind of parts of speech 'timid' is ?[]",
+      "options": [
+        "An adverb",
+        "A noun",
+        "A verb",
+        "An adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "9357e789-1df4-4f03-9cd4-8159456cae37",
+      "question": "What is the adjective form of 'literacy' ?[]",
+      "options": [
+        "literate",
+        "literal",
+        "literary",
+        "educated"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "bba3ceb5-7e7a-4a99-a087-51976fc49bbd",
+      "question": "What is the adjective form of 'literature' ?[]",
+      "options": [
+        "literary",
+        "literal",
+        "literate",
+        "literatural"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "17fc0921-34d4-4e38-8f53-22c54980e5d9",
+      "question": "What is the adjective form of 'money' ?[]",
+      "options": [
+        "moneytary",
+        "monetary",
+        "economical",
+        "financial"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "4849eeaa-04c3-455c-9ee0-1af2795b0f7b",
+      "question": "What is the verb form of 'error' ?[]",
+      "options": [
+        "errand",
+        "errant",
+        "err",
+        "erratic"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "8543ef16-4734-450d-8f89-281480cdd99d",
+      "question": "The verb form of 'large' is -----.[]",
+      "options": [
+        "enlarge",
+        "larger",
+        "larges",
+        "largel"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "ae5683d8-85d0-4cd4-a70c-cf0db2e348c5",
+      "question": "Choose the verb form of the word 'democracy' from the following options.[]",
+      "options": [
+        "Democratic",
+        "Democratize",
+        "Democracify",
+        "Democrat"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "69112d22-7d7e-4fb3-bdab-92dec9c8d9a8",
+      "question": "Choose the pair that expresses a relationship similar to that in the original pair ;[]",
+      "options": [
+        "typical : typo",
+        "wide : wideth",
+        "long : length",
+        "None of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "781d7531-656b-4d7d-9578-87e9b2717b1f",
+      "question": "What is the adjective of 'Magistrate' ?[]",
+      "options": [
+        "Magistry",
+        "Magisterial",
+        "Magistracy",
+        "Magistery"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "1e51271d-3227-4338-b34c-b0e4fb4b7050",
+      "question": "What is the noun of the word 'satisfy' ?[]",
+      "options": [
+        "satisfactorily",
+        "satisfactory",
+        "satisfaction",
+        "satisfied"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "40273b61-5315-40dc-86c1-6f32b3b7276a",
+      "question": "The verb form of 'population' is -----.[]",
+      "options": [
+        "popular",
+        "popularity",
+        "populate",
+        "popularize"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "6dff785b-ae46-45c0-8082-41c806bf1fe2",
+      "question": "What is the verb of 'light' ?[]",
+      "options": [
+        "light",
+        "enlight",
+        "enlighten",
+        "lightened"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "d141136a-6898-4621-a253-ad20b18f0c07",
+      "question": "The noun form of the word 'disperse' is -----.[]",
+      "options": [
+        "dispery",
+        "dispersion",
+        "dispersal",
+        "dispersion"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "fe5b5ba6-1e96-47ae-9ed5-11c21386a0dd",
+      "question": "What is the adjective form of the verb 'use' ?[]",
+      "options": [
+        "usefully",
+        "usability",
+        "usably",
+        "usable"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "ec075499-e06c-4b19-ac98-f5846750c9b1",
+      "question": "The noun of the word 'dismiss' is -----.[]",
+      "options": [
+        "dismissness",
+        "dismissal",
+        "dismissing",
+        "dismissary"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "640ae6cc-2cbd-4cf8-a39f-bb391c1bb452",
+      "question": "Find out the verb form of the word 'rich'.[]",
+      "options": [
+        "ricochet",
+        "richen",
+        "earich",
+        "enrich"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "2a1208e3-a925-4051-809b-b478a7f19a3d",
+      "question": "Adjective of the word 'enemy' is -----.[]",
+      "options": [
+        "jealous",
+        "animosity",
+        "inimical",
+        "enmity"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

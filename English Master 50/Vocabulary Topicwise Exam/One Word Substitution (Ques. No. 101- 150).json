@@ -1,0 +1,761 @@
+{
+  "exam_id": 8106,
+  "title": "One Word Substitution (Ques. No. 101-\t150)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "One Word Substitution Exam (560 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "d00986d8-7d8f-4d38-831e-c87e7e800300",
+      "question": "The word 'omnivorous' means -[]",
+      "options": [
+        "Eating all types of food",
+        "Eating only fruits",
+        "Eating only meat",
+        "Eating grass and plants"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "8ad7c554-988a-4067-8339-8164ac8655ee",
+      "question": "Animals that can live on land and water are -[]",
+      "options": [
+        "Insectivorous",
+        "Dinosaurs",
+        "Amphibians",
+        "Reptiles"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "3714eb90-d2bf-4835-984d-51a0e4338f0d",
+      "question": "A vegetarian animal is called -[]",
+      "options": [
+        "A herbivore",
+        "A carnivore",
+        "A vegetarian",
+        "Omnivore"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "464e1197-3f23-40a2-9573-8023782a91de",
+      "question": "The word 'vegetarian' refers to -[]",
+      "options": [
+        "Plants",
+        "Animals",
+        "Mammals",
+        "Carnivorous"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "ab5982cd-ddce-429b-ba4d-298456bec7e9",
+      "question": "Animal that eats flesh of other animals -[]",
+      "options": [
+        "Carnivorous",
+        "Benevolent",
+        "Insectivorous",
+        "Omnivorous"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "3523212a-1115-4fdb-ba94-966ffcd2249c",
+      "question": "People who eats human flesh and animals that eats its own kind is called -[]",
+      "options": [
+        "Cannibal",
+        "Flesh lover",
+        "Meat eater",
+        "Non vegetarian"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "e21df0d3-77d7-4b3d-ad53-7b06a84354ed",
+      "question": "A person who writes about his own life writes -[]",
+      "options": [
+        "A diary",
+        "A biography",
+        "A chronicle",
+        "An autobiography"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "ae53be6b-513e-497a-9ece-539f65e18495",
+      "question": "Writing about one's own life is -[]",
+      "options": [
+        "A diary",
+        "A biography",
+        "A life story",
+        "An autobiography"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "c18d4aae-5c5c-4853-be83-67bb8cc1e0f5",
+      "question": "The history of a man written by others -[]",
+      "options": [
+        "Biography",
+        "History",
+        "Manuscript",
+        "Autobiography"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "6f3212a9-2382-4493-9ef6-090c32dc11a6",
+      "question": "List of the business or subjects to be considered as a meeting -[]",
+      "options": [
+        "Schedule",
+        "Timetable",
+        "Agenda",
+        "Plans"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "049f8717-eed0-4dbe-88af-0825db32b429",
+      "question": "An inscription on a tomb or a monument is -[]",
+      "options": [
+        "Epitome",
+        "Epithet",
+        "Epitaph",
+        "Epic"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "1d7ae763-bec6-41a4-82ea-38a69292241c",
+      "question": "A speech full of too many word is -[]",
+      "options": [
+        "An unimportant speech",
+        "A big speech",
+        "Maiden speech",
+        "A verbose speech"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "8ebf25b1-0223-4bf8-af11-c493e3ae8f3e",
+      "question": "The word 'bibliography' is concerned with -[]",
+      "options": [
+        "Book",
+        "Biography",
+        "Internet",
+        "Biology"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "313dbc85-8c7f-4efb-8f02-f27590cbfa28",
+      "question": "When something is in agenda it is -[]",
+      "options": [
+        "An additional item",
+        "A cause of agitation",
+        "In the list of things to be done",
+        "Included as an oversight"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "37ad3787-abcd-4026-b1f8-88306a93b9af",
+      "question": "Bibliography' means -[]",
+      "options": [
+        "History of book",
+        "Book on biology",
+        "Worshipper of books",
+        "Collection/list of books"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "33f2297c-00b8-4486-9f89-128149adf690",
+      "question": "Select the right word for 'A speech made without previous preparation' []",
+      "options": [
+        "Extempore speech",
+        "Memorised speech",
+        "Instant speech",
+        "Composed speech"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "61b39cc6-e164-454c-b8a2-8f06b51a1e51",
+      "question": "A ledger is -[]",
+      "options": [
+        "Book",
+        "Book of accounts showing debits and credits",
+        "Book of accounts",
+        "Book only for business"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "6f3dd530-24d4-48e4-b9a1-5ad5002f7f15",
+      "question": "A book containing information on all subjects -[]",
+      "options": [
+        "Dictionary",
+        "Appendix",
+        "Informatics",
+        "Encyclopaedia"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "a47bf7b0-a113-4bec-b8cf-83199a37d10a",
+      "question": "The murder of the king is called a ---[]",
+      "options": [
+        "Homicide",
+        "Matricide",
+        "Patricide",
+        "Regicide"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "4bf17dc8-883b-4888-b7a3-e7a32507f0e0",
+      "question": "Systematic killing of a racial or a cultural group ---[]",
+      "options": [
+        "Regicide",
+        "Patricide",
+        "Genocide",
+        "Homicide"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "1f81b280-505c-435d-89b2-28103acc3293",
+      "question": "What does 'regicide' mean ---[]",
+      "options": [
+        "Killing someone of a royal family",
+        "The act of killing of a king or queen",
+        "Destroying a kingdom",
+        "Mass killing"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "f77f8abd-bdf3-4104-9490-a0e8dee98b8e",
+      "question": "Murder or murderer of one's brother ---[]",
+      "options": [
+        "Homicide",
+        "Parricide",
+        "Matricide",
+        "Fratricide"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "8eb7adfc-8501-40d2-b2a5-3f7a645d671b",
+      "question": "Homicide is the murder of a ---[]",
+      "options": [
+        "King",
+        "Father",
+        "Child",
+        "Man"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "afbd0e76-811c-4ffe-8460-b84254895eef",
+      "question": "What is the meaning of 'genocide' ?[]",
+      "options": [
+        "Deliberate killing of a whole group or race of people",
+        "Killing of women and children",
+        "General destruction",
+        "Killing of a king"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "5ff7eab2-3797-4db2-a8b4-6badf16a5bf3",
+      "question": "Homicide' means -[]",
+      "options": [
+        "The killing of one person by another",
+        "A person, an animal or a thing that kills",
+        "The crime of killing of a king",
+        "The killing of a baby"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "9eece607-86c5-4c23-ace7-cd91616cfba2",
+      "question": "Patricide' is -[]",
+      "options": [
+        "The crime of denying one's own hand",
+        "The crime of killing of one's own father",
+        "The crime of loving  one's own country",
+        "An insect killer"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "01a90e20-1843-44ca-8423-8aabe5ac41a8",
+      "question": "Single word for 'the man who is not married' is -[]",
+      "options": [
+        "Spinster",
+        "Virgin",
+        "Bachelor",
+        "Non married"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "d71937e3-808e-4e93-a40c-485af45d5682",
+      "question": "The word 'monogamy' relates to ---[]",
+      "options": [
+        "Marriage",
+        "Divorce",
+        "Dower",
+        "Maintenance"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "eb921bf1-e12e-4835-a424-2c6fa3cc028c",
+      "question": "The custom of having many wives is called ---[]",
+      "options": [
+        "Polygamy",
+        "Bigamy",
+        "Matrimony",
+        "Pigmy"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "ec2d16ae-2f8e-43e5-8497-af19c381d67d",
+      "question": "The appropriate meaning of the word 'polygamy' is ---[]",
+      "options": [
+        "The crime of marrying somebody when you are still married to somebody",
+        "The custom of being married to only one person at a particular time",
+        "Custom of having more than one husband at the same time",
+        "Custom of having more than one wife at the same time"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "01943e05-be3b-4529-9fac-1f01418f84e7",
+      "question": "The practice of keeping one wife or husband is called ---[]",
+      "options": [
+        "Monogamy",
+        "Polygamy",
+        "Polyandry",
+        "Paramour"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "1b3e5c8e-d0f6-4377-af58-6603d19e27c6",
+      "question": "An unmarried woman is called ---[]",
+      "options": [
+        "Seamstress",
+        "Bachelor",
+        "Nurse",
+        "Spinster"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "b9c91a47-3f63-4a45-be99-5e0437bc88e1",
+      "question": "The man who has not remarried after his wife's death is called ---[]",
+      "options": [
+        "Widow",
+        "Wifeless",
+        "Divorced",
+        "Widower"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "2829d8ec-682f-4d31-b623-52b400d96a9a",
+      "question": "A place of keeping bees is ---[]",
+      "options": [
+        "Apiary",
+        "Nest",
+        "Den",
+        "Aerie"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "8eb2e04d-53ef-4f8d-92dc-29de7a1b7bc9",
+      "question": "A place of keeping dogs is known as ---[]",
+      "options": [
+        "Hutch",
+        "Kennel",
+        "Sty",
+        "Stable"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "ac04b0b0-850b-4dec-8499-f007e91ee1ce",
+      "question": "The place where money is coined is ---[]",
+      "options": [
+        "Pen",
+        "Quarry",
+        "Mint",
+        "Laboratory"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "d016f1f3-27c9-46e6-81c3-f18de347a25b",
+      "question": "A place for keeping aero planes is called --- []",
+      "options": [
+        "Hangar",
+        "Terminal",
+        "Harbour",
+        "Stable"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "e70218d4-5400-4b8e-84db-a51b06f9a45e",
+      "question": "Lavatory' means ---[]",
+      "options": [
+        "A place of discharge from the bowels",
+        "The house of a gypsy",
+        "A place where official papers are kept",
+        "A shelter for a dog"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "c5710aa3-97c0-4c9f-a71c-583175007487",
+      "question": "A place for keeping rabbits is ---[]",
+      "options": [
+        "Hutch",
+        "Stable",
+        "Sty",
+        "Kennel"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "e70942b1-fab4-4407-a25e-523c8a22d34a",
+      "question": "A place to keep grains ---[]",
+      "options": [
+        "Store room",
+        "Storage",
+        "Granary",
+        "Pantry"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "6a3767d7-8daf-421c-bfdd-885fb7f78656",
+      "question": "The lying place of the wild beasts is called ---[]",
+      "options": [
+        "Igloo",
+        "Burrow",
+        "Aviary",
+        "Den"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "0ffa3bb8-01fe-48a8-97e3-2f05697b12d2",
+      "question": "Airplane : Hangar []",
+      "options": [
+        "Ship : Channel",
+        "Jet : Run away",
+        "Helicopter : Pad",
+        "Automobile : Garage"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "10134a76-415d-423a-a942-cc407fc16be2",
+      "question": "Something beyond scientific explanation is called ---[]",
+      "options": [
+        "International",
+        "Traditional",
+        "Ceremonial",
+        "Supernatural"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "5c34d50f-0f15-48e5-908b-670ceb24693c",
+      "question": "An office or post with no work but high pay ---[]",
+      "options": [
+        "Honorary",
+        "Sinecure",
+        "Gratis",
+        "Ex-officio"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "43a32340-0062-4bce-b0ef-88c2fef8a269",
+      "question": "Work for which no regular salary is paid ---[]",
+      "options": [
+        "Honorable",
+        "Honorary",
+        "Ad-hoc",
+        "Temporary"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "a4060df5-7b66-471c-b842-cfaac306be10",
+      "question": "A cure for all diseases'[]",
+      "options": [
+        "Exorcism",
+        "Incantation",
+        "Panacea",
+        "Antibiotic"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "903bf0c6-d9b0-4b83-9f9d-091e2d844e35",
+      "question": "A remedy for all diseases ---[]",
+      "options": [
+        "Cure",
+        "Panacea",
+        "Panorama",
+        "Polyglot"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "77af7e73-b92a-4b92-b56b-8bc85e90e6fa",
+      "question": "Panacea' means ---[]",
+      "options": [
+        "Fresh",
+        "Gland",
+        "Cure all",
+        "Widespread diseases"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "25c0abe6-4150-4de0-aa5e-a89d432a14b6",
+      "question": "Gratis' means ---[]",
+      "options": [
+        "Without taking any money",
+        "Without making any payment",
+        "Without taking any care",
+        "Without paying any attention"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "2df479cb-e497-45f4-bbca-f896378135ec",
+      "question": "Beyond reform' means ---[]",
+      "options": [
+        "Unintelligible",
+        "Indelible",
+        "Illegible",
+        "Incorrigible"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

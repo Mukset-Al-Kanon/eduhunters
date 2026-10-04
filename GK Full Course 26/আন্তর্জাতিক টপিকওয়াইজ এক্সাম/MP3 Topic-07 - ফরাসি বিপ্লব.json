@@ -1,0 +1,371 @@
+{
+  "exam_id": 10465,
+  "title": "MP3 Topic-07 : ফরাসি বিপ্লব",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "আধুনিক পাশ্চাত্যের উত্থান + প্রথম বিশ্বযুদ্ধ + দ্বিতীয় বিশ্বযুদ্ধ Exam",
+  "duration_minutes": 12,
+  "total_questions": 24,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "e4bb71a6-5543-457a-a406-3038a2cf4aca",
+      "question": "ফরাসি বিপ্লবের মেয়াদকাল- [SABAS][]",
+      "options": [
+        "১৮৮৯-১৮৯৯",
+        "১৭৮৯-১৭৯৯",
+        "১৭৭৬-১৭৮৬",
+        "১৮৮৬-১৮৯৬"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফরাসি বিপ্লবের মেয়াদকাল ১৭৮৯ থেকে ১৭৯৯ খ্রিস্টাব্দ পর্যন্ত।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "0a943ebc-885b-462d-bd91-38b19afcab59",
+      "question": "ফরাসি বিপ্লব (French Revolution) সংঘটিত হয়েছিল [SABAS][]",
+      "options": [
+        "১৭৮৯",
+        "১৭৯১",
+        "১৭৯৫",
+        "১৭৬১"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ফরাসি বিপ্লব ১৭৮৯ সালে সংঘটিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "e210b108-33a5-4700-84aa-2e1e3e4ab71e",
+      "question": "কোন দুইজন দার্শনিক লেখনীর মাধ্যমে ফরাসি বিপ্লবের অনুপ্রেরণা যুগিয়েছিলেন? [SABAS][]",
+      "options": [
+        "রুশো ও ভলটেয়ার",
+        "শেক্সপিয়ার ও ভলটেয়ার",
+        "প্লেটো ও অ্যারিস্টটল",
+        "প্লেটো ও রুশো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দার্শনিক রুশো ও ভলটেয়ারের লেখনী ফরাসি বিপ্লবে গভীর প্রভাব ফেলেছিল।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "3e6c0fbe-2750-4a42-9f70-e591f8715c69",
+      "question": "ফরাসি বিপ্লবের মূলমন্ত্র কী ছিল? [SABAS][]",
+      "options": [
+        "জাতীয়তা, স্বাধীনতা ও শান্তি",
+        "স্বাধীনতা, সমতা ও ভ্রাতৃত্ববোধ",
+        "শিক্ষা, ঐক্য ও প্রগতি",
+        "গণতন্ত্র, সমতা ও স্বাধীনতা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফরাসি বিপ্লবের মূলমন্ত্র ছিল স্বাধীনতা, সমতা ও ভ্রাতৃত্ববোধ।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "583090de-1bcb-4a09-8c04-5392f6db6650",
+      "question": "ফরাসি বিপ্লবের মতবাদ বা শ্লোগানের প্রবক্তা কে ছিলেন? [SABAS][]",
+      "options": [
+        "মোপাসাঁ",
+        "ভলটেয়ার",
+        "বার্ট্রান্ড রাসেল",
+        "রুশো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ফরাসি বিপ্লবের মতবাদ বা শ্লোগানের অন্যতম প্রধান প্রবক্তা ছিলেন রুশো।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "db16d48d-34bc-4675-8619-0e4472c066c7",
+      "question": "‘The Social Contract’ is written by - [SABAS][]",
+      "options": [
+        "Voltaire",
+        "Jean-Jacques Rousseau",
+        "Plato",
+        "Aristotle"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘The Social Contract’ বা সামাজিক চুক্তি গ্রন্থটির রচয়িতা রুশো।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "66c5f17f-451c-455a-b71a-1fd704591b11",
+      "question": "সামাজিক চুক্তি মতবাদের প্রবক্তা কে? [SABAS][]",
+      "options": [
+        "প্লেটো",
+        "অ্যারিস্টটল",
+        "সক্রেটিস",
+        "রুশো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সামাজিক চুক্তি মতবাদের অন্যতম প্রধান প্রবক্তা হলেন দার্শনিক রুশো।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "20a3b522-8136-4888-bb03-665c13f6b405",
+      "question": "‘সামাজিক চুক্তি’ মতবাদের সমর্থক - [SABAS][]",
+      "options": [
+        "হবস ও ভলটেয়ার",
+        "হবস, লক ও রুশো",
+        "রুশো ও ওয়েবার",
+        "লক ও বেন্থাম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হবস, লক এবং রুশো—এই তিন দার্শনিকই সামাজিক চুক্তি মতবাদের সমর্থক ছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "93c45f7a-3329-474b-9932-fde874db7012",
+      "question": "‘Man is born free and everywhere he is in chains’ was quoted by- [SABAS][]",
+      "options": [
+        "ভ্লাদিমির লেনিন",
+        "জঁ জ্যাক রুশো",
+        "কার্ল মার্কস",
+        "জন লক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রখ্যাত এই উক্তিটি দার্শনিক রুশোর।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "be2dd247-7151-4b91-ad90-2c1ef61ecff0",
+      "question": "“জনসাধারণই সার্বভৌম ক্ষমতার অধিকারী” উক্তিটি কার? [SABAS][]",
+      "options": [
+        "কার্লমার্কস",
+        "হিটলার",
+        "রুশো",
+        "প্লেটো"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সার্বভৌম ক্ষমতা জনগণের হাতে ন্যস্ত—এই মতবাদের প্রবক্তা রুশো।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "ea2c6b2c-bacd-447c-b7da-0128ea601561",
+      "question": "Who said the words, “I disapprove of what you say, but I will defend to death your right to say it”? [SABAS][]",
+      "options": [
+        "G.B Shaw",
+        "Vladimir Lenin",
+        "Voltaire",
+        "Rousseau"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এই বিখ্যাত উক্তিটি ভলটেয়ারের.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "05408bbe-d337-40e1-be3f-c6a5f83c2c9b",
+      "question": "‘The Spirit of Laws’ গ্রন্থের লেখক কে? [SABAS][]",
+      "options": [
+        "মন্টেস্কু",
+        "হবস",
+        "প্লেটো",
+        "হলাজ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "‘The Spirit of Laws’ গ্রন্থের লেখক মন্টেস্কু.",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "6ccbb0c0-d16f-4b86-aebe-c4d269ce1da8",
+      "question": "ক্ষমতার বিভাজন (Separation of power) তত্ত্বের প্রবক্তা কে? [SABAS][]",
+      "options": [
+        "মন্টেস্কু",
+        "ভলটেয়ার",
+        "জন লক",
+        "রুশো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মন্টেস্কু ক্ষমতার বিভাজন তত্ত্বের প্রবক্তা.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "70c3956c-e14b-4a35-b13b-22e8840c9797",
+      "question": "বাস্তিল দুর্গের পতন ঘটেছিল- [SABAS][]",
+      "options": [
+        "১৪ জুলাই, ১৭৮৯",
+        "২৬ আগস্ট, ১৭৮৮",
+        "৫ অক্টোবর, ১৭৮৮",
+        "৭ জুন, ১৭৮৮"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাস্তিল দুর্গের পতন ঘটেছিল ১৪ জুলাই, ১৭৮৯ সালে.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "0c4a95eb-fd7d-4fc3-a360-90267d1161fc",
+      "question": "বাস্তিল দুর্গের পতন যে দেশের ইতিহাসের সঙ্গে সংশ্লিষ্ট [SABAS][]",
+      "options": [
+        "ভারত",
+        "রাশিয়া",
+        "ফ্রান্স",
+        "জার্মানি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাস্তিল দুর্গের পতন ফ্রান্সের ইতিহাসের সাথে সংশ্লিষ্ট.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "ab3faa91-123e-4cf9-9665-b07ca6730fd4",
+      "question": "For which historical event the year of 1789 is renowned? [SABAS][]",
+      "options": [
+        "Independence of USA",
+        "Battle of Waterloo",
+        "French Revolution",
+        "Discovery of America by Columbus"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১৭৮৯ সালটি ফরাসি বিপ্লবের জন্য বিখ্যাত.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "80f7b734-d0bf-49a6-b3d7-9358887d6a49",
+      "question": "ফরাসি বিপ্লবের সময় ফ্রান্সের রাজা কে ছিলেন? [SABAS][]",
+      "options": [
+        "দ্বাদশ লুই",
+        "ষোড়শ লুই",
+        "নেপোলিয়ন",
+        "ফিলিপস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফরাসি বিপ্লবের সময় ফ্রান্সের রাজা ছিলেন ষোড়শ লুই.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "76bc1c99-5fff-442d-bea0-958c48175e26",
+      "question": "জেকোবিন কী? [SABAS][]",
+      "options": [
+        "আমেরিকার বর্ণবাদী সন্ত্রাসী সংগঠন",
+        "ফরাসি বিপ্লবের অগণাতন্ত্র",
+        "বিখ্যাত বেহালা বাদক",
+        "ইউরোপিয়ান নাইট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জেকোবিন হলো ফরাসি বিপ্লবের একটি রাজনৈতিক গোষ্ঠী.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "b9d5cd49-ac74-4f8f-b49d-70d3ba237bbf",
+      "question": "জেকোবিনদের উত্থান ঘটেছিল- [SABAS][]",
+      "options": [
+        "ইংল্যান্ডে",
+        "স্পেনে",
+        "ফ্রান্সে",
+        "জার্মানিতে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জেকোবিনদের উত্থান ঘটেছিল ফ্রান্সে.",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "127fa2e5-06d8-4d40-8e1c-e6c9de9b954c",
+      "question": "রোবসপীয়র-[]",
+      "options": [
+        "আমেরিকান লেখক",
+        "স্পেনের গেরিলা যোদ্ধা",
+        "চলচ্চিত্র অভিনেতা",
+        "ফরাসি বিপ্লবের নেতা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "রোবসপীয়র ছিলেন ফরাসি বিপ্লবের একজন অন্যতম নেতা।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "dbde223b-c193-435b-9954-c3c9483f5c5c",
+      "question": "দান্তে..............বিপ্লবের নেতা ছিলেন।[]",
+      "options": [
+        "ফরাসি",
+        "জুল্লাই",
+        "আগস্ট",
+        "অক্টোবর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ডান ফরাসি বিপ্লবের একজন নেতা ছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "064274e4-12ea-4164-a7f9-cf8bd6f44f0c",
+      "question": "ফরাসি বিপ্লবের শিশু বলা হয়-[]",
+      "options": [
+        "রুশোকে",
+        "জনলককে",
+        "ভলটেয়ারকে",
+        "নেপোলিয়ানকে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নেপোলিয়ান বোনাপার্টকে ফরাসি বিপ্লবের শিশু বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "ccb0d08e-61f8-469c-97ce-97568df479af",
+      "question": "French Revolution ended in the year -[]",
+      "options": [
+        "1767",
+        "11/10",
+        "11/3",
+        "12/3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ফরাসি বিপ্লব ১৭৯৯ সালে সমাপ্ত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "4d1bb114-5dfc-4597-a690-e75753f47ece",
+      "question": "ফরাসি বিপ্লবের সূত্রে আবির্ভূত হয়েছিল-[]",
+      "options": [
+        "পুঁজিবাদ",
+        "জাতীয়তাবাদ",
+        "সমাজতন্ত্র",
+        "বিশ্বায়ন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফরাসি বিপ্লবের সূত্রে জাতীয়তাবাদের উত্থান ঘটেছিল।",
+      "images": []
+    }
+  ]
+}

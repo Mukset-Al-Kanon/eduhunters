@@ -1,0 +1,64 @@
+{
+  "title": "মেডিকেল আন্তর্জাতিক বিষয়াবলি ২০১১-১২",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 4,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "146705",
+      "question": "পৃথিবীর মতোই নতুন আবিষ্কৃত গ্রহের নাম",
+      "options": [
+        "HD 85512 B",
+        "ভেলা",
+        "নেপচুন",
+        "ইউরেনাস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "146706",
+      "question": "নিম্নের কোন রাষ্ট্রটি সার্কভূক্ত দেশ নয়?",
+      "options": [
+        "আফগানি",
+        "মালদ্বীপ",
+        "মিয়ানমার",
+        "পাকিস্তান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "146707",
+      "question": "নিম্নের কোনটি ঘূর্ণিঝড়ের নাম নয়?",
+      "options": [
+        "নার্গিস",
+        "সিডর",
+        "গ্যালাক্সি",
+        "আইরিন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "146708",
+      "question": "নিম্নের কোন রাষ্ট্রপ্রধান বিয়াল্লিশ বছর দেশ পরিচালনা করেছেন?",
+      "options": [
+        "নেলসন ম্যান্ডেলা",
+        "আব্রাহাম লিংকন",
+        "মুয়াম্মার গাদ্দাফি",
+        "সাদ্দাম হোসেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    }
+  ]
+}

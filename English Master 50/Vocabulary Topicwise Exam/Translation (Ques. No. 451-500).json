@@ -1,0 +1,761 @@
+{
+  "exam_id": 9659,
+  "title": "Translation (Ques. No. 451-500)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "Translation Exam (578 Marks)",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "7d977143-c974-41be-8fe2-c9cfbc7d5064",
+      "question": "Choose the correct sentence. বাংলাদেশে আমার বন্ধু নাই বলিলেই চলে। [SABAS][]",
+      "options": [
+        "I have a little friends in Bangladesh.",
+        "I have little friends in Bangladesh.",
+        "I have few friends in Bangladesh.",
+        "I have a few friends in Bangladesh."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Countable noun (friends) এর ক্ষেত্রে অল্প বোঝাতে 'few' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "a4ed31f5-d606-4fc7-80bd-c5be5ae1753a",
+      "question": "তীরটি লক্ষ্যের পাশ দিয়ে সাঁ করে বেরিয়ে গেল [SABAS][]",
+      "options": [
+        "The arrow went past the target.",
+        "The arrow flew quickly avoiding the target.",
+        "The arrow went pass the target.",
+        "none"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Pass' (verb) এর পরিবর্তে preposition হিসেবে 'past' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "81602267-2507-4e86-ad79-54c8f63ffa96",
+      "question": "I told the story briefly. এর বাংলা ---- [SABAS][]",
+      "options": [
+        "গল্পটি আমি বিস্তারিতভাবে বললাম।",
+        "গল্পটি আমি অতি সংক্ষেপে বললাম।",
+        "গল্পটি আমি মজা করে বললাম।",
+        "গল্পটি আমি করুণভাবে বললাম।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Briefly' মানে সংক্ষেপে।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "c889a789-27e2-4387-b156-c719f6d43df0",
+      "question": "Cleopatra was a paragon of beauty. এর বাংলা ---- [SABAS][]",
+      "options": [
+        "ক্লিওপেট্রা অপরূপ সুন্দরী ছিলেন।",
+        "ক্লিওপেট্রা সুন্দরী ছিলেন।",
+        "ক্লিওপেট্রা সুন্দরী রমণী ছিলেন।",
+        "ক্লিওপেট্রা সৌন্দর্যের সঠিক উপমা ছিলেন।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Paragon of beauty' মানে সৌন্দর্যের আদর্শ বা উপমা।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "cd6bdd13-0522-48ce-9e06-66aec312f936",
+      "question": "I left no stone unturned. এর বাংলা ---- [SABAS][]",
+      "options": [
+        "আমি কোনো পাথর সরাতে বাকি রাখিনি।",
+        "আমি কোনো পাথর পেছনে ফেলে রেখে আসিনি।",
+        "আমি চেষ্টার কোনো ত্রুটি করিনি।",
+        "আমি চেষ্টার ত্রুটি করেছি।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Leave no stone unturned' একটি idiom, যার অর্থ চেষ্টার কোনো ত্রুটি না রাখা।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d5b61d7c-9379-4beb-b86e-dd01b6d7a544",
+      "question": "সাফল্যের কোন সহজ পথ নেই-বাক্যটির সঠিক ইংরেজি অনুবাদ - [SABAS][]",
+      "options": [
+        "A success is quickly achieved.",
+        "There is no fast success.",
+        "There is no short cut to success.",
+        "There is no shortly path to success."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রচলিত প্রবাদ অনুযায়ী 'There is no short cut to success'।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "2799543a-e22c-4546-9d24-0c390048973e",
+      "question": "The right English translation of 'বইটি আমার' – [SABAS][]",
+      "options": [
+        "I am owing the book.",
+        "The book belongs to me.",
+        "This book belonged to me.",
+        "The book is belonging to me."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অধিকার বোঝাতে 'belong to' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "b8422f4c-55b1-491b-acd3-37da088283f4",
+      "question": "ঝুঁকি সত্ত্বেও সে নদীতে ঝাঁপ দিল-এর অনুবাদ [SABAS][]",
+      "options": [
+        "She took risk to jump into the river.",
+        "She jumped into the river despite the risks",
+        "To jump into the river she took risks.",
+        "To risk is to jump into the river."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Despite' এর পর সরাসরি noun phrase বসে।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "9f486c4b-345c-4f7e-a39b-d65c6e15d4a5",
+      "question": "তুমি কি ভাবে তাহার ব্যাপারটি পাইলে-এর সঠিক অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "How did you come across his purse?",
+        "How did you come to his purse?",
+        "How did you come round his purse?",
+        "How did you come by his purse?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Come by' মানে কোনো কিছু পাওয়া বা অর্জন করা।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "3f5cc3d0-c32d-49e3-8c6c-dd3b67bff408",
+      "question": "But a mother's love endures through all- correct Bengali translation is -- [SABAS][]",
+      "options": [
+        "কিন্তু মায়ের ভালোবাসা সবার জন্য",
+        "কিন্তু মা সবার চেয়ে বেঁচে থাকে",
+        "কিন্তু মায়ের স্নেহ সবার ওপর টিকে থাকে",
+        "কিন্তু সবকিছুর মধ্যে মায়ের স্নেহ টিকে থাকে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Endure through all' মানে সবকিছুর প্রতিকূলতা কাটিয়ে টিকে থাকা।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "611087e9-0394-4d11-94ae-2d4428bfb73d",
+      "question": "তারা সাগরের কাছে এক কুটিরে বাস করত' - বাক্যটির সঠিক ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "They lived in a hut close the sea",
+        "The lived in a hut close with the sea",
+        "They lived in a hut close at the sea",
+        "They lived in a hut close by the sea"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কাছে' বোঝাতে 'close by' বা 'close to' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "06e5789c-a596-4ca2-92c1-c5313227a647",
+      "question": "মেয়েটি হাসতে হাসতে ঘরে ঢুকল' এর ইংরেজি কী? [SABAS][]",
+      "options": [
+        "The girl laughingly entered the room",
+        "The laughing girl entered the room",
+        "The girl entered the room laughing",
+        "The girls entered the room with laughing"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কাজ করতে করতে যাওয়া বা ঢোকা বোঝাতে Present Participle (verb+ing) ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "90d04a3e-741b-44e0-b1e2-bf412db27151",
+      "question": "The girl entered the room laughing- বাক্যটির সঠিক বাংলা অনুবাদ [SABAS][]",
+      "options": [
+        "মেয়েটি ঘরে ঢুকেই হাসতে লাগলো",
+        "ঘরের মধ্যে মেয়েটির হাসির শব্দ শোনা গেল",
+        "ঘরে ঢুকে মেয়েটি হাসিতে ফেটে পড়লো",
+        "মেয়েটি হাসতে হাসতে ঘরে ঢুকলো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Present participle 'laughing' দিয়ে হাসতে হাসতে বা চলমান অবস্থা বোঝায়।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "2de481ee-5d75-4f28-b653-c4cd12216ed5",
+      "question": "What is the English translation of 'সে হাসিতে হাসিতে ঘরে ঢুকলো'? [SABAS][]",
+      "options": [
+        "He laughed and entered the room",
+        "He entered the room laughing",
+        "He entered into the room and laughing",
+        "Entering the room he laughed"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো অবস্থায় প্রবেশ করা বোঝাতে বাক্যের শেষে present participle (laughing) ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "201d8f5c-0374-447e-92d8-e3cb46c97818",
+      "question": "মেয়েটি হাসিতে হাসিতে আমার দিকে আসিল' Correct translation is- [SABAS][]",
+      "options": [
+        "The girl comes to me with laughing",
+        "The girl is coming to me with laugh",
+        "The girl came to me laughing",
+        "The girl comes at me with laugh"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অতীতকাল (আসিল) থাকায় 'came' এবং হাসতে হাসতে অর্থে 'laughing' ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "e9e7a609-1c55-4df6-a317-8194a4b39faf",
+      "question": "এই মহিলা দুটি সন্তানের জন্ম দিয়েছেন। [SABAS][]",
+      "options": [
+        "This lady was born two children.",
+        "This lady has borne two children.",
+        "This lady has born two children.",
+        "Two children have born this lady."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জন্ম দেওয়া অর্থে 'bear' এর past participle form 'borne' ব্যবহৃত হয়। শুধুমাত্র passive voice-এ 'born' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "35997f9a-a2dd-47ff-af8f-5cf11e0518fd",
+      "question": "Choose the most accurate translation of: 'আজ আমার মন ভালো নেই' [SABAS][]",
+      "options": [
+        "Today my mind is bad",
+        "Today I am feeling seek",
+        "Today I don't feel well in my mind",
+        "Today I feel depressed."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মন ভালো নেই বা মন খারাপ বোঝাতে 'feel depressed' সবচেয়ে মানানসই অনুবাদ।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "c79c02d3-f2ea-4822-bcde-d29e071c7934",
+      "question": "আপনার সাথে সাক্ষাৎ হবে বলে আশা করছি'-এর ইংরেজি অনুবাদ কি? [SABAS][]",
+      "options": [
+        "I look forward to meet you.",
+        "I look forward to meeting you.",
+        "I look forward and I will meet you.",
+        "I hope we will meet."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Look forward to' একটি prepositional phrase, যার পর সর্বদা verb-এর সাথে -ing যুক্ত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "c5b98f54-4694-4188-81ac-bd2941e794f6",
+      "question": "এটি একটি পাঁচশত টাকার নোট'-এর সঠিক অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "This is a five hundred rupee note.",
+        "This is a five hundred rupees note.",
+        "This is a five hundred taka note.",
+        "None of these."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "টাকার নোট বোঝাতে 'five hundred taka note' সঠিক গঠন।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "9a291d62-dd03-40b1-94b7-569988e7f5ba",
+      "question": "Correct translation \"নিউটন বছর বছর জন্মে না\" [SABAS][]",
+      "options": [
+        "A Newton will not be born every year.",
+        "Newton is not born every years.",
+        "A Newton will not be born every year.",
+        "A Newton is not born every year."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদ অনুযায়ী, 'A Newton is not born every year' (নিউটন বছর বছর জন্মে না)।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "3cbc3a2a-2005-4679-8195-3c54270f267c",
+      "question": "ধুমপান একটি মারাত্মক অভ্যাস- Pick up the appropriate translation. [SABAS][]",
+      "options": [
+        "Smoking is an injurious practice.",
+        "Smokers are dangerous habit.",
+        "Smoking is a dangerous habit.",
+        "Smoking is a furious habit."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ধূমপান একটি মারাত্মক অভ্যাস এর সঠিক অনুবাদ 'Smoking is a dangerous habit'।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "703d7a95-554e-4674-9362-c2dc93aa40f8",
+      "question": "সংবাদপত্র তথ্য ভাণ্ডার। [SABAS][]",
+      "options": [
+        "Newspaper is a store of information.",
+        "Newspaper is the store of information.",
+        "A newspaper is the store of information.",
+        "Newspaper store of knowledge."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সংবাদপত্র তথ্য ভাণ্ডার এর সঠিক ইংরেজি অনুবাদ 'Newspaper is the store of information'।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "30fef5ca-5a1d-45d5-9a48-800b286ff054",
+      "question": "I cannot stand rich dishes. [SABAS][]",
+      "options": [
+        "আমি গরম থালার পাশে দাঁড়াতে পারি না।",
+        "গুরুপাক আমার সহ্য হয় না।",
+        "দামি থালার পাশে আমি দাঁড়াতে পারি না।",
+        "গুরুপাক খাবারে আমার আগ্রহ নেই।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Stand' মানে সহ্য করা এবং 'rich dishes' মানে গুরুপাক খাবার।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "cb46e191-3ad4-49ea-a137-8a1bc8e4728a",
+      "question": "আমার কলমটি তোমার চেয়ে ভালো। [SABAS][]",
+      "options": [
+        "My pen is better than you.",
+        "My pen is better from yours.",
+        "My pen is better than yours.",
+        "My pen is better than your's."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "তোমার কলম (your pen) এর পরিবর্তে 'yours' (possessive pronoun) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "15f88a5e-1d56-4fce-8fbf-256c07877d3e",
+      "question": "লোকটি গতকাল নিহত হয়েছে। [SABAS][]",
+      "options": [
+        "The man killed yesterday.",
+        "The man was killed yesterday.",
+        "The man has been killed yesterday.",
+        "The man had been killed yesterday."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গতকাল (past time) উল্লেখ থাকায় passive voice-এ 'was killed' ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "107d7fa6-5311-4b99-9de7-da382297bcdb",
+      "question": "জাভেদ অগ্রিম বিল পরিশোধ করে। [SABAS][]",
+      "options": [
+        "Javed ahead the time paid the bill.",
+        "Javed pays the bill before the time.",
+        "Javed paid bills before its time.",
+        "Javed pays the bill ahead of time."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Ahead of time' মানে নির্ধারিত সময়ের পূর্বে।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "dd965ecc-e564-499f-9cb8-5cc501ff75e2",
+      "question": "পরীক্ষা খুবই নিকটবর্তী-এর সঠিক ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "The examination is coming soon",
+        "The examination will start soon",
+        "The examination is knocking at the door",
+        "The examination is beginning soon."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নিকটবর্তী অর্থে 'knocking at the door' একটি যথাযথ idiom।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "f5bcb812-1c02-4a79-8611-fed343c4da97",
+      "question": "ঠান্ডায় লোক কষ্ট পাচ্ছে। [SABAS][]",
+      "options": [
+        "Winter causes hardship among people.",
+        "People are suffering from cold.",
+        "Public are suffering from winter.",
+        "Peoples are suffering from winter."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কষ্ট পাচ্ছে অর্থে 'suffering from' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "2d13a839-d077-4a7f-a0c3-3893b57263cb",
+      "question": "তুমি প্রায় আমাকে আজ মারতে বসেছিলে-এর ইংরেজি কোনটি? [SABAS][]",
+      "options": [
+        "You are killing about me today.",
+        "You are to about killing me today.",
+        "You were about to kill me today.",
+        "You are about to kill me today."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "About to' মানে কোনো কাজ প্রায় শুরু হতে যাওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "c1d638b5-aa4e-4531-979d-84ca7adb2aa6",
+      "question": "আমাকে তার কাজ করতে বাধ্য করল' Correct translation is- [SABAS][]",
+      "options": [
+        "He made me work for him",
+        "He made me to work for him",
+        "He has made to work for him",
+        "He had made me to work for him"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Causative verb 'make' এর পর bare infinitive (work) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "2a46025a-2140-4179-a6e5-339a92e27802",
+      "question": "এখানে কদাচিৎ বৃষ্টি হয় [SABAS][]",
+      "options": [
+        "Hardly it rains here",
+        "It rain hardly here",
+        "It hardly rains here",
+        "Here rains hardly"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Hardly (negative adverb) সাবজেক্টের পর এবং মূল ভার্বের আগে বসে।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "3b7f655a-6fe2-441d-82cb-e84c9c1cc758",
+      "question": "সে অঙ্কে কাঁচা -বাক্যটির সঠিক ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "He is bad in Mathematics",
+        "He is foolish in Mathematics",
+        "He is weak in Mathematics",
+        "He is raw in Mathematics"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অঙ্কে কাঁচা' অর্থে 'weak in Mathematics' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "2bf5026d-fd38-4e91-89d6-26ce6be19079",
+      "question": "তোমার বরং স্থানটি ত্যাগ করাই ভালো [SABAS][]",
+      "options": [
+        "You should leave the place.",
+        "You had better leave the place.",
+        "You should have left the place.",
+        "You leave the place."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বরং ভালো অর্থে 'had better' ব্যবহৃত হয় এবং এরপর verb-এর base form বসে।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "e960f1f6-d174-4902-a195-b6586948eda4",
+      "question": "The defendant was issued summons in time এর সঠিক অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "বিবাদীকে যথাসময়ে সমনজারী করা হয়েছিল।",
+        "বাদীকে যথাসময়ে সমনজারী করা হয়েছিল।",
+        "সমর্থনকারীকে পূর্বাহ্নে সমনজারী করা হয়েছিল।",
+        "বাদীকে পূর্বাহ্নে সমনজারী করা হয়েছিল।"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Defendant মানে বিবাদী এবং in time মানে যথাসময়ে।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "a7fe862a-1beb-4ad9-ab11-51bb22e88699",
+      "question": "আমি দেখলাম যে ঘড়িটা বন্ধ হয়ে গেছে- Correct translation is-- [SABAS][]",
+      "options": [
+        "I find clock stopped",
+        "I find that the clock stops",
+        "I found that the clock had stopped",
+        "I found that the clock has stopped"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Principal clause past tense-এ থাকায় subordinate clause-টিও past perfect-এ হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "4c86912e-6d90-42a9-b1b5-9e30833d1e8e",
+      "question": "দুর্ঘটনাটি কখন ঘটেছিল? [SABAS][]",
+      "options": [
+        "When was the accident occurred?",
+        "When did the accident occur?",
+        "What time has the accident occurred?",
+        "When the accident occurred?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Past time বোঝাতে Simple Past Tense-এর গঠন (Did + subject + verb base form) সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "552e13b3-0a99-4d74-81e5-adf55aa2e1fe",
+      "question": "এই বইখানি আমি খুঁজছি- বাক্যটির সঠিক ইংরেজি রূপ হচ্ছে- [SABAS][]",
+      "options": [
+        "This book I am looking for.",
+        "This is the book I am looking for.",
+        "The book which I am looking for is this.",
+        "I am looking for this book."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই নির্দিষ্ট বইটি (this is the book) আমি খুঁজছি অর্থে এটি সঠিক গঠন।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "f4c9722e-8c0f-47ce-a75a-89deec535522",
+      "question": "কারো কর্তব্যে অবহেলা করা উচিত নয়। [SABAS][]",
+      "options": [
+        "No one should neglect their duty",
+        "No one should neglect his duty",
+        "One should not neglect one's duty",
+        "One should not neglect duty"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "One-এর possessive form হিসেবে 'one's' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "996fdf4c-1e76-4179-8832-6e8292a1d8e7",
+      "question": "আমরা তার নিমন্ত্রণ প্রত্যাখ্যান করলাম। [SABAS][]",
+      "options": [
+        "We denied his invitation.",
+        "We declined his invitation",
+        "We disapproved his invitation.",
+        "We disallowed his invitation."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নিমন্ত্রণ প্রত্যাখ্যান করা অর্থে 'decline' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "b6672393-5d34-4ee3-810e-fe931c2234d7",
+      "question": "প্রথমে আমিই তোমাকে সাহায্য করেছিলাম। [SABAS][]",
+      "options": [
+        "It had been I who first helped you.",
+        "It is I who have helped you first.",
+        "It is I who helped you first",
+        "I helped you first."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Emphasis বোঝাতে 'It is I who...' গঠনটি ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "95ca0cd6-d75b-4242-a04c-cce2a00eb70a",
+      "question": "It has been drizzling for about an hour. [SABAS][]",
+      "options": [
+        "এক ঘণ্টা যাবৎ টিপটিপ করে বৃষ্টি পড়ছে",
+        "এক ঘণ্টা যাবৎ মুষলধারে বৃষ্টি পড়ছে",
+        "বৃষ্টি শুরু হওয়ার এক ঘণ্টা হয়েছে",
+        "এক ঘণ্টা যাবৎ অবিরাম বৃষ্টি হচ্ছে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Drizzle শব্দের অর্থ টিপটিপ করে বৃষ্টি পড়া।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "95e4ac67-77bb-43df-b8c5-5d44084079cc",
+      "question": "Translate into English: সে এসেছিল বন্ধুর বেশে। [SABAS][]",
+      "options": [
+        "He came in the colour of a friend.",
+        "He came in the guise of a friend.",
+        "He came in the form of a friend.",
+        "He came in the view of a friend."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বেশ বা ছদ্মবেশ অর্থে 'guise' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "a56a61bf-2cb3-4784-83cb-d597b6a0bc5f",
+      "question": "ধন্যবাদ তবে কাজটি কি ঠিক হল - [SABAS][]",
+      "options": [
+        "Thank you. But is it that work correct.",
+        "Thank you. But is it all right to do that.",
+        "Thank you. But is it right.",
+        "Thank you. So is it correct."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি একটি সৌজন্যমূলক বাক্য যা 'is it all right to do that' দিয়ে প্রকাশ পায়।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "b3840e60-5556-4b45-a42f-98e0ab3d5137",
+      "question": "আমার যদি পাখির মত ডানা থাকত! [SABAS][]",
+      "options": [
+        "If I would have the wings of a bird!",
+        "Had I the wings of a bird!",
+        "I wish that I would have the wings of a bird!",
+        "If I could fly like a bird!"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অবাস্তব ইচ্ছা বোঝাতে 'Had I...' (inversion) গঠনটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "7755af08-322d-44fc-8d9b-5c05771d6981",
+      "question": "তুমি গেলেও যা না গেলেও তা' এর ইংরেজি অনুবাদ হলো - [SABAS][]",
+      "options": [
+        "It is same whether you go or not.",
+        "It is all the same whether you go or not.",
+        "It is all the same whether you go or not go.",
+        "None of these"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উভয় ক্ষেত্রেই একই ফলাফল বোঝাতে 'It is all the same' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "db9b8ea0-49c5-45c7-b3be-8c4b4df497bd",
+      "question": "সে বলল যে, সে কখনো এখানে আসবে না।' বাক্যটির সঠিক অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "He said that he will never come here",
+        "He said that he would never come here",
+        "He told that he will never come here.",
+        "He was said that he would never come here."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Indirect speech-এ past tense অনুসরণ করায় 'will' পরিবর্তিত হয়ে 'would' হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "bd56cb73-7eb9-4092-9174-be7dda468bbb",
+      "question": "সে চা খায়। [SABAS][]",
+      "options": [
+        "She takes tea",
+        "She drinks tea",
+        "She eats tea",
+        "She take tea."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "চা পান করা অর্থে 'take' সবচেয়ে উপযুক্ত verb।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "8e60729d-c9dd-4a27-abb0-ad44abe22f3e",
+      "question": "I do not take tea. [SABAS][]",
+      "options": [
+        "আমি চা আনি না",
+        "আমি চা খাব না",
+        "আমি চা খাই।",
+        "আমি চা পান করি না।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Take tea মানে চা পান করা।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "8c213010-4490-4289-a1d2-4f0b28c0a0af",
+      "question": "কুতর্কিক' in English -- [SABAS][]",
+      "options": [
+        "debator",
+        "diplomat",
+        "polemicist",
+        "omniscient"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Polemicist শব্দের অর্থ কুতর্ককারী বা বিবাদী।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "4be1ef9e-c578-46b2-bcff-f85310c91734",
+      "question": "Chew the cud' এর অর্থ -- [SABAS][]",
+      "options": [
+        "সময় ক্ষেপণ",
+        "ভান করা",
+        "মর্মাহত হওয়া",
+        "গভীরভাবে চিন্তা করা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Idiom 'Chew the cud' মানে জাবর কাটা বা গভীরভাবে কোনো বিষয় নিয়ে চিন্তা করা।",
+      "images": []
+    }
+  ]
+}

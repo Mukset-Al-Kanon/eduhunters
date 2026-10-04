@@ -1,0 +1,1510 @@
+{
+  "exam_id": 4639,
+  "title": "English grammar",
+  "category": "SureShot SecondTimer Carnival",
+  "duration_minutes": 40,
+  "total_questions": 100,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "a115ddcf-4867-40b1-96c3-437a3b835fe2",
+      "question": "To err is human. the infinitive functions as-",
+      "options": [
+        "Verb",
+        "Subject",
+        "Object",
+        "Adjective"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"To err\" is the subject of the sentence.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "8081efb0-295f-4458-99d0-f5f3303fb33a",
+      "question": "She is interested in_______.",
+      "options": [
+        "To learn",
+        "Learn",
+        "Learns",
+        "Learning"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Prepositions are followed by gerunds, not infinitives.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "60e96fcb-a92c-441f-82f8-912cf4bba019",
+      "question": "He talks as if he _____ everything.",
+      "options": [
+        "Know",
+        "Knew",
+        "Has known",
+        "Knows"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Unreal/hypothetical uses past tense form \"knew\".",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "19727adc-8979-4ed4-a2d1-e911c5b0c0ce",
+      "question": "Which sentence contains a conjunctive adverb?",
+      "options": [
+        "I ran because I was late.",
+        "He is rich but humble.",
+        "She is smart; however, she lacks discipline.",
+        "They left before we arrived."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"However\" is a conjunctive adverb, joining independent clauses.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "3df7ec52-e2e4-4133-a5cb-02744354d8ea",
+      "question": "You can stay ______ you remain quiet.",
+      "options": [
+        "Unless",
+        "Although",
+        "As though",
+        "Provided that"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"If\"/\" Provided that\" is used to express condition",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d54c6f3a-2c27-4706-b45d-796bdc2836f8",
+      "question": "\"He was seen running\", the verb \"running\" is a-",
+      "options": [
+        "Finite",
+        "Gerund",
+        "Bare infinitive",
+        "Present participle"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"Running\" is a present participle modifying \"he\" in passive structure.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "7cd5ff49-2540-4371-ab2c-c5cac5b263d4",
+      "question": "What is the bare infinitive in: \"She made him cry\"?",
+      "options": [
+        "She",
+        "Made",
+        "Him",
+        "Cry"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"Cry\" is the base form used after causative verb \"made\".",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "035dc274-e70e-45bd-a1d9-f5a3dc566548",
+      "question": "Which verb is an intransitive phrasal verb?",
+      "options": [
+        "Turm in",
+        "Break down",
+        "Put off",
+        "Bring up"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"Break down\" doesn't need an object-it's intransitive.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "dadc9752-2544-41ba-a4c0-fe02a6740ed2",
+      "question": "Choose the correct verb pattern:",
+      "options": [
+        "She suggested him to go.",
+        "I heard her sings.",
+        "He made me cry.",
+        "They let him to leave."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"Made\" is followed by bare infinitive: \"cry\", not \"to cry\".",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "5983ba7a-ced4-4208-8b8b-7d9b6bdcaa03",
+      "question": "Which sentence contains a gerund clause?",
+      "options": [
+        "That she is late bothers me.",
+        "Singing in the rain is fun.",
+        "To sing is divine.",
+        "The boy singing is my brother."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"Singing in the rain\" = gerund phrase as subject.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "e417a209-ec61-4777-8c28-fe8e73db082d",
+      "question": "He let me_______.",
+      "options": [
+        "go",
+        "to go",
+        "going",
+        "gone"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Bare infinitive is used after \"let\".",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "fa3e3aee-60e6-4386-b51f-5c4123ca9652",
+      "question": "Identify the verbal noun:",
+      "options": [
+        "Sleeping is healthy.",
+        "I like sleep.",
+        "Sleep well.",
+        "She was sleepy."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Sleeping\" as subject is a gerund functioning as noun.",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "436e9c7e-dc23-4395-afac-90dce4490adc",
+      "question": "Which sentence is in the passive causative?",
+      "options": [
+        "He had the car repaired.",
+        "He is repairing the car.",
+        "He repaired the car.",
+        "He has repaired the car."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Had + object + past participle\" = passive causative.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "4f3410e3-18a0-47b7-8a5f-f5fa771c30d2",
+      "question": "Which is not an irregular verb?",
+      "options": [
+        "Walk",
+        "Eat",
+        "Sing",
+        "Go"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Walk\" follows regular past tense rule (walked)",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "d90fc22a-6b7e-4511-9a47-3ea547b6eb0f",
+      "question": "Choose the sentence with parallel structure-",
+      "options": [
+        "He likes swimming, to jog, and bikes.",
+        "She enjoys to sing, dancing, and act.",
+        "They love hiking, biking, and swimming.",
+        "He wants reading and to write."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "All gerunds used equally = proper parallelism.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "6bad3d39-693c-4adc-b345-a0ffc33cc6eb",
+      "question": "Which of the following is not an adjective?",
+      "options": [
+        "humor",
+        "Humane",
+        "Humble",
+        "Humid"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Humor is a noun .",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "feb6bf62-7375-4f49-8125-33e2306c71b7",
+      "question": "Change the voice: 'Who is calling me?\"",
+      "options": [
+        "By whom am I called?",
+        "By whom I am called?",
+        "By whom am I being called?",
+        "Whom am I called by?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Who যুক্ত present continuous tense interrogative বাক্যের passive voice-এর structure:: By whom + am/is/are + obj-এর subjective form + being + verb এর p.p. + question mark। সুতরাং প্রদত্ত বাক্যটির passive voice: By whom am I being called?",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "4339d3c3-76c9-42c1-a8e3-eb9b39796169",
+      "question": "People always remember the patriots.Which of the following is the best passive form of the above sentence?",
+      "options": [
+        "The patriots will always be remembered by people.",
+        "The patriots are always being remembered.",
+        "People are always remembered by the patriots.",
+        "The patriots are always remembered."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটি present indefinite tense এ থাকায় এর passive রূপ হবে: Sub (obj) +be verb + adverb of time + verb-এর past participle + by + obj (sub)। তবে by + obj অংশটি উল্লেখ না করলেও বাক্য ভুল হয় না।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "63496163-7efb-4217-aad4-d010b51ce637",
+      "question": "Passive form of-\"A lion may be helped even by a little mouse.\"",
+      "options": [
+        "A little mouse may even help a lion.",
+        "Even a little mouse may help a lion.",
+        "A little mouse can even help a lion.",
+        "Even a little mouse ought to help a lion."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রদত্ত বাক্যটি passive form এ আছে, এটিকে active করতে হবে। এখানে 'even a little mouse' হলো subject এবং এর পর modal + মূল verb এর present form বসে active হবে।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "f1211082-c3a5-4a06-80ab-a1a2029fbbde",
+      "question": "Which one of the following is the correct passive form of 'One should keep one's promises.'",
+      "options": [
+        "Promises should be kept.",
+        "promises can be kept.",
+        "Promises will be kept",
+        "promises would be kept"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যটিতে modal aux, should থাকায় passive করতে হলে should be + V3 বসিয়ে করতে হবে। সেই হিসেবে promises should be kept সঠিক উত্তর।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "24854f60-dfd2-49db-a734-a5c30691ea3e",
+      "question": "The correct passive \"We don't like idle people.\" is",
+      "options": [
+        "Idle people are not liked by us.",
+        "Idle people don’t like us.",
+        "Idle people are liked by us.",
+        "Idle people are hated."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "d5dda63b-a1ba-445a-beba-97f23addbc92",
+      "question": "\"Pluck me a flower .\" বাক্যটির Passive voice কোনটি?",
+      "options": [
+        "Let a flower be plucked me.",
+        "Let a flower plucked for me.",
+        "Let a flower be plucked for me.",
+        "Let a flower plucked by me."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Imperative sentence-কে passive করতে let দ্বারা শুরু করতে হয় + বস্তুবাচক object বসাতে হয় + be + V3+ for বসিয়ে ব্যক্তিবাচক object বসাতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "57337477-713d-4d1c-818a-3e4c6a20582c",
+      "question": "Which one is the correct passive voice in the following sentence? Who taught her grammar?",
+      "options": [
+        "By whom she was taught grammar",
+        "By whom was she taught grammar?",
+        "She was taught grammar by who?",
+        "Who was she taught grammar by?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Active-এ who থাকলে passive- by whom + aux. (tense number অনুযায়ী) +sub+V3+ obj।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "11c12131-53a5-4152-8e7d-a3dba99c692b",
+      "question": "Choose the correct passive form of, 'Don't make a mistake about me.'",
+      "options": [
+        "Let a mistake be not made about me.",
+        "I should not be made a mistake.",
+        "A mistake is not made about me.",
+        "Let not a mistake be made about me."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Imperative sentence এর passive এর ক্ষেত্রে প্রথমেই let বসে। Negative হলে Let এর পর not বসে।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "1dce3e40-4a5f-4e26-bac2-3b657981495f",
+      "question": "Passive Voice of 'They held a meeting very early'.",
+      "options": [
+        "A meeting is held by them very early.",
+        "A meeting will be held by them very early.",
+        "A meeting was hold by them very early.",
+        "A meeting was held by them very early."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রদত্ত বাক্যটি past tense-এ রয়েছে। কাজেই subject হিসেবে a meeting-এর পরে was বসবে ও verb হিসেবে held বসবে। এরপর by যুক্ত হয়ে them ও বাকি অংশ বসবে",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "5879ec5c-243d-469d-9b5a-1237a30daeac",
+      "question": "What is the passive form of the sentence 'I had already shown her photo to the policeman?\"",
+      "options": [
+        "The policeman was already shown her photo.",
+        "Her photo was already been shown to the policeman.",
+        "The policeman has already been shown her photo.",
+        "The policeman had already been shown her photo"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The correct one is-\"The policeman had already been shown her photo\"",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "5200f330-018b-4a7c-a83e-34e757774550",
+      "question": "Rarely ______ seen far from water.",
+      "options": [
+        "have spotted turtles",
+        "spotted turtles are",
+        "are spotted turtles",
+        "spotted turtles"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রদত্ত বাক্যটি মূলত passive form-এ হওয়ায় বাক্যের structure-be verb + V3",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "a646ebd9-f8e1-4930-836e-b349486cd64b",
+      "question": "The passive form of the sentence 'Some children were helping the wounded man'-",
+      "options": [
+        "The wounded man was helped by some children.",
+        "The wounded man was helping some children.",
+        "The wounded man was being helped by some children.",
+        "The wounded man was to be helped by some children."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাক্যটি past continuous tense হওয়ায় এর passive বাক্যটিও এই-tense অনুযায়ী হবে। Past continuous tense-এর passive structure হলো sub (obj) + was/were + being +v3+by+obj (sub)",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "d6ecc4dd-a8a5-4692-b3c5-f1a1eaacffe3",
+      "question": "Select the correct passive voice of \"He did for me the unnecessary things.\"-",
+      "options": [
+        "The unnecessary things were done for me by him.",
+        "The unnecessary things was done by him for me.",
+        "The unnecessary things had been done for me by him.",
+        "The unnecessary things had to be done for me by him."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Past indefinite tense-এর passive করতে object-কে subject হিসেবে বসাতে হয় ও subject অনুসারে, was/were বসাতে হয়+ main verb-এর past participle form বসে। এরপর prepositional phrase বসে+ by + object বসে।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "c77bff3c-5d21-4b6d-abb7-dfb308ff2a6a",
+      "question": "Which one of the following sentences is in the passive form?",
+      "options": [
+        "The room has been cleaned.",
+        "Somebody has cleaned the room.",
+        "Somebody is using the computer now.",
+        "They are building a new road in the city."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Be verb+ V3\" pattern indicates passive voice.",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "f04864c6-92a5-48d8-aba3-283b778fac16",
+      "question": "The correct passive of \"Sheila was writing a letter\" is-",
+      "options": [
+        "A letter was writing by Sheila",
+        "A letter was being writing by Sheila",
+        "A letter was being written by Sheila",
+        "A letter was been written by Sheila"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "44a78308-c00c-4f07-a7fc-dead970bcc85",
+      "question": "Identify the correct passive form of the sentence below?",
+      "options": [
+        "Are they known by you?",
+        "Would they be known by you?",
+        "Are they be known with you?",
+        "Are they known to you?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Know এর past participle-এর পরে to বসে। সাধারণত passive voice- V3 এর পরে by যোগে object বসে। তবে কিছু কিছু verb-এর পরে by বসে না। যেমন- known-to, pleased-with, satisfy-with",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "a580840c-2c64-46e9-9b2a-183537d03fb0",
+      "question": "After____, my car looked as good as new.",
+      "options": [
+        "Repaired",
+        "Being repaired",
+        "It is repaired",
+        "It is repairing"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যের subject যদি উক্ত কাজের সাথে সম্পৃক্ত না থাকে তাহলে after-এর পর phrase-টি passive voice এ হয়.",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "3dc35cbb-7445-4387-9743-84922fd2cdce",
+      "question": "She told that she ______ London next month",
+      "options": [
+        "visited",
+        "will visit",
+        "visits",
+        "would visit"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Reported verb part indefinite এ থাকলে এবং পরের অংশ যদি future নির্দেশক কোনো অংশ যেমন: next day, next month থাকে তাহলে reported speech এ would বা should বসে।.",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "84551469-75f9-4986-8473-ba6b4b90ac66",
+      "question": "He ______ the book before retired.",
+      "options": [
+        "writes",
+        "write",
+        "wrote",
+        "had written"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অতীত কালে দুটি কাজের যে কাজটি পূর্বে হয় তা Past Perfect Tense, অপেক্ষাকৃত পরের কাজটি Past finite Tense হয়। অর্থাৎ After এর পরে Past Perfect এবং Before পূর্বে Past Perfect বসে। যেমনঃShe told me her name after she had come.He had written the book before he retired.",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "f3f0f694-9a7b-480d-aad3-3b39c7fd718d",
+      "question": "Unless you ____ well, you will fail.",
+      "options": [
+        "don't read",
+        "didn't read",
+        "doesn't read",
+        "none of these"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Unless/until/as long as if + present indifinite+ future indefinite (NB: unless যুক্ত অংশ কখনো negative হয় না)যেমন:Unless you read well, you will fail.",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "3068f306-1f35-4634-b9d8-7b289e24a678",
+      "question": "As soon as he reached, he _____ his friend.",
+      "options": [
+        "would see",
+        "had seen",
+        "has seen",
+        "saw"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "As soon as + past indefinite + past indefinite; যেমনঃAs soon as he reached, he saw his friend",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "b0980c4c-f31b-4c97-9909-8ef3ed63d00c",
+      "question": "She finished ______.",
+      "options": [
+        "eat",
+        "to eat",
+        "eating",
+        "had eaten"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Finish, avoid, prefer, hate, consider, enjoy, regret, start, mention প্রভৃতি verb এর পর অন্য verb আসলে তার সাথে ing যোগ করতে হয়।(সাধারণত দুইটা verb পরপর আসলে পরের verb টির আগে 10 যোগ করতে হয় বা verb+ ing করতে হয়। এগুলোর সাথে কেবল ing হবে (কোনোভাবেই to+ verb করা যাবেনা)She finished eating. (not to eat)",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "9d755cbf-e1db-411a-bb7c-95c6d09b23ed",
+      "question": "It is nice ______ you.",
+      "options": [
+        "to see",
+        "seeing",
+        "see",
+        "Being seen"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "it is no good, it is no use, it is nice ইত্যাদির পর verb এর সাথে ing যোগ করতে হয়।যেমন: It is no use warning about it.",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "129a9bdc-fa2e-4c83-be97-18139d7a129b",
+      "question": "Hardly ______ entered the office when he realized that he had forgotten his wallet.",
+      "options": [
+        "had he",
+        "he had",
+        "he was",
+        "did he"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Hardly had.....when থাকলে had যুক্ত অংশটি Past Perfect Tense এবং পরবর্তী অংশটি Past Indefinite Tense এ হয়।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "bbe34a2a-9828-45ab-95f3-404080a028a4",
+      "question": "I am used to ______ there.",
+      "options": [
+        "go",
+        "went",
+        "going",
+        "have gone"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "With a view to look forward to, give up, insist on, be used to(is used to)(only used to+ v₁), depend on, carry on, can not help, could not help প্রভৃতি verbal phrase এর পর verb + ing হয়।I am looking forward to seeing you",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "961b240c-4d71-4746-9b43-f0f1053773a3",
+      "question": "He waited until the plane_______.",
+      "options": [
+        "did not take off",
+        "took off",
+        "had not taken off",
+        "had taken off"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Until দিয়ে Past Tense থাকলে দুটোই Past Indefinite Tense হয় এবং until এর পর Negative sentence বসে না।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "4a69ca79-33ad-42f3-8274-c88bd01571dc",
+      "question": "I Don't like his _______ here.",
+      "options": [
+        "come",
+        "to come",
+        "coming",
+        "came"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Possessive এর পর verb এর সাথে ing যোগ হয়।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "0571f6d2-c695-4daa-9782-055caf2cc5c6",
+      "question": "Would that I _____ a child again.",
+      "options": [
+        "were",
+        "was",
+        "be",
+        "could be"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Would that + subject + could+v+ extension; যেমনঃWould that I could be a child again.",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "842b1d2d-56af-417d-aefc-dd0521b57932",
+      "question": "As soon as he returns, I ______ you.",
+      "options": [
+        "called",
+        "would call",
+        "am calling",
+        "will call"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "As soon as + present indefinite/present perfect + future indefinite; যেমনঃAs soon as he returns, I will call you.",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "5dcc63ae-4d2a-4829-a05a-cb14c18d6c1c",
+      "question": "I am looking forward to ______ you.",
+      "options": [
+        "see",
+        "saw",
+        "have seen",
+        "seeing"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "With a view to look forward to, give up, insist on, be used to(is used to)(only used to+ v₁), depend on, carry on, can not help, could not help প্রভৃতি verbal phrase এর পর verb + ing হয়।I am looking forward to seeing you",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "fc335809-5157-4dfc-bbae-b4c5fd201ef5",
+      "question": "Rahim argued against war_________.",
+      "options": [
+        "while his brother discusses the effects of pollution.",
+        "while his brother discussed the effects of pollution.",
+        "while his brother was discussing the effects of pollution.",
+        "while his brother had discussed the effects of pollution."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "While এর ঠিক পরেই যে verb থাকে তার সাথে ing যুক্ত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "d59e8041-a887-402f-ac87-5e10afc1765f",
+      "question": "Don't go outside until it _____ raining.",
+      "options": [
+        "stopped",
+        "stopping",
+        "Stop",
+        "Stops"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Unless/until এর আগের Clause টি Present Indefinite Tense হলে এর পরের Clause টিও Present Indefinite Tense হয়। Until এর পর Never, no, not প্রভৃতি বসে না।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "16230fac-3e37-4bcf-983f-75711057d6bf",
+      "question": "I like...... the piano.",
+      "options": [
+        "play",
+        "played",
+        "playing",
+        "was played"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Like এর পরে verb+ing হয়।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "d005e847-d5c5-42a4-b13a-0b3028b2075e",
+      "question": "Inaya along with her brothers _______ meritorious.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "were"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "As well as, In addition to, And not, Not only. Together with, Among with, With, Along with, In collaboration with, Accompanied by, In conjunction with, Accompanied with, Except, No less than, Including to, Besides this প্রভৃতি দ্বারা দুটি subject যুক্ত হলে 1st Subject অনুযায়ী verb হবে।",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "1263fe5a-8fc5-4087-bce5-ff68c213870e",
+      "question": "Everything including the books _____ Bought.",
+      "options": [
+        "Was",
+        "Were",
+        "Is",
+        "Are"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Ans: With, Together with, Along with, Among with, In addition to, As well as, And not accompanied by etc. phrase এর ক্ষেত্রে Verb প্রথম সাবজেক্ট অনুযায়ী বসে।A) Was",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "a70f436c-cc67-495e-b793-7b2e14dcaeaf",
+      "question": "Which one of the following sentences is correct?",
+      "options": [
+        "The Mother together with the daughter was working slowly",
+        "The mother together with the daughter were working slowly.",
+        "Mother together with the daughter had been working slowly.",
+        "The mother together with the daughter have been working slowly."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Ans: with, together with, Along with, Among with, In addition to, As well as, and not accompanied by etc. phrase এর ক্ষেত্রে Verb প্রথম সাবজেক্ট অনুযায়ী বসে।A) The mother together with the daughter was working slowly",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "1ab2de88-9a2a-4051-bacd-3e12886962a1",
+      "question": "Everybody wants to go to the cinema but nobody______ willing to pay for the tickets. what should we do?",
+      "options": [
+        "Is seeming",
+        "Seem",
+        "Seems",
+        "Are seem"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ans : CEverybody, anybody,somebody, nobody এর পরে Verb Singular হবে।",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "5c26da7a-c356-4318-90f1-d0aeaac675c2",
+      "question": "Fifty Miles ____ a long distance.",
+      "options": [
+        "Am",
+        "Were",
+        "Was",
+        "Is"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Ans: D(is)",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "e7c74daf-95f7-4328-9eaa-b690d14d654f",
+      "question": "The Arabian Nights _____ Still a great favourite.",
+      "options": [
+        "Are",
+        "Is",
+        "Were",
+        "Was"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Ans: B(is)",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "57507e5e-6c50-4561-9a92-f6b51e083d18",
+      "question": "Choose the correct sentence from below.",
+      "options": [
+        "Man poses but God disposes.",
+        "Man propose but god Disposes",
+        "Man propose but God dispose.",
+        "Man proposes but God disposes."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Ans: D (man proposes but God disposes.)",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "88a73ac7-56fe-4e5c-94cf-1abd57bc98bd",
+      "question": "Which one of the following has the correct subject-verb agreement?",
+      "options": [
+        "Traffic Jams in the parking area was one difficulty.",
+        "Not only Sufia but also Nasima wants to visit Grandma.",
+        "One problem for the players was unexpected threats of injury .",
+        "Somebody want to speak with you"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ans: C (One problem for the players was unexpected threats of injury)",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "684ecfcf-a68d-43d1-850f-d14f51c52202",
+      "question": "The police____ informed yesterday.",
+      "options": [
+        "Is",
+        "Are",
+        "Was",
+        "Were"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Ans: DPolice, Audience, Cattle these are plural Collective Nouns.",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "b4fff32f-f6fe-4884-9ebe-3d994ebe532a",
+      "question": "Twenty years ____since my mother died.",
+      "options": [
+        "Has passed",
+        "Have Passed",
+        "Passed",
+        "Pass"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Ans: BNormally Time works as a Unit. (Two hours seems a long time) But separately বুঝালে Verb Plural হয়।",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "d68979d6-18db-4ce4-8b47-c424eb80cddb",
+      "question": "Identify the Present indefinite tense:",
+      "options": [
+        "He read a Book.",
+        "He is reading a book",
+        "He has been reading a book",
+        "He reads a book"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Ans:DHe read(Past form) a book. Past infinite...",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "72d8b539-cc10-4a5f-8284-6aa3234e49fb",
+      "question": "For Present Perfect Tense which one of the following is correct?",
+      "options": [
+        "Ashraf had gone to Faridpur",
+        "Ashraf has been to Faridpur",
+        "Ashraf has gone to Faridpur",
+        "Ashraf went to Faridpur"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ans:C (Ashraf has gone to Faridpur)",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "16657997-d10a-4d67-9dd7-e4aa1c027025",
+      "question": "Select the correct sentence:",
+      "options": [
+        "The jury was divided in their decision.",
+        "The jury were unanimous in their decision.",
+        "The jury were divided in their decision.",
+        "The jury were unanimous in its decision."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ans: CThe jury is a singular collective noun. But where it refers to be divided the verb should be plural.Corr: The jury was unanimous in its decision.Corr: The Jury were divided in their decision.",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "90a6cb25-f917-4707-9d7e-ffa35285c26a",
+      "question": "Which one of the following sentences is correct?",
+      "options": [
+        "He as well as his two brothers are very attentive.",
+        "He as well as his two brothers have been good students.",
+        "He as well as his two brothers is a good student.",
+        "He as well as his two brothers were being good students."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ans: With, Together with, Along with, Among with, In addition to, As well as, And not accompanied by etc. phrase এর ক্ষেত্রে Verb প্রথম সাবজেক্ট অনুযায়ী বসে।C) He as well as his two brothers is a good student.",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": "c2540c82-2f91-49bb-8906-16dc72ec9e1e",
+      "question": "Three Fourths of the Earth's surface___ by Water.",
+      "options": [
+        "Are covered",
+        "Covers",
+        "Is covered",
+        "Has covered"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ans:  Fraction or Percentage থাকলে Preposition পরবর্তী সাবজেক্ট অনুযায়ী Verb নিতে হবে।",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": "e43a4aec-371d-4276-991f-f5c4c02c7d74",
+      "question": "The effects of time wasting_____ devastating.",
+      "options": [
+        "Is",
+        "Have",
+        "Has",
+        "Are"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Ans: Are",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": "4e386f3b-028d-4969-b0e0-57a3cca07c11",
+      "question": "Choose the correct sentence.",
+      "options": [
+        "One and a half hour is a long time",
+        "One and a half hour are a long time",
+        "One and a half hours is a long time",
+        "One and half hour is a long time."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ans: COne and a Half+ Plural Noun এর পরে Singular Verb বসে। One and a half plural ই বসে(Hours, books)",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": "01ac2b69-f419-4d46-ae90-18fe967a424b",
+      "question": "Neither he himself nor the spectators _____ satisfied with his answers to the questions.",
+      "options": [
+        "were",
+        "has been",
+        "is",
+        "was"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "(i) Neither + noun + nor + plural noun + plural verb.Ex: Neither Rahim nor his friends are going to market. Plural Plural(ii) Neither + noun + nor + singular noun + singular verv.Ex: Neither Arif nor Kamal is going to market. Singular Singularঅর্থাৎ, nor এর পরবর্তী subject অনুযায়ী verb হবে।",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": "a96cdab5-2ce9-40f9-96b1-bde5af44214d",
+      "question": "Two-thirds of the city ____.",
+      "options": [
+        "was inundated",
+        "were inundated",
+        "have inundated",
+        "Inundated"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Rule of Fraction :(i) Fraction + of + singular noun/uncountable noun + verb singular.Ex: Two-thirds of the city was inundated. (ii) Fraction + of + plural noun + plural verbEx: Two-third of the crops are damaged.Inundate - প্লাবিত হওয়া। প্রদত্ত sentence টি passive এ হবে।",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": "9be281e1-f40f-4679-b3ab-6c89f55511e1",
+      "question": "One of the major _____ load shedding",
+      "options": [
+        "problems are",
+        "problems is",
+        "problem be",
+        "problem is"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "One of the এর কারণে plural form হয়ছে। One of এর পর plural noun+singular verb বসে। তাই problems is হয়েছে এখানে।",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": "80c68cc4-c805-45f8-bba0-2d47026738d0",
+      "question": "Which of these sentences is incorrect ?",
+      "options": [
+        "We are sitting an exam .",
+        "We are taking an exam.",
+        "Students are giving an exam.",
+        "Teachers are giving an exam ."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Give an exam - পরীক্ষা নেওয়া।Take an exam - পরীক্ষায় অংশগ্রহণ করা।Sit an exam - পরীক্ষায় অংশ নেওয়া।এখানে, 'give an exam' শুধুমাত্র teachers এর ক্ষেত্রে ব্যবহৃত হয়।Students পরীক্ষায় অংশ নেয়, আর teachers তাদের পরীক্ষা নেয়।",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": "82b6bdd2-e545-4c1b-a2a1-0f6703459e6e",
+      "question": "Find out the correct sentence -------.",
+      "options": [
+        "The scenery of Rangamati are beautiful.",
+        "The sceneries of Rangamati are beautiful.",
+        "The scenery of Rangamati is beautiful.",
+        "The sceneries of Rangamati is beautiful."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Scenery হল Uncountable noun যা সবসময় Singular আর Noun Singular হলে Verb Singular হয়।• The + Uncountable Noun + of + Singular verb• The + Countable Noun (plural) + of + plural verb",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": "5bd5b9d5-3635-406e-a528-d48630a9216c",
+      "question": "Compete the sentence: Shumi and Bokul __         my friends When I studied in high School",
+      "options": [
+        "are",
+        "is",
+        "was",
+        "were"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Sentence টি past tense- এ আছে, আর যেহেতু plural form (Shumi and Bokul) তাই fill in the gap- এ were হবে।",
+      "images": []
+    },
+    {
+      "question_no": 73,
+      "id": "2d5f019a-1ac3-4829-ab34-44cf927cb0c0",
+      "question": "Which of the following sentences Is correct?",
+      "options": [
+        "The two parties have different views to democracy",
+        "The two parties has different views to democracy",
+        "The two parties have different views of democracy",
+        "The two parties  different on democracy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Sentence টির অর্থ হচ্ছে- 'দুই দলের গণতন্ত্র নিয়ে ভিন্ন দৃষ্টিভঙ্গি আছে।' এখানে subject plural তাই verbও plural হবে।",
+      "images": []
+    },
+    {
+      "question_no": 74,
+      "id": "f561944f-13aa-44f1-b584-d3e5c654effe",
+      "question": "Which of the following sentences is correct?",
+      "options": [
+        "is appearing",
+        "He and I is well",
+        "He and I  was well",
+        "He and I are well"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দুটি জিনিস পরস্পর অভিন্ন বুঝালে Singular হয়।যেমন: Bread and Butter is healthy. কিন্তু দুটি জিনিস পরস্পর ভিন্ন হলে Plural হয়।যেমন: Karim and Rahim are playing football সুতরাং Sentence টি Plural হবে।",
+      "images": []
+    },
+    {
+      "question_no": 75,
+      "id": "eb6dc499-d946-4148-8a8f-e8ae2a3b26a4",
+      "question": "A number of banks___________ computer or their transactions.",
+      "options": [
+        "has used",
+        "use",
+        "uses",
+        "using"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A number of + plural noun + plural verb The number of + plural noun + singular verb",
+      "images": []
+    },
+    {
+      "question_no": 76,
+      "id": "c833f156-cc67-47b1-a3f4-0beebf65482a",
+      "question": "Complete the sentence with the correct verb from: ‘Neela ____ her hand when she was cooking dinner.",
+      "options": [
+        "is burning",
+        "burnt",
+        "will burn",
+        "was burning"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sequence of tense (Principal Clause -এর verb -এর tense অনুযায়ী subordinate clause -এর verb -এর নিয়ম নির্ধারিত হওয়ায় নিয়মই হলো sequence of tense)-এর নিয়মানুসারে (কিছু ব্যতিক্রম ছাড়া) principal clause -এর verb যদি past tense হয় তবে subordinate clause-এর verb ও past tense হবে। উল্লিখিত sentence টির subordinate clauses past tense এ রয়েছে। সুতরাং principal clause টিও past tense হবে।",
+      "images": []
+    },
+    {
+      "question_no": 77,
+      "id": "b14dc638-29ce-4e32-9b21-aed3074919ec",
+      "question": "I saw him (go) there.",
+      "options": [
+        "go",
+        "gone",
+        "was going",
+        "going"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সঠিক উত্তর হবে: goingThis is an example of present participle.",
+      "images": []
+    },
+    {
+      "question_no": 78,
+      "id": "6f72855e-45c5-470c-9b52-7773940a22c5",
+      "question": "Would you mind ____ me a cup of tea?",
+      "options": [
+        "giving",
+        "make",
+        "bringing",
+        "bring"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বিনীত অনুরোধ প্রকাশে would you mind বাক্যের শুরুতে বসে এবং এর structure : Would you mind + verb + ing + বাকি অংশ।আবার কোনো বাক্যে mind,can not help, could not help, with a view to, look forward to, be used to, get used to, worth ইত্যাদি শব্দসমূহের পর কোনো verb বসলে সেই verb এর সাথে  ing যুক্ত হয়। সুতরাং, সঠিক উত্তর giving.",
+      "images": []
+    },
+    {
+      "question_no": 79,
+      "id": "50fe9c9c-9c6c-42a7-9223-b263c52ca5cd",
+      "question": "The people of Western Canada have been considering ____ themselves from the rest of the country.",
+      "options": [
+        "to separating",
+        "separating",
+        "separate",
+        "separated"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Consider এর পর verb + ing হয়।",
+      "images": []
+    },
+    {
+      "question_no": 80,
+      "id": "533710b3-863c-4c99-beda-ebcd1fce2e65",
+      "question": "We seem----- a problem with the car.",
+      "options": [
+        "had",
+        "have",
+        "to having",
+        "to have"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Seem এর ব্যবহার:seem to + verb এর base form.• seem to + have + V3প্রশ্নের 'have' টি base form হিসেবে (seem to + Verb এর base form) এই structure অনুযায়ী হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 81,
+      "id": "77ea3c98-2c2e-48d8-b3a9-df8363bf7ff1",
+      "question": "Which of the following sentence has the incorrect subject-verb agreement?",
+      "options": [
+        "Some people in my office are very annoying.",
+        "One hundred dollars is a lot of money for a bottle of wine.",
+        "Two hours is a long time to wait to see a doctor",
+        "Ford in addition to Toyota are lowering its car prices to encourage better sales."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "In addition to দ্বারা দুটি Subject যুক্ত হলে 1st subject এর সাথে সাথে সঙ্গতিপুর্ন verb হবে।  প্রথম subject যেহেতু ford singular তাই  verb হিসেবে are এর পরিবর্তে is হবে।",
+      "images": []
+    },
+    {
+      "question_no": 82,
+      "id": "ce36ed98-59c4-479a-ba3c-2c11d1704ca3",
+      "question": "Choose the correct sentence :",
+      "options": [
+        "It is I who am responsible for this.",
+        "It is me who am responsible for this.",
+        "It is me whom is responsible for this",
+        "It is I that is responsible for this ."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "It is I who am responsible for this.কোন sentence It is দিয়ে শুরু হলে এরপর subjective form বসে। এখানে, I হচ্ছে আমি এর subjective form এবং I এর be verb হিসেবে 'am' বসবে।",
+      "images": []
+    },
+    {
+      "question_no": 83,
+      "id": "dc24a64f-7622-4bd5-bb22-cfc14d7944cc",
+      "question": "A lot of money ........... in the robbery.",
+      "options": [
+        "stole",
+        "stolen",
+        "is stealing",
+        "was stolen"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটি রয়েছে Passive order এ। কারণ টাকা নিজে নিজে ডাকাতি হয় না ডাকাতরা কাজটি করে।",
+      "images": []
+    },
+    {
+      "question_no": 84,
+      "id": "04c21a1c-1eb4-403a-95f4-78568c083bee",
+      "question": "I was glad to hear your success. Make into Complex.",
+      "options": [
+        "I was glad to hear which you have succeed.",
+        "I was glad to hear that you would succeed.",
+        "I was glad to hear that you have succeed.",
+        "I was glad for hear that you have succeed."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Complex বাক্য গঠন করতে that, who, which ইত্যাদি relative pronoun. হিসেবে ব্যবহৃত হয়। That পূর্ববর্তী clause টিতে was থাকায় পরবর্তী clause টি past perfect-এ হবে।",
+      "images": []
+    },
+    {
+      "question_no": 85,
+      "id": "d41208a9-5e91-4ab1-aa07-917549658da2",
+      "question": "Complex form of the sentence 'Saima is both a singer and a painter' is-",
+      "options": [
+        "Saima is a singer and a painter as well.",
+        "Saima who is a singer is a painter as well.",
+        "Saima is not only a singer but also a painter.",
+        "Saima is a singer but a painter as well."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "both.... and যুক্ত compound কে complex করার নিয়ম।Structure: subject + verb + both উঠে not only + Noun/ Adj./Adv. + and উঠে but also + Noun/Adj./Adv.",
+      "images": []
+    },
+    {
+      "question_no": 86,
+      "id": "c662bc53-a9cf-481a-902c-aca1b6a6cef7",
+      "question": "‘He woke up when it was raining’ -Make it simple sentence-",
+      "options": [
+        "He woke up and it was raining.",
+        "He woke up after the rain had stopped.",
+        "He woke up at the time of raining.",
+        "He woke up after the rain."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "When-যুক্ত complex sentence-টিকে simple করার সময় এর পরিবর্তে at the time ব্যবহার করতে হবে।",
+      "images": []
+    },
+    {
+      "question_no": 87,
+      "id": "601c8e26-22ff-4876-834e-fd3f75a8f7ca",
+      "question": "He wants that I should go. (Simple)",
+      "options": [
+        "He wants me gone.",
+        "He wants my going.",
+        "He wants me to go.",
+        "He wants that I must go."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Simple: Subject+ want/wish/like/desired+ object+ infinitive+extensionComplex: subject+ want/wish/like/desire + that +object এর subject+ should+ infinitive এর verb থেকে বাকি অংশ",
+      "images": []
+    },
+    {
+      "question_no": 88,
+      "id": "73c47dca-c278-48df-926f-5e86b242cc45",
+      "question": "Choose the correct indirect speech- She asked me, 'Are you happy in your new job?\"",
+      "options": [
+        "She asked me if I was happy in my new job",
+        "She asked me if I have been happy in my new job",
+        "She asked me whether I am happy in my new job",
+        "She asked me if I had been happy in my new job"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Direct narration-কে indirect করার ক্ষেত্রে যদি interrogative sentence হয় তাহলে if বসে। Reported speech-কে indirect করার সময় assertive করে নিতে হবে। Reporting verb past form-এ রয়েছে, সেহেতু reported speech-কেও অবশ্যই co-responding past form করতে হবে।",
+      "images": []
+    },
+    {
+      "question_no": 89,
+      "id": "e7bad1f2-dda2-4ef8-b8f2-7563b531f32f",
+      "question": "'I'll have a cup of tea,' my father said, 'Because I'm not hungry.' Which of the following sentence is the correct indirect speech?",
+      "options": [
+        "My father said that he will have a cup of tea because he wasn't hungry.",
+        "My father said that he would have had a cup of tea because he wasn't hungry.",
+        "My father said that he would have a cup of tea because he wasn't hungry.",
+        "My father said that he had a cup of tea because he wasn't hungry."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Reporting verb past form-এ থাকায় reported speech-এর will পরিবর্তিত হয়ে would হবে, my father পরিবর্তিত হয়ে he হবে। অপর অংশের is পরিবর্তিত হয়ে past form was হবে।",
+      "images": []
+    },
+    {
+      "question_no": 90,
+      "id": "89b1708a-ee37-481b-8e6e-f8e3c9b5e5cc",
+      "question": "Select the correct narration of the sentence 'He said to me that I might come with him'.",
+      "options": [
+        "He said to me, 'You may come with me'.",
+        "He said to me, 'I may come with him'.",
+        "He said to me, 'He may go with me'ni",
+        "He said to me, 'I could go with him'."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রদত্ত বাক্যটিতে that তুলে দিয়ে reporting verb এবং reported speech দুটি অর্থে বিভক্ত করতে হবে। That পরবর্তী clause এর sub এবং obj পরিবর্তিত হবে আর might - may তে রূপান্তরিত হবে।",
+      "images": []
+    },
+    {
+      "question_no": 91,
+      "id": "6040567c-2698-4f97-88cb-31b67fd4765c",
+      "question": "We work hard to earn money. (Compound)",
+      "options": [
+        "We work hard to earn a lot of money.",
+        "We work hard so that we earn money.",
+        "We work hard so that we can earn money.",
+        "We want to earn money and so we work hard."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Compound sentence এ দুই বা ততোধিক principal clause বা co-ordinate clause থাকে।+Compound sentence এ সাধারণত and,and so, or, but, yet, so, therefore, otherwise, else, both --- and , either --- or , neither — nor, not only --- but also ইত্যাদি co-ordinating conjunction দ্বারা দুইটি principal clause যুক্ত থাকে।",
+      "images": []
+    },
+    {
+      "question_no": 92,
+      "id": "b93c02cf-44f9-4ecf-9e1b-630d7fe15356",
+      "question": "Time flies very fast. Make it Exclamatory-",
+      "options": [
+        "How time does fly!",
+        "How time do fly!",
+        "How time flies!",
+        "How fast time flies!"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Assertive to Exclamatory করার structure:What/How + Adjective  + Subject + Verb + বাকি অংশ + Exclamation mark.",
+      "images": []
+    },
+    {
+      "question_no": 93,
+      "id": "7efc22a1-c924-46ef-967c-676df4512cec",
+      "question": "\"He said that he was innocent. \"(make it simple)",
+      "options": [
+        "He announced that he was innocent .",
+        "He expressed his innocent.",
+        "He told about his innocent.",
+        "He declared his innocence ."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Complex sentence এ noun clause থাকলে simple sentence এ noun Clause টি সংকুচিত হয়ে noun phrase এ পরিনত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 94,
+      "id": "d0c86153-46b2-499e-9b55-bcd3aad3aac9",
+      "question": "This sculpture is very enchanting .make it exclamatory",
+      "options": [
+        "What an enchanting sculpture is this",
+        "How enchanting the sculpture is.",
+        "How enchanting sculpture this is!",
+        "How enchanting the sculpture is!"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Assertive sentence e very থাকলে exclamatory sentence এ how হয়।How+adjective+subject+ auxiliary verb+! (Exclamation sign)",
+      "images": []
+    },
+    {
+      "question_no": 95,
+      "id": "9837b3bb-403c-4b2e-97a7-de130a602d9a",
+      "question": "He said to his father, 'Please increase my pocket-money'. The indirect speech of the sentence is.",
+      "options": [
+        "He told his father, please increase the pocket-money.",
+        "He pleaded his father to please increase my pocket-money.",
+        "He requested his father to increase his pocket-money.",
+        "He asked his father to increase his pocket-money."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অনুরোধ বুঝালে imperative sentence-এ request হয়। structureটি হবে Subject + request + object + to + reported speech-এর main verb থেকে শেষ পর্যন্ত।",
+      "images": []
+    },
+    {
+      "question_no": 96,
+      "id": "f55e36ab-ce7f-4e93-bafb-853a8c2074a9",
+      "question": "He said, 'Do not be upset, I will help you'. The indirect speech is",
+      "options": [
+        "He said to him not to be upset and said that he would help him.",
+        "He said that did not upset I would help you.",
+        "He asked not to upset he would help him.",
+        "He asked not to upset be will be helped him."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Negative imperative বাক্য indirect এ not to + verb-এর base form এবং reported speech-এর sub ও objটি reporting verb-এর sub ও obj অনুযায়ী পরিবর্তিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 97,
+      "id": "0a8a7fc4-bdcf-41d4-b4ab-cd7f6537fe93",
+      "question": "Mina said to me, 'I was ill.' Indirect speech of the sentence is-",
+      "options": [
+        "Mina told me that she has been ill.",
+        "Mina said to me that she was ill.",
+        "Mina told me that I had been ill.",
+        "Mina told me that she had been ill."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Reported speech-এ first person থাকলে তা indirect এ reported verb-এর sub অনুযায়ী পরিবর্তিত হয় আর past indefinite tenseটি past perfect tense-এ রূপান্তরিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 98,
+      "id": "d6c8172c-c2af-4c57-9f68-3915449c0398",
+      "question": "'He owed his success to his father' The complex form of the sentence is-",
+      "options": [
+        "He was owing for his success to his father",
+        "It was owed to his father that he succeeded.",
+        "It was owing to his father that he succeeded",
+        "He was owed to his father for his success"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The sentence is converted to complex sentence by expanding a word or phrase into a subordinate clause.Simple: He owed his success to his father.Complex : It was owing to his father that he succeeded.",
+      "images": []
+    },
+    {
+      "question_no": 99,
+      "id": "b1310d24-228a-4bbd-8f0b-039f7c9ffd4a",
+      "question": "Iron is one the most useful metals. (Make it Positive)",
+      "options": [
+        "Iron is useful metal.",
+        "Iron is more useful metals.",
+        "Iron is more useful metal.",
+        "Very few metals are so useful metals as iron."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "One of থাকলে positive degree এর ক্ষেত্রে very few হয়।",
+      "images": []
+    },
+    {
+      "question_no": 100,
+      "id": "97751ee6-98cc-4313-8c80-4302f36dd3a6",
+      "question": "‘He is too weak to move’- change the sentence into complex-",
+      "options": [
+        "He is so weak that he cannot move.",
+        "He is not weak to move",
+        "He is too weak and can't move",
+        "He is weak but moves"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Too + adjective + to + verb যুক্ত simple বাক্যকে complex-এ রুপান্তরের সময় too এর পরিবর্তে so + adjective এবং to এর পরিবর্তে that + subject + can not/could not + verb ব্যবহৃত হয়।",
+      "images": []
+    }
+  ]
+}

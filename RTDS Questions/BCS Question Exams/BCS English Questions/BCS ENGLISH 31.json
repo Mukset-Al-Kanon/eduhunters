@@ -1,0 +1,232 @@
+{
+  "title": "BCS ENGLISH 31",
+  "category": "BCS Question Exams > BCS English Questions",
+  "duration_minutes": 30,
+  "total_questions": 16,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "104243",
+      "question": "Find out the active form of the sentence:",
+      "options": [
+        "Who can save our country?",
+        "Our country has been saved by who?",
+        "Who save our country?",
+        "Who will save our country?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Active voice এর Who 'passive voice 'by whom' হয় এবং উল্টোটি ও হয়। আর একমাত্র অপশন A তেই প্রশ্নের অনুরূপ modal auxiliary \"can\" ব্যবহার করা হয়েছে। সুতরাং এটিই সঠিক।"
+    },
+    {
+      "question_no": 2,
+      "id": "104885",
+      "question": "They suffered much ____ tornado had hit their village.",
+      "options": [
+        "until",
+        "since",
+        "as if",
+        "let alone"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Since - এর পূর্বে Past indefinite tense হলে since - এর পরে  past perfect tense হয়। Until ও let alone এখানে সঙ্গতিপূর্ণ নয়। as if unreal past প্রকাশে ব্যবহুত হয়।"
+    },
+    {
+      "question_no": 3,
+      "id": "104887",
+      "question": "One of the four sentences, given below is grammatically wrong. chose the wrong sentence:",
+      "options": [
+        "THe land is belonged to an old lady",
+        "They parted from one another suddenly",
+        "The leader expressed himself focibly",
+        "Mother bought me an ice cream"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এখানে (A)-তে ভুল আছে, কারণ Belong passive voice -এ ব্যবহার হয় না। বাক্যটির সঠিক রূপ হবে The land belongs to an old lady."
+    },
+    {
+      "question_no": 4,
+      "id": "104890",
+      "question": "Chose the wrong sentence",
+      "options": [
+        "He was always arguing with his brother",
+        "His failure resulted for lack of attention",
+        "When will you write to him about your plan ?",
+        "Who was the boy you were laughing at"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এখানে (B)  - তে ভুল আছে। Result verb হিসেবে ব্যবহার হলে এরপর from এবং in দুটিই ব্যবহার হতে পারে।  তবে Result from + cause(কারণ)  এবং Result in + effect (ফলাফল)  বসে। এখানে result এর পর cause ( lack of attention) আছে। তাই from বসবে। বাক্যটির সঠিক রূপ হবে - His failure resulted from lack of attention. Or, Lack of attention resulted in his failure."
+    },
+    {
+      "question_no": 5,
+      "id": "104894",
+      "question": "In each of the following questions, out of the given alternatives, choose the one that best express the meaning of the given word:- \"Spoadic\"",
+      "options": [
+        "consistent",
+        "Uiform",
+        "Frequent",
+        "scattered"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "sporadic- বিক্ষিপ্ত ; consistent - সঙ্গত/ দৃঢ়বদ্ধ ; uniform - অভিন্ন ; frequent - বারংবার ; scattered - বিক্ষিপ্ত।"
+    },
+    {
+      "question_no": 6,
+      "id": "104902",
+      "question": "A formal composition or speech expressing high praiswe of somebody:",
+      "options": [
+        "elegy",
+        "eulogy",
+        "cacicareture",
+        "exaggeratuon"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "104905",
+      "question": "The Word \"Shrug\" indicating doubt or indifference is associated with-",
+      "options": [
+        "Shoulders",
+        "Head",
+        "Forhead",
+        "Eyebrows"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Shrug- কাঁধ বাঁকানো অর্থাৎ. To raise the shoulders especially as a gesture of doubt, disdain, or indifference. So shrug is associated with shoulders."
+    },
+    {
+      "question_no": 8,
+      "id": "104906",
+      "question": "He is quite ____ in dealing with people.",
+      "options": [
+        "unusabe",
+        "impurdent",
+        "diplomatic",
+        "impolite"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "unusual - সর্বশক্তিমান; imprudent - দূর্বল; diplomatic - সর্বোচ্চ, পরম; impolite - অক্ষম,  অসমর্থ; vulnerable - অরক্ষিত। এখানে diplomatic ছাড়া অন্য word গুলো - negative।  তাছাড়া diplomatic - এর অর্থই এখানে অধিক সঙ্গতিপূর্ণ।"
+    },
+    {
+      "question_no": 9,
+      "id": "104908",
+      "question": "Chose the correctly spelt word.",
+      "options": [
+        "valantory",
+        "volantary",
+        "voluntary",
+        "voluntory"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এখানে correct spelling হচ্ছে Voluntary (স্বেচ্ছাপ্রণোদিত)"
+    },
+    {
+      "question_no": 10,
+      "id": "104909",
+      "question": "Choose the correctly spelt word:",
+      "options": [
+        "Accelerate",
+        "Acchilerate",
+        "accelweate",
+        "accelarate"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "104911",
+      "question": "choose the correctly spelt word",
+      "options": [
+        "Tsunami",
+        "suname",
+        "sunamee",
+        "sunami."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এখানে correct spelling হচ্ছে Tsunami (সামুদ্রিক জলোচ্ছ্বাস)। এটি একটি জাপানি শব্দ।"
+    },
+    {
+      "question_no": 12,
+      "id": "104913",
+      "question": "While living poverty. the poet had to ____ a great deal of sufferings",
+      "options": [
+        "see through",
+        "put up with",
+        "pass by",
+        "fall back"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "see trough - চালাকি ধরে ফেলা; put up with - সহ্য করা; pass by - উপেক্ষা করা; fall back - পশ্চাদপসরণ করা, পিছু হটা। দারিদ্র্যের মধ্যে বসবাস করলে অনেক ভোগান্তি( sufferings) সহ্য করতে (put up) হয়।"
+    },
+    {
+      "question_no": 13,
+      "id": "104916",
+      "question": "only those who are not serious to their success work by ___ and starts",
+      "options": [
+        "long odd",
+        "against time",
+        "every nch",
+        "fits"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "104918",
+      "question": "Crafty men (condemn) studies, simple men admire them and wise men use them.Here condemn means:",
+      "options": [
+        "Denounce",
+        "Laud",
+        "compliment",
+        "acclaim"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Condemn-বাতিল করা ; Denounce - লোপ করা; Laud- আইনে পরিণত করা ; Compliment - বাতিল করা  ; Acclaim- বাতিল করা। এখানে Denounce,  condemn- এর synonym এবং অন্য word - গুলো হচ্ছে antonym."
+    },
+    {
+      "question_no": 15,
+      "id": "104919",
+      "question": "To end in smoke-",
+      "options": [
+        "To create fire",
+        "To go through suffering",
+        "To come to nothing",
+        "to see fire"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "105649",
+      "question": "To ____ the arrival of spring, Bangladesh Television ____ a special function.",
+      "options": [
+        "commemorate: launched",
+        "announce: telecast",
+        "celebrate: telecast",
+        "welcome: sanctioned"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "commemorate- স্মরণীয় করে রাখা। announce-ঘোঘণা করা। celebrate- উদযাপন করা, শ্রদ্ধা/সম্মান প্রদর্শন করা। welcome- স্বাগত জানানো। এখন, বসন্তের আগমনকে 'উদযাপন করা' যায় কিন্তু 'স্বাগত' বা 'সম্মান প্রদর্শন করা' যায় না। সুতরাং A ও B সহজে বর্জন করা যায়। এবার, উদযাপন করতে বা স্বাগত জানাতে বাংলাদেশ টেলিভিশন বিশেষ অনুষ্ঠানের আয়োজন করতে পারে (organized)। কিন্তু বিশেষ অনুষ্ঠ মঞ্জুর/অনুমোদন করা যায় না।"
+    }
+  ]
+}

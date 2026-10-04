@@ -1,0 +1,731 @@
+{
+  "exam_id": 11006,
+  "title": "MP3 Topic-05 : নব্য মেরুকরণ + অস্ত্র প্রতিযোগিতা + ক্ষেপণাস্ত্র",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "একমেরুকেন্দ্রিক বিশ্ব Exam",
+  "duration_minutes": 24,
+  "total_questions": 48,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "ddc884cc-b859-4627-adbe-997294906bf3",
+      "question": "কোন দেশ ন্যাটোর সদস্য নয়? [SABAS][]",
+      "options": [
+        "ইতালি",
+        "তুরস্ক",
+        "সুইজারল্যান্ড",
+        "ইংল্যান্ড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুইজারল্যান্ড ন্যাটোর সদস্য নয়।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "7a6050cf-bc23-44c7-9592-8d0d31c0587a",
+      "question": "NATO ভুক্ত মুসলিম দেশ কোনটি? [SABAS][]",
+      "options": [
+        "বসনিয়া",
+        "মিশর",
+        "মরক্কো",
+        "আলবেনিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আলবেনিয়া একটি ন্যাটোভুক্ত মুসলিম সংখ্যাগরিষ্ঠ দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "cf8421e7-f80d-4764-8c84-d510901bc5fe",
+      "question": "‘QUAD’ is a group of four countries India, Untied States, Japan and- [SABAS][]",
+      "options": [
+        "Russia",
+        "Australia",
+        "New Zealand",
+        "China"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোয়াড (QUAD) জোটের সদস্য দেশগুলো হলো ভারত, মার্কিন যুক্তরাষ্ট্র, জাপান ও অস্ট্রেলিয়া।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "7a620500-a6aa-4f32-8289-0c9918d6f80a",
+      "question": "কোয়াড (QUAD) ভুক্ত দেশ নয় কোনটি? [SABAS][]",
+      "options": [
+        "ভারত",
+        "জাপান",
+        "মালয়েশিয়া",
+        "যুক্তরাজ্য"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মালয়েশিয়া কোয়াড জোটের সদস্য নয়।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "929c6bf3-ebaf-4fc0-9c62-349de933bc6b",
+      "question": "AUKUS জোটের সদস্য কারা? [SABAS][]",
+      "options": [
+        "চীন, রাশিয়া, পাকিস্তান",
+        "জাপান, যুক্তরাজ্য, অস্ট্রেলিয়া, ভারত",
+        "যুক্তরাজ্য, অস্ট্রেলিয়া, যুক্তরাজ্য",
+        "অস্ট্রেলিয়া, যুক্তরাজ্য, ভারত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আউকাস (AUKUS) হলো অস্ট্রেলিয়া, যুক্তরাজ্য এবং মার্কিন যুক্তরাষ্ট্রের একটি ত্রিপক্ষীয় নিরাপত্তা চুক্তি।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "4a9f693f-46d8-436c-921b-a6836ae5906a",
+      "question": "‘আউকাস’ চুক্তির অন্তর্ভুক্ত দেশ নয়? [SABAS][]",
+      "options": [
+        "জাপান",
+        "যুক্তরাজ্য",
+        "যুক্তরাষ্ট্র",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জাপান আউকাস জোটের সদস্য নয়।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "eed40207-bc10-497f-9790-947baae5523d",
+      "question": "‘Five Eyes (FVEY)’ কী? [SABAS][]",
+      "options": [
+        "শান্তি জোট",
+        "গোয়েন্দা জোট",
+        "নিরপেক্ষ জোট",
+        "বেসামরিক জোট"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফাইভ আইস (Five Eyes) হলো পাঁচটি দেশের একটি গোয়েন্দা জোট।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "2a84ac9d-c041-4eb6-b6c6-0e8137981a9f",
+      "question": "কোন দেশটি Five Eyes ভুক্ত নয়? [SABAS][]",
+      "options": [
+        "অস্ট্রেলিয়া",
+        "ফ্রান্স",
+        "নিউজিল্যান্ড",
+        "কানাডা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফ্রান্স ফাইভ আইস জোটের সদস্য নয়।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "91df866b-a6b0-4d83-ac7f-0c5fe553a9a5",
+      "question": "I2U2 is formed by- [SABAS][]",
+      "options": [
+        "India, Israel, Ukraine, USA",
+        "India, Israel, USA, UAE",
+        "Iraq, Iran, China, Russia",
+        "Uk, USA, Israel, India"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "I2U2 জোটটি ভারত, ইসরায়েল, মার্কিন যুক্তরাষ্ট্র এবং সংযুক্ত আরব আমিরাত নিয়ে গঠিত।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "feabfe00-0563-492a-add8-71d01e8e6458",
+      "question": "সর্বপ্রথম কোন দেশ পারমাণবিক বোমা তৈরি করে? [SABAS][]",
+      "options": [
+        "চীন",
+        "যুক্তরাষ্ট্র",
+        "জাপান",
+        "রাশিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যুক্তরাষ্ট্র সর্বপ্রথম ১৯৪৫ সালে পারমাণবিক বোমা তৈরি ও পরীক্ষা করে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "c8ed2db7-7e5c-494a-a09e-f304b83f51a7",
+      "question": "কোন দেশে সবচেয়ে বেশি পারমাণবিক চুল্লি রয়েছে? [SABAS][]",
+      "options": [
+        "কানাডা",
+        "রাশিয়া",
+        "ফ্রান্স",
+        "যুক্তরাষ্ট্র"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যুক্তরাষ্ট্রে বর্তমানে সবচেয়ে বেশি পারমাণবিক চুল্লি রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "e3f3ac32-26cb-4994-a317-54dadd9c1009",
+      "question": "ফ্রান্স সাধারণত কোথায় পারমাণবিক বিস্ফোরণ ঘটায়? [SABAS][]",
+      "options": [
+        "ক্যানারি দ্বীপপুঞ্জে",
+        "দিয়েগো গার্সিয়ায়",
+        "মার্শাল দ্বীপে",
+        "মরুরোয়া দ্বীপে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ফ্রান্স সাধারণত প্রশান্ত মহাসাগরীয় মরুরোয়া দ্বীপে পারমাণবিক বিস্ফোরণ ঘটায়।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "3713f2f5-47fa-460f-884b-4eed8322c7d4",
+      "question": "চীন প্রথম পারমাণবিক বোমার বিস্ফোরণ ঘটায়- [SABAS][]",
+      "options": [
+        "১৯৬৪ সালে",
+        "১৯৫৮ সালে",
+        "১৯৫৪ সালে",
+        "১৯৫০ সালে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "চীন ১৯৬৪ সালে প্রথমবারের মতো পারমাণবিক বোমার সফল বিস্ফোরণ ঘটায়।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "3859fba4-b5a7-4477-b19a-01651ad00697",
+      "question": "Which Asian country is home to the most nuclear power plants? [SABAS][]",
+      "options": [
+        "China",
+        "South Korea",
+        "Taiwan",
+        "India"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এশিয়ার দেশগুলোর মধ্যে চীনের সবচেয়ে বেশি পারমাণবিক বিদ্যুৎ কেন্দ্র রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "2d4030f7-33ba-453e-8b02-4c2feffab09c",
+      "question": "ভারত কবে প্রথম পারমাণবিক শক্তির অধিকারী হয়? [SABAS][]",
+      "options": [
+        "১৯৭৪",
+        "১৯৮২",
+        "১৯৯৮",
+        "২০০১"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভারত ১৮ মে, ১৯৭৪ সালে রাজস্থানের পোখরানে তাদের প্রথম পারমাণবিক পরীক্ষা সম্পন্ন করে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "bf23d94f-e91d-4ab9-9012-826fdcc88d18",
+      "question": "পাকিস্তান কোন সনে পারমাণবিক বোমার সফল বিস্ফোরণ ঘটায়? [SABAS][]",
+      "options": [
+        "১৯৯৭",
+        "১৯৯৮",
+        "১৯৯৯",
+        "২০০০"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৯৮ সালের মে মাসে পাকিস্তান চাগাই পাহাড়ে পারমাণবিক বোমার সফল বিস্ফোরণ ঘটায়।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "e05e6df3-e471-4755-b482-024b45d57ddb",
+      "question": "পাকিস্তানের আণবিক বোমার জনক- [SABAS][]",
+      "options": [
+        "বিজ্ঞানী সালাম",
+        "জুলফিকার আলী ভুট্টো",
+        "নওয়াজ শরীফ",
+        "আব্দুল কাদির খান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পাকিস্তানের পারমাণবিক কর্মসূচির প্রধান স্থপতি এবং আণবিক বোমার জনক হিসেবে ড. আব্দুল কাদির খানকে গণ্য করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "ce8636f0-499b-4d3b-a19e-4de91a996636",
+      "question": "চাগাই, লুপনোর ও পোখরানের মধ্যে সাদৃশ্য কোথায়? [SABAS][]",
+      "options": [
+        "আণবিক অস্ত্র পরীক্ষার স্থান",
+        "আণবিক অস্ত্র মজুদের স্থান",
+        "ইকো-পার্কের স্থান",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "চাগাই (পাকিস্তান), লুপনোর (চীন) এবং পোখরান (ভারত) হলো নিজ নিজ দেশের পারমাণবিক অস্ত্র পরীক্ষার স্থান।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "1ecebfa9-0ce9-458e-b887-24dbce2868d6",
+      "question": "পোখরান-২ কী? [SABAS][]",
+      "options": [
+        "পাকিস্তানের আণবিক বিস্ফোরণের নাম",
+        "ভারতে হিন্দু-মুসলিম সাম্প্রদায়িক সংঘাতের নাম",
+        "ভারতের আণবিক বিস্ফোরণের নাম",
+        "একটি নতুন কম্পিউটার ভাইরাস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পোখরান-২ হলো ১৯৯৮ সালে রাজস্থানের পোখরানে ভারতের করা পারমাণবিক পরীক্ষা সিরিজের নাম।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "66f65656-da23-40e1-b091-4a1df51551b1",
+      "question": "ঘোষিত পরমাণু অস্ত্রধারী দেশ কয়টি? [SABAS][]",
+      "options": [
+        "সাতটি",
+        "ছয়টি",
+        "পাঁচটি",
+        "আটটি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিশ্বে বর্তমানে স্বীকৃত পরমাণু অস্ত্রধারী দেশ ৮টি (যুক্তরাষ্ট্র, রাশিয়া, যুক্তরাজ্য, ফ্রান্স, চীন, ভারত, পাকিস্তান ও উত্তর কোরিয়া)।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "60728ce2-cd93-454c-82a0-1f93c6a21918",
+      "question": "বিশ্বের অষ্টম পারমাণবিক ক্ষমতাধর দেশ কোনটি? [SABAS][]",
+      "options": [
+        "দক্ষিণ আফ্রিকা",
+        "ইসরায়েল",
+        "ইরান",
+        "উত্তর কোরিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উত্তর কোরিয়া বিশ্বের অষ্টম রাষ্ট্র হিসেবে সফল পারমাণবিক পরীক্ষা সম্পন্ন করে আনুষ্ঠানিকভাবে নিজেকে পরমাণু শক্তিধর হিসেবে ঘোষণা করে।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "db0fcca6-8dda-4761-b06a-c4e1d1b0aada",
+      "question": "সর্বশেষ পারমাণবিক বিস্ফোরণকারী দেশ কোনটি? [SABAS][]",
+      "options": [
+        "ভারত",
+        "পাকিস্তান",
+        "ইরান",
+        "উত্তর কোরিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উত্তর কোরিয়া সর্বশেষ ২০০৬ সাল থেকে নিয়মিত পারমাণবিক পরীক্ষা চালিয়ে আসছে।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "9c84c7de-5990-4d81-b4d9-5e5858fe8b05",
+      "question": "কোনটি পারমাণবিক অস্ত্রধারী দেশ নয়? [SABAS][]",
+      "options": [
+        "যুক্তরাষ্ট্র",
+        "চীন",
+        "রাশিয়া",
+        "জার্মানি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জার্মানি পারমাণবিক অস্ত্রধারী দেশ নয়।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "248db1c3-d6dd-41c2-9240-d861d1850a25",
+      "question": "আণবিক শীত বলতে কী বোঝায়? [SABAS][]",
+      "options": [
+        "আণবিক যুদ্ধ শীতল আবহাওয়া",
+        "আণবিক নিরস্ত্রীকরণ",
+        "আণবিক হিমাবস্থা",
+        "আণবিক যুদ্ধ পরবর্তী সর্বাত্মক অন্ধকার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আণবিক যুদ্ধের ফলে বায়ুমণ্ডলে সৃষ্ট ধূলিকণার কারণে সূর্যালোক বাধাগ্রস্ত হয়ে যে বিশ্বব্যাপী তাপমাত্রা হ্রাস পায়, তাকে আণবিক শীত বা নিউক্লিয়ার উইন্টার বলে।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "783d6a90-3b64-4871-be9a-aede0248eaa5",
+      "question": "Global Zero Campaign is related to which of the followings? [SABAS][]",
+      "options": [
+        "Elimination of Absolute Poverty",
+        "Elimination of Carbon Emission",
+        "Elimination of Economic Inequality",
+        "Elimination of Nuclear Weapons"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গ্লোবাল জিরো ক্যাম্পেইন একটি আন্তর্জাতিক আন্দোলন, যার লক্ষ্য হলো বিশ্ব থেকে ধাপে ধাপে পারমাণবিক অস্ত্র নির্মূল করা।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "768795ed-4f8c-4c55-88fe-ed6dec6222e5",
+      "question": "According to the 'Global Zero Campaign' all nuclear weapon will be dismantled by [SABAS][]",
+      "options": [
+        "2050",
+        "2030",
+        "2060",
+        "2080"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্লোবাল জিরো ক্যাম্পেইনের লক্ষ্য অনুযায়ী ২০৩০ সালের মধ্যে সকল পারমাণবিক অস্ত্র পর্যায়ক্রমে ধ্বংস বা নির্মূল করার কথা বলা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "e1efe696-5df2-4bbc-966b-62d90ab813f0",
+      "question": "কোন দেশে সফলভাবে হাইড্রোজেন বোমা পরীক্ষা করা হয়? [SABAS][]",
+      "options": [
+        "দক্ষিণ কোরিয়া",
+        "উত্তর কোরিয়া",
+        "জাপানে",
+        "চীনে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উত্তর কোরিয়া দাবি করেছে যে তারা সফলভাবে হাইড্রোজেন বোমা পরীক্ষা করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "a6f8bb18-8e7c-411a-9ccd-01ad17087ee4",
+      "question": "Anti-submarine rocket missile - [SABAS][]",
+      "options": [
+        "ARM",
+        "ASRM",
+        "ASROM",
+        "ASROC"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ASROC (Anti-Submarine Rocket) হলো একটি আধুনিক রকেট-চালিত টর্পেডো যা দূরপাল্লার সাবমেরিন বিধ্বংসী অস্ত্র হিসেবে ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "c0a20421-25da-43f4-9dd2-9ee36a41ac2f",
+      "question": "প্যাট্রিয়ট ক্ষেপণাস্ত্র কী কাজে ব্যবহৃত হয়? [SABAS][]",
+      "options": [
+        "শত্রু বিমান ধ্বংস করার জন্য",
+        "দূরে সেনা ছাউনিতে আঘাত হানার জন্য",
+        "আক্রমণকারী ক্ষেপণাস্ত্র ধ্বংস করার জন্য",
+        "শত্রু ট্যাংক ধ্বংস করার জন্য"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্যাট্রিয়ট (Patriot) সিস্টেম মূলত একটি সারফেস-টু-এয়ার মিসাইল সিস্টেম, যা ইনকামিং মিসাইল বা আকাশপথের হুমকি ধ্বংস করতে ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "e22756ca-ba9a-4352-9609-48500be72fc9",
+      "question": "প্যাট্রিয়ট ক্ষেপণাস্ত্রের উৎপাদক কোন দেশ? [SABAS][]",
+      "options": [
+        "ইরাক",
+        "আর্মানি",
+        "ইসরায়েল",
+        "যুক্তরাষ্ট্র"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্যাট্রিয়ট মিসাইল সিস্টেম যুক্তরাষ্ট্রের রেথিয়ন (Raytheon) কোম্পানি কর্তৃক উদ্ভাবিত ও উৎপাদিত।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "7f5bbfbf-098d-4553-88ac-61c326d05a4e",
+      "question": "S-400 is a: [SABAS][]",
+      "options": [
+        "fighter plane",
+        "Air defense system",
+        "Submarine",
+        "Cannon"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "S-400 ট্রায়াম্ফ একটি রাশিয়ার তৈরি উন্নত মোবাইল সারফেস-টু-এয়ার মিসাইল সিস্টেম (SAM) যা আকাশসীমা রক্ষায় ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "d8f32eac-9123-4279-9e95-f552d6a37e20",
+      "question": "এস-৪০০' ক্ষেপণাস্ত্র উৎপাদনকারী দেশ কোনটি? [SABAS][]",
+      "options": [
+        "বুলগেরিয়া",
+        "ইসরায়েল",
+        "রাশিয়া",
+        "যুক্তরাষ্ট্র"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "S-400 ক্ষেপণাস্ত্র ব্যবস্থা রাশিয়ার আলমায-আনতেই (Almaz-Antey) নকশা ও তৈরি করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "44c42885-a443-4a09-a14b-9bfc466d70c1",
+      "question": "THAAD এর পূর্ণরূপ লিখুন [SABAS][]",
+      "options": [
+        "Terminal High Altitude Area Defense",
+        "Technical High Altitude Area Defense",
+        "Total High Altitude Area Defense",
+        "Tactical High Altitude Area Defense"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "THAAD এর পূর্ণরূপ হলো Terminal High Altitude Area Defense, যা স্বল্প ও মাঝারি পাল্লার ব্যালেস্টিক মিসাইল ধ্বংস করে।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "80318cab-85fc-462a-a2f9-0a0e9c63998e",
+      "question": "নিচের কোন ক্ষেপণাস্ত্রটি ইরানের তৈরি? [SABAS][]",
+      "options": [
+        "কাউসার",
+        "ফজর-৩",
+        "টর্পেডো",
+        "উপরের সবগুলো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কাউসার, ফজর-৩ এবং টর্পেডোর বিভিন্ন উন্নত সংস্করণ ইরানের সামরিক বাহিনীর দেশীয় প্রযুক্তিতে তৈরি অস্ত্রভাণ্ডারের অংশ।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "94e18c83-da38-4253-9bf3-bc8bd6ea3283",
+      "question": "Which country recently successfully tested its latest intercontinental ballistic missile 'Sarmat'? [SABAS][]",
+      "options": [
+        "China",
+        "Russia",
+        "Iran",
+        "North Korea"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "RS-28 সারমাত (Sarmat) হলো রাশিয়ার তৈরি একটি সুপার-হেভি ইন্টারকন্টিনেন্টাল ব্যালেস্টিক মিসাইল (ICBM)।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "cf9acfd1-1022-428f-88b2-43318f18c257",
+      "question": "হাইপারসনিক ক্ষেপণাস্ত্র আভানগার্ড (Avangard) কোন দেশের তৈরি? [SABAS][]",
+      "options": [
+        "রাশিয়া",
+        "চীন",
+        "জাপান",
+        "উত্তর কোরিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আভানগার্ড হলো রাশিয়ার একটি হাইপারসনিক গ্লাইড ভেহিকল যা শব্দের চেয়ে ২০ গুণ বেশি গতিতে লক্ষ্যবস্তুতে আঘাত করতে সক্ষম।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "b4fc1f18-1a9a-4c23-9c84-e30c34887190",
+      "question": "Typhoon Block-4 হাইপারসনিক মিসাইল কোন দেশের? [SABAS][]",
+      "options": [
+        "রাশিয়া",
+        "তুরস্ক",
+        "চীন",
+        "উত্তর কোরিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "টাইফুন ব্লক-৪ (Typhoon Block-4) তুরস্কের একটি উদ্ভাবনী হাইপারসনিক মিসাইল প্রকল্প।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "d6409156-4a55-45a6-b813-02069ca2e39d",
+      "question": "রাডার নজর এড়াতে সক্ষম মার্কিন জঙ্গী বিমানের নাম কী? [SABAS][]",
+      "options": [
+        "হকার হ্যারিকেন",
+        "ডি হ্যাভিল্যান্ড মসকিটো",
+        "স্টেলথ",
+        "সি-১৩০"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "স্টেলথ প্রযুক্তি ব্যবহারের ফলে এই বিমানগুলো রাডার ডিটেকশন এড়িয়ে খুব গোপনে লক্ষ্যবস্তুতে পৌঁছাতে সক্ষম।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "af1b2d64-a6c7-470b-814a-dd111533dcba",
+      "question": "বি-৫২ হলো এক ধরনের- [SABAS][]",
+      "options": [
+        "যাত্রীবাহী বিমান",
+        "হেলিকপ্টার",
+        "বোমারু বিমান",
+        "ক্ষেপণাস্ত্র"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বি-৫২ স্ট্রাটোফোরট্রেস (B-52 Stratofortress) হলো যুক্তরাষ্ট্রের একটি দীর্ঘপাল্লার সাবসনিক জেট-চালিত কৌশলগত বোমারু বিমান।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "48c27640-5e71-4d91-b58a-37e02e64580f",
+      "question": "মিগ-২১ কোন দেশের যুদ্ধ বিমান? [SABAS][]",
+      "options": [
+        "চীন",
+        "রাশিয়া",
+        "আমেরিকা",
+        "ব্রিটেন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মিগ-২১ (MiG-21) হলো সোভিয়েত ইউনিয়ন তথা বর্তমান রাশিয়ার তৈরি একটি বিখ্যাত সুপারসনিক যুদ্ধবিমান।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "860b5c69-d47b-4b94-a902-a2771a9458e2",
+      "question": "সি-১৩০ হচ্ছে একটি- [SABAS][]",
+      "options": [
+        "বোমারু বিমান",
+        "রকেটবাহী হেলিকপ্টার",
+        "যাত্রীবাহী বিমান",
+        "পরিবহন বিমান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সি-১৩০ হারকিউলিস (C-130 Hercules) হলো বিশ্বের অন্যতম জনপ্রিয় সামরিক পরিবহন বিমান, যা সৈন্য ও সরঞ্জাম বহনে ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "54342a83-b4ee-405b-9bd4-77804b370896",
+      "question": "ইয়াক-১৩০ কী? [SABAS][]",
+      "options": [
+        "চীনের তৈরিকৃত অত্যাধুনিক প্রশিক্ষণ বিমান",
+        "ইরাকের অত্যাধুনিক যুদ্ধ বিমান",
+        "ইরানের তৈরি পারমাণবিক ক্ষেপণাস্ত্র",
+        "রাশিয়ায় তৈরি অত্যাধুনিক প্রশিক্ষণ বিমান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইয়াক-১৩০ (Yak-130) হলো রাশিয়ায় তৈরি একটি উন্নত সাবসনিক প্রশিক্ষণ এবং হালকা আক্রমণকারী যুদ্ধবিমান।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "f6368502-5a44-4821-9b00-89beeae58727",
+      "question": "AWACS' stands for what? [SABAS][]",
+      "options": [
+        "Airborne Warning And Control System",
+        "Allied War Control Systems",
+        "Associated War Control Systems",
+        "Air Wings and Control Systems"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "AWACS হলো একটি উড়ন্ত রাডার সিস্টেম যা দীর্ঘ দূরত্ব থেকে শত্রু বিমান শনাক্ত ও আকাশ যুদ্ধের নিয়ন্ত্রণ করতে পারে।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "460ae0b6-baff-4da2-927d-50554f548a32",
+      "question": "চ্যালেঞ্জার-১ ট্যাংকের নির্মাতা কোন দেশ? [SABAS][]",
+      "options": [
+        "আমেরিকা",
+        "ইংল্যান্ড",
+        "রাশিয়া",
+        "ইসরায়েল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "চ্যালেঞ্জার-১ (Challenger 1) হলো যুক্তরাজ্যের প্রধান যুদ্ধ ট্যাংক (MBT) যা আশির দশকে ব্রিটিশ সেনাবাহিনীতে অন্তর্ভুক্ত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "ef19f3fb-d466-4b98-b6cf-6e5985899872",
+      "question": "Drone কী? [SABAS][]",
+      "options": [
+        "যাত্রীবাহী বিমান",
+        "যাত্রীবাহী দ্রুতগামী বিমান",
+        "চালকসহ বিমান",
+        "চালকবিহীন বিমান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ড্রোন বা ইউএভি (UAV - Unmanned Aerial Vehicle) হলো একটি দূরনিয়ন্ত্রিত চালকবিহীন আকাশযান।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "8be75ffc-9086-4736-8f81-9694396c1c49",
+      "question": "পিস আর্ক' কি? [SABAS][]",
+      "options": [
+        "সংবাদ সংস্থা",
+        "চিকিৎসা জাহাজ",
+        "যুদ্ধ বিমান",
+        "আর্থিক সংস্থা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পিস আর্ক (Peace Ark) হলো চীনের নৌবাহিনীর একটি বিশেষায়িত হাসপাতাল জাহাজ, যা দুর্যোগকালীন চিকিৎসা সেবায় ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "f0bd875d-b122-4948-972a-d80977652447",
+      "question": "Spy in the Sky কী? [SABAS][]",
+      "options": [
+        "একটি ভূ-উপগ্রহ কেন্দ্র",
+        "একটি আবহাওয়া পর্যবেক্ষণ কেন্দ্র",
+        "একটি চালকবিহীন গোয়েন্দা বিমান",
+        "প্রতিরক্ষা বিষয়ক একটি উপগ্রহ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "স্পাই ইন দ্য স্কাই বা নজরদারি উপগ্রহ হলো মহাকাশে স্থাপিত বিশেষ স্যাটেলাইট, যা সামরিক গোয়েন্দা তথ্য সংগ্রহের জন্য ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "15c8d591-3927-48e3-9089-fd7288968e84",
+      "question": "আয়রণ ডোম কী? [SABAS][]",
+      "options": [
+        "আকাশ প্রতিরক্ষা ব্যবস্থা",
+        "লোহার দেয়াল",
+        "নিরস্ত্রীকরণ",
+        "বন্দিশালা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আয়রণ ডোম (Iron Dome) হলো ইসরায়েলের একটি মোবাইল আকাশ প্রতিরক্ষা ব্যবস্থা যা স্বল্প পাল্লার রকেট ও মিসাইল ধ্বংস করে।",
+      "images": []
+    }
+  ]
+}

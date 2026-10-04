@@ -1,0 +1,1396 @@
+{
+    "exam_id":  "MAT_2019-2020",
+    "title":  "Medical Admission Test (2019-2020)",
+    "category":  "Medical Admission Test (11 Years MAT)",
+    "duration_minutes":  60,
+    "total_questions":  99,
+    "negative_mark":  25,
+    "questions":  [
+                      {
+                          "question_no":  1,
+                          "id":  "MAT_2019_2020_BN_Q001",
+                          "question":  "শ্বাসতন্ত্রের কোন অংশে গ্যাসীয় বিনিময় হয়?",
+                          "options":  [
+                                          "ব্রঙ্কাস",
+                                          "ট্রাকিয়া",
+                                          "অ্যালভিওলাস",
+                                          "ব্রঙ্কিওল"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "অ্যালভিওলাস ফুসফুসের কার্যকরী একক। একজন পূর্ণবয়স্ক সুস্থ মানুষের দুটি ফুসফুসে প্রায় ৪৮০(২৭৪-৭৯০) মিলিয়ন অ্যালভিওলাস থাকে যেগুলো প্রায় ১১.৮০০ বর্গ সেন্টিমিটার শ্বসনতল সৃষ্টি করে।"
+                      },
+                      {
+                          "question_no":  2,
+                          "id":  "MAT_2019_2020_BN_Q002",
+                          "question":  "ঘাসফড়িং এর হেপাটিক সিকা কয়টি?",
+                          "options":  [
+                                          "12",
+                                          "10",
+                                          "4",
+                                          "14"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "ঘাসফড়িং এর স্টোমোডিয়াম বা অগ্র-পৌষ্টিকনালি এবং মেসেন্টেরন বা মধ্য-পৌস্টিকনালির সংযোগস্থলে অবস্থিত কোণ আকৃতির ছয়জোড়া লম্বা স্বচ্ছ নালিকাকে হেপাটিক বা গ্যাস্ট্রিক সিকা বলে।"
+                      },
+                      {
+                          "question_no":  3,
+                          "id":  "MAT_2019_2020_BN_Q003",
+                          "question":  "নিচের কোনটি সহজে পানিতে দ্রবীভূত হয়?",
+                          "options":  [
+                                          "Carbon",
+                                          "Nitrogen",
+                                          "Ammonia",
+                                          "Iodine"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "NH3 অণু হাইড্রোজেন বন্ধন-সৃষ্টির মাধ্যমে পানিতে দ্রবীভুত হয়।"
+                      },
+                      {
+                          "question_no":  4,
+                          "id":  "MAT_2019_2020_BN_Q004",
+                          "question":  "নিচের কোনটি \u0027Gaseous oxidizing agent\u0027?",
+                          "options":  [
+                                          "KMnO4",
+                                          "O3",
+                                          "H2SO4",
+                                          "H2O2"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "গ্যাসীয় জারক পর্দাথ - F2, Cl2, O2, O3, SO2, NO2 প্রভৃতি।তরল জারক পর্দাথ - Br2, H2O2, HNO3, H2SO4 প্রভৃতি।কঠিন জারক পর্দাথ - I2, KMnO4, K2Cr2O7, KClO3 প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  5,
+                          "id":  "MAT_2019_2020_BN_Q005",
+                          "question":  "\"এবারের সংগ্রাম আমাদের মুক্তির সংগ্রাম, এবারের সংগ্রাম স্বাধীনতার সংগ্রাম\"- বঙ্গবন্ধু শেখ মুজিবুর রহমান এই ভাষণটি ১৯৭১ সালের কোন তারিখে প্রদান করে?",
+                          "options":  [
+                                          "৫ মার্চ",
+                                          "৬ মার্চ",
+                                          "৭ মার্চ",
+                                          "৮ মাচ"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "বঙ্গবন্ধু শেখ মুজিবুর রহমান ঢাকার সোহরাওয়াদী উদ্যানে (তৎকালীন রেসকোর্স ময়দান) ঐতিহাসিক ৭ মার্চের ভাষণ দেন। ২০১৭ সালের ৩০ অক্টোবর ইউনেস্কো ৭ মার্চের ভাষণকে ওয়াল্ড ডকুমেন্টারি হেরিটেজ হিসেবে স্বীকৃতি দেয়।"
+                      },
+                      {
+                          "question_no":  6,
+                          "id":  "MAT_2019_2020_BN_Q006",
+                          "question":  "মাইটোসিসে কোষের ভিতরে নিউক্লিয়াসের বিভজানকে কী বলে?",
+                          "options":  [
+                                          "ক্যারিওকাইনেসিস",
+                                          "অ্যামাইটোসিস",
+                                          "ডায়াকাইনেসিস",
+                                          "সাইটোকাইনেসিস"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "অ্যামাইটোসিস - সরাসরি মাতৃকোষের বিভাজন; ইন্টারকাইনেসিস - মায়োসিস-১ ও মায়োসসি-২ এর মধ্যবর্তী সময়; সাইটোকাইনেসিস - সাইটোপ্লাজমের বিভাজন; মেটাকাইনেসিস - বিষুবীয় অঞ্চলে ক্রোমোসোমের বিন্যস্ত হওয়া; ডায়াকাইনেসিস - মায়োসিস কোষ বিভাজনের প্রোফেজ-১ এর সর্বশেষ ধাপ।"
+                      },
+                      {
+                          "question_no":  7,
+                          "id":  "MAT_2019_2020_BN_Q007",
+                          "question":  "তরলীকৃত প্রাকৃতিক গ্যাস কিসে সমৃদ্ধ?",
+                          "options":  [
+                                          "Hexane",
+                                          "Butane",
+                                          "Methane",
+                                          "Propane"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "প্রাকৃতিক গ্যাস থেকে CO2, H2S ও উচ্চ আণবিক ভরবিশিষ্ট হাইড্রোকার্বনসমূহকে অপসারিত করে মূলত CH4 গ্যাসকে নিম্নতাপমাত্রা -160℃ এ শীতল করে চাপে তরলে পরিণত করা হয়। একে তরলিত প্রাকৃতিক গ্যাস বা LNG বলে। এর ক্যালরিফিক মান 38000kJm⁻³."
+                      },
+                      {
+                          "question_no":  8,
+                          "id":  "MAT_2019_2020_BN_Q008",
+                          "question":  "For present continuous tense, which of the following is correct?",
+                          "options":  [
+                                          "Dont make so much noise, I had tried to work",
+                                          "Dont make so much noise, I tried to work.",
+                                          "Dont make so much noise, I am trying to work",
+                                          "Dont make so much noise, I was trying to work."
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Present Continuous Tense: ‍Subject + Be verb (am/is/are) + verb এর ing form."
+                      },
+                      {
+                          "question_no":  9,
+                          "id":  "MAT_2019_2020_BN_Q009",
+                          "question":  "She said, \"I taught in many schools\". What is the indirect speech of the sentence?",
+                          "options":  [
+                                          "She said she had taught in many schools.",
+                                          "She said she had education in many schools.",
+                                          "She said that she taught in many schools.",
+                                          "She said that she had taught in many schools."
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Direct speech এর Reporting verb যদি past indefinite tense হয় তাহলে Indirect speech এর Reporting speech এর tense টি past perfect হয়।"
+                      },
+                      {
+                          "question_no":  10,
+                          "id":  "MAT_2019_2020_BN_Q010",
+                          "question":  "অক্সিজেনের কতটি আইসোটোপ পাওয়া যায়?",
+                          "options":  [
+                                          "একটি",
+                                          "দুইটি",
+                                          "তিনটি",
+                                          "চারটি"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "অক্সিজেনের তিনটি আইসোটোপ: 816O,817O,818O"
+                      },
+                      {
+                          "question_no":  11,
+                          "id":  "MAT_2019_2020_BN_Q011",
+                          "question":  "নিচের কোনটি অর্ধপরিবাহী নয়?",
+                          "options":  [
+                                          "সিলিকন",
+                                          "গ্যালিয়াম আর্সেনাইট",
+                                          "জামেির্নয়াম",
+                                          "আরজেনটাম"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "সিলভার বা আরজেনটাম (Ag) হলো ধাতু যা বিদ্যুৎ সুপরিবাহী।"
+                      },
+                      {
+                          "question_no":  12,
+                          "id":  "MAT_2019_2020_BN_Q012",
+                          "question":  "নিচের কোনটি জারক ও বিজারক উভয় হিসাবেই কাজ করে?",
+                          "options":  [
+                                          "Nitrogen peroxide",
+                                          "Nitric acid",
+                                          "Ammonia",
+                                          "Nitrous acid"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "যেসব যৌগ জারক ও বিজারক উভয় হিসাবেই কাজ করে: SO2,NO,CO,H2O2,HNO2,H2SO3,O3 প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  13,
+                          "id":  "MAT_2019_2020_BN_Q013",
+                          "question":  "\u0027Cycas\u0027 উদ্ভিদের সস্য নিচের কোন ধরনের?",
+                          "options":  [
+                                          "হ্যাপ্লয়েড",
+                                          "ডিপ্লয়েড",
+                                          "ট্রিপ্লয়েড",
+                                          "পলিপ্লয়েড"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "নগ্নবীজী উদ্ভিদের দ্বিনিষেক হয় না, তাই সস্য হ্যাপ্লয়েড। অপরদিকে আবৃতবীজী উদ্ভিদে দ্বিনিষেক হয়, তাই সস্য ট্রিপ্লয়েড।"
+                      },
+                      {
+                          "question_no":  14,
+                          "id":  "MAT_2019_2020_BN_Q014",
+                          "question":  "For Present Perfect tense, which one of the following is correct?",
+                          "options":  [
+                                          "Ashraf has gone to Faridpur",
+                                          "Ashraf went to Faridpur",
+                                          "Ashraf had gone to Faridpur",
+                                          "Ashraf has been to Faridpur"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Present perfect tense: ‍Subject + have/has + verb এর past participle form."
+                      },
+                      {
+                          "question_no":  15,
+                          "id":  "MAT_2019_2020_BN_Q015",
+                          "question":  "বিশুদ্ধ পানির pH কত?",
+                          "options":  [
+                                          "৮",
+                                          "৬",
+                                          "৭",
+                                          "৫"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "25℃ তাপমাত্রায় বিশুদ্ধ পানিতে H⁺ ও OH⁻ উভয় আয়নেরই ঘনামাত্রা থাকে 10⁻⁷ . তাই বিশুদ্ধ পানির pH হলো 7 ."
+                      },
+                      {
+                          "question_no":  16,
+                          "id":  "MAT_2019_2020_BN_Q016",
+                          "question":  "বাংলা একাডেমির মূল ভবনের নাম কী ছিল?",
+                          "options":  [
+                                          "বর্ধমান হাউস",
+                                          "আহসান মঞ্জিল",
+                                          "চামেলি হাউস",
+                                          "বাংলা ভবন"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "১৯৫৫ সালের ৩ ডিসেম্বর তৎকালীন পূর্ব পাকিস্তানের প্রধানমন্ত্রীর সরকারি বাসভবন বর্ধমান হাউস এ বাংলা একাডেমি স্থাপিত হয়। এর প্রথম মহাপরিচালক ড. মাযহারুল ইসলাম। বর্তমান মহাপরিচালক মুহম্মদ নূরুল হুদা।"
+                      },
+                      {
+                          "question_no":  17,
+                          "id":  "MAT_2019_2020_BN_Q017",
+                          "question":  "বাংলাদেশের জাতীয় সংসদ ভবনের স্থপিত কে?",
+                          "options":  [
+                                          "মরিস জনসন",
+                                          "লুই কান",
+                                          "রবিউল হোসেন",
+                                          "এফ আর খান"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ঢাকার শেরে বাংলা নগরে ২০০ একর জমির উপর স্থাপিত বাংলাদেশের জাতীয় সংসদ ভবনের প্রধান স্থপতি এস্তোনীয় বংশোদ্ভূত মার্কিন নাগরিক লুই আই কান। এর সহকারি স্থপতি বাংলাদেশ স্থপতি ইনস্টিটিউটের প্রথম সভাপতি মাযহারুল ইসলাম। এটি ১৯৮২ সলের ২৮ জানুয়ারি তৎকালীন রাষ্ট্রপতি বিচারপ্রতি আব্দুর সাত্তার উদ্বোধন করেন।"
+                      },
+                      {
+                          "question_no":  18,
+                          "id":  "MAT_2019_2020_BN_Q018",
+                          "question":  "মুক্তিযুদ্ধ চলাকালীন সময়ে বাংলাদেশকে কয়টি সেক্টরে ভাগ করা হয়েছিল?",
+                          "options":  [
+                                          "11",
+                                          "13",
+                                          "10",
+                                          "12"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "মোট সেক্টর - ১১টি; সাব সেক্টর - ৬৪ টি; নৌ-সেক্টর/ব্যতিক্রমী সেক্টর - ১০ নং সেক্টর; মুজিবনগর, মেহেরপুর যে সেক্টরের অধীন ছিলো - ৮ নং সেক্টর।"
+                      },
+                      {
+                          "question_no":  19,
+                          "id":  "MAT_2019_2020_BN_Q019",
+                          "question":  "সিরাজ সাহেবের ভর ২০ কেজি। তিনি ২৫ সেন্টিমিটার উঁচু মোট ২০টি সিঁড়ি ১০ সেকেন্ডে উঠলে তার সম্পাদি কাজের পরিমাণ কত?",
+                          "options":  [
+                                          "১০০০ জুল",
+                                          "৯৮০ জুল",
+                                          "৯০০ জুল",
+                                          "১০৮০ জুল"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "সম্পাদিত কাজের পরিমাণ, W = Fs = mgs = 20 × 9.8 × 0.25 × 20 = 980J ."
+                      },
+                      {
+                          "question_no":  20,
+                          "id":  "MAT_2019_2020_BN_Q020",
+                          "question":  "মস (Bryophytes) এর স্ত্রী জননাঙ্গের নাম কী?",
+                          "options":  [
+                                          "Archegonium",
+                                          "Sporangium",
+                                          "Antheridium",
+                                          "Gametogonium"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "মস ও ফার্নের স্ত্রী জননাঙ্গের নাম - Archegonium;ছত্রাকের জননাঙ্গের নাম - Gametogonium; ছত্রাক, মস ও ফার্নের স্পোর উৎপাদনকারী অঙ্গের নাম - Sporangium;মস ও ফার্নের পুং জননাঙ্গের নাম - Antheridium."
+                      },
+                      {
+                          "question_no":  21,
+                          "id":  "MAT_2019_2020_BN_Q021",
+                          "question":  "কোন Lipoprotein কে \u0027Bad cholesterol\u0027 বলে?",
+                          "options":  [
+                                          "High density lipoprotein",
+                                          "Chylomicron",
+                                          "Low density lipoprotein",
+                                          "Very low-density lipoprotein"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "High density lipoprotein এর মাত্রা মানব শরীরে বেশি থাকা ভালো। তাই একে Good cholesterol বলে। আর, রক্তে Low density lipoprotein বেশি থাকা ক্ষতিকর। কারণ রক্তে অতিমাত্রায় এ ধরনের কোলেস্টেরল ধমনির লুমেন বন্ধ করে দিতে পারে। তাই, একে Bad cholesterol বলে।"
+                      },
+                      {
+                          "question_no":  22,
+                          "id":  "MAT_2019_2020_BN_Q022",
+                          "question":  "\u0027LASER\u0027 এর পূর্ণরূপ কী?",
+                          "options":  [
+                                          "Light Augmentation by Stimulated Emission of Radiation",
+                                          "Light Amplification by Stimulated Emission of Electromagnetic Radiation",
+                                          "Light Amplification by Stimulated Emission of Rays",
+                                          "Light Amplification by Stimulated Emission of Radiation"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  23,
+                          "id":  "MAT_2019_2020_BN_Q023",
+                          "question":  "নিচের কোনটির প্রোটন আসক্তি সবচেয়ে বেশি?",
+                          "options":  [
+                                          "PH3",
+                                          "H2O",
+                                          "H2S",
+                                          "NH3"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "প্রোটন আসক্তির ক্রম: NH3 (854 kJ/mol) \u003e PH3 (789 kJ/mol) \u003e H2S (712 kJ/mol) \u003e H2O (697 kJ/mol)."
+                      },
+                      {
+                          "question_no":  24,
+                          "id":  "MAT_2019_2020_BN_Q024",
+                          "question":  "48 মিটার/সেকেন্ড বেগে একটি বল খাড়া উপরের দিকে নিক্ষেপ করলে কত সময় শূন্যে থাকবে?",
+                          "options":  [
+                                          "8.4 s",
+                                          "4.8 s",
+                                          "9.0 s",
+                                          "9.8 s"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "শূন্যে থাকার সময়, T = (2v0 / g) = (2 × 48 / 9.8) = 9.8s ."
+                      },
+                      {
+                          "question_no":  25,
+                          "id":  "MAT_2019_2020_BN_Q025",
+                          "question":  "মানবদেহের কোন অঙ্গে সবোর্চ্চ সংখ্যক গবলেট কোষ পাওয়া যায়?",
+                          "options":  [
+                                          "যকৃত",
+                                          "ক্ষুদ্রান্ত্র",
+                                          "ফুসফুস",
+                                          "বৃহদন্ত্র"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "বৃহদন্ত্রের মিউকোসা স্তরে অবস্থিত গবলেট কোষ মিউকাস ক্ষরণ করে বৃহদন্ত্রের অভ্যন্তর পিচ্ছিল রাখে।"
+                      },
+                      {
+                          "question_no":  26,
+                          "id":  "MAT_2019_2020_BN_Q026",
+                          "question":  "কোনটি যৌগিক পাতাযুক্ত উদ্ভিদ নয়?",
+                          "options":  [
+                                          "গোলাপ",
+                                          "লজ্জাবতী",
+                                          "নারিকেল",
+                                          "জবা"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "সরল পাতা - জবা, আম, কাঁঠাল প্রভৃতি।যৌগিক পাতা - গোলাপ, নিম, লজ্জাবতী, সজিনা, কামিনী, নারিকেল প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  27,
+                          "id":  "MAT_2019_2020_BN_Q027",
+                          "question":  "নিচের কোন গ্রন্থটি ভিন্ন প্রকৃতির?",
+                          "options":  [
+                                          "ডিম্বাশয়",
+                                          "এড্রেনাল",
+                                          "অগ্ন্যাশয়",
+                                          "শুক্রাশয়"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "শুক্রাশয়, অগ্ন্যাশয় ও ডিম্বাশয় তিনটিই মিশ্র গ্রন্থি অর্থাৎ এরা সকলেই একাধারে বহিঃক্ষরা ও অন্তঃক্ষরা প্রকৃতির। অপরদিকে এড্রেনাল গ্রন্থি শুধুমাত্র অন্তঃক্ষরা প্রকৃতির।"
+                      },
+                      {
+                          "question_no":  28,
+                          "id":  "MAT_2019_2020_BN_Q028",
+                          "question":  "নিচের কোনটি অপ্রকৃত ফল?",
+                          "options":  [
+                                          "আম",
+                                          "লিচু",
+                                          "পেয়ারা",
+                                          "আনারস"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "প্রকৃত ফল (True Fruit) - আম, জাম, লিচু প্রভৃতি।অপ্রকৃত ফল (False Fruit) - আপেল, চালতা, কাঁঠাল, আনারস প্রভৃতি।যৌগিক ফল (Multiple Fruit) - কাঁঠাল, আনারস, ডুমুর প্রভৃতি।গুচ্ছিত ফল (Aggregate Fruit) - আতা, স্ট্রবেরি প্রভৃতি।বেরি (Berry) - কলা, বেগুনি, টমেটো, পেয়ারা প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  29,
+                          "id":  "MAT_2019_2020_BN_Q029",
+                          "question":  "মানবদেহের কোন অঙ্গ ফিব্রিনোজেন তৈরি করে?",
+                          "options":  [
+                                          "যকৃত",
+                                          "অগ্ন্যাশয়",
+                                          "ফুসফুস",
+                                          "ক্ষুদ্রান্ত্র"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "যকৃত γ গ্লোবিউলিন ছাড়া প্রায় সকল ধরনের প্লাজমা প্রোটিন সংশ্লেষ করে। যকৃতে যেসব প্লাজমা প্রোটিন সংশ্লেষিত হয় সেগুলো হচ্ছে: অ্যালবুমিন, লিপোপ্রোটিন, ট্রান্সফেরিন, সেরোপ্লাজমিন, গ্লোবিউলিন, ফেটোপ্রোটিন এবং রক্ত তঞ্চন ফ্যাক্টর I (ফ্রিবিনোজেন), II (প্রোথ্রম্বিন), V, VII, IX, X, XI, XII."
+                      },
+                      {
+                          "question_no":  30,
+                          "id":  "MAT_2019_2020_BN_Q030",
+                          "question":  "Which one is the correct word to fill up the gap in this sentence? Safrin has lost her cellphone again. This is the second time this ___.",
+                          "options":  [
+                                          "happened",
+                                          "has happened",
+                                          "is happening",
+                                          "happens"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "কয়েকবার ঘটেছে এমন বোঝাতে Perfect Tense হয়।"
+                      },
+                      {
+                          "question_no":  31,
+                          "id":  "MAT_2019_2020_BN_Q031",
+                          "question":  "কার অর্থায়নে \"পদ্মা সেতু\" নির্মিত হচ্ছে?",
+                          "options":  [
+                                          "বাংলাদেশ সরকার",
+                                          "এশিয়ান ডেভেলপমেন্ট ব্যাংক",
+                                          "বিশ্ব ব্যাংক",
+                                          "আই এম এফ"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "বাংলাদেশ সরকারের অর্থায়নে নির্মিত পদ্মা সেতুর দৈর্ঘ্য ৬.১৫ কি.মি. দ্বিতল এই সেতুর প্রস্থ ১৮.১ মিটার এবং স্প্যানসংখ্যা-৪১।"
+                      },
+                      {
+                          "question_no":  32,
+                          "id":  "MAT_2019_2020_BN_Q032",
+                          "question":  "\u0027কবুতর\u0027 কোন শ্রেণির প্রাণী?",
+                          "options":  [
+                                          "Aves",
+                                          "Actinopterygii",
+                                          "Amphibia",
+                                          "Reptilia"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "শ্রেণি - প্রাণীঃChondrichthyes - স্টিং ওরে, থুট্রি হাঙ্গর, হাতুড়ী হাঙ্গর।Actinopterygii - ইলিশ মাছ, রুই মাছ, টাকি মাছ, বোয়াল মাছ, রাণী মাছ, টুনা মাছ প্রভৃতি।Sarcopterygii - সিলাকাস্থ, লাংফিশAmphibia - স্যালামান্ডার, সোনাব্যাঙ, গেছোব্যাঙ, উড়ক্কু ব্যাঙ, আসমতি ব্যাঙ প্রভৃতি।Reptilia - ঘড়িয়াল, টিকটিকি, কড়িকাইট্টা, কচ্ছপ, গোখরা সাপ প্রভৃতি।Aves - কাক, কবুতর, দোয়েল, চড়ুই, তিতির, কুকা প্রভৃতি।Mammalia - ডলফিন, ইঁদুর, ক্যাঙ্গারু, বাঘ, প্লাটিপাস, একিডনা।"
+                      },
+                      {
+                          "question_no":  33,
+                          "id":  "MAT_2019_2020_BN_Q033",
+                          "question":  "১ (এক) কিউসেক পানির ঘনফল কত লিটার?",
+                          "options":  [
+                                          "28.517",
+                                          "28.917",
+                                          "28.317",
+                                          "28.717"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "কিউসেক হলো পানি প্রবাহের একক। এক সেকেন্ডে এক ঘনফুট বা ২৮.৩১৭ লিটার পানি প্রবাহিত হলে তাকে এক কিউসেক বলে।"
+                      },
+                      {
+                          "question_no":  34,
+                          "id":  "MAT_2019_2020_BN_Q034",
+                          "question":  "পানি বরফে রূপান্তর করা হলে তার ঘনত্ব-",
+                          "options":  [
+                                          "একই থাকে",
+                                          "কমে",
+                                          "বাড়ে",
+                                          "শূন্য হয়"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "4∘C তাপমাত্রায় পানির ঘনত্ব সবেচেয়ে বেশি। 4∘C থেকে তাপমাত্রা বাড়ানো বা কমানো যাই হোক না কেন পানির ঘনত্ব কমে।"
+                      },
+                      {
+                          "question_no":  35,
+                          "id":  "MAT_2019_2020_BN_Q035",
+                          "question":  "হৃৎপিণ্ডে অবস্থিত কোন সংযোগকারী কলা (Junctional tissue) কে পেসমেকার বলা হয়?",
+                          "options":  [
+                                          "অ্যাট্রিও-ভেনট্রিকুলার নোড",
+                                          "সাইনো-অ্যাট্রিয়াল নোড",
+                                          "পারকিনজি তন্তু",
+                                          "বান্ডেল অব হিস"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "SAN -কে পেসমেকার বা হৃদস্পন্দক বলে, কারণ প্রতিটি উত্তেজনার তরঙ্গ এখানেই সৃষ্টি হয় এবং পরবর্তী উত্তেজনার তরঙ্গ সৃষ্টির উদ্দীপক হিসেবেও এটি কাজ করে। AV node কে সরংক্ষিত পেসমেকার বলা হয়।"
+                      },
+                      {
+                          "question_no":  36,
+                          "id":  "MAT_2019_2020_BN_Q036",
+                          "question":  "নিচের কোন \u0027হাইড্রক্সইড\u0027 টি অম্লধমীর্?",
+                          "options":  [
+                                          "Zn(OH)2",
+                                          "B(OH)3",
+                                          "Ga(OH)3",
+                                          "গম(OH)2"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "সাধারণত ধাতব অক্সাইড বা হাইড্রক্সাইডসমূহ ক্ষারধর্মী এবং অধাতব অক্সাইড বা হাইড্রক্সাইডসমূহ অম্লধমীর্ হয়। অধাতব হাইড্রো‌ক্সাইড হওয়ায় এটি অম্লধমরীর্।"
+                      },
+                      {
+                          "question_no":  37,
+                          "id":  "MAT_2019_2020_BN_Q037",
+                          "question":  "The word \u0027right\u0027 has been used as a verb in which of the following sentences?",
+                          "options":  [
+                                          "It is a matter of right.",
+                                          "Serve him right",
+                                          "It is such a fault that it will right itself.",
+                                          "He is the right man for the job"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "অপশন (a) এর right শব্দটি Noun হিসেবে ব্যবহৃত হয়েছে যার অর্থ অধিকার। অপশন (b) এর right শব্দটি Adverb হিসেবে ব্যবহৃত হয়েছে যার অর্থ যথাযথভাবে বা ন্যায়সঙ্গতভাবে। অপশন (c) এর right শব্দটি Verb হিসেবে ব্যবহৃত হয়েছে যার অর্থ পুনরায় নির্ভুল করা। অপশন (d) এর right শব্দটি Adjective হিসেবে ব্যবহৃত হয়েছে যার অর্থ সঠিক।"
+                      },
+                      {
+                          "question_no":  38,
+                          "id":  "MAT_2019_2020_BN_Q038",
+                          "question":  "5% Sodium carbonate solution এর মোলারিটি কত?",
+                          "options":  [
+                                          "0.74 M",
+                                          "0.47 M",
+                                          "0.98 M",
+                                          "0.88 M"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "5% Sodium carbonate solution এর মোলারিটি (1000 × 5 / 106 × 100) = 0.4717M."
+                      },
+                      {
+                          "question_no":  39,
+                          "id":  "MAT_2019_2020_BN_Q039",
+                          "question":  "\"ফ্ল্যাজেলাযুক্ত স্পোর\" কী নামে অবহিত?",
+                          "options":  [
+                                          "Aplanospore",
+                                          "Resting spore",
+                                          "Hypnospore",
+                                          "Zoospore"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Aplanospore - ফ্ল্যাজেলাবিহীন স্পোর। Resting spore - প্রতিকূল পরিবেশের প্রচুর খাদ্যযুক্ত স্পোর।Zoospore - ফ্ল্যাজেলাযুক্ত স্পোর। Hypnospore - গোলাকার প্রোটোপ্লাস্ট ও পুরু প্রাচীরযুক্ত স্পোর।"
+                      },
+                      {
+                          "question_no":  40,
+                          "id":  "MAT_2019_2020_BN_Q040",
+                          "question":  "পর্দাথবিদ্যার আওতায় আসে না কোনটি?",
+                          "options":  [
+                                          "Electromagnetism",
+                                          "Astronomy",
+                                          "Anthropometry",
+                                          "Thermodynamics"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Subjects of physics: Mechanics - Thermodynamics; Thermal science - Astronomy; Acoustics - Electronics; Optics - Relativity; Magnetism - Nuclear physics; Electricity, Electromagnetism - Quantum physics."
+                      },
+                      {
+                          "question_no":  41,
+                          "id":  "MAT_2019_2020_BN_Q041",
+                          "question":  "Antonym of \u0027Refractory\u0027 is-",
+                          "options":  [
+                                          "Intractable",
+                                          "Cussed",
+                                          "Stubborn",
+                                          "Obedient"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Refractory, Cussed, Intractable ও Stubborn শব্দগুলোর অর্থ একগুঁয়ে বা অবাধ্য। অপরদিকে Obedient শব্দের অর্থ বাধ্য।"
+                      },
+                      {
+                          "question_no":  42,
+                          "id":  "MAT_2019_2020_BN_Q042",
+                          "question":  "ফরমালডিহাইড এবং পটাসিয়াম উত্তপ্ত করা হলে কী পাওয়া যায়?",
+                          "options":  [
+                                          "Methyl alcohol",
+                                          "Acetylene",
+                                          "Ethyl formate",
+                                          "Methane"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "প্রশ্নটি ত্রুটিপূর্ণ। এখানে পটাসিয়াম এর স্থলে পটাসিয়াম হাইড্রোক্সাইড হলে সঠিক উত্তর হতো Methyl alcohol এটি একটি ক্যনিজারো বিক্রিয়া। α-C পরমাণুতে হাইড্রোজেনবিহীন অ্যালডিহাইড গাঢ় অথবা K2CO3 দ্রবণে যুগপৎভাবে জারিত ও বিজারিত হয়ে যথাক্রমে কার্বক্সিলিক এসিড ও অ্যালকোহলে রূপান্তরিত হয়। একে ক্যানিজারো বিক্রিয়া বলো।"
+                      },
+                      {
+                          "question_no":  43,
+                          "id":  "MAT_2019_2020_BN_Q043",
+                          "question":  "কোন গ্যাসটি বাতাসে সবচেয়ে বেশি পরিমাণে থাকে?",
+                          "options":  [
+                                          "Hydrogen",
+                                          "Nitrogen",
+                                          "Oxygen",
+                                          "Carbon dioxide"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "বাতাসে বিভিন্ন গ্যাসের শতকরা পরিমাণঃ নাইট্রোজেন (N2) → 78.09%; অক্সিজেন (O2) → 20.94%; কার্বন-ডাইঅক্সাইড (CO2) → 0.033%; আর্গন (Ar) → 0.93%; অন্যান্য → 0.37%."
+                      },
+                      {
+                          "question_no":  44,
+                          "id":  "MAT_2019_2020_BN_Q044",
+                          "question":  "বিশ্ব স্বাস্থ্য সংস্থার নিদেির্শকা অনুযায়ী পানীয় জলে আর্সেনিকের নিরাপদ মাত্রা কত?",
+                          "options":  [
+                                          "0.01mg/L",
+                                          "0.001mg/L",
+                                          "1mg/L",
+                                          "0.1mg/L"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "বিশ্ব স্বাস্থ্য সংস্থার মতে,পানীয় জলে আর্সেনিকের নিরাপদ মাত্রা - 0.01 mg/L বা ppm;মানব শরীরে আর্সেনিকের সবোর্চ্চ সহনশীল মাত্রা - 0.05 mg/L বা ppm;বাংলাদেশের পানীয় জলে আর্সেনিকের সবোর্চ্চ গ্রহণযোগ্য মাত্রা - 0.05 mg/L বা ppm."
+                      },
+                      {
+                          "question_no":  45,
+                          "id":  "MAT_2019_2020_BN_Q045",
+                          "question":  "পরম শূন্য তাপমান হচ্ছে ঋনাত্মক-",
+                          "options":  [
+                                          "273.35℃",
+                                          "273.45℃",
+                                          "273.15℃",
+                                          "273.25℃"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "যে তাপমাত্রায় স্থির চাপে কোনো নির্দিষ্ট ভরের গ্যাসের আয়তন শূন্য হয় এবং গতিশক্তি সম্পূর্ণরূপে লোপ পায় তাকে পরমশূন্য তাপমাত্রা বলে এর মান -273.15℃ বা 0 K."
+                      },
+                      {
+                          "question_no":  46,
+                          "id":  "MAT_2019_2020_BN_Q046",
+                          "question":  "নিচের কোন পদ্ধতি পানির স্থায়ী খরতা দূর করার জন্য ব্যবহার করা যায় না?",
+                          "options":  [
+                                          "Caustic soda সংযোজন",
+                                          "ফুটন্তকরণ",
+                                          "পাতন",
+                                          "Sodium carbonate সংযোজন"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ফুটন্তকরণের মাধ্যমে কেবল পানির অস্থায়ী খরতা দূর করা যায়।"
+                      },
+                      {
+                          "question_no":  47,
+                          "id":  "MAT_2019_2020_BN_Q047",
+                          "question":  "পর্যায় সারণিতে \u0027Inner-transition\u0027 মৌলের সংখ্যা কত?",
+                          "options":  [
+                                          "26",
+                                          "28",
+                                          "24",
+                                          "30"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "যেসব মৌলের কোনো সুস্থিত আয়নের ইলেকট্রন বিন্যাস f¹ হতে f¹³ হয় তাদের অন্তঃঅবস্থান্তর মৌল বলা হয়। ১৪ টি ল্যান্থানাইড ও ১৪ টি অ্যাক্টিনাইড মৌল মিলে সর্বমোট ২৮ টি মৌল অন্তঃঅবস্থান্তর মৌলের অন্তগর্ত।"
+                      },
+                      {
+                          "question_no":  48,
+                          "id":  "MAT_2019_2020_BN_Q048",
+                          "question":  "Which one of the following is an example of Present Perfect Continuous Tense?",
+                          "options":  [
+                                          "It has been raining",
+                                          "It rained",
+                                          "It was raining",
+                                          "It had been raining"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Present Perfect Continuous tense: ‍Subject + has/have been + verb - ing form."
+                      },
+                      {
+                          "question_no":  49,
+                          "id":  "MAT_2019_2020_BN_Q049",
+                          "question":  "Stainless steel এ steel ছাড়া আর কী থাকে?",
+                          "options":  [
+                                          "Chromium",
+                                          "Vanadium",
+                                          "Nickel",
+                                          "Manganese"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Stainless steel বা মরিচারোধী ইস্পাতের রাসায়নিক সংযুক্তি: Fe-73%, Cr-18%, Ni-8%, C-1%."
+                      },
+                      {
+                          "question_no":  50,
+                          "id":  "MAT_2019_2020_BN_Q050",
+                          "question":  "আগুন প্রশমিত করার জন্য কোন গ্যাস ব্যবহার করা হয়?",
+                          "options":  [
+                                          "Nitrogen oxide",
+                                          "Carbon monoxide",
+                                          "Sulphur dioxide",
+                                          "Carbon dioxide"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "CO2 গ্যাস অগ্নি নির্বাপক হিসেবে ব্যবহৃত হয়। CO2 ভারী গ্যাস হওয়ায় আগুনের উপর একটি স্তর সৃষ্টি করে অক্সিজেনের স্বল্পতা সৃষ্টি করে।"
+                      },
+                      {
+                          "question_no":  51,
+                          "id":  "MAT_2019_2020_BN_Q051",
+                          "question":  "নিচের কোনটিতে পর্দাথবিদ্যা লব্ধ জ্ঞান চিকিৎসাবিদ্যায় যেসব ক্ষেত্রে প্রয়োগ করা হয় না?",
+                          "options":  [
+                                          "X-ray",
+                                          "Ultrasound",
+                                          "Magnetic Resonance Imaging",
+                                          "Biometric attendance"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "পর্দাথবিদ্যা লব্ধ জ্ঞান চিকিৎসাবিদ্যার যেসব ক্ষেত্রে প্রয়োগ করা হয়: X-ray, Magnetic Resonance Imaging, Ultrasound, CT scan, Positron Emitting Tomography প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  52,
+                          "id":  "MAT_2019_2020_BN_Q052",
+                          "question":  "In which of the following sentences \u0027but\u0027 is used as preposition?",
+                          "options":  [
+                                          "There is no one but likes him",
+                                          "We tried hard but did not succeed",
+                                          "It is but right to admit our faults",
+                                          "None but the brave deserves the fair"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "অপশন (a) ও (b) তে \u0027but\u0027 Conjunction হিসেবে এবং অপশন (c) তে \u0027but\u0027 Adverb হিসেবে ব্যবহৃত হয়েছে।"
+                      },
+                      {
+                          "question_no":  53,
+                          "id":  "MAT_2019_2020_BN_Q053",
+                          "question":  "Which one of the following sentences is in passive form?",
+                          "options":  [
+                                          "They are building a new road in the city",
+                                          "Somebody is using the computer now",
+                                          "The room has been cleaned",
+                                          "Somebody has cleaned the room"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Present perfect tense এর passive form = Object + has been/have been + verb এর Past Participle form."
+                      },
+                      {
+                          "question_no":  54,
+                          "id":  "MAT_2019_2020_BN_Q054",
+                          "question":  "হাইড্রার কোন অংশে নিডোসাইট কোষ সবচেয়ে বেশি থাকে?",
+                          "options":  [
+                                          "কর্ষিকা",
+                                          "দেহ কা-",
+                                          "দেহ প্রাচীর",
+                                          "পাদ -চাকতি"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Hydra -র পাদচাকতি ব্যতীত দেহের সর্বত্র নিডোসাইটকোষ বিদ্যমান থাকে। তবে, কর্ষিকাতে এদের সংখ্যা অধিক।"
+                      },
+                      {
+                          "question_no":  55,
+                          "id":  "MAT_2019_2020_BN_Q055",
+                          "question":  "সুন্দরবনকে \u0027World Heritage\u0027 ঘোষণা করেছে কোন সংস্থা?",
+                          "options":  [
+                                          "ILO",
+                                          "UNESCO",
+                                          "WHO",
+                                          "UNDP"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "UNESCO\u0027র ওয়াল্ড হেরিটেজ কমিটি ১৯৯৭ সালে তাদের ২১ তম সেশনে সুন্দরবনকে ওয়াল্ড হেরিটেজ সাইটের অন্তভুর্ক্ত করে এবং বাংলাদেশ সরকার ১৯৯৯ সালে ওয়াল্ড হেরিটেজ সাইট ঘোষণা করে।"
+                      },
+                      {
+                          "question_no":  56,
+                          "id":  "MAT_2019_2020_BN_Q056",
+                          "question":  "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান কোন তারিখে পাকিস্তানের কারাগার থেকে মুক্ত হয়ে স্বাধীন বাংলাদেশে প্রত্যাবর্তন করেন?",
+                          "options":  [
+                                          "৯ জানুয়ারি",
+                                          "১০ জানুয়ারি",
+                                          "১২ জানুয়ারি",
+                                          "১১ জানুয়ারি"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "বঙ্গবন্ধু শেখ মুজিবুর রহমান ১৯৭২ সালের ৮ জানুয়ারি পাকিস্তানের করাচির মিয়ানওয়ালী কারগার থেকে মুক্তি লাভ করে লন্ডন যান এবং ১০ জানুয়ারি দিল্লি হয়ে স্বাধীন বাংলাদেশ প্রত্যাবর্তন করেন। ১১ জানুয়ারি তিনি অস্থায়ী সংবিধান আদেশ জারি করেন এবং ১২ জানুয়ারি বাংলাদেশের প্রধানমন্ত্রী হিসেবে শপথ গ্রহণ করেন।"
+                      },
+                      {
+                          "question_no":  57,
+                          "id":  "MAT_2019_2020_BN_Q057",
+                          "question":  "সেন্টিগ্রেড স্কেলে ৯৮.৫০ ফারেনহাইট তাপমাত্রার মান কত?",
+                          "options":  [
+                                          "36.544℃",
+                                          "45.456℃",
+                                          "35.944℃",
+                                          "36.944℃"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "(C / 5) = (F-32 / 9)⇒C = (F-32) × 5 / 9)⇒C = (98.5-32) × 5 / 9) ⇒C = 36.944℃"
+                      },
+                      {
+                          "question_no":  58,
+                          "id":  "MAT_2019_2020_BN_Q058",
+                          "question":  "নিচের কোনটি এসিড বৃষ্টির জন্য দায়ী?",
+                          "options":  [
+                                          "CO2",
+                                          "SO2",
+                                          "O2",
+                                          "CO"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "এসিড বৃষ্টির জন্য দায়ী সালফার ও নাইট্রোজেনের বিভিন্ন অক্সাইডসমূহ যেমন - SO2 , SO3 , NO2 প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  59,
+                          "id":  "MAT_2019_2020_BN_Q059",
+                          "question":  "নিচের কোনটি সবচেয়ে শক্তিশালী এসিড?",
+                          "options":  [
+                                          "ClCH2COOH",
+                                          "BrCH2COOH",
+                                          "H2FSbF6",
+                                          "ICH2COOH"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "H2FSbF6 পৃথিবীর সবচেয়ে শক্তিশালী সুপার এসিড। এটি 100%H2SO4 এর তুলনায় 2 × 10¹⁹ গুণ অধিক শক্তিশালী।"
+                      },
+                      {
+                          "question_no":  60,
+                          "id":  "MAT_2019_2020_BN_Q060",
+                          "question":  "কোন রক্ত কণিকা অ্যান্টিবডি তৈরি করে?",
+                          "options":  [
+                                          "টি-লিম্ফোসাইট",
+                                          "বেসোফিল",
+                                          "বি-লিস্ফোসাইট",
+                                          "লিম্ফোসাইট"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "অস্থিমজ্জায় বৃদ্ধি প্রাপ্ত B-লিম্ফোসাইট প্রধানত অ্যান্টিবডি উৎপাদনকারী কোষ। অ্যান্টিজেনের বিরুদ্ধে কাজ করার সময় এ কোষটি প্লাজমাকোষে পরিণত হয়। প্লাজমা কোষ অ্যান্টিবডি উৎপাদনের কারখানা হিসেবে কাজ করে।"
+                      },
+                      {
+                          "question_no":  61,
+                          "id":  "MAT_2019_2020_BN_Q061",
+                          "question":  "রংধনুর সাথে নিচের কোনটি সামঞ্জস্যপূর্ণ নয়?",
+                          "options":  [
+                                          "প্রতিফলন",
+                                          "প্রতিসরণ",
+                                          "বিরলিকরণ",
+                                          "বিচ্ছুরণ"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "রংধুন হলো ধনুকের মতো বাঁকা সাতটি রঙের আলোর সমাহার যা বায়ুমণ্ডলে অবস্থিত জলকণায় সূযাের্লাকের প্রতিফলন, প্রতিসরণ ও বিচ্ছুরণের ফলে সৃষ্টি হয় এবং আকাশে দৃশ্যমান হয়।"
+                      },
+                      {
+                          "question_no":  62,
+                          "id":  "MAT_2019_2020_BN_Q062",
+                          "question":  "নিচের কোনটি \u0027Oxidation-reduction reaction\u0027?",
+                          "options":  [
+                                          "CaCO3  CaO + CO2",
+                                          "2H2S + SO2  2H2O + 3S",
+                                          "NaCl + AgNO3  NaNO3 + AgCl",
+                                          "HF + KOH  KF + H2O"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "যে বিক্রিয়ায় মৌলসমূহের জারণ সংখ্যার হ্রাস-বৃদ্ধি ঘটে তাকে রিডক্স বা জারণ-বিজারণ বিক্রিয়া (Oxidation-reduction reaction) বলে। 2H2S + SO2  2H2O + 3S বিক্রিয়ায় বিক্রিয়ক H2S এ S এর জারণ সংখ্যা –2 এবং SO2 এ S এর জারণ সংখ্যা +4. অপরদিকে উৎপাদ S এর জারণ সংখ্যা 0. অর্থাৎ H2S থেকে S উৎপন্ন হওয়ার সময় S এর জারণ সংখ্যা বৃদ্ধি পেয়েছে এবং SO2 থেকে S উৎপন্ন হওয়ার সময় S এর জারণ সংখ্যা হ্রাস পেয়েছে। তাই এটি রিডক্স বা জারণ-বিজারণ বিক্রিয়া।"
+                      },
+                      {
+                          "question_no":  63,
+                          "id":  "MAT_2019_2020_BN_Q063",
+                          "question":  "নিচের কোন জীবে আদিকোষ থাকে?",
+                          "options":  [
+                                          "ব্রায়োফাইটস",
+                                          "ব্যাকটেরিয়া",
+                                          "ছত্রাক",
+                                          "শৈবাল"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ব্যাকটেরিয়া, সায়ানোব্যাকটেরিয়া ও মাইকো-প্লাজমাতে আদিকোষ থাকে। মনেরা রাজ্যের সব জীবই আদিকোষী।"
+                      },
+                      {
+                          "question_no":  64,
+                          "id":  "MAT_2019_2020_BN_Q064",
+                          "question":  "ছত্রাকের কোষ প্রাচীরের মূখ্য উপাদান কোনটি?",
+                          "options":  [
+                                          "কাইটিন",
+                                          "গ্লাইকোজেন",
+                                          "সেলুলোজ",
+                                          "আরগোস্টেরল"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "ছত্রাকের কোষ প্রচীরের প্রধান উপাদান - কাইটিন; উদ্ভিদের কোষ প্রাচীরের প্রধান উপাদান - সেলুলোজ; প্রাণিকোষের প্রধান সঞ্চিত পলিস্যাকারাইড - গ্লাইকোজেন।"
+                      },
+                      {
+                          "question_no":  65,
+                          "id":  "MAT_2019_2020_BN_Q065",
+                          "question":  "অর্ধ জীবন (Half-life) এর প্রতীক কোনটি?",
+                          "options":  [
+                                          "(1 / 2)t",
+                                          "t(1 / 2)",
+                                          "(1 / 2)T",
+                                          "T(1 / 2)"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "T(1 / 2) = (0.693 / λ) = 0.693τ ; এখানে, λ = অবক্ষয় ধ্রুবক, গড় আয়ু τ = গড় আয়ু।"
+                      },
+                      {
+                          "question_no":  66,
+                          "id":  "MAT_2019_2020_BN_Q066",
+                          "question":  "শব্দের প্রবলতা মাপার একক হচ্ছে-",
+                          "options":  [
+                                          "dB",
+                                          "Wm⁻²",
+                                          "WM⁻²",
+                                          "DB"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "শব্দের তীব্রতা বা প্রাবল্যের একক Js⁻¹m⁻² বা Wm⁻² অপরদিকে শব্দের তীব্রতা লেভেলের একক dB."
+                      },
+                      {
+                          "question_no":  67,
+                          "id":  "MAT_2019_2020_BN_Q067",
+                          "question":  "নিচের কোনটি \u0027Flame test\u0027 এ \u0027Golden yellow\u0027 প্রতীয়মান হয়?",
+                          "options":  [
+                                          "Cu",
+                                          "K",
+                                          "Na",
+                                          "Ca"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "ধাতব মৌল/আয়ন খালি চোখে কোবাল্ট ব্লু-গ্লাসে Cu/Cu²⁺ নীলাভ সবুজ বিশেষ বর্ণ নেই K/K⁺ হালকা বেগুনি গোলাপি লাল Na/Na⁺ সোনালি হলুদ বিশেষ বর্ণ নেই Ca/Ca²⁺ ইটের মতো লাল হালকা সবুজ"
+                      },
+                      {
+                          "question_no":  68,
+                          "id":  "MAT_2019_2020_BN_Q068",
+                          "question":  "কত সালে বাংলাদেশ ক্রিকেট \"ওয়ান ডে স্ট্যাটাস\" লাভ করে?",
+                          "options":  [
+                                          "১৯৯৯",
+                                          "১৯৯৭",
+                                          "১৯৯৮",
+                                          "১৯৯৬"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "বাংলাদেশের ওয়ানডে ক্রিকেটে অভিষেক - ১৯৮৬ সালে; টেস্ট স্ট্যাটাস লাভ - ২০০০ সালে; বিশ্বকাপ ক্রিকেটে অভিষেক - ১৯৯৯ সালে।"
+                      },
+                      {
+                          "question_no":  69,
+                          "id":  "MAT_2019_2020_BN_Q069",
+                          "question":  "\u0027স্বাধীনতা স্তম্ভ\u0027 কোথায় অবস্থিত?",
+                          "options":  [
+                                          "সোহরাওয়ার্দী উদ্যান",
+                                          "মেহেরপুর",
+                                          "রাজশাহী বিশ্ববিদ্যালয়",
+                                          "ঢাকা সেনানিবাস"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "মুজিবনগর স্মৃতিসৌধ → মেহেরপুর; বিজয় কেতন জাদুঘর ও শিখা অনির্বাণ → ঢাকা সেনানিবাস; সাবাশ বাংলাদেশ ও শহিদ স্মৃতি সংগ্রহশালা → রাজশাহী বিশ্ববিদ্যালয়; স্বাধীনতা জাদুঘর, শিখা চিরন্তন ও স্বাধীনতা স্তম্ভ → সোহরাওয়ার্দী উদ্যান।"
+                      },
+                      {
+                          "question_no":  71,
+                          "id":  "MAT_2019_2020_BN_Q071",
+                          "question":  "Choose the correct word to fill up the gap in the following sentence: Alam ______ in Dhaka for ten years. Now he lives in Rangpur.",
+                          "options":  [
+                                          "has lived",
+                                          "lived",
+                                          "is living",
+                                          "has been living"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "বাক্যটি অতীত নির্দেশ করছে তাই Past indefinite tense হবে।"
+                      },
+                      {
+                          "question_no":  72,
+                          "id":  "MAT_2019_2020_BN_Q072",
+                          "question":  "নিচের কোন এনজাইম Glucose কে এ Ethyl alcohol এ পরিবর্তিত করে?",
+                          "options":  [
+                                          "Diastase",
+                                          "Maltase",
+                                          "Zymase",
+                                          "Invertase"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "ফামেের্ন্টশন পক্রিয়ায় স্টার্চ থেকে ইথানল তৈরির একটি ধাপ গ্লুকোজ থেকে ইথানল প্রস্তুতি। এই ধাপে ঈস্ট থেকে নিঃসৃত জাইমেজ এনজাইম হিসেবে ক্রিয়া করে।"
+                      },
+                      {
+                          "question_no":  73,
+                          "id":  "MAT_2019_2020_BN_Q073",
+                          "question":  "প্যারাসিমপ্যাথেটিক স্নায়ু নিচের কোন করোটিক স্নায়ুতে পাওয়া যায়?",
+                          "options":  [
+                                          "অকুলোমোটর",
+                                          "অপটিক",
+                                          "অলফ্যাক্টরি",
+                                          "ট্রকলিয়ার"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "প্যারাসিমপ্যাথেটিক করোটিক স্নায়ুগুলো হলো- অকুলোমোটর, ফেসিয়াল, গ্লসোফ্যারিঞ্জিয়াল ও ভেগাস।"
+                      },
+                      {
+                          "question_no":  74,
+                          "id":  "MAT_2019_2020_BN_Q074",
+                          "question":  "নিচের কোনটি উদ্ভিদ কোষে থাকে না?",
+                          "options":  [
+                                          "সঞ্চিত খাদ্য শ্বেতসার",
+                                          "কোষ প্রাচীর",
+                                          "প্লাস্টিড",
+                                          "সেন্ট্রোসোম"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "সাধারণত উদ্ভিদ কোষে সেন্ট্রোসোম থাকে না। তবে মস বর্গীয়, ফার্নবর্গীয় ও নগ্নবীজী উদ্ভিদে সেন্ট্রোসোম পাওয়া যায়। আর প্লাস্টিড, কোষপ্রাচীর ও শ্বেতসার উদ্ভিদ কোষে উপস্থিত।"
+                      },
+                      {
+                          "question_no":  75,
+                          "id":  "MAT_2019_2020_BN_Q075",
+                          "question":  "নিচের কোনটি দ্বিস্তরী?",
+                          "options":  [
+                                          "ফিতা কৃমি",
+                                          "ম্যালেরিয়ার জীবাণু",
+                                          "হাইড্রা",
+                                          "জোঁক"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "নিডারিয়া পর্বের সকল প্রাণী দ্বিস্তরী। এ পর্বের অন্যান্য গুরুত্বপূর্ণ প্রাণিগুলো হলো-জেলি ফিশ, নীল বোতাম, সমুদ্রের পাখা, ভাসমান সন্ত্রাস, টিউব অ্যানিমন, সমুদ্রের কলম প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  76,
+                          "id":  "MAT_2019_2020_BN_Q076",
+                          "question":  "সোডিয়াম আয়নে কতগুলো ইলেকট্রন থাকে?",
+                          "options":  [
+                                          "13 টি",
+                                          "5 টি",
+                                          "11 টি",
+                                          "1 টি"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "সোডিয়াম পরমাণুতে 11 টি ইলেকট্রন থাকে। কিন্তু যখন এটি একটি ইলকট্রন ত্যাগ করে সোডিয়াম ক্যাটায়ন গঠন করে তখন ইলেকট্রন হয় 10 টি।"
+                      },
+                      {
+                          "question_no":  77,
+                          "id":  "MAT_2019_2020_BN_Q077",
+                          "question":  "এক (১) অশ্বশক্তি (Horse Power) সমান কত ওয়াট (Watt)?",
+                          "options":  [
+                                          "৭৭৯",
+                                          "৭৫৬",
+                                          "৭৪৬",
+                                          "৭৬৬"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "1s এ 746J কাজ করতে সক্ষম বস্তুর ক্ষমতা 746 W যাকে 1 HP/horse power (অশ্বক্ষমতা) নামেও অভিহিত করা হয়।"
+                      },
+                      {
+                          "question_no":  78,
+                          "id":  "MAT_2019_2020_BN_Q078",
+                          "question":  "চাপের SI একক কোনটি?",
+                          "options":  [
+                                          "cmH2O",
+                                          "Pascal",
+                                          "cmHg",
+                                          "mmHg"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "চাপের SI একক Pascal বা Nm⁻² এবং মাত্রা সমীকরণ [ ML⁻¹T⁻² ]. চাপের অন্যান্য একক হলো atm, torr, bar, mm(Hg), cm(Hg) প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  79,
+                          "id":  "MAT_2019_2020_BN_Q079",
+                          "question":  "নিচের কোনটি রক্তনালির সংকোচন ঘটিয়ে রক্তপাত হ্রাস করে?",
+                          "options":  [
+                                          "সেরোটোনিন",
+                                          "হেপারিন",
+                                          "হিস্টামিন",
+                                          "থ্রম্বোপ্লাস্টিন"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "থ্রোম্বোপ্লাস্টিন - একটি গুরুত্বপূর্ণ ক্লটিং ফ্যাক্টর। হিস্টামিন - বোসোফিল হতে উৎপন্ন হয় যা দেহের রোগ প্রতিরোধ ক্ষমতা বৃদ্ধি করে।সেরোটোনিন - অণুচক্রিকা কর্তৃক নিঃসৃত হয়।হেপারিন - বেসোফিল হতে উৎপন্ন হয় যা রক্তনালির ভিতরে রক্তজমাট রোধ করে।"
+                      },
+                      {
+                          "question_no":  80,
+                          "id":  "MAT_2019_2020_BN_Q080",
+                          "question":  "কোন দ্রবণে নীল লিটমাস লালে রূপান্তরিত হয়?",
+                          "options":  [
+                                          "Acid",
+                                          "Salt",
+                                          "Base",
+                                          "Alkali"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "এসিড দ্রবণে নীল লিটমাস লালে, ক্ষার দ্রবণে লাল লিটমাস নীলে রূপান্তরিত হয় কিন্তু লবণের দ্রবণে লিটমাস পেপারের কোনো পরিবর্তন হয় না।"
+                      },
+                      {
+                          "question_no":  81,
+                          "id":  "MAT_2019_2020_BN_Q081",
+                          "question":  "Which one of the following is past participle form of \u0027swim\u0027?",
+                          "options":  [
+                                          "Swum",
+                                          "Sweem",
+                                          "Swam",
+                                          "Swom"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "\u0027Swam\u0027 is the past tense of swim, while \u0027Swum\u0027 is the past participle."
+                      },
+                      {
+                          "question_no":  82,
+                          "id":  "MAT_2019_2020_BN_Q082",
+                          "question":  "পাকস্থলির কোন কোষ থেকে হাইড্রোক্লোরিক এসিড নিঃসৃত হয়?",
+                          "options":  [
+                                          "প্যারাইটাল কোষ",
+                                          "জি-কোষ",
+                                          "পেপটিক কোষ",
+                                          "মিউকাস কোষ"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "পাকস্থলির বিভিন্ন কোষ থেকে নিঃসৃত পর্দাথ: অক্সিনটিক কোষ বা প্যারাইটাল কোষ - হাইড্রোক্লোরিক এসিড; মিউকাস কোষ - মিউকাস; আর্জেন্টাফাইন কোষ - গ্যাস্ট্রিক ইনট্রিনসিক ফ্যাক্টর; জাইমোজেনিক কোষ বা চীফ কোষ বা পেপটিক কোষ - নিষ্ক্রিয় পেপসিনোজেন।"
+                      },
+                      {
+                          "question_no":  83,
+                          "id":  "MAT_2019_2020_BN_Q083",
+                          "question":  "নিচের কোনটি DNA ভাইরাস?",
+                          "options":  [
+                                          "চিকুনগুনিয়া",
+                                          "টোবাকো মোজাইক",
+                                          "ডেঙ্গু",
+                                          "হেপাটাইটিস বি"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "DNA ভাইরাসের উদাহরণ: TIV, ভ্যারিওলা, হেপাটাইটিস-বি, T2 ভাইরাস, ভ্যাকসিনিয়া, এডিনোহার্পিস, সিমপ্লেক্স প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  84,
+                          "id":  "MAT_2019_2020_BN_Q084",
+                          "question":  "সর্বজনীন গ্রহীতা Blood group কোনটি?",
+                          "options":  [
+                                          "AB",
+                                          "O",
+                                          "A",
+                                          "B"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "AB ব্লাড গ্রূপে কোনো অ্যান্টিবডি না থাকায় এটি সর্বজনীন গ্রহীতা ব্লাড গ্রূপ। অপরদিকে O ব্লাড গ্রূপে কোনো অ্যান্টিজেন না থাকয় এটি সর্বজনীন দাতা ব্লাড গ্রূপ।"
+                      },
+                      {
+                          "question_no":  85,
+                          "id":  "MAT_2019_2020_BN_Q085",
+                          "question":  "কোন বিখ্যাত গায়ক মুক্তিযুদ্ধ চলাকালীন সময়ে বাংলাদেশের জন্য নিউইয়র্কে কনসার্ট করে অর্থ সংগ্রহ করেন?",
+                          "options":  [
+                                          "মুহম্মদ রাফি",
+                                          "জর্জ হ্যারিসন",
+                                          "লতা মঙ্গেস্কার",
+                                          "এল্‌ভিস প্রিসলি"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "১ আগস্ট, ১৯৭১ যুক্তরাষ্ট্রের নিউইয়র্কের ম্যাডিসন স্কয়ারে দ্য বিটলস ব্যান্ডদলের গায়ক জর্জ হ্যারিসন ও ভারতীয় সেতারবাদক প-িত রবিশংকরের তত্ত্বাবধানে অনুষ্ঠিত হয় কনসার্ট ফর বাংলাদেশ।"
+                      },
+                      {
+                          "question_no":  86,
+                          "id":  "MAT_2019_2020_BN_Q086",
+                          "question":  "শূন্যে আলোর গতি হচ্ছে ____ ms⁻¹",
+                          "options":  [
+                                          "499 992 658",
+                                          "299 792 458",
+                                          "599 692 758",
+                                          "399 892 558"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "আলো এক প্রকার তাড়িতচৌম্বক তরঙ্গ যা শূন্য মাধ্যমে 299 792 458 ms⁻¹ বেগে চলে।"
+                      },
+                      {
+                          "question_no":  87,
+                          "id":  "MAT_2019_2020_BN_Q087",
+                          "question":  "I am accustomed _____ such a life. Fill in the gap with appropriate preposition given below.",
+                          "options":  [
+                                          "to",
+                                          "with",
+                                          "by",
+                                          "in"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Accustomed to – অভ্যস্ত।"
+                      },
+                      {
+                          "question_no":  88,
+                          "id":  "MAT_2019_2020_BN_Q088",
+                          "question":  "\"গ্রহ গুলির গতিপথ উপবৃত্তাকার\"-তত্ত্বটি কে আবিষ্কার করেছেন?",
+                          "options":  [
+                                          "গ্যালিলিও",
+                                          "কেপলার",
+                                          "পিথাগোরাস",
+                                          "টলেমি"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "টলেমি - সর্বপ্রথম ভূ-কেন্দ্রিক তত্ত্ব উপস্থাপন করেন।পিথাগোরাস - জ্যামিতিক উপপাদ্যের সূত্র প্রদান।গ্যালিলিও - পড়ন্ত বস্তুর সূত্র, যৌগিক অণুবীক্ষণ যন্ত্র, দূরবীক্ষণ যন্ত্র, পানি উত্তোলনের যন্ত্র, বায়ু থামোের্স্কাপ প্রভৃতি আবিষ্কার করেন।"
+                      },
+                      {
+                          "question_no":  89,
+                          "id":  "MAT_2019_2020_BN_Q089",
+                          "question":  "পর্দাথবিদ্যাতে নিচের কোনটি Power এর একক নয়?",
+                          "options":  [
+                                          "জুল/সেকে-",
+                                          "ওয়াট",
+                                          "জুল",
+                                          "অশ্বশক্তি"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "শক্তির একক - জুল; ক্ষমতার একক - জুল/সেকেন্ড, ওয়াট এবং অশ্বশক্তি (Horse Power). [1HP = 746W = 746J/s]"
+                      },
+                      {
+                          "question_no":  90,
+                          "id":  "MAT_2019_2020_BN_Q090",
+                          "question":  "Which one of the following is not a noun?",
+                          "options":  [
+                                          "Loneliness",
+                                          "Childhood",
+                                          "Purity",
+                                          "Fairly"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "সাধারণত যেসব ইংরেজি শব্দের শেষে- ness, -hood, -ty, -ship, -tion, -sion, -ence, -dom, -ment, -ance প্রভৃতি Suffix থাকে সেগুলো Noun. সুতরাং (a), (b) ও (c) হলো Noun. Fairly হলো Adverb."
+                      },
+                      {
+                          "question_no":  91,
+                          "id":  "MAT_2019_2020_BN_Q091",
+                          "question":  "নিচের কোনটিতে ঐচ্ছিক পেশি পাওয়া যায়?",
+                          "options":  [
+                                          "জিহ্বা",
+                                          "পাকস্থলি",
+                                          "হৃৎপিণ্ড",
+                                          "জরায়ু"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "বিভিন্ন পেশির প্রাপ্তিস্থানঃ ঐচ্ছিক পেশি - অস্থির সংযোগস্থল, চোখ, জিহ্বা, গলবিল প্রভৃতি।অনৈচ্ছিক পেশি - পৌষ্টিকনালি, রক্তনালি, শ্বাসনালি, মূত্রথলি জরায়ু প্রভৃতি।হৃদপেশি - হৃৎপিণ্ড।"
+                      },
+                      {
+                          "question_no":  92,
+                          "id":  "MAT_2019_2020_BN_Q092",
+                          "question":  "সবচেয়ে বেশি খাদ্যসার শোষণ হয় কোথায়?",
+                          "options":  [
+                                          "পাকস্থলিতে",
+                                          "ডিওডেনামে",
+                                          "সিকামে",
+                                          "জেজুনামে"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "খাদ্যের 90% শোষণ ঘটে ক্ষুদ্রান্ত্রে, বাকি 10% ঘটে বৃহদন্ত্র ও পাকস্থলিতে। ক্ষুদ্রান্ত্রের ডিওডেনামে অধিকাংশ পরিপাক এবং জেজুনাম ও ইলিয়ামে অধিকাংশ খাদ্যসার শোষণ ঘটে।"
+                      },
+                      {
+                          "question_no":  93,
+                          "id":  "MAT_2019_2020_BN_Q093",
+                          "question":  "উত্তল লেন্স কেমন হতে পারে না?",
+                          "options":  [
+                                          "Cylindrical",
+                                          "Bi-convex",
+                                          "Plano-convex",
+                                          "Concavo-convex"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "উত্তল লেন্স তিন ধরনের। যথা- (i) অবলোত্তল (Concavo-convex), (ii) সমতলোত্তল (Plano-convex) ও (iii) উভোত্তল (Bi-convex)."
+                      },
+                      {
+                          "question_no":  94,
+                          "id":  "MAT_2019_2020_BN_Q094",
+                          "question":  "Which one of the following sentences is correct?",
+                          "options":  [
+                                          "If I won the lottery, I shall buy a big house",
+                                          "If I won the lottery, I will buy a big house",
+                                          "If I win the lottery, I shall buy a big house",
+                                          "If I won the lottery, I bought a big house"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "If যুক্ত clause টিতে যদি present Indefinite tense হয়, তবে পরের clause টি Future Indefinite tense হয়। অপরদিকে If যুক্ত clause টিতে যদি Past Indefinite tense হয়, তবে পরের clause টিতে would/could/might + verb এর Present form হয় । উক্ত শর্তানুসারে অপশন (c) সঠিক।"
+                      },
+                      {
+                          "question_no":  95,
+                          "id":  "MAT_2019_2020_BN_Q095",
+                          "question":  "আন্তঃকশেরুকা চাকতিতে কী ধরনের তরুণাস্থি পাওয়া যায়?",
+                          "options":  [
+                                          "স্থিতিস্থাপক তরুণাস্থি",
+                                          "স্বচ্ছ তরুণাস্থি",
+                                          "চুনময় তরুণাস্থি",
+                                          "শ্বেত-তন্তুময় তরুণাস্থি"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "বিভিন্ন তরুণাস্থি প্রাপ্তিস্থানঃ স্থিতিস্থাপক - বহিঃকর্ণ বা পিনা, ইউস্টেশিয়াননালি এপিগ্লটিস প্রভৃতি।চুনময় - হিউমেরাস ও ফিমারের মস্তক।শ্বেত-তন্তুময় - দুটি কশেরুকার মধ্যবর্তী অঞ্চল।স্বচ্ছ - স্তন্যপায়ীর নাক, শ্বাসনালি, স্বরযন্ত্র এবং ব্যাঙ ও হাঙরের ভ্রূণ বা পরিণত দেহ প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  96,
+                          "id":  "MAT_2019_2020_BN_Q096",
+                          "question":  "Synonym of \u0027Ability\u0027 are all of the following except:",
+                          "options":  [
+                                          "Skill",
+                                          "Competency",
+                                          "Avail",
+                                          "Talent"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Ability, Talent, Skill ও Competency শব্দগুলোর অর্থ দক্ষতা। অপরদিকে Avail শব্দের অর্থ সুযোগ বা লাভ।"
+                      },
+                      {
+                          "question_no":  97,
+                          "id":  "MAT_2019_2020_BN_Q097",
+                          "question":  "\u0027চাকা\u0027 এর সাথে কোনটি সম্পর্কহীন?",
+                          "options":  [
+                                          "তাম্র যুগ",
+                                          "চক্র বেড়",
+                                          "রৌপ্য যুগ",
+                                          "চক্র কেন্দ্র"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "নব্য প্রস্তুর যুগে মোসোপটেমিয়ায় প্রথম চাকা আবিষ্কৃত হয় এবং ধাতু যুগে এসে আরো উন্নত হয়। ধাতু যুগের ব্যবহৃত ধাতুগুলোর মধ্যে তাম্র, দস্তা, ব্রোঞ্জ, লোহা ইত্যাদি প্রধান।"
+                      },
+                      {
+                          "question_no":  98,
+                          "id":  "MAT_2019_2020_BN_Q098",
+                          "question":  "সিলোমহীন পর্ব কোনটি?",
+                          "options":  [
+                                          "Chordata",
+                                          "Fasciola hepatica",
+                                          "Annelida",
+                                          "Nematoda"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "প্রশ্নটি ত্রুটিপূর্ণ। সিলোমবিহীন পর্ব হলো- Porifera, Platyhelminthes এবং Cnidaria এখানে উল্লিখিত Fasciola hepatica হলো Platyhelminthes পর্বের প্রাণী। Annelida ও Chordata প্রকৃত সিলোমযুক্ত পর্ব। Nematoda Pseudocoelomate বা অপ্রকৃত সিলোমেট।"
+                      },
+                      {
+                          "question_no":  99,
+                          "id":  "MAT_2019_2020_BN_Q099",
+                          "question":  "কোন বন্ধন (Bond) দ্বারা দুইটি হাইড্রোজেন এ্যাটম যুক্ত থাকে?",
+                          "options":  [
+                                          "Hydrophobic",
+                                          "Hydrophilic",
+                                          "Covalent",
+                                          "Ionic"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "যখন দুটি অধাতব পরমাণু কোনো ইলেকট্রন গ্রহণ বা ত্যাগ না করে শেয়ারের মাধ্যমে বন্ধন গঠন করে, তখন তাকে সমযোজী বন্ধন বলে। (Covalent bond) দুটি হাইড্রোজেন পরমাণু এভাবে যুক্ত হয়ে একটি হাইড্রোজেন অণু গঠন করে।"
+                      },
+                      {
+                          "question_no":  100,
+                          "id":  "MAT_2019_2020_BN_Q100",
+                          "question":  "নিচের কোন অঙ্গ এরিথ্রোপোয়েটিন (Erythropoietin) উৎপাদন করে?",
+                          "options":  [
+                                          "বৃক্ক",
+                                          "হৃৎপিণ্ড",
+                                          "ফুসফুস",
+                                          "মগজ"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "বৃক্কের কাজ: (i) রক্ত থেকে প্রোটিন বিপাকে সৃষ্ট নাইট্রোজেন জাতীয় বর্জ্য পর্দাথ অপসারণ করা। (ii) দেহে প্রবিষ্ট প্রতিবিষ ও ভেষজ পর্দাথসমূহ দেহ থেকে অপসারণ করা। (iii) দেহে এবং রক্তে পানির ভারসাম্য রক্ষা করা। (iv) দেহে সোডিয়াম, পটাশিয়াম, ক্যালসিয়াম, ফসফেট ক্লোরাইডসহ বিভিন্ন লবণের পরিমাণ নিয়ন্ত্রন করা। (v) দেহে রক্তে অম্ল ও ক্ষারের ভারসাম্য রক্ষা করা। (vi) যথাযথ আয়নিক গঠন বজায় করা। (vii) রক্তচাপ নিয়ন্ত্রণ করা। (viii) এরিথ্রোপয়েটিন ও রেনিন হরমোন ক্ষরণ।"
+                      }
+                  ]
+}

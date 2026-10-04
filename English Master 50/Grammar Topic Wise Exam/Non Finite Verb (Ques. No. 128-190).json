@@ -1,0 +1,956 @@
+{
+  "exam_id": 8385,
+  "title": "Non Finite Verb (Ques. No. 128-190)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Verb (300 Marks)",
+  "duration_minutes": 25,
+  "total_questions": 63,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "00a19294-d84e-4ecd-b09f-56bcb711d996",
+      "question": "The movie was ----- (bore) as soon he became ----- (bore).[]",
+      "options": [
+        "boring, boring",
+        "bored, boring",
+        "bored, bored",
+        "boring, bored"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Person কে modify করলে past perticiple.\nThing কে modify করলে present participle.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "defaa457-ceb1-4676-865b-56266ac4303d",
+      "question": "The license of ----- drivers should be banned.[]",
+      "options": [
+        "drinking",
+        "drank",
+        "drunk",
+        "drunked"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Person কে modify করলে past participle.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "3ee472c5-f77b-4476-a377-8f6b80ad532d",
+      "question": "There were ----- reactions after the Bill was passed.[]",
+      "options": [
+        "a mix",
+        "mix",
+        "mixed",
+        "missed"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যাখা লাগবে বলে মনে হয় না!!:)",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "b63ccd5a-1244-4eca-b67d-4ef7ce62a332",
+      "question": "He passed a (write) order.[]",
+      "options": [
+        "to write",
+        "wrote",
+        "writing",
+        "written"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Sentence: He passed a (write) order.\nসঠিক শব্দ: written\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে order কে বর্ণনা করার জন্য past participle দরকার।\nwrite এর past participle হলো written, তাই ঠিক হবে।\n✅ He passed a written order.\nচটজলদি: \"written\" = অতীত অংশ (past participle), order বর্ণনা করে।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "e9e2268d-8ad2-4cdf-9bba-c50baffe83c0",
+      "question": "The tall gentleman ----- by the door is the bank manager.[]",
+      "options": [
+        "who standing",
+        "is standing",
+        "stands",
+        "standing"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Sentence: The tall gentleman ----- by the door is the bank manager.\nসঠিক শব্দ: standing\nব্যাখ্যা (সংক্ষিপ্ত):\nএখানে gentleman কে বর্ণনা করতে present participle দরকার।\nstanding = present participle, যা বোঝায় যে \"gentleman\" এখনই দরজার পাশে দাঁড়িয়ে আছে।\n✅ The tall gentleman standing by the door is the bank manager.\nচটজলদি: \"standing\" = বর্তমান অংশ (present participle), gentleman বর্ণনা করে।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "49eae223-8a77-40b5-9e18-002d1e420bb3",
+      "question": "Some of the people ----- to the party can't come.\nSome of our persons ----- to the party will not come tonight.[]",
+      "options": [
+        "inviting",
+        "invited",
+        "who invited",
+        "they were invited"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Passive mode এ হবে।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "b97a80d2-a4a1-4c22-8bd6-1dcbb53db737",
+      "question": "The bridge ----- recently for the railroad has been found faulty.[]",
+      "options": [
+        "was constructed",
+        "constructed",
+        "has been constructed",
+        "has constructed"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sentence: The bridge ----- recently for the railroad has been found faulty.\nসঠিক শব্দ: constructed\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে bridge কে বর্ণনা করতে past participle দরকার।\nconstructed = past participle of construct, বোঝায় যে ব্রিজটি সম্প্রতি নির্মিত হয়েছে।\n✅ The bridge constructed recently for the railroad has been found faulty.\nচটজলদি: \"constructed\" = অতীত অংশ (past participle), bridge বর্ণনা করে।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "2b34cc92-9338-47c7-a924-a9214c2509af",
+      "question": "An inflation rate is only 4 percent ----- a big difference to export.[]",
+      "options": [
+        "make",
+        "making",
+        "are making",
+        "makes"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sentence: An inflation rate is only 4 percent ----- a big difference to export.\nসঠিক শব্দ: making\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে present participle (making) ব্যবহার হয় কারণ এটি ক্রিয়ার সঙ্গে ক্রিয়া/ফলাফল বোঝাচ্ছে।\nঅর্থ: “4% inflation rate making a big difference to export.”\n✅ An inflation rate is only 4 percent making a big difference to export.\nচটজলদি: \"making\" = বর্তমান অংশ (present participle), ফলাফল বোঝাচ্ছে।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "c5dab344-064e-40c3-b2dd-e9b2f13f18a4",
+      "question": "Which one of the following is a correct sentence ?[]",
+      "options": [
+        "The old man is there happy sitting.",
+        "The old man happy there is sitting.",
+        "The old man there sitting is happy.",
+        "The old man sitting there is happy."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "একটু গেস করলেই পারবা।ইজিপিজি!",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "5821eafd-0c18-4088-a1a8-dc0a200f14f9",
+      "question": "There is a man ----- next door to me.[]",
+      "options": [
+        "living",
+        "who live",
+        "who lived",
+        "is living"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Sentence: There is a man ----- next door to me.\nসঠিক শব্দ: living\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে man কে বর্ণনা করতে present participle দরকার।\nliving = present participle of live, বোঝায় যে মানুষটি এখনও পাশের ঘরে থাকে।\n✅ There is a man living next door to me.\nচটজলদি: \"living\" = present participle, man বর্ণনা করে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "3f00e838-8ffd-4558-9113-a9a1ff0eeb6c",
+      "question": "The wind made such ----- noises, that the children hid under the bed.[]",
+      "options": [
+        "fearing",
+        "frightening",
+        "frightened",
+        "fierce"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sentence: The wind made such ----- noises, that the children hid under the bed.\nসঠিক শব্দ: frightening\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে noises কে বর্ণনা করতে present participle adjective ব্যবহার হয়েছে।\nfrightening = “ভীতিকর” বা “ভয় দেখানো” অর্থে adjective, বোঝায় শব্দগুলো শিশুদের ভয় দেখিয়েছে।\n✅ The wind made such frightening noises, that the children hid under the bed.\n\"frightening\" = present participle adjective, noises বর্ণনা করছে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "8528df32-504b-4b65-9bbe-068de8301033",
+      "question": "The people badly ----- relief materials were gathering at the union council premise.[]",
+      "options": [
+        "needed",
+        "needing",
+        "were needing",
+        "were needed"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sentence: The people badly ----- relief materials were gathering at the union council premise.\nসঠিক শব্দ: needing ✅\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে people কে বর্ণনা করতে present participle দরকার।\nneeding = present participle of need, অর্থ “যারা তাড়াতাড়ি সাহায্যপ্রাপ্তি প্রয়োজন।”\n✅ The people badly needing relief materials were gathering at the union council premise.\nচটজলদি: \"needing\" = present participle, people বর্ণনা করছে।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "396f1ca5-58e5-4496-9575-93836f192ba2",
+      "question": "Natural resources provide the raw materials ----- to produce finished goods.[]",
+      "options": [
+        "needed",
+        "are needed",
+        "which need",
+        "needing"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "87edadd8-99d4-4ebe-aa54-5aacd831ec67",
+      "question": "People ----- in villages do not get many of the urban facilities.[]",
+      "options": [
+        "live",
+        "are living",
+        "living",
+        "to live"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Sentence: People ----- in villages do not get many of the urban facilities.\nসঠিক শব্দ: living ✅\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে people কে বর্ণনা করতে present participle ব্যবহার হয়েছে।\nliving = present participle of live, অর্থ “যারা গ্রামে বসবাস করছে।”\n✅ People living in villages do not get many of the urban facilities.\n\"living\" = present participle, people বর্ণনা করছে।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "ff675355-4d52-4a52-828e-b6be17d31e59",
+      "question": "The man ----- in the accident was taken to hospital.\nThe passenger ----- in the accident is now in hospital.[]",
+      "options": [
+        "injured",
+        "had injured",
+        "being injured",
+        "who injured"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The man injured in the accident was taken to hospital.\nThe passenger injured in the accident is now in hospital.\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে injured = past participle of injure, যা adjective হিসেবে ব্যবহার হয়েছে।\nঅর্থ: “যে মানুষটি দুর্ঘটনায় আহত হয়েছে।”\n✅ injured = past participle, man/passenger বর্ণনা করছে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "e2a0ba04-79ef-43c2-8d18-779ac54aabc8",
+      "question": "<u>Having gained</u> truth, keep truth.[]",
+      "options": [
+        "Present participle",
+        "Perfect participle",
+        "Past participle",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sentence: Having gained truth, keep truth.\nব্যাখ্যা (সংক্ষিপ্ত):\nhaving gained = perfect participle\nএটি বোঝায় ক্রিয়াটি (gain) ইতিমধ্যেই সম্পন্ন হয়েছে।\nঅর্থ: “সত্য অর্জন করার পরে, সত্যকে ধরে রাখো।”\n\"having gained\" = perfect participle, action সম্পন্ন হওয়া বোঝাচ্ছে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "eb8af191-5791-4eca-b24b-9d03f1fe5fd6",
+      "question": "Which one of the following is the example of verbal noun ?[]",
+      "options": [
+        "Writing a good letter is difficult.",
+        "The writing of a good letter is difficult.",
+        "Good letter writing is difficult.",
+        "It is very difficult to write a good letter."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The এবং  of এর মাঝের noun কে verbal Noun বলে।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "ef2e9600-9b84-48f8-8c7d-688bc5ff85e9",
+      "question": "Verbal noun is close to -----.[]",
+      "options": [
+        "Past participle",
+        "Adjective",
+        "Gerund",
+        "Present participle"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Verb+suffix=Nounকে ও verbal nounবলে।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "53f2859e-58cf-491d-87be-9f49321ba001",
+      "question": "I like travelling to different places of the world. In this sentence the verbal noun is -----.[]",
+      "options": [
+        "travelling",
+        "visit",
+        "world",
+        "places"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Sentence: I like travelling to different places of the world.\nVerbal noun: travelling ✅\nসংক্ষিপ্ত ব্যাখ্যা:\nএখানে travelling হলো gerund (verbal noun)।\nকারণ এটি verb + ing হলেও noun এর কাজ করছে – “I like what? → travelling।\n\"travelling\" = gerund, noun হিসেবে ব্যবহৃত।\nএছাড়াও the এবং of এর মাঝের শদ্ব।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "95de11a8-7056-4e71-a006-dfbe680195f0",
+      "question": "The reading of books is a good practice. / The reading of history is interesting.\nHere 'the reading of' is a -----.[]",
+      "options": [
+        "verbal noun",
+        "gerund",
+        "present participle",
+        "simple verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The এবং of এর মাঝের noun",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "32bd513b-3e50-47fb-a91c-ebdd951085e6",
+      "question": "Which of the following is active with verbal noun with preposition & object ?[]",
+      "options": [
+        "I saw him go to the garden.",
+        "Amina & Joy made us laugh.",
+        "I am to make a telephone call.",
+        "We want to see the launching of the ship."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আগের প্রশ্নের ব্যাখা দেখুন",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "e97f0a18-b7a3-44de-8df8-d8972746a84b",
+      "question": "Call me if you have any problems regarding your work. Here 'regarding' is a/an -----.[]",
+      "options": [
+        "gerund",
+        "apposition",
+        "preposition",
+        "conjunction"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Call me if you have any problems regarding your work.\nএখানে “regarding” হলো preposition।\nকারণ:\n“Regarding” শব্দটি এখানে “about / concerning” অর্থে ব্যবহৃত হয়েছে এবং এর পরে noun phrase (your work) আছে। তাই এটি preposition।\nসংক্ষেপে:\nRegarding → Preposition (about / concerning অর্থে)।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "23eb3d76-09f7-4851-a25b-1df96a7afb07",
+      "question": "There was a small reception following the wedding.\nThe word 'following' in the above is a/an -----.[]",
+      "options": [
+        "preposition",
+        "adjective",
+        "adverb",
+        "noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "There was a small reception following the wedding.\nএখানে “following” হলো preposition।\nকারণ:\n“Following” এখানে “after” (পরে) অর্থে ব্যবহৃত হয়েছে এবং এর পরে the wedding (noun phrase) আছে। তাই এটি preposition।\nসংক্ষেপে:\nFollowing → Preposition (after অর্থে)।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "bbb48b08-e023-4d52-a2b8-ee781596f5ad",
+      "question": "Which parts of speech is the word 'Regarding' ?[]",
+      "options": [
+        "Adverb",
+        "Preposition",
+        "Verb",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "“Regarding” সাধারণত Preposition।\nঅর্থ: about / concerning (সম্পর্কে)\nউদাহরণ:\nI have a question regarding your work.\nএখানে regarding = preposition কারণ এর পরে noun (your work) আছে।\n✅ সংক্ষেপে:\nRegarding → Preposition (Parts of Speech).",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "3ca335a3-6bc7-480e-9871-a9fbb08dbe11",
+      "question": "I know nothing regarding this matter. Here 'regarding' is a -----.[]",
+      "options": [
+        "Gerund",
+        "Preposition",
+        "Apposition",
+        "Conjunction"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "I know nothing regarding this matter.\nএখানে “regarding” হলো preposition।\nকারণ:\n“Regarding” এখানে about / concerning (সম্পর্কে) অর্থে ব্যবহৃত হয়েছে এবং এর পরে this matter (noun phrase) আছে। তাই এটি preposition।\n✅ উত্তর: Preposition.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "cda497be-2f20-421d-9341-70bc0a295fc1",
+      "question": "I shall help you <u>provided</u> you obey me. Here the underlined word is a/an -----.[]",
+      "options": [
+        "adverb",
+        "adjective",
+        "conjunction",
+        "verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "I shall help you provided you obey me.\nএখানে “provided” হলো conjunction (বিশেষ করে subordinating conjunction)।\nকারণ:\n“Provided” এখানে “if / on condition that (যদি / এই শর্তে যে)” অর্থে দুটি clause-কে যুক্ত করেছে।\nI shall help you\nyou obey me\n✅ উত্তর: Subordinating Conjunction.",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "6275c27c-0106-4dd6-aec9-a122bdfbdddd",
+      "question": "I joined a riding school. Here 'riding' is a -----.[]",
+      "options": [
+        "gerund",
+        "participle",
+        "verbal",
+        "infinitive"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "I joined a riding school.\nএখানে “riding” হলো gerund used as an adjective (বা gerundial adjective)।\nকারণ:\n“Riding” মূলত gerund (ride + ing) থেকে এসেছে এবং এটি school noun-কে বর্ণনা করছে.\n✅ সঠিক উত্তর: Gerund used as adjective / Gerundial adjective.",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "0bf322dd-beee-4728-871c-635d17d3c404",
+      "question": "Education is enlightening. Here 'enlightening' is -----.[]",
+      "options": [
+        "A gerund",
+        "A participle",
+        "An infinitive",
+        "A finite verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "enlightening” আসলে present participle form, কিন্তু বাক্যে এটি adjective হিসেবে ব্যবহৃত হয়েছে।\nEducation is enlightening.\nএখানে\nenlightening → present participle\nবাক্যে কাজ করছে adjective (subject complement) হিসেবে।\n✅ তাই পূর্ণভাবে বললে: Present participle used as an adjective।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "c6d22125-0250-4110-a519-07a03c20757a",
+      "question": "The girl <u>dancing</u> is my daughter. The underlined word is a -----.[]",
+      "options": [
+        "Gerund",
+        "Participle",
+        "Preposition",
+        "Infinitive"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The girl dancing is my daughter.\nএখানে “dancing” হলো present participle।\nকারণ:\n“Dancing” শব্দটি girl noun-কে বর্ণনা করছে (মানে: যে মেয়েটি নাচছে)। তাই এটি present participle হিসেবে adjective-এর কাজ করছে।\n✅ উত্তর: Present participle.",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "542d4491-ce7a-4e6c-bfd9-7f4f7e21afff",
+      "question": "The old man is tired of walking'. Here 'walking' is a/an -----.[]",
+      "options": [
+        "Present participle",
+        "Adjective",
+        "Common noun",
+        "Gerund"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The old man is tired of walking.\nএখানে “walking” হলো gerund।\nকারণ:\n“Walking” এখানে preposition “of”-এর পরে এসেছে এবং noun-এর মতো কাজ করছে। তাই এটি gerund।\n✅ উত্তর: Gerund।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "da9a98ac-cc8a-4dac-8cb9-fcd34dffeca8",
+      "question": "The word 'flying' in the sentence 'Look at the flying bird' is -----.[]",
+      "options": [
+        "Gerund",
+        "Participle",
+        "Verbal noun",
+        "Gerundial infinitive"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Look at the flying bird.\nএখানে “flying” হলো present participle।\nকারণ:\n“Flying” শব্দটি bird noun-কে বর্ণনা করছে, অর্থাৎ এটি adjective-এর মতো কাজ করছে।\n✅ উত্তর: Present participle (used as adjective).",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "1f7f1b7d-92a9-4e20-9f43-5ba6d1e4455c",
+      "question": "<u>Flying</u> kites is my favourite hobby. The underlined word does the function of -----.[]",
+      "options": [
+        "verb",
+        "adverb",
+        "adjective",
+        "noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Gerund,object নিলে অথবা এর পরের Adjctive/Adverb দ্বারা Modified হলে তা verb এর মতো কাজ করে।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "b1ed1ef6-c862-4c78-b0a5-97f1c183c81a",
+      "question": "A lost opportunity never returns.' Here 'lost' is a -----.[]",
+      "options": [
+        "gerund",
+        "verbal noun",
+        "participle",
+        "gerundial infinitive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "A lost opportunity never returns.\nএখানে “lost” হলো past participle।\nকারণ:\n“Lost” শব্দটি opportunity noun-কে বর্ণনা করছে, অর্থাৎ এটি adjective-এর মতো কাজ করছে।\n✅ উত্তর: Past participle (used as adjective).",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "10d11390-826c-47d3-ba29-ffabbb18c0c9",
+      "question": "A <u>retired</u> officer lives next door. Here, the underlined word does the function of -----.[]",
+      "options": [
+        "Gerund",
+        "Adverb",
+        "Preposition",
+        "Participle"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "A retired officer lives next door.\nএখানে “retired” হলো past participle।\nকারণ:\n“Retired” শব্দটি officer noun-কে বর্ণনা করছে এবং adjective-এর মতো কাজ করছে।\n✅ উত্তর: Adjective (Past participle used as adjective).",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "2023b57e-3bf4-45d3-be03-6e446a5f342d",
+      "question": "What is the correct use of gerund ?[]",
+      "options": [
+        "I saw the girl <u>dancing</u>.",
+        "I am <u>dancing</u> on the floor.",
+        "<u>Dancing</u> is a good exercise.",
+        "The girl came here <u>dancing</u>."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Subject এর স্থানেNoun বসে।Gerund, Noun  হিসেবে ব্যাবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "ca843350-fb76-419b-923a-7790b57b5a46",
+      "question": "Going there he found his friend absent. Here 'going' is a -----.[]",
+      "options": [
+        "gerund",
+        "present participle",
+        "noun",
+        "past participle"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Going there he found his friend absent.\nএখানে “going” হলো present participle।\nকারণ:\n“Going there” হলো participle phrase যা he-কে বর্ণনা করছে।\nএটি action বোঝাচ্ছে এবং বাক্যের main verb (“found”) এর সাথে related।\nঅর্থাৎ, এটি adjective / adverbial phrase হিসেবে কাজ করছে, কিন্তু মূলত verb-এর present participle form।\n✅ উত্তর: Present participle (used in participle phrase)",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "478fce65-3e3f-43ed-b7f4-32d60fcf34df",
+      "question": "<u>Swimming</u> is good for health. The underlined word is a -----.\nWalking is good for health. The word 'walking' is a -----.[]",
+      "options": [
+        "gerund",
+        "participle",
+        "phrase",
+        "clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্যাখা লাগবে না আশা করি।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "1814da63-d1e6-47ea-b850-9b908421a4f6",
+      "question": "----- eggs were served to the players.[]",
+      "options": [
+        "Boiled",
+        "Boil",
+        "To boil",
+        "Boiling"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Boiled eggs were served to the players. ✅\nExplanation:\nএখানে “boiled” হলো past participle।\nএটি eggs noun-কে বর্ণনা করছে, অর্থাৎ adjective-এর মতো কাজ করছে।\nসম্পূর্ণ অর্থ: “Eggs that were boiled were served…”\n✅ Answer: Past participle used as adjective",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "cdadb108-ae7c-4fe3-ab9a-4db94c0b320e",
+      "question": "Making a good result in the exam needs a lot of hard work. Here 'making' is a -----.[]",
+      "options": [
+        "present participle",
+        "pronoun",
+        "adjective",
+        "gerund"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Making a good result in the exam needs a lot of hard work.\nএখানে “making” হলো gerund।\nকারণ:\n“Making a good result in the exam” পুরো phrase-টি বাক্যের subject হিসেবে কাজ করছে।\n“Making” মূলত verb + ing form, কিন্তু এখানে noun-এর মতো ব্যবহার হয়েছে।\n✅ উত্তর: Gerund (noun function)",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "f5f80077-3b06-407e-930e-17da555d65ec",
+      "question": "He started <u>reading</u>. The underlined word is called -----.[]",
+      "options": [
+        "verb",
+        "participle",
+        "gerund",
+        "infinitive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "একই ব্যাখা",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "9c0c1422-4daf-4100-bdff-146dfeb1eba4",
+      "question": "Tom rather -------. What shall we do to cheer him up ?\nShe always makes fun. She is never ----- with anyone.[]",
+      "options": [
+        "depressing",
+        "depressed",
+        "depressingly",
+        "depression"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "b96f7e56-c993-41b3-b438-d2448ead0643",
+      "question": "<u>Walking</u> in the morning is good for health. This is -----.[]",
+      "options": [
+        "an example of gerund",
+        "an example of infinitive",
+        "an example of participle",
+        "an example of verbal noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "7bfdef02-0c78-4308-9de5-cdd9c9a18fa9",
+      "question": "The Harvest moon is the full moon nearest the equinox ----- a period of several days when the moon rises after sunset :[]",
+      "options": [
+        "It brings",
+        "bringing",
+        "for bringing",
+        "brings"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"The Harvest moon is the full \nব্যাখ্যা:\n“Bringing” হলো present participle।\nএটি “a period of several days when the moon rises after sunset” কে describe করছে—মানে, harvest moon কী আনে বা কী ঘটায় তা বোঝাচ্ছে।\nপুরো phrase “bringing a period of several days…” হলো participle phrase।\nসোজা উত্তর: bringing = present participle ✅",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "37bbc4d9-6b1d-4d9b-84b1-1e8cf21bdce8",
+      "question": "Reading' is a good habit. Here 'reading' is a -----. / <u>Reading</u> is one of the best means of developing language skills. / 'Smoking' is a bad habit. Here 'smoking' is -----.[]",
+      "options": [
+        "verbal noun",
+        "verb",
+        "gerund",
+        "present participle"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "060f8590-e6d9-46cd-8fb8-f0f5a518fb31",
+      "question": "I found the boy reading a book. Here 'reading' is -----. []",
+      "options": [
+        "present participle",
+        "noun",
+        "gerund",
+        "verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"I found the boy reading a book\"-এ \"reading\" হলো present participle।\n ব্যাখ্যা:\nএটি দেখায় যে ছেলে কি করছে।\nএখানে \"reading a book\" একটি present participle phrase, যা object complement হিসেবে কাজ করছে—মানে, ছেলেটা কি করছে তা বোঝাচ্ছে।\nসোজা কথায়: \"reading\" = present participle।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "ab904d4d-92aa-49ab-add7-7cc259a05e1b",
+      "question": "The word 'walking' in the sentence 'Walking is good for health' is -----.[]",
+      "options": [
+        "a participle",
+        "a gerund",
+        "an adjective",
+        "an object"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "16486897-421b-4a59-8819-5063a74e6c45",
+      "question": "Taking exercise is a good habit. Here 'taking' is -----.[]",
+      "options": [
+        "present participle",
+        "past participle",
+        "gerund",
+        "perfect participle"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Taking exercise is a good habit.\nএখানে “taking” হলো gerund।\nকারণ:\n“Taking exercise” পুরো phrase-টি বাক্যের subject হিসেবে কাজ করছে।\n“Taking” মূলত verb + ing form, কিন্তু এখানে noun-এর মতো কাজ করছে।\n✅ উত্তর: Gerund (noun function)",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "ea9e1799-3b2b-47c0-9b01-c716b0890281",
+      "question": "Don't disturb a sleeping baby. Here 'sleeping' is a -----.[]",
+      "options": [
+        "gerund",
+        "verbal adjective",
+        "verbal noun",
+        "perfect participle"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "24f82955-317e-494f-aec9-e9283be6cb9f",
+      "question": "We enjoyed swimming in the river. Here 'swimming' is a/an -----.[]",
+      "options": [
+        "verb",
+        "infinitive",
+        "determiner",
+        "gerund"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "53e02198-ca74-44ec-a6cd-1de0cb0e02b8",
+      "question": "Hearing the noise, the boy woke up. Here the word 'hearing' is a/an -----.[]",
+      "options": [
+        "noun",
+        "participle",
+        "verb",
+        "adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": ": \"Hearing the noise, the boy woke up.\"\nএখানে \"hearing\" হলো present participle।\nকারণ এটি “the boy” কে বোঝাচ্ছে কি কাজটি করছে—কোনো কাজের সময়ের ধারণা দিচ্ছে।\nপুরো phrase \"Hearing the noise\" হলো participle phrase, যা reason বা cause বোঝাচ্ছে।\nসোজা উত্তর: present participle",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "0fca90dc-0adc-4be8-866e-4293baa3f113",
+      "question": "He <u>was born</u> in 1980. What kind of verb is it ?[]",
+      "options": [
+        "transitive",
+        "intransitive",
+        "linking",
+        "non-finite"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"He was born in 1980\"-এ \"was born\" হলো intransitive verb।\n ব্যাখ্যা:\nBorn হলো past participle, আর was born হলো passive form।\nএখানে verb-এর কোনো direct object নেই, অর্থাৎ কিছু সরাসরি করা হচ্ছে না।\nশুধু বোঝাচ্ছে কাজটি ঘটেছে—সে জন্ম নিয়েছে।\nসোজা কথায়:\n“was born” = intransitive verb (passive form), কারণ এতে সরাসরি object নেই।",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "0b788c9e-bab4-45d4-a0ea-5090fcf375fa",
+      "question": "He is fond of <u>fishing.</u> The underlined part is a/an -----.[]",
+      "options": [
+        "gerund",
+        "participle",
+        "verb",
+        "adjective"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "He is fond of fishing.\nএখানে “fishing” হলো gerund।\nকারণ:\n“Of” preposition-এর পরে noun-এর মতো কাজ করছে, অর্থাৎ fishing এখানে object of the preposition।\nএটি action-এর নাম হিসেবে ব্যবহৃত হয়েছে, noun-এর function এ।\n✅ উত্তর: Gerund",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "ddb15bfc-69e3-43f3-950f-0688a4cbe182",
+      "question": "The movie is a ----- one to watch in the cinema hall. []",
+      "options": [
+        "bored",
+        "bore",
+        "boring",
+        "none of them"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বস্তুকে modifyকরলে  present participle. \nব্যক্তিকেmodify করলে past participle",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "5f1816bb-7352-43ac-9d08-88df2cf33a21",
+      "question": "I like reading literature. Here 'reading' is -----.\nJohn likes gardening. 'Gardening' in the sentence is -----.[]",
+      "options": [
+        "main verb",
+        "modal verb",
+        "participle",
+        "gerund"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "I like reading literature.\nএখানে “reading” হলো gerund।\nকারণ এটি noun-এর মতো কাজ করছে এবং “like” verb-এর object হিসেবে ব্যবহৃত হয়েছে।\nJohn likes gardening.\nএখানে “gardening”-ও gerund।\nকারণ এটি John likes … বাক্যে object হিসেবে ব্যবহার হয়েছে।\n✅ উত্তর:\nreading → Gerund \ngardening → Gerund",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "62c4be21-d83f-4cd7-bd12-2941fa4da9d1",
+      "question": "The machine <u>made</u> in Japan is now working well. Here 'made' is -----.[]",
+      "options": [
+        "present participle",
+        "past participle",
+        "perfect participle",
+        "simple past"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The machine made in Japan is now working well.\nএখানে “made” হলো past participle।\nকারণ:\n“Made in Japan” হলো reduced relative clause (“which was made in Japan”)।\n“Made” মূলত verb-এর past participle form, কিন্তু এখানে machine noun-কে বর্ণনা করছে, অর্থাৎ adjective-এর মতো কাজ করছে।\n✅ উত্তর: Past participle (used as adjective / in reduced relative clause).\nএছাড়াও past form থাকলেই past participle হবে,সিম্পল।",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "83514823-7f7e-4641-9e3e-3ce661b2583d",
+      "question": "Can you <u>smell</u> an odour ? The underlined word is -----[]",
+      "options": [
+        "Verb of perception",
+        "Cognate verb",
+        "Inchoative verb",
+        "Quasi-passive verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এখানে “smell” হলো verb of perception।\nExplanation:\nVerbs of perception হলো সেই verbs যা senses (দৃষ্টি, শ্রবণ, স্পর্শ, স্বাদ, গন্ধ) দ্বারা কিছু অনুভব করার ক্রিয়াকে প্রকাশ করে।\nযেমন: see, hear, smell, taste, feel।\nExample:\nI can see a bird. → perception through sight\nCan you smell an odour? → perception through smell\n✅ সংক্ষেপে: Verb of perception.",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "247dd9fd-ce18-44c4-8049-ca06b524bdf1",
+      "question": "<u>Reading</u> history makes one wise. Here 'reading' is -----. / <u>Watching</u> television is my favourite pastime. The underlined word is -----.[]",
+      "options": [
+        "Gerund",
+        "Verbal noun",
+        "Past participle",
+        "Present participle"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Subject এর স্থলে gerundবসে",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "beeec965-e0c8-409a-b785-2e98b1ccb245",
+      "question": "Betrayed by his friends, he started living alone. Here 'betrayed' is a -----.[]",
+      "options": [
+        "gerund",
+        "present participle",
+        "verbal noun",
+        "past participle"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Betrayed by his friends, he started living alone.\nএখানে “betrayed” হলো past participle।\nকারণ:\n“Betrayed by his friends” হলো reduced adverbial phrase, যা পুরো বাক্যকে শর্ত বা অবস্থা বোঝাতে সাহায্য করছে।\n“Betrayed” মূলত verb-এর past participle form, কিন্তু এখানে noun (he) এর অবস্থা বা পরিস্থিতি বর্ণনা করছে, অর্থাৎ adjective-এর মতো কাজ করছে।\n✅ সংক্ষেপে: Past participle used as adjective / participial phrase.",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "0a3a8dc4-cda0-4f95-bca5-da003488d00d",
+      "question": "Muslin was a fabric ----- by the famed weavers of Bangladesh.[]",
+      "options": [
+        "woven",
+        "weave",
+        "wove",
+        "has woved"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Muslin was a fabric woven by the famed weavers of Bangladesh. ✅\nExplanation:\nএখানে “woven” হলো past participle।\nএটি fabric noun-কে বর্ণনা করছে এবং adjective-এর মতো কাজ করছে।\nঅর্থাৎ, “fabric that was woven by the weavers” এর সংক্ষিপ্ত রূপ।\n✅ Answer: Past participle (used as adjective)",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "187cee9f-4354-4f31-b92e-aeeb71a27daf",
+      "question": "Which of the following sentence <u>does not</u> have a gerund ?[]",
+      "options": [
+        "I see a sleeping children.",
+        "Walking in the morning is good for health.",
+        "He fancies visiting the Eiffel tower.",
+        "Please stop writing."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Option A তে participle রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "ab5d90cc-e7d8-4782-ada8-b815d236c0d5",
+      "question": "The canterbury Tales, written in about 1386, is as alive and ----- as it was nearly 600 years ago.[]",
+      "options": [
+        "appealed",
+        "appeal",
+        "appealing",
+        "the appeal of"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The Canterbury Tales, written in about 1386, is as alive and appealing as it was nearly 600 years ago. ✅\nExplanation:\nএখানে “appealing” হলো present participle used as adjective।\nএটি The Canterbury Tales কে বর্ণনা করছে, অর্থাৎ noun-এর গুণ দেখাচ্ছে।\n✅ Answer: Present participle (adjective)",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "403e44a6-9ce7-41d1-a982-b5892565da8f",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "She was boring in the class.",
+        "She was bored in the class.",
+        "She fell boring in the class.",
+        "She was feeling boring in the class."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্যাক্তিকে Modify করলে past participle  হয়।",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "b1d27fae-cf7a-4aa3-a4b8-979a82bbea78",
+      "question": "I <u>walk</u> because <u>walking</u> is good exercise.[]",
+      "options": [
+        "verb - adjective",
+        "verb - verb",
+        "verb - gerund",
+        "verb - adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "I walk because walking is good exercise.\nwalk → verb\nকারণ এটি বাক্যের main action প্রকাশ করছে।\n“I walk” → subject + verb\nwalking → gerund\nকারণ এটি noun-এর মতো কাজ করছে এবং বাক্যে subject complement বা reason বোঝাচ্ছে।\n“Walking is good exercise” → subject\n✅ উত্তর:\nwalk → verb\nwalking → gerund (noun function)",
+      "images": []
+    }
+  ]
+}

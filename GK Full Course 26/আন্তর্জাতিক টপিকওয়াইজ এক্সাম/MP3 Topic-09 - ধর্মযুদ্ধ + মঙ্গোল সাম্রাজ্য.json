@@ -1,0 +1,146 @@
+{
+  "exam_id": 10445,
+  "title": "MP3 Topic-09 : ধর্মযুদ্ধ + মঙ্গোল সাম্রাজ্য",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "সভ্যতার উত্তরণ + মধ্যযুগ Exam",
+  "duration_minutes": 5,
+  "total_questions": 9,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "d4e1b64f-1350-437d-9191-2c7d8931b9ad",
+      "question": "[SABAS]\nপবিত্র ভূমি কোনটিকে বলা হয়?[]",
+      "options": [
+        "প্যালেস্টাইন",
+        "জেরুজালেম",
+        "জেদ্দা",
+        "তাইফ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5a8d564f-a179-48ed-8d36-89d83790ae2f",
+      "question": "কোন শহরকে মুসলমান, খ্রিষ্টান, ইহদি সকলেই পবিত্র জ্ঞান করে? [SABAS][]",
+      "options": [
+        "মক্কা",
+        "জেদ্দা",
+        "জেরুজালেম",
+        "প্যালেস্টাইন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জেরুজালেম শহরটি মুসলিম, খ্রিষ্টান ও ইহুদি—এই তিন ধর্মের অনুসারীদের নিকটই অত্যন্ত পবিত্র ও গুরুত্বপূর্ণ ঐতিহাসিক স্থান।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "7f820895-35f3-481e-820d-bf2f1d75b42f",
+      "question": "ইহুদি, খ্রিষ্টান ও মুসলিম সকলের নিকট পবিত্র স্থান হলো- [SABAS][]",
+      "options": [
+        "সেন্ট পিটার্স",
+        "বায়তুল মোকাদ্দাস",
+        "মক্কা",
+        "মদীনা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বায়তুল মোকাদ্দাস বা জেরুজালেম তিন ধর্মের মানুষের কাছেই পবিত্র।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "9f021619-5f7e-4861-b450-370dddf72722",
+      "question": "A war of religions - [SABAS][]",
+      "options": [
+        "Calligraphy",
+        "Contraband",
+        "Cavalry",
+        "Crusade"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মধ্যযুগে খ্রিষ্টান ও মুসলমানদের মধ্যে সংগঠিত ধর্মযুদ্ধগুলো 'Crusade' বা ক্রুসেড নামে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "b0187d50-7116-4591-b31a-a42de9eef064",
+      "question": "Crusade' বলতে কী বোঝায়? [SABAS][]",
+      "options": [
+        "ইউরোপ থেকে মুসলিম বিতাড়নের যুদ্ধ",
+        "মুসলমানদের জোরপূর্বক ধর্মান্তরিত করার যুদ্ধ",
+        "মুসলমানদের হাত থেকে জেরুজালেম উদ্ধারের যুদ্ধ",
+        "খ্রিষ্টান ও ইহুদিদের মধ্যে সংঘটিত ধর্মযুদ্ধ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মূলত খ্রিষ্টানদের দ্বারা জেরুজালেম নগরী মুসলমানদের হাত থেকে উদ্ধারের উদ্দেশ্যে পরিচালিত ধর্মযুদ্ধই হলো ক্রুসেড।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "07e48b89-c17c-4435-b85d-1ff06366bdc1",
+      "question": "ক্রুসেডের আনুমানিক সময়কাল কত? [SABAS][]",
+      "options": [
+        "৮২৬-১০২৬ খ্রি.",
+        "৮৯৬-১১২৬ খ্রি.",
+        "১০৯৬-১২৯২ খ্রি.",
+        "১১২৬-১৩২৬ খ্রি."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইতিহাস অনুযায়ী ক্রুসেডসমূহ ১০৯৬ সাল থেকে ১২৯২ সাল পর্যন্ত বিভিন্ন পর্যায়ে সংঘটিত হয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "00338d9b-cc28-40d2-8ec1-6f3bb62e5445",
+      "question": "চীনের পুরাতন নাম কী? [SABAS][]",
+      "options": [
+        "পিকিং",
+        "ক্যাথে",
+        "মালয়",
+        "গল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মধ্যযুগে ইউরোপীয়দের কাছে চীন 'ক্যাথে' (Cathay) নামে পরিচিত ছিল।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "b33e451e-3564-4b4d-afbe-57a16bdf2775",
+      "question": "চীন আবিষ্কার করেন- [SABAS][]",
+      "options": [
+        "উইলিয়াম হার্সেল",
+        "মার্কোপোলো",
+        "লিভিংস্টোন",
+        "গ্যালিলিও"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইতালীয় পরিব্রাজক মার্কো পোলো চীন ভ্রমণ করে প্রাচ্য সম্পর্কে ইউরোপবাসীকে পরিচিত করেন।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "0efc2805-d6e5-4fd4-83c6-30dce6649696",
+      "question": "Marco Polo - [SABAS][]",
+      "options": [
+        "discovered Canada",
+        "discovered Greenland",
+        "travelled round the cape of Good Hope",
+        "travelled through China, India & other parts of Asia"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মার্কো পোলোর ভ্রমণ সিল্ক রোড হয়ে এশিয়া, বিশেষ করে চীন ও ভারতের বিভিন্ন অঞ্চলে বিস্তৃত ছিল।",
+      "images": []
+    }
+  ]
+}

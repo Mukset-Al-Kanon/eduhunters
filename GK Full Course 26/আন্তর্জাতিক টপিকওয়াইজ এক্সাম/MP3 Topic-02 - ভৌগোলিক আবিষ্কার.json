@@ -1,0 +1,341 @@
+{
+  "exam_id": 10460,
+  "title": "MP3 Topic-02 : ভৌগোলিক আবিষ্কার",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "আধুনিক পাশ্চাত্যের উত্থান + প্রথম বিশ্বযুদ্ধ + দ্বিতীয় বিশ্বযুদ্ধ Exam",
+  "duration_minutes": 10,
+  "total_questions": 22,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "d2270a83-0a30-4251-acf1-c9f70f29ce96",
+      "question": "উত্তমাশা' হলো একটি- [SABAS][]",
+      "options": [
+        "হ্রদ",
+        "অন্তরীপ",
+        "দ্বীপ",
+        "নাটক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উত্তমাশা অন্তরীপ (Cape of Good Hope) আফ্রিকার দক্ষিণ প্রান্তে অবস্থিত একটি গুরুত্বপূর্ণ ভৌগোলিক বিন্দু।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "9b1bbd32-e36f-464a-a02a-fcc4dfa06795",
+      "question": "উত্তমাশা অন্তরীপ কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "দক্ষিণ আমেরিকা",
+        "আফ্রিকা",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "উত্তমাশা অন্তরীপ দক্ষিণ আফ্রিকার উপকূলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "4925875a-89f7-4456-b580-482623326ca7",
+      "question": "উত্তমাশা অন্তরীপ (Cape of Good Hope) কোন দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ভারত",
+        "দক্ষিণ আফ্রিকা",
+        "ইয়েমেন",
+        "কেনিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি দক্ষিণ আফ্রিকার কেপ টাউন অঞ্চলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "f3f810ca-78f9-40be-a766-bc7e6de10645",
+      "question": "কবে ইউরোপ হতে আফ্রিকার উত্তমাশা অন্তরীপ হয়ে সম্মুখে পূর্বে আসার জলপথ আবিষ্কৃত হয়? [SABAS][]",
+      "options": [
+        "১৪৮৭ সালে",
+        "১৪৯০ সালে",
+        "১৪৯৮ সালে",
+        "১৫০২ সালে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৪৮৭ সালে বার্থোলোমিউ ডিয়াজ উত্তমাশা অন্তরীপ আবিষ্কার করেন।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "fb215314-0d11-408f-9f2b-12d07b5da271",
+      "question": "কোন সালে ইউরোপ হতে ভারতে আসার জলপথ আবিষ্কৃত হয়েছে? [SABAS][]",
+      "options": [
+        "১৪৯৮ সালে",
+        "১৪৯২ সালে",
+        "১৫১৭ সালে",
+        "১৬৪৮ সালে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "6d9dfb98-5291-419b-9cb8-fcddaf888177",
+      "question": "কারা সর্বপ্রথম ভারতে আসার সমুদ্র পথ আবিষ্কার করেন? [SABAS][]",
+      "options": [
+        "ওলন্দাজ",
+        "ব্রিটিশ",
+        "পর্তুগিজ",
+        "ফরাসি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পর্তুগিজ নাবিক ভাস্কো দা গামা সর্বপ্রথম জলপথে ভারত আবিষ্কার করেন।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "b700d2ca-30b7-4ae0-8933-e7067e1bfce4",
+      "question": "পর্তুগিজ নাবিক ভাস্কো দা গামা কত সালে ভারতে পৌঁছেন? [SABAS][]",
+      "options": [
+        "১৪০৩ সালে",
+        "১৪৭৮ সালে",
+        "১৪৯২ সালে",
+        "১৪৯৮ সালে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ভাস্কো দা গামা ১৪৯৮ সালের ২০ মে ভারতের কালিকট বন্দরে পৌঁছান।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "d607465e-f87e-4b5b-86e2-b704a39a1a75",
+      "question": "কোন ইউরোপীয় ভারতে আসার জলপথ আবিষ্কার করেন? [SABAS][]",
+      "options": [
+        "ফ্রান্সিস ড্রেক",
+        "ফার্ডিনান্দ ম্যাগেলান",
+        "ভাস্কো দা গামা",
+        "ক্রিস্টোফার কলম্বাস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পর্তুগিজ নাবিক ভাস্কো দা গামা ইউরোপ থেকে ভারত আসার জলপথ আবিষ্কার করেন।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "f0cf2875-1fc6-4096-8c7f-071ab5bd9f4e",
+      "question": "Who discovered the ocean route from Europe to Indian Subcontinent? [SABAS][]",
+      "options": [
+        "পর্তুগিজ",
+        "ফরাসি",
+        "ওলন্দাজ",
+        "ব্রিটিশ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পর্তুগিজ নাবিক ভাস্কো দা গামা এই সমুদ্রপথ আবিষ্কার করেন।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "0e834ad1-f20f-4047-8057-2e6db746fe7c",
+      "question": "ভাস্কো দা গামা ভারতে প্রথম অবতরণ করেন- [SABAS][]",
+      "options": [
+        "গোয়া বন্দরে",
+        "কালিকট বন্দরে",
+        "চট্টগ্রাম বন্দরে",
+        "কোচিন বন্দরে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভাস্কো দা গামা ১৪৯৮ সালে ভারতের কেরালার কালিকট বন্দরে অবতরণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "1a416cd5-62bf-4893-83b8-8d2b3a8c93fb",
+      "question": "The Italian explorer who is said to have discovered America is: [SABAS][]",
+      "options": [
+        "Da Vinci",
+        "Cortez",
+        "Caravaggio",
+        "Columbus"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ক্রিস্টোফার কলম্বাস একজন ইতালীয় অভিযাত্রী ছিলেন যিনি ১৪৯২ সালে আমেরিকায় পৌঁছেছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "e3edb180-97ba-445a-b29a-c2602f613508",
+      "question": "ক্রিস্টোফার কলম্বাস কোন দেশের নাবিক ছিলেন? [SABAS][]",
+      "options": [
+        "ইংল্যান্ড",
+        "ফ্রান্স",
+        "পর্তুগাল",
+        "ইতালি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ক্রিস্টোফার কলম্বাস ইতালির জেনোয়া শহরে জন্মগ্রহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "1e3b5ec4-ced8-45bb-a1bb-29da1c0cc78a",
+      "question": "Canary island কোন দেশের ভূখণ্ড- [SABAS][]",
+      "options": [
+        "পর্তুগাল",
+        "স্পেন",
+        "ফ্রান্স",
+        "ব্রিটেন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ক্যানারি দ্বীপপুঞ্জ স্পেনের একটি স্বায়ত্তশাসিত অঞ্চল।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "22aeb04b-63cd-473f-8ba6-9af1cadbf1a1",
+      "question": "কোন বছর আমেরিকা আবিষ্কৃত হয়? [SABAS][]",
+      "options": [
+        "১৮৮৭",
+        "১৪২৮",
+        "১৫৫৭",
+        "১৪৯২"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ক্রিস্টোফার কলম্বাস ১৪৯২ সালে আমেরিকা মহাদেশে প্রথম পৌঁছান।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "a2f31e24-bb37-4580-99f6-88b8ca7f68e7",
+      "question": "ওয়েস্ট ইন্ডিজ' কী? [SABAS][]",
+      "options": [
+        "একটি দেশের নাম",
+        "একটি ক্রিকেট দলের নাম",
+        "একটি দ্বীপ সমষ্টির নাম",
+        "ভারতের একটি দ্বীপের নাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ওয়েস্ট ইন্ডিজ হলো ক্যারিবীয় সাগরে অবস্থিত অসংখ্য দ্বীপের একটি সমষ্টি বা দ্বীপপুঞ্জ।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "2d11ed84-3d87-4562-bd55-a0183527df69",
+      "question": "ওয়েস্ট ইন্ডিজ' নামকরণ করেন কে? [SABAS][]",
+      "options": [
+        "ফন গ্যাটে",
+        "ক্রিস্টোফার কলম্বাস",
+        "জর্জ বার্নার্ড শ",
+        "নোচটি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কলম্বাস ভারতে যাওয়ার সমুদ্রপথ খুঁজতে গিয়ে আমেরিকা মহাদেশের ক্যারিবীয় দ্বীপপুঞ্জকে 'ওয়েস্ট ইন্ডিজ' বা পশ্চিম ভারত নাম দেন।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "6cb4e529-7d71-4b52-806c-efd81af17b18",
+      "question": "কলম্বাস ভুলক্রমে আবিষ্কার করেন- [SABAS][]",
+      "options": [
+        "আমেরিকা",
+        "ভারত",
+        "ওয়েস্ট ইন্ডিজ",
+        "ইন্দোনেশিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভারত বা এশিয়া যাওয়ার পথ খুঁজতে গিয়ে কলম্বাস ভুলবশত আমেরিকা মহাদেশের মূল ভূখণ্ড আবিষ্কার করেছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "e3ba7cdd-e094-410e-a320-f74dbaddaed2",
+      "question": "রেড ইন্ডিয়ান কারা? [SABAS][]",
+      "options": [
+        "ইন্ডিয়ার আদি অধিবাসী",
+        "আমেিকায় আগত ভারতবাসী",
+        "আমেরিকার আদি অধিবাসী",
+        "সব কয়টি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমেরিকার আদিবাসীদের কলম্বাস ভুলবশত 'ইন্ডিয়ান' বা 'রেড ইন্ডিয়ান' বলে অভিহিত করেছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "de10d292-05a8-48bb-8c6b-c1266f792fc4",
+      "question": "জেমস কুক ছিলেন একজন বিখ্যাত - [SABAS][]",
+      "options": [
+        "পরিব্রাজক",
+        "রাজা",
+        "নাবিক",
+        "যোদ্ধা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জেমস কুক ছিলেন একজন ব্রিটিশ নাবিক, মানচিত্রকর ও অভিযাত্রী, যিনি অস্ট্রেলিয়ার পূর্ব উপকূলে প্রথম ইউরোপীয় হিসেবে পৌঁছান।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "4ef58952-3080-47b8-a249-c516a0c9d107",
+      "question": "Where in Australia did Captain Cook land? [SABAS][]",
+      "options": [
+        "Botany Bay",
+        "Moreton Bay",
+        "Great Barrier Reef",
+        "Great Australian Bight"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জেমস কুক ১৭৭০ সালে অস্ট্রেলিয়ার বোটানি বে (Botany Bay) অঞ্চলে প্রথম অবতরণ করেছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "d2293a6d-ffe5-4c2a-851d-408e4afa1c46",
+      "question": "অস্ট্রেলিয়া' শব্দের অর্থ কী? [SABAS][]",
+      "options": [
+        "এশিয়ার উত্তরাঞ্চল",
+        "ইউরোপের পশ্চিমাঞ্চল",
+        "ইউরোপের পূর্বাঞ্চল",
+        "এশিয়ার দক্ষিণাঞ্চল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ল্যাটিন শব্দ 'Australis' থেকে অস্ট্রেলিয়ার উৎপত্তি, যার অর্থ দক্ষিণ বা দক্ষিণাঞ্চলীয়।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "16010b18-f9d9-4cd8-bdc7-9f22ed1fdf00",
+      "question": "Which country is referred to as “down under”? [SABAS][]",
+      "options": [
+        "Australia",
+        "England",
+        "USA",
+        "Japan"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভৌগোলিক অবস্থানের কারণে অস্ট্রেলিয়াকে প্রায়ই 'down under' হিসেবে অভিহিত করা হয়।",
+      "images": []
+    }
+  ]
+}

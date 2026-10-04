@@ -1,0 +1,716 @@
+{
+  "exam_id": 8394,
+  "title": "Adverb Classification (Ques. No. 1-47)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Adjective, Adverb (87 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 47,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "bfb24709-eb20-4384-9550-5769a7426328",
+      "question": "What are the four questions that adverbs can answer ?[]",
+      "options": [
+        "why? When? Where? Why",
+        "When? Where? How? Why",
+        "Why? Where?",
+        "To what extant/degree?/ What?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Adverb মূলত কোনো কাজ (Verb) কখন, কোথায়, কীভাবে বা কেন সম্পন্ন হচ্ছে তা প্রকাশ করে। একটি বাক্যে Adverb খুঁজে পেতে এই চারটি প্রশ্ন করা হয়: When? (সময়), Where? (স্থান), How? (ধরন) এবং Why? (কারণ)।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "d64588d6-cd67-4e08-8ae5-e5db2c37f4ae",
+      "question": "A modifier can be a/an -----.[]",
+      "options": [
+        "adjective",
+        "adverb",
+        "noun",
+        "pronoun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Modifier হলো এমন শব্দ যা অন্য কোনো শব্দের অর্থকে বিশেষায়িত বা পরিবর্তন করে। সাধারণত Adjective (যা Noun-কে মডিফাই করে) এবং Adverb (যা Verb, Adjective বা অন্য Adverb-কে মডিফাই করে) মূলত Modifier হিসেবে কাজ করে। অপশন অনুযায়ী এখানে Adverb সঠিক উত্তর।✅",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "99a5a999-171b-4289-95c8-90e675c54767",
+      "question": "Which of the following does an adverb usually answer ?\nAn adverb usually answers which of the following questions ?[]",
+      "options": [
+        "when",
+        "where",
+        "how",
+        "all of these"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Adverb  মূলত কোনো কাজ কখন, কোথায়, কীভাবে বা কেন সম্পন্ন হচ্ছে তা বর্ণনা করে।\n​বিকল্পগুলো বিশ্লেষণ করলে দেখা যায়:\n​When: এটি সময়ের (Time) উত্তর দেয়।\n​Where: এটি স্থানের (Place) উত্তর দেয়।\n​How: এটি কাজের ধরনের (Manner) উত্তর দেয়।\n​যেহেতু Adverb এই প্রতিটি প্রশ্নেরই উত্তর দিতে সক্ষম, তাই সঠিক উত্তর হলো (d) all of these।✅",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "6cfadf45-b424-48a5-9a8e-f788350a4a96",
+      "question": "An adverb does not modify -----.[]",
+      "options": [
+        "nouns",
+        "adjectives",
+        "verbs",
+        "adverbs"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Adverb মূলত Verb, Adjective বা অন্য কোনো Adverb-কে বিশেষায়িত করে। কিন্তু এটি কখনোই Noun (নাম) বা Pronoun-কে মডিফাই করে না। Noun বা Pronoun-কে মডিফাই করার দায়িত্ব কেবল Adjective-এর।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "959b0eaa-2e09-4e28-a711-09698cd85951",
+      "question": "An adverb -------.[]",
+      "options": [
+        "modifies a pronoun",
+        "modifies an adjective",
+        "modifies a preposition",
+        "modifies a noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Adverb মূলত Verb, Adjective বা অন্য কোনো Adverb-কে বিশেষায়িত করে। যেমন: 'He is very good'—এখানে 'very' শব্দটি 'good' (Adjective)-কে মডিফাই করেছে। তাই সঠিক উত্তর (b)।✅\n Noun বা Pronoun-কে মডিফাই করে কেবল Adjective।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "8e65c1e5-f96c-4b78-8861-c8399b11acf2",
+      "question": "Which is not true about the function of an adverb ?[]",
+      "options": [
+        "qualifying a verb",
+        "qualifying an adverb",
+        "qualifying a sentence",
+        "qualifying an adjective"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Adverb মূলত Verb, Adjective এবং অন্য একটি Adverb-কে বিশেষায়িত (Qualify) করে। কিন্তু একটি পূর্ণাঙ্গ Sentence-কে বিশেষায়িত করা এর প্রধান বা মৌলিক কাজ নয়। তাই (c) নম্বর অপশনটি Adverb-এর সাধারণ কার্যাবলীর ক্ষেত্রে সঠিক নয়❌",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "c5bcfec3-9f87-4875-9c66-637b34d2dc2a",
+      "question": "Adverbs qualify ---[]",
+      "options": [
+        "verbs, adverb and adjective",
+        "nouns and pronouns",
+        "prepositions",
+        "verbs only"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Adverbs সাধারণত verbs, adjectives এবং অন্য একটি adverb-কে বিশেষায়িত বা qualify করে। এটি এই পদগুলোর ধরন, সময় বা স্থান সম্পর্কে অতিরিক্ত তথ্য প্রদান করে।\n​বিকল্পগুলো বিশ্লেষণ:\n​(a): এটি সঠিক, কারণ adverbs এই তিনটি পদকেই মডিফাই করতে পারে।\n​(b): nouns এবং pronouns-কে কেবল adjectives মডিফাই করে।\n​(d): এটি ভুল, কারণ adverbs কেবল verbs নয়, বরং adjectives ও adverbs-কেও মডিফাই করে।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "9d9ac722-2868-4f69-962e-880ded82b6e4",
+      "question": "My mother always dresses ----- (beautiful). []",
+      "options": [
+        "beauty",
+        "beautify",
+        "beautiful",
+        "beautifully"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে dresses একটি verb, আর কোনো verb কীভাবে সম্পন্ন হচ্ছে তা বোঝাতে adverb ব্যবহৃত হয়। Beautiful একটি adjective, যার adverb ফর্ম হলো beautifully।\n​বিকল্পগুলো বিশ্লেষণ:\n​(a): Beauty একটি noun।\n​(b): Beautify একটি verb।\n​(c): Beautiful একটি adjective, যা মূলত noun-কে মডিফাই করে।\n​(d): এটি সঠিক adverb ফর্ম, যা এখানে dresses (কীভাবে পোশাক পরেন) শব্দটিকে মডিফাই করছে।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "04bef501-3732-4dc1-819a-c6b4d5d5a8c6",
+      "question": "He lived very ----- with his wife for a many years.[]",
+      "options": [
+        "happier",
+        "happiest",
+        "happy",
+        "happily"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে lived একটি verb। এই verb বা জীবনযাপনের ধরনটি কেমন ছিল তা বোঝাতে এখানে একটি adverb প্রয়োজন। Happy একটি adjective, যার adverb রূপ হলো happily।\n​বিকল্পগুলো বিশ্লেষণ:\n​(a) & (b): এগুলো adjective-এর comparative ও superlative ডিগ্রি, যা এখানে অপ্রাসঙ্গিক।\n​(c): Happy একটি adjective, যা সাধারণত noun-কে মডিফাই করে।\n​(d): এটি সঠিক adverb ফর্ম, যা lived (কীভাবে বাস করতেন) শব্দটিকে মডিফাই করছে।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "6b00fa8c-d214-4c9c-b7a7-1c6a4fbd0533",
+      "question": "He did ----- in the test.[]",
+      "options": [
+        "badly",
+        "imaginative",
+        "good",
+        "bad"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যে did একটি verb। তিনি পরীক্ষায় কেমন করেছেন বা তার কাজের ধরন বোঝাতে এখানে একটি adverb প্রয়োজন। Bad একটি adjective, যার adverb ফর্ম হলো badly✅",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "4e6987f1-8fa7-4551-b812-62bb782747df",
+      "question": "Poor people usually take meal  <u>twice</u>.[]",
+      "options": [
+        "Adverb of degree",
+        "Adverb of frequency",
+        "Adverb of time",
+        "Adverb of reason"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যে usually শব্দটি দিয়ে বোঝানো হচ্ছে কাজটি কতবার বা কতদিন পরপর ঘটে। ব্যাকরণ অনুযায়ী, কোনো কাজ কতবার সংঘটিত হয় তা বোঝালে তাকে Adverb of frequency বলা হয়।\n​বিকল্পগুলো বিশ্লেষণ:\n​(a): Adverb of degree কাজের তীব্রতা বা পরিমাণ (যেমন: very, extremely) বোঝায়।\n​(b): এটি সঠিক✅ কারণ usually কাজের পুনরাবৃত্তি বা frequency প্রকাশ করছে।\n​(c): Adverb of time কাজ কখন (যেমন: now, then) ঘটে তা নির্দেশ করে।\n​(d): Adverb of reason কাজের কারণ (যেমন: therefore, because) ব্যাখ্যা করে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "f11952e0-5fa3-45f2-8a8e-cfffc553e78c",
+      "question": "The boy has been treated badly'. Here the word 'badly' is ---[]",
+      "options": [
+        "Intensifier",
+        "Adverb of manner",
+        "Adverb of degree",
+        "Adverb of purpose"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যে treated একটি verb। ছেলেটিকে কীভাবে বা কী ধরনের আচরণ করা হয়েছে (How) তা বোঝাতে badly ব্যবহৃত হয়েছে। ব্যাকরণ অনুযায়ী, কোনো কাজ সম্পন্ন হওয়ার পদ্ধতি বা ধরন বোঝালে তাকে Adverb of manner বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "8532b427-094f-433d-845d-3d3104c0d940",
+      "question": "He stood 'first'. Here 'first' is ---[]",
+      "options": [
+        "adverb of time",
+        "adverb of place",
+        "adverb of cause",
+        "Adverb of order"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে stood একটি verb। তিনি কততম অবস্থানে দাঁড়িয়েছেন বা তার অবস্থানগত ক্রম কী, তা বোঝাতে first ব্যবহৃত হয়েছে। ব্যাকরণ অনুযায়ী, কোনো কিছুর ক্রম বা পর্যায় বোঝালে তাকে Adverb of order বলা হয়।\n​বিকল্পগুলো বিশ্লেষণ:\n​(a): Adverb of time কাজ কখন (যেমন: now, yesterday) ঘটে তা নির্দেশ করে।\n​(b): Adverb of place কাজের স্থান (যেমন: here, there) নির্দেশ করে।\n​(c): Adverb of cause কাজের কারণ (যেমন: therefore, hence) ব্যাখ্যা করে।\n​(d): এটি সঠিক, কারণ first এখানে ক্রম বা পর্যায় (order) প্রকাশ করছে।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "14b245ad-d389-4b4d-a7fb-01b957847c93",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "He acted in a cowardly manner",
+        "He acted coward manner",
+        "He acted in cowardly",
+        "He acted in a coward manner"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যে acted একটি verb, যাকে মডিফাই করার জন্য একটি adverb প্রয়োজন। কিন্তু cowardly শব্দটি শেষে '-ly' থাকলেও এটি মূলত একটি adjective। কোনো adjective-কে adverb হিসেবে ব্যবহার করতে হলে 'in a ... manner' বা 'in a ... way' ফ্রেজটি ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "e5b993b5-5436-4049-8b66-c07b41c2584d",
+      "question": "Identify the correct sentence[]",
+      "options": [
+        "She behaved with me in a friendly way",
+        "She behaved with me friendly",
+        "She behaved with me in  friendly way",
+        "She behaved with me friendly way"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যে behaved একটি verb, যাকে মডিফাই করার জন্য একটি adverb প্রয়োজন। কিন্তু friendly শব্দটি শেষে -ly থাকলেও এটি মূলত একটি adjective। কোনো adjective-কে adverb হিসেবে ব্যবহার করতে হলে 'in a/an ... way' বা 'in a/an ... manner' ফ্রেজটি ব্যবহার করতে হয়✅",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "d3b3bf06-2c55-4542-9104-bd69e572997d",
+      "question": "Although he felt very -----, he smiled -----.[]",
+      "options": [
+        "angrily, friendly",
+        "angry, friendly",
+        "angry, friendly way",
+        "angry, in a friendly way"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে felt একটি linking verb, যার পরে সাধারণত adjective বসে। তাই প্রথম শূন্যস্থানে angry (adjective) বসবে। অন্যদিকে, smiled একটি action verb, যাকে মডিফাই করতে adverb প্রয়োজন। Friendly শব্দটি শেষে '-ly' থাকলেও এটি একটি adjective। একে adverb হিসেবে ব্যবহার করতে হলে 'in a friendly way' ফ্রেজটি ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "9e51abcb-94c5-4229-a3fe-bc84dde8f6e4",
+      "question": "Although he felt very ----- he smiled -----.[]",
+      "options": [
+        "hungrily, friendly",
+        "hungrily, in a friendly",
+        "hungry, friendly",
+        "hungry, in a friendly manner"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে felt একটি linking verb, যার পরে সরাসরি adjective বসে। তাই প্রথম শূন্যস্থানে hungry (adjective) বসবে। অন্যদিকে, smiled একটি action verb, যাকে মডিফাই করতে adverb প্রয়োজন। Friendly শব্দটি শেষে -ly থাকলেও এটি একটি adjective। একে adverb হিসেবে ব্যবহার করতে হলে 'in a friendly manner' বা 'in a friendly way' ফ্রেজটি ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "36b4641b-58bb-43d5-9dc6-e5fef332184c",
+      "question": "He is ----- weak to move/walk.\nHe is ----- weak to hear what we say.[]",
+      "options": [
+        "very",
+        "quiet",
+        "quite",
+        "too"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইংরেজিতে কোনো কাজের নেতিবাচক আধিক্য বোঝাতে too + adjective + to + verb স্ট্রাকচারটি ব্যবহৃত হয়। এর অর্থ হলো—'এতই যে... না'। এখানে weak (adjective) এবং to move/walk (verb) এর মাঝে সম্পর্ক স্থাপনে too সঠিক✅",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "19f9609a-65c8-482f-88cd-7c11f7d668e9",
+      "question": "The old man was ----- weak to get out of bed.[]",
+      "options": [
+        "most",
+        "so",
+        "very",
+        "too"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইংরেজিতে কোনো কাজ করা অসম্ভব বা নেতিবাচক আধিক্য বোঝাতে too + adjective + to-infinitive স্ট্রাকচারটি ব্যবহৃত হয়। এখানে weak (adjective) এর পর to get out (to-infinitive) থাকায় শূন্যস্থানে too বসবে। এর অর্থ হলো—তিনি 'এতই' দুর্বল যে বিছানা থেকে উঠতে 'পারেননি'।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "3f725573-74de-4950-be39-19214086464c",
+      "question": "His fever is ----- to ignore.[]",
+      "options": [
+        "too much high",
+        "so high",
+        "too high",
+        "high too much"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজিতে কোনো কাজ করা অসম্ভব বা নেতিবাচক আধিক্য বোঝাতে too + adjective + to-infinitive স্ট্রাকচারটি ব্যবহৃত হয়। এখানে high (adjective) এর পর to ignore (to-infinitive) থাকায় শূন্যস্থানে too বসবে। এর অর্থ হলো—জ্বর 'এতই' বেশি যে তা উপেক্ষা করা 'যায় না'।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "9019b206-e014-4ed6-9e81-10ba5a005274",
+      "question": "His fever is ----- to ignore.[]",
+      "options": [
+        "too much high",
+        "much too high",
+        "so high",
+        "high too much"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Too much এবং Much too-এর ব্যবহারে ভিন্নতা রয়েছে। Too much সাধারণত noun-এর আগে বসে (যেমন: too much water), কিন্তু adjective-এর তীব্রতা বোঝাতে much too ব্যবহৃত হয়। এখানে high একটি adjective, তাই এর আগে much too বসবে।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "0c3788c6-dae8-469d-9a63-263700f11410",
+      "question": "The tea was ----- to sip.[]",
+      "options": [
+        "too hot much",
+        "hot much",
+        "too hot",
+        "too much hot"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কোনো কাজের নেতিবাচক আধিক্য বা অতিরিক্ত মাত্রা বোঝাতে too + adjective + to-infinitive স্ট্রাকচারটি ব্যবহৃত হয়। এখানে hot একটি adjective এবং এরপরে to sip (to-infinitive) থাকায় শূন্যস্থানে too বসবে। এর অর্থ হলো—চা 'এতই' গরম যে তাতে চুমুক দেওয়া 'সম্ভব নয়'।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "e38af953-f135-4f90-a5e1-eb9c168afd7a",
+      "question": "English language is not ----- difficult to understand.\nDon't worry. English language skills are not ----- difficult to master.[]",
+      "options": [
+        "as",
+        "so",
+        "very",
+        "too"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নেতিবাচক বাক্যে কোনো কিছুর মাত্রা বা আধিক্য বোঝাতে too ব্যবহৃত হয়, যা নির্দেশ করে যে বিষয়টি 'অতিরিক্ত' কঠিন নয়। এখানে difficult (adjective) এর আগে too বসিয়ে বোঝানো হয়েছে যে ইংরেজি ভাষা বোঝা বা আয়ত্ত করা 'অধিক' বা 'অসাধ্য' পর্যায়ের কঠিন কিছু নয়।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "fc214291-ff40-453c-8e94-8736f60349fe",
+      "question": "Don't worry. English language is not ----- to understand.[]",
+      "options": [
+        "so difficult",
+        "too difficult",
+        "very difficult",
+        "difficult enough"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো কাজ করা অসম্ভব বা নেতিবাচক আধিক্য বোঝাতে too + adjective + to-infinitive স্ট্রাকচারটি ব্যবহৃত হয়। এখানে difficult (adjective) এর পর to understand (to-infinitive) থাকায় শূন্যস্থানে too বসবে। বাক্যটির অর্থ হলো—ইংরেজি গ্রামার 'এতটাও' কঠিন নয় যে তা বোঝা 'সম্ভব নয়'।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "5a55363f-e9bc-47a9-a65a-85e42a278ed5",
+      "question": "The branch of tree is ----- high for the boy ----- climb.[]",
+      "options": [
+        "so, that",
+        "too, to",
+        "so, very",
+        "so, to"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো কাজ করা অসম্ভব বা নেতিবাচক আধিক্য বোঝাতে too + adjective + to-infinitive স্ট্রাকচারটি ব্যবহৃত হয়। এখানে high (adjective) এবং এরপরে climb (verb)-এর মাঝে সীমাবদ্ধতা বোঝাতে শূন্যস্থান দুটিতে যথাক্রমে too এবং to বসবে। বাক্যটির অর্থ হলো—গাছের ডালটি ছেলেটির জন্য 'এতই' উঁচুতে যে সে তাতে চড়তে 'পারছে না'।\n​বিকল্পগুলো বিশ্লেষণ:\n​(a): So...that ব্যবহার করলে পরবর্তী অংশে একটি পূর্ণাঙ্গ clause (যেমন: that he cannot climb) প্রয়োজন হয়।\n​(b): এটি সঠিক, কারণ too...to একটি সুনির্দিষ্ট নেতিবাচক গঠন প্রকাশ করে যা কোনো কাজের অসাধ্যতা নির্দেশ করে।\n​(c): So...very ব্যাকরণগতভাবে কোনো স্ট্যান্ডার্ড স্ট্রাকচার নয়।\n​(d): So...to ভুল গঠন, কারণ so এর পর সাধারণত that বসে।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "67127c35-2ade-4872-bdb7-6c4aaef71bf1",
+      "question": "It was ----- good to be true.\nThe bag is ----- heavy to carry.\nHe was ----- clever to miss the point/The man is ----- dishonest to speak the truth.[]",
+      "options": [
+        "very",
+        "so",
+        "too",
+        "enough"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "(a): Very সাধারণ আধিক্য বোঝায়, কিন্তু এর পরে সরাসরি to-infinitive যুক্ত হয়ে নেতিবাচক অর্থ প্রকাশ করে না❌\n​(b): So এর পরে সাধারণত একটি that ক্লজ প্রয়োজন হয় (যেমন: So heavy that I cannot carry)❌\n​(c): এটি সঠিক, কারণ too...to একটি সুনির্দিষ্ট নেতিবাচক গঠন প্রকাশ করে যা কোনো কাজের অসাধ্যতা নির্দেশ করে✅\n​(d): Enough সাধারণত ইতিবাচক সামর্থ্য বোঝাতে ব্যবহৃত হয় (যেমন: strong enough to carry)❌",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "ea2cd109-b6a8-43c5-81d3-9222e762d450",
+      "question": "Which of the following sentences has negative meaning ?[]",
+      "options": [
+        "My friend is very clever",
+        "Our new messenger is too clever to be trusted",
+        "He is a good person",
+        "He is interested in bad music"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইংরেজি গ্রামারে Too...to যুক্ত বাক্য গঠনগতভাবে affirmative হলেও এটি Negative meaning বা নেতিবাচক অর্থ প্রকাশ করে। এর অর্থ হলো— \"এতই... যে (তা করা) সম্ভব নয়।\"\n​বিকল্পগুলো বিশ্লেষণ:\n​(b): 'too clever to be trusted'-এর অর্থ হলো সে এতই চালাক যে তাকে বিশ্বাস করা যায় না। এখানে too...to কাঠামোর কারণে বাক্যটি নেতিবাচক অর্থ দিচ্ছে।\n​অন্যান্য অপশনগুলো (a, c, d) সাধারণ বিবৃতি বা তথ্য প্রকাশ করছে, যেখানে কোনো অসম্ভাব্যতা বা 'না' বোধক অর্থ নেই।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "d881157b-a1ff-4ae9-b5a3-b844fc2065da",
+      "question": "Choose the correct sentence[]",
+      "options": [
+        "I am very busy to talk to you",
+        "I am very much busy to talk to you",
+        "I am so much busy to talk to you",
+        "I am too busy to talk to you"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটিতে Negative intensity প্রকাশ করতে too + adjective + to-infinitive Structure-টি ব্যবহৃত হয়েছে।\n​Structure: Subject + Verb + too + Adjective + to + Verb (base form).\n​Analysis: এখানে busy (Adjective) এর পর to talk (Infinitive) থাকায় too ব্যবহার করা হয়েছে। এটি প্রকাশ করে যে ব্যস্ততার কারণে কথা বলা সম্ভব নয়।\n​Note: Very বা So এর পর সরাসরি to-infinitive বসে এমন অর্থ প্রকাশ করে না; So বসলে পরবর্তীতে that-clause প্রয়োজন হতো।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "0c3c5f17-3a4f-49bd-9220-7a7dc674bfa3",
+      "question": "You were ----- make such a silly mistake.[]",
+      "options": [
+        "too foolish to",
+        "too wise to",
+        "to rash to",
+        "too intelligent to"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটিতে Subject-এর একটি নেতিবাচক বৈশিষ্ট্য এবং তার ফলশ্রুতিতে ঘটা একটি অসংলগ্ন কাজ (silly mistake) প্রকাশ করা হয়েছে। এর জন্য too...to Structure-টি উপযুক্ত।\n​Structure: Subject + Verb + too + Adjective + to + Verb (base form).\n​Analysis: এখানে silly mistake করার বিষয়টি foolish (বোকা) হওয়ার সাথে সামঞ্জস্যপূর্ণ। too foolish to অর্থ হলো— 'এতই বোকা যে' এমন ভুল করা তার পক্ষে স্বাভাবিক।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "50a5be5f-2fac-4623-8ff6-f25fd58e7cf0",
+      "question": "It is now ----- expensive to repair the damage which has been done.[]",
+      "options": [
+        "very much",
+        "too much",
+        "many",
+        "too"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে Negative intensity বা কোনো কাজের অসাধ্যতা বোঝাতে too + adjective + to-infinitive Structure-টি ব্যবহৃত হয়।\n​Structure: Subject + Verb + too + Adjective + to + Verb (base form).\n​Analysis: এখানে expensive একটি Adjective এবং এর পরে to repair (Infinitive) রয়েছে। তাই নিয়ম অনুযায়ী শূন্যস্থানে too বসবে। এর অর্থ হলো— মেরামত করাটা এখন অতিরিক্ত ব্যয়বহুল (যা প্রায় অসম্ভব)।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "163d90a7-93d0-445c-bd8d-33c14c6ab945",
+      "question": "The jacket costs -----.[]",
+      "options": [
+        "too much",
+        "too many",
+        "many",
+        "expensive"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যে Price বা Amount-এর আধিক্য প্রকাশ করতে too much এবং too many এর মধ্যে পার্থক্য বুঝতে হবে।\n​Rule: Too much বসে Uncountable Noun বা Verb-এর তীব্রতা বোঝাতে। অন্যদিকে Too many বসে Countable Noun-এর ক্ষেত্রে।\n​Structure: Subject + Verb (cost) + too much.\n​Analysis: এখানে Cost একটি Verb, যা খরচ বা মূল্য নির্দেশ করে। মূল্য একটি Uncountable ধারণা, তাই একে মডিফাই করতে too much ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "19a56c90-1275-4f03-8a02-0fa48ba08aea",
+      "question": "Which of the following is incorrect ?[]",
+      "options": [
+        "We haven't got enough milk.",
+        "I did not study enough hard.",
+        "Is your coffee hot enough ?",
+        "She did not have enough interest"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যটিতে Enough-এর Word Order বা অবস্থানগত ভুল রয়েছে।\n​Rule 1: Adjective/Adverb-এর ক্ষেত্রে Enough সর্বদা ঐ শব্দের পরে বসে। (Structure: Adjective/Adverb + enough)\n​Rule 2: Noun-এর ক্ষেত্রে Enough সর্বদা Noun-এর আগে বসে। (Structure: Enough + Noun)\n​Analysis: অপশন (b)-তে hard একটি Adverb, তাই নিয়ম অনুযায়ী hard enough হওয়া উচিত ছিল। কিন্তু এখানে enough hard লেখা হয়েছে, যা ভুল। অন্যান্য অপশনগুলোতে enough-এর অবস্থান সঠিক আছে।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "16ecff32-3532-4c40-9b2c-80c1f015bad5",
+      "question": "A seventeen years old is not ----- to vote in an election.[]",
+      "options": [
+        "as old enough",
+        "old enough",
+        "enough old",
+        "enough old as"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যটিতে Enough-এর সঠিক Word Order বা অবস্থানগত নিয়ম প্রয়োগ করা হয়েছে।\n​Grammar Rule: Enough যখন কোনো Adjective (যেমন: old, tall, heavy) বা Adverb-কে মডিফাই করে, তখন এটি সর্বদা সেই শব্দের পরে বসে।\n​Structure: Adjective + enough\n​Analysis: এখানে old একটি Adjective। নিয়ম অনুযায়ী enough-কে old-এর পরে বসাতে হবে। তাই old enough সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "ae762a0e-1aff-4691-a4ab-9ece952f2272",
+      "question": "He didn't get the job because he wasn't -----.[]",
+      "options": [
+        "enough experienced",
+        "experienced enough",
+        "experience enough",
+        "experience although"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যটিতে Enough-এর অবস্থান ও Parts of Speech-এর সঠিক ব্যবহার যাচাই করা হয়েছে।\n​Rule: Adjective/Adverb + enough. (Enough সর্বদা Adjective-এর পরে বসে)\n​Analysis: এখানে ব্যক্তির গুণ বোঝাতে Experienced (Adjective) প্রয়োজন। নিয়ম অনুযায়ী enough-কে Experienced-এর পরে বসাতে হবে।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "272af6ef-a5d1-45ce-8e11-396885860f29",
+      "question": "When your body does not get -----, it cannot make the glucose it needs.[]",
+      "options": [
+        "food as enough",
+        "food enoughly",
+        "enough the food",
+        "enough food"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটিতে Enough-এর সঠিক অবস্থান (Word Order) যাচাই করা হয়েছে।\n​Rule: Enough যখন কোনো Noun-কে মডিফাই করে, তখন এটি Noun-এর আগে বসে।\n​Structure: Enough + Noun.\n​Analysis: এখানে food একটি Noun। নিয়ম অনুযায়ী enough-কে food-এর আগে বসাতে হবে। তাই enough food সঠিক গঠন।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "bbf368ea-758d-42fd-a07d-1f36de1efe3a",
+      "question": "He acted ----- to win the competition.[]",
+      "options": [
+        "well enough",
+        "enough well",
+        "enough",
+        "enough quick"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যটিতে Enough-এর সঠিক Word Order বা অবস্থানগত নিয়ম প্রয়োগ করা হয়েছে।\n​Rule: Enough যখন কোনো Adjective বা Adverb-কে মডিফাই করে, তখন এটি সর্বদা সেই শব্দের পরে বসে।\n​Structure: Adverb + enough\n​Analysis: এখানে well একটি Adverb। নিয়ম অনুযায়ী enough-কে well-এর পরে বসাতে হবে। তাই well enough সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "4ad11814-a673-4649-9e9a-ef8b6f4106ad",
+      "question": "Computers that once took place up entire rooms are \nnew ----- to put on desktops and into wristwatches.[]",
+      "options": [
+        "small enough",
+        "smaller than",
+        "as small as",
+        "too small"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যটিতে Enough-এর সঠিক Word Order বা অবস্থানগত নিয়ম প্রয়োগ করা হয়েছে।\n​Rule: Enough যখন কোনো Adjective (যেমন: small, big, fast) কে মডিফাই করে, তখন এটি সর্বদা সেই শব্দের পরে বসে।\n​Structure: Adjective + enough + to-infinitive.\n​Analysis: এখানে small একটি Adjective এবং এরপর to put (Infinitive) রয়েছে। নিয়ম অনুযায়ী enough-কে small-এর পরে বসাতে হবে। তাই small enough সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "37ac34a5-4809-48b5-b41f-b6de4f6f23a5",
+      "question": "The word 'hardly' means ---\nMy friend <u>hardly</u> works in the afternoon.[]",
+      "options": [
+        "almost never/not",
+        "always",
+        "seriously",
+        "regularly"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইংরেজি গ্রামারে Hardly একটি Negative Adverb, যা মূলত কোনো কাজের বিরলতা বা অনুপস্থিতি বোঝাতে ব্যবহৃত হয়।\n​Rule: Hardly, Scarcely, Barely—এই শব্দগুলো অর্থগতভাবে নেতিবাচক। এগুলো \"প্রায় না\" বা \"কদাচিৎ\" অর্থ প্রকাশ করে।\n​Analysis: \"My friend hardly works in the afternoon\" বাক্যটির অর্থ হলো—আমার বন্ধু বিকেলে প্রায় কাজ করেই না। এটি কাজের অভাব বা না-বোধক অবস্থাকে নির্দেশ করছে।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "10cf44bf-adfe-4d6e-96c1-8e2828e77afc",
+      "question": "He is hardly happy. The word 'hardly' is used ---[]",
+      "options": [
+        "negatively",
+        "positively",
+        "subjectively",
+        "predicatively"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইংরেজি গ্রামারে Hardly একটি Negative Adverb, যা বাক্যে না-বোধক অর্থ প্রকাশ করে।\n​Rule: Hardly, Scarcely, Barely, Seldom, Few, Little—এই শব্দগুলো গঠনগতভাবে Affirmative মনে হলেও অর্থগতভাবে Negative। এগুলো \"প্রায় না\" বা \"নেই বললেই চলে\" বোঝাতে ব্যবহৃত হয়।\n​Analysis: \"He is hardly happy\" বাক্যটির অর্থ হলো—সে প্রায় সুখীই নয়। এখানে Hardly শব্দটিকে Negatively ব্যবহার করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "7e9b73e7-197f-4e38-9174-97bdcfec4245",
+      "question": "I hardly go out after dusk'. The correct bangla translation is ---[]",
+      "options": [
+        "আমি সন্ধ্যার পর পরেই বাইরে যাই",
+        "আমি সন্ধ্যার পর প্রায়ই বাইরে যাই",
+        "আমি সন্ধ্যার মোটেও বাইরে যাই না",
+        "আমি সন্ধ্যার পরে কদাচিৎ বাইরে যাই"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটিতে Hardly একটি Negative Adverb, যা মূলত কোনো কাজের বিরলতা বোঝাতে ব্যবহৃত হয়।\n​Rule: Hardly, Seldom, Scarcely শব্দগুলো \"প্রায় না\" বা \"কদাচিৎ\" (Rarely) অর্থ প্রকাশ করে।\n​\nAnalysis: \"I hardly go out\" মানে হলো—আমি বাইরে প্রায় যাই-ই না বা কদাচিৎ যাই।\n​Comparison: * (a) & (b): এগুলো ইতিবাচক অর্থ প্রকাশ করে যা ভুল।\n​(c): \"মোটেও না\" বোঝাতে Not at all ব্যবহৃত হয়, যা Hardly থেকে ভিন্ন।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "40cd4bff-7cd9-4a5e-bf16-aacaa3cacd68",
+      "question": "I ----- go out after dusk.[]",
+      "options": [
+        "hardly",
+        "lately",
+        "shortly",
+        "early"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Subject + Hardly/Scarcely + Verb + Extension. (অর্থ: কদাচিৎ/প্রায় না)\n​ব্যাখ্যা: বাক্যটিতে \"কদাচিৎ\" অর্থ প্রকাশ করতে Negative Adverb হিসেবে hardly ব্যবহৃত হয়েছে। ইংরেজি গ্রামারে hardly, scarcely, seldom শব্দগুলো বাক্যের গঠন Affirmative রাখলেও অর্থগতভাবে Negative (প্রায় না) প্রকাশ করে।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "7be2fa15-ef86-44f3-abdd-c08fe7db9d09",
+      "question": "A hard worker ----- put off his daily work for tomorrow.[]",
+      "options": [
+        "hard",
+        "ever",
+        "yet",
+        "hardly"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Structure: Subject + Hardly/Scarcely + Verb + Extension. (Meaning: Almost never)\n​Analysis: বাক্যের অর্থ অনুযায়ী একজন কঠোর পরিশ্রমী ব্যক্তি তার কাজ ফেলে রাখে না বললেই চলে। ইংরেজি গ্রামারে Hardly একটি Negative Adverb, যা Affirmative গঠন বজায় রেখেও নেতিবাচক (প্রায় না) অর্থ প্রকাশ করে। যেহেতু পরিশ্রমী ব্যক্তি কাজ জমিয়ে রাখে না, তাই এখানে hardly সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "b8d53a7e-95f8-4959-9770-549aae818db4",
+      "question": "We ----- go out to a restaurant during the week because when we get home from work we were too tired.[]",
+      "options": [
+        "nearly never",
+        "hardly never",
+        "hardly ever",
+        "ever"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Structure: Subject + Hardly ever + Verb + Extension. (Meaning: Almost never)\n​Analysis: বাক্যে ক্লান্তিজনিত কারণে রেস্টুরেন্টে যাওয়ার বিরলতা বোঝানো হয়েছে। ইংরেজি গ্রামারে Hardly ever একটি শক্তিশালী Negative Adverbial Phrase, যা \"কদাচিৎ\" বা \"প্রায় কখনোই না\" অর্থ প্রকাশ করে। এটি Hardly-এর চেয়েও জোরালো অর্থ দেয়।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "3cf58695-80ee-4fd0-8d47-0d3f75abaa75",
+      "question": "Find the correct sentence[]",
+      "options": [
+        "He hardly does not go there",
+        "He hardly goes there",
+        "He does not go there hardly",
+        "Hardly he goes there"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Structure: Subject + Hardly/Scarcely + Verb + Extension. (Meaning: Almost never)\n​Analysis: ইংরেজি গ্রামারে Hardly একটি Negative Adverb, যা নিজেই \"না\" বোধক অর্থ বহন করে। নিয়ম অনুযায়ী, এটি মূল Verb-এর আগে বসে বাক্যটিকে নেতিবাচক করে তোলে। যেহেতু Hardly নিজেই নেতিবাচক, তাই এর সাথে আলাদা করে not ব্যবহার করার প্রয়োজন হয় না।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "567511cf-9e89-43cf-98ab-9e220dbb4c56",
+      "question": "Translate into English :\nআপনি কখনও কুয়াকাটা গিয়েছেন ?[]",
+      "options": [
+        "Have you ever gone to Kuakata ?",
+        "Have you gone to Kuakata ever ?",
+        "Have you ever been to Kuakata ?",
+        "Did you ever go to Kuakata ?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি গ্রামারে \"Have been to\" এবং \"Have gone to\" এর মধ্যে সূক্ষ্ম কিন্তু গুরুত্বপূর্ণ পার্থক্য রয়েছে:\n​Have been to: এটি কোনো স্থানে গিয়ে ফিরে আসার অভিজ্ঞতা (Experience) বোঝাতে ব্যবহৃত হয়। অর্থাৎ, বক্তা জানতে চাচ্ছেন আপনি কি কখনো সেখানে গিয়েছেন এবং ফিরে এসেছেন?\n​Have gone to: এটি বর্তমানে কেউ কোথাও গিয়েছে এবং এখনো ফিরে আসেনি (Currently there) এমন অবস্থা বোঝাতে ব্যবহৃত হয়।\n​যেহেতু কুয়াকাটা ঘুরে আসার অভিজ্ঞতা জানতে চাওয়া হয়েছে, তাই \"Have you ever been to\" সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "220ecdf4-12fb-4362-8b5b-d76496f41c23",
+      "question": "What is the correct translation of : 'তুমি কখনও রাঙামাটি গিয়েছো ?'[]",
+      "options": [
+        "Have you gone to Rangamati ?",
+        "Have you ever gone to Rangamati ?",
+        "Have you yet gone to Rangamati ?",
+        "Have you still gone to Rangamati ?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Structure: Have/Has + Subject + ever + Verb (p.p) + Extension?\n​Comparison: অপশন (a)-তে ever নেই, তাই এটি নির্দিষ্ট অভিজ্ঞতার প্রশ্ন হিসেবে অসম্পূর্ণ। গ্রামার অনুযায়ী \"Have you ever been to\" অধিকতর শুদ্ধ হলেও, অপশনগুলোর মধ্যে (b)-ই অর্থগতভাবে সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "f0d7345e-00fb-47bd-bb43-bea3ec678157",
+      "question": "The correct translation of :\n\"এখানে কখনো বৃষ্টি হয় না\"।[]",
+      "options": [
+        "It does not rain here",
+        "It never rains here",
+        "It rains never here",
+        "Never does it rains here"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "​Adverb Position: Always, Never, Often—এই frequency adverb-গুলো সাধারণত মূল Verb-এর আগে বসে। তাই \"never rains\" গঠনটি সঠিক✅\n(a) It does not rain: এখানে \"কখনো না\" বা Never শব্দটি অনুপস্থিত।\n​(c) It rains never: এটি ভুল পদক্রম (Word order); অ্যাডভার্ব সাধারণত ট্রানজিটিভ ভার্বের পরে বা এভাবে বাক্যের শেষে বসে না।\n​(d) Never does it rains: এটি Inversion-এর ভুল প্রয়োগ। Does/Do এর পর মূল ভার্বের সাথে s/es বসে না (সঠিক হতো: Never does it rain)।",
+      "images": []
+    }
+  ]
+}

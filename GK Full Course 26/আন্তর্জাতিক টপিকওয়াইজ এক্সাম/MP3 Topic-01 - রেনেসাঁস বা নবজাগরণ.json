@@ -1,0 +1,161 @@
+{
+  "exam_id": 10459,
+  "title": "MP3 Topic-01 : রেনেসাঁস বা নবজাগরণ",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "আধুনিক পাশ্চাত্যের উত্থান + প্রথম বিশ্বযুদ্ধ + দ্বিতীয় বিশ্বযুদ্ধ Exam",
+  "duration_minutes": 5,
+  "total_questions": 10,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "a4c03bfc-fbb5-4fba-a8ad-320e28f1f135",
+      "question": "Renaissance' means - [SABAS][]",
+      "options": [
+        "The revival of life",
+        "The revival of learning",
+        "The revival of hard work",
+        "The revival of new county"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Renaissance শব্দটি ফরাসি, যার আক্ষরিক অর্থ হলো 'পুনর্জন্ম' বা 'Rebirth of learning'।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "388f06f2-276d-4b86-87e6-9179063fef87",
+      "question": "Renaissance কথাটির অর্থ কী? [SABAS][]",
+      "options": [
+        "The revival of life",
+        "The revival of learning",
+        "The revival of hard work",
+        "The revival of new county"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Renaissance অর্থ হলো বিদ্যার বা শিক্ষার পুনর্জাগরণ।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "2831e441-9175-495a-9513-0ab3dfcac275",
+      "question": "রেনেসাঁস' শব্দটি কোন ভাষা থেকে বাংলায় এসেছে? [SABAS][]",
+      "options": [
+        "তুর্কি",
+        "ফরাসি",
+        "পর্তুগিজ",
+        "ওলন্দাজ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Renaissance শব্দটি ফরাসি (French) শব্দ থেকে এসেছে।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "c339f0d9-95f6-4102-beac-86796c069ef9",
+      "question": "রেনেসাঁস হলো - [SABAS][]",
+      "options": [
+        "শিল্প আন্দোলনের নাম",
+        "একটি ভাস্করের নাম",
+        "একজন শিল্পীর নাম",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "রেনেসাঁস মূলত ইউরোপের শিল্পকলা, সাহিত্য ও জ্ঞান-বিজ্ঞানের এক বিশাল নবজাগরণ বা আন্দোলন।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "9a88a3f8-5303-4514-a58e-9c7fe7be9f92",
+      "question": "ইউরোপীয় রেনেসাঁস কোন শতাব্দীতে সংঘটিত হয়েছিল? [SABAS][]",
+      "options": [
+        "একাদশ-দ্বাদশ",
+        "দশম-দ্বাদশ",
+        "ত্রয়োদশ-ষোড়শ",
+        "সপ্তদশ-অষ্টাদশ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইউরোপীয় রেনেসাঁস মূলত চতুর্দশ থেকে ষোড়শ শতাব্দীর মধ্যবর্তী সময়ে বিকশিত হয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "ce1dd7e8-aeb4-40e6-8cac-34c9f726c1be",
+      "question": "ইউরোপীয় রেনেসাঁস হয় - [SABAS][]",
+      "options": [
+        "১৪৫৩ সালে",
+        "১৭৮৯ সালে",
+        "১৮২০ সালে",
+        "১৯০০ সালে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৪৫৩ সালে কনস্ট্যান্টিনোপলের পতনের পর রেনেসাঁসের জোয়ার ত্বরান্বিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "7e59c772-3cd2-4546-a64b-2f0fbefdc02b",
+      "question": "রেনেসাঁর সূত্রপাত কোথায়? [SABAS][]",
+      "options": [
+        "ইতালি",
+        "স্পেন",
+        "মিসর",
+        "ইংল্যান্ড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "রেনেসাঁসের প্রথম ও প্রধান কেন্দ্র ছিল ইতালি।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "ededc81b-50bf-4ddc-bf86-a54f3881cc62",
+      "question": "রেনেসাঁর উৎপত্তি ইতালির কোন শহরে? [SABAS][]",
+      "options": [
+        "ফ্লোরেন্স",
+        "পিসা",
+        "রোম",
+        "মিলান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইতালির ফ্লোরেন্স শহরকে রেনেসাঁসের সূতিকাগার বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "a1ccd076-81a8-4125-87eb-a1d65e7e8a75",
+      "question": "ইউরোপে রেনেসাঁসের মধ্য দিয়ে কোন কোন ক্ষেত্রে নবজাগরণ ঘটে? [SABAS][]",
+      "options": [
+        "চিন্তা-চেতনা, সমাজনীতি ও মানবতাবাদ",
+        "কৃষিকাজ, জ্ঞানচর্চা ও অর্থনীতি",
+        "বাণিজ্য, ধর্মনিরপেক্ষতা ও রাষ্ট্রনীতি",
+        "জ্ঞানচর্চা, চিন্তা-চেতনা ও শিল্প-সাহিত্য"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "রেনেসাঁস মূলত মানবতাবাদ, জ্ঞানচর্চা, শিল্পকলা এবং মুক্ত চিন্তার প্রসারে ভূমিকা রেখেছিল।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "5985b1cd-eb6c-4312-9465-bd65597a9c88",
+      "question": "রেনেসাঁস (Renaissance) কথাটির আক্ষরিক অর্থ কী? [SABAS][]",
+      "options": [
+        "যুগ",
+        "জন্ম",
+        "পুনর্জন্ম",
+        "মৃত্যু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Renaissance শব্দটি ফরাসি, যার আক্ষরিক অর্থ হলো 'পুনর্জন্ম' (Rebirth)।",
+      "images": []
+    }
+  ]
+}

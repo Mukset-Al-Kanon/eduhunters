@@ -1,0 +1,1408 @@
+{
+  "title": "Chemistry 2nd Paper Model Test 23/06/25",
+  "category": "5.2 Final Medical Batch Exams > রসায়ন ২য় পত্র",
+  "duration_minutes": 30,
+  "total_questions": 100,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "122592",
+      "question": "লঘু তেলে বিদ্যমান অম্লীয় পদার্থ নিচের কোনটি",
+      "options": [
+        "বেনজিন",
+        "জাইলিন",
+        "ফেনল",
+        "অ্যানিলিন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "লঘু তেলে বিদ্যমান~ \r\n●\tনিরপেক্ষ পদার্থ - বেনজিন, টলুইন, জাইলিন \r\n●\tক্ষারধর্মীয় পদার্থ - অ্যানিলিন,পিরিডিন, থায়োফিন \r\n●\tঅম্লীয় পদার্থ - ফেনল"
+    },
+    {
+      "question_no": 2,
+      "id": "122593",
+      "question": "অ্যালকেন হতে সরাসরি অ্যারোমেটিক যৌগ পাওয়ার প্রক্রিয়া নিচের কোনটি?",
+      "options": [
+        "আংশিক পাতন",
+        "উর্টজ ফিটিগ বিক্রিয়া",
+        "রিফরমিং বিক্রিয়া",
+        "ওজোনোলাইসিস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "122594",
+      "question": "কোন বিক্রিয়ায় অ্যালডিহাইড মূলক মিথিলিন মুলকে পরিণত হয়?",
+      "options": [
+        "উর্টজ বিক্রিয়া",
+        "ডিকার্বক্সেশন",
+        "ক্লিমেনসেন বিজারণ",
+        "গ্রিগনার্ড বিজারণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ক্লিমেনসেন বিজারন এর মাধ্যমে অ্যালডিহাইড মূলক হতে সরাসরি মিথিলিন মূলক পাবো।"
+    },
+    {
+      "question_no": 4,
+      "id": "122595",
+      "question": "গ্লুকোজ অণুতে কয়টি কাইরাল কেন্দ্র বা অপ্রতিসম কার্বন আছে?",
+      "options": [
+        "৩",
+        "৪",
+        "৫",
+        "৬"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্লুকোজ অণুতে কাইরাল কার্বন ৪ টি\r\nগ্লুকোজের আলোক সমানু সংখ্যা : 2^4=16 টি"
+    },
+    {
+      "question_no": 5,
+      "id": "122596",
+      "question": "গ্যামেক্সিন পাউডারের সংকেত কোনটি?",
+      "options": [
+        "C6Cl6",
+        "C6H6Cl6",
+        "C6H5OH",
+        "CHCl3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্যামেক্সিন পাউডারের সংকেত~ C6H6Cl6"
+    },
+    {
+      "question_no": 6,
+      "id": "122597",
+      "question": "ডাউ পদ্ধতিতে নিচের কোনটি উৎপন্ন হয়?",
+      "options": [
+        "ফেনল",
+        "টলুইন",
+        "জাইলিন",
+        "পিরিডিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ট্রিক্স– ডাও পদ্ধতি একটা ফাও পদ্ধতি \r\n\tডাউ পদ্ধতি ☞ ফেনল (উৎপন্ন)"
+    },
+    {
+      "question_no": 7,
+      "id": "122598",
+      "question": "বেনজিনে কার্বন-কার্বন বন্ধন দূরত্ব কত",
+      "options": [
+        "0.154 nm",
+        "0.139 nm",
+        "0.134 nm",
+        "0.120 nm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কার্বন কার্বন বন্ধন দূরত্ব \r\n0.154 nm~ অ্যালকেন \r\n 0.139 nm ~ বেনজিন \r\n 0.134 nm ~ অ্যালকিন \r\n 0.120 nm ~ অ্যালকাইন"
+    },
+    {
+      "question_no": 8,
+      "id": "122599",
+      "question": "মুক্তমূলক গুলোর ক্ষেত্রে কোনটি সঠিক নয়",
+      "options": [
+        "আধান নিরপেক্ষ, সল্পস্থায়ী",
+        "স্বল্পস্থায়ী",
+        "উচ্চ সক্রিয়তা সম্পন্ন",
+        "কম সক্রিয় যৌগ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": ">আধান নিরপেক্ষ, সল্পস্থায়ী \r\n>সমতলীয় \r\n>উচ্চ সক্রিয়তা সম্পন্ন"
+    },
+    {
+      "question_no": 9,
+      "id": "122600",
+      "question": "গ্রিগনার্ড বিকারকের সাথে নিচের কোনটির বিক্রিয়ায় 1 ° অ্যালকোহল সৃষ্টি হয়?",
+      "options": [
+        "মিথান্যাল ব্যতীত যেকোনো অ্যালডিহাইড",
+        "মিথান্যাল",
+        "কিটোন",
+        "ইথার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "122601",
+      "question": "খারাসের নিয়ম প্রজোয্য হবে কোনটির ক্ষেত্রে?",
+      "options": [
+        "HBr",
+        "HCl",
+        "HI",
+        "all"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "খারাসের নিয়ম শুধু HBr এর ক্ষেত্রে কার্যকর হবে।\r\nHCl,HI এর ক্ষেত্রে খারাসের নিয়ম প্রজোয্য নয়।"
+    },
+    {
+      "question_no": 11,
+      "id": "122602",
+      "question": "টলুইন এর সালফোনেশনের তাপমাত্রা কত?",
+      "options": [
+        "৬০° সে",
+        "৫° সে",
+        "১০০° সে",
+        "৩০° সে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "টলুইন এর সালফোনেশনের তাপমাত্রা  ৫°C"
+    },
+    {
+      "question_no": 12,
+      "id": "122604",
+      "question": "নিচের কোনটি বলয় সক্রিয়কারী মূলক?",
+      "options": [
+        "–NO2",
+        "– NH2",
+        "– CHO",
+        "– COOH"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "122605",
+      "question": "নিচের কোনটি বলয় নিষ্ক্রিয় কারী মূলক?",
+      "options": [
+        "-X",
+        "–NH2",
+        "– CHO",
+        "– OH"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "122606",
+      "question": "(4n+2) হাকেল নীতিতে n এর মান 3 হলে যৌগটির নাম কি?",
+      "options": [
+        "বেনজিন",
+        "টলুইন",
+        "অ্যানথ্রাসিন",
+        "পিরিডিন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "(4n+2) হাকেল নীতিতে \r\nn=1~বেনজিন\r\nn=2 ~ ন্যাফথালিন\r\nn=3 ~ অ্যানথ্রাসিন"
+    },
+    {
+      "question_no": 15,
+      "id": "122607",
+      "question": "স্যান্ডমেয়ার বিক্রিয়ার প্রভাবক কোনটি",
+      "options": [
+        "Cl2",
+        "ZnCl2",
+        "Cu2Br2",
+        "O3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এর বিক্রিয়ক হলো ডায়াজোনিয়াম লবণ।"
+    },
+    {
+      "question_no": 16,
+      "id": "122608",
+      "question": "ক্লোরোফরম কে ঝুঁকিমুক্ত রাখতে কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "3% প্রোপানল",
+        "1% ইথানল",
+        "1% বিউটানল",
+        "2% প্রোপানোন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "CHCl3 আলোর উপস্থিতিতে O2 দিয়ে জারিত হয়ে বিষাক্ত ফসজিন গ্যাস (COCl2) তৈরি করে। ফসজিন গ্যাস যাতে তৈরি হতে না পারে এজন্য CHCl3 কে রঙিন কাচে এবং ১% ইথানল সহযোগে রাখা হয়। ইথানল COCl2 কে ইথাইল কার্বোনেটে পরিণত করে যা পার্শ্ব প্রতিক্রিয়াহীন।"
+    },
+    {
+      "question_no": 17,
+      "id": "122609",
+      "question": "নিচের কোনটি ব্যবহারের দিক দিয়ে সঠিক নয়?",
+      "options": [
+        "ওয়েস্ট্রসল -ড্রাই ওয়াশ তরল",
+        "ওয়েস্ট্রন- কীটনাশক",
+        "BCF- অগ্নি নির্বাপক",
+        "ফ্রিয়ন -হিমায়ক তরল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": ">ওয়েস্ট্রসল -ড্রাই ওয়াশ তরল\r\n>ওয়েস্ট্রন- দ্রাবকরূপে ব্যবহার হয়\r\n>BCF- অগ্নি নির্বাপক\r\n> ফ্রিয়ন -হিমায়ক তরল"
+    },
+    {
+      "question_no": 18,
+      "id": "123576",
+      "question": "H3PO3 র ক্ষারকত্ব কতো?",
+      "options": [
+        "3",
+        "2",
+        "1",
+        "4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "H3PO4-3,,H3PO3-2,,H3PO2-1\r\nH2SO4-2,,H2SO3-1"
+    },
+    {
+      "question_no": 19,
+      "id": "123741",
+      "question": "বায়ুমণ্ডলের সংযুক্তিতে অক্সিজেন গ্যাসের পরিমাণ কত?",
+      "options": [
+        "78.9 %",
+        "20.94 %",
+        "0.033 %",
+        "75 %"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বায়ুমণ্ডলের সংযুক্তিতে–\r\noxygen ~ 20.94%\r\nNitrogen ~ 78.09%\r\nCarbon dioxide ~ 0.033%"
+    },
+    {
+      "question_no": 20,
+      "id": "123742",
+      "question": "ফুলারিনের কার্বন সংখ্যা নয় নিচের কোনটি",
+      "options": [
+        "৭০",
+        "৬০",
+        "৫০",
+        "৪০"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ফুলারিন এর উদাহরণ গুলো হলো~C32,C50,C60,C70"
+    },
+    {
+      "question_no": 21,
+      "id": "123743",
+      "question": "কোন সংকেতের জন্য মেটামার সমানু সম্ভব?",
+      "options": [
+        "C3H7O",
+        "C4H10O",
+        "C4H8O",
+        "C4H8O2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "দিযোজী কার্যকরী মূলক অর্থাৎ ইথার, কিটন ও secondary amin এর ক্ষেত্রে মেটামারিজম ঘটে। \r\nC4H10O এর তিনটি ইথার মেটামার সমানু আছে\r\n\r\nটটোমারিজম ~ গতিশীল সমানুতা"
+    },
+    {
+      "question_no": 22,
+      "id": "123744",
+      "question": "CH3CH2–CH2OH এর নামকরন হবে(উদ্ভুত পদ্ধতিতে)?",
+      "options": [
+        "প্রোপানল",
+        "প্রোপাইল কার্বিনল",
+        "ইথাইল কার্বিনল",
+        "ইথানল-1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "উদ্ভুত পদ্ধতিতে CH3OH হলো ~কার্বিনল মূলক\r\nতাই এটি হবে ইথাইল কার্বিনল।"
+    },
+    {
+      "question_no": 23,
+      "id": "123745",
+      "question": "আলোক সক্রিয় সমানুর বৈশিষ্ট্যের ক্ষেত্রে নিচের কোনটি সঠিক নয়?",
+      "options": [
+        "কাইরাল কেন্দ্র থাকে",
+        "উভয় সমানুর কনফিগারেশন পরস্পরের দর্পণ প্রতিবিম্ব হয়",
+        "এনআরশিওমারিজিম ও রেসিমিক মিশ্রন আলোক সক্রিয় সমানুর ধর্ম",
+        "উভয় কনফিগারেশন পরস্পরের ওপর সমাপতিত হয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": ">কাইরাল কেন্দ্র থাকে \r\n>উভয় সমানুর কনফিগারেশন পরস্পরের দর্পণ প্রতিবিম্ব হয় \r\n>এনানশিওমারিজম ও রেসিমিক মিশ্রন আলোক সক্রিয় সমানুর ধর্ম \r\n> উভয় কনফিগারেশন পরস্পরের ওপর অসমাপতিত হয়"
+    },
+    {
+      "question_no": 24,
+      "id": "123746",
+      "question": "নিচের কোনটি বিপাকীয় ক্রিয়ায় শক্তি উৎপন্ন করে?",
+      "options": [
+        "d গ্লুকোজ",
+        "l গ্লুকোজ",
+        "d এলানিন",
+        "l এলানিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "d গ্লুকোজ ~ বিপাক ক্রিয়ায় শক্তি উৎপন্ন করে \r\n l গ্লুকোজ ~ প্রস্রাব রূপে মুক্ত হয় \r\n d এলানিন ~ X\r\n l  এলানিন ~ প্রোটিন সংশ্লেষণে ব্যবহৃত হয়"
+    },
+    {
+      "question_no": 25,
+      "id": "123747",
+      "question": "অ্যারোমেটিক হাইড্রোকার্বন কি নামে পরিচিত?",
+      "options": [
+        "প্যারাফিন",
+        "অলিফিন",
+        "অ্যারিন",
+        "ফ্লোথেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্যারাফিন ~অ্যালকেন \r\nঅলিফিন ~অ্যালকিন \r\nঅ্যারিন~অ্যারোমেটিক হাইড্রোকার্বন"
+    },
+    {
+      "question_no": 26,
+      "id": "123748",
+      "question": "নিচের কোনটি সঠিক নয়?",
+      "options": [
+        "SN2 বিক্রিয়ার ওয়ালডেন ইনভারসন ঘটে",
+        "SN1 এ মধ্যবর্তী অস্থায়ী জটিল যৌগ তৈরি হয়",
+        "SN1 বিক্রিয়া দুই ধাপে ঘটে",
+        "SN2 বিক্রিয়া এক ধাপে ঘটে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": ">SN2 বিক্রিয়ার ওয়ালডেন ইনভারসন ঘটে\r\n>SN2 এ মধ্যবর্তী অস্থায়ী জটিল যৌগ তৈরি হয়\r\n>SN1 বিক্রিয়া দুই ধাপে ঘটে\r\n>SN2 বিক্রিয়া এক ধাপে ঘটে"
+    },
+    {
+      "question_no": 27,
+      "id": "123749",
+      "question": "STP তে কোনো গ্যাসের আয়তন 200 cm^3। একই তাপমাত্রায় গ্যাসের চাপ ½ গুন করলে V=?",
+      "options": [
+        "100",
+        "200",
+        "300",
+        "400"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "v is proportion to (1/p)"
+    },
+    {
+      "question_no": 28,
+      "id": "123750",
+      "question": "কোনটি মিথ্যা?",
+      "options": [
+        "সিস সমানুর গলনাংক বেশি",
+        "ট্রান্স সমানুর গলনাংক বেশি",
+        "সিস সমানুর দহন তাপ বেশি",
+        "ট্রান্স সমানুর অভ্যন্তরীণ শক্তি কম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": ">সিস সমানুর গলনাংক ও সুস্থিতি কম,বাকি সব কিছু বেশি।\r\n> ট্রান্স সমানুতে উল্টা।"
+    },
+    {
+      "question_no": 29,
+      "id": "123751",
+      "question": "কোনটি জারক পদার্থ?",
+      "options": [
+        "H2SO4",
+        "HBr",
+        "CO",
+        "SnCl2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "123752",
+      "question": "20% ( w/v) দ্রবণের NaOH মোলারিটি কত?",
+      "options": [
+        "2M",
+        "3M",
+        "4M",
+        "5M"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "123753",
+      "question": "নিচের কোনটি দ্বারা কার্বনিল মূলক শনাক্ত করা যায়?",
+      "options": [
+        "2,4-DNP",
+        "ফেলিং দ্রবন",
+        "লুকাস বিকারক",
+        "টলেন বিকারক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "2,4DNP কার্বনিল মূলকের সাথে বিক্রিয়া করে হলুদ কমলা বর্ণের অদক্ষেপ তৈরি করে"
+    },
+    {
+      "question_no": 32,
+      "id": "123754",
+      "question": "কোনটি আ্যালকেনের সাধারণ প্রস্তুতি নয়?",
+      "options": [
+        "সোডিয়াম কার্বক্সিলেট থেকে",
+        "পেট্রোল সংশ্লেষন",
+        "উর্টজ বিক্রিয়া দ্বারা",
+        "আ্যলকোহল থেকে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আ্যালকেনের সাধারণ প্রস্তুতি:\r\n\r\n>সোডিয়াম কার্বক্সিলেট থেকে\r\n>পেট্রোল সংশ্লেষন\r\n>উর্টজ বিক্রিয়া দ্বারা\r\n>কয়লা থেকে মিথেন উৎপাদন \r\n>অ্যালকিন ও অ্যালকাইন হতে \r\n>ক্লিমেনসেন বিজারণ দ্বারা।"
+    },
+    {
+      "question_no": 33,
+      "id": "123755",
+      "question": "অ্যালকাইন নিম্নের ধরনের বিক্রিয়া প্রদর্শন করে না?",
+      "options": [
+        "প্রতিস্থাপন",
+        "পলিমারকরণ",
+        "সমানুকরণ",
+        "জারন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অ্যালকাইন পাঁচ ধরনের বিক্রিয়া প্রদর্শন করে---->\r\n১। প্রতিস্থাপন \r\n২। পলিমারকরণ \r\n৩। জারণ \r\n৪। ওজনীকরণ \r\n৫। যুত বিক্রিয়া"
+    },
+    {
+      "question_no": 34,
+      "id": "123756",
+      "question": "সুপার কন্ডাক্টর এর বৈশিষ্ট্য নয় কোনটি?",
+      "options": [
+        "সংকর ধাতু & সংকর ধাতুর অক্সাইড",
+        "নির্দিষ্ট সন্ধি তাপমাত্রা থাকে",
+        "সন্ধি তাপমাত্রার নিচে রোধ বিদ্যমান",
+        "Nb3Ge এর Tc 23.2K"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুপার কন্ডাক্টর বৈশিষ্ট্য :\r\n\t\r\n●\tসংকর ধাতুর সংকর ধাতুর অক্সাইড \r\n●\tনির্দিষ্ট সন্ধি তাপমাত্রা থাকে \r\n●\t Nb3Ge এর Tc 23.2K"
+    },
+    {
+      "question_no": 35,
+      "id": "123757",
+      "question": "তড়িৎ হচ্ছে-",
+      "options": [
+        "প্রোটনের প্রবাহ",
+        "ইলেকট্রনের প্রবাহ",
+        "নিউট্রনের প্রবাহ",
+        "ফোটনের প্রবাহ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "123758",
+      "question": "নিচের কোন তথ্যটি সঠিক নয়?",
+      "options": [
+        "সবল তড়িৎ বিশ্লেষ্য ~ KCl",
+        "দুর্বল তড়িৎ বিশ্লেষ্য ~ NaCl",
+        "তড়িৎ অবিশ্লেষ্য ~ CCl4",
+        "সেমিকন্ডাক্টর ~ Si"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": ">সবল তড়িৎ বিশ্লেষ্য ~ KCl,NaCl,HCl,H2SO4,NaOH,KOH\r\n>দুর্বল তড়িৎ বিশ্লেষ্য ~ HF,NH3,H3PO4,NH3\r\n>তড়িৎ অবিশ্লেষ্য ~ CCl4\r\n>সেমিকন্ডাক্টর ~ Si,Ge"
+    },
+    {
+      "question_no": 37,
+      "id": "123759",
+      "question": "SI পদ্ধতিতে পরিবাহিতার একক?",
+      "options": [
+        "সিমেন্স",
+        "ওহম",
+        "ল্যাম্বডা",
+        "পাই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "123760",
+      "question": "সিলভারের তড়িৎ রাসায়নিক তুল্যাঙ্কের একক কি?",
+      "options": [
+        "0.00001047 gC^-1",
+        "0.000010118 gC^-1",
+        "0.10447 gC^-1",
+        "0.001118 gC^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাইড্রোজেন ~ 0.000010447 g/C\r\nসিলভার ~ 0.001118 g/C"
+    },
+    {
+      "question_no": 39,
+      "id": "123761",
+      "question": "ব্রাইনের সংকেত কোনটি?",
+      "options": [
+        "Conc. NaCl(aq)",
+        "Conc. CaCl2(aq)",
+        "Dil. NaCl (aq)",
+        "Dil. CaCl2 (aq)"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সোডিয়াম ক্লোরাইড এর সম্পৃক্ত গাঢ় জলীয় দ্রবণের নাম ব্রাইন।"
+    },
+    {
+      "question_no": 40,
+      "id": "123762",
+      "question": "3 অ্যাম্পিয়ার তড়িৎ প্রবাহ 3 সেকেন্ড ধরে চললে কি পরিমান আধান জমা হবে?",
+      "options": [
+        "1 C",
+        "6 C",
+        "9 C",
+        "0 C"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Q= it = 3x3=9 C"
+    },
+    {
+      "question_no": 41,
+      "id": "123763",
+      "question": "Na2CO3 এর তুল্য ভর কত?",
+      "options": [
+        "80",
+        "49",
+        "53",
+        "31.75"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Na2CO3 এর তুল্য ভর \r\n= Na2CO3 এর আনবিক ভর/তুল্য সংখ্যা \r\n=106/2\r\n=53"
+    },
+    {
+      "question_no": 42,
+      "id": "123764",
+      "question": "বক্সাইট হতে কোন ধাতু নিষ্কাশন করা হয়?",
+      "options": [
+        "Al",
+        "Fe",
+        "Mn",
+        "Cu"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "123765",
+      "question": "তড়িৎ বিশ্লেষণ এর ব্যবহার সম্পর্কে সত্য নয় নিচের কোনটি?",
+      "options": [
+        "ডাউ পদ্ধতিতে Na নিষ্কাশন",
+        "ধাতু বিশুদ্ধকরন",
+        "বক্সাইট হতে Fe ধাতু নিষ্কাশন",
+        "ইলেক্ট্রোপ্লেটিং"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "তড়িৎ বিশ্লেষণ এর ব্যবহার :\r\n●\tডাউ পদ্ধতিতে Na নিষ্কাশন\r\n●\tধাতু বিশুদ্ধকরন\r\n●\tবক্সাইট হতে Al ধাতু নিষ্কাশন\r\n●\tইলেক্ট্রোপ্লেটিং"
+    },
+    {
+      "question_no": 44,
+      "id": "123766",
+      "question": "সক্রিয়তা ক্রমের কোন প্রয়োগটি ভুল?",
+      "options": [
+        "প্রতিস্থাপন বিক্রিয়ার ধারণা পাওয়া যায়",
+        "জৈব যৌগের সমানুতা সম্পর্কে ধারণা পাওয়া যায়",
+        "অ্যাসিড থেকে হাইড্রোজেন প্রতিস্থাপনের ধারণা পাওয়া যায়",
+        "তড়িৎ কোষে অ্যানোড ক্যাথোড নির্বাচনের ধারণা পাওয়া যায়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সক্রিয়তা ক্রমের প্রয়োগ : \r\n●\tধাতুর সক্রিয়তা \r\n●\tবিক্রিয়ার সম্ভবত সম্পর্কে ধারণা \r\n●\tপ্রতিস্থাপন বিক্রিয়ার ধারণা \r\n●\tএসিড থেকে হাইড্রোজেন প্রতিস্থাপনের ধারণা \r\n●\tতড়িৎ কোষে অ্যানোড ও ক্যাথোড নির্বাচনের ধারণা।"
+    },
+    {
+      "question_no": 45,
+      "id": "123767",
+      "question": "নিচের কোনটি ক্যালোমেল নামে পরিচিত?",
+      "options": [
+        "Hg2Cl",
+        "HgCl",
+        "Hg2Cl2",
+        "HgCl2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কঠিন মারকিউরাস ক্লোরাইড(Hg2Cl2) লবণকে ক্যালোমেল বলে।"
+    },
+    {
+      "question_no": 46,
+      "id": "123768",
+      "question": "বিক্রিয়ার সাম্যবস্থায় থাকার শর্ত নিচের কোনটি?",
+      "options": [
+        "Ecell >0",
+        "Ecell < 0",
+        "Ecell= 0",
+        "Ecell =1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ecell >0 ~ কোষ বিক্রিয়া স্বতঃস্ফূর্ত হয় \r\nEcell= 0 ~কোষ বিক্রিয়া সাম্যবস্থায় রয়েছে \r\nEcell<0 ~কোষ বিক্রিয়া স্বতঃস্ফূর্ত নয়"
+    },
+    {
+      "question_no": 47,
+      "id": "123769",
+      "question": "শুষ্ক কোষের EMF কত?",
+      "options": [
+        "2.5 V",
+        "1.5 V",
+        "1 V",
+        "5 V"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "123770",
+      "question": "K2MnO4 এর কেন্দ্রীয় পরমাণুর জারণ সংখ্যা কত?",
+      "options": [
+        "+7",
+        "+6",
+        "+5",
+        "+4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "123771",
+      "question": "সব সুপার অক্সাইডে O2 এর জারন সংখ্যা কত?",
+      "options": [
+        "0.5",
+        "-0.5",
+        "-2",
+        "+2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অক্সাইডে অক্সিজেনের জারণ সংখ্যা ~  -2\r\nপার অক্সাইডে অক্সিজেনের জারণ সংখ্যা ~ -1\r\nসুপার অক্সাইডে অক্সিজেনের জারণ সংখ্যা ~ -1/2"
+    },
+    {
+      "question_no": 50,
+      "id": "123772",
+      "question": "নির্দেশকের বৈশিষ্ট্য নয় কোনটি?",
+      "options": [
+        "pH রেঞ্জ থেকে কম হলে অম্লীয় বর্ণ দেখায়",
+        "একই pH এ বর্ণ পরিবর্তন করে",
+        "সামান্য pH পরিসরে বর্ণ পরিবর্তন করে",
+        "নির্দিষ্ট pH পরিসর রয়েছে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রকৃতপক্ষে সব নির্দেশকই একই pH এ বর্ণ পরিবর্তন করে না।"
+    },
+    {
+      "question_no": 51,
+      "id": "123773",
+      "question": "জারক পদার্থ সম্পর্কিত কোন তথ্যটি সঠিক নয়?",
+      "options": [
+        "ইলেকট্রন গ্রহীতা",
+        "ইলেকট্রন গ্রহনের প্রবণতা কম থাকলে বেশি সবল হয়",
+        "অপর বিক্রিয়ক পদার্থকে জারিত করে",
+        "নিজে বিজারিত হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জারক পদার্থ : \r\n●\tইলেকট্রন গ্রহীতা \r\n●\t ইলেকট্রন গ্রহনের প্রবণতা বেশি থাকলে বেশি সবল হয় \r\n●\t অপর বিক্রিয়ক পদার্থকে জারিত করে \r\n●\tনিজে বিজারিত হয়"
+    },
+    {
+      "question_no": 52,
+      "id": "123774",
+      "question": "HPLC তে স্থির মাধ্যম কোনটি?",
+      "options": [
+        "বন্ডেড ফেজ",
+        "বিশুদ্ধ পানি",
+        "মিথানল",
+        "অ্যাসিটো নাইট্রাইল মিশ্রণ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "123775",
+      "question": "দুর্বল অ্যাসিড ও সবল ক্ষারের প্রশমন বিন্দুতে pH?",
+      "options": [
+        "7.5",
+        "5.27",
+        "8.80",
+        "9.2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "●\tসবল এসিড ও সবল ক্ষার ~ 7\r\n●\tদুর্বল অ্যাসিড ও সবল ক্ষার ~ 5.27\r\n●\tসবল এসিড দুর্বল ক্ষার ~ 8.8"
+    },
+    {
+      "question_no": 54,
+      "id": "123776",
+      "question": "GC তে স্থির মাধ্যম?",
+      "options": [
+        "He",
+        "N2",
+        "H2",
+        "তরল পদার্থ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 55,
+      "id": "123777",
+      "question": "Ca(OCl)Cl অণুতে Cl এর জারণ অবস্থা :",
+      "options": [
+        "+1",
+        "-1",
+        "0",
+        "+1,-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 56,
+      "id": "123778",
+      "question": "প্রশমন বিক্রিয়ায় কোনটি উৎপন্ন হয়?",
+      "options": [
+        "এসিড",
+        "ক্ষার",
+        "পানি",
+        "গ্যাস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "123779",
+      "question": "AAS এ ব্যবহৃত যন্ত্র?",
+      "options": [
+        "ফাপা ক্যাথোড ল্যাম্প",
+        "নমুনা এটমাইজার",
+        "ফটোডিটেক্টর",
+        "সবগুলো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "123780",
+      "question": "এক মিলি মোল H2SO4 এর ভর কত?",
+      "options": [
+        "98g",
+        "9.8g",
+        "0.98g",
+        "0.098g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 59,
+      "id": "123781",
+      "question": "ppm মানে কী?",
+      "options": [
+        "Parts Per Million",
+        "Parts Per Mile",
+        "Parts per Mini",
+        "Parts per minute"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 60,
+      "id": "123782",
+      "question": "স্থির তাপমাত্রায় এক লিটার দ্রবণে যতো মোল দ্রব দ্রবীভূত থাকে তাকে কি বলে?",
+      "options": [
+        "নরমালিটি",
+        "মোলালিটি",
+        "মোলারিটি",
+        "মোলার দ্রবন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মোলার দ্রবন ~ মোল/লিটার\r\nসেমিমোলার দ্রবন ~ 0.5 মোল / লিটার"
+    },
+    {
+      "question_no": 61,
+      "id": "123783",
+      "question": "নিচের কোনটি দ্রবণের ঘনমাত্রা শতকরা হারের প্রকাশ নয়?",
+      "options": [
+        "w/w",
+        "v/v",
+        "w/v",
+        "v/w"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শতকরা ভর ~ w/w\r\nশতকরা আয়তন ~ w/v"
+    },
+    {
+      "question_no": 62,
+      "id": "123784",
+      "question": "10% Na2CO3 দ্রবনের মোলার ঘনমাত্রা কত?",
+      "options": [
+        "0.493 mol/l",
+        "0.365 mol/l",
+        "0.943 mol/l",
+        "0.394 mol/l"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ঘনমাত্রা= 10x/M = 10X10/106= 0.943mol"
+    },
+    {
+      "question_no": 63,
+      "id": "123785",
+      "question": "নিচের কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "HCl",
+        "K2Cr2O7",
+        "কস্টিক সোডা",
+        "H2SO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "HCl ছাড়া সকল প্রাইমারি স্ট্যান্ডার্ড পদার্থ এর সংকেতে C থাকে।"
+    },
+    {
+      "question_no": 64,
+      "id": "123786",
+      "question": "মোলার দ্রবণের একক -",
+      "options": [
+        "molL^-1kg^-1",
+        "mol/L",
+        "mole",
+        "mol^-1L^-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 65,
+      "id": "123787",
+      "question": "3.5% NaHCO3 এর ঘনমাত্রা কত মোলার",
+      "options": [
+        "0.3301",
+        "0.4167",
+        "0.5267",
+        "0.8132"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 66,
+      "id": "123788",
+      "question": "নিচের কোনটি সঠিক?",
+      "options": [
+        "সেমিমোলার দ্রবণের ঘনমাত্রা ~ 0.5 M",
+        "ডেসিমোলার দ্রবণের ঘনমাত্রা ~ 1M",
+        "সেন্টিমোলার দ্রবণের ঘনমাত্রা ~ 2M",
+        "মিলিমোলার দ্রবনের ঘনমাত্রা ~ 0.0001M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "●\tসেমিমোলার দ্রবণের ঘনমাত্রা ~ 0.5 M\r\n●\tডেসিমোলার দ্রবণের ঘনমাত্রা ~ 0.1M\r\n●\tসেন্টিমোলার দ্রবণের ঘনমাত্রা ~ 0.01M\r\n●\tমিলিমোলার দ্রবনের ঘনমাত্রা ~ 0.001M"
+    },
+    {
+      "question_no": 67,
+      "id": "123789",
+      "question": "হাড় ভঙ্গুর হয় কোনটির জন্য?",
+      "options": [
+        "Cd",
+        "Pb",
+        "Cr",
+        "As"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 68,
+      "id": "123790",
+      "question": "NaCl এর ফর্মুলা ভর কত?",
+      "options": [
+        "23",
+        "35.5",
+        "58.5",
+        "12.5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফর্মুলা ভর = আণবিক ভর"
+    },
+    {
+      "question_no": 69,
+      "id": "123791",
+      "question": "প্রমাণ অবস্থায় 1.7g Amonia গ্যাসের আয়তন কত?",
+      "options": [
+        "22.4L",
+        "1.7 L",
+        "2.24 L",
+        "0.224 L"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আয়তন = 22.4x1.7/17=2.24 L"
+    },
+    {
+      "question_no": 70,
+      "id": "123792",
+      "question": "100g কঠিন চুনাপাথর বিয়োজিত হয়ে কত গ্রাম কঠিন CaO উৎপন্ন হয়?",
+      "options": [
+        "58 g",
+        "52 g",
+        "65 g",
+        "56 g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "CaCO3➤CaO+CO2\r\n(100g)\t   (56g)"
+    },
+    {
+      "question_no": 71,
+      "id": "123793",
+      "question": "কোন আক্রমণকারী বিকারকটি আধান বিহীন?",
+      "options": [
+        "electrophile",
+        "nucleophile",
+        "free radical",
+        "Carbo cation"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 72,
+      "id": "123794",
+      "question": "Walden inversion কোন বিক্রিয়ার ঘটনা?",
+      "options": [
+        "Sn1",
+        "Sn2",
+        "E2",
+        "E1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "স্টেরিক বাধার ফলে Sn2 বিক্রিয়ায় Walden inversion হয়"
+    },
+    {
+      "question_no": 73,
+      "id": "123795",
+      "question": "নিচের কোনটি সত্য নয়?",
+      "options": [
+        "আর্সেনিক দূষণের প্রভাব ব্ল্যাক ফুট ডিজিজ",
+        "লেড দূষণের প্রভাব শিশুর আইকিউ হ্রাস",
+        "ক্রোমিয়াম দূষণের প্রভাব অ্যানিমিয়া",
+        "ক্যাডমিয়াম দূষণের প্রভাব ফ্যাটি লিভার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আর্সেনিক  দূষণের প্রভাব~ ব্ল্যাক ফুট ডিজিজ \r\nলেড দূষণের প্রভাব~ শিশুর আইকিউ হ্রাস\r\nক্রোমিয়াম দূষণের প্রভাব ~অ্যানিমিয়া \r\nক্যাডমিয়াম দূষণের প্রভাব ~ ইটাই ইটাই"
+    },
+    {
+      "question_no": 74,
+      "id": "123796",
+      "question": "মানুষের ক্ষেত্রে Cd এর লেথাল ডোজ কত?",
+      "options": [
+        "1g",
+        "1mg",
+        "2g",
+        "0.1g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 75,
+      "id": "123797",
+      "question": "প্রাকৃতিক বিষের রাজার নামে পরিচিত?",
+      "options": [
+        "As",
+        "Pb",
+        "Ni",
+        "Cd"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মানব শরীরে আর্সেনিকের সর্বোচ্চ সহনশীল মাত্রা \r\n0.05mg/L"
+    },
+    {
+      "question_no": 76,
+      "id": "123798",
+      "question": "পানির বিশুদ্ধতার মানদণ্ড নয় কোনটি?",
+      "options": [
+        "pH",
+        "Hardness",
+        "Residual CI",
+        "TDS"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পানির বিশুদ্ধতার মানদণ্ড~\r\n●\tpH\r\n●\tHardness\r\n●\tResidual C1\r\n●\tBOD\r\n●\tCOD \r\n●\tTDS"
+    },
+    {
+      "question_no": 77,
+      "id": "123799",
+      "question": "নিচের কোনটি লুইস এসিড নয়?",
+      "options": [
+        "Cu2+",
+        "বোরিক এসিড",
+        "BF3",
+        "CN^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "লুইস এসিড ~ CO2,SO2,SO3,BF3,AlCl3,Cu2u\r\nLewis base ~ NH3,H2O,OH-,CN-,Cl-"
+    },
+    {
+      "question_no": 78,
+      "id": "123800",
+      "question": "দূষণ H2SO4 এর সিংক কোনটি?",
+      "options": [
+        "পানি",
+        "সবুজ উদ্ভিদ",
+        "চুনাপাথর",
+        "বাষ্প"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দূষকের গ্রাহক \r\nCO2 ~ সমুদ্রের পানি, সবুজ উদ্ভিদ \r\nH2SO4 ~ চুনাপাথর"
+    },
+    {
+      "question_no": 79,
+      "id": "123801",
+      "question": "He এর উৎক্রম তাপমাত্রা কত?",
+      "options": [
+        "6° C",
+        "-240°C",
+        "0.3 °C",
+        "3°C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 80,
+      "id": "123802",
+      "question": "নিচের কোনটি ক্লিন ফুয়েল হিসেবে পরিচিত?",
+      "options": [
+        "CNG",
+        "LPG",
+        "CFC",
+        "LNG"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মূলত LPG clean fuel হিসেবে পরিচিত।"
+    },
+    {
+      "question_no": 81,
+      "id": "123803",
+      "question": "বায়ুমন্ডলের উষ্ণতম অঞ্চল কোনটি?",
+      "options": [
+        "ট্রপোস্ফিয়ার",
+        "স্ট্র‍্যাটোস্ফিয়ার",
+        "মেসোস্ফিয়ার",
+        "থার্মোস্ফিয়ার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শীতলতম অঞ্চল ~ মেসোস্ফিয়ার\r\nউষ্ণতম অঞ্চল ~ থার্মোস্ফিয়ার"
+    },
+    {
+      "question_no": 82,
+      "id": "123804",
+      "question": "বায়ুমণ্ডল সম্পর্কে সত্য নয় কোনটি?",
+      "options": [
+        "ভূপৃষ্ঠ থেকে ৫০০ কিলোমিটার পর্যন্ত বিস্তৃত",
+        "উচ্চতা বৃদ্ধির সাথে ঘনত্ব বৃদ্ধি পায়",
+        "উচ্চতা বৃদ্ধির সাথে চাপ কমতে থাকে",
+        "তাপমাত্রা অসমভাবে পরিবর্তিত হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উচ্চতা বৃদ্ধির সাথে সাথে বায়ুমণ্ডলের ঘনত্ব অনেক হ্রাস পায়।"
+    },
+    {
+      "question_no": 83,
+      "id": "123805",
+      "question": "৪ মোল অণুর গতিশক্তি কত?",
+      "options": [
+        "RT",
+        "3 RT",
+        "6 RT",
+        "3.5 RT"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "3/2 nRT\r\n=3/2x 4RT\r\n=6 RT"
+    },
+    {
+      "question_no": 84,
+      "id": "123806",
+      "question": "পৃথিবীর বর্তমান গড় তাপমাত্রা কত?",
+      "options": [
+        "১৪ ডিগ্রি সেলসিয়াস",
+        "১৫ ডিগ্রি সেলসিয়াস",
+        "১৬ ডিগ্রি সেলসিয়াস",
+        "১৭ ডিগ্রি সেলসিয়াস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 85,
+      "id": "123807",
+      "question": "হেটারোস্ফিয়ারের মূখ্য উপাদান নয়---->",
+      "options": [
+        "H",
+        "He",
+        "N2",
+        "O3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 86,
+      "id": "123808",
+      "question": "কোন বিজ্ঞানী পরম তাপমাত্রা স্কেল উদ্ভাবন করেন?",
+      "options": [
+        "উইলিয়াম থমসন",
+        "বয়েল",
+        "গ্রাহাম",
+        "এভোগেড্রো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "উইলিয়াম থমসনের অপর নাম লর্ড কেলভিন"
+    },
+    {
+      "question_no": 87,
+      "id": "123809",
+      "question": "ঘূর্ণিঝড় সম্পর্কে সঠিক কোনটি?",
+      "options": [
+        "সমুদ্রের বায়ুমন্ডলের উচ্চ চাপের ফলে সৃষ্ট",
+        "সাগরের পানির তাপমাত্রা ৮০° সেলসিয়াস এর বেশি হয়",
+        "গতিবেগ ঘন্টায় ৪০ মাইল হতে হয়",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "> সমুদ্রের বায়ুমন্ডলের নিম্ন চাপের ফলে সৃষ্ট \r\n> গতিবেগ ঘন্টায় ৬৩ কিমি বা ৪০ মাইল হতে হয় \r\n> বিষুব্রেখার উত্তরে পাঁচ থেকে বিশ ডিগ্রি উত্তর অক্ষাংশে হয়"
+    },
+    {
+      "question_no": 88,
+      "id": "123810",
+      "question": "নিউক্লিয়ার পাওয়ার স্টেশনে জ্বালানী রূপে ব্যবহৃত হয়?",
+      "options": [
+        "238 urenium",
+        "236 urenium",
+        "237 urenium",
+        "235 urenium"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 89,
+      "id": "123811",
+      "question": "কম পেশনযোগ্য গ্যাস কোনটি?",
+      "options": [
+        "H2",
+        "O2",
+        "CH4",
+        "CO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কম পেশনযোগ্য গ্যাস ~ H2,He, N2\r\nবেশি পেশনযোগ্য গ্যাস ~ O2,CO2"
+    },
+    {
+      "question_no": 90,
+      "id": "123812",
+      "question": "25°C তাপমাত্রায় H2 গ্যাসের rms বেগ কতো?",
+      "options": [
+        "1840 m/s",
+        "1920 m/s",
+        "1960 m/s",
+        "2050 m/s"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "25°C তাপমাত্রায় H2 গ্যাসের rms বেগ 1920 m/s"
+    },
+    {
+      "question_no": 91,
+      "id": "123813",
+      "question": "লোহা কাটার কাজে নিজের কোন গ্যাসটি ব্যবহৃত হয়?",
+      "options": [
+        "মারক্যাপ্টন",
+        "আর্গন",
+        "বিউটেন",
+        "এসিটিলিন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 92,
+      "id": "123814",
+      "question": "পদার্থের তড়িৎ রাসায়নিক তুল্যাঙ্কের একক কি?",
+      "options": [
+        "C",
+        "g/C",
+        "1/C",
+        "1/S"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 93,
+      "id": "123815",
+      "question": "পানির ডাই ইলেকট্রিক ধ্রুবক কত?",
+      "options": [
+        "40",
+        "80",
+        "10",
+        "70"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 94,
+      "id": "123816",
+      "question": "নিচের কোনটি ইলেকট্রনীয় পরিবাহী নয়?",
+      "options": [
+        "গ্রাফাইট",
+        "পারদ",
+        "কঠিন NaCl",
+        "এলুমিনিয়াম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্রাফাইট হল অধাতব ইলেকট্রন পরিবাহী। \r\nপারদ তরল ধাতু হলেও ইলেকট্রন পরিবাহী।"
+    },
+    {
+      "question_no": 95,
+      "id": "123817",
+      "question": "আয়তন সংশোধন ফ্যাক্টরের একক কি?",
+      "options": [
+        "L",
+        "mol/L",
+        "L/mol",
+        "Lmol"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 96,
+      "id": "123818",
+      "question": "CO এর সন্ধি চাপ কত?",
+      "options": [
+        "111.5 atm",
+        "12.5 atm",
+        "72.9 atm",
+        "2.26 atm"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "111.5 atm ~.NH3\r\n12.5 atm ~ H2\r\n72.9 atm ~ CO2\r\n2.26 atm ~ He"
+    },
+    {
+      "question_no": 97,
+      "id": "123819",
+      "question": "দুটি গ্যাসের মধ্যে গড় গতিশক্তি কখন সমান হয়?",
+      "options": [
+        "চাপ সমান থাকলে",
+        "তাপমাত্রা সমান হলে",
+        "তাপমাত্রা অসমান থাকলে",
+        "আয়তন সমান থাকলে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 98,
+      "id": "123820",
+      "question": "পরম শূন্য তাপমাত্রা তাপমাত্রা নিচের কোনটি?",
+      "options": [
+        "0K",
+        "298 K",
+        "25 ° K",
+        "25 ° F"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 99,
+      "id": "123821",
+      "question": "গ্রাফাইট সম্পর্কে মিথ্যা--->",
+      "options": [
+        "সংকরণ sp2",
+        "মুক্ত ইলেকট্রন থাকে",
+        "তড়িৎ পরিবহন করে নাহ",
+        "কার্বনের রূপভেদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্যাসের ক্ষেত্রে"
+    },
+    {
+      "question_no": 100,
+      "id": "123822",
+      "question": "নিচের কোনটি নাইট্রোসো মূলকের সংকেত?",
+      "options": [
+        "-CN",
+        "-NO2",
+        "-NO",
+        "-NC"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    }
+  ]
+}

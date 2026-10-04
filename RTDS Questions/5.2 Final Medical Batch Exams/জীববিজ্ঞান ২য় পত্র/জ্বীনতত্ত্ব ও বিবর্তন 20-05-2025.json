@@ -1,0 +1,708 @@
+{
+  "title": "জ্বীনতত্ত্ব ও বিবর্তন 20/05/2025",
+  "category": "5.2 Final Medical Batch Exams > জীববিজ্ঞান ২য় পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "107023",
+      "question": "'Survival of the fittest' কোন মতবাদের গুরুত্বপূর্ণ তত্ত্ব?",
+      "options": [
+        "ল্যামার্কিজম",
+        "ডারউইনবাদ",
+        "নব্য ডারউইন",
+        "জার্মপ্লাজম তত্ত্ব"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Survival of the fittest' ডারউইনবাদ মতবাদের গুরুত্বপূর্ণ তত্ত্ব।"
+    },
+    {
+      "question_no": 2,
+      "id": "108998",
+      "question": "নিম্নের কোনটি মেন্ডেলের প্রথম সূত্রের ব্যতিক্রম নয়?",
+      "options": [
+        "পরিপূরক জিন",
+        "সমপ্রকটতা",
+        "লিথাল জিন",
+        "অসম্পূর্ণ প্রকটতা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "●\tমেন্ডেলের ১ম সূত্রের ব্যতিক্রম সমূহ হলো-\r\n○\tঅসম্পূর্ণ প্রকটতা (১ঃ২ঃ১)\r\n○\tসমপ্রকটতা (১ঃ২ঃ১) \r\n○\tমরণ বা লিথাল জিন (২ঃ১)"
+    },
+    {
+      "question_no": 3,
+      "id": "109017",
+      "question": "মানুষের Y-জিন নিয়ন্ত্রিত বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "লাল-সবুজের বর্ণান্ধতা",
+        "হিমোফিলিয়া",
+        "ডুসেনি-মাসকুলার ডিস্ট্রফি",
+        "কানের লোম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "111591",
+      "question": "Rh ফ্যাক্টরের কোন সন্নিবেশটি সম্ভব?",
+      "options": [
+        "CCD",
+        "CDd",
+        "ccD",
+        "CDE"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মানুষের লোহিত রক্তকণিকায় একইসাথে ৩ টি অ্যান্টিজেন থাকে কিন্তু প্রতি জোড়ার দুটি উপাদান কখনও একসাথে থাকে না।তাই CDE সন্নিবেশটি সম্ভব"
+    },
+    {
+      "question_no": 5,
+      "id": "118970",
+      "question": "মানুষের দেহকোষে কতটি অটোসোম থাকে?",
+      "options": [
+        "22",
+        "23",
+        "44",
+        "46"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "119140",
+      "question": "প্রাকৃতিক নির্বাচন মতবাদের প্রবর্তন কে?",
+      "options": [
+        "ডারউইন",
+        "ল্যামার্ক",
+        "ভাইজম্যান",
+        "স্পেনসার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রাকৃতিক নির্বাচন মতবাদের প্রবর্তন ডারউইন"
+    },
+    {
+      "question_no": 7,
+      "id": "119144",
+      "question": "কোনটি সমবৃত্তীয় অঙ্গ?",
+      "options": [
+        "মানুষের হাত ও তিমির ফ্লিপার",
+        "মানুষের হাত ও ঘোড়ার সামনের পা",
+        "পাখি ও বাদুরের ডানা",
+        "পাখির ডানা ও প্রজাপতির ডানা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "119157",
+      "question": "Archaeopteryx কে কোন কোন শ্রেণির সংযোগকারী যোগসূত্র বলা হয়?",
+      "options": [
+        "উভচর পাখি",
+        "উভচর ও সরীসুপ",
+        "সরীসৃপ ও পাখি",
+        "পাখি ও স্তন্যপায়ী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "119159",
+      "question": "কোনটি সংযোগকারী যোগসূত্র রক্ষাকারী প্রাণী",
+      "options": [
+        "ক্যাঙ্গারু",
+        "প্লাটিপাস",
+        "ল্যাস্প্রে",
+        "হ্যাগফিশ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "121217",
+      "question": "সমপ্রকটতার ক্রিয়ায় F2 জনুর ফিনোটাইপিক অনুপাত কত?",
+      "options": [
+        "1:2:1",
+        "2 : 1",
+        "1:1",
+        "3 : 1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সমপ্রকটতার ক্রিয়ায় F2 জনুর ফিনোটাইপিক অনুপাত 1:2:1"
+    },
+    {
+      "question_no": 11,
+      "id": "121218",
+      "question": "Biogenic law কে দিয়েছেন?",
+      "options": [
+        "ল্যামার্ক",
+        "ডারউইন",
+        "হেকেল",
+        "ভাইসম্যান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যক্তিজনি জাতিজনির পুনরাবৃত্তি ঘটায়' তত্ত্বটির প্রবক্তা হেকেল + Biogenic law দেন"
+    },
+    {
+      "question_no": 12,
+      "id": "121219",
+      "question": "সর্বপ্রথম Genetics শব্দটি ব্যবহার করেন কে?",
+      "options": [
+        "Bateson",
+        "Karl Correns",
+        "Mendel",
+        "de Vries"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সর্বপ্রথম Genetics শব্দটি ব্যবহার করেন Bateson"
+    },
+    {
+      "question_no": 13,
+      "id": "121220",
+      "question": "রক্তগ্রুপ আবিষ্কার করেন কে?",
+      "options": [
+        "কার্ল ল্যান্ডস্টেইনার",
+        "ডারউইন",
+        "হুগো দ্যা ভ্রিস",
+        "সাটন ও বোভারি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "রক্তগ্রুপ আবিষ্কার করেন কার্ল ল্যান্ডস্টেইনার"
+    },
+    {
+      "question_no": 14,
+      "id": "121221",
+      "question": "রক্ত তঞ্চনের কত নম্বর ফ্যাক্টর অনুপস্থিত থাকলে হিমোফিলিয়া B হয়?",
+      "options": [
+        "X",
+        "XII",
+        "IX",
+        "VII"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "রক্ত তঞ্চনের IX নম্বর ফ্যাক্টর অনুপস্থিত থাকলে হিমোফিলিয়া B হয়"
+    },
+    {
+      "question_no": 15,
+      "id": "121222",
+      "question": "কোন উদ্ভিদে XX-XO লিঙ্গ নির্ধারণ পদ্ধতি দেখা যায়?",
+      "options": [
+        "গাঁজা",
+        "তেলাকুচা",
+        "Dioscorea",
+        "ঢেঁড়স"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Dioscorea উদ্ভিদে XX-XO লিঙ্গ নির্ধারণ পদ্ধতি দেখা যায়"
+    },
+    {
+      "question_no": 16,
+      "id": "121223",
+      "question": "মানুষের লিঙ্গ নির্ধারণ করা হয় কোন পদ্ধতিতে",
+      "options": [
+        "XX-XY",
+        "XX-XX",
+        "XX-XO",
+        "ZZ-ZO"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মানুষের লিঙ্গ নির্ধারণ করা হয় XX-XY  পদ্ধতিতে"
+    },
+    {
+      "question_no": 17,
+      "id": "121224",
+      "question": "Ishihara color test দিয়ে কোনটি শনাক্ত করা হয়?",
+      "options": [
+        "লাল সবুজ বর্ণান্ধতা",
+        "মায়োপিয়া",
+        "হিমোফিলিয়া",
+        "রাতকানা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Ishihara color test দিয়ে লাল সবুজ বর্ণান্ধতা শনাক্ত করা হয়"
+    },
+    {
+      "question_no": 18,
+      "id": "121225",
+      "question": "কয় ধরনের মাসক্যুলার ডিসট্রফি দেখা যায়?",
+      "options": [
+        "২৫",
+        "৩০ এর বেশি",
+        "৯ এর বেশি",
+        "১৫"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "৩০ এর বেশি মাসক্যুলার ডিসট্রফি দেখা যায়"
+    },
+    {
+      "question_no": 19,
+      "id": "121226",
+      "question": "সার্বজনীন গ্রহীতা বলা হয় কোন ব্লাড গ্রুপকে ?",
+      "options": [
+        "O+",
+        "AB-",
+        "AB+",
+        "O-"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "AB+ কে সার্বজনীন গ্রহীতা বলা হয়"
+    },
+    {
+      "question_no": 20,
+      "id": "121227",
+      "question": "ডারউইনবাদের মূল প্রতিপাদ্য কোনটি?",
+      "options": [
+        "জীবন সংগ্রাম",
+        "অন্তর্নিহিত প্রাণশক্তি",
+        "অর্জিত গুণাবলির উত্তরাধিকার",
+        "অঙ্গের ব্যবহার ও অব্যবহার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ডারউইনবাদের মূল প্রতিপাদ্য জীবন সংগ্রাম"
+    },
+    {
+      "question_no": 21,
+      "id": "121228",
+      "question": "ল্যামার্কের প্রথম সূত্র কোনটি?",
+      "options": [
+        "বৃদ্ধি",
+        "অর্জিত বৈশিষ্ট্যের উত্তরাধিকার",
+        "ব্যবহার ও অব্যবহার",
+        "পরিবেশের প্রভাব"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ল্যামার্কের প্রথম সূত্র বৃদ্ধি"
+    },
+    {
+      "question_no": 22,
+      "id": "121229",
+      "question": "বিবর্তনের জনক কে?",
+      "options": [
+        "ডারউইন",
+        "ল্যামার্ক",
+        "মেন্ডেল",
+        "এম্পেডোক্লিস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিবর্তনের জনক এম্পেডোক্লিস"
+    },
+    {
+      "question_no": 23,
+      "id": "121230",
+      "question": "মানবদেহে লুপ্তপ্রায় অঙ্গ নয় কোনটি ?",
+      "options": [
+        "অ্যাপেনডিক্স",
+        "কর্ণপেশি",
+        "উপপল্লব",
+        "থাইরয়েড গ্রন্থি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মানবদেহে লুপ্তপ্রায় অঙ্গ অ্যাপেনডিক্স,কর্ণপেশি, উপপল্লব ইত্যাদি"
+    },
+    {
+      "question_no": 24,
+      "id": "121231",
+      "question": "Neo-Darwinism এর প্রবর্তক কে?",
+      "options": [
+        "ডারউইন",
+        "ভাইজম্যান",
+        "ল্যামার্ক",
+        "কার্ল করেন্স"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Neo-Darwinism এর প্রবর্তক ভাইজম্যান"
+    },
+    {
+      "question_no": 25,
+      "id": "121232",
+      "question": "নিচের কোনটির ফিনোটাইপিক অনুপাত ১:২:১?",
+      "options": [
+        "সহপ্রকটতা",
+        "দ্বিতীয় সূত্র",
+        "পরিপূরক জিন",
+        "সমপ্রকটতা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সমপ্রকটতার ফিনোটাইপিক অনুপাত ১:২:১"
+    },
+    {
+      "question_no": 26,
+      "id": "121233",
+      "question": "ব্যয়াম বা দৌড়ানো সময় অস্থিসন্ধির রক্তক্ষরণকে কী বলে?",
+      "options": [
+        "ডায়ারথ্রোসিস",
+        "ফিনারথ্রোসিস",
+        "হেমারথ্রোসিস",
+        "আর্থোসিস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যয়াম বা দৌড়ানো সময় অস্থিসন্ধির রক্তক্ষরণকে হেমারথ্রোসিস বলে"
+    },
+    {
+      "question_no": 27,
+      "id": "121234",
+      "question": "সর্বপ্রথম evolution শব্দটি কে ব্যবহার করেন?",
+      "options": [
+        "অ্যারিস্টটল",
+        "ডারউইন",
+        "ডেমোক্রিটাস",
+        "স্পেনসার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সর্বপ্রথম evolution শব্দটি স্পেনসার ব্যবহার করেন"
+    },
+    {
+      "question_no": 28,
+      "id": "121235",
+      "question": "সন্তান জন্মের কত ঘন্টার মধ্যে মাকে Anti-D ইনজেকশন দিতে হবে ?",
+      "options": [
+        "৪৮",
+        "৬০",
+        "৭২",
+        "৯৬"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "121236",
+      "question": "মানুষের প্রতিকোষে কত জোড়া ক্রোমোজোম থাকে ?",
+      "options": [
+        "৪৪",
+        "২৩",
+        "৪৬",
+        "২২"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মানুষের প্রতিকোষে 23 জোড়া ক্রোমোজোম থাকে"
+    },
+    {
+      "question_no": 30,
+      "id": "121237",
+      "question": "পলিজিনের অস্বাভাবিকতায় সৃষ্ট রোগ নয় কোনটি ?",
+      "options": [
+        "অটিজম",
+        "ডায়াবেটিস টাইপ-2",
+        "ক্যানসার",
+        "বর্ণান্ধতা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পলিজিনের অস্বাভাবিকতায় সৃষ্ট রোগ :অটিজম,ডায়াবেটিস টাইপ-2, ক্যানসার ইত্যাদি।"
+    },
+    {
+      "question_no": 31,
+      "id": "121238",
+      "question": "অ্যালভিওলাসে কত ধরনের কোষ থাকে?",
+      "options": [
+        "৪",
+        "৫",
+        "২",
+        "৩"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "৫ ধরনের\r\n\r\n১. টাইপ -১ অ্যালভিওলার কোষ\r\n২. টাইপ -২ অ্যালভিওলার কোষ\r\n৩. অ্যালভিওলার ম্যাক্রোফেজ\r\n৪. এন্ডোথেলিয়াল কোষ\r\n৫. লোহিক কণিকক"
+    },
+    {
+      "question_no": 32,
+      "id": "121239",
+      "question": "কোনটি মেন্ডেলের দ্বিতীয় সূত্র ?",
+      "options": [
+        "পৃথকীকরণ সূত্র",
+        "স্বাধীনভাবে মিলনের সূত্র",
+        "মনোহাইব্রিড ক্রস সূত্র",
+        "জননকোষ শুদ্ধতার সূত্র"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মেন্ডেলের দ্বিতীয় সূত্র কে স্বাধীনভাবে মিলনের সূত্র বলা হয়"
+    },
+    {
+      "question_no": 33,
+      "id": "121240",
+      "question": "মেন্ডেল কত প্রকার মটরশুঁটি নিয়ে গবেষণা করেন ?",
+      "options": [
+        "৭",
+        "৩৪",
+        "২৩",
+        "২৭"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মেন্ডেল ৩৪ প্রকার মটরশুঁটি নিয়ে গবেষণা করেন"
+    },
+    {
+      "question_no": 34,
+      "id": "121241",
+      "question": "ড্রসোফিলা মাছির লুপ্তপ্রায় ডানা সৃষ্টিকারী লিথাল জিন কোন ধরনের?",
+      "options": [
+        "সাবভাইটাল",
+        "সেমিলিথাল",
+        "সাবলিথাল",
+        "সেমিভাইটাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ড্রসোফিলা মাছির লুপ্তপ্রায় ডানা সৃষ্টিকারী লিথাল জিন সাবভাইটাল ধরনের"
+    },
+    {
+      "question_no": 35,
+      "id": "121242",
+      "question": "লিথাল জিনের কারণে কোন রোগ হয়?",
+      "options": [
+        "হিমোফিলিয়া ও থ্যালাসেমিয়া",
+        "থ্যালাসেমিয়া ও বর্ণান্ধতা",
+        "বর্ণান্ধতা ও রাতকানা",
+        "রাতকানা ও হিমোফিলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লিথাল জিনের কারণে হিমোফিলিয়া ও থ্যালাসেমিয়া রোগ হয়"
+    },
+    {
+      "question_no": 36,
+      "id": "121243",
+      "question": "নিচের কোনটি পলিজেনিক ইনহেরিট্যান্স নয়?",
+      "options": [
+        "মানুষের উচ্চতা",
+        "মানুষের লিঙ্গ",
+        "গায়ের রং",
+        "গাভির দুধের রং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মানুষের লিঙ্গ ক্রোমোজোম কর্তৃক নির্ধারিত হয়।"
+    },
+    {
+      "question_no": 37,
+      "id": "121244",
+      "question": "অটিজম ও মানসিক ভারসাম্যহীনতা দেখা দেয় কোনটিতে?",
+      "options": [
+        "ডায়াবেটিস ইনসিপিডাস",
+        "ফ্রাজাইল X সিনড্রোম",
+        "মাসকুলার ডিসট্রফি",
+        "হাইপারট্রাইকোসিস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ফ্রাজাইল X সিনড্রোমে অটিজম ও মানসিক ভারসাম্যহীনতা দেখা দেয়।"
+    },
+    {
+      "question_no": 38,
+      "id": "121245",
+      "question": "দ্বৈত প্ৰচ্ছন্ন এপিস্ট্যাসিসের উদাহরণ কোনটি?",
+      "options": [
+        "গোলাপী সন্ধ্যামালতী",
+        "হিমোফিলিয়া",
+        "জন্মগত মূক বধিরতা",
+        "বর্ণান্ধতা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দ্বৈত প্ৰচ্ছন্ন এপিস্ট্যাসিসের উদাহরণ মূক বধিরতা"
+    },
+    {
+      "question_no": 39,
+      "id": "121246",
+      "question": "জীবের প্রকাশিত লক্ষণকে কি বলা হয়?",
+      "options": [
+        "এক্সিবিশিনিজম",
+        "অ্যালিল",
+        "ফিনোটাইপ",
+        "জিনোটাইপ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "121247",
+      "question": "বংশগতিবিদ্যার জনক কে?",
+      "options": [
+        "নিউটন",
+        "অ্যাডাম স্মিথ",
+        "মেন্ডেল",
+        "ডারউইন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "121248",
+      "question": "রেসাস বানরের বৈজ্ঞানিক নাম কী?",
+      "options": [
+        "Nycticebus coucang",
+        "Rhinoceros unicornis",
+        "Panthera leo",
+        "Macaca mulatta"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "রেসাস বানরের বৈজ্ঞানিক নাম\r\nMacaca mulatta"
+    },
+    {
+      "question_no": 42,
+      "id": "121249",
+      "question": "নব্য ডারউইনবাদের প্রধান প্রবক্তা কে",
+      "options": [
+        "হাক্সলি",
+        "হেকেল",
+        "ল্যামার্ক",
+        "অগাস্ট ডাইজম্যন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "121250",
+      "question": "নিচের কোনটি কার্বনিফেরাস কালের প্রাণী?",
+      "options": [
+        "কাঁকড়া",
+        "বিছা",
+        "প্রবাল",
+        "হাঙ্গর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "121251",
+      "question": "নিচের কোনটি জীবন্ত জীবাশ্ম নয়?",
+      "options": [
+        "Limulus",
+        "Peripatus",
+        "Latimaraia",
+        "Archaeopteryx"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "121252",
+      "question": "বংশগতি বিজ্ঞানের জনক কে?",
+      "options": [
+        "গ্রেসর জোহান মেন্ডেল",
+        "এরিস্টোটল",
+        "লিনিয়াস",
+        "উইলিয়াম হার্ভে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "121253",
+      "question": "কোনটি বংশগতি রোগ নয়?",
+      "options": [
+        "ডায়াবেটিস",
+        "ডায়রিয়া",
+        "হিমোফিলিয়া",
+        "বর্ণান্ধতা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "121254",
+      "question": "স্তন্যপায়ীর প্রাধান্য ছিল কোন যুগে?",
+      "options": [
+        "ইওসিন",
+        "ওলিগোসিন",
+        "প্যালিওসিন",
+        "মায়োসিন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "121255",
+      "question": "ঘাতক জিন আবিষ্কার করেন কে?",
+      "options": [
+        "বেটসন",
+        "প্যানেট",
+        "ক্যুনো",
+        "কোরেন্স"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "121256",
+      "question": "কোনটি জীবিত?",
+      "options": [
+        "মেরিকহিপ্পাস",
+        "মেসোহিপ্পাস",
+        "ইকুয়াস",
+        "ইয়োহিপ্পাস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইকুয়াস সর্বাধুনিক ও জীবিত ঘোড়া"
+    },
+    {
+      "question_no": 50,
+      "id": "121257",
+      "question": "কোন কারণে ১৩ঃ৩ অনুপাত হয়?",
+      "options": [
+        "লিথাল জিন",
+        "পরিপূরক জিন",
+        "সেক্স লিংকড জিন",
+        "এপিস্ট্যাটিক জিন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    }
+  ]
+}

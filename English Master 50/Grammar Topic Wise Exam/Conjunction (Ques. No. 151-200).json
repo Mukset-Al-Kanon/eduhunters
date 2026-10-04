@@ -1,0 +1,761 @@
+{
+  "exam_id": 8406,
+  "title": "Conjunction (Ques. No. 151-200)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Conjunction, Interjection (233 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "1bc02ff0-87db-4935-98ea-cfd6781711be",
+      "question": "----- rather tired after their long journey,they did not go to bed.[]",
+      "options": [
+        "Although they were",
+        "As they were",
+        "Because they were",
+        "Since they were"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "c4504145-c972-469e-80d3-c1d6213fd5f2",
+      "question": "I saw a blind man ----- I was walking along the road.[]",
+      "options": [
+        "while",
+        "at the time",
+        "when",
+        "before"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "91fec38a-723f-437e-b566-5d0c0ce6afff",
+      "question": "Find the correct use of 'although'[]",
+      "options": [
+        "He likes music although he is always busy.",
+        "We deceived to return, Although, it was raining.",
+        "Although he is young,he is very careful.",
+        "My grandfather is over 70,he is although active."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "671b0753-3fab-4061-b222-55b949d8e6cc",
+      "question": "----- the day went on,the weather got worse.[]",
+      "options": [
+        "Just",
+        "Since",
+        "As",
+        "If"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "d0b77418-28f1-4dbe-8de9-dcf00821d902",
+      "question": "I will stay with you ----- there is a room free.[]",
+      "options": [
+        "as much as",
+        "as many as",
+        "as long as",
+        "as important as"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d58a16a2-5b32-4d78-a843-06385e0093cb",
+      "question": "Succeeding in college is often a challenge for students, -----, most colleges provide services designed to help.[]",
+      "options": [
+        "moreover",
+        "in addition",
+        "therefore",
+        "as a result"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "8e1cbc5a-c308-4a43-86e8-a752fada13d1",
+      "question": "The woman sees the cat out in the rain; -----, the cat is gone by the time the woman goes out.[]",
+      "options": [
+        "however",
+        "and",
+        "even if",
+        "after all"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "b1bb9079-5509-43e0-8859-840ccc08aa2d",
+      "question": "They like to keep their old houses rather than build new ones ----- it is very difficult and expensive to maintain them.[]",
+      "options": [
+        "because",
+        "even though",
+        "on the contrary",
+        "for example"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "7379c22a-64cc-4b0a-b041-526e8be66594",
+      "question": "The referee blew the whistle to end the game ----- there were two minutes left.[]",
+      "options": [
+        "therefore",
+        "although",
+        "since",
+        "however"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "f3a6e87e-38e7-407e-a92d-95617ef4fa60",
+      "question": "----- the rain, the cricket match was not cancelled.[]",
+      "options": [
+        "Due to",
+        "Although",
+        "Despite of",
+        "In spite of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "b9280b6a-1a7e-4ba4-92a6-d267ea25023d",
+      "question": "I awake one morning ----- found myself famous.[]",
+      "options": [
+        "when",
+        "and",
+        "but",
+        "then"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "b01bd51f-151f-4eb0-a0bf-0dce2489a20b",
+      "question": "I was annoyed, ----- I kept quiet.[]",
+      "options": [
+        "then",
+        "when",
+        "still",
+        "and"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "077038b0-7a5a-4beb-b6b1-736821b5a159",
+      "question": "Mr. Ahmed was rich ----- he was not a happy man.[]",
+      "options": [
+        "so",
+        "too",
+        "but",
+        "or"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "de9046eb-4253-43d4-b491-e59b76bb8b2e",
+      "question": "Farhana speaks English fluently; ----- she knows French.[]",
+      "options": [
+        "however",
+        "since",
+        "although",
+        "moreover"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "bbb96a0b-c910-4221-aa93-4e1d85183933",
+      "question": "----- we approached the house, we heard the sound of music.[]",
+      "options": [
+        "Then",
+        "Because",
+        "Though",
+        "When"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "8686f300-bcb7-4e37-9686-999cee3edebf",
+      "question": "The experts were looking for clues to determine ----- the fire started.[]",
+      "options": [
+        "what",
+        "that",
+        "how",
+        "who"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "5c252ff6-94dc-4dbf-ba42-836b8c370ad2",
+      "question": "Geysers have often been compared to volcanoes ----- they both emit hot liquids from below the earth's surface.[]",
+      "options": [
+        "due to",
+        "because",
+        "in spite of",
+        "regardless of"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "05ed47cc-543b-47c9-99aa-245c2922bd28",
+      "question": "I shall not go <u>until I am</u> invited.[]",
+      "options": [
+        "unless I am",
+        "till I am",
+        "once I am",
+        "if I am"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "c06f1b7b-cfc9-4446-aaee-15392bbc8c1b",
+      "question": "No one knows what colour dinosaurs were ----- no sample of their skin has survived.[]",
+      "options": [
+        "because of",
+        "because that",
+        "it is because",
+        "because"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "c45360b5-2495-45d4-9f5e-f82058f2adfb",
+      "question": "I would like to live in a place ----- is plenty of sunrise.[]",
+      "options": [
+        "where there",
+        "where",
+        "whenever",
+        "which"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "e59fd837-a2cc-4545-ab17-a5718c5a8ae3",
+      "question": "The date of the admission test was shifted ----- unavoidable reasons.[]",
+      "options": [
+        "because",
+        "On account",
+        "as result",
+        "because of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "9ad9ee91-eed7-4ec9-9872-ec8e5b22eaf9",
+      "question": "There is no doubt ----- we will win.[]",
+      "options": [
+        "whether",
+        "what",
+        "if",
+        "that"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "214ad22d-ba9a-46e5-9537-4f40f62b1c55",
+      "question": "He ----- the music, but also sings songs.[]",
+      "options": [
+        "only composes",
+        "not composes only",
+        "composes not only",
+        "not only composes"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "1060a4cd-9b84-4bc5-8df6-564e321090d6",
+      "question": "He ----- the music, but also sings songs.[]",
+      "options": [
+        "only composes",
+        "not composes only",
+        "composes not only",
+        "not only composes"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "a20150cc-3f0f-4d59-ac15-cb3bb850c641",
+      "question": "You know ----- I did it.[]",
+      "options": [
+        "because",
+        "so",
+        "little",
+        "why"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "2a22597a-afde-4d1a-b45d-f137e127d05a",
+      "question": "----- the candidate did not have very good grades, he managed to impress the board with his wonderful art of communication.[]",
+      "options": [
+        "Even",
+        "Since",
+        "Though",
+        "Despite"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "0c429a1d-5b3c-473c-9498-f14d75f3bbaf",
+      "question": "I shall wait for you ----- you do not return.[]",
+      "options": [
+        "until",
+        "if",
+        "till",
+        "unless"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "402b59b8-c778-489c-8749-6f7dd15f3878",
+      "question": "----- she is blind, she paints very well.[]",
+      "options": [
+        "Since",
+        "Because",
+        "Despite",
+        "Although"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "b5a91786-680b-4cba-aa69-2dbbbd1c4903",
+      "question": "The new teacher spoke so softly ----- we had to ask her to speak louder.[]",
+      "options": [
+        "and",
+        "that",
+        "what",
+        "who"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "2754ea60-d876-46b5-b8e2-384eb0b3fe73",
+      "question": "I will not sing the song ----- you sing with me.[]",
+      "options": [
+        "unless",
+        "because",
+        "lest",
+        "for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "c64169be-c3e2-464a-9862-95f0ae661436",
+      "question": "Build up your career ----- you ----- repent.[]",
+      "options": [
+        "lest, should",
+        "lest, must",
+        "or, should be",
+        "and, must"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "916affcf-c77b-4b29-b193-371476fcd65b",
+      "question": "----- a good student, he failed in the exam.\n----- the better team, we lost the game.[]",
+      "options": [
+        "Despite being",
+        "Despite of being",
+        "In spite of",
+        "Despite the fact of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "3ae2fe32-92d9-4d39-ad74-c418dca99e94",
+      "question": "The clock strikes ----- it is 12 o'clock.[]",
+      "options": [
+        "when",
+        "during",
+        "while",
+        "before"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "859656fd-1834-47a3-9a65-ac9c1eebae20",
+      "question": "We were expecting a beautiful weather at the beach,but it was so cold and rainy that ----- getting a suntan, I caught a cold.[]",
+      "options": [
+        "in case of",
+        "just as",
+        "instead of",
+        "no way"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "18fc7fa4-7f27-439f-91d8-327a29b93339",
+      "question": "You have to take the full course of your antibiotics ----- you feel better, ----- your illness will simply return.[]",
+      "options": [
+        "although, so that",
+        "unless, and",
+        "so that, or",
+        "even if, otherwise"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "181702a7-7c9a-4f1a-848b-dda057476d45",
+      "question": "----- your sincerest cooperation I would have failed.[]",
+      "options": [
+        "For",
+        "Only for",
+        "But also",
+        "But for"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "828bdbd0-2f82-4cb2-8f30-0850cf27e0b9",
+      "question": "Monkeys have sometimes been compared to Chimpanzees ----- they both share social behaviour.[]",
+      "options": [
+        "despite",
+        "because",
+        "in regard to",
+        "as a result of"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "862e2d9a-f245-485d-a7c0-4533aa8a94b9",
+      "question": "He speaks ----- he were a scientist.[]",
+      "options": [
+        "as if",
+        "if",
+        "because",
+        "like"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "a8da3dfc-3264-4a6f-b864-e12fdff955ab",
+      "question": "I went to school ----- of the bad weather.[]",
+      "options": [
+        "although",
+        "despite",
+        "even though",
+        "in spite"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "805362a3-5204-455e-9162-c38f0aa680a0",
+      "question": "Fungi do not absorb sunlight but use animals and plants, ----- living and dead as their source of food.[]",
+      "options": [
+        "besides",
+        "beside",
+        "together",
+        "both"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "9f376de4-2582-491a-bbbe-25313a552a6d",
+      "question": "It is uncertain ----- computes should take the credit for what they can do.[]",
+      "options": [
+        "what",
+        "which",
+        "whether",
+        "while"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "9567b641-5f23-4455-8ff9-ebf356966ecc",
+      "question": "Waste or rubbish is ----- we throw every day.\n----- happened to the tourist, is not uncommon.[]",
+      "options": [
+        "What",
+        "While",
+        "Which",
+        "That"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "a0d7a0ec-c5eb-4072-a23e-a6d092e55a29",
+      "question": "I tried to look happy ----- feeling miserable.[]",
+      "options": [
+        "in spite of",
+        "although",
+        "however",
+        "None of these"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "591c35cb-f74c-42e7-ba00-9111a617607f",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I eat neither mangoes nor bananas.",
+        "Neither I eat mangoes nor I eat bananas.",
+        "I eat mangoes neither bananas eat.",
+        "I neither eat mangoes or bananas."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "f09a5989-2c8e-4878-a1e0-a56ee1d01813",
+      "question": "We went out ----- the cold weather.[]",
+      "options": [
+        "despite",
+        "although",
+        "besides",
+        "None of these"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "d9ad1f5c-4b8d-4974-9d35-310957228426",
+      "question": "When the weather got worse we had no choice ----- to go home.[]",
+      "options": [
+        "yet",
+        "or",
+        "but",
+        "and"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "ae64bfbb-2df2-45a4-aef6-52d42ddbb919",
+      "question": "Do it right away ----- you will be scolded.[]",
+      "options": [
+        "for",
+        "or",
+        "but",
+        "and"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "7afd984c-2f4d-4f85-8812-bd0b2da37a22",
+      "question": "Some metals are malleable, ----- others are so brittle that they break easily when bent quickly.[]",
+      "options": [
+        "but",
+        "like",
+        "there",
+        "which"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "e58b0ca1-5efe-4289-9943-5393fbf5d260",
+      "question": "There are many reasons ----- people make friends.[]",
+      "options": [
+        "why",
+        "for",
+        "as",
+        "although"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "4a89a60d-d30e-4b81-90a5-0f501cc011a1",
+      "question": "Ask him ----- he likes it.[]",
+      "options": [
+        "if",
+        "that",
+        "though",
+        "as"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

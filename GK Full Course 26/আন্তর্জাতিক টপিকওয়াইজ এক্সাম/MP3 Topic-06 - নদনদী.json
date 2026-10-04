@@ -1,0 +1,956 @@
+{
+  "exam_id": 10425,
+  "title": "MP3 Topic-06 : নদনদী",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "ভৌগোলিক বৈচিত্র্য Exam",
+  "duration_minutes": 30,
+  "total_questions": 63,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "320d13fc-dbd8-4167-aa3d-830289c15071",
+      "question": "পৃথিবীর (তথা আফ্রিকার) দীর্ঘতম নদী (longest river) কোনটি? [SABAS][]",
+      "options": [
+        "কঙ্গো",
+        "নীলনদ",
+        "নাইজার",
+        "আমাজন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নীলনদ আফ্রিকা মহাদেশের দীর্ঘতম এবং পৃথিবীর দীর্ঘতম নদী হিসেবে স্বীকৃত।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "9113588b-8c9d-420e-9427-f2213e645cde",
+      "question": "পৃথিবীর বৃহত্তম নদী (largest river) কোনটি? [SABAS][]",
+      "options": [
+        "Nile",
+        "Mississippi",
+        "Amazon",
+        "Padma"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমাজন নদী পানি প্রবাহের পরিমাণের দিক থেকে পৃথিবীর বৃহত্তম নদী।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "fbd33522-def7-4755-992e-da9f82c53c55",
+      "question": "নীলনদের দৈর্ঘ্য কত? [SABAS][]",
+      "options": [
+        "৬৬৫০ কি.মি.",
+        "৬৫০০ কি.মি.",
+        "৬৪০০ কি.মি.",
+        "৬৩০০ কি.মি."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নীলনদের আনুমানিক দৈর্ঘ্য ৬৬৫০ কি.মি. বা ৪১৩২ মাইল।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "8a33e5f4-0d3e-4e9f-a6c7-9b9075a86707",
+      "question": "The river which carries maximum quantity of water into the sea? [SABAS][]",
+      "options": [
+        "Amazon",
+        "Nile",
+        "Ganges",
+        "Indus"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আমাজন নদী বিশ্বের সবচেয়ে বেশি পানি সমুদ্রে বহন করে।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "d7037d05-b49a-4d52-a153-d23dac93db4b",
+      "question": "নীল নদের উৎপত্তি হয়েছে— [SABAS][]",
+      "options": [
+        "ভিক্টোরিয়া",
+        "ককেশাস পর্বতমালা থেকে",
+        "পামির মালভূমি থেকে",
+        "ইথিওপিয়া পর্বতমালা থেকে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নীলনদ আফ্রিকার ভিক্টোরিয়া হ্রদ থেকে উৎপন্ন হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "ae7e9d84-e153-4c6a-8704-2b5adb047100",
+      "question": "পৃথিবীর দীর্ঘতম নদী ‘নীলনদ’ কয়টি দেশের মধ্যে দিয়ে প্রবাহিত হয়েছে? [SABAS][]",
+      "options": [
+        "৭টি",
+        "৮টি",
+        "৯টি",
+        "১১টি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নীলনদ আফ্রিকার মোট ১১টি দেশের মধ্য দিয়ে প্রবাহিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "b002dc02-5cd7-4512-ac5d-6a382b65bc9a",
+      "question": "নীল নদ কোন মহাদেশ দিয়ে প্রবাহিত? [SABAS][]",
+      "options": [
+        "দক্ষিণ আমেরিকা",
+        "উত্তর আমেরিকা",
+        "এশিয়া",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নীলনদ আফ্রিকা মহাদেশের মধ্য দিয়ে উত্তর দিকে প্রবাহিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "9aebedbd-c7f3-4e76-8a20-ddcd18dd77a2",
+      "question": "নীল নদ কোন দুটি দেশের মধ্য দিয়ে প্রবাহিত? [SABAS][]",
+      "options": [
+        "মিশর-লিবিয়া",
+        "মিশর-সুদান",
+        "লিবিয়া-মরক্কো",
+        "মিশর-ঘানা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নীলনদ মিশর ও সুদানসহ মোট ১১টি দেশের মধ্য দিয়ে প্রবাহিত।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "7f304913-7a82-442e-885f-90a3b101ef5e",
+      "question": "নীল নদের পানি নিয়ে দ্বন্দ্ব কোন দুই দেশের? [SABAS][]",
+      "options": [
+        "মিশর ও ইথিওপিয়া",
+        "সোমালিয়া ও মিশর",
+        "কেনিয়া ও তানজানিয়া",
+        "লিবিয়া ও উগান্ডা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নীলনদের পানি বণ্টন ও বাঁধ নির্মাণ নিয়ে মিশর ও ইথিওপিয়ার মধ্যে বিরোধ রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "872c8727-a21a-44ed-b942-c9880599fd5a",
+      "question": "নীল নদ প্রবাহিত— [SABAS][]",
+      "options": [
+        "উত্তর থেকে দক্ষিণে",
+        "দক্ষিণ থেকে উত্তরে",
+        "পূর্ব থেকে পশ্চিমে",
+        "পশ্চিম থেকে পূর্বে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নীলনদ দক্ষিণ থেকে উত্তরে প্রবাহিত হয়ে ভূমধ্যসাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "bdd53c57-9acf-452f-813e-baf09a64b1de",
+      "question": "নীলনদ কোন সাগরে পতিত হয়েছে? [SABAS][]",
+      "options": [
+        "লোহিত সাগরে",
+        "ভূমধ্যসাগরে",
+        "এডেন উপসাগরে",
+        "আরব সাগরে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নীলনদ উত্তর-পূর্ব আফ্রিকার মধ্য দিয়ে প্রবাহিত হয়ে মিশরের ভূমধ্যসাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "c8276713-2491-4ca5-ac9a-e3dd0a5603c7",
+      "question": "আফ্রিকার বৃহত্তম হ্রদ কোনটি? [SABAS][]",
+      "options": [
+        "তানজানিয়া",
+        "রুদলফ",
+        "আলবার্ট",
+        "ভিক্টোরিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ভিক্টোরিয়া হ্রদ আফ্রিকা মহাদেশের বৃহত্তম এবং বিশ্বের দ্বিতীয় বৃহত্তম মিঠা পানির হ্রদ।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "b6fa3237-02d4-4802-a252-7515e376cd17",
+      "question": "নিম্নে উল্লিখিত কোন হ্রদটি তানজানিয়া ও উগান্ডার মধ্যে আন্তর্জাতিক সীমানা হিসেবে বিবেচিত? [SABAS][]",
+      "options": [
+        "চাদ",
+        "মালাউই",
+        "ভিক্টোরিয়া",
+        "জামবেজি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভিক্টোরিয়া হ্রদের অংশবিশেষ তানজানিয়া, উগান্ডা এবং কেনিয়ার মধ্য দিয়ে সীমানা নির্ধারণ করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "e9d8969c-ab9b-47c9-a9d8-13a99bf89517",
+      "question": "আসওয়ান বাঁধ অবস্থিত— [SABAS][]",
+      "options": [
+        "তুরস্কে",
+        "মিশরে",
+        "ইরানে",
+        "পাকিস্তানে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আসওয়ান বাঁধ মিশরের নীল নদের ওপর নির্মিত একটি বৃহৎ বাঁধ।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "edd85f4b-9fb7-46be-87a4-af568f814b87",
+      "question": "পৃথিবীর দ্বিতীয় দীর্ঘতম নদী— [SABAS][]",
+      "options": [
+        "নীল",
+        "মিসিসিপি",
+        "আমাজন",
+        "সেন্ট লরেন্স"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নীলনদ বিশ্বের দীর্ঘতম নদী, আর আমাজন নদী দৈর্ঘ্য বিবেচনায় দ্বিতীয় অবস্থানে রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "ee8a2ad3-f8e2-43ab-b244-2783004b83d5",
+      "question": "পৃথিবীর প্রশস্ততম নদী কোনটি? [SABAS][]",
+      "options": [
+        "আমাজন",
+        "মেঘনা",
+        "মিসিসিপি",
+        "নীলনদ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আমাজন নদী তার বিশাল প্রশস্ততা এবং পানি ধারণ ক্ষমতার জন্য পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "b6010685-e338-43c3-a011-500c9e3a2d89",
+      "question": "আমাজন নদী কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা",
+        "এশিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমাজন নদী দক্ষিণ আমেরিকা মহাদেশের মধ্য দিয়ে প্রবাহিত একটি বিখ্যাত নদী।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "e0443e5a-ba6a-46ea-b40d-72a0a4ed4be2",
+      "question": "দক্ষিণ আমেরিকার দীর্ঘতম নদী কোনটি? [SABAS][]",
+      "options": [
+        "আমাজন",
+        "মারে ডার্লিং",
+        "নীলনদ",
+        "ভলগা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আমাজন নদী দক্ষিণ আমেরিকার দীর্ঘতম নদী হিসেবে স্বীকৃত।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "6fa58cf7-122e-4471-b0de-560e6f5443de",
+      "question": "What is the name of the river that does not cross by any bridge? [SABAS][]",
+      "options": [
+        "Yangtze",
+        "Amazon",
+        "Nile",
+        "Mwogo"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আমাজন নদী তার প্রশস্ততা এবং প্রতিকূল পরিবেশের কারণে এই নদী পারাপারের জন্য কোনো স্থায়ী ব্রিজ নেই।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "b76bccda-0e8d-4e23-886b-340a0d01da7a",
+      "question": "সবচেয়ে বড় নদী ‘মিসিসিপি’ কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "এশিয়া",
+        "আমেরিকা",
+        "ইউরোপ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মিসিসিপি নদী উত্তর আমেরিকা মহাদেশের দীর্ঘতম নদী ব্যবস্থা।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "e25a6a30-6b75-45d3-9e01-2bfbef5e342c",
+      "question": "মিসিসিপি-মিসৌরি নদীর একত্রে দৈর্ঘ্য প্রায়- [SABAS][]",
+      "options": [
+        "৯৫০৮ কি.মি.",
+        "৫০৯৮ কি.মি.",
+        "৬০৯৫ কি.মি.",
+        "৪০৯৫ কি.মি."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মিসিসিপি এবং মিসৌরি নদী ব্যবস্থার মিলিত দৈর্ঘ্য প্রায় ৬০৯৫ কি.মি. বা ৩৭৯০ মাইল।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "2d3d0113-bfcd-425e-844b-3e89037ed052",
+      "question": "Which of the following cities is located on the bank of the Mississippi? [SABAS][]",
+      "options": [
+        "Ottawa",
+        "Quebec",
+        "New Orleans",
+        "California"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নিউ অরলিন্স শহরটি মিসিসিপি নদীর তীরে অবস্থিত একটি বিখ্যাত মার্কিন শহর।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "fe35d72c-ca20-4eb0-add0-abe3aa19f158",
+      "question": "এশিয়ার দীর্ঘতম নদী কোনটি? [SABAS][]",
+      "options": [
+        "হোয়াংহো",
+        "ইয়াংসিজিয়াং",
+        "গঙ্গা",
+        "সিন্ধু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইয়াংসিজিয়াং এশিয়া মহাদেশের দীর্ঘতম এবং বিশ্বের তৃতীয় দীর্ঘতম নদী।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "a64b1412-b36f-4588-903e-a2bf1d1b017e",
+      "question": "The longest river in Asia, Yangtze, is located in- [SABAS][]",
+      "options": [
+        "China",
+        "India",
+        "Thailand",
+        "Japan"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইয়াংসিজিয়াং নদী সম্পূর্ণভাবে চীন রাষ্ট্রের অভ্যন্তরে প্রবাহিত।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "0536086a-3e53-4bca-9755-dff53a0f7bcb",
+      "question": "হোয়াংহো নদী কোথায় অবস্থিত- [SABAS][]",
+      "options": [
+        "জাপান",
+        "চীন",
+        "ভিয়েতনাম",
+        "কোরিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হোয়াংহো নদী চীনের একটি প্রধান নদী, যা পলিমাটির জন্য বিখ্যাত।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "1ea6b423-2d69-4d30-ba32-55902daa6f7f",
+      "question": "হোয়াংহো নদীর উৎপত্তি স্থল কোথায়? [SABAS][]",
+      "options": [
+        "হিমালয়",
+        "কুনলুন পর্বত",
+        "ব্ল্যাক ফরেস্ট",
+        "আল্পস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হোয়াংহো নদীর উৎপত্তি চীনের কুনলুন পর্বতমালা থেকে হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "320163da-5405-429f-b09b-924d999f467e",
+      "question": "চীনের দুঃখ বলে পরিচিত- [SABAS][]",
+      "options": [
+        "মেনাম নদী",
+        "হোয়াংহো নদী",
+        "ইয়াংসিজিয়াং নদী",
+        "মেকং নদী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিপজ্জনক বন্যার কারণে হোয়াংহো নদীকে ‘চীনের দুঃখ’ (Sorrow of China) বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "795bdea2-73b3-4ef2-beeb-0eb6c91eebb0",
+      "question": "Which of the following is the deepest river in the world? [SABAS][]",
+      "options": [
+        "Volga",
+        "Nile",
+        "Congo",
+        "Amazon"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কঙ্গো নদী বিশ্বের গভীরতম নদী হিসেবে পরিচিত, যার গভীরতা প্রায় ২৩০ মিটারের বেশি।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "66acbf6a-147a-4217-95b9-1513afb50622",
+      "question": "আমুদরিয়া নদীর উৎপত্তি স্থল কোনটি? [SABAS][]",
+      "options": [
+        "ইউরাল পর্বত",
+        "পামির মালভূমি",
+        "হিন্দুকুশ পর্বত",
+        "ভিয়েনশান পর্বত"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আমু দরিয়া নদীর উৎপত্তি পামির মালভূমি থেকে হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "ee167203-2202-4ecf-898a-9ba2146a0fb4",
+      "question": "‘মারে ডালিং’ কোন দেশের নদী? [SABAS][]",
+      "options": [
+        "অস্ট্রেলিয়া",
+        "আফ্রিকা",
+        "ইরান",
+        "ইরাক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মারে-ডালিং অববাহিকা অস্ট্রেলিয়ার।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "25a6b25a-6fb3-4e04-8de7-6062d0e52b7d",
+      "question": "ইউরোপের দীর্ঘতম নদী- [SABAS][]",
+      "options": [
+        "দানিয়ুব",
+        "রাইন",
+        "ভলগা",
+        "টেমস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভলগা নদী ইউরোপ মহাদেশের দীর্ঘতম এবং বৃহত্তম নদী ব্যবস্থা।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "a2c6d564-2888-4d37-90b1-30ae6afb439d",
+      "question": "ভলগা নদী কোন দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "যুক্তরাষ্ট্র",
+        "চীন",
+        "রাশিয়া",
+        "জার্মানি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভলগা নদী রাশিয়ার পশ্চিমাঞ্চলের মধ্য দিয়ে প্রবাহিত হয়ে কাস্পিয়ান সাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "df29b2eb-8bad-445c-ab44-c3472f959e9d",
+      "question": "‘ভলগা নদী’ - কোন সাগরে পতিত হয়েছে? [SABAS][]",
+      "options": [
+        "কাস্পিয়ান সাগর",
+        "কৃষ্ণ সাগর",
+        "বাল্টিক সাগরে",
+        "আরব সাগরে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভলগা নদী ইউরোপের দীর্ঘতম নদী হিসেবে রাশিয়ার দক্ষিণ-পূর্বাঞ্চলে কাস্পিয়ান সাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "0cd3d53e-4c27-4b77-988c-e2c044ebafba",
+      "question": "টাইগ্রিস নদীর অপর নাম কী? [SABAS][]",
+      "options": [
+        "নাইল",
+        "দানিয়ুব",
+        "দজলা",
+        "সিন্ধু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "টাইগ্রিস নদীকেই বাংলায় দজলা নদী বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "60a48f60-16c9-4a63-b8d7-0356d96e8f43",
+      "question": "টাইগ্রিস নদী কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মিশর",
+        "আফগানিস্তান",
+        "সৌদি আরব",
+        "ইরাক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "টাইগ্রিস বা দজলা নদী ইরাক ও তুরস্কের মধ্য দিয়ে প্রবাহিত একটি ঐতিহাসিক নদী।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "4f45399b-36d5-403a-ae7a-110e81841eec",
+      "question": "টাইগ্রিস নদী পতিত হয়েছে- [SABAS][]",
+      "options": [
+        "পারস্য উপসাগরে",
+        "মেক্সিকো উপসাগর",
+        "ভারত মহাসাগর",
+        "কাস্পিয়ান সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "টাইগ্রিস নদী ফোরাত নদীর সাথে মিলিত হয়ে পারস্য উপসাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "4f41185a-2f12-482b-9b68-6d0549b69b33",
+      "question": "ইউফ্রেটিস নদীর অন্য নাম কী? [SABAS][]",
+      "options": [
+        "ফোরাত",
+        "নীল নদ",
+        "দজলা",
+        "টাইমিস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইউফ্রেটিস নদীকেই বাংলায় ফোরাত নদী হিসেবে ডাকা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "447e282e-af92-47cd-a14c-a281579c20b9",
+      "question": "Basra lies in- [SABAS][]",
+      "options": [
+        "Japan",
+        "China",
+        "Iraq",
+        "Iran"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বসরা ইরাকের একটি প্রধান বন্দরনগরী, যা শাত-ইল-আরব নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "d2d6b04d-acdc-4545-88d1-89e1e7ef6cab",
+      "question": "শাত-ইল আরব হলো- [SABAS][]",
+      "options": [
+        "ইরাবতি ও সালুইন নদীর মিলিত প্রবাহ",
+        "টাইমিস ও ইউফ্রেটিস নদীর মিলিত প্রবাহ",
+        "আমুরিয়া ও শিরদরিয়া নদীর মিলিত প্রবাহ",
+        "তারিম নদী ও হেলমন্দ নদীর মিলিত প্রবাহ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "টাইগ্রিস ও ফোরাত (ইউফ্রেটিস) নদীর মিলিত প্রবাহকে শাত-ইল-আরব বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "1f5a051c-8331-4001-a334-d9579266d0be",
+      "question": "Baghdad stands on the river- [SABAS][]",
+      "options": [
+        "Euphrates",
+        "Shatt al-Arab",
+        "Nile",
+        "Tigris"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাগদাদ ইরাকের রাজধানী, যা টাইগ্রিস (Tigris) নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "05667bc5-c015-492e-b7b7-282edb113091",
+      "question": "The city ‘Mosul’ is in which country? [SABAS][]",
+      "options": [
+        "Syria",
+        "Iraq",
+        "Iran",
+        "Turkey"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মসুল ইরাকের একটি প্রাচীন এবং গুরুত্বপূর্ণ শহর।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "7baefd88-b224-45b6-86ee-c0f17784f8c4",
+      "question": "কারবালা কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ইরাক",
+        "ইরান",
+        "মিশর",
+        "কাতার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কারবালা ইরাকের একটি ঐতিহাসিক শহর।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "1b28a390-31b5-4b71-a2b0-959f0ca0f747",
+      "question": "কারবালা কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "টাইগ্রিস",
+        "নীলনদ",
+        "ইউফ্রেটিস",
+        "সিন্ধু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কারবালা শহরটি ইউফ্রেটিস (ফোরাত) নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "2af06e84-f301-4ad1-a8ae-ff094d12ae7c",
+      "question": "‘ফালুজা’ শহরটি কোন দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইরান",
+        "সিরিয়া",
+        "ইরাক",
+        "লিবিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফালুজা ইরাকের আনবার প্রদেশে অবস্থিত একটি শহর।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "4fb23eb9-0ee4-49df-b32b-a947dc83dd6a",
+      "question": "কুফা কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইউফ্রেটিস",
+        "টাইগ্রিস",
+        "গোয়াদাল কুইভার",
+        "ভলগা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কুফা ইরাকের ইউফ্রেটিস নদীর তীরে অবস্থিত একটি প্রাচীন শহর।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "03baa109-1385-4805-97fd-83e4642ac669",
+      "question": "কোন নদীটি সরাসরি আরব সাগরে পতিত হয়েছে? [SABAS][]",
+      "options": [
+        "যমুনা",
+        "সিন্ধু",
+        "ঝিলাম",
+        "তাফিরধি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিন্ধু নদ হিমালয় থেকে উৎপন্ন হয়ে পাকিস্তানে প্রবাহিত হয়ে সরাসরি আরব সাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "8e587bf7-7cc2-4b51-9463-26f72931c723",
+      "question": "‘দানিউব’ নদী কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "এশিয়া",
+        "আফ্রিকা",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দানিউব নদী ইউরোপ মহাদেশের দ্বিতীয় দীর্ঘতম নদী, যা অনেক দেশের মধ্য দিয়ে প্রবাহিত।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "f4a3302c-4129-48c4-b7f0-e2861a0d6b2d",
+      "question": "ব্ল্যাক ফরেস্ট (Black Forest) কোন দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "জার্মানিতে",
+        "যুক্তরাষ্ট্রে",
+        "ইংল্যান্ড",
+        "আমেরিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্ল্যাক ফরেস্ট জার্মানির একটি বিশাল বনাঞ্চল এবং পর্বতমালা।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "e64e505d-304f-4d6b-9832-4a29b207c295",
+      "question": "কোন নদীর তীরে ৪টি দেশের রাজধানী শহর অবস্থিত? [SABAS][]",
+      "options": [
+        "দানিউব",
+        "আমাজন",
+        "টেমাস",
+        "ভলগা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দানিউব নদীর তীরে ভিয়েনা, ব্রাতিস্লাভা, বুদাপেস্ট এবং বেলগ্রেড এই চারটি রাজধানী শহর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "50e026af-1011-42e6-947c-f71c5205687e",
+      "question": "The Orange River flows in- [SABAS][]",
+      "options": [
+        "Indonesia",
+        "Egypt",
+        "South Africa",
+        "Mexico"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অরেঞ্জ নদী দক্ষিণ আফ্রিকা মহাদেশের অন্যতম গুরুত্বপূর্ণ নদী।",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "ae549fa9-0d2a-4039-a36c-056050856379",
+      "question": "পশ্চিম তীর (West Bank) কোন নদীর পশ্চিম তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "নীল",
+        "ফোরাত",
+        "জর্দান",
+        "সিন্ধু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পশ্চিম তীর অঞ্চলটি জর্দান নদীর পশ্চিম তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "48b42464-9855-47aa-b7f3-a6b40f80c712",
+      "question": "পৃথিবীর কোন নদীতে মাছ হয় না? [SABAS][]",
+      "options": [
+        "আমাজন",
+        "জর্দান",
+        "দানিউব",
+        "জাহেদী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জর্দান নদীতে লবণাক্ততার আধিক্যের কারণে মাছ বসবাস করতে পারে না।",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "6d9ce7c9-592c-48aa-a797-ef9272fd2d86",
+      "question": "নিউইয়র্ক কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "হাডসন",
+        "পোতোমাক",
+        "মিসিসিপি",
+        "টেমস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নিউইয়র্ক শহরটি হাডসন নদীর মোহনায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "749388f7-e434-490a-a476-8e862fc42a15",
+      "question": "টেমস নদীর তীরে কোন শহর অবস্থিত- [SABAS][]",
+      "options": [
+        "অটয়া",
+        "সিডল",
+        "প্যারিস",
+        "লন্ডন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যুক্তরাজ্যের রাজধানী লন্ডন টেমস নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "9b02ab1e-b1b7-4375-b4b0-c37ca0fb9489",
+      "question": "রোম শহর কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "টাইবার",
+        "টেমস",
+        "ডার্লিং",
+        "দানিউব"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইতালির রাজধানী রোম টাইবার নদীর তীরে অবস্থিত একটি ঐতিহাসিক শহর।",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "18eabf2d-896c-41c3-93cb-e87ad606ee03",
+      "question": "Paris is situated on the bank of the river- [SABAS][]",
+      "options": [
+        "Volga",
+        "Hudson",
+        "Amsteel",
+        "Seine"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ফ্রান্সের রাজধানী প্যারিস সীন (Seine) নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "953927fa-0e87-4861-bf3e-a28020da2a62",
+      "question": "পোল্যান্ডের রাজধানী ওয়ারস কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "দানিউব",
+        "রাইন",
+        "ভিস্তুলা",
+        "সীন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পোল্যান্ডের রাজধানী ওয়ারস ভিস্তুলা নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "45ac3fd0-e02b-43b1-a64a-456ded3fe356",
+      "question": "কায়রো কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "টাইগ্রিস",
+        "সিন্ধু",
+        "নীল",
+        "ইউফ্রেটিস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মিশরের রাজধানী কায়রো নীল নদের তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "46f4c448-c1b5-42c3-a88b-8d972bd1e500",
+      "question": "ইয়াংগুন কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "কিজিল",
+        "ইরাবতি",
+        "চাকজিং",
+        "ইয়াং সিকিয়াং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মিয়ানমারের বৃহত্তম শহর ইয়াংগুন ইরাবতি নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "642e0d80-654b-43c9-a76a-cc1b8dd19013",
+      "question": "Delhi is situated on the bank of which river? [SABAS][]",
+      "options": [
+        "Padma",
+        "Yamuna",
+        "Iraboti",
+        "Meghna"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভারতের রাজধানী দিল্লি যমুনা নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "6b070f6c-0f91-4b28-a077-775bee2008fe",
+      "question": "যেটি নদীর নাম নয়- [SABAS][]",
+      "options": [
+        "ডন",
+        "ভলগা",
+        "দানিয়ুব",
+        "আল্পস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আল্পস হলো একটি পর্বতমালা, নদী নয়।",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "0bf8ca2a-4f5a-4801-b3de-fecc4fcc439b",
+      "question": "নদীবিহীন দেশ কোনটি? [SABAS][]",
+      "options": [
+        "ইরাক",
+        "সোদি আরব",
+        "সিরিয়া",
+        "মিশর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সৌদি আরব একটি নদীবিহীন দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "7dae9552-f2e4-4f05-8ff5-21c297359250",
+      "question": "Hoover Dam is built on which of the following rivers? [SABAS][]",
+      "options": [
+        "Seine River",
+        "Colorado River",
+        "Rhine River",
+        "Niger River"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হুভার বাঁধ মার্কিন যুক্তরাষ্ট্রের কলোরাডো নদীর ওপর নির্মিত।",
+      "images": []
+    }
+  ]
+}

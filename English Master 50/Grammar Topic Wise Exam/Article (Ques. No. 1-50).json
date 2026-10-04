@@ -1,0 +1,761 @@
+{
+  "exam_id": 6808,
+  "title": "Article (Ques. No. 1-50)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Article (233 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "c9cda765-9ad1-4c11-8fde-708bff913a95",
+      "question": "A, An and The are -----.[]",
+      "options": [
+        "Adverb",
+        "Demonstrative Adverb",
+        "Demonstrative Adjective",
+        "Preposition"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "They act like demonstrative adjectives because they modify nouns,they help indicate whether a noun is definite or indefinite.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5e1e9a60-3470-4e3a-b3d3-51cab0089861",
+      "question": "A and An are -----.[]",
+      "options": [
+        "Definite articles",
+        "Indefinite articles",
+        "Both",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A' and 'An' are indefinite because they refer to any general person or thing, not a specific one.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "1bda3a8a-6747-491b-bf12-c14ea8241ab9",
+      "question": "The article 'the' is used -----.[]",
+      "options": [
+        "to make something specific",
+        "to make things general",
+        "has no use or meaning",
+        "to make a thing real"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The' is the definite article, used to identify a particular person or thing.",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "4da73628-b984-43d6-87b6-4e9fa89bf481",
+      "question": "Article is used based\n on -----./Article is used based on depending on -----.[]",
+      "options": [
+        "Spelling",
+        "Sound",
+        "Pronunciation",
+        "Meaning"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The choice between 'A' and 'An' is determined by the sound of the first letter of the next word, not the spelling.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "0a057a15-f6ec-4107-8e1c-6ec943f19d4b",
+      "question": "Nasim is ----- university student.\nShe is now a student of ----- university.[]",
+      "options": [
+        "a",
+        "the",
+        "reading",
+        "an"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "If a word starts with a 'U' or 'Eu' sound like \"Yoo,\" use \"a\".\nUniversity\" Starts with a \"yoo\" consonant sound.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "a81b9eee-1003-4a6e-8579-f254d765b14f",
+      "question": "England ----- European country.[]",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "If a word starts with a 'U' or 'Eu' sound like \"Yoo,\" use \"a\".\nHere the word starts with a \"yoo\" consonant sound.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "c5dbba7b-35c3-45aa-8ba0-f0b4d88a3f7c",
+      "question": "----- needle is ----- useful thing.[]",
+      "options": [
+        "The, the",
+        "A, the",
+        "The, an",
+        "A, a"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "General singular countable nouns starting with consonant sounds.",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "b9b3e568-1754-4110-a063-ba8a3ef485c2",
+      "question": "Iron is ----- useful metal.\nThe cow is ----- useful animal.\nA needle is ----- useful thing.[]",
+      "options": [
+        "on",
+        "a",
+        "an",
+        "the"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "If a word starts with a 'U' or 'Eu' sound like \"Yoo,\" use \"a\".\nHere the word starts with a \"yoo\" consonant sound.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "467dc105-142b-45a2-a258-43af95746957",
+      "question": "Meter is ----- unit of length.[]",
+      "options": [
+        "the",
+        "an",
+        "a",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "If a word starts with a 'U' or 'Eu' sound like \"Yoo,\" use \"a\".\nHere the word starts with a \"yoo\" consonant sound.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "d9386b04-0915-4c8c-a21a-49bce307bc79",
+      "question": "This is ----- oasis.\nHe maintains ----- office.[]",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"Oasis\" & \"office\" starts with a vowel sound (o), so we use an.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "6cbe6d45-da2a-439b-a86b-64c4a60bbe18",
+      "question": "I saw ----- one-eyed man when I was walking on the road.\nI saw ----- one-eyed man begging in the street.\nI saw ----- one-eyed man.\nGive me ----- one taka note.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "none of them"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Although \"one\" starts with the vowel 'o', it is pronounced with a \"wa\" (consonant) sound. Therefore, we use a.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "cb26ba2d-dc4d-41d3-9b2e-cf5dbae1d215",
+      "question": "Which of the following will have 'a' before it ?[]",
+      "options": [
+        "F.R.C.S",
+        "M.E.D",
+        "B.E.D",
+        "L.M.F"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "When pronouncing the abbreviation \"B.E.D,\" the first letter \"B\" starts with a consonant sound (/b/).\nThe others (F, M, L) start with vowel sounds (/ef/, /em/, /el/).",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "e3b48b11-e5b5-4dda-80d5-633b8f50b78d",
+      "question": "I'll will be with you in -----.[]",
+      "options": [
+        "one quarter of an hour",
+        "a quarter of an hour",
+        "a quarter of one hour",
+        "quarter of hour"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"A quarter\" is a standard idiomatic expression for time, and \"hour\" has a silent 'h', requiring an.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "b130d2ec-8abd-4abb-9d08-6843bfd516d6",
+      "question": "He is ----- BBA student.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "none"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The letter \"B\" in BBA starts with a consonant sound (/b/), so we use a.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "62072ce3-45de-4738-ac96-73b4bbc90b1d",
+      "question": "He is ----- M.B.B.S./Jalal is ----- M.Sc. in Botany. []",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Similar to M.B.B.S., \"M\" starts with a vowel sound (/e/), requiring an",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "ee19ac77-7b7a-4b93-9d70-e6ea68b78f39",
+      "question": "He is ----- M.A. in English.\nThe man has ----- L.L.B. degree.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "none"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"M\" & \"L\"starts with a vowel sound (/e/), requiring an.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "eb25243a-ae34-4d1b-9c02-6cd0bf3d7f7b",
+      "question": "He is ----- F.R.C.S. \nMr.Raihan is ----- FCPS.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The letter \"F\" is pronounced \"ef,\" which starts with a vowel sound (/e/). Therefore, we use an.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "5ffc406b-3ce9-4e9c-8c1c-238f5defc609",
+      "question": "I can do it in ----- hour and ----- half.\nThey will do it in ----- hour and ----- half.[]",
+      "options": [
+        "the, a",
+        "a, a",
+        "a, an",
+        "an, a"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "\"Hour\" has a silent 'h' (vowel sound), so it takes an. \"Half\" starts with a consonant 'h' sound, so it takes a.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "39c65450-4817-462e-983c-8d4cfc4d54b5",
+      "question": "This is ----- heroic action.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "one"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "the 'h' in \"heroic\" is pronounced as a consonant, so we use a.",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "e0b927a7-2b24-4de3-960c-ff7a76177586",
+      "question": "Benares is ----- holy city.\nSunday is not ----- holiday for us.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Holy\" starts with a voiced consonant 'h' sound, so we use a.",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "890c3d04-743f-4298-b53a-3f4fff544b42",
+      "question": "The king left ----- heir.[]",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The 'h' in \"heir\" is silent (pronounced like \"air\"). Since it starts with a vowel sound, we use an.",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "b2ae2c59-6fa4-4469-ad80-fb9a8752d517",
+      "question": "He is ----- honours graduate.\nHe was ----- honorary Magistrate.\nMr. Rahim is ----- honourable man.[]",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "In \"honours,\" \"honorary,\" and \"honourable,\" the 'h' is silent. They all start with a vowel sound, requiring an",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "28ad0442-4801-4bcb-b0b9-79fba1087016",
+      "question": "I am standing here for ----- hour.[]",
+      "options": [
+        "the",
+        "an",
+        "a",
+        "two"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"Hour\" has a silent 'h', so we use an.",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "a7c7d3b8-3863-4bd0-bb6b-09786e127e67",
+      "question": "I was ----- honour for me when I was made the secretary of our association.\nHe is ----- honour to his profession.[]",
+      "options": [
+        "the",
+        "an",
+        "a",
+        "none"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"Honour\" has a silent 'h', so we use an.",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "8d2d0676-b9ef-4358-af29-c22a960a707e",
+      "question": "He is ----- heir of the property.[]",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "heir\" is followed by a qualifying phrase (\"of the property\" / \"to his father's...\"), making it a specific noun. We use the definite article the.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "ccad4916-f95b-4384-8128-28dc32a53954",
+      "question": "He is ----- heir to his father's property.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "heir\" is followed by a qualifying phrase (\"of the property\" / \"to his father's...\"), making it a specific noun. We use the definite article the.",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "84ecb331-a606-4eac-a359-dbccc2fcbca3",
+      "question": "A orange is round.means ---[]",
+      "options": [
+        "Just one orange",
+        "Any specific orange",
+        "Not an orange, something else",
+        "All oranges of the world"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "When an indefinite article (a/an) is used with a singular noun to state a general fact, it represents the entire class or category.",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "b4d90f79-fd7f-47d8-8e1c-d9f9154a0c14",
+      "question": "An orange contains vitamin C. The sentence can be correctly rewritten as ---[]",
+      "options": [
+        "The oranges contain vitamin C",
+        "Oranges contain vitamin C",
+        "Few oranges contain vitamin C",
+        "A few oranges contain vitamin C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A singular noun with an indefinite article used for a general statement can be rewritten using a plural noun without an article to convey the same general meaning.",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "2a7e5ccf-1d20-4411-b0da-d90672e0ac5c",
+      "question": "----- child needs love.[]",
+      "options": [
+        "The",
+        "A",
+        "One",
+        "All"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Used to represent a whole class (any child in general). Since \"child\" starts with a consonant sound, we use a.",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "2fe0e9c6-23b4-41cb-9a66-1fbb54b1c341",
+      "question": "We are moved not by the fall of ----- great man but the elevation to heroism of what we had taken to be ----- little man.[]",
+      "options": [
+        "a, the",
+        "the, the",
+        "a, a",
+        "none of the above"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"A great man\" and \"a little man\" are used as general descriptions of character types, not specific individuals.",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "541b7cfa-3d77-4090-b2ce-0715ccffcc1a",
+      "question": "We will receive ----- SMS, if you are eligible for ----- subject in E unit.[]",
+      "options": [
+        "no article, a",
+        "a, a",
+        "an, no article",
+        "an, a"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Use an before \"SMS\" because the letter 'S' is pronounced with a vowel sound (/es/). Use a before \"subject\" as it starts with a consonant sound.",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "f21c1034-b254-4fc3-bb59-495aa2134cb9",
+      "question": "I am awarded ----- gold metal.[]",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"A gold medal\" refers to one of many such medals; it is not specifying a unique or previously mentioned medal.",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "8286f56d-7875-4379-8790-2e924e876e32",
+      "question": "This is ----- easy task.\nThis is ----- easy question.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "one"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Use an before \"easy\" because it starts with a vowel sound.",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "96cf434a-b85d-433a-96db-d27b06f4eabe",
+      "question": "He lives ----- comfortable life.[]",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"A comfortable life\" is a general description using a singular countable noun",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "77d0505e-3ae8-4db2-8b1b-3d7b078953c9",
+      "question": "The English are ----- wise nation.\nThe English are ----- nation.[]",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"A wise nation\" and \"a nation\" are singular countable nouns used for general classification",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "2f241457-cebc-43bf-a35f-4235e4de35d8",
+      "question": "It is ----- quarter to six.[]",
+      "options": [
+        "the",
+        "an",
+        "a",
+        "that"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"A quarter\" is the standard idiomatic expression used when telling time.",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "a33f74b1-b962-4e51-a129-0679163d12fc",
+      "question": "----- sun is ----- star.[]",
+      "options": [
+        "the, a",
+        "a, the",
+        "the, an",
+        "the, the"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Use the for unique celestial bodies (the sun) and a for \"star\" as it is one of many.",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "604e97a7-dade-4d2c-a4bc-ee3bd42f28c5",
+      "question": "The sun is ----- star.\nI need ----- visa to go abroad.\nBob Collins has recently become ----- minister in the new government.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "None of these"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"A star,\" \"a visa,\" and \"a minister\" all use the indefinite article to indicate \"one of many\" or a general role/item.",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "fd5a6e55-87b0-4582-a823-306ee76c0691",
+      "question": "I'd like you to meet Cathy Parker, ----- novelist.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The is used here because \"novelist\" is a specific appositive describing Cathy Parker, or it implies she is the specific novelist known to the speaker.",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "794c7e72-5379-4183-9ded-e97459f0f441",
+      "question": "----- Mr. Karim has been arrested.[]",
+      "options": [
+        "A",
+        "An",
+        "The",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"A Mr. Karim\" implies \"a person named Mr. Karim\" whom the speaker does not personally know.",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "8023d773-d197-4ad1-9f8f-78cd80751e6e",
+      "question": "You are ----- Messi, I see.\nYou are ----- Nazrul, I see.\nHe thinks he is ----- Rabindranath.\nHe wants to be ----- Shakespeare.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"A Messi\" or \"a Shakespeare\" means someone like them (possessing their qualities), turning a proper noun into a common noun.",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "3c6a03df-0f56-489a-a3c6-fe079ed0bcbd",
+      "question": "I talked to ----- Dalai Lama.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "none"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"A Dalai Lama\" here suggests someone with the qualities of the Dalai Lama, or refers to the title in a general sense.",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "06a2ff2b-de1c-4feb-b79c-bab2fc9c1bd6",
+      "question": "He saw ----- most wonderful sight.\nHe leads ----- most unhappy life.[]",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "all"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "\"A most\" is used here to mean \"a very\" (e.g., \"a very wonderful sight\"), rather than a superlative comparison.",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "c848d5ba-e0f5-4a8a-98db-d6b15d6a83a5",
+      "question": "The king ----- went hunting.[]",
+      "options": [
+        "the",
+        "a",
+        "by",
+        "no need"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "\"A king\" is used here as a generic subject in a story-like context.",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "f2f2f993-5882-4a67-85b0-af449e04751b",
+      "question": "He lost ----- few books he had.[]",
+      "options": [
+        "the",
+        "a",
+        "some",
+        "one"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The few means \"all of the small number.\" It refers specifically to the few books he actually possessed.",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "4b8f0625-8e01-4900-a539-6906bdac2b45",
+      "question": "He made ----- few mistakes.[]",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "A few means \"some\" or \"a small number.\"",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "845f000f-8095-49fa-b1fb-115d6a9efbb5",
+      "question": "I want only ----- little sugar in my tea,please.[]",
+      "options": [
+        "some",
+        "few",
+        "a",
+        "such"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "A little means \"some\" (a small amount), whereas \"little\" without \"a\" would mean almost none.",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "7e3bc537-fda5-4a67-9bdb-6b7edef23f03",
+      "question": "----- great many students attended the test.[]",
+      "options": [
+        "The",
+        "An",
+        "A",
+        "None of them"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"A great many\" is a fixed idiomatic phrase meaning \"a large number.\"",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "5ef2a382-1a42-4a34-a7c7-44723b120e88",
+      "question": "Many ----- good boy failed.\nMany ----- man was present.[]",
+      "options": [
+        "the",
+        "an",
+        "a",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The structure \"Many + a/an + singular noun\" is a formal way to express \"many\" followed by a singular verb. Since \"good\" and \"man\" start with consonant sounds, a is the correct choice.",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "ac11a531-c64c-48a2-9e51-abe17c670e64",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He is temper.",
+        "He is in tempers.",
+        "He is in a temper.",
+        "He is in the temper."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\"In a temper\" is a fixed idiomatic expression meaning to be in a state of sudden anger. Phrases like this require the indefinite article a.",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,708 @@
+{
+  "title": "পরিবেশ রসায়ন ২",
+  "category": "5.2 Final Medical Batch Exams > রসায়ন ২য় পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "103618",
+      "question": "নিচের কোনটি PANS তৈরিতে ব্যবহৃত হয় না?",
+      "options": [
+        "NO",
+        "NO2",
+        "N2",
+        "03"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "NO, NO2,03 ব্যবহৃত হয় PANS তৈরিতে।"
+    },
+    {
+      "question_no": 2,
+      "id": "109689",
+      "question": "এসিড বৃষ্টির জন্য দায়ী কোনটি?",
+      "options": [
+        "O2",
+        "CO",
+        "CO2",
+        "SO2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এসিড বৃষ্টির জন্য দায়ী প্রধানত SO2"
+    },
+    {
+      "question_no": 3,
+      "id": "110407",
+      "question": "CO2 গ্যাসের সন্ধিচাপ কত atm?",
+      "options": [
+        "31.1",
+        "72.9",
+        "76",
+        "760"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": ": ➤CO2 গ্যাসের সন্ধিচাপ 72.9 atm সন্ধি তাপমাত্রা 31.1০ C."
+    },
+    {
+      "question_no": 4,
+      "id": "112945",
+      "question": "বৃষ্টির পানির pH মান কত হলে এসিড বৃষ্টি বলে?",
+      "options": [
+        "5.6 এর কম",
+        "5.6 এর বেশি",
+        "3.5 এর কম",
+        "3.2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "➤ বৃষ্টির জলে pH এর সবচেয়ে কম মান হতে পারে 5.61;বৃষ্টির পানির pH মান 5.6 এর কম হলেই ঐ অধঃক্ষেপণকে এসিড বৃষ্টি বলে।"
+    },
+    {
+      "question_no": 5,
+      "id": "112946",
+      "question": "বাংলাদেশে পানীয় জলে As এর গ্রহণযোগ্য মাত্রা কত?",
+      "options": [
+        "0.1 ppm",
+        "0.05 ppm",
+        "0.5 g/L",
+        "0.01 ppm"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলাদেশে পানীয় জলে As এর গ্রহণযোগ্য মাত্রা হলো 0.05 ppm"
+    },
+    {
+      "question_no": 6,
+      "id": "113752",
+      "question": "নিচের কোনটি Photochemical Smog সৃষ্টিতে ভূমিকা রাখে না?",
+      "options": [
+        "O₃",
+        "CFC",
+        "Hydrocarbon",
+        "NO₂"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "CFC গ্যাস Photochemical Smog তৈরি করে না।"
+    },
+    {
+      "question_no": 7,
+      "id": "115379",
+      "question": "আদর্শ গ্যাসের বেলায় সংকোচনশীলতা গুনাঙ্ক কত?",
+      "options": [
+        "1",
+        "0",
+        "2",
+        ">1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "115600",
+      "question": "বাস্তব গ্যাস গুলো নিম্নোক্ত কোন শর্তে আদর্শ আচরণ করতে পারে ?",
+      "options": [
+        "উচ্চ চাপ, উচ্চ তাপমাত্রা",
+        "নিম্ন চাপ, নিম্ন তাপমাত্রা",
+        "নিম্ন চাপ, উচ্চ তাপমাত্রা",
+        "উচ্চ চাপ, নিম্ন তাপমাত্রা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "1 atm চাপ বা তার নিচে এবং উচ্চ তাপমাত্রায় বাস্তব গ্যাসসমূহ মোটমুটি আদর্শ আচরণ করে।"
+    },
+    {
+      "question_no": 9,
+      "id": "115601",
+      "question": "নিচের কোনটি ভ্যানডার ওয়ালস সমীকরণ",
+      "options": [
+        "(P-n2a/v) (v+nb) = nRT",
+        "(P+n2a/v) (v-nb) = nRT",
+        "(P+n2a/v2) (v-nb) = nRT",
+        "(P-na2/v2) (v-nb) = nRT"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাস্তব গ্যাস ভ্যানডার ওয়ালস সমীকরণ (P-n2a/v2) (v-nb) = nRT মেনে চলে।"
+    },
+    {
+      "question_no": 10,
+      "id": "115602",
+      "question": "কক্ষ তাপমাত্রায় হাইড্রোজেন অণুর বর্গমূল গড় বর্গ গতিবেগ কত ?",
+      "options": [
+        "450 ms-1",
+        "500 ms-1",
+        "1290 ms-1",
+        "1920 ms-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাইড্রোজেন অণুর বর্গমূল গড়-বর্গ গতিবেগ 25° C বা কক্ষ তাপমাত্রায় সেকেন্ডে প্রায় 1920.12 m হয়"
+    },
+    {
+      "question_no": 11,
+      "id": "115603",
+      "question": "নিচের কোনটি নীরব ঘাতক গ্যাস?",
+      "options": [
+        "CO2",
+        "SO2",
+        "SO3",
+        "CO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কার্বন মনোক্সাইড গ্যাস হলো নীরব ঘাতক গ্যাস"
+    },
+    {
+      "question_no": 12,
+      "id": "115604",
+      "question": "নিচের কোন যৌগটি ফ্রিয়ন 12 নামে পরিচিত ?",
+      "options": [
+        "CF2Cl2",
+        "CFCl3",
+        "CHF2C",
+        "CHFCl2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Follow 90's rules ."
+    },
+    {
+      "question_no": 13,
+      "id": "115605",
+      "question": "নিচের কোনটি ফ্লু গ্যাস নয়?",
+      "options": [
+        "H2S",
+        "SO2",
+        "SO3",
+        "NO2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "115606",
+      "question": "কঠিন প্লাস্টিক ফোমে কোন CFCs ব্যবহৃত হয়",
+      "options": [
+        "CFC-11",
+        "CFC-12",
+        "CFC-113",
+        "CFC-131"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কঠিন প্লাস্টিক ফোম, রেফ্রিজারেটর এয়ার কন্ডিশনার, স্প্রে ক্যানে (বিভিন্ন সুগন্ধির স্প্রে ক্যানে ব্যবহৃত হয়)।"
+    },
+    {
+      "question_no": 15,
+      "id": "115607",
+      "question": "নিচের কোনটি সর্বাধিক শক্তিশালী অম্ল?",
+      "options": [
+        "HClO4",
+        "HNO3",
+        "H2SO4",
+        "H3PO4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "115608",
+      "question": "নিচের কোনটি পানির বিশুদ্ধতার মান এর সাথে সংশিষ্ট?",
+      "options": [
+        "BOD",
+        "DO",
+        "pH",
+        "All of them"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পানির বিশুদ্ধতার মানদন্ডগুলো হলো BOD, DO, pH ইত্যাদি।"
+    },
+    {
+      "question_no": 17,
+      "id": "115609",
+      "question": "প্রাকৃতিক বিষের রাজা কোন মৌল ?",
+      "options": [
+        "Pd",
+        "Pb",
+        "As",
+        "Ni"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অপধাতু As হলো প্রাকৃতিক বিষের রাজা।"
+    },
+    {
+      "question_no": 18,
+      "id": "115610",
+      "question": "নাতিশীতোষ্ণ অন্ঞ্চলে ওজোন স্তরের ঘনত্ব কত?",
+      "options": [
+        "350DU",
+        "250DU",
+        "450DU",
+        "150DU"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "115611",
+      "question": "আর্সেনিক কোন জারণ অবস্থায় সবচেয়ে বেশি বিষক্রিয়া সৃষ্টি করে ?",
+      "options": [
+        "+2",
+        "+3",
+        "+4",
+        "+6"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আর্সেনিক +3 জারণ অবস্থায় জীবজগতের ওপর সবচেয়ে বেশি বিষক্রিয়া সৃষ্টি করে।"
+    },
+    {
+      "question_no": 20,
+      "id": "115612",
+      "question": "নিচের কোনটির অধিক দূষণের ফলে RBC তে লৌহ (Fe2+) শোষণ বাধা পায় ?",
+      "options": [
+        "As3+",
+        "Pb 2+",
+        "Cr3+",
+        "Fe2+"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অধিক  Cr3+দূষণের ফলে RBC  তে লৌহ শোষণ বাধা পায়।"
+    },
+    {
+      "question_no": 21,
+      "id": "115613",
+      "question": "লেডের পরিমাণ রক্তে কত ppb এর বেশি হলে লেডের বিষক্রিয়া দেখা দেয় ?",
+      "options": [
+        "25",
+        "50",
+        "75",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বিশ্ব স্বাস্থ্য সংস্থার রিপোর্ট মতে দেহে লেডের পরিমাণ 50 ppb   এর বেশি হলে লেডের বিষক্রিয়া দেখা দেয়।\r\n\r\nরক্তে (৬-১০) ppb\r\n\r\n\r\n\r\nধোঁকা ধোকা😂"
+    },
+    {
+      "question_no": 22,
+      "id": "115614",
+      "question": "পানিতে দূষক পদার্থ দূবীভূত থাকার কৌশল নিচের কোনটি নয় ?",
+      "options": [
+        "বিস্তারণ বল",
+        "H বন্ধন",
+        "হাইড্রেশন",
+        "আয়ন-ডাইপোল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পানিতে দূষক পদার্থ দ্রবীভূত থাকার কৌশল হলো আয়ন ডাইপোল, H বন্ধন, ডাইপোল-ডাইপোল আয়ন আরিষ্ট ডাইপোল, ডাইপোল-আবিষ্ট ডাইপোল, বিস্তারণ বল ইত্যাদি।"
+    },
+    {
+      "question_no": 23,
+      "id": "115615",
+      "question": "তরলীকৃত প্রাকৃতিক গ্যাস কোন গ্যাসে সমৃদ্ধ",
+      "options": [
+        "Propane",
+        "Methane",
+        "Hexane",
+        "Butane"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "115616",
+      "question": "নিচের কোন গ্যাসটি রান্নার জন্য সিলিন্ডারে ব্যবহৃত হয়",
+      "options": [
+        "মিথেন ও বিউটেন",
+        "ইথেন ও মিথেন",
+        "মিথেন ও প্রোপেন",
+        "বিউটেন ও প্রোপেন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বর্তমানে রান্নায় ব্যবহৃত LP Gas এ 25% প্রোপেন ও 75% বিউটের থাকে।"
+    },
+    {
+      "question_no": 25,
+      "id": "115617",
+      "question": "প্রাকৃতিক গ্যাসকে কত তাপমাত্রায় শীতল করলে LNG তে রুপান্তরিত হয় ?",
+      "options": [
+        "-160 °F",
+        "-60°F",
+        "-160°C",
+        "-60°C"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রাকৃতিক গ্যাসকে -160°C তাপমাত্রায় শীতল করলে LNG তে রুপান্তরিত হয়"
+    },
+    {
+      "question_no": 26,
+      "id": "115618",
+      "question": "নিচের কোনটি প্রধান গ্রীণ হাউজ গ্যাস",
+      "options": [
+        "O3",
+        "CFC",
+        "CO2",
+        "CH4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "CO2  কে প্রধান গ্রীণ হাউজ গ্যাস বলে।"
+    },
+    {
+      "question_no": 27,
+      "id": "115619",
+      "question": "নিচের কোন গ্যাসটি শ্বাসতন্ত্রে প্রদাহ সৃষ্টি করতে পারে ?",
+      "options": [
+        "CO",
+        "CH4",
+        "SO2",
+        "CO2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বর্ণহীন ও অম্ল গন্ধযুক্ত সালফার ডাই অক্সাইড গ্যাস ও সালফার ট্রাইঅক্সাইড গ্যাস শ্বাসকষ্ট সৃষ্টি করে।"
+    },
+    {
+      "question_no": 28,
+      "id": "115620",
+      "question": "Acid Rain এর কোন এসিড থাকে ?",
+      "options": [
+        "H2SO4, HCL",
+        "H2SO4, HNO3",
+        "H2SO4, H2CO3",
+        "HNO3, HCL"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Acid Rain এ H2SO4, HNO3  থাকে।"
+    },
+    {
+      "question_no": 29,
+      "id": "115621",
+      "question": "কোন ভারী ধাতুর আয়নের আধিক্যের কারণে হাড় ভঙ্গুর রোগ হয়?",
+      "options": [
+        "As3+",
+        "Cr3+",
+        "Pb2+",
+        "Cd2+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "115622",
+      "question": "FGD প্লান্টে কোন গ্যাস শোষিত হয়?",
+      "options": [
+        "SO2",
+        "SO4",
+        "CO2",
+        "NO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "115623",
+      "question": "CFC এর ধর্ম নয় নিচের কোনটি?",
+      "options": [
+        "অত্যন্ত Stable",
+        "Nonflammable",
+        "Toxic",
+        "Non-polar"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Toxicity CFC এর ধর্ম নয় (গুহ)"
+    },
+    {
+      "question_no": 32,
+      "id": "115624",
+      "question": "নমুনা পানির BOD 3mg/L হলে",
+      "options": [
+        "খুবই ভালো",
+        "মোটামুটি ভালো",
+        "দূষণ মাত্রা খারাপ",
+        "দূষণ মাত্রা খুবই খারাপ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "115625",
+      "question": "নিচের কোনটি ভারী ধাতুর উদাহরণ নয়",
+      "options": [
+        "Cr",
+        "Zn",
+        "Cd",
+        "Pb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Znভারী ধাতু নয়।"
+    },
+    {
+      "question_no": 34,
+      "id": "115626",
+      "question": "WHo নির্দেশিকা অনুযায়ী পানীয় জলে আর্সেনিক নিরাপদ মাত্রা",
+      "options": [
+        "0.1 ppm",
+        "1 ppm",
+        "0.001 ppm",
+        "0.01 ppm"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "WHo নির্দেশিকা অনুযায়ী পানীয় জলে আর্সেনিক নিরাপদ মাত্রা 0.01 ppm"
+    },
+    {
+      "question_no": 35,
+      "id": "115627",
+      "question": "স্যালাইন মাটি বহন করে কোনটি?",
+      "options": [
+        "উচ্চ ঘনমাত্রার লবণ",
+        "যুগ্ম ঘনমাত্রার লবণ",
+        "কম আর্দ্রতা",
+        "অধিক মাত্রার জৈব উপাদান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গুহ স্যার\r\n\r\nউচ্চ ঘনমাত্রার লবণ বহন করে\r\n\r\n( সেরকম জরুরি নাহ,মনে রাখলেই হবে)"
+    },
+    {
+      "question_no": 36,
+      "id": "115628",
+      "question": "স্টোরেজ ব্যাটারির মাধ্যমে কোন ভারী ধাতুটি খাদ্যশৃঙ্খলে প্রকেশ করে ?",
+      "options": [
+        "Pb",
+        "Pd",
+        "Cr",
+        "Cd"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "স্টোরেজ ব্যাটারিতে লেড অক্সাইড ব্যবহৃত হয় ।"
+    },
+    {
+      "question_no": 37,
+      "id": "115629",
+      "question": "নিচের কোন ধাতুটির বিষক্রিয়ার ফলে অস্টি ও পোরোসিস হয়",
+      "options": [
+        "Pb",
+        "Cr",
+        "As",
+        "Cd"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Cd এর বিষক্রিয়ায় অস্থি-সন্থিতে তীব্র যন্ত্রণা সৃষ্টি হয়। অস্থির মধ্যে ছিদ্রযুক্ত অস্টি ও পোরোসিস হয়।"
+    },
+    {
+      "question_no": 38,
+      "id": "115630",
+      "question": "নিচের কোন মৌলের পোষণ গুনাঙ্ক এর মান সবচেয়ে বেশি",
+      "options": [
+        "H2",
+        "N2",
+        "O2",
+        "CO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাইড্রোজেনের পোষণ গুনাঙ্ক সবচেয়ে বেশি।"
+    },
+    {
+      "question_no": 39,
+      "id": "115631",
+      "question": "নিচের কোনটি এসিড বৃষ্টির সাথে সংশ্লিষ্ট নয়?",
+      "options": [
+        "CO2",
+        "SO2",
+        "SO3",
+        "NO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এসিড বৃষ্টিতে H2CO3 উৎপন্ন হয় না।"
+    },
+    {
+      "question_no": 40,
+      "id": "115632",
+      "question": "নিচের কোনটি লুইস এসিড নয়?",
+      "options": [
+        "Cu2+",
+        "SO3",
+        "BF3",
+        "H20"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "লুইস এসিড  CU2+,SO3,BF3"
+    },
+    {
+      "question_no": 41,
+      "id": "115633",
+      "question": "ক্যাডমিয়ামের লিথাল ডোজ কত ?",
+      "options": [
+        "1 mg",
+        "1g",
+        "10 mg",
+        "10g"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "WHO এর তথ্য মতে মানুষেয়র ক্ষেত্রে ক্যাডমিয়াম দূষনে মারণ মাত্রা বা লেথাল ডোজ 1 g"
+    },
+    {
+      "question_no": 42,
+      "id": "115634",
+      "question": "বৃষ্টির পানির নমুনাকে এসিড বৃষ্টি হিসেবে গণ্য করা যায় যদি এর pH _হয়",
+      "options": [
+        "5.6",
+        "4.0",
+        "6.2",
+        "6.8"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "115635",
+      "question": "নিচের কোনটি গ্রীন হাউজ গ্যাস নয়?",
+      "options": [
+        "CH4",
+        "N2O",
+        "CFC",
+        "Cl2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Cl গ্রিন হাউজ গ্যাস নয়"
+    },
+    {
+      "question_no": 44,
+      "id": "115636",
+      "question": "নিচের কোনটি সর্বাধিক অম্লীয়?",
+      "options": [
+        "CH3OH",
+        "C2H2OH",
+        "H2O",
+        "CH3(CH2)2OH"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "CH3OH সর্বাধিক অম্লীয়"
+    },
+    {
+      "question_no": 45,
+      "id": "115637",
+      "question": "এসিড বৃষ্টিতে কোন এসিডটি থাকে না?",
+      "options": [
+        "H2SO4",
+        "HCl",
+        "H2SO3",
+        "HNO3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "SO2,NO2+ এদের যৌগ এসিড বৃষ্টি ঘটায়"
+    },
+    {
+      "question_no": 46,
+      "id": "115638",
+      "question": "আদর্শ পানির DO এর পরিসীমা কত?",
+      "options": [
+        "8-12 mgL-1",
+        "1-4 mgL-1",
+        "4-8 mgL-1",
+        "12-16 mgL-1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "৪-৮ mgL-1"
+    },
+    {
+      "question_no": 47,
+      "id": "115639",
+      "question": "কোন ধরনের দূষক পানিতে দ্রবীভূত অক্সিজেনের পরিমাণ হ্রাস করে?",
+      "options": [
+        "অজৈব দূষক",
+        "জৈব দূষক",
+        "তেজক্রিয়া দূষক",
+        "কণা জাতীয় দূষক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জৈব ধরনের দূষক পানিতে দ্রবীভূত অক্সিজেনের পরিমাণ হ্রাস করে"
+    },
+    {
+      "question_no": 48,
+      "id": "115640",
+      "question": "একটি নদীর পানির দ্রবীভূত অক্সিজেন(DO) এর মান 2.0 mgL−1 । গুণগতভাবে উক্ত নদীর পানি পাছ ও অন্যান্য জলজ প্রাণীর বেঁচে থাকার জন্য-",
+      "options": [
+        "ভাল",
+        "খারাপ",
+        "অত্যান্ত ভাল",
+        "অত্যন্ত খারাপ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "DO পার্ট কবির স্যার"
+    },
+    {
+      "question_no": 49,
+      "id": "115641",
+      "question": "নিচের কোনটি ব্ল্যাক ফুট ডিজিজ এর জন্য দায়ী?",
+      "options": [
+        "ক্যাডমিয়াম",
+        "ইউরেনিয়াম",
+        "জার্মেনিয়াম",
+        "আর্সেনিক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "115642",
+      "question": "জলাশয়ে পানির pH মান কত এর নিচে হলে জলজ উদ্ভিদ ও মাছ মারা যায় ?",
+      "options": [
+        "3",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জলাশয়ে পানির pH মান 3 এর নিচে হলে জলজ উদ্ভিদ ও মাছ মারা যায়"
+    }
+  ]
+}

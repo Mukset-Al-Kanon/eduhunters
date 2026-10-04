@@ -1,0 +1,131 @@
+{
+  "exam_id": 9145,
+  "title": "MP3 Topic-06 : AU, OAS",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "আন্তর্জাতিক সংগঠনসমূহ Exam",
+  "duration_minutes": 5,
+  "total_questions": 8,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "2b089cd2-4362-42d0-92aa-b4ec5a7af928",
+      "question": "AU (African Union) কোন মহাদেশের সংগঠন? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "এশিয়া",
+        "আফ্রিকা",
+        "মধ্যপ্রাচ্য"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আফ্রিকান ইউনিয়ন (AU) হলো আফ্রিকা মহাদেশের ৫৫টি দেশ নিয়ে গঠিত একটি আঞ্চলিক ও ভূ-রাজনৈতিক সংস্থা।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "76055fe6-a367-47b9-8d38-d3bc23a399af",
+      "question": "আফ্রিকান ইউনিয়নের (AU) পূর্ব নাম কী ছিল? [SABAS][]",
+      "options": [
+        "আফ্রিকান ইউনাইটি",
+        "ইউরোপিয়ান ইউনিয়ন",
+        "রিপাবলিক অব আফ্রিকা",
+        "অর্গানাইজেশন অব আফ্রিকান ইউনিটি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আফ্রিকান ইউনিয়নের পূর্বসূরি সংস্থা ছিল ওএইউ (OAU - Organisation of African Unity), যা পরবর্তীতে ২০০২ সালে রূপান্তরিত হয়ে AU নাম ধারণ করে।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "f1c316e8-5f77-4c07-af3f-30bb484a7352",
+      "question": "The Organisation of African Unity (OAU) কোথায় এবং কত সালে প্রতিষ্ঠিত হয়? [SABAS][]",
+      "options": [
+        "ফেজ, ১৯৬৭",
+        "আদ্দিস আবাবা, ১৯৬৩",
+        "আকরা, ১৯৬৪",
+        "ত্রিপলি, ১৯৬৬"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৬৩ সালের ২৫ মে ইথিওপিয়ার আদ্দিস আবাবায় ৩২টি আফ্রিকান দেশের চুক্তি স্বাক্ষরের মাধ্যমে ওএইউ (OAU) গঠিত হয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "2c2dd85f-eb7a-4412-868e-3100b999eb7e",
+      "question": "African Union (AU)-এর মূল সদর দপ্তর বা সচিবালয় কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মোগাদিসু",
+        "আদ্দিস আবাবা",
+        "কায়রো",
+        "ত্রিপলি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পূর্ববর্তী ওএইউ-এর ধারাবাহিকতায় ইথিওপিয়ার রাজধানী আদ্দিস আবাবায় আফ্রিকান ইউনিয়নের সদর দপ্তর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "07d346fd-d472-47b9-b4f3-082e8cd26409",
+      "question": "The 'Agenda 2063' is a strategic framework for the socio-economic transformation of - [SABAS][]",
+      "options": [
+        "Africa",
+        "North America",
+        "South America",
+        "Asia"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এজেন্ডা ২০৬৩ হলো আফ্রিকান ইউনিয়নের একটি দীর্ঘমেয়াদী মহাপরিকল্পনা, যা মহাদেশটির সামগ্রিক অর্থনৈতিক ও সামাজিক উন্নয়নের লক্ষ্য নিয়ে তৈরি।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "1939e510-729b-484f-9802-51660ea148ee",
+      "question": "আমেরিকার রাষ্ট্রসমূহের সংগঠন Organization of American States (OAS) কত সালে গঠিত হয়? [SABAS][]",
+      "options": [
+        "১৯৩৭",
+        "১৯৪২",
+        "১৯৪৭",
+        "১৯৪৮"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আমেরিকা অঞ্চলের দেশগুলোর মধ্যে পারস্পরিক সহযোগিতা ও নিরাপত্তা নিশ্চিত করতে ১৯৪৮ সালে ওএএস (OAS) গঠিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "d4f6330a-b955-4f1a-b906-99786cb2da4f",
+      "question": "ওএএস (OAS) সনদ কোথায় এবং কখন গৃহীত হয়? [SABAS][]",
+      "options": [
+        "কলম্বিয়ায়, ১৯৪৮ খ্রি.",
+        "সানফ্রান্সিসকোতে, ১৯৫৩ খ্রি.",
+        "কিউবাতে, ১৯৬২ খ্রি.",
+        "শিকাগোতে, ১৯৬৪ খ্রি."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৯৪৮ সালে কলম্বিয়ার রাজধানী বোগোতায় (Bogota) অনুষ্ঠিত নবম আন্তর্জাতিক আমেরিকান সম্মেলনে ওএএস সনদটি গৃহীত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "e960e2e2-3d3c-4e3c-a11e-0e6db09b5147",
+      "question": "OAS কোন অঞ্চলের দেশগুলোর সমন্বয়ে গঠিত একটি আঞ্চলিক জোট? [SABAS][]",
+      "options": [
+        "দক্ষিণ-পূর্ব এশিয়া",
+        "উত্তর আটলান্টিক",
+        "আফ্রিকা মহাদেশ",
+        "আমেরিকা অঞ্চল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উত্তর ও দক্ষিণ আমেরিকা মহাদেশের (টোটাল আমেরিকা অঞ্চল) স্বাধীন রাষ্ট্রগুলো নিয়ে এই বহুপাক্ষিক জোটটি গঠিত।",
+      "images": []
+    }
+  ]
+}

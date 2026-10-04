@@ -1,0 +1,716 @@
+{
+  "exam_id": 9698,
+  "title": "MP3 Topic-05 : উত্তর আমেরিকা মহাদেশ",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "মহাদেশ পরিচিতি-০২ Exam",
+  "duration_minutes": 25,
+  "total_questions": 47,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "f6d9c5f7-9fa6-485a-95f3-82a2237bdb42",
+      "question": "গ্রিনল্যান্ড কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "দক্ষিণ আমেরিকা",
+        "উত্তর আমেরিকা",
+        "ইউরোপ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্রিনল্যান্ড ভৌগোলিকভাবে উত্তর আমেরিকা মহাদেশের অন্তর্ভুক্ত।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "80dfc8c2-4ccc-478a-9dfb-a89f2db204f3",
+      "question": "গ্রিনল্যান্ড দ্বীপটির মালিকানা কোন দেশের? [SABAS][]",
+      "options": [
+        "সুইডেন",
+        "নেদারল্যান্ডস",
+        "ডেনমার্ক",
+        "ইংল্যান্ড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্রিনল্যান্ড ডেনমার্কের একটি স্বায়ত্তশাসিত অঞ্চল।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "5223b615-13cd-4500-9368-04f9d0ec1ae0",
+      "question": "সারা বছর তুষারে আবৃত থাকে কোন দেশ? [SABAS][]",
+      "options": [
+        "ফিনল্যান্ড",
+        "গ্রিনল্যান্ড",
+        "নেদারল্যান্ডস",
+        "স্কটল্যান্ড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্রিনল্যান্ডের অধিকাংশ অঞ্চল স্থায়ী বরফে আবৃত থাকে।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "91aa8cf6-9e23-487d-a0ab-6e2f565d342b",
+      "question": "গ্রিনল্যান্ড দ্বীপ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগরে",
+        "আটলান্টিক মহাসাগরে",
+        "আর্কটিক মহাসাগরে",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গ্রিনল্যান্ড উত্তর আটলান্টিক ও আর্কটিক মহাসাগরের সংযোগস্থলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "72d208fa-c343-4072-acb9-1dace9302405",
+      "question": "গ্রিনল্যান্ড কোন দুটি দেশের মাঝখানে অবস্থিত? [SABAS][]",
+      "options": [
+        "কানাডা ও রাশিয়া",
+        "যুক্তরাষ্ট্র ও রাশিয়া",
+        "যুক্তরাষ্ট্র ও ডেনমার্ক",
+        "ডেনমার্ক ও রাশিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভৌগোলিক অবস্থান অনুযায়ী এটি কানাডা ও রাশিয়ার মধ্যবর্তী অঞ্চলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "408ebb02-9a6b-4131-b963-c4c47e0ce295",
+      "question": "পৃথিবীর বৃহত্তম দ্বীপ (largest island) কোনটি? [SABAS][]",
+      "options": [
+        "অস্ট্রেলিয়া",
+        "গ্রিনল্যান্ড",
+        "নিউজিল্যান্ড",
+        "সুমাত্রা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আয়তনের দিক থেকে গ্রিনল্যান্ড বিশ্বের বৃহত্তম দ্বীপ।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "baa8bd7b-5527-43da-9742-41321f13e6a7",
+      "question": "পশ্চিম ভারতীয় দ্বীপপুঞ্জের অবস্থান কোথায়? [SABAS][]",
+      "options": [
+        "ক্যারিবিয়ান সাগর",
+        "ভারত মহাসাগর",
+        "ভূমধ্যসাগর",
+        "আরব সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পশ্চিম ভারতীয় দ্বীপপুঞ্জ ক্যারিবিয়ান সাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "4d1b1687-6fd9-4770-aaa9-c196e63846db",
+      "question": "কোনটি পশ্চিম ভারতীয় দ্বীপপুঞ্জের স্বাধীন দেশ? [SABAS][]",
+      "options": [
+        "সেন্ট লুসিয়া",
+        "পশ্চিম সামোয়া",
+        "লিথুয়ানিয়া",
+        "নিকারুগুয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সেন্ট লুসিয়া একটি স্বাধীন ক্যারিবিয়ান দ্বীপরাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "b8ad8b33-09c5-4922-8e61-b4c615e4bdee",
+      "question": "ক্যারিবিয়ান অঞ্চলের দুটি দেশের নাম কী? [SABAS][]",
+      "options": [
+        "পেরু ও চিলি",
+        "কলম্বিয়া ও ব্রাজিল",
+        "মাল্টা ও গ্রিস",
+        "হাইতি ও কিউবা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাইতি ও কিউবা উভয়ই ক্যারিবিয়ান অঞ্চলের অন্তর্ভুক্ত দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "44234b88-b74e-4d18-8e28-d8ef920a0500",
+      "question": "নিচের কোন দেশটি ক্যারিবিয়ান অঞ্চলে অবস্থিত নয়? [SABAS][]",
+      "options": [
+        "কিউবা",
+        "গ্রানাডা",
+        "হাইতি",
+        "কানাডা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কানাডা উত্তর আমেরিকায় অবস্থিত, ক্যারিবিয়ান অঞ্চলের দেশ নয়।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "392a6a1b-1eaf-49d7-9ac9-69876035060c",
+      "question": "কোনটি ক্যারিবিয়ান রাষ্ট্র নয়? [SABAS][]",
+      "options": [
+        "ডোমিনিকা",
+        "জ্যামাইকা",
+        "পুয়ের্তো রিকো",
+        "বার্বাডোস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পুয়ের্তো রিকো মার্কিন যুক্তরাষ্ট্রের একটি অঞ্চল।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "8d55a6d3-efe5-4d72-9b02-ea8f9b1900c9",
+      "question": "হাইতির রাজধানী- [SABAS][]",
+      "options": [
+        "কেপটাউন",
+        "পোর্ট অ প্রিন্স",
+        "পোর্ট অব স্পেন",
+        "হারারে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পোর্ট অব প্রিন্স হাইতির রাজধানী।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "880ed290-1542-41bf-8678-ca20f33c9197",
+      "question": "Port of Spain is a city in- [SABAS][]",
+      "options": [
+        "Spain",
+        "Trinidad and Tobago",
+        "Italy",
+        "Barbados"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পোর্ট অব স্পেন ত্রিনিদাদ ও টোবাগোর রাজধানী।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "0ca2ed55-634c-447c-838b-e397bd08a646",
+      "question": "পোর্ট অব স্পেন কোন দেশের রাজধানী? [SABAS][]",
+      "options": [
+        "হায়াতনা",
+        "ভিয়েনা",
+        "পিকিং",
+        "ত্রিনিদাদ ও টোবাগো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পোর্ট অব স্পেন ত্রিনিদাদ ও টোবাগোর রাজধানী।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "a53c45d4-15f6-47d7-8294-3b1fc09563c9",
+      "question": "কিউবার রাজধানী- [SABAS][]",
+      "options": [
+        "হাতানা",
+        "ভিয়েনা",
+        "পিকিং",
+        "পিয়াইংয়ং"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কিউবার রাজধানী হাভানা।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "8aa5409a-064b-4048-856f-de7ddef7bbc5",
+      "question": "কিউবা কোন সমুদ্রে অবস্থিত? [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "ভূমধ্যসাগর",
+        "উত্তর সাগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কিউবা ক্যারিবিয়ান সমুদ্রে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "e8459726-22c1-4703-ab5d-476140556ec5",
+      "question": "নাসাউ কোন দেশের রাজধানী? [SABAS][]",
+      "options": [
+        "নিকোবর দ্বীপপুঞ্জ",
+        "মাদাগাস্কার দ্বীপপুঞ্জ",
+        "বাহামা দ্বীপপুঞ্জ",
+        "ফিজি দ্বীপপুঞ্জ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নাসাউ বাহামা দ্বীপপুঞ্জের রাজধানী।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "ca022ef6-1948-4e80-8fe3-29e9e749d8be",
+      "question": "বার্বাডোসের রাজধানী কোথায়? [SABAS][]",
+      "options": [
+        "নাসাউ",
+        "বাসেতেরে",
+        "বেলমোপান",
+        "ব্রিজটাউন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্রিজটাউন বার্বাডোসের রাজধানী।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "d3929040-cd87-4f13-8a9d-32f0ef6a5fb1",
+      "question": "‘ডোমিনিকা’ এর রাজধানীর নাম লিখুন। [SABAS][]",
+      "options": [
+        "রোজাউ",
+        "কাসত্রিস",
+        "কিংসটাউন",
+        "সেন্ট জনস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ডোমিনিকার রাজধানী রোজাউ (Roseau)।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "225b2aa4-a8f0-4373-98d4-f6f9f9f9e9ae",
+      "question": "Which one is a Central American country? [SABAS][]",
+      "options": [
+        "Venezuela",
+        "Mexico",
+        "Peru",
+        "Belize"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বেলিজ মধ্য আমেরিকার একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "d945a743-d4e1-4f92-a20c-6fe726238c0e",
+      "question": "কোনটি মধ্য আমেরিকার দেশ নয়? [SABAS][]",
+      "options": [
+        "কোস্টারিকা",
+        "গুয়েতেমালা",
+        "পানামা",
+        "কিউবা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কিউবা একটি ক্যারিবিয়ান দ্বীপরাষ্ট্র, মধ্য আমেরিকার দেশ নয়।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "50dafbf5-295a-44fe-b626-651d7e878401",
+      "question": "হন্ডুরাসের রাজধানীর নাম কী? [SABAS][]",
+      "options": [
+        "লা পাজ",
+        "তেগুসিগালপা",
+        "লিমা",
+        "কারাকাস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হন্ডুরাসের রাজধানী তেগুসিগালপা।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "3af00a2d-bcef-4c90-86d2-a71d221eaef9",
+      "question": "নিকারুগুয়া কোন ভৌগোলিক অঞ্চলে অবস্থিত? [SABAS][]",
+      "options": [
+        "দক্ষিণ আমেরিকা",
+        "উত্তর আমেরিকা",
+        "মধ্য আমেরিকা",
+        "মধ্য আফ্রিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নিকারুগুয়া মধ্য আমেরিকায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "277143ac-bfd3-49ec-8ce7-08b13487f89c",
+      "question": "নিকারুগুয়ার রাজধানী- [SABAS][]",
+      "options": [
+        "মানামা",
+        "কারাকাস",
+        "সান সালভাদোর",
+        "মানাগুয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নিকারুগুয়ার রাজধানী মানাগুয়া।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "97ffce30-8e78-46c5-91dc-cf6c17660797",
+      "question": "The capital of Costa Rica is - [SABAS][]",
+      "options": [
+        "Havana",
+        "San Jose",
+        "Suva",
+        "Roseau"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোস্টারিকার রাজধানী সান হোসে।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "e44a549a-0b47-403d-bcfa-db764931c613",
+      "question": "কানাডার রাজধানীর নাম কী? [SABAS][]",
+      "options": [
+        "ম্যানিটোবা",
+        "ক্যালগারি",
+        "টরেন্টো",
+        "অটোয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কানাডার রাজধানী অটোয়া।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "d233e856-74de-4908-9e96-f32237324ad8",
+      "question": "কানাডার পশ্চিমে কোন মহাসাগর অবস্থিত? [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "ভারত মহাসাগর",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কানাডার পশ্চিমে প্রশান্ত মহাসাগর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "482ea76a-b9c3-49a9-9320-7a6c20ac977a",
+      "question": "আমেরিকার (United States of America) রাজধানী কোথায়? [SABAS][]",
+      "options": [
+        "নিউইয়র্ক",
+        "ওয়াশিংটন ডি.সি",
+        "লস এঞ্জেলেস",
+        "বোস্টন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যুক্তরাষ্ট্রের রাজধানী ওয়াশিংটন ডি.সি।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "456ca279-ca6e-4359-94d3-59f269f4bb0e",
+      "question": "The USA stands for- [SABAS][]",
+      "options": [
+        "The United States of Asia",
+        "The United States of Africa",
+        "The United States of Arabia",
+        "The United States of America"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "USA মানে হলো The United States of America।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "080fd51d-c8b3-465d-b019-8d3b28e944fe",
+      "question": "ওয়াশিংটন ডি.সি বানানে ডি.সি এর পূর্ণরূপ কী? [SABAS][]",
+      "options": [
+        "ডিস্ট্রিক্ট অব কলাম্বিয়া",
+        "ডিস্ট্রিক্ট অব ক্যালিফোর্নিয়া",
+        "ডিস্ট্রিক্ট অব কেনেডি",
+        "ডিস্ট্রিক্ট অব কমেডি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ওয়াশিংটন ডি.সি-তে ডি.সি মানে ডিস্ট্রিক্ট অব কলাম্বিয়া।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "cdf2e952-1efd-4ea2-935c-e5322a6c9b70",
+      "question": "যুক্তরাষ্ট্রের আয়তন কত? [SABAS][]",
+      "options": [
+        "৯২২২০০০ বর্গমাইল",
+        "৩৬২২০০০ বর্গমাইল",
+        "৩৫২২০০০ বর্গমাইল",
+        "৩৮২২০০০ বর্গমাইল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যুক্তরাষ্ট্রের আয়তন প্রায় ৩৮২২০০০ বর্গমাইল।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "53f9a370-4b2e-4e90-8f82-f03b7fa6df75",
+      "question": "যুক্তরাষ্ট্রের অঙ্গরাজ্যের সংখ্যা কত? [SABAS][]",
+      "options": [
+        "৪৮",
+        "৪৯",
+        "৫০",
+        "৫২"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যুক্তরাষ্ট্রের মোট অঙ্গরাজ্যের সংখ্যা ৫০টি।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "74cfc783-6824-47b5-8272-87ce6e59c976",
+      "question": "Which is the largest state of USA? [SABAS][]",
+      "options": [
+        "New York",
+        "California",
+        "Alabama",
+        "Alaska"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আলাস্কা আয়তনে যুক্তরাষ্ট্রের বৃহত্তম অঙ্গরাজ্য।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "4d5dda0b-cfb2-4f4a-8088-23944069b6bb",
+      "question": "How many US states border the Pacific Ocean? [SABAS][]",
+      "options": [
+        "Four",
+        "Three",
+        "Five",
+        "Seven"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যুক্তরাষ্ট্রের পাঁচটি অঙ্গরাজ্যের সীমান্ত প্রশান্ত মহাসাগরের সাথে রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "8affdd51-69d5-4d5c-9ecb-4d01c2e8e8a8",
+      "question": "Which of the following state was bought by the USA from Russia? [SABAS][]",
+      "options": [
+        "Alaska",
+        "Pyatigorsk",
+        "Ohio",
+        "Florida"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যুক্তরাষ্ট্র রাশিয়ার কাছ থেকে আলাস্কা ক্রয় করেছিল।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "637e1892-d09a-4507-afcc-08dfc792b3b8",
+      "question": "যুক্তরাষ্ট্রের কোন স্টেটটি ফ্রান্সের নিকট থেকে ক্রয় হয়েছিল? [SABAS][]",
+      "options": [
+        "লুইসিয়ানা",
+        "উইসকনসিন",
+        "ফ্লোরিডা",
+        "নেব্রাস্কা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লুইসিয়ানা ফ্রান্সের কাছ থেকে ক্রয় করা হয়েছিল।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "98f8efe2-93de-498d-8e48-e603bea6f730",
+      "question": "যুক্তরাষ্ট্রের সবচেয়ে জনবহুল অঙ্গরাজ্য কোনটি? [SABAS][]",
+      "options": [
+        "নিউইয়র্ক",
+        "ফ্লোরিডা",
+        "টেক্সাস",
+        "ক্যালিফোর্নিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ক্যালিফোর্নিয়া যুক্তরাষ্ট্রের সবচেয়ে জনবহুল অঙ্গরাজ্য।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "b0c19f1a-dc43-49f6-a8e2-fa257fad7400",
+      "question": "যুক্তরাষ্ট্রের যে অঙ্গরাজ্যটি বর্তমানে স্বাধীনতা চায়- [SABAS][]",
+      "options": [
+        "নিউইয়র্ক",
+        "আলাস্কা",
+        "ক্যালিফোর্নিয়া",
+        "ফ্লোরিডা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ক্যালিফোর্নিয়া বিচ্ছিন্নতাবাদী আন্দোলনের জন্য পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "dbed9243-6b4b-437a-90e3-5f3b0b12dc31",
+      "question": "যুক্তরাষ্ট্র নিউইয়র্ক অঙ্গরাজ্যের রাজধানী কোনটি? [SABAS][]",
+      "options": [
+        "অস্টিন",
+        "আলবেনি",
+        "মায়ামি",
+        "শিকাগো"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নিউইয়র্ক অঙ্গরাজ্যের রাজধানী আলবেনি।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "2145f45c-f736-4e8c-b421-e66c10457580",
+      "question": "হাওয়াই যে রাষ্ট্রের অংশ- [SABAS][]",
+      "options": [
+        "যুক্তরাজ্য",
+        "জাপান",
+        "অস্ট্রেলিয়া",
+        "যুক্তরাষ্ট্র"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাওয়াই যুক্তরাষ্ট্রের একটি অঙ্গরাজ্য।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "6278cabd-6d71-40d0-97b4-bd3cebc3d802",
+      "question": "যুক্তরাষ্ট্র ইউনিয়নে কোন স্টেট সর্বশেষ যোগ দেয়?[]",
+      "options": [
+        "হাওয়াই",
+        "অ্যারিজোনা",
+        "টেক্সাস",
+        "ফ্লোরিডা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাওয়াই ১৯৫৯ সালে যুক্তরাষ্ট্রের ৫০তম অঙ্গরাজ্য হিসেবে যুক্ত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "6e05a612-d024-4988-9a37-96f092bccc3a",
+      "question": "পিটসবার্গ মার্কিন যুক্তরাষ্ট্রের কোন অঙ্গরাজ্যের অন্তর্ভুক্ত?[]",
+      "options": [
+        "ক্যালিফোর্নিয়া",
+        "পেনসিলভেনিয়া",
+        "ফ্লোরিডা",
+        "টেক্সাস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পিটসবার্গ যুক্তরাষ্ট্রের পেনসিলভেনিয়া অঙ্গরাজ্যের একটি শহর।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "faeff2a3-f5cb-4a89-b427-f466b4a7eedc",
+      "question": "USA's second biggest city is -[]",
+      "options": [
+        "Seattle",
+        "New York city",
+        "Atlanta",
+        "Los Angeles"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জনসংখ্যা অনুযায়ী লস এঞ্জেলেস যুক্তরাষ্ট্রের দ্বিতীয় বৃহত্তম শহর।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "8b977c78-8c6e-4670-9fec-d830ebeffaac",
+      "question": "মেক্সিকো ও যুক্তরাষ্ট্র বিভক্তকারী সীমারেখা কোনটি?[]",
+      "options": [
+        "সোনোরা লাইন",
+        "ম্যাকনামারা লাইন",
+        "ডুরাড লাইন",
+        "হিঙ্গারবার্গ লাইন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মেক্সিকো ও যুক্তরাষ্ট্র সীমান্ত সোনোরা লাইন নামে পরিচিত (এটি মূলত রিও গ্রান্ডে নদীর অংশ)।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "f184cad2-13e8-4d9f-9883-375059d612b4",
+      "question": "Which of the following is the largest border in the world between two countries?[]",
+      "options": [
+        "ভারত ও পাকিস্তান",
+        "আমেরিকা ও কানাডা",
+        "আমেরিকা ও মেক্সিকো",
+        "দক্ষিণ কোরিয়া ও উত্তর কোরিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আমেরিকা ও কানাডা সীমান্ত বিশ্বের দীর্ঘতম স্থল সীমান্ত।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "e5d7ac3d-5327-45ac-8588-8e6e08201a90",
+      "question": "কোন দেশগুলো মেডিসিন লাইন/সীমানা দ্বারা বিভক্ত?[]",
+      "options": [
+        "ব্রাজিল ও বলিভিয়া",
+        "যুক্তরাষ্ট্র ও কানাডা",
+        "জার্মানি ও পোল্যান্ড",
+        "মিশর ও সুদান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মেডিসিন লাইন যুক্তরাষ্ট্র ও কানাডার সীমান্ত অঞ্চলের একটি অংশ।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "7e67fcf6-5bc4-43ee-9c04-97681cfeb93b",
+      "question": "Which of the following countries is not landlocked?[]",
+      "options": [
+        "Afghanistan",
+        "Lesotho",
+        "Jamaica",
+        "Mongolia"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জ্যামাইকা একটি দ্বীপরাষ্ট্র, স্থলবেষ্টিত নয়।",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "title": "Medical English 21-22",
+  "category": "Medical & Dental Questions > Medical English Question",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "139314",
+      "question": "The teacher has repeated herself twice. Here 'twice' is-",
+      "options": [
+        "noun",
+        "adjective",
+        "adverb",
+        "preposition"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রদত্ত বাক্যে 'twice' শব্দটি verb (repeat) কে নির্দেশ করছে বিধায়, এটি adverb হিসেবে ব্যবহৃত হয়েছে"
+    },
+    {
+      "question_no": 2,
+      "id": "139315",
+      "question": "Which of the following sentences contain an incorrect appropriate preposition?",
+      "options": [
+        "He was charged with theft",
+        "He complied with my request",
+        "Clothed with shame, she left that place",
+        "Early rising is conducive with health"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সাধারণত কোনোকিছু কারো জন্যে উপকারী বা অনুকূল বোঝাতে Conducive to ব্যবহৃত হয় অর্থাৎ, বাক্যটিতে Conducive to health হবে।"
+    },
+    {
+      "question_no": 3,
+      "id": "139316",
+      "question": "Synonym for polite is-",
+      "options": [
+        "Arich",
+        "courteous",
+        "kindness",
+        "brilliant"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Polite শব্দের অর্থ নম্র, ভদ্র, শালীন, বিনীত ইত্যাদি। এর কয়েকটি সমার্থক হচ্ছে Well mannered, civil, courteous, respectful ইত্যাদি।"
+    },
+    {
+      "question_no": 4,
+      "id": "139317",
+      "question": "Antonym of 'deceive' is-",
+      "options": [
+        "Atrick",
+        "mislead",
+        "cheat",
+        "advise"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Deceive শব্দের অর্থ প্রতারণা করা, ছল করা ইত্যাদি (trick, cheat, mislead)। তাই এর বিপরীত শব্দ হল advise (পরামর্শ দেওয়া, বুদ্ধি দেওয়া, উপদেশ দেওয়া ইত্যাদি)।"
+    },
+    {
+      "question_no": 5,
+      "id": "139318",
+      "question": "Select the correct tense 'I had been studying English for five years before I moved to the USA'.",
+      "options": [
+        "Present perfect continuous",
+        "Past perfect continuous",
+        "Future continuous",
+        "Present continuous"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যটিতে before- এর পূর্বে Past perfect continuous tense (had been studying) এবং পরে Past indefinite tense রয়েছে।"
+    },
+    {
+      "question_no": 6,
+      "id": "139319",
+      "question": "Identify the tense of the sentence \"She will be starting her new job from tomorrow\".",
+      "options": [
+        "Future continuous",
+        "Present continuous",
+        "Present simple",
+        "Future perfect"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাধারণত ভবিষ্যতে কোনো কাজ চলতে থাকবে এরকম বোঝালে future continuous tense ব্যবহৃত হয় যার Structure হলো- Subject + shall be/will be + verb এর সাথে ing + ext."
+    },
+    {
+      "question_no": 7,
+      "id": "139320",
+      "question": "Select the complex sentence with an adverb clause from below-",
+      "options": [
+        "You may criticize what I do",
+        "He is so weak that he cannot walk",
+        "I am sure that I will pass",
+        "I have no money that I can spare"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো বাক্যের noun/pronoun ব্যতীত অন্য কোনো Parts of speech- কে নির্দেশকারী শব্দই হলো adverb এবং যে clause বাক্যে adverb এর কাজ করে তাকে adverbial clause বলা হয়। Option তে that he cannot walk -clause টি weak (adjective) কে নির্দেশ করছে বিধায় এটি adverbial clause"
+    },
+    {
+      "question_no": 8,
+      "id": "139321",
+      "question": "Which of the following is the meaning of the phrase \"read between the lines\"?",
+      "options": [
+        "read what is categorically stated",
+        "understand what is implied not what is explicitly stated",
+        "understand the inner meaning",
+        "read what is implied"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The correct answer is \"understand what is implied, not what is explicitly stated\". This is because the phrase \"read between the lines\" means to understand the hidden or implied meaning of something, not just what is explicitly stated."
+    },
+    {
+      "question_no": 9,
+      "id": "139322",
+      "question": "Fill in the blank with appropriate word 'I am very proud .........you.",
+      "options": [
+        "to",
+        "in",
+        "of",
+        "for"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সাধারণত গর্বিত বোঝাতে Proud of (someone/something) ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 10,
+      "id": "139323",
+      "question": "What is the 'noun' form of the word 'beneficial'?",
+      "options": [
+        "beneficiary",
+        "beneficent",
+        "beneficialness",
+        "benefit"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Beneficial শব্দের অর্থ উপকারী, সুবিধাজনক (adjective); এর noun form হল- benefit (সুবিধা)।"
+    },
+    {
+      "question_no": 11,
+      "id": "139324",
+      "question": "Which of the following sentences contain an adverb clause?",
+      "options": [
+        "I have no money that I can spare",
+        "He is a man who is rich",
+        "The house in which we live at present suits us",
+        "You can be allowed here only if you are a student"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটিতে Only if you are a student - Clause টি allowed here এর সাথে সম্পর্কিত অর্থাৎ, verb কে নির্দেশ করছে; তাই এটি adverb clause।"
+    },
+    {
+      "question_no": 12,
+      "id": "139326",
+      "question": "Which of the following sentences has the correct subject-verb agreement?",
+      "options": [
+        "One problem for the player was unexpected threats of injury",
+        "Not only Sufia, but also Nasima, want to visit grandma",
+        "Traffic jams in the parking area was one difficulty for the visitors",
+        "Somebody want to speak with you"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যটিতে Unexpected threats of injury-কে একটি সমস্যা (One problem) হিসেবে বর্ণনা করা হয়েছে খেলোয়াড়দের জন্যে। তাই verb singular (was) ব্যবহৃত হয়েছে।"
+    },
+    {
+      "question_no": 13,
+      "id": "139329",
+      "question": "Select the sentence with a noun as a premodifier -",
+      "options": [
+        "No passenger flight departed on that day",
+        "We enjoyed a fabulous outing in the evening",
+        "We booked a spacious room",
+        "We had a pleasant journey this time"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাধারণত কোনো noun এর পূর্বে অন্য একটি noun বসে যদি adjective হিসেবে কাজ করে অথবা সরাসরি কোনো adjective ব্যবহৃত হয়ে একই noun কে বর্ণনা করে তখন তাকে Premodifier বলা হয়। বাক্যটিতে flight (noun) এর Passenger noun টি Premodifier."
+    },
+    {
+      "question_no": 14,
+      "id": "139331",
+      "question": "Which of the following is not a noun?",
+      "options": [
+        "softly",
+        "livelihood",
+        "responsibility",
+        "friendliness"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Softly শব্দটি adverb, এর noun হচ্ছে softness।"
+    },
+    {
+      "question_no": 15,
+      "id": "139333",
+      "question": "Choose the sentence with incorrect use of a phrase-",
+      "options": [
+        "I don't want to hear a long description, I just want the bottom line",
+        "When I come home late, my wife gives me the third degree",
+        "Don't sell yourself short, you are a good doctor",
+        "Now that the construction is almost finished, you can pull out all the stops and take it easy"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Pull out all the stops এর অর্থ সর্বোত্তম চেষ্টা করা। উক্ত phrase টি বাক্যটির প্রথম অংশের অর্থের সাথে সামঞ্জস্যপূর্ণ নয়।"
+    }
+  ]
+}

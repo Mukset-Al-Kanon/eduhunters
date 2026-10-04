@@ -1,0 +1,341 @@
+{
+  "exam_id": 9791,
+  "title": "Proverbs (Ques. No. 201-222)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "Proverbs Exam (222 Marks)",
+  "duration_minutes": 15,
+  "total_questions": 22,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "04481ae2-bd9c-468b-8ff8-0974bcded609",
+      "question": "He runs with the hare and hunts with the hounds এর বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "হাতী ঘোড়া গেল তল, ভেড়া বলে কত জল",
+        "নিজের নাক কেটে পরের যাত্রা ভঙ্গ করা",
+        "সাপ হয়ে কাটে, ওঝা হয়ে ঝাড়ে",
+        "হাটে হাঁড়ি ভেঙে যায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "He runs with the hare and hunts with the hounds এর সঠিক বাংলা প্রবাদ হলো 'সাপ হয়ে কাটে, ওঝা হয়ে ঝাড়ে' (অর্থাৎ, উভয়ের সাথে সুসম্পর্ক রাখা)।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "fc9592e9-a639-4d75-be65-8b144f09c503",
+      "question": "Find out the best translation. ‘ভিক্ষার চাল কাঁড়া আর আঁকড়া’ [SABAS][]",
+      "options": [
+        "Donated rice pure or impure",
+        "Begged rice should not be checked",
+        "Beg some rice",
+        "Beggars must not be choosers"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "‘ভিক্ষার চাল কাঁড়া আর আঁকড়া’ এর সঠিক ইংরেজি প্রবাদ হলো 'Beggars must not be choosers'।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "56d8a2dc-7f91-4f6f-a498-40456496d1fc",
+      "question": "No pains no gains এর বঙ্গানুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "ব্যথা নাই তো অর্জন নাই",
+        "কষ্ট না করলে কেষ্ট মেলে না",
+        "জীবনে কোন আশা নেই",
+        "বাধা ছাড়া অর্জন ব্যর্থ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "No pains no gains এর প্রচলিত বাংলা ভাবার্থ হলো 'কষ্ট না করলে কেষ্ট মেলে না'।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "cdee78b0-a573-4bed-9bcb-cf02948c6b8a",
+      "question": "Waste not, want not. বাক্যটির যথাযথ অনুবাদ - [SABAS][]",
+      "options": [
+        "নষ্ট করো না, কিছু চেয়োনা",
+        "নষ্ট করো না, করলে কিছু চাইতেবে পারবেনা",
+        "অপচয় করো না, অভাবও হবে না",
+        "অপচয় করো না,কিছু চেয়োনা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Waste not, want not-এর অর্থ হলো অপচয় না করলে অভাব হয় না।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "c33304e6-553a-4ffa-b4f5-f691e9046122",
+      "question": "The proverb ‘a bird in hand is worth two in the bush’ implies – [SABAS][]",
+      "options": [
+        "One bird in hand is equal to two in the bush",
+        "It is always difficult to catch birds from the bush.",
+        "Two birds in the bush are less valuable than one in hand.",
+        "Something easily available is better than many precious things out of reach."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটির অর্থ হলো—যা হাতের কাছে পাওয়া যায় তা দূরের অনেক দামি জিনিসের চেয়েও উত্তম।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "e0c3c6b4-438e-45c0-85a2-5186c58ad2cd",
+      "question": "Choose the meaning of the given expressions: A bird in hand is worth two in the bush [SABAS][]",
+      "options": [
+        "Take what you have got readily available rather than expecting better in the future.",
+        "The seen is better than unseen",
+        "Promise are better than actuals",
+        "It is good beating about the bush"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এই প্রবাদটি নির্দেশ করে যে, ভবিষ্যতের অনিশ্চিত লাভের চেয়ে বর্তমানের নিশ্চিত প্রাপ্তিই শ্রেয়।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "8cb648c8-1878-47e5-b49f-7a9a3f1dc72b",
+      "question": "Our policy will be to kill two birds with one stone. [SABAS][]",
+      "options": [
+        "Our policy will be to doubly aggressive.",
+        "Our policy will be to achieve both goals in one attempt.",
+        "Our policy will be to strike out in two directions.",
+        "Our policy will be to hit all targets at once."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘To kill two birds with one stone’ বাগধারাটির অর্থ হলো এক ঢিলে দুই পাখি মারা (এক প্রচেষ্টায় দুই উদ্দেশ্য হাসিল করা)।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "54809e91-7eba-4d3e-90df-1562d093d910",
+      "question": "Which is the correct proverb?(ক্ষুধা লাগলে বাঘে ধান খায়) [SABAS][]",
+      "options": [
+        "Hunger is the best of all sauces",
+        "Hunger is the best sauce",
+        "There is no other hunger better than a sauce",
+        "Hunger is much more a sauce of choice than hunger"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘ক্ষুধা লাগলে বাঘে ধান খায়’-এর ইংরেজি প্রবাদটি হলো 'Hunger is the best sauce'।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "26c5b628-bb02-4ee5-94da-af54e067d375",
+      "question": "‘Bachelor’ wives and maids’ children are always well taught প্রবাদটির অর্থ কি? [SABAS][]",
+      "options": [
+        "ভিক্ষার চাল কাঁড়া আঁকড়া",
+        "মাথা নেই তার মাথা ব্যথা",
+        "বিয়ে করতে আড় ঘর বাঁধতে দড়ি",
+        "দূরের জিনিস ভালো মনে হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অভিজ্ঞতাহীন ব্যক্তিরাই বড় বড় উপদেশ দিয়ে থাকে, এর বাংলা ভাবার্থ হলো 'মাথা নেই তার মাথা ব্যথা'।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "fe93fd5d-acb7-45d4-aee4-57884f4261c6",
+      "question": "Choose the correct answer. [SABAS][]",
+      "options": [
+        "A drowning man catches to a straw.",
+        "A drowning man catches with a straw.",
+        "A drowning man catches about a straw.",
+        "A drowning man catches at a straw."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ডুবন্ত মানুষ খড়কুটো আঁকড়ে ধরে—এর ইংরেজি প্রবাদ হলো 'A drowning man catches at a straw'.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "3efafff7-1f33-4b8b-85d4-52fd8be00584",
+      "question": "কয়লা শত ধুইলেও ময়লা যায় না। [SABAS][]",
+      "options": [
+        "None can change the colour of coal.",
+        "None can wash away the black of coal.",
+        "Black will take no other hue.",
+        "The black of a coal is unwashable"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এই প্রবাদের সঠিক ইংরেজি রূপ হলো Black will take no other hue.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "4764a5ce-ca72-4d67-8e0b-5894db2f1c3a",
+      "question": "যাকে দেখতে নারি,তার চলন বাঁকা’-এর সঠিক ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "Faults are thin where love is thick.",
+        "Faults are thick where love is thin.",
+        "Faults are thick where love is deep.",
+        "Faults are deep where love is thin."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "“যাকে দেখতে নারি, তার চলন বাঁকা” এর ইংরেজি অনুবাদ হলো Faults are thick where love is thin.",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "1078553f-2b0b-4b10-859f-1136e8b8bdf9",
+      "question": "Which of the following pair contain correct translation of that English Proverb? [SABAS][]",
+      "options": [
+        "To carry coals to Newcastle- তেল মাথায় তেল দেওয়া",
+        "To add fuel to the fire.- কোপ বুঝে কোপ মারা",
+        "Strike the iron while it is hot- কাঁটা দিয়ে কাঁটা তোলা",
+        "Practice makes a man perfect- ঘরপোড়া গরু সিঁদুরে মেঘ দেখলে ডরায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "To carry coals to Newcastle এর অর্থ হলো তেল মাথায় তেল দেওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "2b9ed46f-acc9-45b6-bd46-b3f8fad09263",
+      "question": "পায়ে মানে না আপনি মোড়ল। এই বাক্যের ইংরেজি অনুবাদ- [SABAS][]",
+      "options": [
+        "A fool to others, to himself a sage.",
+        "A fool to others, to himself a fool.",
+        "A fool to others, to himself an idiot.",
+        "A nonsense to himself, to others a sage."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পায়ে মানে না আপনি মোড়ল এর ইংরেজি অনুবাদ হলো A fool to others, to himself a sage.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "21ab1ffb-e781-404f-a07b-73092fc44e14",
+      "question": "Which of the following sentences is correct? [SABAS][]",
+      "options": [
+        "A little learning is dangerous thing.",
+        "A little learning is a dangerous things.",
+        "A little learning is a dangerous thing.",
+        "Little learning is dangerous thing."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সঠিক প্রবাদটি হলো 'A little learning is a dangerous thing'.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "ae64fd19-3d22-4b5e-a229-17a61d018843",
+      "question": "সাবধানের মার নেই। [SABAS][]",
+      "options": [
+        "To be forewarned is to be forearmed.",
+        "Precaution can save much.",
+        "Precaution costs nothing.",
+        "Precaution can save a lot."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাবধানের মার নেই এর ইংরেজি অনুবাদ হলো To be forewarned is to be forearmed.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "2999c646-a29b-406c-b84f-7739ff1fd04f",
+      "question": "‘এক হাতে তালি বাজে না’ ইংরেজি অনুবাদ - [SABAS][]",
+      "options": [
+        "One hand cannot make a sound.",
+        "To make a sound it needs to hands.",
+        "It takes two to make a quarrel.",
+        "One man cannot make a quarrel."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "‘এক হাতে তালি বাজে না’ এর ভাবার্থ হলো It takes two to make a quarrel.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "dff1b9fa-afcc-4f50-b29f-92ffd1ff1ba8",
+      "question": "‘দশের লাঠি একের বোঝা’ ইংরেজিতে- [SABAS][]",
+      "options": [
+        "One cannot do as hard work easily.",
+        "Many a little makes a mickle.",
+        "Sticks of many make a bundle.",
+        "Many people can do anything easily."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘দশের লাঠি একের বোঝা’ এর ইংরেজি প্রবাদ হলো Many a little makes a mickle.",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "6b3d5a5f-a8ea-4602-a36c-9ea8402e15f0",
+      "question": "প্রয়োজন কোন আইন মানে না। [SABAS][]",
+      "options": [
+        "Necessity does not obey any law.",
+        "Necessity knows no law.",
+        "Necessity does not follow any law.",
+        "Necessity approves no law."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রয়োজন কোন আইন মানে না এর ইংরেজি প্রবাদ হলো Necessity knows no law.",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "ff9532e7-e457-4692-92b8-03153776935e",
+      "question": "‘অতি চালাকের গলায় দড়ি’-এর ইংরেজি রূপ কোনটি? [SABAS][]",
+      "options": [
+        "Too much cunning overreaches itself.",
+        "Too much craft overreaches themselves.",
+        "To beat the hound and run with the hare.",
+        "Between two horns of dilemma."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "‘অতি চালাকের গলায় দড়ি’ এর সঠিক ইংরেজি হলো Too much cunning overreaches itself.",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "6ff771e0-0b2e-4abc-8bfe-97ddc0963a96",
+      "question": "অসময়ের বন্ধুই প্রকৃত বন্ধু। [SABAS][]",
+      "options": [
+        "A friend in bad time is a good friend.",
+        "A friend in bad time is a real friend.",
+        "A friend in need is an good friend.",
+        "A friend in need is a friend indeed."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "‘অসময়ের বন্ধুই প্রকৃত বন্ধু’ এর সঠিক ইংরেজি প্রবাদ হলো A friend in need is a friend indeed.",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "28efc220-afcf-4c15-b90f-072dfc49dd5f",
+      "question": "[SABAS]\nWhich is the closest in meaning to \"গাছে কাঁঠাল গোফে তেল”?[]",
+      "options": [
+        "Cut your coat according to your cloth",
+        "Hunger is the best sauce",
+        "To eat jackfruit before they ripe",
+        "To count one's chicken before they are hatched"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

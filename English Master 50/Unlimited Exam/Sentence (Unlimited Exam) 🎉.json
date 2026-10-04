@@ -1,0 +1,2126 @@
+{
+  "exam_id": 10532,
+  "title": "Sentence (Unlimited Exam) 🎉",
+  "category": "Unlimited Exam",
+  "subtopic": "Grammar Unlimited Exam",
+  "duration_minutes": 15,
+  "total_questions": 141,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "aa6b8922-5e08-42d6-9171-09bd8bc8b64e",
+      "question": "A sentence is a – [SABAS][]",
+      "options": [
+        "group of words",
+        "collection of words",
+        "group of words that makes a complete sense.",
+        "part of paragraph."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "একটি Sentence বা বাক্য হলো কতগুলো শব্দের সমষ্টি যা সম্পূর্ণ অর্থ প্রকাশ করে.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5ae2fc45-4dfb-49f7-b829-c50edb2ebb53",
+      "question": "A sentence is a group of words that expresses a complete – [SABAS][]",
+      "options": [
+        "thought",
+        "paragraph",
+        "predicate",
+        "fragment"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Sentence হলো কতগুলো শব্দের সমষ্টি যা একটি সম্পূর্ণ ধারণা বা thought প্রকাশ করে.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "7e035551-3415-40e2-b08a-4d835003b109",
+      "question": "A ‘subject’ means – [SABAS][]",
+      "options": [
+        "The agent of a sentence.",
+        "The preceding of the adjective",
+        "The modifier of the sentence.",
+        "The syntax of the sentence."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Sentence-এ যার সম্পর্কে কিছু বলা হয় বা যে কাজটি করে, তাকে subject বা কর্তা বলা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "8ad37df0-7179-4492-9452-ac3f1717ec30",
+      "question": "The ‘predicate’ is a group of words which -. [SABAS][]",
+      "options": [
+        "denotes the statement",
+        "describe the subject",
+        "helps the subject",
+        "tells about the subject"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Subject সম্পর্কে যা কিছু বলা হয়, তাকেই predicate বা বিধেয় বলা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "45d5ffea-7beb-4a03-b9f8-c103a1a2f416",
+      "question": "The predicate of a sentence is – [SABAS][]",
+      "options": [
+        "A verb",
+        "A person about whom something is said.",
+        "What is said about subject.",
+        "Which determines the subject."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Predicate হলো Sentence-এর সেই অংশ যা subject সম্পর্কে কিছু বলে.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "0767b0ce-66dd-4677-8315-81f0726666ec",
+      "question": "When we write sentence – [SABAS][]",
+      "options": [
+        "The object comes first.",
+        "The predicate comes first.",
+        "The subject comes first.",
+        "The person comes first."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি Sentence-এর গঠন অনুযায়ী সাধারণত subject প্রথমে বসে.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "99f1dd1f-db70-49a6-84ae-a08bb1f76703",
+      "question": "Because every sentence must contain a subject and a verb, how many essential part (s) every sentence have? [SABAS][]",
+      "options": [
+        "one",
+        "two",
+        "three",
+        "three is on hard and fast rule"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রতিটি Sentence-এর দুটি অপরিহার্য অংশ থাকে: subject এবং predicate (যাতে finite verb থাকে).",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "f5491192-6dfb-4e53-b649-0694a95e5738",
+      "question": "A sentence must have a – [SABAS][]",
+      "options": [
+        "group of words",
+        "description",
+        "statement",
+        "subject and a finite verb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "একটি সার্থক Sentence-এর প্রধান দুটি অংশ হলো subject এবং predicate, আর predicate-এ অবশ্যই একটি finite verb থাকতে হবে.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "554e4934-0541-489b-a63d-d50bd1c3fd33",
+      "question": "An assertive sentence means: [SABAS][]",
+      "options": [
+        "we affirm what is said",
+        "a negative form",
+        "a simple statement",
+        "comment or order"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Assertive sentence হলো একটি সাধারণ বর্ণনা বা simple statement.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "f9ac0788-d10d-4c33-af4f-c683d52f989f",
+      "question": "The boy has a book. (What kind of sentence it is?) [SABAS][]",
+      "options": [
+        "Assertive",
+        "Negative",
+        "Optative",
+        "Imperative"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "The boy has a book বাক্যটি দিয়ে একটি সাধারণ বর্ণনা দেওয়া হয়েছে, তাই এটি Assertive sentence.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "5b500fd7-c4d3-4ca0-bc03-ad2e53762e13",
+      "question": "‘The wind is unfavourable.’ What kind of sentence this? [SABAS][]",
+      "options": [
+        "assertive",
+        "interrogative",
+        "imperative",
+        "optative"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এই বাক্যটি একটি সাধারণ বিবৃতি বা simple statement প্রকাশ করছে, তাই এটি একটি Assertive sentence.",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "c9d6e07f-381b-40c5-b142-1c951d3ba3b6",
+      "question": "Only Rina can do this sum. (Negative) [SABAS][]",
+      "options": [
+        "Only Rina cannot do this sum.",
+        "Rina cannot do this sum.",
+        "None but Rina can do this sum",
+        "Anyone but Rina can do this sum."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Affirmative বাক্যে ব্যক্তিবাচক Noun-এর আগে 'Only' থাকলে Negative করার সময় 'None but' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "8d4f87a5-0c4a-4893-8c60-c415dcec57ee",
+      "question": "None but one student was absent. Which is affirmative? [SABAS][]",
+      "options": [
+        "One student was absent",
+        "One student was always absent",
+        "Only one student was absent",
+        "Only one student was always absent"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Negative বাক্যে 'None but' থাকলে Affirmative করার সময় এর পরিবর্তে 'Only' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "3995a52e-5067-4a6d-b8e6-58b6e42d36fe",
+      "question": "Choose the correct negative sentence. ‘Only a rogue can act thus.’ [SABAS][]",
+      "options": [
+        "Only but a rogue can act thus.",
+        "No one but a rogue can act thus.",
+        "None but a rogue can act thus.",
+        "No one can act thus but a rogue."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্যক্তিবাচক Noun (rogue)-কে qualify করায় 'Only'-এর পরিবর্তে 'None but' ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "1471a97a-5189-4912-8aaf-7d1e52112f2a",
+      "question": "‘A child likes only sweets’ – Negative form of this sentence is- [SABAS][]",
+      "options": [
+        "A child likes nothing but sweets",
+        "A child likes none but sweets",
+        "A child likes but sweets",
+        "A child likes not more sweets"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বস্তুবাচক Noun (sweets)-কে qualify করায় 'Only'-এর পরিবর্তে 'nothing but' বসেছে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "b2c7ee27-4872-463b-b0bc-77ab08945acf",
+      "question": "He has only a few books. [SABAS][]",
+      "options": [
+        "He does not but a few books.",
+        "He is nothing though a few books.",
+        "He has nothing but a few books.",
+        "He does not possess a few books."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বস্তুবাচক Noun-এর সাথে 'only' থাকলে Negative করার সময় 'nothing but' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "b9518d01-8878-4b3d-9e41-17325626d9e2",
+      "question": "Priyom is only six. (Negative) [SABAS][]",
+      "options": [
+        "Priyom is not six.",
+        "Priyom is not more than six.",
+        "Priyom is more six.",
+        "Priyom is no less six."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সংখ্যাবাচক শব্দ (six)-কে qualify করায় 'Only'-এর পরিবর্তে 'not more than' ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "54065fa3-a949-4002-a617-9135e53185d8",
+      "question": "He is only five. (Negative) [SABAS][]",
+      "options": [
+        "He is not less than five.",
+        "He is not only five.",
+        "He is not above five.",
+        "He in not aged five."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সংখ্যাবাচক শব্দের ক্ষেত্রে 'Only'-এর পরিবর্তে 'not more than' বা 'not less than' ব্যবহার করা যায়।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "6bcd5628-bcbf-4ce5-8fcc-c55683ba85e2",
+      "question": "I must do this. (Make it negative) [SABAS][]",
+      "options": [
+        "I cannot but doing this.",
+        "I cannot help do this.",
+        "I must not but do this.",
+        "I cannot help doing this."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Affirmative-এ 'must' থাকলে Negative-এ 'cannot help + verb+ing' বা 'cannot but + base form of verb' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "7bdc5a61-19ff-438f-b290-bcd9e92cc3f9",
+      "question": "I must go there. (Negative) [SABAS][]",
+      "options": [
+        "I cannot going there.",
+        "I cannot help go there.",
+        "I cannot but go there.",
+        "I must not go there."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "must' এর পরিবর্তে 'cannot but' এবং এরপর verb-এর base form (go) বসেছে।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "953c9806-af5f-4052-bb0f-fb37c01fbd55",
+      "question": "I must do it. (Make it negative) [SABAS][]",
+      "options": [
+        "I must not do it.",
+        "I should not do it.",
+        "I cannot but do it.",
+        "I do not do it."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Affirmative বাক্যে 'must' থাকলে Negative করার সময় 'cannot but' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "334bb9a2-dc19-44d5-a1d1-4f4f987c0036",
+      "question": "‘I cannot help listening to him.’ Show in form using ‘but’. [SABAS][]",
+      "options": [
+        "I can listen to him.",
+        "I cannot but listen to him.",
+        "I but can listen to him.",
+        "I cannot listening to him."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Cannot help + verb+ing এর পরিবর্তে cannot but + base form of verb (listen) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "518f24f5-df92-489d-a21e-83c5370e6d34",
+      "question": "I cannot but go there. (Use ‘help’ in place of ‘but’) [SABAS][]",
+      "options": [
+        "I cannot help in going there.",
+        "I cannot help to go there.",
+        "I cannot help going there.",
+        "I cannot help for going there"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Cannot but-এর পরিবর্তে 'cannot help' বসালে পরের verb-এর সাথে 'ing' যুক্ত করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "2050fc08-28af-4072-83f3-943a5dbc6f36",
+      "question": "None can escape his fate. Choose the correct affirmative of this sentence. [SABAS][]",
+      "options": [
+        "Everyone accept his fate.",
+        "Everyone can escape his fate.",
+        "Everyone must submit to his fate.",
+        "Everyone cannot escape his fate."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Negative (None) কে Affirmative করার সময় Everyone এবং বিপরীতার্থক শব্দ বা ভাবের সংগতি রাখতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "a16b9523-1a78-4536-8c46-8d7e34d6287c",
+      "question": "Everybody should admit the truth. (Make it negative without changing its meaning) [SABAS][]",
+      "options": [
+        "Nobody should admit the truth.",
+        "Nobody should deny the truth.",
+        "Everybody should not admit the truth.",
+        "Everybody should deny the truth."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Everybody-র পরিবর্তে Nobody এবং admit-এর বিপরীত শব্দ deny ব্যবহার করে অর্থ ঠিক রাখা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "759faece-9859-4ef5-a213-600ddee3fc6b",
+      "question": "Nobody likes a liar. The affirmative form of the sentence is --- [SABAS][]",
+      "options": [
+        "Everybody dislikes lying",
+        "All people dislike a liar",
+        "Everybody hates a liar",
+        "Everybody likes the truth."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Nobody-র পরিবর্তে Everybody এবং likes-এর বিপরীত শব্দ hates ব্যবহার করে অর্থ অপরিবর্তিত রাখা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "03ad0830-666d-4086-8090-36a76d7e5b86",
+      "question": "Every rose has a thorn. Make it negative. [SABAS][]",
+      "options": [
+        "No rose has a thorn.",
+        "Every rose has no thorn.",
+        "There is no rose without thorn.",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Every + noun থাকলে 'There is no + noun + without' গঠন অনুসরণ করে negative করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "6e5f813e-9250-47a5-8d91-8596c399ddaf",
+      "question": "‘Every mother loves her child’. Make it negative. [SABAS][]",
+      "options": [
+        "Every mother does not love her child.",
+        "Every mother doesn’t love her child.",
+        "There is no mother but loves her child.",
+        "Every mother loves no child."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Every + noun + verb থাকলে 'There is no + noun + but + verb' ব্যবহার করে negative করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "5b346b96-e4ba-4e80-aea8-c736a5dafb17",
+      "question": "The negative form of the sentence,“It always pours when it rains” is- [SABAS][]",
+      "options": [
+        "It never pours when it does not rain",
+        "It always does not pours when is does not rain",
+        "It never rains but it pours",
+        "It never pours but it rains"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদ বা বিশেষ বাক্যের ক্ষেত্রে 'It never rains but it pours' গঠনটি নেতিবাচক ভাব প্রকাশে সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "c951cac1-3958-4ec5-af49-563c07ed22fd",
+      "question": "Everyone always remembers him. (Make it negative) [SABAS][]",
+      "options": [
+        "Everyone will not remember him.",
+        "Everyone never remember him.",
+        "Everyone never forgets him.",
+        "Everyone forgets him."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Always-এর বিপরীত 'never' এবং remembers-এর বিপরীত 'forgets' ব্যবহার করে negative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "33a591aa-fe93-4fff-9d5e-f22f89ced3d1",
+      "question": "We always honour our teacher. (Make it negative) [SABAS][]",
+      "options": [
+        "We never honour our teacher.",
+        "We never dishonour our teacher.",
+        "We should not dishonour our teacher.",
+        "We shall not honour our teacher."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Always-এর পরিবর্তে 'never' এবং মূল শব্দের বিপরীত শব্দ (honour → dishonour) ব্যবহার করে negative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "ea715334-42ca-4d60-a867-695ffb026841",
+      "question": "Tuhin was never late. (Make it affirmative): [SABAS][]",
+      "options": [
+        "Tuhin was never late.",
+        "Tuhin was never punctual.",
+        "Tuhin was always punctual.",
+        "Tuhin is not never late."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Never-এর পরিবর্তে 'always' এবং late-এর বিপরীত শব্দ 'punctual' ব্যবহার করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "f09bd567-f854-4b7d-8d00-a6007273a95b",
+      "question": "Which one is the right form of negative sentence without any change of this affirmative sentence? ‘He is sometimes foolish’ [SABAS][]",
+      "options": [
+        "He is not always foolish.",
+        "He is not always wise.",
+        "He is not fool.",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Sometimes-এর পরিবর্তে 'not always' এবং foolish-এর বিপরীত শব্দ 'wise' ব্যবহার করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "4fd7b533-d6a5-4dcb-bc36-f3f25fc530fe",
+      "question": "Akhi missed the train (Negative). [SABAS][]",
+      "options": [
+        "Akhi did not catch the train",
+        "Akhi did not get the train",
+        "Akhi did not get into the train",
+        "Akhi does not get on the train"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Affirmative বাক্যে Verb-এর past form (missed) থাকলে Negative করার সময় 'did not' এবং verb-এর base form (catch) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "2fb64c9d-42b5-4cef-aa6e-d060d6743afd",
+      "question": "He acted wisely. (Make it Negative) [SABAS][]",
+      "options": [
+        "He could not act wisely.",
+        "He did not act wisely.",
+        "He did not but act wisely.",
+        "He did not act foolishly."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Verb-কে negative করে এবং Adverb (wisely) এর বিপরীতার্থক শব্দ (foolishly) ব্যবহার করে negative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "8fafbba9-57d9-4d3c-9d3b-e789b9c3ee06",
+      "question": "As soon as I left the place he went away. – Which is negative? [SABAS][]",
+      "options": [
+        "No sooner I had left the place he went away.",
+        "As soon as I did not leave the place he went away.",
+        "As soon as I do not leave the place he went away.",
+        "No sooner had I left the place than he went away."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "As soon as-এর পরিবর্তে 'No sooner had... than' বসে এবং verb-এর past participle form (left) ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "a9aceb5b-e15d-46b1-9ea1-ef58cca83e07",
+      "question": "As soon as the teacher enters the classroom, the students stand up. (Negative) [SABAS][]",
+      "options": [
+        "No sooner does the teacher enter the classroom than the students stand up.",
+        "No sooner the teacher enters the classroom than the students stand up.",
+        "No sooner had the teacher entered the classroom than the students stood up.",
+        "The students stood up as the teacher entered the classroom."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "As soon as (present tense) এর পরিবর্তে 'No sooner does... than' বসে এবং verb-এর base form (enter) ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "8e2dcb3d-72a5-4dcc-8c46-191c00581b84",
+      "question": "He is the best player. (Negative) [SABAS][]",
+      "options": [
+        "No other player is as better as he",
+        "No other player is as good as he",
+        "No other player is as best as he",
+        "No other player is considered as best as he"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Superlative degree-কে positive degree-তে পরিবর্তন করে negative করা হয়েছে (No other + noun + verb + as + positive form + as + pronoun)।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "7b049782-92ed-405e-9c23-fdc1d8174921",
+      "question": "‘He is the best boy in the class.’-Make it negative. [SABAS][]",
+      "options": [
+        "No other boy in the class is so good as he.",
+        "None other than he is a good boy in the class.",
+        "He is not the best boy in the class.",
+        "He is nothing but the best boy in the class."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Superlative-কে positive degree-তে রূপান্তর করে negative করা হয়েছে (No other + object + verb + so/as + positive form + as + subject)।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "4a36aab5-7e76-4e90-a947-3b7eea4b1446",
+      "question": "The negative form of the sentence “Neela is taller than Bushra.” [SABAS][]",
+      "options": [
+        "Bushra is shorter than Neela.",
+        "Bushra is not so tall as Neela.",
+        "Bushra is not taller than Neela.",
+        "Neela is not shorter than Bushra."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Comparative degree-কে positive degree-তে পরিবর্তন করে negative করা হয়েছে (Object + verb + not so + positive form + as + subject)।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "5389eeb0-e20f-4d64-8990-c82024801087",
+      "question": "Money is sweeter than honey. (Negative) [SABAS][]",
+      "options": [
+        "Honey is not so sweet as money",
+        "Nothing as as sweet as money and honey",
+        "Money is not so sweet as honey",
+        "Honey is not sweeter than money"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Comparative-কে positive degree-তে পরিবর্তন করে negative করা হয়েছে (Object + verb + not so + positive form + as + subject)।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "b8f32d85-d2fd-4b01-b494-96bdcaec7438",
+      "question": "He is greater than I. Negative form of this affirmative sentence is - [SABAS][]",
+      "options": [
+        "I am not as great as he",
+        "He is no greater than I",
+        "He is so great as I",
+        "I am not greater than he"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Comparative-কে positive degree-তে রূপান্তর করে negative করা হয়েছে। 'Greater than' এর বিপরীত কাঠামো 'not as great as' ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "5ccaefab-8025-4647-827e-7dcf53ec8823",
+      "question": "Which one is an interrogative sentence? [SABAS][]",
+      "options": [
+        "He reads a book.",
+        "Does he read a book?",
+        "He has read a book.",
+        "He will read a book."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে বাক্যে প্রশ্ন জিজ্ঞাসা করা হয় এবং শেষে প্রশ্নবোধক চিহ্ন (?) থাকে, তাকে Interrogative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "2e5d4f04-69e1-4c91-9459-ccbe6858ae95",
+      "question": "Choose the correct interrogative. [SABAS][]",
+      "options": [
+        "Will you go to the park?",
+        "You will go to the park?",
+        "Will go you to the park?",
+        "Go will you to the park?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Interrogative sentence-এ অক্সিলারি ভার্ব (Will) সাবজেক্টের (you) আগে বসে।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "74e84479-042a-4d67-948d-a2c331f0bbd7",
+      "question": "Choose the correct interrogative form of the following sentence. I do the work. [SABAS][]",
+      "options": [
+        "Did I do the work?",
+        "Do I do the work?",
+        "Do I did the work?",
+        "Have I done the work?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Present Indefinite Tense-এর ক্ষেত্রে subject-এর আগে 'Do' বা 'Does' বসে এবং main verb-এর base form ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "0a9958b0-7269-40bf-9338-0a0b150671f2",
+      "question": "Choose the right interrogative of the following sentence: Your father came home last night’ [SABAS][]",
+      "options": [
+        "Had your father came home last night?",
+        "Did your father come home last night?",
+        "Have your father come home last night?",
+        "Was your father come home last night?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Past Indefinite Tense-এর প্রশ্নবোধক বাক্যে 'Did' বসে এবং verb-এর base form (come) ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "db060506-ea8c-448f-813a-e419b4533cdd",
+      "question": "Choose the correct interrogative form of the following sentence. He married to the beautiful girl. [SABAS][]",
+      "options": [
+        "Was he married to the beautiful girl?",
+        "Did he married to the beautiful girl?",
+        "Did he marry to the beautiful girl?",
+        "Had he married to the beautiful girl?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Past Indefinite Tense-এ প্রশ্নবোধক করতে 'Did' ব্যবহৃত হয় এবং মূল verb-এর base form (marry) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "6f79bd69-1ca8-4927-a7bc-603aa8a2b80d",
+      "question": "Choose the correct interrogative. [তুমি কোন বইটা পড়তেছো?] [SABAS][]",
+      "options": [
+        "Which book you are reading?",
+        "Which book you reading?",
+        "Which book are you reading?",
+        "Which book your are reading?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "WH-Question এর পর auxiliary verb (are) এবং এরপর subject (you) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "c4a38704-36b4-4e44-9500-5743b7faa486",
+      "question": "Choose the correct interrogative sentence. [আনিসের বয়স কত?] [SABAS][]",
+      "options": [
+        "How old is Anis?",
+        "What is the age of Anis?",
+        "How the age of Anis is?",
+        "How many years Anis is?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কারো বয়স জানতে 'How old is...' গঠনটি সবচেয়ে প্রচলিত ও সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "a292468f-cf8f-4750-90cd-9f31eb1e68a1",
+      "question": "All love flower. (Interrogative) [SABAS][]",
+      "options": [
+        "Who does not love flower?",
+        "Who do not love flower?",
+        "Who did not love flower?",
+        "Do all love flower?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Affirmative বাক্যে 'All/Everyone' থাকলে Interrogative করার সময় 'Who + auxiliary + not' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "b109b72a-ec57-471d-80a4-7c160905f544",
+      "question": "Everybody knows this. (Interrogative) [SABAS][]",
+      "options": [
+        "Does anybody know this?",
+        "Who does not know this?",
+        "Who do not know this?",
+        "Do anybody know this?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Affirmative বাক্যে 'Everybody' থাকলে Interrogative করার সময় 'Who + auxiliary + not' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "891cff9b-4024-4444-90af-a757288c94e8",
+      "question": "Everybody hates a liar. (Interrogative) [SABAS][]",
+      "options": [
+        "Who hates a liar?",
+        "Do you hate a liar?",
+        "Who does not hates a liar?",
+        "Who does not hate a liar?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Everybody-এর পরিবর্তে 'Who + does not' এবং hate-এর base form (hate) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "30b0b906-fe75-4ba2-8acd-6673e3f9a82e",
+      "question": "What is the best interrogative form of the sentence? ‘Everybody wants to be rich.’ [SABAS][]",
+      "options": [
+        "Does not everybody want to be rich?",
+        "Who does not want to be rich?",
+        "Why not everybody wants to be rich?",
+        "None of the above sentences."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Everybody-এর পরিবর্তে 'Who does not' এবং wants-এর base form (want) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "0aca1a7a-3d12-437a-9a88-efd425b2875b",
+      "question": "‘Nobody wishes to be unhappy.’ (Interrogative) [SABAS][]",
+      "options": [
+        "Who wishes to be unhappy?",
+        "Who wishes to be unhappy?",
+        "Who does not wish to be unhappy?",
+        "Does nobody wish to be unhappy?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Negative বাক্যে 'Nobody/None' থাকলে Interrogative করার সময় শুধুমাত্র 'Who' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "4fd32487-1a6d-473e-8c47-8a5b3996cc1e",
+      "question": "‘None can do this’ এর interrogative form কি হবে? [SABAS][]",
+      "options": [
+        "Can none do this?",
+        "Can anyone do this?",
+        "Who cannot do this?",
+        "Who can do this?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "None-এর পরিবর্তে 'anyone' এবং auxiliary verb-কে বাক্যের শুরুতে বসিয়ে interrogative করা যায়।",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "f9778e09-20f0-4349-a494-43833c2fee2e",
+      "question": "What is the negative- interrogative form of ‘I have been reading’? [SABAS][]",
+      "options": [
+        "Have I been reading?",
+        "Has I been reading?",
+        "Have I not been reading?",
+        "Do I read?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Negative-interrogative করার সময় auxiliary verb-এর সাথে not যুক্ত হয়। Subject-এর পরে not বসলে তা পূর্ণরূপ হয়।",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "9ecd265d-742c-44d1-9e0f-5b806f5eb01f",
+      "question": "We are proud of our freedom fighters. (Interrogative) [SABAS][]",
+      "options": [
+        "Are we proud of our freedom fighters?",
+        "Are we not proud of our freedom fighters?",
+        "Are not we proud of our freedom fighters?",
+        "Don't we proud of our freedom fighters?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যে auxiliary verb (are) থাকলে তার সাথে not যোগ করে negative-interrogative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "b529ac7d-b8cc-45c7-9504-939b1fa0e322",
+      "question": "She cooks rice. (Make it negative-interrogative) [SABAS][]",
+      "options": [
+        "Does She cook rice?",
+        "Has she not cooked rice?",
+        "Does not She cook rice?",
+        "Does she not cook rice?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Present Indefinite Tense-এ 'Does' দিয়ে প্রশ্ন শুরু হয় এবং negative করার জন্য subject-এর পরে 'not' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "dd8ea19f-6f0f-4fa3-904a-200d2280efe1",
+      "question": "He went home. (Make it negative-interrogative) [SABAS][]",
+      "options": [
+        "Did he not went home?",
+        "Did he not gone home?",
+        "Did not he went home?",
+        "Did he not go home?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Past Indefinite Tense-এ 'Did' দিয়ে প্রশ্ন শুরু হয় এবং verb-এর base form (go) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "d3ababef-f65a-4d07-acf3-b125c46a57f6",
+      "question": "Which one is Imperative sentence? [SABAS][]",
+      "options": [
+        "I shall go.",
+        "Go home.",
+        "You did it.",
+        "She is eating."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে বাক্য দিয়ে আদেশ, উপদেশ বা অনুরোধ বোঝায় তাকে Imperative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "5d869692-792e-4610-9ffe-0b18413d74bb",
+      "question": "Which one is the imperative sentence? [SABAS][]",
+      "options": [
+        "She is dancing",
+        "I shall go",
+        "Sit down",
+        "You will sit here"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যে বাক্যের শুরুতে সরাসরি verb বসে আদেশ, অনুরোধ বা উপদেশ বোঝায়, তাকে Imperative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "9e71d98f-6b67-4003-b914-e5f425fd18f3",
+      "question": "A sentence that expresses command, forbids, request and advice is called – sentence. [SABAS][]",
+      "options": [
+        "an interrogative",
+        "an imperative",
+        "an affirmative",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আদেশ (command), নিষেধ (forbid), অনুরোধ (request) বা উপদেশ (advice) প্রকাশকারী বাক্যকে Imperative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "b57792b5-2424-4b10-89d8-e7ab7bc23edb",
+      "question": "“Please bring me a cup of tea.” What kind of sentence is this? [SABAS][]",
+      "options": [
+        "assertive",
+        "imperative",
+        "optative",
+        "interrogative"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই বাক্যটি অনুরোধ (request) বোঝাচ্ছে, তাই এটি একটি Imperative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": "f9a452fb-9eef-4363-a548-4fe8767a9ac4",
+      "question": "Do not laugh at the poor. [SABAS][]",
+      "options": [
+        "Interrogative",
+        "Imperative",
+        "Assertive",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি একটি নিষেধসূচক বাক্য, যা Imperative sentence-এর অন্তর্ভুক্ত।",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": "2af593dd-da7b-40ce-863b-019427a76e9f",
+      "question": "Identify the imperative sentence. [SABAS][]",
+      "options": [
+        "I shall go to college.",
+        "Matin is singing a song.",
+        "Stand up.",
+        "It has been raining since morning."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Stand up বাক্যটি একটি আদেশ বা নির্দেশ বোঝাচ্ছে, যা Imperative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": "cfaa073c-daf2-4e02-9ea9-45556587b8d6",
+      "question": "What type of sentence ‘Pay tribute to the memory of a national hero’ is? [SABAS][]",
+      "options": [
+        "Assertive",
+        "Optative",
+        "Exclamatory",
+        "Imperative"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এটি একটি উপদেশমূলক বাক্য, যা Imperative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": "f8c0b054-99f8-4b75-91b7-ee0dded64167",
+      "question": "We should love our country. (Imperative) [SABAS][]",
+      "options": [
+        "Love our country.",
+        "let us love our country.",
+        "We may not hate our country.",
+        "Should love our country."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Assertive sentence-এর subject 'We' (1st person) হলে Imperative করার সময় 'Let + subject-এর objective form + verb' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": "028b0139-cbf3-4ab9-9a7c-28d70be4c44a",
+      "question": "An optative sentence - [SABAS][]",
+      "options": [
+        "Asks question",
+        "Expresses prayer or desire",
+        "Expresses joys, sorrow etc.",
+        "Expresses sudden feeling"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে বাক্য দ্বারা মনের ইচ্ছা (desire) বা প্রার্থনা (prayer) প্রকাশ পায়, তাকে Optative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": "3a813f0a-db63-47fb-947e-e5efe4c812cb",
+      "question": "“May he not suffer” is an – [SABAS][]",
+      "options": [
+        "Assertive sentence",
+        "Optative sentence",
+        "Interrogative sentence",
+        "Imperative sentence"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যের শুরুতে 'May' বসে যদি প্রার্থনা বা ইচ্ছা প্রকাশ পায়, তবে তা Optative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": "0461b7bb-f402-4157-a416-d34acd71bb35",
+      "question": "‘May Allah/God help you.’ What kind of sentence is this? [SABAS][]",
+      "options": [
+        "Assertive",
+        "Optative",
+        "Imperative",
+        "Exclamatory"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই বাক্যটি দ্বারা প্রার্থনা করা বোঝাচ্ছে, তাই এটি একটি Optative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": "49444e2b-3816-4bd1-a64b-5786172ea263",
+      "question": "Which one is an optative sentence? [SABAS][]",
+      "options": [
+        "You should take care of your health.",
+        "I hope you will be able to get over your tensions.",
+        "May God speed up your recovery.",
+        "It's better to pay attention to your daughter's education."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যে বাক্য দ্বারা প্রার্থনা বা ইচ্ছা প্রকাশ পায়, তাকে Optative sentence বলে। এখানে 'May God...' দ্বারা প্রার্থনা বোঝাচ্ছে।",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": "eebd8840-b0e4-4e5a-b515-1d746571212e",
+      "question": "কোন প্রকারের বাক্যের মধ্য দিয়ে প্রবল অনুভূতি প্রকাশিত হয়? [SABAS][]",
+      "options": [
+        "Compound sentence",
+        "Exclamatory sentence",
+        "Interrogative sentence",
+        "None of the above"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে বাক্যে আনন্দ, দুঃখ, বিস্ময় বা প্রবল আবেগ প্রকাশিত হয়, তাকে Exclamatory sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 73,
+      "id": "9e4614c7-c299-4545-917c-7bb8e7172314",
+      "question": "What type of sentence is ‘If I knew this before!’? [SABAS][]",
+      "options": [
+        "assertive",
+        "optative",
+        "imperative",
+        "exclamatory"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যের শেষে নোট অব এক্সক্লামেশন (!) থাকায় এবং আবেগ প্রকাশ পাওয়ায় এটি Exclamatory sentence।",
+      "images": []
+    },
+    {
+      "question_no": 74,
+      "id": "f843ce6c-303c-4c3a-a5c6-5b6ef008c47a",
+      "question": "Which of the following sentences begins with a complement? [SABAS][]",
+      "options": [
+        "Assertive",
+        "Exclamatory",
+        "Optative",
+        "Interrogative"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Exclamatory sentence-এর গঠনগত বৈশিষ্ট্যে অনেক সময় পরিপূরক বা Complement (যেমন: How sweet) দিয়ে বাক্য শুরু হতে পারে।",
+      "images": []
+    },
+    {
+      "question_no": 75,
+      "id": "289b7990-bfdc-4c74-ac35-47a5e23f53b8",
+      "question": "Cricket is a very exciting game. (Exclamatory) [SABAS][]",
+      "options": [
+        "How exciting is cricket game!",
+        "How an exciting game is cricket!",
+        "What an exciting game cricket is!",
+        "What an exciting is cricket game!"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গঠন: What + a/an + adj + noun + subject + verb! তাই সঠিক রূপ: What an exciting game cricket is!",
+      "images": []
+    },
+    {
+      "question_no": 76,
+      "id": "0d623448-7d0e-4919-b43b-3be3c134b894",
+      "question": "He leads a most unhappy life. (Make it exclamatory) [SABAS][]",
+      "options": [
+        "What a unhappy life he leads!",
+        "What an unhappy life he lead!",
+        "What an unhappy life he leads!",
+        "What a unhappy life he lead!"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "What + an + adj + noun + subject + verb! নিয়ম অনুযায়ী 'What an unhappy life he leads!' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 77,
+      "id": "ae185931-face-4ed0-a1c0-c59726e8c7ae",
+      "question": "Man is indeed a wonderful creation. Make it exclamatory: [SABAS][]",
+      "options": [
+        "How wonderful creation a man indeed!",
+        "What a wonderful creation a man indeed is!",
+        "What a wonderful creation a man is!",
+        "How creation a man is!"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Indeed তুলে দিয়ে What দিয়ে বাক্য শুরু করতে হয়। সঠিক রূপ: What a wonderful creation a man is!",
+      "images": []
+    },
+    {
+      "question_no": 78,
+      "id": "88ad5f32-6535-4bda-b9f3-d703e0adc6f5",
+      "question": "“The scenery is very charming.” (Make it exclamatory) [SABAS][]",
+      "options": [
+        "The scenery is very charming.",
+        "How charming is the scenery!",
+        "How charming the scenery is!",
+        "How beautiful the scenery is!"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "How + adj + subject + verb! নিয়ম অনুযায়ী 'How charming the scenery is!' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 79,
+      "id": "c1245c46-6e41-4f7b-a79e-412576172d82",
+      "question": "I wish I were an ideal teacher. (Exclamatory) [SABAS][]",
+      "options": [
+        "If I were an ideal teacher!",
+        "How an ideal teacher I was!",
+        "What an ideal teacher I was!",
+        "If an ideal teacher I am!"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "I wish এর পরিবর্তে Exclamatory-তে 'If' বা 'Would that' বসে। সঠিক রূপ: 'If I were an ideal teacher!'",
+      "images": []
+    },
+    {
+      "question_no": 80,
+      "id": "3bb0fabc-9256-493e-9749-f158bcfcb7d0",
+      "question": "What a nice scenery it is! (Assertive) [SABAS][]",
+      "options": [
+        "It is very nice scenery.",
+        "It is a great scenery.",
+        "It is a very nice scenery.",
+        "This scenery is very nice."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Assertive করার সময় What-এর পরিবর্তে very বসে। সঠিক রূপ: 'It is a very nice scenery.'",
+      "images": []
+    },
+    {
+      "question_no": 81,
+      "id": "4e3315db-9d04-4884-9146-72e88ac9bb16",
+      "question": "Identify the imperative sentence: [SABAS][]",
+      "options": [
+        "Please help me carry the box.",
+        "He has grown many herbs in his garden",
+        "Where had you been so long?",
+        "How nicely you have dressed yourself!"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যে বাক্যে অনুরোধ (Please help) বোঝায়, সেটি Imperative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 82,
+      "id": "c965938e-3d57-4fd8-b571-99a911e6dd4b",
+      "question": "‘May you recover soon’ (তুমি শীঘ্রই আরোগ্য লাভ কর/সুস্থ হয়ে ওঠ) belongs to—. [SABAS][]",
+      "options": [
+        "Affirmative sentence",
+        "Assertive sentence",
+        "Optative sentence",
+        "Exclamatory sentence"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রার্থনা বা ইচ্ছা প্রকাশ করায় এটি Optative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 83,
+      "id": "e8856d92-a70a-4202-b931-aef998f9add8",
+      "question": "My hair grows very fast. (Make it Exclamatory) [SABAS][]",
+      "options": [
+        "How does my hair grows fast!",
+        "How fast my hair grows!",
+        "How is my hair grow fast!",
+        "How does grow fast my hair!"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Exclamatory sentence-এর নিয়ম অনুযায়ী 'How + adjective + subject + verb!' হয়।",
+      "images": []
+    },
+    {
+      "question_no": 84,
+      "id": "13685809-787e-4d20-848c-f2341496ca96",
+      "question": "He does not often visit my house. The affirmative of this sentence is [SABAS][]",
+      "options": [
+        "He merely visits my house",
+        "He rarely visits my house",
+        "He never visits my house",
+        "both b & c"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Often-এর বিপরীত শব্দ 'rarely' ব্যবহার করে অর্থ ঠিক রেখে Affirmative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 85,
+      "id": "a5088c1f-fab6-4b1d-bdcf-92457f069f25",
+      "question": "“I could not help laughing” is an example of - [SABAS][]",
+      "options": [
+        "Assertive sentence",
+        "Optative sentence",
+        "Imperative sentence",
+        "Complex sentence"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি একটি সাধারণ বিবৃতিমূলক বাক্য, তাই এটি Assertive sentence।",
+      "images": []
+    },
+    {
+      "question_no": 86,
+      "id": "4c929b41-385e-4977-a9dd-22aecc9ba1a4",
+      "question": "We must yield to our fate. The negative of the sentence is- [SABAS][]",
+      "options": [
+        "We cannot but yield to our fate.",
+        "We cannot but yielding to our fate",
+        "We cannot help to yield to our fate",
+        "We cannot go to yield to our fate"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Must-এর পরিবর্তে 'cannot but' ব্যবহার করে Negative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 87,
+      "id": "19fd8bb9-c7f5-48c9-9680-0846d04ac0a1",
+      "question": "Would that I could fly in the sky! Its assertive form is [SABAS][]",
+      "options": [
+        "I could fly in the sky",
+        "I would I could fly in the sky",
+        "I wish I can fly in the sky",
+        "I wish I could fly in the sky"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Would that' যুক্ত Exclamatory sentence-কে Assertive করতে 'I wish I could...' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 88,
+      "id": "7c82a97c-8693-4889-b5b1-721172bee861",
+      "question": "Transform ‘Can their glory ever fade?’ into assertive sentence. [SABAS][]",
+      "options": [
+        "Fading glory of them",
+        "Their glory can never fade.",
+        "Glory always fade",
+        "What a glory!"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Interrogative-কে Assertive করতে negative (never) যোগ করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 89,
+      "id": "b3acce1c-68d5-46a8-8e23-1bc32abd273e",
+      "question": "Their glory can never fade. (Interrogative) [SABAS][]",
+      "options": [
+        "When can their glory fade?",
+        "When their glory fade?",
+        "When their glory will be fading?",
+        "When their glory would fade?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Assertive-কে Interrogative করার সময় negative (never) থাকলে তা উঠে যায় (ever)।",
+      "images": []
+    },
+    {
+      "question_no": 90,
+      "id": "d0f1c35d-ea60-4239-980e-054566a4a29f",
+      "question": "He did it. (Make it interrogative) [SABAS][]",
+      "options": [
+        "Did he do it?",
+        "Did he not do it?",
+        "Could I not do it?",
+        "Must I not do it?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Assertive-কে Interrogative করার সময় negative যোগ করা হয়েছে যাতে অর্থের পরিবর্তন না হয়।",
+      "images": []
+    },
+    {
+      "question_no": 91,
+      "id": "0f81f36d-7717-44fa-a0f4-76919455eef5",
+      "question": "Unless you move, you will die. Make it an affirmative sentence. [SABAS][]",
+      "options": [
+        "Move not to die",
+        "Move to escape death.",
+        "Move or die",
+        "To escape death, you should move."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শর্তসাপেক্ষ বাক্যটিকে অর্থ ঠিক রেখে Affirmative করার জন্য 'To escape death, you should move' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 92,
+      "id": "fd2d091d-31d5-4218-a919-480ef322fbc6",
+      "question": "‘Come with me.’ This is an - [SABAS][]",
+      "options": [
+        "imperative sentence",
+        "interrogative sentence",
+        "assertive sentence",
+        "exclamatory sentence"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যে বাক্য দিয়ে আদেশ, অনুরোধ বা উপদেশ বোঝায়, তাকে Imperative sentence বলে। এখানে 'Come with me' একটি অনুরোধ বা নির্দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 93,
+      "id": "257b1980-ade2-4038-adc0-9e270c44ebc5",
+      "question": "‘Man is mortal’ এর সঠিক Negative sentence কোনটি? [SABAS][]",
+      "options": [
+        "Man is not mortal.",
+        "Man is immortal.",
+        "No man is mortal.",
+        "No man is immortal."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মূল শব্দের বিপরীত শব্দ (mortal → immortal) ব্যবহার করে Negative করা হয়েছে, যাতে অর্থের পরিবর্তন না হয়।",
+      "images": []
+    },
+    {
+      "question_no": 94,
+      "id": "7bc858be-2996-4e52-b6a1-f1b801a83f40",
+      "question": "The negative of ‘Man is mortal’ is — [SABAS][]",
+      "options": [
+        "Man is not mortal",
+        "Man does not immortal",
+        "Man will not die",
+        "Man is not immortal"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মরণশীল (mortal) এর বিপরীত শব্দ অমর (immortal) ব্যবহার করে বাক্যটিকে Negative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 95,
+      "id": "91241924-3b5e-48bb-a56f-b9fa54a54867",
+      "question": "What kind of sentence is the following one: How far is the train station? [SABAS][]",
+      "options": [
+        "Assertive",
+        "Optative",
+        "Exclamatory",
+        "Interrogative"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যটি দ্বারা প্রশ্ন করা হচ্ছে এবং শেষে প্রশ্নবোধক চিহ্ন (?) আছে, তাই এটি Interrogative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 96,
+      "id": "f25de9d0-4177-42bc-86de-d29d8e9236bc",
+      "question": "‘How will you cross the road?’ This is an — sentence. [SABAS][]",
+      "options": [
+        "Imperative",
+        "Exclamatory",
+        "Interrogative",
+        "Optative"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এই বাক্যটি দ্বারা প্রশ্ন জিজ্ঞাসা করা হচ্ছে, তাই এটি একটি Interrogative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 97,
+      "id": "223779ef-ad7d-4d80-adf5-fd25b7b4d3f6",
+      "question": "‘Never tell a lie’–এটা কোন ধরনের sentence? [SABAS][]",
+      "options": [
+        "Interrogative",
+        "Assertive",
+        "Optative",
+        "Imperative"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যে বাক্য দিয়ে আদেশ বা নিষেধ করা হয়, তাকে Imperative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 98,
+      "id": "3f270f9c-af5c-4471-a9c4-35d129b465bd",
+      "question": "The sentence, ‘what a delicious meal!’ is a/an- [SABAS][]",
+      "options": [
+        "Interrrogative sentence",
+        "Optative sentence",
+        "Imperative sentence",
+        "Exclamatory sentence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে গভীর আবেগ প্রকাশিত হয়েছে এবং শেষে নোট অব এক্সক্লামেশন (!) আছে, তাই এটি Exclamatory sentence।",
+      "images": []
+    },
+    {
+      "question_no": 99,
+      "id": "ef7f6119-50a9-4a09-93cd-43a17f964a4b",
+      "question": "Friendship is nothing but a name. (Interrogative) [SABAS][]",
+      "options": [
+        "What is friendship but a name?",
+        "Is friendship anything but a name?",
+        "What is nothing but a name?",
+        "Why is friendship a name?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Assertive-কে Interrogative করার সময় 'nothing but'-এর পরিবর্তে 'what' ব্যবহার করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 100,
+      "id": "46045d91-b759-48a9-b54c-685fc4591d7f",
+      "question": "What a fool he is! (Assertive) [SABAS][]",
+      "options": [
+        "It is he who is a fool",
+        "He is a fool, of course",
+        "He is very fool",
+        "He is a great fool"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "What-কে Assertive করার সময় very বা great যোগ করতে হয়। নিয়ম অনুযায়ী 'He is a great fool' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 101,
+      "id": "16ed6329-3535-4dcc-ab78-e70820fddaa2",
+      "question": "Which one is the imperative sentence? [SABAS][]",
+      "options": [
+        "How beautiful the flower is!",
+        "Never tell a lie",
+        "Do you drink tea?",
+        "We drink milk every day."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Never tell a lie' একটি নিষেধসূচক আদেশ, যা Imperative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 102,
+      "id": "f97b80fc-b25a-4ced-afac-3e8a73d7e988",
+      "question": "How beautiful night is! (Make it assertive) [SABAS][]",
+      "options": [
+        "It is beautiful night.",
+        "Night is very beautiful.",
+        "It is very beautiful night.",
+        "Night is beautiful."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Exclamatory থেকে Assertive করার সময় Subject (Night) প্রথমে এবং verb (is) বসে, এরপর very/great যোগ করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 103,
+      "id": "357d83cc-1796-4c7e-b80d-541b439313c6",
+      "question": "Had I the wings of a bird! (Make it assertive) [SABAS][]",
+      "options": [
+        "I wish I had the wings of a bird.",
+        "I had the wings of a bird.",
+        "I should have the wings of a bird.",
+        "May I have the wings of a bird."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Had/Were দ্বারা শুরু হওয়া Exclamatory sentence-কে Assertive করতে 'I wish' যোগ করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 104,
+      "id": "6f4f01bf-d930-4498-90e8-f36080f0739d",
+      "question": "If I had died! (Make it assertive) [SABAS][]",
+      "options": [
+        "I wish I were died",
+        "I wish I had died.",
+        "I wish I died.",
+        "I wish I was died."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "If/Would that যুক্ত Exclamatory sentence-কে Assertive করার সময় 'I wish' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 105,
+      "id": "d5ea9f1c-6f48-4797-b70f-87ab695d7edf",
+      "question": "Which one is Imperative sentence? [SABAS][]",
+      "options": [
+        "I shall go.",
+        "Go home.",
+        "You did it.",
+        "She is eating."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে বাক্য আদেশ বা নির্দেশ প্রকাশ করে, সেটি Imperative sentence। 'Go home' আদেশ বোঝাচ্ছে।",
+      "images": []
+    },
+    {
+      "question_no": 106,
+      "id": "bf495db0-dd73-45d1-9747-39c5e1596307",
+      "question": "Which one of the following is an imperative sentence? [SABAS][]",
+      "options": [
+        "Do not lie",
+        "He came to my father.",
+        "What an idea",
+        "Do you know me?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যে বাক্যে আদেশ বা নিষেধ (Do not lie) থাকে, তাকে Imperative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 107,
+      "id": "554e1136-c43e-4622-8f73-934aedd11ad9",
+      "question": "He tried his best. (Negative) [SABAS][]",
+      "options": [
+        "He did not try a little.",
+        "He did not stay unmoved.",
+        "He left no stone unturned.",
+        "He did not turn all stone."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অর্থ অপরিবর্তিত রেখে Negative করার জন্য 'He tried his best' কে 'He left no stone unturned' (কোনো চেষ্টাই বাদ রাখেনি) দিয়ে প্রকাশ করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 108,
+      "id": "74fde5fe-6b87-4aeb-b907-e19177e7a833",
+      "question": "What an excellent idea. (Assertive) [SABAS][]",
+      "options": [
+        "It is a very excellent idea.",
+        "It is an excellent idea.",
+        "It is more excellent idea.",
+        "It is a very good idea."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Exclamatory-কে Assertive করতে Subject + verb + very/great + adjective/noun গঠন ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 109,
+      "id": "9077d48c-e1c1-4b5f-b9d2-6a729a57d34e",
+      "question": "‘What is your name?’ This is an – sentence. [SABAS][]",
+      "options": [
+        "interrogative",
+        "imperative",
+        "optative",
+        "assertive"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যে বাক্যে প্রশ্ন জিজ্ঞাসা করা হয়, তাকে Interrogative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 110,
+      "id": "d8811c5c-c57a-4cf7-a077-fed424a32888",
+      "question": "Choose the correct negative form of the sentence: Everybody admits that Hanif tried his best in the final examination. [SABAS][]",
+      "options": [
+        "Everybody admits that Hanif hasn't try his best in the final examination.",
+        "Everybody admits that Hanif didn't try his best in the final examination.",
+        "Hanif didn't try his best in the final examination and everybody admits that.",
+        "Nobody denies that Hanif tried his best in the final examination."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Everybody-এর স্থলে 'Nobody' এবং 'admits'-এর বিপরীত শব্দ 'denies' ব্যবহার করে অর্থ ঠিক রাখা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 111,
+      "id": "7f218cd7-56e4-4f0b-b581-3876e6fe26df",
+      "question": "Which one is an imperative sentence? [SABAS][]",
+      "options": [
+        "You read it attentively",
+        "Do it at once.",
+        "I wish you success in life.",
+        "Does he go to school?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Do it at once' একটি সরাসরি আদেশসূচক বাক্য, যা Imperative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 112,
+      "id": "69f460f1-eb94-43d7-9769-e4c4ff901884",
+      "question": "Which one is imperative sentence? [SABAS][]",
+      "options": [
+        "Let it be done",
+        "Close the door",
+        "The job is done",
+        "She is cooking"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে বাক্য আদেশ, উপদেশ বা অনুরোধ বোঝায় তাকে Imperative sentence বলে। 'Close the door' একটি আদেশ।",
+      "images": []
+    },
+    {
+      "question_no": 113,
+      "id": "ddf024ac-0614-4e95-a4d4-abf2cd7dcfdc",
+      "question": "Long live our President- এটি কোন ধরনের sentence? [SABAS][]",
+      "options": [
+        "Assertive",
+        "Optative",
+        "Exclamatory",
+        "Imperative"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে বাক্য দ্বারা মনের ইচ্ছা বা প্রার্থনা প্রকাশ পায়, তাকে Optative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 114,
+      "id": "0ff60c9b-a52b-4376-ba23-243545b26237",
+      "question": "How charming the sight is! is an example of- How fine flower it is! It is an — [SABAS][]",
+      "options": [
+        "Assertive sentence",
+        "Interrogative sentence",
+        "Exclamatory sentence",
+        "Optative sentence"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাক্যগুলোতে প্রবল আবেগ প্রকাশ পাওয়ায় এবং শেষে নোট অব এক্সক্লামেশন (!) থাকায় এগুলো Exclamatory sentence।",
+      "images": []
+    },
+    {
+      "question_no": 115,
+      "id": "4c71ed59-5ab1-4f4c-a32f-25d1bc8c8297",
+      "question": "All men must die (Negative) [SABAS][]",
+      "options": [
+        "No men will never die",
+        "None but all men will die",
+        "Nothing but all men must die",
+        "None can avoid death."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অর্থ অপরিবর্তিত রেখে Negative করার জন্য 'All men must die'-এর সমার্থক 'None can avoid death' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 116,
+      "id": "a700f208-7622-4dc6-aaf5-d3f047390aec",
+      "question": "Be just and fear not- এটি কোন ধরনের sentence? [SABAS][]",
+      "options": [
+        "Optative",
+        "Imperative",
+        "Exclamatory",
+        "দেয়া নাই"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই বাক্যটি আদেশ বা উপদেশ বোঝাচ্ছে, তাই এটি Imperative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 117,
+      "id": "8ccdac38-37f0-4aeb-813d-73a6e7543401",
+      "question": "Which one is an imperative sentence? [SABAS][]",
+      "options": [
+        "Where do you live?",
+        "What a match!",
+        "Nothing will make him repent",
+        "Open the door."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Open the door' একটি আদেশসূচক বাক্য, যা Imperative sentence।",
+      "images": []
+    },
+    {
+      "question_no": 118,
+      "id": "9fbc7e2e-02b1-41cf-84c0-95ed16c379e6",
+      "question": "Did he see anyone in the room? (assertive) [SABAS][]",
+      "options": [
+        "He saw no one in the room.",
+        "He did not see someone in the room.",
+        "He saw anyone in the room.",
+        "He saw someone in the room."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Interrogative-কে Assertive করার সময় 'Did... anyone' থাকলে 'saw no one' বসে।",
+      "images": []
+    },
+    {
+      "question_no": 119,
+      "id": "ea4b5e19-3940-44bd-81dc-3ca0c4707804",
+      "question": "Only the moon was visible. (Negative) [SABAS][]",
+      "options": [
+        "The moon was not visible.",
+        "The moon was not invisible.",
+        "Nothing but the moon was visible",
+        "None but the moon was visible."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বস্তুর ক্ষেত্রে 'Only' থাকলে Negative করার সময় 'Nothing but' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 120,
+      "id": "5db50117-f116-4972-ab6d-a477a5ce820a",
+      "question": "Which sentence is in Imperative Mood? [SABAS][]",
+      "options": [
+        "Stop reading loudly",
+        "We live in a remote village",
+        "May you be happy",
+        "When will he come?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Stop reading loudly' সরাসরি আদেশ বা নিষেধ বোঝাচ্ছে, তাই এটি Imperative mood।",
+      "images": []
+    },
+    {
+      "question_no": 121,
+      "id": "f74658cf-d213-4599-89a0-d5e2f7476044",
+      "question": "Go there at once (দেরি না করে/এখুনি সেখানে যাও)' is a/an- [SABAS][]",
+      "options": [
+        "Simple sentence",
+        "Optative sentence",
+        "Assertive sentence",
+        "Imperative sentence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আদেশ বা নির্দেশ প্রদানকারী বাক্যকে Imperative sentence বলে।",
+      "images": []
+    },
+    {
+      "question_no": 122,
+      "id": "b7d13832-0f3b-4a40-9eed-8792f8bf8e49",
+      "question": "Identify the imperative sentence. [SABAS][]",
+      "options": [
+        "I did it",
+        "Stand up",
+        "It is raining",
+        "I shall go to college"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে বাক্য দ্বারা আদেশ বা নির্দেশ প্রকাশ পায়, তাকে Imperative sentence বলে। 'Stand up' একটি নির্দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 123,
+      "id": "18724a8b-309a-4d1c-a5dc-126eed1f0362",
+      "question": "The interrogative form of the sentence “He is a great scholar” is – [SABAS][]",
+      "options": [
+        "Is he a great scholar?",
+        "Is he not a great scholar?",
+        "Is he a big scholar?",
+        "Is not he a great scholar?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Assertive sentence-কে Interrogative করার সময় negative যোগ করতে হয় (যদি না থাকে), তাই সঠিক রূপ হলো 'Is he not a great scholar?'",
+      "images": []
+    },
+    {
+      "question_no": 124,
+      "id": "62d33461-8028-463a-a372-f2e90005de63",
+      "question": "He has a cup of tea every day. (Interrogative) [SABAS][]",
+      "options": [
+        "Doesn’t he have a cup of tea every day?",
+        "Doesn’t he has a cup of tea every day?",
+        "Has he not have a cup of tea every day?",
+        "Hasn’t he has a cup of tea every day?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Present Indefinite tense-এর Interrogative করার সময় 'Do/Does' ব্যবহার করতে হয়। এখানে 'Does' এবং negative 'not' যোগ করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 125,
+      "id": "56b7ac2f-a23b-4b92-bcf9-7936617e797d",
+      "question": "I had a nice dream last night. (Interrogative) [SABAS][]",
+      "options": [
+        "Didn’t I had a nice dream last night?",
+        "Did I not have a nice dream last night?",
+        "Had not I have a nice dream?",
+        "Had I have a nice dream last night?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Past Indefinite tense-এর Interrogative করার সময় 'Did' ব্যবহার করতে হয় এবং মূল verb-এর base form (have) বসে।",
+      "images": []
+    },
+    {
+      "question_no": 126,
+      "id": "b01881dc-8ada-41cc-a94a-5968f381856b",
+      "question": "There is only a high school at Satkhira. (Negative) [SABAS][]",
+      "options": [
+        "Not more than a high school is at Satkhira.",
+        "There is not more than a high school at Satkhira.",
+        "There is a few school at Satkhira.",
+        "There is noting but a school at Satkhira."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Quantity বা পরিমাণের ক্ষেত্রে 'only' থাকলে Negative করার সময় 'not more than' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 127,
+      "id": "18f65293-5484-48b1-9d45-9a823fd33d73",
+      "question": "Everybody hates a liar. Make it negative. [SABAS][]",
+      "options": [
+        "Nobody dislikes a liar.",
+        "Who likes a liar?",
+        "Everybody dislikes a liar.",
+        "Nobody likes a liar."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Everybody-এর পরিবর্তে 'Nobody' এবং 'hates'-এর বিপরীত শব্দ 'likes' ব্যবহার করে অর্থের পরিবর্তন না ঘটিয়ে Negative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 128,
+      "id": "7a07df32-792d-44f6-83bc-bea39f09337d",
+      "question": "Transform into negative sentence “He tried all plans” [SABAS][]",
+      "options": [
+        "He tried/left no plan untried",
+        "He tried no plans",
+        "He untried no plans",
+        "He did not try all plans"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অর্থ ঠিক রাখতে Double negative ব্যবহার করা হয়েছে: 'no plan' এবং 'untried'।",
+      "images": []
+    },
+    {
+      "question_no": 129,
+      "id": "b62450c7-a458-431f-a341-cd6cdc9189f0",
+      "question": "What type of sentence is it? I wish you success in life. [SABAS][]",
+      "options": [
+        "Assertive",
+        "Negative",
+        "Optative",
+        "Exclamatory"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এই বাক্যটি একটি সাধারণ বর্ণনা বা বিবৃতি প্রকাশ করছে, তাই এটি Assertive sentence।",
+      "images": []
+    },
+    {
+      "question_no": 130,
+      "id": "d7dda76b-2336-40c3-a922-761446dbe34d",
+      "question": "Which sentence is correct? [SABAS][]",
+      "options": [
+        "How a good man he is!",
+        "How good man is he!",
+        "What a good man is he!",
+        "What a good man he is!"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Exclamatory sentence-এর সঠিক গঠন হলো: What a + adjective + noun + subject + verb!",
+      "images": []
+    },
+    {
+      "question_no": 131,
+      "id": "706be3cc-177a-4e7d-a42f-8416b2b35e39",
+      "question": "What is the correct transformation of the following sentence into interrogative? ‘Every man hates war.’ [SABAS][]",
+      "options": [
+        "Is there any man who doesn’t hate war?",
+        "Is there any men who doesn’t hate war?",
+        "Are there any man who doesn’t hate war?",
+        "Are there any men who doesn’t hate war?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Every man' থাকলে Interrogative করার সময় 'Is there any man who...' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 132,
+      "id": "b226d057-3d40-4344-becd-695552b5e95d",
+      "question": "Which one is an imperative sentence? [SABAS][]",
+      "options": [
+        "How beautiful the flower is!",
+        "Be quiet and listen to my words.",
+        "Do you go to the club?",
+        "I go to school every day."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আদেশ, উপদেশ বা অনুরোধ বোঝালে তাকে Imperative sentence বলে। 'Be quiet and listen to my words' একটি সরাসরি আদেশ।",
+      "images": []
+    },
+    {
+      "question_no": 133,
+      "id": "9d0ebccf-3752-4ddd-b943-bfe63d143e61",
+      "question": "‘None should deny the truth.’ (Affirmative) [SABAS][]",
+      "options": [
+        "All should accept the truth",
+        "Everybody should deny the truth",
+        "Anybody should deny the truth",
+        "Everybody should admit the truth"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "None-এর বিপরীত Everybody এবং deny-এর বিপরীত admit ব্যবহার করে Affirmative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 134,
+      "id": "c9bc9963-3307-4476-bb9b-49efbade88da",
+      "question": "He did not miss the opportunity. বাক্যটির Interrogative form- [SABAS][]",
+      "options": [
+        "Did he miss the opportunity?",
+        "Had he not missed the opportunity?",
+        "Had he missed the opportunity?",
+        "Did he not miss the opportunity?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Negative sentence-কে Interrogative করার সময় negative উঠে যায়। তাই 'Did he miss...' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 135,
+      "id": "38580d34-88b7-4cbc-b90b-9e92e37bf695",
+      "question": "Choose the best interrogative form of ‘Everyone hates acid-throwing’ [SABAS][]",
+      "options": [
+        "Do anyone like acid-throwing?",
+        "Is there anyone who can who can hate acid-throwing?",
+        "Who does accept acid-throwing?",
+        "Does anyone like acid-throwing?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Everyone যুক্ত বাক্যকে Interrogative করার সময় 'Does anyone...' ব্যবহার করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 136,
+      "id": "424bc132-e8e8-45d9-bebd-a42f80c6be50",
+      "question": "‘May our cricket team win the ‘World Cup’. Change into an assertive sentence [SABAS][]",
+      "options": [
+        "I wish our cricket team to win the ‘World Cup’",
+        "I wish that our cricket team wins the ‘World Cup’.",
+        "I wish our cricket team could win the ‘World Cup’.",
+        "I wish our cricket team can win the ‘World Cup’"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Optative sentence-কে Assertive করার সময় 'I wish' যোগ করতে হয় এবং verb-এর past form (could) ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 137,
+      "id": "50537417-2a66-4ce3-9ac4-9e50c5edda91",
+      "question": "How beautiful the garden is! (Make it assertive) [SABAS][]",
+      "options": [
+        "It is a very beautiful garden.",
+        "The garden is very beautiful.",
+        "The garden looks beautiful.",
+        "The beauty of the garden is really nice."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Exclamatory-কে Assertive করতে Subject (The garden) + verb (is) + very + adjective (beautiful) গঠন ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 138,
+      "id": "8b24aa92-309f-430c-a9af-0762c07e46d9",
+      "question": "All must submit to destiny. (Make it negative) [SABAS][]",
+      "options": [
+        "No one can escape destiny.",
+        "Everybody should accept destiny.",
+        "No one should escape destiny.",
+        "Everybody should accept what destiny fixes for them."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "All-এর পরিবর্তে 'No one' এবং must submit-এর সমার্থক 'escape' ব্যবহার করে Negative করা হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 139,
+      "id": "c78a1920-d42d-4386-a3c4-88182290511f",
+      "question": "Which one is a negative interrogative sentence? [SABAS][]",
+      "options": [
+        "Had they not work?",
+        "Do they not work?",
+        "Do not he work?",
+        "Could he not worked?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যে Interrogative sentence-এ negative (not) থাকে, তাকে negative interrogative বলে। 'Do they not work?' সঠিক গঠন।",
+      "images": []
+    },
+    {
+      "question_no": 140,
+      "id": "4ccd5ef1-c358-4ad7-8429-62374afb5743",
+      "question": "Health is wealth. Change it into Interrogative without changing meaning. [SABAS][]",
+      "options": [
+        "Is health wealth?",
+        "Why health is wealth?",
+        "Doesn’t health wealth?",
+        "Isn’t health wealth?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Affirmative-কে Interrogative করতে negative (Isn't) যোগ করতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 141,
+      "id": "601541b2-5bd3-495e-847d-ea3c150b3a1b",
+      "question": "Identify the imperative sentence: [SABAS][]",
+      "options": [
+        "What a wonderful picture it is!",
+        "Get some cold water from the fridge.",
+        "May God bless you.",
+        "The bought some utensils from the shop."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আদেশসূচক বাক্য হওয়ায় 'Get some cold water from the fridge' একটি Imperative sentence।",
+      "images": []
+    }
+  ]
+}

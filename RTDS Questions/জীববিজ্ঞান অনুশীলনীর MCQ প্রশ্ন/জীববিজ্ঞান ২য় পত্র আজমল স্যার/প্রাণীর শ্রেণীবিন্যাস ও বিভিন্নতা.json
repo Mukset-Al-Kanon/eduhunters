@@ -1,0 +1,106 @@
+{
+  "title": "আজমল স্যার || জীববিজ্ঞান ২য় পত্র || ১ম অধ্যায়",
+  "category": "জীববিজ্ঞান অনুশীলনীর MCQ প্রশ্ন > জীববিজ্ঞান ২য় পত্র আজমল স্যার",
+  "duration_minutes": 30,
+  "total_questions": 7,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "123375",
+      "question": "কোন সরীসৃপের হৃদপিণ্ড সম্পূর্ণ চারপ্রকোষ্ঠ বিশিষ্ট?",
+      "options": [
+        "ঘড়িয়াল",
+        "টিকটিকি",
+        "সামুদ্রিক কাছিম",
+        "কুমির"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সরীসৃপের হৃদপিণ্ড  অসম্পূর্ণভাবে চার-প্রকোষ্ঠবিশিষ্ট। তবে কুমির সরীসৃপ হলেও এর হৃদপিণ্ড সম্পূর্ণভাবে চার প্রকোষ্ঠে বিভক্ত।"
+    },
+    {
+      "question_no": 2,
+      "id": "123376",
+      "question": "হেটারোসার্কাল পুচ্ছ-পাখনা পাওয়া যায়-",
+      "options": [
+        "রুই",
+        "টাকি",
+        "হাঙ্গর",
+        "লাংফিস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাঙ্গর কন্ড্রিকথিস শ্রেণির অন্তর্গত। এ শ্রেণির মাছের পুচ্ছ পাখনা হেটারোসার্কাল ধরনের।"
+    },
+    {
+      "question_no": 3,
+      "id": "123377",
+      "question": "Actinopterygii এর ক্ষেত্রে কোনটি সমর্থন করে?",
+      "options": [
+        "প্লাকয়েড আঁইশ",
+        "সাতজোড়া ফুলকা আছে",
+        "পুচ্ছ পাখনা হেটারোসার্কাল প্রকৃতির",
+        "অন্তঃকঙ্কাল অস্থিময়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এ শ্রেণির ক্ষেত্রে অস্থিনির্মিত অন্তঃকঙ্কাল থাকে।"
+    },
+    {
+      "question_no": 4,
+      "id": "123378",
+      "question": "গলবিলের দুপাশে ৫-১৫ জোড়া ফুলকারন্ধ্র থাকে কোন প্রাণীতে?",
+      "options": [
+        "Myxine gultinosa",
+        "Channa punctatus",
+        "Hilsha ilisha",
+        "Scoliodon laticaudus"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Myxine হলো Vertebrata উপপর্বের Cyclostomata অধিশ্রেণির Myxine শ্রেণির অন্তর্ভুক্ত যাদের গলবিলের দুপাশে মোট ৫-১৫ জোড়া ফুলকা রন্ধ্র থাকে।"
+    },
+    {
+      "question_no": 5,
+      "id": "123379",
+      "question": "নিচের কোনটি প্লাটিহেলমিনথিস পর্বভুক্ত প্রাণী?",
+      "options": [
+        "Scypha",
+        "Ascaris",
+        "Fasciola",
+        "Metaphire"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Fasciola hepatica হলো যকৃত কৃমি যা Platyhelminthes পর্বভুক্ত।"
+    },
+    {
+      "question_no": 6,
+      "id": "123380",
+      "question": "মলাস্কা পর্বের প্রাণীতে পাওয়া যায়-",
+      "options": [
+        "ট্যাগমাটা",
+        "নেফ্রিডিয়া",
+        "র‌্যাডুলা",
+        "ট্রোকোফোর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মলাস্কা পর্বের প্রাণীদের মুখবিবরে কাইটিন নির্মিত একটি রেতি-জিহ্বা বা র‌্যাডুলা থাকে (Bivalvia ব্যতীত)।"
+    },
+    {
+      "question_no": 7,
+      "id": "123381",
+      "question": "নিচের কোনটিতে সিউডোসিলোম দেখা যায়?",
+      "options": [
+        "Fasciola hepatica",
+        "Taenia solium",
+        "Ascaris lumbricoides",
+        "Metaphire posthuma"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Ascaris lumbricoides (গোল কৃমি/ কেঁচো কৃমি) Nematoda শ্রেণির অন্তর্ভুক্ত। এ শ্রেণির প্রাণীরা সিউডোসিলোমেট (অপ্রকৃত সিলোমযুক্ত)।"
+    }
+  ]
+}

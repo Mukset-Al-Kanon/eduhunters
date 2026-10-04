@@ -1,0 +1,344 @@
+{
+  "title": "ব্রায়োফাইটা ও টেরিডোফাইটা (All Board Question) - Review Purpose",
+  "category": "Board Question Exams > Biology 1st Paper",
+  "duration_minutes": 30,
+  "total_questions": 24,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "116254",
+      "question": "ব্রায়োফাইটার বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "স্পোরোফাইটিক",
+        "পরিবহন টিস্যুযুক্ত",
+        "পুষ্পক",
+        "ভ্রুণ সৃষ্টিকারী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "116255",
+      "question": "ব্রায়োফাইটার পুৎজননাঙ্গের নাম কি?",
+      "options": [
+        "স্পোরাঞ্জিয়াম",
+        "গ্যামোট্যানজিয়াম",
+        "আর্কিগোনিয়াম",
+        "অ্যান্থেরিডিয়াম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "116256",
+      "question": "ব্রায়োফাইটার উদ্ভিদের উন্নত বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "উদ্ভিদ হ্যাপ্লেয়ড প্রকৃতির",
+        "অধিকাংশ থ্যালয়েড",
+        "ভাস্কুলার টিস্যু নেই",
+        "ক্যাপসিউলে ভাজক টিস্যুর উপস্থিতি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ব্রায়োফাইটের আদি বৈশিষ্ট্য: ১. উদ্ভিদ হ্যাপ্লয়েড, ২. অধিকাংশই থ্যালয়েড, ৩. এদের সত্যিকার মূল নেই, ৪. ভাস্কুলার টিস্যু নেই, ৫. এরা হোমোস্পোরাস। ব্রায়োফাইটের উন্নত বৈশিষ্ট্য: Anthoceros উদ্ভিদের ক্যাপসিউলে অবস্থিত কলোমেলা, স্টোম্যাটাযুক্ত এপিডার্মিস, ক্যাপসিউলের গোড়ায় ভাজক টিস্যুর অবস্থান এগুলো হলো উন্নত বৈশিষ্ট্য।"
+    },
+    {
+      "question_no": 4,
+      "id": "116257",
+      "question": "নিচের কোনটিকে ‘লিভারওয়ার্ট’ বলা হয়?",
+      "options": [
+        "Riccia",
+        "Pteris",
+        "Ulothrix",
+        "Moss"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "116258",
+      "question": "কোন প্রজাতিটি জলজ?",
+      "options": [
+        "Riccia bengalensis",
+        "Riccia dhakensis",
+        "Riccia chattagonensis",
+        "Riccia fluitans"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "116259",
+      "question": "স্পোরোফাইট আদি প্রকৃতির এবং থ্যালাসের মধ্যে নিমজ্জিত থাকে কোন উদ্ভিদে?",
+      "options": [
+        "Semibarbula sp",
+        "Marchantia sp",
+        "Riccia sp",
+        "Funaria sp"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "116260",
+      "question": "নিচের কোনটি Riccia থ্যালাসে থাকে?",
+      "options": [
+        "রাইজয়েড",
+        "রাইজোম",
+        "রাইজাইন",
+        "রাইজোমর্ফ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "116261",
+      "question": "Riccia-র পুংজননাঙ্গের নাম কী?",
+      "options": [
+        "অ্যাস্থেরিডিয়াম",
+        "আর্কিগোনিয়াম",
+        "জুস্পোরাঞ্জিয়াম",
+        "স্পোরোঞ্জিয়াম"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "116262",
+      "question": "Pteris (ফার্ন) উদ্ভিদ হল",
+      "options": [
+        "সপুষ্পক",
+        "গ্যামেটোফাইটিক",
+        "পরিবহন টিস্যুযুক্ত",
+        "থ্যালয়েড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "116263",
+      "question": "কোনটি ডিপ্লয়েড জীব?",
+      "options": [
+        "Riccia",
+        "Pteris",
+        "Ulothrix",
+        "Agaricus"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "116264",
+      "question": "নিচের কোনটি পবিরহন টিস্যুযুক্ত অপুষ্পক উদ্ভিদ?",
+      "options": [
+        "Ulothrix",
+        "Pteris",
+        "Riccia",
+        "Agaricus"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "116265",
+      "question": "'পরিবহন টিস্যু’ বহনকারী জীব কোনটি?",
+      "options": [
+        "Ulothrix",
+        "Pteris",
+        "Agarieus",
+        "Riccia"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "116266",
+      "question": "প্রথম ভাস্কুলার উদ্ভিদের রাইজোম যে বাদামী শঙ্কপত্র দ্বারা আবৃত থাকে তার নাম-",
+      "options": [
+        "ফ্রন্ড",
+        "পিনা",
+        "ক্রোজিয়ার",
+        "র‌্যামেন্টাম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "116267",
+      "question": "ফার্ন উদ্ভিদের রাইজোম যে শঙ্কপত্র দ্বারা আবৃত থাকে, তাকে কী বলে?",
+      "options": [
+        "র‌্যামেন্টা",
+        "ক্রোজিয়াম",
+        "সারসিনেট",
+        "র‌্যাকিস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "116268",
+      "question": "Pteris উদ্ভিদের কুন্ডলিত কচিপাতাকে কি বলে?",
+      "options": [
+        "ফ্রন্ড",
+        "পিনা",
+        "র‌্যামেন্টাম",
+        "ক্রোজিয়ার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "116269",
+      "question": "সোরাস তৈরি হয় কোন পদ্ধতিতে?",
+      "options": [
+        "যৌন",
+        "অযৌন",
+        "অংগজ",
+        "কৃত্রিম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "116270",
+      "question": "ফার্ণের পাতার মুকুল অবস্থায় কুন্ডলি পাকানো গঠনকে বলে-",
+      "options": [
+        "ফ্রন্ড",
+        "পিনা",
+        "ক্রোজিয়ার",
+        "সার্সিনেট ভার্নেশন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "116271",
+      "question": "সোরাই উৎপন্নকারী পাতাকে কী বলা হয়?",
+      "options": [
+        "ক্যাপসিউল",
+        "স্টোমিয়াম",
+        "স্পোরোফিল",
+        "অ্যানুলাস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "116272",
+      "question": "Pteris - এর পাতায় অবস্থিত স্পোরাঞ্জিয়ামের গুচ্ছকে বলে-",
+      "options": [
+        "অ্যানুলাস",
+        "এন্ডোসিয়াম",
+        "অমরা",
+        "সোরাস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "116273",
+      "question": "ফার্ন উদ্ভিদের স্পোরোফাইট পর্যায়ের ১ম কোষ কোনটি?",
+      "options": [
+        "জাইগোট",
+        "রেণু",
+        "প্রোথ্যালাসে",
+        "স্পোরে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ফার্ন উদ্ভিদের স্পোরোফাইট পর্যায়ের ১ম কোষ উস্পোর/জাইগোট"
+    },
+    {
+      "question_no": 21,
+      "id": "116274",
+      "question": "ফার্ন প্রোথ্যালাস-",
+      "options": [
+        "এককোষী",
+        "একলিঙ্গ",
+        "স্বভোজী",
+        "ভিন্নবাসী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "116275",
+      "question": "কোনটি Pteris গ্যামেটোফাইটের প্রথম কোষ?",
+      "options": [
+        "স্পোর",
+        "সোরাস",
+        "উস্পোর",
+        "স্পোর মাতৃকোষ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "116276",
+      "question": "ফার্ণের প্রতিটি পত্রকখন্ডককে কি বলে?",
+      "options": [
+        "পিনা",
+        "ফ্রন্ড",
+        "ক্রোজিয়ার",
+        "সারসিনেট ভার্নেশন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "116277",
+      "question": "টেরিডোফাইটের স্পোরোফাইট দশায় প্রথম কোষ কোনটি?",
+      "options": [
+        "উস্পোর",
+        "স্পোর",
+        "শুক্রাণু",
+        "ডিম্বাণু"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "exam_id": 9693,
+  "title": "MP3 Topic-01 : মহাদেশ",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "মহাদেশ পরিচিতি-০১ Exam",
+  "duration_minutes": 10,
+  "total_questions": 18,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "7c1ebbb7-5753-4c4d-9144-0f43adcd51d8",
+      "question": "How many continent are there in the world? / পৃথিবীতে কতটি মহাদেশ আছে? [SABAS][]",
+      "options": [
+        "৮",
+        "৫",
+        "৬",
+        "৭"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পৃথিবীতে মোট ৭টি মহাদেশ আছে।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "a4923a05-a787-4f30-847c-5f951538cffa",
+      "question": "পৃথিবীর দ্বিতীয় বৃহত্তম মহাদেশ কোনটি? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "আফ্রিকা",
+        "ইউরোপ",
+        "আমেরিকা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আয়তনের দিক থেকে এশিয়ার পরেই আফ্রিকার স্থান, তাই এটি দ্বিতীয় বৃহত্তম।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "3b66d4e6-7e34-420a-a0ee-7aace95a4747",
+      "question": "পৃথিবীর তৃতীয় বৃহত্তম মহাদেশ কোনটি? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "এশিয়া",
+        "দক্ষিণ আমেরিকা",
+        "উত্তর আমেরিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উত্তর আমেরিকা পৃথিবীর তৃতীয় বৃহত্তম মহাদেশ।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "a390bece-6499-4d54-a0f9-18be06cc1c9b",
+      "question": "পৃথিবীর কোন দেশটি একটি মহাদেশও বটে? [SABAS][]",
+      "options": [
+        "জাপান",
+        "নিউজিল্যান্ড",
+        "আলাস্কা",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অস্ট্রেলিয়া একই সাথে একটি দেশ এবং মহাদেশ।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "ea080bf7-04e6-4804-83f4-77bcb9d92f4a",
+      "question": "আয়তনের দিক থেকে বিশ্বের ক্ষুদ্রতম মহাদেশ কোনটি? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "অস্ট্রেলিয়া",
+        "আফ্রিকা",
+        "আমেরিকা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অস্ট্রেলিয়া আয়তনের দিক থেকে পৃথিবীর ক্ষুদ্রতম মহাদেশ।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "4907cfa3-7784-415e-aaaa-18079491c378",
+      "question": "এশিয়া মহাদেশের আয়তন ইউরোপের কতগুণ? [SABAS][]",
+      "options": [
+        "চারগুণ",
+        "সাড়ে চারগুণ",
+        "দেড়গুণ",
+        "ছয়গুণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এশিয়া মহাদেশের আয়তন ইউরোপের প্রায় সাড়ে চারগুণ।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "9370792a-716d-42fb-b603-bb97d4e95a78",
+      "question": "আয়তনে এশিয়ার বৃহত্তম দেশ - [SABAS][]",
+      "options": [
+        "চীন",
+        "ভারত",
+        "আফগানিস্তান",
+        "পাকিস্তান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আয়তনে এশিয়ার বৃহত্তম দেশ চীন।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "a44b2305-176a-493e-97f3-1b6f2af5d010",
+      "question": "আয়তন অনুসারে এশিয়ার ক্ষুদ্রতম দেশ - [SABAS][]",
+      "options": [
+        "ভুটান",
+        "নেপাল",
+        "শ্রীলংকা",
+        "মালদ্বীপ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আয়তন ও জনসংখ্যার দিক থেকে মালদ্বীপ এশিয়ার ক্ষুদ্রতম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "cb8395d1-c543-435c-a555-fb1b084120f2",
+      "question": "আফ্রিকা মহাদেশের সবচেয়ে বড় দেশ - [SABAS][]",
+      "options": [
+        "আলজেরিয়া",
+        "সুদান",
+        "মিশর",
+        "লিবিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আলজেরিয়া বর্তমানে আফ্রিকা মহাদেশের বৃহত্তম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "51e72de7-883b-43c2-aff3-6f4b11422c70",
+      "question": "আয়তনের দিক থেকে আফ্রিকার ক্ষুদ্রতম দেশ - [SABAS][]",
+      "options": [
+        "সেশেলস",
+        "বতসোয়ানা",
+        "তিউনিসিয়া",
+        "বেনিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সেশেলস আফ্রিকা মহাদেশের ক্ষুদ্রতম রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "5fe9d832-428e-4e10-8e6e-cf5c3085e6c8",
+      "question": "আয়তনে দক্ষিণ আমেরিকার ক্ষুদ্রতম দেশ কোনটি? [SABAS][]",
+      "options": [
+        "সুরিনাম",
+        "গায়ানা",
+        "উরুগুয়ে",
+        "ইকুয়েডর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সুরিনাম দক্ষিণ আমেরিকা মহাদেশের আয়তনের দিক থেকে ক্ষুদ্রতম দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "3367caff-4117-46f0-9487-52b57996b3f0",
+      "question": "Which South American country has the greatest land area? / আয়তনে দক্ষিণ আমেরিকার বৃহত্তম দেশ কোনটি? [SABAS][]",
+      "options": [
+        "Argentina",
+        "Peru",
+        "Brazil",
+        "Cuba"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ব্রাজিল দক্ষিণ আমেরিকা মহাদেশের সবচেয়ে বড় দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "926ea69b-63a4-46a5-aaf9-ff3a59529dc1",
+      "question": "এশিয়া মহাদেশের আয়তন কত? [SABAS][]",
+      "options": [
+        "১ কোটি ৭৪ বর্গ কি.মি.",
+        "১ কোটি ৮৪ বর্গ কি.মি.",
+        "১ কোটি ৬৪ বর্গ কি.মি.",
+        "১ কোটি ৫০ বর্গ কি.মি."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রদত্ত অপশনগুলোতে সঠিক উত্তর নেই.",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "78f1128a-57a0-4faf-8b67-643d6aaa2f9e",
+      "question": "এশিয়া ও ইউরোপকে বিভক্তকারী পর্বতমালা - [SABAS][]",
+      "options": [
+        "কারাকোরাম",
+        "পিরেনিজ",
+        "আল্পস",
+        "ইউরাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইউরাল পর্বতমালা এশিয়া ও ইউরোপকে বিভক্ত করেছে.",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "2114a33f-285c-4bef-a3f9-b0ada90dea24",
+      "question": "এশিয়ার সর্বোত্তরের বিন্দু কোথায়? [SABAS][]",
+      "options": [
+        "ইন্দোচীন",
+        "চেলিউস্কিনের অগ্রভাগ",
+        "বেবা অন্তরীপ",
+        "আইসল্যান্ড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এশিয়ার সর্বোত্তরের বিন্দু হলো চেলিউস্কিনের অগ্রভাগ.",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "3459e5be-14b7-450d-8e4d-4768427fec8a",
+      "question": "ইউরোপ মহাদেশের দক্ষিণে কোন মহাদেশ অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "আফ্রিকা",
+        "উত্তর আমেরিকা",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইউরোপ মহাদেশের দক্ষিণে আফ্রিকা মহাদেশ অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "340854ba-ceee-4901-b458-d6dea45bef78",
+      "question": "The southern-most town of the world resides in - [SABAS][]",
+      "options": [
+        "Norway",
+        "Australia",
+        "Chile",
+        "New Zealand"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পৃথিবীর দক্ষিণতম শহর চিলিতে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "315778b6-742f-42e5-9261-a33c75b23c49",
+      "question": "কোন মহাদেশে সবচেয়ে বেশি সংখ্যক দেশ রয়েছে? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "দক্ষিণ আমেরিকা",
+        "আফ্রিকা",
+        "ইউরোপ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আফ্রিকা মহাদেশে সবচেয়ে বেশি সংখ্যক দেশ রয়েছে.",
+      "images": []
+    }
+  ]
+}

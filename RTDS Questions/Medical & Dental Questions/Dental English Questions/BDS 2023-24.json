@@ -1,0 +1,218 @@
+{
+  "title": "BDS 2023-24",
+  "category": "Medical & Dental Questions > Dental English Questions",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "140443",
+      "question": "Choose the correctly spelled word:",
+      "options": [
+        "rendezvous",
+        "rondervoux",
+        "rondervous",
+        "rindezvous"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "140444",
+      "question": "A person who is indifferent to both pleasure and pain is called-",
+      "options": [
+        "saint",
+        "hermit",
+        "ascetic",
+        "stoic"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Saint দরবেশ।\r\nHermit - সন্ন্যাসী।\r\nAscetic যে ব্যক্তি ধর্মীয় কারণে কঠোর আত্মশৃঙ্খলা মেনে চলে।"
+    },
+    {
+      "question_no": 3,
+      "id": "140445",
+      "question": "Which of the following words is in singular form?",
+      "options": [
+        "agenda",
+        "formulae",
+        "oases",
+        "radius"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Singular-Plural \r\nAgendum - Agenda\r\nFormula - Formulae\r\nOasis - Oases\r\nRadius - Radii"
+    },
+    {
+      "question_no": 4,
+      "id": "140446",
+      "question": "The antonym of 'perpetual' is:",
+      "options": [
+        "permanent",
+        "everlasting",
+        "genuine",
+        "momentary"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Everlasting - চিরস্থায়ী\r\nMomentary - ক্ষণস্থায়ী"
+    },
+    {
+      "question_no": 5,
+      "id": "140447",
+      "question": "Which plural word can be used as a singular?",
+      "options": [
+        "ethics",
+        "books",
+        "universities",
+        "princes"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Singular-Plural\r\nBook - Books\r\nUniversity - Universities\r\nPrince - Princes\r\nEthics দেখতে Plural কিন্তু Singular।"
+    },
+    {
+      "question_no": 6,
+      "id": "140448",
+      "question": "The number of auxiliary verbs in English is-",
+      "options": [
+        "twelve",
+        "fifteen",
+        "eleven",
+        "thirteen"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Auxiliary Verb 12টি\r\n1. Be verb ১টি\r\n2. Have verb ১টি\r\n3. Do verb ১টি\r\n4. Modal verb ৯টি"
+    },
+    {
+      "question_no": 7,
+      "id": "140449",
+      "question": "What kind of noun is' discipline'?",
+      "options": [
+        "Common noun",
+        "Abstract noun",
+        "Collective noun",
+        "Proper noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "140450",
+      "question": "The meaning of \"to play fair\"?",
+      "options": [
+        "to play meely",
+        "to avoid cheating",
+        "to play cordially",
+        "to play without quarrrel"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "To play fair - ন্যায্যভাবে করা অর্থাৎ প্রতারণা না করা (To avoid cheating)"
+    },
+    {
+      "question_no": 9,
+      "id": "140451",
+      "question": "Education is the most pressing need of the time. Here the word 'pressing' is:",
+      "options": [
+        "pronoun",
+        "adverb",
+        "gerund",
+        "verbal adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Need হলো noun, এর আগে pressing শব্দটি Present participle / Verbal adjective হিসেবে বসেছে"
+    },
+    {
+      "question_no": 10,
+      "id": "140452",
+      "question": "Which one of the following is a demonstrative pronoun?",
+      "options": [
+        "yourself",
+        "he",
+        "who",
+        "those"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Demonstrative Pronoun হলো This, These, That, Those, so, such, the same etc."
+    },
+    {
+      "question_no": 11,
+      "id": "140453",
+      "question": "What is the meaning of \"out of the woods\"?",
+      "options": [
+        "out of the bush",
+        "free from difficulties",
+        "out of the way",
+        "out of jungle"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Out of the woods অর্থ- বিপদমুক্ত।"
+    },
+    {
+      "question_no": 12,
+      "id": "140454",
+      "question": "To talk disrespectfully of sacred things is called-",
+      "options": [
+        "apostasy",
+        "heresy",
+        "atheism",
+        "blasphemy"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Apostasy - স্বধর্মত্যাগী\r\nHeresy - নব্যতন্ত্র\r\nAtheism - নাস্তিকতা"
+    },
+    {
+      "question_no": 13,
+      "id": "140455",
+      "question": "Fire burns. What kind of verb is 'burn'?",
+      "options": [
+        "causative",
+        "copulative",
+        "intransitive",
+        "transitive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এখানে burn verb এর object না থাকায় এটি intransitive verb."
+    },
+    {
+      "question_no": 14,
+      "id": "140456",
+      "question": "The synonym of 'impromptu' is-",
+      "options": [
+        "improper",
+        "direct",
+        "prepared",
+        "extempore"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Impromptu - প্রত্যুৎপন্ন\r\nExtempore - প্রত্যুৎপন্ন"
+    },
+    {
+      "question_no": 15,
+      "id": "140457",
+      "question": "\"Carry the day\" means",
+      "options": [
+        "defeat",
+        "win",
+        "carry",
+        "lose"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "exam_id": 1596,
+  "title": "Daily GKE Planner (2)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 12,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "d9abc809-6313-4d98-bcd0-67648101ab59",
+      "question": "Which of the following is a simple sentence?",
+      "options": [
+        "If I make a promise, I keep it",
+        "You can talk as much as you like",
+        "While there is life there is hope",
+        "He will pay only under compulsion"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "243ba876-e9d7-4864-aae5-64c99b0b5aa9",
+      "question": "Which of the following is a compound sentence?",
+      "options": [
+        "You need to be hard working to succeed",
+        "Work hard and you will succeed",
+        "Work hard for success",
+        "Work hard if you want to succeed"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "0d6d65fe-ab85-4d67-b16f-b508e758d44a",
+      "question": "You must work hard for success.Make it compound.",
+      "options": [
+        "Work hard for success",
+        "Work hard if you want to succeed",
+        "Work hard and you will succeed",
+        "Work hard to succeed"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "e7cfa481-01dc-42dd-b3e7-829f3a5af6e8",
+      "question": "Which of the following is a complex sentence?",
+      "options": [
+        "Since the water was very hot,I could not drink it",
+        "The water being very hot,I could not drink",
+        "Being poor,I could not buy a chain",
+        "Because of his playing well,he won the game"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "d74f81d2-e847-4cb4-8343-5a91f9c6cf0e",
+      "question": "\" Do or die\" is a____ sentence",
+      "options": [
+        "Simple",
+        "Complex",
+        "Exclamatory",
+        "Compound"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "eac70b8c-3ed9-4204-ba28-76a01147a72b",
+      "question": "\"I saw a boy who was poor \" is a____ sentence",
+      "options": [
+        "Compound",
+        "Simple",
+        "Complex",
+        "Interrogative"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "aa9f4da8-cfdc-4bc8-8f3d-462384630bcd",
+      "question": "\" Without working hard,you will not prosper in life\" is a____ sentence",
+      "options": [
+        "Simple",
+        "Complex",
+        "Compound",
+        "Exclamatory"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "9ed02974-e74d-4efe-b393-bf5507496998",
+      "question": "\"Though he was rich,he was still very unhappy \" is a____ sentence",
+      "options": [
+        "Simple",
+        "Complex",
+        "Compound",
+        "Exclamatory"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "5a2e1fe9-3f02-4e94-839e-6239ea66e2a2",
+      "question": "\"There is nothing nobler than love\" is a____ sentence",
+      "options": [
+        "Simple",
+        "Complex",
+        "Compound",
+        "Exclamatory"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "67132109-d41b-4086-9f2f-1dbbb3df3a28",
+      "question": "Though he tried hard,he failed.(compound)",
+      "options": [
+        "He tried but failed",
+        "He tried hard and failed",
+        "He triend hard but failed",
+        "But for his trying hard,he failed"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Though যুক্ত complex sentence কে compound করতে হলে and নয়, but বসে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "8eaea97b-edd3-4aa0-9d01-b169e536116a",
+      "question": "What is a simple sentence?",
+      "options": [
+        "A small sentence",
+        "An easy to understand sentence",
+        "A one clause sentence",
+        "An assertive sentence"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "simple sentence এ একটা clause থাকে",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "79e8be1c-5f89-43e0-b211-ba24b0c58a18",
+      "question": "\"Besides robbing the poor child,he also murdured her\" is a-",
+      "options": [
+        "Simple sentence",
+        "Complex sentence",
+        "Optative sentence",
+        "Compound sentence"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "b477fef6-0590-46e9-b2a2-c61c3bb39ee6",
+      "question": "\"There is no mother but loves her child\" is a-",
+      "options": [
+        "Simple sentence",
+        "Compound sentence",
+        "Exclamatory sentence",
+        "Complex sentence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "But আছে মানেই compound sentence না।এখানে but negetive relative pronoun(who/that does not)হিসেবে ব্যবহৃত হয়েছে তাই এটা complex sentence",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "4d546944-d956-40a1-95f9-a8d9bcd0c3a4",
+      "question": "\"Fight till you die\" is a-",
+      "options": [
+        "Simple sentence",
+        "Complex sentence",
+        "Compound sentence",
+        "Interrogative sentence"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "65f90fac-6258-4086-aa2e-8e8273e4ad9d",
+      "question": "He is diligent,therefore he will succeed. is a-",
+      "options": [
+        "Complex-compound sentence",
+        "Simple sentence",
+        "Complex sentence",
+        "Compound sentence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে and,but,therefore থাকলে এবং সেটা ২ টা বাক্যকে সংযুক্ত করলে compound sentence হয়",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "96def9c5-6b0f-4fef-ad96-9b265ec484cb",
+      "question": "কোন যুদ্ধ \"ব্যাটেল অফ পিপল\"নামে পরিচিত?",
+      "options": [
+        "ট্রাফালগারের যুদ্ধ",
+        "ওয়াটার লু যুদ্ধ",
+        "লিপজিগের যুদ্ধ",
+        "পানিপথের যুদ্ধ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "f87c65ed-4986-4e32-81b4-fd77fc301cb2",
+      "question": "ফরাসি বিপ্লব শুরু হয় কত সালে?",
+      "options": [
+        "১৭৯৯",
+        "১৭৮৯",
+        "১৮০৫",
+        "১৬৮৮"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৭৯৯ সালে শেষ হয়",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "fd6a413b-3ca0-4903-865b-fa1ab91dfc05",
+      "question": "নেপোলিয়ন এর সাথে জড়িত দ্বীপ নয় কোনটি?",
+      "options": [
+        "কর্সিকা",
+        "সেন্ট এলবা",
+        "সেন্ট লুসিয়া",
+        "সেন্ট হেলেনা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "1a0a714e-cf25-4000-a948-21a0b09fbad9",
+      "question": "ফরাসি বিল্পবের শিশু বলা হয়-",
+      "options": [
+        "নেপোলিয়ন",
+        "রুশো",
+        "ভলটেয়ার",
+        "জন লক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "84d7a91f-c096-47bf-a4e6-8841ea1c121e",
+      "question": "ব্ল্যাক ফরেস্ট কোথায় অবস্থিত?",
+      "options": [
+        "ব্রাজিল",
+        "ফ্রান্স",
+        "চীন",
+        "জার্মানি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "c69d06a6-0e26-46d6-9c1b-91bac0881394",
+      "question": "জার্মানির প্রথম নারী চ্যান্সেলর কে?",
+      "options": [
+        "আনেগরেট ক্রাম্প",
+        "লিনা হেডরিচ",
+        "এঞ্জেলা মার্কেল",
+        "পেট্রা কেলি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "55498da7-82b0-4d7c-8016-5406ce4e8f2d",
+      "question": "\"Man is born free but everywhere he is in chains\" বলেছেন-",
+      "options": [
+        "জ্যাক রুশো",
+        "ভলটেয়ার",
+        "চার্লস ডি গ্যালে",
+        "কার্ল মার্কস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "8d0fc99d-6e36-412e-9ab3-824b0f9824a9",
+      "question": "\"Common sense is not so common\" বলেছেন-",
+      "options": [
+        "জ্যাক রুশো",
+        "চার্লস ডি গ্যালে",
+        "ভলটেয়ার",
+        "কার্ল মার্কস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "d6edd105-e22b-4c9d-b452-57584fd29ff6",
+      "question": "ফরাসি বিপ্লবের মতবাদের প্রবক্তা",
+      "options": [
+        "ভলটেয়ার",
+        "রুশো",
+        "চার্লস ডি গ্যালে",
+        "বারট্রান্ড রাসেল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "7805f060-e688-4c1a-89ef-ffc2b2a3d0c3",
+      "question": "হিটলার কোথায় জন্মগ্রহণ করেন?",
+      "options": [
+        "অস্ট্রিয়া",
+        "অস্ট্রেলিয়া",
+        "জার্মানি",
+        "ফ্রান্স"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৮৮৯ সালে জন্মগ্রহণ করেন।",
+      "images": []
+    }
+  ]
+}

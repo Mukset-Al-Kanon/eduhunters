@@ -1,0 +1,50 @@
+{
+  "title": "মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি ২০০১-০২",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 3,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "147623",
+      "question": "অর্থনীতিতে যে সালে নোবেল পুরস্কার চালু হয়-",
+      "options": [
+        "১৯৬৯",
+        "১৯১৭",
+        "১৯০১",
+        "অর্থনীতিতে কোন নোবেল পুষ্কার দেওয়া হয় না"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "147624",
+      "question": "নেপোলিয়ান ১৮১৫ সালে ওয়াটারলুযুদ্ধতে পরাজিত হয়েছিলেন। ওয়াটার 'লু' কোন দেশে অবস্থিত?",
+      "options": [
+        "ফ্রান্স",
+        "জার্মানি",
+        "বেলজিয়াম",
+        "ইংল্যান্ড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "147628",
+      "question": "'দিনার' যে দেশের মুদ্রার নাম",
+      "options": [
+        "সংযুক্ত আরব আমিরাত",
+        "জর্ডান",
+        "কুয়েত",
+        "বাহরাইন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

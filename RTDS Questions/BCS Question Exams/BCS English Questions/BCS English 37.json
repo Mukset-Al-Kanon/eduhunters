@@ -1,0 +1,302 @@
+{
+  "title": "BCS English 37",
+  "category": "BCS Question Exams > BCS English Questions",
+  "duration_minutes": 30,
+  "total_questions": 21,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "104607",
+      "question": "Which of the following word is in singular form?",
+      "options": [
+        "formulae",
+        "agenda",
+        "oases",
+        "radius"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রদত্ত option গুলোর মধ্যে radius (ব্যাসার্ধ) শব্দটি singular যার plural form 'radii'. Option এ প্রদত্ত অন্য word গুলো plural যাদের singular যথাক্রমে formula, agendum এবং oasis."
+    },
+    {
+      "question_no": 2,
+      "id": "104608",
+      "question": "Choose the correct sentence-",
+      "options": [
+        "All of it are depended on you",
+        "All of it are depending on you",
+        "All of it depends on you",
+        "All of it are depended on you"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "একই অর্থে ' all of it' -এর আরেকটি form হচ্ছে 'it all' যা singular এবং এটি subject হিসেবে singular verb গ্রহণ করে। আর এটি Present indefinite tense -এর singular হলে verb এর সাথে s/es যুক্ত হয়।"
+    },
+    {
+      "question_no": 3,
+      "id": "104609",
+      "question": "\"A rolling stone gathers no moss.' Make it complex-",
+      "options": [
+        "Science stone is rolling, it gathers no moss",
+        "Though a stone rolls, it gathers no moss",
+        "A stone what rolls gathers no moss",
+        "A stone that rolls gathers no moss"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Participle যুক্ত simple sentence -কে complex করতে হলে participle অংশকে subordinate clause -এ রুপান্তরিত করতে হয় এবং বাকি অংশ main clause হিসেবে অপরিবর্তিত থাকে। প্রদত্ত বাক্যে 'rolling' হচ্ছে present participle, যার subordinate clause হলো 'A stone which/that rolls' যা (D) option -এ উল্লেখ আছে।"
+    },
+    {
+      "question_no": 4,
+      "id": "104611",
+      "question": "The mother sat vigilantly beside the sick baby. Here \"vigilantly\" is a\\an-",
+      "options": [
+        "noun",
+        "adverb",
+        "adjective",
+        "none of three"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Vigilantly - জাগ্রতবস্থায়, সতর্কভাবে। Grammar অনুযায়ী যে word কোনো verb -কে modify করে তাকে adverb বলে। প্রদত্ত বাক্যে sat হচ্ছে verb আর কীভাবে বসেছিল সেটা বোঝাচ্ছে vigilantly। সুতরাং vigilantly শব্দটি adverb."
+    },
+    {
+      "question_no": 5,
+      "id": "104613",
+      "question": "\"Who planted this tree here?\" Make it passive voice-",
+      "options": [
+        "By whom the tree was planted here?",
+        "who the tree had been planted here by?",
+        "The tree was planted here by whom?",
+        "By whom had the tree had been planted here?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Blank,  Who দিয়ে interrogative sentence শুরু হলে passive  করার ক্ষেত্রে বাক্যের শুরুতে by whom বসে। মূল passive form টি হবে: By whom was this tree planted here?"
+    },
+    {
+      "question_no": 6,
+      "id": "104615",
+      "question": "Fraility the name is woman. Here \"fraility\" is-",
+      "options": [
+        "noun",
+        "adjective",
+        "adverb",
+        "verb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Fraility বলে কোনো word পাওয়া যায় না। তবে শব্দটি Fraility না হয়ে Frailty (ভঙ্গুরতা, নশ্বরতা) হলে এটি হতো noun। 'Frailty', the name is woman' বাক্যটি Shakespeare -এর বিখ্যাত Tragedy 'Hamlet' থেকে নেয়া।"
+    },
+    {
+      "question_no": 7,
+      "id": "104617",
+      "question": "Education is enlightening. Here \"enlightening\" is a\\an-",
+      "options": [
+        "gerund",
+        "participle",
+        "infinitive",
+        "finite verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Verb এর সাথে 'ing' যুক্ত হয়ে যখন adjective-এর কাজ করে তখন তাকে  participle বলে। প্রদত্ত বাক্যে enlighten শব্দটির সাথে 'ing' যুক্ত হয়ে তা education -এর adjective - এর কাজ করছে।"
+    },
+    {
+      "question_no": 8,
+      "id": "104619",
+      "question": "I could not mend the computer myself, so I ____ at a shop.",
+      "options": [
+        "had it mended",
+        "had it mend",
+        "did it mend",
+        "had bended"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোনো কাজ কারো দ্বারা করানো এরুপ বোঝাতে causative verb বসে। ব্যবহারের ক্ষেত্রে গঠন Subject + causative verb+ object+ মূল verb-এর Past Participle form। যেমন : I had my shirt washed. Causative verb - have, make, cause, allow, help, enable, keep, hold, let, force and require. প্রদত্ত বাক্যে I had it mended at a shop- আমি এটা একটা দোকানে মেরামত করিয়েছিলাম।"
+    },
+    {
+      "question_no": 9,
+      "id": "104621",
+      "question": "I saw ____ one-eyed man when i was walking on the road.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাধারণত vowel (a,e,i,o,u)-এর পূর্বে article 'An' বসে। কিন্তু vowel 'U' -এর উচ্চারণ যদি 'ইউ' এবং 'O' - এর উচ্চারণ যদি 'ওয়া'- এর মতো হয় তাহলে 'An'-এর পরিবর্তে 'A' বসে। তাই One (ওয়ান) এর পূর্বে 'a' বসবে।"
+    },
+    {
+      "question_no": 10,
+      "id": "104622",
+      "question": "He worked (with all sincerity). The bracket phrase is-",
+      "options": [
+        "a noun phrase",
+        "an adjective phrase",
+        "an infinitive phrase",
+        "an adverbial phrase"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Adverbial phase-ও adverb-এর মতো verb-কে modify করে। প্রদত্ত বাক্যে underlined phrase টি modify করেছে অর্থাৎ verb-এর manner প্রকাশ করায় এটি Adverbial phrase of manner."
+    },
+    {
+      "question_no": 11,
+      "id": "104623",
+      "question": "This is the book I lost. Here \"I lost\" is-",
+      "options": [
+        "noun clause",
+        "an adverbial clause",
+        "an adjective clause",
+        "none of the three"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Adjective clause ও Adjective-এর মতো noun/pronoun -কে modify করে। প্রদত্ত বাক্যের ' I lost' clause টি book -কে modify করেছে।"
+    },
+    {
+      "question_no": 12,
+      "id": "104624",
+      "question": "A chart was (appended) to the report. Here \"appended\" means-",
+      "options": [
+        "changed",
+        "removed",
+        "joined",
+        "shortened"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Append শব্দটির অর্থ লেখায় বা ছাপায় যুক্ত করা। এর synonyms- associate, connect, join, engage ইত্যাদি। সুতরাং সঠিক উত্তর (C)।"
+    },
+    {
+      "question_no": 13,
+      "id": "104625",
+      "question": "The new offer of job was (alluring). Here alluring means-",
+      "options": [
+        "unexpected",
+        "tempting",
+        "disappointing",
+        "ordinary"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Alluring -লোভনীয়। অন্য option -গুলোর মধ্যে unexpected- অপ্রত্যাশিত, tempting -প্রলুব্ধকর/লোভনীয়, disappointing - হতাশাজনক, ordinary -সাধারণ। বাক্য অনুযায়ী নতুন চাকরির offer টি লোভনীয় ছিল। অতএব সঠিক উত্তর (B)."
+    },
+    {
+      "question_no": 14,
+      "id": "104626",
+      "question": "The family doesn't feel ______ going this situation.",
+      "options": [
+        "in",
+        "on",
+        "of",
+        "like"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কোনো কিছু করার ইচ্ছা প্রকাশ করতে 'feel like' ব্যবহার হয়। এর পর যে  verb আসে তার সাথে 'ing' বসে। প্রদত্ত বাক্যে পরিবারটির বাইরে না যাওয়ার ইচ্ছাকে বোঝাচ্ছে। সুতরাং সঠিক উত্তর (C)।"
+    },
+    {
+      "question_no": 15,
+      "id": "104627",
+      "question": "\" Omnivorous\" means:",
+      "options": [
+        "eating all types of food",
+        "eating only fruits",
+        "eat only meat",
+        "eating greass and plant only"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "104628",
+      "question": "The phrase \"archilles heel\" means;",
+      "options": [
+        "a strong point",
+        "a weak point",
+        "a permanent solution",
+        "a serious idea"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "'Achilles' heel' একটি idiom, যার অর্থ দূর্বল দিক বা weak point. সুতরাং সঠিক উত্তর (B). Greek Mythology -এর বিখ্যাত চরিত্র Achilles -এর heel তথা 'গোড়ালির দূর্বলতা থেকেই মূলত idiom টির উৎপত্তি।"
+    },
+    {
+      "question_no": 17,
+      "id": "104629",
+      "question": "\"proviso\" means-",
+      "options": [
+        "sanction",
+        "substiture",
+        "stipulation",
+        "directive"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "proviso- অনুবিধি / শর্ত। অন্য option গুলোর মধ্যে sanction- নির্দেশনামূলক। সুতরাং দেখা যার অর্থের দিক দিয়ে 'proviso' ও 'stipulation' কাছাকাছি। সুতরাং সঠিক উত্তর (C)."
+    },
+    {
+      "question_no": 18,
+      "id": "104630",
+      "question": "Select the wpd that is the most closely opposite in meaning to the capitalized word: DELETERIOUS",
+      "options": [
+        "toxic",
+        "spurious",
+        "harmless",
+        "lethal"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Deleterious -ক্ষতিকর। option সমূহের মধ্যে Toxic- বিষাক্ত,-কৃত্রিম, মিথ্যা,  harmless - অহিংস, যা ক্ষতি করে না,  lethal- মারাত্মক ক্ষতিকর। অতএব অর্থের দিক দিয়ে  deleterious এবং harmless পুরোপুরি opposite বা বিপরীতার্থক।"
+    },
+    {
+      "question_no": 19,
+      "id": "104632",
+      "question": "The repetition of beginning consonant sound is known as-",
+      "options": [
+        "personification",
+        "onooatopoeia",
+        "alliteration",
+        "rhyme"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দুটি পাশাপাশি শব্দের শুরুর উচ্চারণ বা যে কাব্যালংকারের প্রতিটি শব্দের প্রারম্ভে একই ব্যঞ্জন বা স্বরবর্ণের যদি পুনঃপুন ব্যবহার হয়, তবে তাকে aliiteration বা অনুপ্রাস বলে। অপরদিকে, কোনো বস্তু বা objects কে সাহিত্যে মানুষ বা ব্যক্তিরুপ দান করাকে personification বলে. Onomatopoeia হলো অনুকার শব্দ বা কোনোকিছুর শব্দের অনুকরণে শব্দগঠন। Rhyme হলো শব্দের বা কবিতার চরণের মিল। সুতরাং সঠিক উত্তর (C)."
+    },
+    {
+      "question_no": 20,
+      "id": "105491",
+      "question": "He gave up -- football when he got married.",
+      "options": [
+        "of playing",
+        "to play",
+        "playing",
+        "play"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Give up এর পর verb+ ing হয়। এছাড়াও approve of, keep on, with a view to, look forward to, object to, think of/about, forget about, get through, insist on etc. এর পর verb + in বসে।"
+    },
+    {
+      "question_no": 21,
+      "id": "105540",
+      "question": "He advised me _____smoking.",
+      "options": [
+        "giving up",
+        "to give up",
+        "in giving up",
+        "from giving up"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Advise verb-এর পরে object না থাকলে Infinitive না বসে verb-এর সাথে ing যুক্ত হয়। কিন্তু object থাকলে infinitive ব্যবহৃত হয়। এ নিয়মানুযায়ী যেহেতু advise-এর পর me আছে।"
+    }
+  ]
+}

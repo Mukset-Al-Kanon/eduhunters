@@ -1,0 +1,1396 @@
+{
+    "exam_id":  "MAT_2015-2016",
+    "title":  "Medical Admission Test (2015-2016)",
+    "category":  "Medical Admission Test (11 Years MAT)",
+    "duration_minutes":  60,
+    "total_questions":  99,
+    "negative_mark":  25,
+    "questions":  [
+                      {
+                          "question_no":  1,
+                          "id":  "MAT_2015_2016_BN_Q001",
+                          "question":  "কোন ব্যক্তি ক্রিকেট খেলোয়াড় নয়?",
+                          "options":  [
+                                          "শেন ওয়ার্নার",
+                                          "ডেভিড বেকহ্যাম",
+                                          "ব্রায়ান লারা",
+                                          "শচীন টেন্ডুলকার"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  2,
+                          "id":  "MAT_2015_2016_BN_Q002",
+                          "question":  "কুয়াকাটা সমুদ্র সৈকত বাংলাদেশের কোন জেলায় অবস্থিত?",
+                          "options":  [
+                                          "খুলনা",
+                                          "নোয়াখালী",
+                                          "বরিশাল",
+                                          "পটুয়াখালী"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "পটুয়াখালী জেলার কলাপাড়া উপজেলার মহিপুর থানার লতাচাপলী ইউনিয়নে অবস্থিত কুয়াকাটা \u0027সাগরকন্যা\u0027 নামে পরিচিত। ১৮ কিলোমিটার দৈর্ঘ্যের এটি বাংলাদেশের একমাত্র সমুদ্রসৈকত যেখান থেকে সূযোর্দয় ও সূযার্স্ত উভয়ই দেখা যায়।"
+                      },
+                      {
+                          "question_no":  3,
+                          "id":  "MAT_2015_2016_BN_Q003",
+                          "question":  "Fill up the blank with the appropriate word. \u0027Do not prevent me _____ going.\u0027",
+                          "options":  [
+                                          "on",
+                                          "from",
+                                          "at",
+                                          "to"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Prevent from (বিরত থাকা/ রাখা) - Do not prevent me from going."
+                      },
+                      {
+                          "question_no":  4,
+                          "id":  "MAT_2015_2016_BN_Q004",
+                          "question":  "মালভেসি গোত্রের অমরা বিন্যাস-",
+                          "options":  [
+                                          "প্রান্তীয়",
+                                          "অক্ষীয়",
+                                          "বহুপ্রান্তীয়",
+                                          "মুক্তমধ্য"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Poaceae গোত্রোর অমরাবিন্যাস মূলীয়।"
+                      },
+                      {
+                          "question_no":  5,
+                          "id":  "MAT_2015_2016_BN_Q005",
+                          "question":  "বর্তমানে কোনটি ব্যবহার করে রিকম্বিনেট DNA শনাক্ত করা যায়?",
+                          "options":  [
+                                          "Gene cloning",
+                                          "Gene therapy",
+                                          "DNA finger printing",
+                                          "DNA probe"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "DNA শনাক্তকরণের তিনটি পদ্ধতি: (i) PCR, (ii) Restriction digestion, (iii) DNA Probe / Genetic Probe."
+                      },
+                      {
+                          "question_no":  6,
+                          "id":  "MAT_2015_2016_BN_Q006",
+                          "question":  "মানুষের রক্তের pH এর মান কত?",
+                          "options":  [
+                                          "6.5",
+                                          "7.0",
+                                          "7.4",
+                                          "7.8"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "একজন পূর্ণবয়স্ক সুস্থ মানুষের দেহে প্রায় 5-6 লিটার রক্ত থাকে। অর্থাৎ দৈনিক মোট ওজনের প্রায় 8%। রক্ত সামান্য ক্ষারীয়। এর pH মাত্রা 7.35-7.45 এবং তাপমাত্রা 36-38∘C. রক্তের আপেক্ষিক গুরুত্ব পানির চেয়ে বেশি প্রায় 1.065। অজৈব লবণের উপস্থিতির জন্য রক্তের স্বাদ নোনতা।"
+                      },
+                      {
+                          "question_no":  7,
+                          "id":  "MAT_2015_2016_BN_Q007",
+                          "question":  "গমের বৈজ্ঞানিক নাম কী?",
+                          "options":  [
+                                          "Saccharum offcinarum",
+                                          "Hordeum vulgare",
+                                          "Zea mays",
+                                          "Triticum aestivum"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "ভুট্টা → Zea mays; আখ → Saccharum offcinarum; বার্লি → Hordeum vulgare."
+                      },
+                      {
+                          "question_no":  8,
+                          "id":  "MAT_2015_2016_BN_Q008",
+                          "question":  "একটি বল 19.6 ms⁻¹ গতিতে সোজা উপরে ছোঁড়া হলো। এটা সবোর্চ্চ কত উচ্চতায় পৌঁছাতে পারবে?",
+                          "options":  [
+                                          "1m",
+                                          "4.9 m",
+                                          "9.8 m",
+                                          "19.6 m"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "hmax = (v02 / 2g) = (19.6)² / 2 × 9.8) = 19.6"
+                      },
+                      {
+                          "question_no":  9,
+                          "id":  "MAT_2015_2016_BN_Q009",
+                          "question":  "ব্যাকটেরিয়া ধ্বংসে অ্যান্টিবডিকে সহায়তা করে কোনটি?",
+                          "options":  [
+                                          "কমপ্লিমেন্ট সিস্টেম",
+                                          "ইন্টারফেরন",
+                                          "ভ্যাক্সিন",
+                                          "অণুচক্রিকা"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "কমপ্লিমেন্ট সিস্টেম প্রায় ২০ ধরনের প্লাজমা প্রোটিন নিয়ে গঠিত যা ব্যাকটেরিয়া ধ্বংসে অ্যান্টিবডি ও ফ্যাগোসাইটকে সাহায্য করে।"
+                      },
+                      {
+                          "question_no":  10,
+                          "id":  "MAT_2015_2016_BN_Q010",
+                          "question":  "কোন যন্ত্রের সাহায্যে আপেক্ষিক রোধ নির্ণয় করা হয়?",
+                          "options":  [
+                                          "পটেনশিওমিটার",
+                                          "মিটার ব্রিজ",
+                                          "গ্যালভানোমিটার",
+                                          "ক্যালরিমিটার"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "মিটার ব্রিজ - তারের আপেক্ষিক রোধ নির্ণয়; গ্যালভানোমিটার - তড়িৎ প্রবাহের অস্তিত্ব নির্ণয়; অ্যামিটার - তড়িৎ প্রবাহের মাত্রা নির্ণয়।"
+                      },
+                      {
+                          "question_no":  11,
+                          "id":  "MAT_2015_2016_BN_Q011",
+                          "question":  "An antonym of \u0027Facilitate\u0027 is -",
+                          "options":  [
+                                          "Hallow",
+                                          "Hold",
+                                          "Hamper",
+                                          "Hide"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Facilitate অর্থ সুবিধা দেওয়া। আর Hamper অর্থ ক্ষতি করা বা নষ্ট করা। Hallow অর্থ পবিত্র করা; Hide অর্থ লুকানো; Hold অর্থ ধরা বা রাখা।"
+                      },
+                      {
+                          "question_no":  12,
+                          "id":  "MAT_2015_2016_BN_Q012",
+                          "question":  "Ulothrix শৈবালের ক্লোরোপ্লাষ্টের আকৃতি কীরূপ?",
+                          "options":  [
+                                          "গার্ডল আকৃতির",
+                                          "গোলাকার",
+                                          "পিপাকৃতির",
+                                          "অর্ধবৃত্তাকার"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "শৈবাল → ক্লোরোপ্লাস্টের আকৃতি: Chlamydomonas → পেয়ালাকৃতির; Spirogyra → সর্পিলাকার; Oedogonium → জালিকাকার; Zygnema → তারকাকার; Pithophora → গোলাকার"
+                      },
+                      {
+                          "question_no":  13,
+                          "id":  "MAT_2015_2016_BN_Q013",
+                          "question":  "Fill in the blank with appropriate word \u0027She has no zest ___ music.\u0027",
+                          "options":  [
+                                          "on",
+                                          "for",
+                                          "to",
+                                          "in"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Zest এর পর for বসে। Zest for অর্থ আকাঙ্ক্ষা। সুতরাং to, in, on সঠিক উত্তর হবে না।"
+                      },
+                      {
+                          "question_no":  14,
+                          "id":  "MAT_2015_2016_BN_Q014",
+                          "question":  "Change the voice of - \u0027Who is calling me?\u0027",
+                          "options":  [
+                                          "By whom am I being called?",
+                                          "By whom I am called?",
+                                          "By whom am I called?",
+                                          "By whom I was called?"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Who is calling me এই বাক্যটি present continuous tense এবং interrogative sentence."
+                      },
+                      {
+                          "question_no":  15,
+                          "id":  "MAT_2015_2016_BN_Q015",
+                          "question":  "Pteris এর প্রতিটি পত্রখণ্ডকে কী বলে?",
+                          "options":  [
+                                          "ফ্র-",
+                                          "র্যাকিস",
+                                          "পিনা",
+                                          "রাইজোম"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Pteris এর পাতার অক্ষকে র্যাকিস, পাতাকে ফ্রন্ড ও ভূনিম্নস্থ কা-কে রাইজোম বলে।"
+                      },
+                      {
+                          "question_no":  16,
+                          "id":  "MAT_2015_2016_BN_Q016",
+                          "question":  "An antonym of \u0027Native\u0027 is-",
+                          "options":  [
+                                          "Inborn",
+                                          "Congenial",
+                                          "Real",
+                                          "Alien"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Native অর্থ স্বজাতীয়; Real অর্থ আসল; Alien অর্থ ভিনদেশী; Congenial অর্থ উপকারী; Inborn অর্থ জন্মগত।"
+                      },
+                      {
+                          "question_no":  17,
+                          "id":  "MAT_2015_2016_BN_Q017",
+                          "question":  "0.005 (M) H2SO4 দ্রবণের pH কত?",
+                          "options":  [
+                                          "3",
+                                          "2",
+                                          "5",
+                                          "4"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "H2SO4 দ্রবণে নিম্নোক্তভাবে বিয়োজিত হয়- H2SO4⇋2H(aq)++SO42-(aq) অর্থাৎ দ্রবণে H2SO4 এর ঘনমাত্রার দ্বিগুণ হবে H⁺ -এর ঘনমাত্রা। ∴H⁺ এর ঘনমাত্রা [H⁺] = 0.005 × 2M = 0.01M । দ্রবণের pH = -log[H⁺] = -log0.01 = 2 ।"
+                      },
+                      {
+                          "question_no":  18,
+                          "id":  "MAT_2015_2016_BN_Q018",
+                          "question":  "জাতিসংঘের কোন সদস্য দেশটির ভেটো ক্ষমতা নেই?",
+                          "options":  [
+                                          "জাপান",
+                                          "ফ্রান্স",
+                                          "চীন",
+                                          "যুক্তরাজ্য"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  19,
+                          "id":  "MAT_2015_2016_BN_Q019",
+                          "question":  "SI পদ্ধতিতে পীড়নের একক কোনটি?",
+                          "options":  [
+                                          "Nm",
+                                          "Nm⁻²",
+                                          "Nm⁻¹",
+                                          "(m / N)"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "পীড়ন, P = (F / A) = (বল / ক্ষেত্রফল) = (N / m²) = Nm⁻² বা Pa"
+                      },
+                      {
+                          "question_no":  20,
+                          "id":  "MAT_2015_2016_BN_Q020",
+                          "question":  "ক্লোরোফিলের সাহায্যে আলোক শক্তিকে ব্যবহার করে ADP থেকে ATP সৃষ্টি করাকে কী বলে?",
+                          "options":  [
+                                          "ফটোলাইসিস",
+                                          "ফটোফসফোরাইলেশন",
+                                          "রেসপিরেশন",
+                                          "ফটোসিনথেসিস"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ADP থেকে ATP সৃষ্টি করাকে বলা হয় ফসফোরাইলেশন। ফসফোরাইলেশন প্রক্রিয়া সূর্যের আলোর উপস্থিতিতে ঘটলে সেটিকে ফটোফসফোরাইলেশন বলে। অপরদিকে ফটোলাইসিস হলো পানির সালোক বিভাজন।"
+                      },
+                      {
+                          "question_no":  21,
+                          "id":  "MAT_2015_2016_BN_Q021",
+                          "question":  "20%H2SO4 দ্রবণে পানির পরিমাণ কত?",
+                          "options":  [
+                                          "20gm",
+                                          "80gm",
+                                          "120gm",
+                                          "100gm"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "20%H2SO4 → 100g দ্রবণে H2SO420g পানির পরিমাণ = (100-20)g = 80g"
+                      },
+                      {
+                          "question_no":  22,
+                          "id":  "MAT_2015_2016_BN_Q022",
+                          "question":  "আলোর গতি কত?",
+                          "options":  [
+                                          "3 × 10⁷ms⁻¹",
+                                          "3 × 10⁹ms⁻¹",
+                                          "3 × 10⁶ms⁻¹",
+                                          "3 × 10⁸ms⁻¹"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "আলো এক প্রকার তাড়িতচৌম্বক তরঙ্গ যা শূন্য মাধ্যমে 299 792 458 ms⁻¹ বেগে চলে।"
+                      },
+                      {
+                          "question_no":  23,
+                          "id":  "MAT_2015_2016_BN_Q023",
+                          "question":  "\u0027প্লাস্টার অফ প্যারিস\u0027 এর রাসায়নিক সংকেত কোনটি?",
+                          "options":  [
+                                          "CaSO4.MgSO4",
+                                          "CaSO4.H2O",
+                                          "MgSO4",
+                                          "(CuSO4)2.H2O"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "প্লাস্টার অফ প্যারিস - এর সংকেত (CaSO4)2.H2O."
+                      },
+                      {
+                          "question_no":  24,
+                          "id":  "MAT_2015_2016_BN_Q024",
+                          "question":  "নিচের কোনটির আইসোটোপ একটি?",
+                          "options":  [
+                                          "C",
+                                          "Cl",
+                                          "Na",
+                                          "H"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Na ও Au বাদে সকল মৌলের একাধিক আইসোটোপ বিদ্যমান।"
+                      },
+                      {
+                          "question_no":  25,
+                          "id":  "MAT_2015_2016_BN_Q025",
+                          "question":  "পলিস্যাকারাইড কোনটি?",
+                          "options":  [
+                                          "সুক্রোজ",
+                                          "পলিলোজ",
+                                          "ফ্রুক্টোজ",
+                                          "সেলুলোজ"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "বিভিন্ন কাবোর্হাইড্রেটের উদাহরণ: মনোস্যাকারাইড → গ্লুকোজ, ফ্রুক্টোজ, গ্যালাকটোজ; ডাইস্যাকারাইড → সুকরোজ, ম্যালটোজ, সেলোবায়োজ; অলিগোস্যাকারাইড → র্যাফিনোজ, স্টাকিওজ, স্কাডোর্জ; পলিস্যাকারাইড → স্টার্চ, সেলুলোজ, গ্লাইকোজেন।."
+                      },
+                      {
+                          "question_no":  26,
+                          "id":  "MAT_2015_2016_BN_Q026",
+                          "question":  "ন্যানো পাটিের্কলের আকার কত?",
+                          "options":  [
+                                          "1-50nm",
+                                          "1-100nm",
+                                          "0.1-0.5nm",
+                                          "1-10nm"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Nano-Particle এর আকার 1-100Nm ; Fine-Particle এর আকার 101-2500Nm ; Coarse-Particle এর আকার 2501-10000Nm."
+                      },
+                      {
+                          "question_no":  27,
+                          "id":  "MAT_2015_2016_BN_Q027",
+                          "question":  "পর্ণমোচী বনভূমির উদ্ভিদ কোনটি?",
+                          "options":  [
+                                          "গর্জন",
+                                          "শাল",
+                                          "গোলপাতা",
+                                          "ছাতিম"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "পর্ণমোচী বনাঞ্চলের উদ্ভিদসমূহ হলো-শাল, চালতা, কড়ই, কুম্ভী, বহেড়া, কুরচী প্রভূতি।"
+                      },
+                      {
+                          "question_no":  28,
+                          "id":  "MAT_2015_2016_BN_Q028",
+                          "question":  "একটি তারের দৈর্ঘ্য দ্বিগুণ করা হলে রোধ কী হবে?",
+                          "options":  [
+                                          "দ্বিগুণ",
+                                          "রোধের মাত্রার উপর নির্ভর করবে",
+                                          "একই থাকবে",
+                                          "অর্ধেক"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "তারের দৈর্ঘ্য n গুণ করা হলে → রোধ n গুণ হবে। তার টেনে n গুণ করা হলে → রোধ n² গুণ হবে।"
+                      },
+                      {
+                          "question_no":  29,
+                          "id":  "MAT_2015_2016_BN_Q029",
+                          "question":  "Fill up the blank with appropriate word- \u0027I spent ____ with the patient.\u0027",
+                          "options":  [
+                                          "sometimes",
+                                          "little times",
+                                          "sometime",
+                                          "some time"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "অপশন (a) sometimes অর্থ মাঝে মাঝে।অপশন (b) little times সঠিক ব্যবহার নয়। অপশন (c) sometime অর্থ অতীত বা ভবিষ্যতের অনির্দিষ্ট কোন সময় বোঝায়। অপশন (d) some time অর্থ কিছু সময়।"
+                      },
+                      {
+                          "question_no":  30,
+                          "id":  "MAT_2015_2016_BN_Q030",
+                          "question":  "নিরাপদ খাদ্য সংরক্ষক হিসাবে পরিচিত কোনটি?",
+                          "options":  [
+                                          "সোডিয়াম নাইট্রাইট",
+                                          "সোডিয়াম বেনজোয়েট",
+                                          "ক্যালসিয়াম কার্বাইড",
+                                          "ক্যালসিয়াম প্রোপানোয়েট"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "সোডিয়াম নাইট্রেট, সোডিয়াম বেনজয়েট ও ক্যালসিয়াম প্রোপানয়েট সবগুলোই খাদ্য সরক্ষক হিসেবে ব্যবহৃত হয়। এদের মধ্যে সবচেয়ে নিরাপদ হলো সোডিয়াম বেনজোয়েট।"
+                      },
+                      {
+                          "question_no":  31,
+                          "id":  "MAT_2015_2016_BN_Q031",
+                          "question":  "Fill up the blank with appropriate word- \u0027He persists ____ disturbing me.\u0027",
+                          "options":  [
+                                          "on",
+                                          "at",
+                                          "in",
+                                          "with"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "(c) Persist in অর্থ কোন সিদ্ধান্ত বা বিষয়ে অটল থাকা। সুতরাং এই বাক্যে Persist in হবে। (d) Persist with অর্থ কোন কাজ চালিয়ে যাওয়া, অথবা অক্লান্ত পরিশ্রম চালিয়ে যাওয়া। এখানে, অপশন (a) এবং (b)- ও সঠিক হবে না।"
+                      },
+                      {
+                          "question_no":  32,
+                          "id":  "MAT_2015_2016_BN_Q032",
+                          "question":  "একটি বস্তুকে 4.9ms⁻¹ বেগে খাড়া উপরের দিকে ছঁুঁড়ে দিলে তা কতক্ষণ শূন্যে থাকবে?",
+                          "options":  [
+                                          "3s",
+                                          "1s",
+                                          "2s",
+                                          "4s"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "সমাধান: T = (2v0 / g) = (2 × 4.9 / 9.8) = 1sec."
+                      },
+                      {
+                          "question_no":  33,
+                          "id":  "MAT_2015_2016_BN_Q033",
+                          "question":  "Choose the correct sentence-",
+                          "options":  [
+                                          "She believes on ghost",
+                                          "She believes of ghost",
+                                          "She believes at ghost",
+                                          "She believes in ghost"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "কোন কিছুতে বিশ্বাস করা বোঝাতে believe in হয়। believe এর পর on, of অথবা at বসে না।"
+                      },
+                      {
+                          "question_no":  34,
+                          "id":  "MAT_2015_2016_BN_Q034",
+                          "question":  "মানুষের নবম জোড়া করোটিক স্নায়ুর নাম কী?",
+                          "options":  [
+                                          "গ্লসোফ্যারিঞ্জিয়াল",
+                                          "হাইপোগ্লোসাল",
+                                          "অ্যাবডুসেন্স",
+                                          "স্পাইনাল অ্যাকসেসরি"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "ক্রমিক সংখ্যা → স্নায়ু → প্রকৃতিVI (6) → অ্যাবডুসেন্স → চেষ্টীয়/ মোটরIX (9) → গ্লসোফ্যারিঞ্জিয়াল → মিশ্রXI (11) → স্পাইনাল অ্যাক্রেসরি → চেষ্টীয়/ মোটরXII (12) → হাইপোগ্লোসাল → চেষ্টীয়/ মোটর"
+                      },
+                      {
+                          "question_no":  35,
+                          "id":  "MAT_2015_2016_BN_Q035",
+                          "question":  "জেলিফিশ কোন পর্বের প্রাণী?",
+                          "options":  [
+                                          "আর্থ্রোপোডা",
+                                          "মলাস্কা",
+                                          "প্লাটিহেলমিনথিস",
+                                          "নিডারিয়া"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "নিডারিয়া পর্বের প্রাণিগুলো হলো- জেলিফিস, সমুদ্রের কলম, সমুদ্রের পাখা, ফাইসেলিয়া, অ্যাডামশিয়া, পরপিটা ইত্যাদি।"
+                      },
+                      {
+                          "question_no":  36,
+                          "id":  "MAT_2015_2016_BN_Q036",
+                          "question":  "সিমেন তৈরির জন্য পিচ্ছিল পর্দাথ ক্ষরণ করে কোন অঙ্গ?",
+                          "options":  [
+                                          "ভাস ডিফারেন্স",
+                                          "সেমিনাল ভেসিকল",
+                                          "মূত্রাশয়",
+                                          "এপিডিডাইমিস"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ভাস ডিফারেন্স - সঙ্গমের সময় দ্রুত শুক্রাণু পরিবহন ও জমা রাখা;মূত্রাশয় - সাময়িকভাবে মূত্র ধারণ ও নিষ্কাশন;এপিডিডাইমিস - শুক্রাণুর ভেতর থেকে তরল ও কঠিন অসার পর্দাথ আলাদা করে শুক্রাণুর নিষেকে ক্ষমতা বাড়ায় ও পুষ্টি পর্দাথ ক্ষরণ করে।"
+                      },
+                      {
+                          "question_no":  37,
+                          "id":  "MAT_2015_2016_BN_Q037",
+                          "question":  "MRI এর অর্থ কী?",
+                          "options":  [
+                                          "ম্যাগনেটিক রেজোনেন্স ইমেজিং",
+                                          "মডার্ন রেজোনেন্স ইমেজিং",
+                                          "মলিকুলার রেজোনেন্স ইমেজিং",
+                                          "ম্যাগনেটিক রেডিয়েশন ইমেজিং"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "MRI মেশিনে শক্তিশালী চৌম্বকক্ষেত্র ও রেডিও তরঙ্গদৈর্ঘ্যের শক্তির প্রভাবে Nuclear Magnetic Resonance সৃষ্টিকারী পরমাণুর ঘনমাত্রার ভিন্নতার উপর নির্ভর করে দেহাংশের অভ্যন্তরের ডিজিটাল ছবি বের হয়ে আসে।"
+                      },
+                      {
+                          "question_no":  38,
+                          "id":  "MAT_2015_2016_BN_Q038",
+                          "question":  "1 ফ্যারাডে সমান-",
+                          "options":  [
+                                          "96500 কুলম্ব",
+                                          "95600 কুলম্ব",
+                                          "96500 অ্যাম্পিয়ার",
+                                          "9650 কুলম্ব"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "1 মোল ইলেকট্রনের চার্জকে 1 ফ্যারাডে বলে। 1 ফ্যারাডে = 96500C ."
+                      },
+                      {
+                          "question_no":  39,
+                          "id":  "MAT_2015_2016_BN_Q039",
+                          "question":  "নিম্নের কোনটি মিনারেলোকর্ডিকয়েড হরমোনের কাজ নয়?",
+                          "options":  [
+                                          "হৃদক্রিয়া বৃদ্ধি করা",
+                                          "K⁺ রেচন হার বৃদ্ধি করা",
+                                          "রক্তের প্লাজমার পরিমাণ বৃদ্ধি করা",
+                                          "বৃক্কের NaCl ও পানি শোষণ ক্ষমতা বৃদ্ধি করা"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "হৃদক্রিয়া, রক্তচাপ ও শর্করা বিপাক হার বৃদ্ধি করা অ্যাড্রেনাল মেডুলা থেকে নিঃসৃত এপিনেফ্রিন / অ্যাড্রেনালিন এর কাজ।"
+                      },
+                      {
+                          "question_no":  40,
+                          "id":  "MAT_2015_2016_BN_Q040",
+                          "question":  "হোমোলোগ্যাস ক্রোমোসোমের একটি লোকাসে জিনের একত্রে থাকাকে কী বলে?",
+                          "options":  [
+                                          "জিনোম",
+                                          "জিনোটাইপ",
+                                          "অ্যালিলোমর্ফ",
+                                          "ফিনোটাইপ"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "জিনোম: কোনো প্রজাতির জীবের এক সেট হ্যাপ্লয়েড (n) ক্রোমোজোমে বিদ্যমান জিনের সমষ্টিকে জিনোম বলে। ফিনোটাইপ: জিনোটাইপ দ্বারা নিয়ন্ত্রিত জীবের বাহ্যিক লক্ষণকে ফিনোটাইপ বলে।জিনোটাইপ: কোনো জীবের লক্ষণ নিয়ন্ত্রকারী জিন যুগলের গঠনকে জিনোটাইপ বলে।"
+                      },
+                      {
+                          "question_no":  41,
+                          "id":  "MAT_2015_2016_BN_Q041",
+                          "question":  "ব্যাকটেরিয়ার কোষ প্রাচীর মূলত কী দিয়ে গঠিত?",
+                          "options":  [
+                                          "মুরামিক এসিড",
+                                          "সেলুলোজ",
+                                          "মিউকোপ্রোটিন",
+                                          "কাইটিন"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "(i) কাইটিন → ছত্রাকের কোষ প্রাচীরের প্রধান উপাদান। (ii) সেলুলোজ → উদ্ভিদের কোষ প্রাচীরের প্রধান উপাদান।"
+                      },
+                      {
+                          "question_no":  42,
+                          "id":  "MAT_2015_2016_BN_Q042",
+                          "question":  "একটি ডেসিমোলার দ্রবণের ঘনমাত্রা কত?",
+                          "options":  [
+                                          "0.001M",
+                                          "0.1 M",
+                                          "1M",
+                                          "0.5 M"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ল্যাবরেটরিতে বিভিন্ন পরীক্ষায় কাজে সাধারণত 0.1M দ্রবণ ব্যবহৃত হয়।"
+                      },
+                      {
+                          "question_no":  43,
+                          "id":  "MAT_2015_2016_BN_Q043",
+                          "question":  "বৈশ্বিক উষ্ণতা সৃষ্টিতে প্রধান ভূমিকা রাখে কোনটি?",
+                          "options":  [
+                                          "নাইট্রোজেন",
+                                          "সি এফ সি",
+                                          "কার্বন-ডাইঅক্সাইড",
+                                          "ওজোন"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "বৈশ্বিক উষ্ণতা সৃষ্টিতে এ CO2 এর ভূমিকা 50%, CH4 এর ভূমিকা 19% , CFC এর ভূমিকা 16% ।"
+                      },
+                      {
+                          "question_no":  44,
+                          "id":  "MAT_2015_2016_BN_Q044",
+                          "question":  "সূর্যের অতি বেগুনি রশ্মি শোষণ করতে পারে নিম্নের কোনটি?",
+                          "options":  [
+                                          "O3",
+                                          "NO2",
+                                          "O2",
+                                          "CFCl3"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "স্ট্যাটোস্ফিয়ারে সূর্যের আলোর ক্ষতিকর UV রশ্মি শোষণকারী ওজোন গ্যাস অবস্থান করে। ওজোন গ্যাস দ্বারা UV রশ্মি শোষনের ফলে এ স্তরের তাপমাত্রা বৃদ্ধি ঘটে।"
+                      },
+                      {
+                          "question_no":  45,
+                          "id":  "MAT_2015_2016_BN_Q045",
+                          "question":  "তীব্র এসিড ও তীব্র ক্ষারের ট্রাইট্রেশন নির্দেশক হিসেবে ব্যবহার উপযোগী কোনটি?",
+                          "options":  [
+                                          "মিথাইল অরেঞ্জ",
+                                          "মিথাইল রেড",
+                                          "ফেনলফথেলিন",
+                                          "সব কয়টি"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "তীব্র এসিড ও মৃদু ক্ষারের টাইট্রেশনের জন্য উপযুক্ত নির্দেশক মিথাইল অরেঞ্জ ও মিথাইল রেড। মৃদু এসিড ও তীব্র ক্ষারের টাইট্রেশনের জন্য উপযুক্ত নির্দেশক ফেনলফ্‌থ্যালিন।"
+                      },
+                      {
+                          "question_no":  46,
+                          "id":  "MAT_2015_2016_BN_Q046",
+                          "question":  "সার্কের সর্বশেষ সদস্য দেশ কোনটি?",
+                          "options":  [
+                                          "আফগানিস্তান",
+                                          "ভূটান",
+                                          "মালদ্বীপ",
+                                          "শ্রীলঙ্কা"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  47,
+                          "id":  "MAT_2015_2016_BN_Q047",
+                          "question":  "সোডালাইম কোনটি?",
+                          "options":  [
+                                          "NaOH(CaO)",
+                                          "CaO",
+                                          "Na2CO3",
+                                          "NaOH"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  48,
+                          "id":  "MAT_2015_2016_BN_Q048",
+                          "question":  "কোনটি সুপরিবাহী নয়?",
+                          "options":  [
+                                          "সিলভার",
+                                          "কার্বন",
+                                          "কপার",
+                                          "অ্যালুমিনিয়াম"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "কার্বন এবং জামেির্নয়াম অর্ধপরিবাহী।"
+                      },
+                      {
+                          "question_no":  49,
+                          "id":  "MAT_2015_2016_BN_Q049",
+                          "question":  "Choose the correct sentence-",
+                          "options":  [
+                                          "Open page 10",
+                                          "Open at page 10",
+                                          "Open page at 10",
+                                          "At open page 10"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "বইয়ের পৃষ্ঠা বের করতে open at page বসে। সুতরাং অপশন (a) (c) ও (d) সঠিক নয়।"
+                      },
+                      {
+                          "question_no":  50,
+                          "id":  "MAT_2015_2016_BN_Q050",
+                          "question":  "কোনটি অদানাদার শ্বেত কণিকা?",
+                          "options":  [
+                                          "মনোসাইট",
+                                          "বেসোফিল",
+                                          "ইউসিনোফিল",
+                                          "নিউট্রোফিল"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "অ্যাগ্রানুলোসাইট দু-রকম: মনোসাইট ও লিম্ফোসাইট।"
+                      },
+                      {
+                          "question_no":  51,
+                          "id":  "MAT_2015_2016_BN_Q051",
+                          "question":  "একটি সরল দোলকের সুতার দৈর্ঘ্য 4 গুণ বাড়ালে দোলনকাল",
+                          "options":  [
+                                          "দুইগুণ কমবে",
+                                          "4 গুণ কমবে",
+                                          "4 গুণ বাড়বে",
+                                          "দ্বিগুণ হবে"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "(T1 / T2) = √(L1 / L2) ⟹(T1 / T2) = √(L1 / 4L1) ∴ T2 = 2T1"
+                      },
+                      {
+                          "question_no":  52,
+                          "id":  "MAT_2015_2016_BN_Q052",
+                          "question":  "মাইক্রোয়েভ কোথায় ব্যবহৃত হয়?",
+                          "options":  [
+                                          "টেলিফোনে",
+                                          "রাডারে",
+                                          "টেলিস্কোপে",
+                                          "রেডিওতে"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "রাডার যন্ত্রে, নৌ ও বিমান চালনায়, শিল্প-কারখানায়, রেডিও যোগাযোগ ব্যবস্থায়, খাবার গরম করা ও রান্নার কাজে মাইক্রোওয়েভ ব্যবহৃত হয়।"
+                      },
+                      {
+                          "question_no":  53,
+                          "id":  "MAT_2015_2016_BN_Q053",
+                          "question":  "কোন ভিটামিন পানিতে দ্রবণীয়?",
+                          "options":  [
+                                          "ভিটামিন B কমপ্লেক্স",
+                                          "ভিটামিন K",
+                                          "ভিটামিন A",
+                                          "ভিটামিন D"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "ভিটামিন B Complex, ভিটামিন C → পানিতে দ্রবণীয়; ভিটামিন A, ভিটামিন D, ভিটামিন E, ভিটামিন K → পানিতে অদ্রবণীয় বা ফ্যাটে দ্রবণীয়।"
+                      },
+                      {
+                          "question_no":  54,
+                          "id":  "MAT_2015_2016_BN_Q054",
+                          "question":  "27C তাপমাত্রায় 300 ml পরিমাণ একটি গ্যাসকে একই চাপে রেখে 7C তাপমাত্রায় নিয়ে আসা হলে উহার আয়তন কত?",
+                          "options":  [
+                                          "135 ml",
+                                          "280 ml",
+                                          "540 ml",
+                                          "350 ml"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "(V1 / T1) = (V2 / T2) ⟹(300 / (273+27) = (V2 / (273+7)⟹(300 / 300) = (V2 / 280) ∴ V2 = 280"
+                      },
+                      {
+                          "question_no":  55,
+                          "id":  "MAT_2015_2016_BN_Q055",
+                          "question":  "একটি 220 V এর হিটার 110 V এ চালালে উৎপাদিত তাপ-",
+                          "options":  [
+                                          "একই পরিমাণ হবে",
+                                          "অর্ধেক হবে",
+                                          "দ্বিগুণ হবে",
+                                          "(1 / 4) গুণ হবে"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "উৎপাদিত তাপ, H = (V² / R) ⟹H1 = (220² / R) ⟹ H2 = (110² / R)∴H2:H1 = 1:4"
+                      },
+                      {
+                          "question_no":  56,
+                          "id":  "MAT_2015_2016_BN_Q056",
+                          "question":  "বাংলাদেশের পার্বত্য চট্টগ্রামে কয়টি জেলা আছে?",
+                          "options":  [
+                                          "৫ টি",
+                                          "৭ টি",
+                                          "৯ টি",
+                                          "৩ টি"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "পার্বত্য চট্টগ্রাম রাঙ্গামাটি, বন্দরবান ও খাগড়াছড়ি এই তিনটি জেলা নিয়ে গঠিত।"
+                      },
+                      {
+                          "question_no":  57,
+                          "id":  "MAT_2015_2016_BN_Q057",
+                          "question":  "The correct translation of : \"রবিবার হইতে বৃষ্টি হইতেছিল\" is ",
+                          "options":  [
+                                          "It has been raining from Sunday",
+                                          "It had been raining since Sunday",
+                                          "It rained since Sunday",
+                                          "It was raining from Sunday"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "অতীতে কোন নির্দিষ্ট সময় থেকে কোন কাজ চলছিল বোঝাতে past perfect continuous tense হয়।"
+                      },
+                      {
+                          "question_no":  58,
+                          "id":  "MAT_2015_2016_BN_Q058",
+                          "question":  "দুইটি সমান্তরাল তার দিয়ে একই দিকে বিদ্যুৎ প্রবাহিত হলে-",
+                          "options":  [
+                                          "একে অপরকে বিকর্ষণ করে",
+                                          "একে অপরকে আকর্ষণ করে",
+                                          "পরস্পরের বিপরীতমুখী হয়",
+                                          "প্রবাহের মধ্যে কোন বল কাজ করে না"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "একইদিকে → তড়িৎবাহী তার পরস্পরকে আকর্ষণ করে। বিপরীতদিকে → তড়িৎবাহী তার পরস্পরকে বিকর্ষণ করে।"
+                      },
+                      {
+                          "question_no":  59,
+                          "id":  "MAT_2015_2016_BN_Q059",
+                          "question":  "An antonym of \u0027Ruthless\u0027 is-",
+                          "options":  [
+                                          "Rude",
+                                          "Careless",
+                                          "Reckless",
+                                          "Merciful"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Ruthless অর্থ নির্দয়। Merciful অর্থ দয়াবান; Reckless অর্থ বেপরোয়া; Careless অর্থ অমনোযোগী; Rude অর্থ রাগী।"
+                      },
+                      {
+                          "question_no":  60,
+                          "id":  "MAT_2015_2016_BN_Q060",
+                          "question":  "ঘাসফড়িং এর অগ্রভাগের সরু ও শক্ত ডানাদ্বয়কে কী বলে?",
+                          "options":  [
+                                          "ট্রোক্যান্টর",
+                                          "টার্সাস",
+                                          "ট্যাগমিনা",
+                                          "এক্সটার্না"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "ঘাসফড়িং এর সামনের ডানা দুটি বেশ সরু, শক্ত এবং ছোট। এদের এলিট্রা বা টেগমিনা বলা হয়। এরা উড়তে সাহায্য না করে পিছনের দুই ডানাকে ঢেকে রাখে মাত্র।"
+                      },
+                      {
+                          "question_no":  61,
+                          "id":  "MAT_2015_2016_BN_Q061",
+                          "question":  "CIRDAP এর সদর দপ্তর কোন শহরে অবস্থিত?",
+                          "options":  [
+                                          "ঢাকা",
+                                          "ব্যাংকক",
+                                          "নয়াদিল্লি",
+                                          "ম্যানিলা"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  62,
+                          "id":  "MAT_2015_2016_BN_Q062",
+                          "question":  "এসিডের তীব্রতা নির্ভর করে কোনটির উপর?",
+                          "options":  [
+                                          "Ka",
+                                          "Kb",
+                                          "Kc",
+                                          "সবকটি"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "এসিডের তীব্রতা যে সব বিষয়ের উপর নির্ভর করে- (i) এসিডের বিয়োজন ধ্রুবক, (ii) হাইড্রাসিডের ঋণাত্মক আয়নের আকার,(iii) কেন্দ্রীয় পরমাণুর জারণ অবস্থা,(iv) কেন্দ্রীয় পরমাণুর আকার ও(v) দ্রাবকের প্রকৃতি।"
+                      },
+                      {
+                          "question_no":  63,
+                          "id":  "MAT_2015_2016_BN_Q063",
+                          "question":  "সোয়াইন ফ্লু রোগের জন্য দায়ী ভাইরাস কোনটি?",
+                          "options":  [
+                                          "রুবিওলা",
+                                          "H1N1",
+                                          "HIV",
+                                          "GMV"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ভাইরাসের নাম → সৃষ্ট রোগের নাম: HIV → AIDS; Rubeola Virus → হাম"
+                      },
+                      {
+                          "question_no":  64,
+                          "id":  "MAT_2015_2016_BN_Q064",
+                          "question":  "চন্দ্রমল্লিকা বংশ বিস্তার করে কিসের সাহায্যে?",
+                          "options":  [
+                                          "অর্ধবায়বীয় কা-",
+                                          "মূলের",
+                                          "ভূনিম্নস্থ কা-ের",
+                                          "পাতার"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "মূল দ্বারা বংশ বিস্তার করে → মিষ্টি আলু, ডালিয়া, শতমূলী, কাঁকরোল, পটল, রাঙ্গা আলু প্রভৃতি। কা- দ্বারা → গোল আলু, আদা, পিঁয়াজ, সটি, ওলকচু।সাকার দ্বারা → কলা, পুদিনা, আনারস, চন্দ্রমল্লিকা, বাঁশ।পাতা দ্বারা → পাথরকুচি।সাকার জাতীয় অর্ধবায়বীয় কা- দ্বারা → কচু, থানকুনি, স্ট্রবেরি, কচুরিপানা চন্দ্রমল্লিকা।"
+                      },
+                      {
+                          "question_no":  65,
+                          "id":  "MAT_2015_2016_BN_Q065",
+                          "question":  "ফিউজ তারের বৈশিষ্ট্য কোনটি?",
+                          "options":  [
+                                          "কম রোধ এবং উচ্চ গলনাঙ্ক",
+                                          "কম রোধ এবং কম গলনাঙ্ক",
+                                          "উচ্চ রোধ এবং কম গলনাঙ্ক",
+                                          "উচ্চ রোধ এবং উচ্চ গলনাঙ্ক"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "৩ ভাগ সিসা ও ১ ভাগ টিনের মিশ্রণের সংকর ধাতু ফিউজ তার হিসেবে ব্যবহার করা হয়।"
+                      },
+                      {
+                          "question_no":  66,
+                          "id":  "MAT_2015_2016_BN_Q066",
+                          "question":  "নির্দিষ্ট পরিমাণ গ্যাসের অভ্যন্তরীণ শক্তি নির্ভর করে তার-",
+                          "options":  [
+                                          "চাপের উপর",
+                                          "আয়তনের উপর",
+                                          "তাপমাত্রার উপর",
+                                          "সবকটি"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "\"নির্দিষ্ট পরিমাণ গ্যাসের অভ্যন্তরীণ শক্তি নির্ভর করে তার তাপমাত্রার উপর\" - একে মেয়ার এর প্রকল্প বা Mayer\u0027s hypothesis বলে।"
+                      },
+                      {
+                          "question_no":  67,
+                          "id":  "MAT_2015_2016_BN_Q067",
+                          "question":  "নিচের কোনটি পালমোনারি সংবহনের অংশ নয়?",
+                          "options":  [
+                                          "মহাধমনি",
+                                          "বাম অলিন্দ",
+                                          "ডান নিলয়",
+                                          "ফুসফুস"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "মহাধমনি সিস্টেমিক সংবহনের অংশ।"
+                      },
+                      {
+                          "question_no":  68,
+                          "id":  "MAT_2015_2016_BN_Q068",
+                          "question":  "পরম অ্যালকোহল কোনটি?",
+                          "options":  [
+                                          "90% ইথাইল অ্যালকোহল",
+                                          "100% ইথাইল অ্যালকোহল",
+                                          "90% ইথাইল অ্যালকোহল +10% পানি",
+                                          "90% ইথাইল অ্যালকোহল +10% মিথাইল অ্যালকোহল"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "বিশুদ্ধ (100%) ইথাইল অ্যালকোহলকে পরম অ্যালকোহল বলে।"
+                      },
+                      {
+                          "question_no":  69,
+                          "id":  "MAT_2015_2016_BN_Q069",
+                          "question":  "কোন প্রাণী অযৌন ও যৌন দুভাবেই প্রজনন সম্পন্ন করে?",
+                          "options":  [
+                                          "রুইমাছ",
+                                          "ঘাসফড়িং",
+                                          "মৌমাছি",
+                                          "হাইড্রা"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "হাইড্রা, ঘাসফড়িং, রুই মাছ, মৌমাছি এদের মধ্যে হাইড্রা ব্যতীত বাকিগুলো কেবন যৌন জনন পদ্ধতিতে প্রজনন সম্পন্ন করে।"
+                      },
+                      {
+                          "question_no":  70,
+                          "id":  "MAT_2015_2016_BN_Q070",
+                          "question":  "নিচের কোনটি বিদ্রোহী কবি কাজী নজরুল ইসলাম কর্তৃক রচিত?",
+                          "options":  [
+                                          "মেঘনাদ বধ কাব্য",
+                                          "অগ্নিবীণা",
+                                          "গীতাঞ্জলি",
+                                          "চিরকুমার সভা"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "গীতাঞ্জলি ও চিরকুমার সভার রচয়িতা রবীন্দ্রনাথ ঠাকুর এবং মেঘনাদ বধ কাব্যের রচয়িতা মাইকেল মধুসূদন দত্ত।"
+                      },
+                      {
+                          "question_no":  71,
+                          "id":  "MAT_2015_2016_BN_Q071",
+                          "question":  "A synonym for \u0027Delinquent\u0027 is ",
+                          "options":  [
+                                          "Bold",
+                                          "Profuse",
+                                          "Mild",
+                                          "Offending"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Delinquent এবং offending অর্থ দোষী। Bold অর্থ সাহসী। Profuse অর্থ অমিতব্যয়ী। Mild অর্থ হালকা। Offending অর্থ কর্তব্যবিমুখ বা দুষ্কৃতিকারী, তাই (d) সঠিক উত্তর।"
+                      },
+                      {
+                          "question_no":  72,
+                          "id":  "MAT_2015_2016_BN_Q072",
+                          "question":  "একবীজপত্রী মূলে কোনটি অনুপস্থিত?",
+                          "options":  [
+                                          "হাইপোডার্মিস",
+                                          "কর্টেক্স",
+                                          "এন্ডোডামির্স",
+                                          "পেরিসাইকল"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "হাইপোডার্মিস একবীজপত্রী ও দ্বিবীজপত্রী কা-ের বৈশিষ্ট্য।"
+                      },
+                      {
+                          "question_no":  73,
+                          "id":  "MAT_2015_2016_BN_Q073",
+                          "question":  "কোন রোগটি ব্যাকটেরিয়া সৃষ্ট?",
+                          "options":  [
+                                          "ডেঙ্গু",
+                                          "হেপাটাইটিস",
+                                          "কলেরা",
+                                          "ম্যালেরিয়া"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Vibrio cholerae ব্যাকটেরিয়ার সংক্রমণে কলেরা রোগ হয়। ডেঙ্গু ও হেপাটাইটিস ভাইরাস জনিত রোগ। Plasmodium পরজীবী সংক্রমণের ফলে ম্যালেরিয়া রোগ হয়।"
+                      },
+                      {
+                          "question_no":  74,
+                          "id":  "MAT_2015_2016_BN_Q074",
+                          "question":  "একটি বস্তুর ভরবেগ দ্বিগুণ করা হলে গতিশক্তি-",
+                          "options":  [
+                                          "দ্বিগুণ হয়",
+                                          "চারগুণ হয়",
+                                          "আটগুণ হয়",
+                                          "একই থাকে"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "আমরা জানি, গতিশক্তি Ek = (1 / 2)mv² = (1 / 2)(m²v² / m) = (p² / 2m) = (ভরবেগ)² / 2m) অর্থাৎ, গতিশক্তি ∝ (ভরবেগ)2"
+                      },
+                      {
+                          "question_no":  75,
+                          "id":  "MAT_2015_2016_BN_Q075",
+                          "question":  "\u0027Take one to task\u0027 means-",
+                          "options":  [
+                                          "To question",
+                                          "To rebuke",
+                                          "To flatter",
+                                          "To praise"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Take one to task অর্থ তিরস্কার করা। অপশন (a) to question অর্থ প্রশ্ন করা। অপশন (b) to rebuke অর্থ তিরস্কার করা। অপশন (c) to flatter অর্থ তোষামোদ করা। (d) to praise অর্থ প্রশংসা করা।"
+                      },
+                      {
+                          "question_no":  76,
+                          "id":  "MAT_2015_2016_BN_Q076",
+                          "question":  "10 kg ভরের একটি বস্তু 12ms⁻¹ বেগে চললে ভরবেগের পরিমাণ কত?",
+                          "options":  [
+                                          "10kgms⁻¹",
+                                          "12kgms⁻¹",
+                                          "120kgms⁻¹",
+                                          "1.2kgms⁻¹"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "ভরবেগ = m × v = (10 × 12)kgms⁻¹ = 120kgms⁻¹ ."
+                      },
+                      {
+                          "question_no":  77,
+                          "id":  "MAT_2015_2016_BN_Q077",
+                          "question":  "বেকিং সোডার রাসায়নিক ফরমূলা কোনটি?",
+                          "options":  [
+                                          "NaHCO3",
+                                          "Na2CO3.10H2O",
+                                          "NaOH",
+                                          "Na2CO3"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "NaOH → কস্টিক সোডা; Na2CO3 → সোডা অ্যাশ; NaHCO3 → বেকিং সোডা; Na2CO3.10H2O → কাপড় কাঁচার সোডা।"
+                      },
+                      {
+                          "question_no":  79,
+                          "id":  "MAT_2015_2016_BN_Q079",
+                          "question":  "ক্যাথোড রশ্মি কী?",
+                          "options":  [
+                                          "নিউট্রন",
+                                          "বোসন",
+                                          "ইলেকট্রন",
+                                          "প্রোটন"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "১৮৯৭ খ্রিষ্টাব্দে স্যার জে. জে. থমসন ক্যাথোড রশ্মির উপর পরীক্ষার সময় ইলেকট্রনের অস্তিত্ব আবিষ্কার করেন। উচ্চ গতিসম্পন্ন ইলেকট্রনের ঝণাের্ক ক্যাথোড রশ্মি বলে।"
+                      },
+                      {
+                          "question_no":  80,
+                          "id":  "MAT_2015_2016_BN_Q080",
+                          "question":  "পেপসিনের ক্ষেত্রে কোনটি সত্য নয়?",
+                          "options":  [
+                                          "ইহা অগ্ন্যাশয় থেকে নিঃসৃত হয়।",
+                                          "ইহা পাকস্থলী থেকে নিঃসৃত হয়।",
+                                          "ইহা আমিষ পরিপাক শুরু করে।",
+                                          "পরিপাকের জন্য ইহা অম্লীয় পরিবেশ সৃষ্টি করে।"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "পেপসিন পাকস্থলির মিউকোসা স্তর থেকে নিঃসৃত হয়ে আমিষ পরিপাকে অংশ নেয়। HCl অম্লীয় পরিবেশ সৃষ্টি করে।"
+                      },
+                      {
+                          "question_no":  81,
+                          "id":  "MAT_2015_2016_BN_Q081",
+                          "question":  "নিচের কোনটি বক্ষ অস্থি চক্রের হাড়?",
+                          "options":  [
+                                          "ক্ল্যাভিকল",
+                                          "এথময়েড",
+                                          "স্ফেনয়েড",
+                                          "পিউবিস"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "বক্ষ অস্থিচক্রের হাড় হলো - একজোড়া ক্ল্যাভিকল ও একজোড়া স্ক্যাপুলা।"
+                      },
+                      {
+                          "question_no":  82,
+                          "id":  "MAT_2015_2016_BN_Q082",
+                          "question":  "দুইটি বস্তুর মধ্যে দূরত্ব চারগুণ বৃদ্ধি পেলে অভিকর্ষ বল হবে-",
+                          "options":  [
+                                          "চার ভাগের একভাগ",
+                                          "চারগুণ",
+                                          "ষোল ভাগের এক ভাগ",
+                                          "ষোলগুণ"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "F∝(1 / r²)⟹(1 / 4)² = (1 / 16)"
+                      },
+                      {
+                          "question_no":  83,
+                          "id":  "MAT_2015_2016_BN_Q083",
+                          "question":  "সমান ভরের CH4 এবং O2 গ্যাস একটি নির্দিষ্ট তাপমাত্রায় একটি পাত্রে রাখা হল। মোট প্রদত্ত চাপের কী পরিমাণ অংশ O2 দ্বারা প্রদত্ত হবে?",
+                          "options":  [
+                                          "(1 / 3)",
+                                          "(1 / 2)",
+                                          "(1 / 4)",
+                                          "(2 / 3)"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "ধরা যাক, O2 এবং CH4 নেওয়া হয়েছিল xg  O2 -এর মোল সংখ্যা = (x / 32)g  CH4- এর মোল সংখ্যা = (x / 16)g মোট মোল = (x / 32)+(x / 16)g = (3x / 32)g  O2 এর আংশিক চাপ = মোল ভগ্নাংশ × মোট চাপ = (O2এরমোলসংখ্যা / মোটমোলসংখ্যা) × মোট চাপ = (x / 32) × (32 / 3x) × মোট চাপ = (1 / 3) × মোট চাপ O2 -এর প্রদত্ত চাপ = (1 / 3) × মোট চাপ"
+                      },
+                      {
+                          "question_no":  84,
+                          "id":  "MAT_2015_2016_BN_Q084",
+                          "question":  "Find the incorrectly spelled word ",
+                          "options":  [
+                                          "Committee",
+                                          "Seperate",
+                                          "Psychology",
+                                          "Receive"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Correct spelling - Separate."
+                      },
+                      {
+                          "question_no":  85,
+                          "id":  "MAT_2015_2016_BN_Q085",
+                          "question":  "কোন দ্রবণে সামান্য অম্ল বা ক্ষার যোগ করলে pH এর মান পরিবর্তন হয় না?",
+                          "options":  [
+                                          "মোলার দ্রবণ",
+                                          "ফেনফথ্যালিন দ্রবণ",
+                                          "ঘন দ্রবণ",
+                                          "বাফার দ্রবণ"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "বাফার দ্রবণ মূলত দুর্বল এসিড ও অণুবন্ধী ক্ষারকের মিশ্রণ অথবা দুর্বল ক্ষারক ও অণুবন্ধী এসিডের মিশ্রণ। বাফার দ্রবণের নিজস্ব pH স্থির রাখার ক্ষমতা থাকে।"
+                      },
+                      {
+                          "question_no":  86,
+                          "id":  "MAT_2015_2016_BN_Q086",
+                          "question":  "H2+(1 / 2)O2 → H2O এই জারণ বিক্রিয়ায় কী পরিমাণ বিদ্যুৎ প্রয়োজন?",
+                          "options":  [
+                                          "38600 কুলম্ব",
+                                          "96500 কুলম্ব",
+                                          "19300 কুলম্ব",
+                                          "48500 কুলম্ব"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "সঠিক উত্তর: 193000 কুলম্ব।"
+                      },
+                      {
+                          "question_no":  87,
+                          "id":  "MAT_2015_2016_BN_Q087",
+                          "question":  "কোন চক্রের মাধ্যমে যকৃতে ইউরিয়া তৈরি হয়?",
+                          "options":  [
+                                          "অরনিথিন চক্র",
+                                          "নাইট্রোজেন চক্র",
+                                          "ক্রেবস চক্র",
+                                          "কার্বন চক্র"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "অ্যামোনিয়া অত্যন্ত বিষাক্ত পর্দাথ যা দেহে সঞ্চিত হলে মানুষের মৃত্যু ঘটতে পারে। যকৃতে অরনিথিন চক্রে শর্করা বিপাকে সৃষ্ট CO2 এর সাথে অ্যামোনিয়া যুক্ত হয়ে ইউরিয়া সৃষ্টি করে, যা রক্তবাহিত হয়ে মূত্ররূপে দেহ নির্গত হয়।"
+                      },
+                      {
+                          "question_no":  88,
+                          "id":  "MAT_2015_2016_BN_Q088",
+                          "question":  "কমনওয়েলথভূক্ত কোন দেশটি সর্ববৃহৎ?",
+                          "options":  [
+                                          "কেনিয়া",
+                                          "অস্ট্রেলিয়া",
+                                          "কানাডা",
+                                          "ভারত"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  89,
+                          "id":  "MAT_2015_2016_BN_Q089",
+                          "question":  "টিস্যু কালচার পদ্ধতির জনক বলা হয় কাকে?",
+                          "options":  [
+                                          "Haberlandt",
+                                          "White",
+                                          "Gauthere",
+                                          "Morgan"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Morgan (1901) সর্বপ্রথম টটিপোটেন্সি নিয়ে মত প্রকাশ করেন।"
+                      },
+                      {
+                          "question_no":  90,
+                          "id":  "MAT_2015_2016_BN_Q090",
+                          "question":  "একটি লেন্সের ক্ষমতা +2d, উহার ফোকাস দূরত্ব কত?",
+                          "options":  [
+                                          "20 সে.মি.",
+                                          "2 সে.মি.",
+                                          "0.2 সে.মি.",
+                                          "50 সে.মি."
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "p = (1 / f)⇒f = (1 / p)⇒f = (1 / 2)⇒f = 0.5m ∴ f = 50cm ."
+                      },
+                      {
+                          "question_no":  91,
+                          "id":  "MAT_2015_2016_BN_Q091",
+                          "question":  "যদি সেকেন্ডে 100 তরঙ্গ তৈরি হয় তবে কম্পাঙ্ক কত Hz হবে?",
+                          "options":  [
+                                          "(5 / 3)",
+                                          "(1 / 100)",
+                                          "10⁻³",
+                                          "100"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "প্রতি s এ যতটি তরঙ্গ শীর্ষ বা তরঙ্গ পাদ তৈরি হয়, সেটিই ঐ তরঙ্গের কম্পাঙ্ক।"
+                      },
+                      {
+                          "question_no":  92,
+                          "id":  "MAT_2015_2016_BN_Q092",
+                          "question":  "বিশ্ব স্বাস্থ্য সংস্থা (WHO) এর সদর দপ্তর কোথায় অবস্থিত?",
+                          "options":  [
+                                          "জেনেভা",
+                                          "নিউইয়র্ক",
+                                          "নয়াদিল্লী",
+                                          "লন্ডন"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  93,
+                          "id":  "MAT_2015_2016_BN_Q093",
+                          "question":  "কোনটি মিশ্র গ্রন্থি?",
+                          "options":  [
+                                          "অশ্রু",
+                                          "অগ্ন্যাশয়",
+                                          "প্যারোটিড",
+                                          "সোয়েট"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "বড় মিশ্র গ্রন্থিগুলো হলো - অগ্ন্যাশয়, শুক্রাশয় ও ডিম্বাশয়।"
+                      },
+                      {
+                          "question_no":  94,
+                          "id":  "MAT_2015_2016_BN_Q094",
+                          "question":  "সরল লিপিডের উদাহরণ নয় কোনটি?",
+                          "options":  [
+                                          "তেল",
+                                          "চর্বি",
+                                          "রাবার",
+                                          "মোম"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "রাবার হলো উদ্ভূত বা উৎপাদিত লিপিড।"
+                      },
+                      {
+                          "question_no":  95,
+                          "id":  "MAT_2015_2016_BN_Q095",
+                          "question":  "\u0027To fight shy of\u0027 means-",
+                          "options":  [
+                                          "To adopt",
+                                          "To snatch",
+                                          "To quarrel",
+                                          "To avoid"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "To fight shy of অর্থ এড়িয়ে চলা। অপশন (a) to adopt অর্থ অবলম্বন করা। অপশন (b) to snatch অর্থ ছিনিয়ে নেওয়া। অপশন (c) to quarrel অর্থ ঝগড়া করা। অপশন (d) to avoid অর্থ এড়িয়ে চলা।"
+                      },
+                      {
+                          "question_no":  96,
+                          "id":  "MAT_2015_2016_BN_Q096",
+                          "question":  "কোনটির অক্সাইড অম্লীয়?",
+                          "options":  [
+                                          "Al2O3",
+                                          "Na2O",
+                                          "CO2",
+                                          "MgO"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "অধাতুর যে সকল অক্সাইড পানির সাথে বিক্রিয়া করে এসিড এবং ক্ষারের সাথে লবণ উৎপন্ন করে তাদেরকে অম্লীয় বা অম্লধমীর্ অক্সাইড বলে। যেমন: CO2,SO2,SO3,NO2,N2O5,P2O5 ইত্যাদি। অন্যদিকে MgO,Na2O হলো ক্ষারকীয় অক্সাইড এবং Al2O3 হলো উভধর্মী অক্সাইড।"
+                      },
+                      {
+                          "question_no":  97,
+                          "id":  "MAT_2015_2016_BN_Q097",
+                          "question":  "বাস্তব গ্যাস বয়েলের সূত্র মেনে চলে-",
+                          "options":  [
+                                          "0 ℃ তাপমাত্রায়",
+                                          "কক্ষ তাপমাত্রায়",
+                                          "নিম্ন তাপমাত্রায়",
+                                          "খুব উচ্চ তাপমাত্রায়"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "বাস্তব গ্যাস উচ্চ তাপমাত্রা ও নিম্ন চাপে আদর্শ গ্যাস হিসেবে আচরণ করে।"
+                      },
+                      {
+                          "question_no":  98,
+                          "id":  "MAT_2015_2016_BN_Q098",
+                          "question":  "নিম্নে উল্লেখিত কোন মাছে সাইক্লয়েড আঁইশ পাওয়া যায় না?",
+                          "options":  [
+                                          "ইলিশ",
+                                          "স্যামন",
+                                          "কার্প",
+                                          "রুই"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "স্যামন, লাংফিশ, রুই, ইলিশ সহ কার্প জাতীয় মাছে সাইক্লয়েড ধরনের আঁইশ পরিলক্ষিত হয়।"
+                      },
+                      {
+                          "question_no":  99,
+                          "id":  "MAT_2015_2016_BN_Q099",
+                          "question":  "পটাশিয়াম সায়ানাইডের বৈশিষ্ট্য-",
+                          "options":  [
+                                          "ইহা অত্যন্ত বিষাক্ত",
+                                          "ইহা মিষ্টি স্বাদ যুক্ত",
+                                          "ইহা উদ্বায়ী",
+                                          "ইহা গ্যাসীয় পর্দাথ"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "KCN একটি কেলাসাকার কঠিন পর্দাথ। KCN হতে উদ্ভুত KCN উদ্বায়ী একটি তরল। HCN স্বাদে খুবই ঝাঁঝালো।"
+                      },
+                      {
+                          "question_no":  100,
+                          "id":  "MAT_2015_2016_BN_Q100",
+                          "question":  "বাংলাদেশের একমাত্র প্রবাল দ্বীপের নাম কী?",
+                          "options":  [
+                                          "সেন্ট মার্টিন",
+                                          "মহেশখালী",
+                                          "সন্দ্বীপ",
+                                          "হাতিয়া"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "সেন্ট মার্টিন দ্বীপ বাংলাদেশের সর্ব দক্ষিণে বঙ্গোপসাগরের উত্তর-পূর্বাংশে অবস্থিত একটি প্রবাল দ্বীপ। এটি কক্সবাজার জেলার টেকনাফ উপজেলা হতে ৯ কিলোমিটার দক্ষিণে অবস্থিত। এর অপর নাম নারিকেল জিঞ্জিরা। এর দক্ষিণের ছেঁড়া দ্বীপ অংশটি বাংলাদেশের সর্ব দক্ষিণের স্থান।"
+                      }
+                  ]
+}

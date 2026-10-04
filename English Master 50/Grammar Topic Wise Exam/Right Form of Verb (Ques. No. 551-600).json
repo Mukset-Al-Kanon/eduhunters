@@ -1,0 +1,761 @@
+{
+  "exam_id": 8473,
+  "title": "Right Form of Verb (Ques. No. 551-600)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Right Form of Verb (1114 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "2055af64-a49c-4cd2-9760-9db877b37589",
+      "question": "The streets are wet ; It ----- last night.[]",
+      "options": [
+        "had rained",
+        "must have rained",
+        "has rained",
+        "would have rained"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "d5240a2c-21e5-4540-ac99-7db8c2b3cc6f",
+      "question": "It must ----- last night.[]",
+      "options": [
+        "rain",
+        "be rained",
+        "have rained",
+        "rained"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "233e1155-6ea1-4719-a89c-9be637ee9af9",
+      "question": "You ----- go to that room, it's forbidden ![]",
+      "options": [
+        "don't have to",
+        "mustn't",
+        "shouldn't",
+        "don't know how to"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "63d44234-1835-451a-bd2a-21de1820a448",
+      "question": "Suel's score on the test is the highest in the class, she ----- studied regularly.[]",
+      "options": [
+        "should have",
+        "can't",
+        "must have",
+        "might have"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "b11f1e38-0e75-4a46-a33c-1db383926cd2",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Mizan is absent today ; he must have been sick again.",
+        "Rahim is back in the team today ; he must be feeling better now.",
+        "The line is busy ; some one should be using the telephone now.",
+        "She must be study in her room."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "1945b459-1662-4d76-a74b-cd2ecbac99c5",
+      "question": "You ----- drink this. It is poison.[]",
+      "options": [
+        "need not",
+        "are not to",
+        "have not",
+        "must not"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "b1f1852c-00d8-4f90-b652-ad7798a8bbd7",
+      "question": "After working all day, you ----- been tired.[]",
+      "options": [
+        "might",
+        "must have",
+        "have not",
+        "must"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "0cde781b-10d7-4793-bffd-2d942d25c64c",
+      "question": "\"You think she is married\" ? She ----- be, she hasn't got a ring on her finger.[]",
+      "options": [
+        "can",
+        "can't",
+        "must",
+        "mustn't"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "8733ddee-2514-4f3c-be5d-539679e337ba",
+      "question": "There are no lights on and no one answers the door bell' They ----- be at home.[]",
+      "options": [
+        "mustn't",
+        "can't",
+        "will not",
+        "shouldn't"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "5cd0f3c3-137f-4d3b-a483-4ab6597b4c68",
+      "question": "He ----- at home, because the lights were on.[]",
+      "options": [
+        "must have been",
+        "should have been",
+        "mustn't have been",
+        "couldn't have been"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "40352ec1-f964-4f88-bae4-d9c3e0aae3bf",
+      "question": "Yesterday we had ------- twenty minutes for a bus.[]",
+      "options": [
+        "wait",
+        "to wait",
+        "to waiting",
+        "to waited"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "1bebf86c-741e-465f-8d3c-6107af1e9e9a",
+      "question": "You ----- reach exam centre early.[]",
+      "options": [
+        "must",
+        "have to",
+        "should",
+        "would"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "b5a13436-dc75-4a7b-87d1-9f0f9f0f1d89",
+      "question": "All citizens ----- their taxes.[]",
+      "options": [
+        "should be paid",
+        "must be paid",
+        "would be paid",
+        "have to pay"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "ba45de56-9e11-4740-8b9a-60a96721f4f1",
+      "question": "There are plenty of time. You ----- hurry.[]",
+      "options": [
+        "mustn't",
+        "may not",
+        "don't have to",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "bd17b34b-7798-4cea-8ef4-93343e92a568",
+      "question": "You ----- help me if you don't have time. I can do the job myself.[]",
+      "options": [
+        "aren't able to",
+        "don't have to",
+        "don't",
+        "aren't going to"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "9a335891-286f-4bd7-a2c8-af304c84136c",
+      "question": "There are plenty of tomatoes in the fridge. You ----- buy any.[]",
+      "options": [
+        "needn't",
+        "mustn't",
+        "may not",
+        "should not"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "65688286-5656-471d-8b91-3b35b6eb1ba2",
+      "question": "What feeling is expressed in the sentence ? \nHow dare you talk to me like that ?[]",
+      "options": [
+        "Anger",
+        "Politeness",
+        "Gratitude",
+        "Greeting"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "60efe15e-3698-47cd-9108-54eaada8590d",
+      "question": "How ----- you break the rule ?[]",
+      "options": [
+        "dares",
+        "dared",
+        "daring",
+        "dare"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "61d49698-c8b9-4f94-aa03-24ff458db88e",
+      "question": "You ----- tomorrow if you have any work.[]",
+      "options": [
+        "need not to come",
+        "need not coming",
+        "need not come",
+        "don't need coming"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "2200ea9e-2ac2-4596-b0fc-b6105da16c0c",
+      "question": "He dare (go) there.[]",
+      "options": [
+        "He dare not go there.",
+        "He dare to go there.",
+        "He dares go there.",
+        "He dareing to go there."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "e9615c67-0f52-49c1-afc8-4eef0e14028c",
+      "question": "He ----- not wait for us.\nShe (to need) not wait for me.[]",
+      "options": [
+        "need",
+        "is need",
+        "needed",
+        "was needing"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "331a529e-551d-4921-83b7-f48af96d1de5",
+      "question": "Which of the following is correct ?[]",
+      "options": [
+        "He doesn't need wait for me.",
+        "He need not to wait for me.",
+        "He need not wait for me.",
+        "He is need not to wait for me."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "7a1aa79c-9d28-468b-9073-61437b48b958",
+      "question": "Identify the correct sentence.[]",
+      "options": [
+        "He dares not to do it.",
+        "He dare not do it.",
+        "He does not dare to do it.",
+        "He dare not to do it."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "75cf127a-5eb7-4a32-bffe-11c5aa75b54e",
+      "question": "Amazed received a warning for speeding. He ----- so fast.[]",
+      "options": [
+        "should have driven",
+        "shouldn't have driven",
+        "could have driven",
+        "couldn't have driven"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "d08fdbdd-1f08-4f5e-9a62-83ec8820da99",
+      "question": "You should not ----- spoken so harshly.[]",
+      "options": [
+        "had",
+        "be",
+        "have had",
+        "have"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "1b37e25a-a2eb-4f34-b3fc-846b95b855b4",
+      "question": "Before you entered the classroom, you ----- the teacher's permission.[]",
+      "options": [
+        "should seek",
+        "seek",
+        "have sought",
+        "should have sought"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "db83e760-a0b2-4c1c-8ba3-b68798125943",
+      "question": "My cousins did not help when I was in deep trouble. But they -------.[]",
+      "options": [
+        "should have help me then",
+        "should help me then",
+        "should have helped me then",
+        "ought to help me then"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "bf0555cd-6a56-4250-b318-4270dc693a69",
+      "question": "Applicants ----- the ability to work well in a multicultural environment and ----- to work to deadlines.[]",
+      "options": [
+        "must have/were able",
+        "should have/be able",
+        "could have/have had",
+        "have had/had been able"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "76df3f24-9bee-417a-8d21-2f07f240da6d",
+      "question": "That dress doesn't suit you; you ----- buy another.[]",
+      "options": [
+        "will",
+        "would",
+        "should",
+        "could"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "b2d9b0ee-c662-408d-ad01-c37d777129c2",
+      "question": "------ you have any further question ; please contact us at the address above.[]",
+      "options": [
+        "Would",
+        "Will",
+        "Could",
+        "Should"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "fe040738-4f6e-4ec5-933e-42bb1150cef5",
+      "question": "You ------- have taken this medicine.[]",
+      "options": [
+        "could",
+        "should",
+        "would",
+        "might"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "c7b35a72-2dd9-4da6-9dc9-9424f431a855",
+      "question": "He should have (do) the work.[]",
+      "options": [
+        "did",
+        "doing",
+        "been doing",
+        "done"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "48e2a15e-757a-46d2-a095-b25c4d57c234",
+      "question": "She ought not ------- him but she did.[]",
+      "options": [
+        "to have told",
+        "to tell",
+        "to be telling",
+        "to be told"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "a74ec272-22ba-4854-8dc8-4181feb09460",
+      "question": "You ----- ask a woman her age. It's not polite.[]",
+      "options": [
+        "should not",
+        "would not",
+        "need not",
+        "dare not"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "42168af8-1a11-4aeb-b77e-3e17ae4da4ae",
+      "question": "You ----- harder. Then you wouldn't have failed the test.[]",
+      "options": [
+        "should have studied",
+        "must have studied",
+        "should study",
+        "must study"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "52e9d794-bba3-4eec-b92a-69160ba3696c",
+      "question": "You ----- her, it was a secret.[]",
+      "options": [
+        "must have told",
+        "could have told",
+        "shouldn't have told",
+        "might have told"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "a0dcfe74-91a9-482d-8d83-12982e65748e",
+      "question": "You ------- to me. Now I'll never believe you again.[]",
+      "options": [
+        "wouldn't have lied",
+        "can't have lied",
+        "shouldn't have lied",
+        "should have lied"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "850ec3ec-5b48-422b-aa49-14f271035eb1",
+      "question": "I told/explained him everything lest he ------- misunderstand me.[]",
+      "options": [
+        "would",
+        "could",
+        "should",
+        "must"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "7f1244b2-889d-439f-bbf0-8cada46939dd",
+      "question": "Walk fast lest you \n------- miss the train.\nHe ran to the station lest he\n ------- miss the train.\nHe ran fast lest he \n------- miss the train.[]",
+      "options": [
+        "can",
+        "could",
+        "should",
+        "would"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "c2eced29-b6fc-4986-bbf5-d3e6b527de69",
+      "question": "Ahraj ran fast lest he ----- miss the train.[]",
+      "options": [
+        "could",
+        "should",
+        "would",
+        "can"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "7634fa41-806b-4aca-9321-80128e0e3790",
+      "question": "The old man walks slowly lest -------.[]",
+      "options": [
+        "he falls",
+        "he may fall",
+        "he fell down",
+        "he should fall"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "16ac7b1f-301e-4544-b088-97f057293347",
+      "question": "I have shut the door lest a thief ------- enter into my room.\nTake the umbrella lest it ------- rain.[]",
+      "options": [
+        "may",
+        "could",
+        "would",
+        "should"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "10eb46c6-d2cf-4107-b9f5-fb30e8d19896",
+      "question": "Keep watch on my bag lest the thief ------- steal it.[]",
+      "options": [
+        "may not",
+        "should",
+        "should not",
+        "cannot"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "f2a1cb78-9e0f-43c7-8f6a-54e43c6376d5",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "He disguised himself lest he be recognized.",
+        "He was disguised lest he should be recognized.",
+        "He disguised lest he be recognized.",
+        "He disguised himself lest he can be recognized."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "8dd57f03-ce7d-47bf-8952-ca8069e38dfa",
+      "question": "I told him everything lest he -------.[]",
+      "options": [
+        "misunderstood me",
+        "should misunderstand me",
+        "should not misunderstand me",
+        "misunderstand me"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "7422397d-b6c1-49be-bf06-6b3b507ed6c8",
+      "question": "Try hard lest you ----- fall/fail.[]",
+      "options": [
+        "may",
+        "should",
+        "might",
+        "would"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "7bad2e52-0cba-44e5-b611-2e80ee24a1de",
+      "question": "You had better ----- him at once.[]",
+      "options": [
+        "to ring",
+        "ring",
+        "ringing",
+        "rung"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "ff040f0b-868f-4c27-a80d-01888ae41ea3",
+      "question": "You ----- better see a doctor.[]",
+      "options": [
+        "did",
+        "would",
+        "had",
+        "should"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "34ac4e9b-c7b4-4311-bed7-c65a7df91971",
+      "question": "Had better' in any sentence expresses -------.[]",
+      "options": [
+        "advice for the future",
+        "advice for the past",
+        "request for the future",
+        "request for the remote"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "67872f1c-8564-40b6-8864-d10370067a76",
+      "question": "Which attitude has been expressed in the sentence ?\n'You had better live the place'.[]",
+      "options": [
+        "request",
+        "command",
+        "advice",
+        "greeting/invitation"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

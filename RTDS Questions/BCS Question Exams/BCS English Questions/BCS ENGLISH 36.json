@@ -1,0 +1,260 @@
+{
+  "title": "BCS ENGLISH 36",
+  "category": "BCS Question Exams > BCS English Questions",
+  "duration_minutes": 30,
+  "total_questions": 18,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "104540",
+      "question": "He went to___ hospital because he had____ heart attack.",
+      "options": [
+        "no article,a",
+        "no article,an",
+        "a,an",
+        "the,no article"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাধারণত school, college, hospital, mosque ইত্যাদি স্থানগুলোতে মূল উদ্দেশ্যে গেলে এসব স্থানের পূর্বে article বসে না।রোগের নামের পূর্বে indefinite article হিসেবে a বসবে।"
+    },
+    {
+      "question_no": 2,
+      "id": "104731",
+      "question": "This could have worked if I _____ been more cautious.",
+      "options": [
+        "had",
+        "have",
+        "might",
+        "would"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "3rd conditional-এর নিয়মানুসারে principal clause-এ could have /would have/ might have থাকলে if clause টি Past Perfect হবে। সুতরাং শূন্যস্থানে Past perfect-এর auxiliary verb 'had' হবে।"
+    },
+    {
+      "question_no": 3,
+      "id": "104732",
+      "question": "Verb of \"Number\" is-",
+      "options": [
+        "number",
+        "enumerate",
+        "numbering",
+        "numerical"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Oxford dictionary অনুযায়ী number শব্দটি একাধারে noun এবং verb বলে সঠিক উত্তর number হবে। আবার, enumerate শব্দটিও verb যার পৃথক noun form রয়েছে,  যেমন: enumeration.  সুতরাং number (n)-এর শব্দজাত verb হচ্ছে number(v)আর enumerate, number(n)-এর শব্দজাত verb নয়, বরং এটি number -এর synonym যার অর্থ গণনা করা।"
+    },
+    {
+      "question_no": 4,
+      "id": "104733",
+      "question": "Slow and steady ____ the race.",
+      "options": [
+        "win",
+        "wins",
+        "has won",
+        "won"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "দুটি noun and দ্বারা যুক্ত হয়ে একই ভাব অর্থ প্রকাশ করে, তবে verb টি singular হয়। এজন্য শূন্যস্থানে 'wins' হবে।"
+    },
+    {
+      "question_no": 5,
+      "id": "104734",
+      "question": "Identify the correct sentence?",
+      "options": [
+        "Yesterday, he has gone home",
+        "Yesterday, he did gone home",
+        "Yesterday, he had gone home",
+        "Yesterday, he went home"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Yesterday শব্দটি থাকায়  sentenceটি Past indefinite tense হবে। অর্থাৎ Yesterday,  he went home সঠিক।"
+    },
+    {
+      "question_no": 6,
+      "id": "104735",
+      "question": "Professor Razzak was a scholar _____ refute.",
+      "options": [
+        "in",
+        "of",
+        "after",
+        "by"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Refute(v) - মতামত বা বিকৃতি খন্ডন করা। শব্দটি verb বলে এবং এর পূর্বে preposition বসে তা বাক্যটিকে অর্থবোধক করছে না। তবে শব্দটি যদি refute না হয়ে repute হতো,  তাহলে শূন্যস্থানে 'of' ব্যবহার করলে বাক্যটি অর্থপূর্ণ হয়। সেক্ষেত্রে বাক্যটির অর্থ হয় - অধ্যাপক রাজ্জাক ছিলেন একজন খ্যাতিসম্পন্ন পণ্ডিত বা বিদ্বান লোক।"
+    },
+    {
+      "question_no": 7,
+      "id": "104736",
+      "question": "John Smith is good ______ mathematics.",
+      "options": [
+        "at",
+        "in",
+        "of",
+        "after"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Good at- দক্ষ। কেউ কোনো কিছুতে বা কোনো বিষয়ে দক্ষ বোঝাতে good এর পর 'at' preposition ব্যবহার হয়।"
+    },
+    {
+      "question_no": 8,
+      "id": "104737",
+      "question": "Teacher said, \" The earth _____ round the sun.\"",
+      "options": [
+        "moves",
+        "moved",
+        "has moved",
+        "will be moving"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Universal truth বা চিরন্তন সত্য সর্বদা present indefinite tense দ্বারা প্রকাশ করা হয় বলে শূন্যস্থানের verb-টি হবে 'moves'।"
+    },
+    {
+      "question_no": 9,
+      "id": "104738",
+      "question": "In English grammer, _____ deals with formation of sentence.",
+      "options": [
+        "Morphology",
+        "Etymology",
+        "Syntax",
+        "Semantics"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Linguistics বা ভাষাবিজ্ঞানে Morphology শব্দের গঠন নিয়ে, Etymology- শব্দের উৎপত্তি ও ইতিহাস নিয়ে,  Syntax বাক্যের গঠন নিয়ে এবং Semantics শব্দ ও বাক্যের অর্থ নিয়ে আলোচনা করে।"
+    },
+    {
+      "question_no": 10,
+      "id": "104739",
+      "question": "He insisted _____ there.",
+      "options": [
+        "on my going",
+        "is to go",
+        "over going",
+        "to go"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Insist on sth/ sb doing sth- হচ্ছে একটি appropriate use যা কোনোকিছুর উপর বা কারও কোনো কিছু করার উপর জোর প্রদান করার ক্ষেত্রে ব্যবহার হয়।"
+    },
+    {
+      "question_no": 11,
+      "id": "104740",
+      "question": "The idiom \" A stich in time saves nine\" - refers to the importance of-",
+      "options": [
+        "saving lives",
+        "timely action",
+        "saving time",
+        "time tailoring"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি একটি প্রবাদ বাক্য যার অর্থ \"সময়ের এক ফোঁড় অসময়ের দশ ফোঁড়\"। এর দ্বারা সময়মতো কাজ করা বা timely action-  কে বোঝানো হয়।"
+    },
+    {
+      "question_no": 12,
+      "id": "104741",
+      "question": "What word be the right antonym for \"initiative\"?",
+      "options": [
+        "apathy",
+        "indolence",
+        "enterprise",
+        "activity"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Initiative অর্থ - পরিকল্পনা, উদ্যোগ, প্রারম্ভ। Option গুলোর মধ্যে apathy- অর্থ অনীহা, অনাগ্রহ; indolence -অলসতা; enterprise - প্রারম্ভ, উদ্যোগ এবং activity - অর্থ কার্যকারিতা, সক্রিয়তা। Initiative -এর antonym হিসেবে apathy ও indolence হতে পারে। তবে, 'apathy' antonym হিসাবে most appropriate."
+    },
+    {
+      "question_no": 13,
+      "id": "104742",
+      "question": "I have been living in Dhaka _____ 2000.",
+      "options": [
+        "since",
+        "from",
+        "after",
+        "till"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Present Continuous Tense - এ point of time অর্থাৎ নির্দিষ্ট সময়ের উল্লেখ থাকলে তার পূর্বে since বসে। যেমন: since 2004, since morning ইত্যাদি।"
+    },
+    {
+      "question_no": 14,
+      "id": "104744",
+      "question": "Give the antonym of the word \"transitory\"",
+      "options": [
+        "temporary",
+        "permanent",
+        "transport",
+        "short-lived"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Transitory অর্থ - ক্ষণস্থায়ী।  Option - গুলোর মধ্যে temporary ও transport ও short- lived -এর অর্থ ক্ষণস্থায়ী, স্বল্পকালীন এবং permanent অর্থ -স্থায়ী। সুতরাং transitory  -এর antonym হচ্ছে permanent."
+    },
+    {
+      "question_no": 15,
+      "id": "104745",
+      "question": "\"Venerate\" means —",
+      "options": [
+        "defame",
+        "abuse",
+        "respect",
+        "accuse"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Venerate - অর্থ শ্রদ্ধা করা বা সম্মান করা। Option গুলোর মধ্যে defame-নিন্দা করা; abuse-গালি দেয়া ; respect -সম্মান করা এবং accuse- দোষারোপ করা। সুতরাং venerate -এর অর্থ হচ্ছে respect."
+    },
+    {
+      "question_no": 16,
+      "id": "104747",
+      "question": "Credit tk 5000 ____ my account",
+      "options": [
+        "in",
+        "with",
+        "against",
+        "to"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কারও ব্যাংক অ্যাকাউন্টে টাকা রাখা অর্থে 'credit verb -টির সাথে 'to' Preposition  ব্যবহার হয়। কিন্তু টাকার পরিমাণটি যদি বাক্যের শেষে উল্লেখিত হয়, তাহলে prepositon 'with' ব্যবহার হবে। যেমন- Your account has been credited with 5000 tk."
+    },
+    {
+      "question_no": 17,
+      "id": "104748",
+      "question": "\"To do away with\" means -",
+      "options": [
+        "to repeat",
+        "to start",
+        "to get rid of",
+        "to drive off"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "To do away with অর্থ কোনো কিছু বন্ধ করা, ত্যাগ করা, ধ্বংস করা। Option গুলোর মধ্যে to repeat -  পুনরাবৃত্তি করা; to start- শুরু করা; to get rid of -  মুক্ত করা বা হওয়া, ত্যাগ করা ধ্বংস করা এবং to drive off- তাড়িয়ে দেওয়া, শুরু করা( গলফ্ খেলা)।  সুতরাং to do away with - এর meaning হচ্ছে to get rid of."
+    },
+    {
+      "question_no": 18,
+      "id": "104750",
+      "question": "Which one is a correct sentence?",
+      "options": [
+        "Paper is made of wood",
+        "Paper is made from wood",
+        "Paper is made by wood",
+        "Paper is made on wood"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যখন কোনো উৎপাদিত বস্তুর উপাদান চোখে দেখে শনাক্ত করা যায়, তখন সেক্ষেত্রে made - এর পর of ব্যবহার হয়, আর যদি চোখে দেখে তার উপাদান শনাক্ত করা না যায়, তাহলে  made -এর পর 'from' ব্যবহার হয়।"
+    }
+  ]
+}

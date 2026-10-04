@@ -1,0 +1,761 @@
+{
+  "exam_id": 8452,
+  "title": "Narration (Ques. No. 51-100)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Narration (207 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "6b6dc458-5c43-421b-97f8-49975fc3e703",
+      "question": "He said to me,\"Where were you born ?\"[]",
+      "options": [
+        "He told me where I were born.",
+        "He asked me where I was born.",
+        "He asked me where I had been born.",
+        "He asked me where I had born."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "f058df3e-3d85-4d50-9d8a-884cac3915a7",
+      "question": "He said to me,\"How did you do it\" ?[]",
+      "options": [
+        "He enquired of me if I had done it.",
+        "He enquired of me how I had done it.",
+        "He said to me if I had done it.",
+        "He said to me that I had done it."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "31869817-d558-4a7e-9a95-1beea0234291",
+      "question": "He said to me,\"Did you take the examination \" ?[]",
+      "options": [
+        "He asked me did I take the examination.",
+        "He asked to me if I took the examination.",
+        "He asked me if I had given the examination.",
+        "He asked me if I had taken the examination."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "842fa87c-480b-49b3-8dd3-affeaaaa0809",
+      "question": "He said to me,\"Which job do you want\" ?[]",
+      "options": [
+        "He asked me which job I had wanted.",
+        "He told me which job I wanted.",
+        "He enquired about me which job I was wanted.",
+        "He asked me which job I wanted."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "08f9e97e-01ac-4096-a991-43b9aa76b4ba",
+      "question": "He said to me,\"Why did you come here\" ?[]",
+      "options": [
+        "He asked me why I went there.",
+        "He asked me if I had gone there.",
+        "He asked me why I had come here.",
+        "He asked me why I had gone there."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "95759746-41b9-4c8e-9b45-bde687b39147",
+      "question": "He said to me,\"Have you got a pencil' ?[]",
+      "options": [
+        "He said to me if I had got a pencil.",
+        "He asked me if I had got a pencil.",
+        "He asked me had I got a pencil.",
+        "He asked me that if I had got a pencil."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "3d70c58a-fbd6-45f3-b7c7-9dad308c3b38",
+      "question": "I said to him,\"Will you follow me\" ?[]",
+      "options": [
+        "I said to him if he would follow me.",
+        "I said to him if he would have follow me.",
+        "I asked him if he would follow me.",
+        "I asked him would he follow me."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "94a87619-c552-4509-9809-654f3b469f73",
+      "question": "He said to me,\"Which book do you want\" ?[]",
+      "options": [
+        "He said to me which book I wanted.",
+        "He asked to me which book I wanted.",
+        "He asked me which book I wanted.",
+        "He said me which book I wanted."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "ef933345-715b-4683-b57f-c556c92eb200",
+      "question": "A man said to his father,\"What are you doing\" ?[]",
+      "options": [
+        "A man asked his father what he was doing.",
+        "A man asked to his father what he was doing.",
+        "A man asked what his father was doing.",
+        "A man said to his father what you are doing."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "ffebf2b1-1cba-44e4-8c96-5f00c0af440c",
+      "question": "She asked me,\"Are you a student\" ?[]",
+      "options": [
+        "She asked me that I was a student.",
+        "She asked me if I was a student.",
+        "She asked me was I a student.",
+        "She asked me if I am a student."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "59cb642b-8842-4b81-b604-857487b85596",
+      "question": "He said to him,\"Is not your name Ahmed\" ?[]",
+      "options": [
+        "I told him that his name is Ahmed.",
+        "He enquired whether his name was not Ahmed.",
+        "He exclaimed is not your name Ahmed ?",
+        "He said that his name was Ahmed."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "a963ad9c-6b01-4029-b9a1-7081e38c0f22",
+      "question": "They said to me,\"Who are you and what do you want here now\" ?[]",
+      "options": [
+        "They enquired me who were you and what you wanted there then.",
+        "They enquired me who I was and what I wanted there then ?",
+        "They enquired me who I was and what I wanted there now.",
+        "They enquired me who I was and what I wanted there then."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "72b9d3bd-d0df-4b68-8d3a-f17c83e08616",
+      "question": "The right direct speech of The teacher enquired why I had been absent from class ?[]",
+      "options": [
+        "The teacher said to me,\"Why are you absent from class\" ?",
+        "The teacher said to me,\"Why you have been absent from class\" ?",
+        "The teacher said to me,\"Why were you been absenting from class\" ?",
+        "The teacher said to me,\"Why were you absent from class\" ?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "cf8fabab-6283-466a-a0fa-26158a1d2ffa",
+      "question": "I said,\"Do it\".[]",
+      "options": [
+        "I said that it should be done.",
+        "I said that let it be done.",
+        "I said to do it.",
+        "I ordered someone to do it."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "84243ab3-98a6-4f98-8373-447134858975",
+      "question": "You had better not leave your room unlocked' said my friends.[]",
+      "options": [
+        "My friends warned me not to leave my room unlocked.",
+        "My friends asked me not to leave my room unlocked.",
+        "My friends reminded me not to leave lock my room.",
+        "My friends advised me to leave lock my room."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "d35d67b4-ffaf-45c7-99ca-13afee9d0b53",
+      "question": "He said,\"You had better see a doctor\".[]",
+      "options": [
+        "He advised me to see a doctor.",
+        "He advised that he should see a doctor.",
+        "He proposed to see a doctor.",
+        "He suggested that he had seen a doctor."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "3903acd6-7b90-4c8c-81e2-4edb2ef305df",
+      "question": "Which one is correct sentence ?[]",
+      "options": [
+        "The captain ordered to his soldiers to march on.",
+        "The captain ordered his soldiers to march on.",
+        "The captain gave order to his soldiers to march on.",
+        "The captain did order to his soldiers to march on."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "45cbca1e-1a50-42c8-a8eb-cae7c19319e7",
+      "question": "The teacher said to his pupils, \"Stand up\".[]",
+      "options": [
+        "The teacher said to his pupils to stand up.",
+        "The teacher ordered his pupils to stand up.",
+        "The teacher requested his pupils to stand up.",
+        "The teacher requests his pupils to stand up."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "1d690050-8e3a-4594-92fd-fc29329a0c6f",
+      "question": "Direct speech of the sentence \"He asked Karim to go with him\" is -----[]",
+      "options": [
+        "He said to Karim,\"go with me\".",
+        "He told Karim,\"go with him\".",
+        "He asked Karim,\"go with his\".",
+        "He said to Karim,\"go with he\"."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "9a474589-6f67-44b9-b1f3-6bb539abea6d",
+      "question": "He said to me,\"Please wait until I return'.[]",
+      "options": [
+        "He said to me wait till he returned.",
+        "He asked to me wait till he return.",
+        "He asked me to wait till return.",
+        "He requested me to wait till he returned."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "064b445d-528d-409d-9ce2-6bb658c43b46",
+      "question": "The man said to the officer,\"Please,help me\".[]",
+      "options": [
+        "The man told the officer to please help him.",
+        "The man requested the officer to help him.",
+        "The man said to the officer to please help him.",
+        "The man requested to the officer to help."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "3e604b1e-7bbf-44df-99ed-c884e709cc8e",
+      "question": "The teacher said to the student,\"Do not waste time\". []",
+      "options": [
+        "The teacher told the student do not waste time.",
+        "The teacher prohibited the students not to waste time.",
+        "The teacher advised the student not to waste time.",
+        "The teacher advised the student not to wasting time."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "c5dd088b-53ad-4183-a5c4-678a7cc2c413",
+      "question": "My father said to me,\"Do not waste your time\".[]",
+      "options": [
+        "My father told me that do not waste time.",
+        "My father told me that I do not waste my time.",
+        "My father forbade me to waste my time.",
+        "My father told me to waste not any time."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "ae0b9048-ea7d-4111-8cc1-3a4cc5ec7343",
+      "question": "He said to his master,\"Forgive me, Sir\".[]",
+      "options": [
+        "He begged his master to forgave him.",
+        "He begged his master to forgave him,Sir.",
+        "He begged his master to forgive him.",
+        "He requested his master to forgive him."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "e57aa0b7-12d3-46bd-9435-da899223786f",
+      "question": "He said to me,\"Let us go home together \".[]",
+      "options": [
+        "He proposed to me to go home together.",
+        "He proposed to me that we should go home together.",
+        "He asked me to go home with him.",
+        "He urged me to go home with him."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "5d0f8821-4fc5-4895-8172-528fed806dc1",
+      "question": "He proposed that they should wait for the award.[]",
+      "options": [
+        "He said,\"We should wait for the award\".",
+        "He said,\"Let me wait for the award\".",
+        "He said,\"Let us wait for the award\".",
+        "He said,\"Let everyone wait for the award\"."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "ba9eec21-90e3-464a-9f9a-f0b4343bcdfc",
+      "question": "The indirect form of \"Let's sell the house\", said Reaz. \" Let's not\" said Rina would be ---[]",
+      "options": [
+        "Reaz told to sell the house but Rina opposed.",
+        "Reaz proposed to sell the house while Rina opposed.",
+        "Reaz suggested but Rina objected to sell the house.",
+        "Reaz suggested selling the house but Rina objected."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "ae033e9e-e46c-4959-bd19-dc329c6f2f40",
+      "question": "What is the indirect speech of \"Let me come in\", said he.[]",
+      "options": [
+        "He proposed that he should come in.",
+        "He said that he should come in.",
+        "He proposed that he might be allowed to come in.",
+        "He requested that he might be allowed to come in."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "1b3178ae-ab3b-4640-9a72-e287eaa65d0f",
+      "question": "He said,\"Let me have some milk\".[]",
+      "options": [
+        "He said that he wanted some milk.",
+        "He prayed that he might have some milk.",
+        "He wished that he might have some milk.",
+        "He said that he might have some milk."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "c94a426e-dfa6-4658-bd20-7d2828e56a09",
+      "question": "He said to me,'Let me stay alone'.[]",
+      "options": [
+        "He suggested to me that he should stay alone.",
+        "He told me that he should stay alone.",
+        "He requested me to let him stay alone.",
+        "He proposed to me that he might stay alone."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "334e9675-9dc3-4e7d-ab89-ac4e1a1ada1d",
+      "question": "The indirect speech of 'He said,\"Let me have some milk\".[]",
+      "options": [
+        "He told that he let have some milk.",
+        "He said that he had some milk.",
+        "He replied that he should have some milk.",
+        "He desired that he might have some milk."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "4b16a448-e049-48d7-b336-0897d4104e34",
+      "question": "The teacher said to me,\"May you pass the examination\".[]",
+      "options": [
+        "The teacher prayed that I could pass the examination.",
+        "The teacher wished that I may have passed the examination.",
+        "The teacher wished that I might pass the examination.",
+        "The teacher prayed that I might have passed the examination."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "6f44d290-0f43-41a3-a0cd-3c9e8a07a2e0",
+      "question": "Teacher said to me,\"May God bless you\".[]",
+      "options": [
+        "Teacher wished so that may God bless me.",
+        "Teacher prayed so that may God bless me.",
+        "Teacher prayed that God might bless me.",
+        "A & B"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "f2d8593f-280d-4e14-9814-e1500efad98d",
+      "question": "She said,\"May Allah save my child\".[]",
+      "options": [
+        "She prayed that Allah may save her child.",
+        "She wished that Allah might save her child.",
+        "She said that Allah might save her child.",
+        "She prayed that Allah might save her child."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "f8d3e489-c878-4fbf-b9a9-5441c352ec13",
+      "question": "My mother said to her son,\"May you pass the examination\".[]",
+      "options": [
+        "The mother wished her son that he might pass the examination.",
+        "The mother said to her son that he might pass the examination.",
+        "The mother wished that her son might pass the examination.",
+        "The mother wished her son that he may pass the examination."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "a9485735-c5df-4bd6-aaad-6dba7e9bcf6d",
+      "question": "Aneeka exclaimed that she was a great fool. Make direct speech.[]",
+      "options": [
+        "Aneeka said,\"I am a great fool\"!",
+        "Aneeka said,\"What a fool I am!\"",
+        "Aneeka told,\"What a fool I am!\"",
+        "Aneeka said,\"What am I fool!\""
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "bfe5286e-e8e3-480d-934f-675783bf5d64",
+      "question": "Nasima said,\"What a fine picture it is!\"[]",
+      "options": [
+        "Nasima said that it is a very fine picture.",
+        "Nasima exclaimed that it was a very fine picture.",
+        "Nasima exclaimed that it is a very fine picture.",
+        "Nasima exclaimed that what a fine picture it was."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "930f1032-4aa3-4df2-9bc1-29f6deeb4aed",
+      "question": "He said,\"How beautiful the flowers are!\"[]",
+      "options": [
+        "He exclaimed with joy that the flowers were very beautiful.",
+        "He exclaimed with joy that the flowers were beautiful.",
+        "He cried out that the flowers were beautiful.",
+        "He exclaimed with joy that the flowers are beautiful."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "de4c766b-a704-4028-9ce7-ed23920d6d8d",
+      "question": "He said,\"Alas! I am undone\".[]",
+      "options": [
+        "He exclaimed with sorrow that he was undone.",
+        "He cried out so that he is undone.",
+        "He was sorry, because he was undone.",
+        "He expressed his misfortune."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "0209f752-42e2-42aa-b1e4-f57e921c9897",
+      "question": "The prisoner strongly desired that he had the wings of a dove.[]",
+      "options": [
+        "The prisoner said,\"Had I the wings of a dove!\"",
+        "The prisoner told,\"I have the wings of a dove\"",
+        "The prisoner said in joy, \"He had the wings of a dove\".",
+        "The prisoner said,\"Had I the wings of a dove.\""
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "d752019a-d1f6-459f-b7be-b881140e97e3",
+      "question": "The man said to him,\"Fie! You are such a coward\"[]",
+      "options": [
+        "The man exclaimed that it is shameful that he is such a coward.",
+        "The man claimed that it is shameful that he was such a coward.",
+        "The man exclaimed that it was shameful that he was such a coward.",
+        "The man claimed that it is shameful that were such a coward."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "1260a851-7bd4-4563-872b-34f0e9425c65",
+      "question": "You have all done very badly!' remarked the teacher.[]",
+      "options": [
+        "The teacher remarked that they had all done it very badly.",
+        "The teacher told that they did it very badly.",
+        "The teacher said that they have done worse.",
+        "The teacher remarked that they do it bad."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "17c02d9c-3135-4b85-a32d-342ef5c07a7a",
+      "question": "He said,\"Good morning, Mr.Kamal\".[]",
+      "options": [
+        "He had wished Mr. Kamal good morning.",
+        "He wished Mr. Kamal good morning.",
+        "He said Mr. Kamal good morning.",
+        "He told Mr. Kamal good morning."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "e7cd2d58-99bd-49a5-ae96-d7e2520261b7",
+      "question": "He said,\"Friends,goodbye\".[]",
+      "options": [
+        "He told his friends goodbye.",
+        "He bade his friends goodbye.",
+        "He bade farewell to his friends.",
+        "He say goodbye to his friends."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "a94b043e-7c8c-4a81-ab37-a94b285af6fa",
+      "question": "He said,\"Farewell,my friends\".[]",
+      "options": [
+        "He said to his friends farewell.",
+        "He told to her friends farewell.",
+        "He bade farewell to his friends.",
+        "He told addressing his friends."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "f4f8dceb-c4b4-46fd-b2f2-9be04ab8bed4",
+      "question": "Anis said,\"Good night,Father\".[]",
+      "options": [
+        "Anis said good night for his father.",
+        "Anis addressed his father and told goodbye.",
+        "Anis gave good night to his father.",
+        "Anis bade his father goodbye."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "a090f691-1b56-4240-bb40-1462b5707686",
+      "question": "I called him a coward.[]",
+      "options": [
+        "I said to him,\"You are a coward\".",
+        "I said to him that,\"You are a coward\".",
+        "I called him,\"You are coward\".",
+        "I said to him,\"You are coward\"."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "d83b5b4e-787d-45e9-9845-f0b32649c9c5",
+      "question": "Rafiq called me a liar.-make direct speech.[]",
+      "options": [
+        "Rafiq said to me,\"You were a liar\".",
+        "Rafiq says to me,\"You are a liar\".",
+        "Rafiq told me,\"You are a liar\".",
+        "Rafiq said to me,\"You are a liar\"."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "d21b7b90-5008-450a-add9-0e4f09084aa0",
+      "question": "Rahim called me a coward.[]",
+      "options": [
+        "Rahim exclaimed \"You are coward\".",
+        "Rahim said,\"You coward\".",
+        "Rahim said to me,\"coward\".",
+        "Rahim told me,\"A coward\"."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "54e08850-51ba-425f-ae5b-7579c550a140",
+      "question": "He said to me,\"Thank you\".[]",
+      "options": [
+        "He thanked me.",
+        "He had thanked me.",
+        "He told me that thank you.",
+        "He wished a thank to me."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

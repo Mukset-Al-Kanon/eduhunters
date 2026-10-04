@@ -1,0 +1,218 @@
+{
+  "title": "Medical English 14-15",
+  "category": "Medical & Dental Questions > Medical English Question",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "139631",
+      "question": "No one can......... that he is clever.",
+      "options": [
+        "admire",
+        "denounce",
+        "defy",
+        "deny"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সে যে চালাক এটা কেউ-ই অস্বীকার করতে পারবে না। অস্বীকার করা অর্থে শূন্যস্থানে deny শব্দটি বসবে। Admire শব্দের অর্থ প্রশংসা করা; denounce অর্থ নিন্দা করা; defy অর্থ প্রকাশ্যে বিরোধিতা করা।"
+    },
+    {
+      "question_no": 2,
+      "id": "139632",
+      "question": "He gave up - football when he got married",
+      "options": [
+        "playing",
+        "of playing",
+        "to play",
+        "play"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Give up অর্থ কোনো অভ্যাস ছেড়ে দেওয়া। এরপর verb-এর সাথে ing যুক্ত করতে হবে। বাক্যটির বাংলা অর্থ: যখন সে বিয়ে করল তখন সে ফুটবল খেলা ছেড়ে দিল।"
+    },
+    {
+      "question_no": 3,
+      "id": "139633",
+      "question": "A person who writes about his own life writes-.",
+      "options": [
+        "a biography",
+        "an autobiography",
+        ". a diary",
+        "a chronicle"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নিজ জীবনকাহিনী সম্পর্কিত লেখা বইকে বলা হয় autobiography। আর কেউ যদি অন্যের জীবন সম্পর্কে লেখে সেটাকে বলা হয় Biography |"
+    },
+    {
+      "question_no": 4,
+      "id": "139634",
+      "question": "The idiom 'without issue' means",
+      "options": [
+        "no mother",
+        "illiterate",
+        "childless",
+        "no wealth"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Without issue একটি Phrase যার অর্থ সন্তান-সন্ততি নেই এমন।"
+    },
+    {
+      "question_no": 5,
+      "id": "139635",
+      "question": "Choose the correct spelling.",
+      "options": [
+        "separate",
+        "saparete",
+        "seperate",
+        "saperate"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Separate অর্থ আলাদা বা স্বতন্ত্র"
+    },
+    {
+      "question_no": 6,
+      "id": "139636",
+      "question": "Choose the correct spelling",
+      "options": [
+        "Leftenant",
+        "Leutenant",
+        "leautenant",
+        "lieutenant"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বানানটি মনে রাখার কৌশল: Lie u ten ant (মিথ্যা তুমি দশ পিঁপড়া)"
+    },
+    {
+      "question_no": 7,
+      "id": "139637",
+      "question": "Select the correct sentence.",
+      "options": [
+        "He resembles to his father",
+        "He resembles like his father",
+        "He resembles as his father",
+        "He resembles his father"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দেখতে কারও মতো হওয়া অথবা কারও সাথে চেহারার সাদৃশ্য আছে এমন বোঝাতে resemble শব্দটি ব্যবহৃত হয়। Resemble এর সাথে কোনো preposition বসবে না।"
+    },
+    {
+      "question_no": 8,
+      "id": "139638",
+      "question": "Termination' means-",
+      "options": [
+        "to begin",
+        "to end",
+        "to start",
+        "to continue"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Termination অর্থ শেষ; to end অর্থ উপসংহার টানা বা শেষ করা।"
+    },
+    {
+      "question_no": 9,
+      "id": "139639",
+      "question": "The best possible passive form of the sentence. 'We don't like idle people' is-",
+      "options": [
+        "Idle people are not like us.",
+        "Idle people are not liked by us.",
+        "We are not liked by idle people",
+        "Idle people are not of our liking"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যটি Present indefinite tense-এ হয়েছে বলে passive voice করার সময় subject people-এর auxiliary verb 'are' ব্যবহৃত হয়েছে।"
+    },
+    {
+      "question_no": 10,
+      "id": "139640",
+      "question": "What is the best possible meaning of 'White Elephant'?",
+      "options": [
+        "a hoarder",
+        "a costly and troublesome thing",
+        "an elephant of white colour",
+        "a black marketer"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "White elephant অর্থ অত্যন্ত দামী অথচ ঝামেলাপূর্ণ কিছু।"
+    },
+    {
+      "question_no": 11,
+      "id": "139641",
+      "question": "Which of the followings is the correct proverb?",
+      "options": [
+        "All is well that end well.",
+        "All is well that ends well.",
+        "All are well that end well.",
+        "All are well that ends well."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটির অর্থ হচ্ছে \"সব ভাল তার, শেষ ভাল যার\"।"
+    },
+    {
+      "question_no": 12,
+      "id": "139642",
+      "question": "Choose the correct English translation. \"গরু ঘাস খেয়ে বাঁচে\"।",
+      "options": [
+        "Cows eat grass.",
+        "The cow lives on grass.",
+        "The cow eats grass.",
+        "Cow lives eating grass."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Live on অর্থ খেয়ে বেঁচে থাকা।"
+    },
+    {
+      "question_no": 13,
+      "id": "139643",
+      "question": "Choose the best possible passive form of 'Who is calling me'?",
+      "options": [
+        "By whom I am being called?",
+        "By whom I am called?",
+        "By whom have I been called?",
+        "By whom am I being called?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Interrogative sentence এর Voice Change করার নিয়ম who থাকলে By whom + tense অনুসারে auxiliary verb + sub + P.P বসে।"
+    },
+    {
+      "question_no": 14,
+      "id": "139644",
+      "question": "Bangladesh is (overpopulated). What is the meaning of the overpopulated word here?",
+      "options": [
+        "many people",
+        "so much people",
+        "too many people",
+        "too much people"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Overpopulated' অর্থ অতিরিক্ত জনসংখ্যা। Countable noun বলে people-এর determiner হিসেবে অতিরিক্ত/অনেক বেশি জনসংখ্যা বুঝাতে too many people হবে।"
+    },
+    {
+      "question_no": 15,
+      "id": "139645",
+      "question": "Choose the correct form of sentence.",
+      "options": [
+        "I wait your decision.",
+        "I await for your decision.",
+        "I wait to your decision.",
+        "I await your decision."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Wait/await এর অর্থ একই (প্রতীক্ষায় থাকা)। Await এর পর preposition বসে না।"
+    }
+  ]
+}

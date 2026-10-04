@@ -1,0 +1,761 @@
+{
+  "exam_id": 9653,
+  "title": "Translation (Ques. No. 151-200)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "Translation Exam (578 Marks)",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "96d7905a-c0bf-4b35-977a-43d8908b31f9",
+      "question": "জীবন পুষ্পশয্যা নয়। [SABAS][]",
+      "options": [
+        "The life is not bed of roses.",
+        "A life is not bed of roses.",
+        "Life is not bed of roses.",
+        "Life is not a bed of roses."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পুষ্পশয্যা' এর ইংরেজি ইডিওম হলো 'a bed of roses'। বিমূর্ত বা সাধারণ অর্থে Life-এর আগে Article বসে না, কিন্তু ইডিওমের ক্ষেত্রে 'a' আবশ্যক।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "37bd612e-67f2-4090-aa0e-e293175ebd3b",
+      "question": "জ্ঞানীরা বেশি কথা বলেন না। [SABAS][]",
+      "options": [
+        "The wises do not talk much.",
+        "The wise does not talk much.",
+        "The wise do not talk much.",
+        "The wise men does not talk much."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "The + adjective' (যেমন The wise) সমষ্টিবাচক বিশেষ্য হিসেবে বসে, যার সাথে plural verb (do) ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "d7ffedcc-0896-4936-82f3-3f9f33732dc5",
+      "question": "দাঁড়াও, আমি এখনি আসছি। [SABAS][]",
+      "options": [
+        "Stand, I come now",
+        "Wait, I am coming now",
+        "Keep standing I am coming",
+        "Stand here, I am coming"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "দাঁড়াও' অর্থে 'Wait' ব্যবহার করা অধিক মার্জিত। কাজ চলমান বোঝালে Present Continuous Tense (am coming) ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "69213da4-827d-44b7-90ef-f4a553087321",
+      "question": "লোকটি হাসতে হাসতে আমার কাছে আসল। [SABAS][]",
+      "options": [
+        "The man comes to me by laugh.",
+        "The man came to me by laugh.",
+        "The man came to me laughing.",
+        "The man coming to me laugh."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাসতে হাসতে অর্থে 'laughing' (Present Participle) ব্যবহার করে verb-এর অবস্থা বোঝানো হয়।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "8b4263c3-c2b1-477e-8c53-a7e0d53d37cc",
+      "question": "শিশুটি কাঁদতে কাঁদতে আমার কাছে এল। [SABAS][]",
+      "options": [
+        "The child comes to me run.",
+        "The child came to me running.",
+        "The child came to me crying.",
+        "The child came to me to cry."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কোনো কিছু করতে করতে আসা বোঝাতে 'came + verb + ing' গঠনটি সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "44ded2f8-bfc7-4c67-9e6e-b260a70f0976",
+      "question": "Translate into English- বরং মরিব তবু চুরি করিব না। [SABAS][]",
+      "options": [
+        "I will rather die than steal.",
+        "I am rather die than steal.",
+        "I die than steal.",
+        "I would rather die than steal."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কোনো কিছুর চেয়ে অন্য কিছুকে অধিক পছন্দ করা বোঝাতে 'would rather ... than' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "71effc75-46a2-4eb1-9dd9-903790eeff0e",
+      "question": "Translate into English- নিজের কাজে মন দাও। [SABAS][]",
+      "options": [
+        "Mind your self work.",
+        "Mind your self job.",
+        "Mind your own job.",
+        "Mind your own business."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নিজের চরকায় তেল দাও' বা 'নিজের কাজে মন দাও' এর প্রচলিত ইংরেজি প্রবাদ হলো 'Mind your own business'।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "e51d1614-0a17-42c0-af74-6f3e5e02ac70",
+      "question": "সে এক সপ্তাহ যাবত অসুস্থ। [SABAS][]",
+      "options": [
+        "He has been ill since a week.",
+        "He has been ill till a week.",
+        "He has been ill for a week.",
+        "He has been ill during a week."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সময়ের ব্যাপ্তি (duration) বোঝালে 'for' ব্যবহৃত হয়। তাই 'for a week' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "38f9a26b-da9c-4967-9229-2db084e9b7db",
+      "question": "‘সময় শেষ হয়েছে’ Translate it- [SABAS][]",
+      "options": [
+        "The time is over",
+        "Time is over",
+        "Time is end",
+        "The time end"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সময় শেষ হওয়া বা ফুরিয়ে যাওয়া অর্থে 'Time is over' সবচেয়ে প্রচলিত ও শুদ্ধ বাক্য।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "fd2fae1f-9a8e-4cb2-b730-48d18e97de75",
+      "question": "‘এবারের সংগ্রাম মুক্তির সংগ্রাম’ এর ইংরেজি- [SABAS][]",
+      "options": [
+        "This war is liberation war",
+        "This is the war of liberation",
+        "This is the war of independence",
+        "Struggle this time is the struggle for liberation."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ঐতিহাসিক ভাষণের সঠিক অনুবাদ হলো 'Struggle this time is the struggle for liberation'।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "a75d6c43-0d52-4699-a209-254328daef8a",
+      "question": "The translation of the sentence ‘তোমার পশুত্ব দমন কর’ is- [SABAS][]",
+      "options": [
+        "Check the beast in you.",
+        "Catch the animal in you.",
+        "Suppress the beats.",
+        "Beat bestiality"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মানুষের ভেতরের পশুত্ব' বোঝাতে 'the beast in you' সঠিক এবং দমন করা অর্থে 'check' ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "3b17ffa1-d8f3-4d9b-9449-a9027c67722e",
+      "question": "Greek meets a Greek. এই বাক্যটির ঠিক বাংলা অনুবাদ- [SABAS][]",
+      "options": [
+        "গ্রামবাসীর দেখা মেলে গ্রীসে।",
+        "চতুরের কাছে চতুরালী।",
+        "গ্রীক দেশে গ্রীকবাসীর দেখা পায়।",
+        "চতুর লোকের সঙ্গে দেখা মেলে গ্রীসে।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Greek meets a Greek' একটি প্রবাদ যার অর্থ চতুরের কাছে চালাকি বা চতুরের দেখা চতুরের সাথে হওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "d7011fde-0c21-4c2c-9e2b-1bb185bfd6c2",
+      "question": "Choose the most accurate translation: আমি চেষ্টার আর কিছু বাকি রাখিনি। [SABAS][]",
+      "options": [
+        "I have tried my best",
+        "I tried heart and soul",
+        "I have left no stone unturned",
+        "I had tried heart and soul"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কোনো প্রচেষ্টাই বাকি না রাখা' বা 'সর্বাত্মক চেষ্টা করা' এর সঠিক ইডিওম হলো 'leave no stone unturned'।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "7224b3e1-9fd4-4bba-ba66-5e15e2349825",
+      "question": "Translate into English: সে শুধু বোকা নয়, বাচালও বটে। [SABAS][]",
+      "options": [
+        "He is foolish and talkative",
+        "He is not only foolish but also talkative",
+        "He is clever and talkative",
+        "He is not only foolish but also rebuke"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "শুধু... নয়, বরং...ও' বোঝাতে 'not only ... but also' স্ট্রাকচারটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "c2651dc3-3574-499c-9042-f9f2af485b3f",
+      "question": "Correct translation of ‘তুমি কি কখনো বিদেশ গিয়েছ?’ [SABAS][]",
+      "options": [
+        "Have you been to abroad?",
+        "Have you ever been to abroad?",
+        "You have been to abroad?",
+        "You have to abroad?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিদেশ গিয়েছ' অর্থে 'have been to' ব্যবহৃত হয়। কখনো অর্থে 'ever' যোগ করতে হয়। তবে abroad এর আগে 'to' বসে না।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "2cb3d97b-b0d9-4ced-b8ef-41c65a1bed66",
+      "question": "তিনি কদাচিৎ মিথ্যা কথা বলেন। [SABAS][]",
+      "options": [
+        "He sometime tells a lie",
+        "He never tells a lie",
+        "He seldom tells a lie",
+        "He sometime tells a lie"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কদাচিৎ' বা খুব কম সময় বোঝাতে 'seldom' অ্যাডভার্বটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "a08c4d18-e7b3-4f40-993a-5d18a2dd44c9",
+      "question": "‘আমি না হেসে পারলাম না’ বাক্যটির সঠিক অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "I could not do but laugh",
+        "I could not do without laughing",
+        "I could not but laugh",
+        "I had no way without laughing"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "না করে পারলাম না' অর্থে 'could not but + verb' অথবা 'could not help + verb(ing)' কাঠামো বসে।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "46ac227f-d0a7-42d9-bbe4-b5c27e3c4096",
+      "question": "মাছ উড়তে পারে না, পারে কি? [SABAS][]",
+      "options": [
+        "Fishes cannot fly, what can?",
+        "Fishes cannot fly, is it?",
+        "Fishes cannot fly? do it?",
+        "Fishes cannot fly, can they?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Tag question-এর নিয়ম অনুযায়ী বাক্য Negative হলে tag affirmative হবে। তাই 'can they?' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "11f82fca-40ca-4359-9cbe-c16c6c554e0e",
+      "question": "‘কুকুর থেকে সাবধান’-এর ইংরেজি অনুবাদ: [SABAS][]",
+      "options": [
+        "Beware of dogs!",
+        "Beware from dogs!",
+        "Aware of the dogs!",
+        "Beware the dogs!"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সতর্ক থাকা' বা 'সাবধান' অর্থে 'Beware' এর সাথে 'of' প্রেপজিশন ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "7b5cdc65-1f81-4506-b39b-becad6c74ec5",
+      "question": "‘The boot on the other leg.’ এই বাক্যটির সঠিক বাংলা অনুবাদ - [SABAS][]",
+      "options": [
+        "সাড়িবন্দি এখন অন্যর হাতে",
+        "সময় এখন অন্য মানুষের জন্য অনুকূল",
+        "একজনের জুতা অন্য জনের পায়ে লাগে না",
+        "সময় এখন প্রতিকূলে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The boot on the other leg' একটি ইডিওম যার অর্থ পরিস্থিতি আগের চেয়ে উল্টে যাওয়া বা সময় প্রতিকূলে চলে যাওয়া.",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "dbcb06c6-b68a-4415-933f-0020105c13d9",
+      "question": "‘শুনা কথায় বিশ্বাস করিও না’ এর ইংরেজি হল- [SABAS][]",
+      "options": [
+        "Do not believe in listening",
+        "Do not believe in hearing",
+        "Do not believe in hearken",
+        "Do not believe in hearsay"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শুনা কথা' বা 'গুজব' বোঝাতে 'hearsay' শব্দটি ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "760d1c32-2b9c-45cc-ac41-b3d78f733383",
+      "question": "‘এ বিধানটি আরো তিন মাস চালু থাকবে’-The correct English Translation of this sentence is- [SABAS][]",
+      "options": [
+        "This act will last for three months",
+        "This law will be applied for at least three months",
+        "This law continues three months",
+        "This act will remain in force for three months more"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কোনো আইন বা বিধান চালু থাকা অর্থে 'remain in force' ইডিওমটি ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "4c0401b7-2d90-44b8-b6cd-618c38b5054b",
+      "question": "‘তার মজার গল্প শুনে ছেলেরা প্রায় হাসতে হাসতে লুটোপুটি খাচ্ছে’-The correct English Translation of this sentence is- [SABAS][]",
+      "options": [
+        "Listening to his comedy the boys rolled and laughed.",
+        "Listening to his funny story, the boys rolling laughed.",
+        "Listening to his comic story, the boys were almost rolling with laughter.",
+        "The boys heard the story and rolled and laughed."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাসতে হাসতে লুটোপুটি খাওয়া' এর ইংরেজি ইডিওম হলো 'rolling with laughter'.",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "c2d3ba35-205c-4566-a257-9351757fc015",
+      "question": "‘বইটি আমার, নোটটি তোমার’-কোন অনুবাদটি সঠিক? [SABAS][]",
+      "options": [
+        "I own the book, you own the note",
+        "The book is own by me, the note is yours",
+        "The book is belongs to me, the note belongs to you",
+        "The book belongs to me, the note is yours"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যটির সঠিক অনুবাদ হিসেবে 'I own the book, you own the note' দেওয়া আছে.",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "9454bccb-1818-4c59-9aa4-bf8f0c23fb1c",
+      "question": "‘তিনি স্বীয় উদ্দেশ্য সাধনের জন্য আপনার আনুগত্য করেন।’ এই বাক্যটির সঠিক ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "He pays obedience to achieve his goal",
+        "He dances attendance on you that he may achieve his own end",
+        "He dances attendance so that he can achieve his end",
+        "He dances attendance for you that he may reach his end"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Dances attendance' একটি ইডিওম যার অর্থ তোষামোদ করা বা আনুগত্য করা.",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "1cf6dce0-9dcd-4322-b6a1-4acc6a088aee",
+      "question": "‘আমাদের লাভের চেয়ে লোকসান বেশি হলো।’ এই বাক্যটির সঠিক ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "Our profit was greater than the loss",
+        "Our loss was greater than the profit",
+        "We lost more than we gained",
+        "We gained more than we lost"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "তুলনামূলক সহজ ও প্রচলিত অনুবাদ হলো 'We lost more than we gained'।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "a60df981-21fd-4534-a0cc-c1de873c7959",
+      "question": "“বইটি কেমন কাটছে?” [SABAS][]",
+      "options": [
+        "How does the book cut readers?",
+        "Does the book cut well?",
+        "Is the book leaving the market?",
+        "How is the book selling?"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বই বিক্রির হার বোঝাতে 'selling' শব্দটি ব্যবহৃত হয়। তাই সঠিক উত্তর 'How is the book selling?'।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "8533c07d-6701-4392-bfe0-0dd7f6738589",
+      "question": "মানুষ যেমন চায় তেমনই পায় [SABAS][]",
+      "options": [
+        "As you want so you get",
+        "As man wants so does he get",
+        "As men want so do they get",
+        "A man want so he gets"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মানুষ (Plural অর্থে) যেমন চায় তেমনই পায় এর সঠিক অনুবাদ হলো 'As men want so do they get'।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "9fd5f34c-bbfc-4617-a3eb-20080096f99d",
+      "question": "The correct translation ‘সাকিব সুন্দর গান গাইতে পারে।’ is— [SABAS][]",
+      "options": [
+        "Sakib can sing nicely",
+        "Sakib can sing well",
+        "Sakib can sing good",
+        "Sakib is good singer"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গান গাওয়ার দক্ষতা বোঝাতে 'sing well' ব্যবহৃত হয়। 'well' এখানে adverb হিসেবে কাজ করছে।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "36b3b8ab-a790-487e-93d5-a00fefbf0243",
+      "question": "“বাক্যটি কেটে দাও”-The English translation is [SABAS][]",
+      "options": [
+        "Pen through the sentence",
+        "Cut the sentence",
+        "Omit the sentence",
+        "Erase the sentence"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোনো কিছু লিখে কেটে দেওয়া বোঝাতে 'Pen through' বা 'Strike out' ইডিওমটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "3c1fb4d1-aef5-4fbb-adfd-7e29658f959e",
+      "question": "‘মেয়েটি নাচতে নাচতে চলিয়া গেল’- এর ইংরেজি অনুবাদ: [SABAS][]",
+      "options": [
+        "The girl went away dancing",
+        "The girl went away dancing dancing",
+        "The girl dancing dancing going",
+        "The girl dancing going went"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোনো কাজ করতে করতে চলে যাওয়া বোঝাতে 'went away + V(ing)' কাঠামোটি সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "239ebe14-b5aa-46fe-a886-0839be936e03",
+      "question": "বঙ্গবন্ধু বক্তৃতায় অদ্বিতীয় ছিলেন- সঠিক ইংরেজি অনুবাদ -- [SABAS][]",
+      "options": [
+        "As a lecturer Bangbondhu was second to none",
+        "As a speaker Bangbondhu was second to none",
+        "As an orator Bangbondhu was second to none",
+        "As a narrator Bangbondhu was second to none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বক্তা' বা ওজস্বী বক্তা বোঝাতে 'orator' শব্দটি সবচেয়ে উপযুক্ত।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "fac3dbc9-af86-4480-beac-8015c3909628",
+      "question": "The correct translation of ‘স্বপ্ন হলো ভাই, যা তোমাকে ঘুমাতে দেয় না’- [SABAS][]",
+      "options": [
+        "Dream doesn't let you sleep",
+        "It's dream which doesn't let you sleep",
+        "When you dream, you cannot sleep",
+        "Dream is that what doesn't let you sleep"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিখ্যাত উক্তির সঠিক রূপান্তর হলো 'It's dream which doesn't let you sleep'।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "317fe5f4-d89f-452e-95a5-a7cdfb512d7f",
+      "question": "‘None has yet been held in the case’-বাক্যের সঠিক বঙ্গানুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "মামলায় এখনো কাউকে ধরা হয় নি।",
+        "কাউকে এখনো মামলায় জন্য দায়ী করা হয় নি।",
+        "কাউকে এখনো বায়ে ধরা হয় নি।",
+        "ঘটনার জন্য এখনো কাউকে এখনো দায়ী করা যায় নি।"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আইনি ভাষায় 'held' বলতে কাউকে আটক বা গ্রেফতার করা বোঝায়।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "2531cbfc-4345-4768-981a-1a37979827f6",
+      "question": "‘দেখতে দেখতে দশটি বছর পেরিয়ে গেল’- এর সঠিক ইংরেজি অনুবাদ -- [SABAS][]",
+      "options": [
+        "Ten years have passed before eye",
+        "Ten years have been passed in twinkling of eye",
+        "Ten years have been past on the eve of eye",
+        "Ten years have been past in pursuit of time"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "দেখতে দেখতে' বা চোখের পলকে বোঝাতে 'in the twinkling of an eye' ইডিওমটি ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "6ef97b0e-c397-4329-9fd2-ed5cdd4922be",
+      "question": "‘সে আশি বছর বেঁচে ছিল’-এর সঠিক অনুবাদ -- [SABAS][]",
+      "options": [
+        "He lived to be eighty",
+        "He was eighty years old",
+        "He was living eighty years",
+        "He lived for eighty years"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোনো বয়সে পৌঁছানো বোঝাতে 'lived to be [age]' গঠনটি সঠিক.",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "c20d3007-97bb-4c4c-84ae-87926771789a",
+      "question": "হাজার বছর ধরে আমি পথ হাঁটিতেছি পৃথিবীর পথে [SABAS][]",
+      "options": [
+        "I am travelling the way of the world for thousand years",
+        "I have been travelling the way of the world for years",
+        "I have been travelling the way of the world for thousand years",
+        "I travell the world for thousand years"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দীর্ঘ সময় ধরে কোনো কাজ করা বোঝালে Present Perfect Continuous Tense ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "53e388e1-e575-4d56-a692-ee35c6ef7d27",
+      "question": "The correct translation of ‘আমার মাথা ঘুরছে’ is [SABAS][]",
+      "options": [
+        "My head is circling.",
+        "I fell nowhere.",
+        "I feel giddy (গিন্দি).",
+        "My head is giving pains."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মাথা ঘোরার ইংরেজি হলো 'to feel giddy'.",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "d792b7c7-2140-46c0-bb46-e750b6d8ae8a",
+      "question": "Choose the correct English Translation- গরু ঘাস খেয়ে বাঁচে। [SABAS][]",
+      "options": [
+        "The cow lives on grass",
+        "The cow eats grass",
+        "The cow cat grass",
+        "The cow lives eating grass"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোনো কিছুর উপর নির্ভর করে বেঁচে থাকা বোঝাতে 'live on' ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "366c3d1f-acac-41e1-8d6c-333fa7408e10",
+      "question": "‘আজ সে কেমন আছে?’ Select the right translation of the sentence- [SABAS][]",
+      "options": [
+        "How is he today?",
+        "What he is like today?",
+        "How he is today?",
+        "What is he like today?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাধারণ প্রশ্নবোধক বাক্যে 'How is + subject' গঠনটি সঠিক.",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "bbf92885-118c-426f-9803-95a8d5562b55",
+      "question": "‘The task is quite impossible to be done’ বাক্যটির বাংলা অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "কাজটি আমার অসম্ভব বলে মনে হয়",
+        "কাজটা করা একেবারে অসম্ভব",
+        "কাজটা অসম্ভব হলেও করা যায়",
+        "কাজটা অসম্ভব বলে ধরে নিতে হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যটির আক্ষরিক অর্থ 'কাজটি করা একেবারে অসম্ভব'.",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "7861fc92-60e9-4005-b976-cfb9e0b5d0c5",
+      "question": "The correct translation of ‘কারণ ছাড়াই তাকে অব্যাহতি দেয়া হল’ is - [SABAS][]",
+      "options": [
+        "He was dismissed reasonably",
+        "He was dismissed without any rhyme and reason",
+        "He was dismissed unreasonably",
+        "Without reason he sacked"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো কারণ ছাড়াই' বা 'অযৌক্তিকভাবে' বোঝাতে 'without rhyme or reason' ইডিওমটি ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "86d138a7-0404-4e91-be47-3778de2ab669",
+      "question": "The correct translation of ‘ঢাকা কোন্ দেশের রাজধানী?’ is - [SABAS][]",
+      "options": [
+        "Dhaka is which country's capital",
+        "Which country is Dhaka capital of?",
+        "Is Dhaka which country's capital",
+        "Which country Dhaka is capital of?"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রশ্নবোধক বাক্যের সঠিক গঠন 'Which country + is + subject + capital of?'.",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "6efe0d2b-b3e0-44cc-af95-9d6130b5f5bd",
+      "question": "The correct translation of ‘সকাল থেকে ভড়ি ভড়ি বৃষ্টি হচ্ছে’ is- [SABAS][]",
+      "options": [
+        "It is raining from morning.",
+        "It has been raining from morning.",
+        "It has been drizzling since morning.",
+        "It is drizzling since morning."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গুড়ি গুড়ি বৃষ্টি' অর্থে 'drizzle' ব্যবহৃত হয় এবং নির্দিষ্ট সময় থেকে শুরু হলে 'since' বসে.",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "85955a3b-5054-4dbd-bf6b-be9b737cb6bc",
+      "question": "Correct translation of ‘সে আমার মনের মত লোক’ is- [SABAS][]",
+      "options": [
+        "He is a man of my mind.",
+        "He is a man after my heart.",
+        "He is a man like my mind.",
+        "He is a man to my mind."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মনের মত লোক' এর সঠিক ইংরেজি বাগধারা হলো 'a man after my heart'.",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "a3210116-ded4-42c5-ba61-e22356f185e3",
+      "question": "‘তৈল পানিতে ভাসে।’ Translate it into English. [SABAS][]",
+      "options": [
+        "Oil is floating on water.",
+        "The oil floats over water.",
+        "Oil floats on water.",
+        "The oil floats on water."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সাধারণ সত্য (General Truth) বোঝাতে Present Indefinite Tense ব্যবহৃত হয়। এখানে কোনো নির্দিষ্ট তেলের কথা বলা হয়নি, তাই শুধু 'Oil floats' সঠিক.",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "3c28de74-cc81-47ff-be42-c028098ee398",
+      "question": "‘কর্তৃপক্ষ তাকে তিরস্কার করলো’- সঠিক ইংরেজি কি? [SABAS][]",
+      "options": [
+        "The authority took him to task",
+        "The authority criticised him",
+        "The authority took him to book",
+        "The authority gave reins to him"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "তিরস্কার করা' বা 'ভৎসনা করা' বোঝাতে 'take someone to task' ইডিওমটি ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "613e8fb4-8880-41b5-8e1a-2cba78c2fa25",
+      "question": "‘He is out for your blood’ বাক্যটির বাংলা অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "সে তোমার জন্য রক্ত খুঁজছে",
+        "সে তোমার রক্তের জন্য বেরিয়েছে",
+        "সে তোমাকে আক্রমণ করতে কৃতসংকল্প",
+        "সে তোমার রক্ত সম্পূর্ণ হতে বাইরে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Out for someone's blood' একটি ইডিওম যার অর্থ কাউকে ভীষণভাবে আক্রমণ করতে বা ক্ষতি করতে উদ্যত হওয়া.",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "7df8128e-c81c-4eef-ab19-ceb136625321",
+      "question": "The correct translation of ‘I am sick of him’ is - [SABAS][]",
+      "options": [
+        "আমি তার কারণে অসুস্থ",
+        "সে আমাকে রোগগ্রস্ত করে দিয়েছে",
+        "তাকে আমার অসহ্য লাগে",
+        "সে যে অসুস্থ তা জানি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Sick of someone' এর অর্থ হলো কারো ব্যবহারে বিরক্ত হওয়া বা কাউকে অসহ্য মনে হওয়া.",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "688d18d5-d4ec-4e78-8fc4-8c229069e0c5",
+      "question": "'মীর মশাররফ হোসেন ছিলেন বিচিত্রধর্মী লেখক' -এর সঠিক অনুবাদ কোনটি?[]",
+      "options": [
+        "ক) Mir Musharraf Hussain was a miscellaneous writer.",
+        "খ) Mir Musharraf Hussain was a versatile writer.",
+        "গ) Mir Musharraf Hussain wrote descritively.",
+        "ঘ) Mir Musharraf Hussain was a wonderful writer."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মীর মশাররফের 'বিচিত্রধর্মী'  অর্থ বহুমুখী বা versatile।  অতএব,  'versatile writer' সঠিক অনুবাদ।",
+      "images": []
+    }
+  ]
+}

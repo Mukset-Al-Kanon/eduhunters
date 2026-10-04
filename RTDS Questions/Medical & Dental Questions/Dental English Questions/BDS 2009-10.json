@@ -1,0 +1,218 @@
+{
+  "title": "BDS 2009-10",
+  "category": "Medical & Dental Questions > Dental English Questions",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "140697",
+      "question": "Which of the following pairs contains correct antonyms?",
+      "options": [
+        "complacent: satisfied",
+        "buoyant: cheerful",
+        "Frivolous: grave",
+        "Inclement: tyrannical"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Frivolous অর্থ চপল, লঘুচিত্ত, হালকা এবং grave অর্থ গুরুতর, গম্ভীর, রাশভারী। Complacent অর্থ আত্মতুষ্ট এবং satisfied অর্থ সন্তুষ্ট। Buoyant এবং cheerful অর্থ প্রাণবন্ত, প্রফুল্ল। Inclement অর্থ ঝড়ো, নির্মম এবং tyrannical অর্থ নির্মম। সুতরাং option C বাদে বাকিগুলো পরস্পর সমার্থক।"
+    },
+    {
+      "question_no": 2,
+      "id": "140698",
+      "question": "Which of the following bracketed words is an adverb?",
+      "options": [
+        "He answered the (question) correctly",
+        "We proceeded (cautiously.)",
+        "He did it with (care).",
+        "It was (troublesome) to me"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Option A তে, question শব্দটি answer verb এর object হিসেবে বসেছে তাই এটা noun. Option Cতে, did বাক্যের main verb. Option B তে, cautiously (সতর্কভাবে) word টি proceed verb কে modify করায় এটা adverb. Option D তে, troublesome (ঝামেলাপূর্ণ) হলো adjective. সুতরাং, সঠিক উত্তর cautiously."
+    },
+    {
+      "question_no": 3,
+      "id": "140699",
+      "question": "Which of the followings is compound sentence?",
+      "options": [
+        "Digging a deeper hole, he steadied it",
+        "If you read more, you will know more.",
+        "Let us read or we shall not pass.",
+        "When the school broke up, we went to play."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Compound sentence-এ সাধারণত দুটি স্বাধীন বাক্য Coordinating Conjunction and, but, or, nor, yet, therefore ইত্যাদি দ্বারা যুক্ত থাকে।"
+    },
+    {
+      "question_no": 4,
+      "id": "140700",
+      "question": "Which of the followings is complex sentence?",
+      "options": [
+        "Our night would have been very joyous.",
+        "It is a very pitiable sight",
+        "The evil that men do lives after them",
+        "The colours of the snakes were very beautiful"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Complex sentence-এ সাধারণত একটি স্বাধীন বাক্য এবং একটি অধীন বাক্য, subordinating conjuntion দ্বারা যুক্ত থাকে। যেমনঃ- if, that, though, since, because, wh-word etc."
+    },
+    {
+      "question_no": 5,
+      "id": "140701",
+      "question": "Which of the followings is affirmative sentence?",
+      "options": [
+        "The platinum fob-chain is very beautiful",
+        "The porter was very fortunate.",
+        "Her love for Jim was very deep.",
+        "It was a very lucky day."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Affirmative অর্থ হ্যাঁ বোধক বাক্য এবং কোনো কিছুর পক্ষে জোর দিয়ে বলা। সে ক্ষেত্রে উপরের সব কয়টি option সঠিক।"
+    },
+    {
+      "question_no": 6,
+      "id": "140702",
+      "question": "Which of the followings is the correct translation of that Bangla sentence? 'পৃথিবীর মানচিত্রে বাংলাদেশের অভ্যুদয় বিংশ শতাব্দীর একটি স্মরণীয় ঘটনা'।",
+      "options": [
+        "The emergence of Bangladesh in the map of the world is a memorable events of the twentieth century.",
+        "The emergence of Bangladesh on the map of the world is a memorable event of the twentieth century.",
+        "The emergence of Bangladesh in the maps of the world is a memorable event of the twentieth century.",
+        "The emergence of Bangladesh to the map of the world is a memorable event of the twentieth century."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "140703",
+      "question": "Which of the followings is the correct Bangla meaning of the English word?",
+      "options": [
+        "Tyrannise: অত্যাচার করা",
+        "Proficient: লাভজনক",
+        "Tremble: জয়লাভ করা",
+        "Indignant: অপরিহার্য"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Tyrannise- অত্যাচার করা, Tremble- কাঁপা, proficient- দক্ষ, Indignant- ক্রুদ্ধ।"
+    },
+    {
+      "question_no": 8,
+      "id": "140704",
+      "question": "Which of the following pairs contains correct past participle of that verb? (Verb - P. Participle)",
+      "options": [
+        "freeze - froze",
+        "hide - hid",
+        "go - Went",
+        "Forget - forgotten"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Forget - forgot - Forgotten অর্থ ভুলে যাওয়া। Freeze (জমে যাওয়া) এর past froze এবং past participle frozen; hide (লুকানো) এর past hid এবং past participle hidden; Go (যাওয়া) এর past went এবং past participle gone."
+    },
+    {
+      "question_no": 9,
+      "id": "140705",
+      "question": "Which of the following words is verb?",
+      "options": [
+        "misleading",
+        "lackluster",
+        "Jab",
+        "Dealer"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Misleading (adj) অর্থ বিভ্রান্তিকর; lackluster (adj) অর্থ অনুজ্জল; jab(v) অর্থ খোঁচা দেওয়া; dealer (N) অর্থ ব্যবসায়ী।"
+    },
+    {
+      "question_no": 10,
+      "id": "140706",
+      "question": "Which of the following pairs contains correct synonym?",
+      "options": [
+        "influence: lead",
+        "Informed:Instructive",
+        "injure: hurt",
+        "inspection: observer"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Influence অর্থ প্রভাবিত করা এবং lead অর্থ পরিচালিত করা; informed অর্থ অবগত এবং instructive অর্থ শিক্ষামূলক; injure এবং hurt উভয়ের অর্থই আঘাত পাওয়া; আবার inspection নিরীক্ষণ, অনুসন্ধান এবং observer অর্থ নিরীক্ষক। সুতরাং, সঠিক উত্তর option C।"
+    },
+    {
+      "question_no": 11,
+      "id": "140707",
+      "question": "Which of the following sentences is an example of active and present indefinite tense?",
+      "options": [
+        "He is writing a letter",
+        "I have invited them",
+        "He has done the work.",
+        "Floods destroy crops."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Active Present Indefinite tense-এর structure হলো sub + main v +obj অর্থাৎ, Floods destroy crops"
+    },
+    {
+      "question_no": 12,
+      "id": "140708",
+      "question": "Which of the following simple sentences uses prepositional phrase?",
+      "options": [
+        "Going home they found their brother",
+        "Mother asked Runa to iron the dried clothes",
+        "During sorting, the rotten oranges are thrown away.",
+        "Besides being a physician, Dr S Atiqul Haque was an opinion leader."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Preposition + object of the preposition (noun/pronoun) + modifier (থাকতে পারে, আবার নাও থাকতে পারে) = prepositional phrase। বাক্যে Besides হলো preposition আর physician হলো besides এর object | এইজন্যই এটা prepositional phrase।"
+    },
+    {
+      "question_no": 13,
+      "id": "140709",
+      "question": "Which of the following sentences contains the word 'round' as an adverb?",
+      "options": [
+        "The boy played well in the first round.",
+        "A square peg in a round table.",
+        "They rounded the temple silently",
+        "At last he came round to their belief"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Option D তে, round word টি came verb কে modify করায় এটা adverb। উল্লেখ্য, option A তে, round হলো noun যেহেতু preposition এর object হিসেবে বসেছে; option B তে, round word টি noun (table) কে modify করায় এটা adjective; এবং option C তে, round বাক্যের main verb হিসেবে বসেছে।"
+    },
+    {
+      "question_no": 14,
+      "id": "140710",
+      "question": "Which of the following sentences contains the word 'why' as relative pronoun?",
+      "options": [
+        "I don't know the why and wherefore of it.",
+        "Why did he come here?",
+        "I know the reason why he did it.",
+        "Why, it is surely Mahboob"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "I know the reason, he did it এই দুটি clause কে যুক্ত করার জন্য 'why' এখানে relative pronoun Option A তে, why word টি know verb এর object অর্থাৎ noun হিসেবে ব্যবহৃত হয়েছে। Option B তে, প্রশ্ন করার জন্য এবং opition D তে, কেন অর্থে why ব্যবহৃত হয়েছে।"
+    },
+    {
+      "question_no": 15,
+      "id": "140711",
+      "question": "Which of the following sentences is correct?",
+      "options": [
+        "The president gave away the prizes",
+        "The cooking coal gives in a lot of smoke.",
+        "The enemies gave off at last.",
+        "He will give out charge tomorrow."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Give off নির্গত করা; give in পরাজয় বরণ করা; give away বিতরণ করা; give out = শেষ হওয়া।"
+    }
+  ]
+}

@@ -1,0 +1,764 @@
+{
+  "title": "জীবপ্রযুক্তি (All Board Question) - Review Purpose",
+  "category": "Board Question Exams > Biology 1st Paper",
+  "duration_minutes": 30,
+  "total_questions": 54,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "106537",
+      "question": "কোনটি প্রাচীন জৈব প্রযুক্তি?",
+      "options": [
+        "জিন প্রকৌশল",
+        "টিস্যু কালচার",
+        "দই তৈরি",
+        "এন্টিবায়োটিক উৎপাদন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জিন প্রকৌশল,টিস্যু কালচার,এন্টিবায়োটিক উৎপাদন ইত্যাদি আধুনিক জৈব প্রযুক্তির উদাহরণ।"
+    },
+    {
+      "question_no": 2,
+      "id": "116808",
+      "question": "Biotechnology শব্দের জনক কে?",
+      "options": [
+        "Karl Ereky",
+        "Edward Jenner",
+        "John Clinch",
+        "Janet Parker"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "116809",
+      "question": "টিস্যু কালচার প্রযুক্তির উদ্ভাবক কে?",
+      "options": [
+        "G. Harberlandt",
+        "T. Morgan",
+        "J. Williamson",
+        "F. Sanger"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "116810",
+      "question": "টিস্যু কালচারের প্রাথমিক মিডিয়ামে নিচের কোন উপাদানটি থাকা প্রয়োজন?",
+      "options": [
+        "প্রোটিন",
+        "গ্লিসারল",
+        "ম্যালটোজ",
+        "সুকরোজ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "116811",
+      "question": "নিচের কোনটি আবাদ মাধ্যমকে জমাট বাঁধতে সহায়তা করে?",
+      "options": [
+        "ভিটামিন",
+        "হরমোন",
+        "অ্যাগার",
+        "সুক্রোজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "116812",
+      "question": "টিস্যু কালচারের উদ্দেশ্যে মাতৃ উদ্ভিদ হতে পৃথকীকৃত অংশের নাম কী?",
+      "options": [
+        "ক্যালাস",
+        "এক্সপ্লান্ট",
+        "মেরিস্টেম",
+        "অণুচারা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "116813",
+      "question": "নিম্নের কোন প্রক্রিয়ার সাথে এক্সপ্লান্ট সম্পর্কযুক্ত?",
+      "options": [
+        "জেনেটিক ইঞ্জিনিয়ারিং",
+        "টিস্যু কালচার",
+        "জিন ক্লোনিং",
+        "জিনোম সিকোয়েন্সিং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "116814",
+      "question": "",
+      "options": [
+        "এক্সপ্লান্ট",
+        "ক্যালাস",
+        "মূল",
+        "কাণ্ড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "116815",
+      "question": "কোন পদ্ধতিতে রোগমুক্ত উদ্ভিদ চারা উৎপাদন করা যায়?",
+      "options": [
+        "পরাগধানী কালচার",
+        "পরাগরেণু কালচার",
+        "মেরিস্টেম কালচার",
+        "ভ্রূণ কালচার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "116816",
+      "question": "সাইব্রিড এর ক্ষেত্রে মিলন হবে-",
+      "options": [
+        "নিউক্লিয়াসের",
+        "সাইটোপ্লাজমের",
+        "রাইবোসোমের",
+        "কোষ প্রাচীরের"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "116817",
+      "question": "’সাইব্রিড’ শব্দটি নিম্নের কোন প্রক্রিয়ার সাথে জড়িত?",
+      "options": [
+        "গ্রাফটিং",
+        "জিন ক্লোনিং",
+        "টিস্যু কালচার",
+        "হাইব্রিডাইজেশন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "116818",
+      "question": "নিচের কোনটির মাধ্যমে রোগমুক্ত উদ্ভিদ পাওয়া যায়?",
+      "options": [
+        "ভ্রূণ কালচার",
+        "ভাজক টিস্যু কালচার",
+        "পরাগধানী কালচার",
+        "কক্ষমুকুল কালচার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "116819",
+      "question": "হ্যাপ্লয়েড উদ্ভিদ পাওয়ার জন্য explant হিসেবে কোনটি ব্যবহার করা হয়?",
+      "options": [
+        "মূলশীর্ষ",
+        "পরাগরেণু",
+        "ভ্রূণ",
+        "কান্ডশীর্ষ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "116820",
+      "question": "নিচের কোনটি হতে হ্যাপ্লয়েড উদ্ভিদ উৎপাদন সম্ভব?",
+      "options": [
+        "মূল",
+        "কান্ড",
+        "পরাগধানী",
+        "ভ্রূণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "116821",
+      "question": "নিচের কোনটির মাধ্যমে হ্যাপ্লয়েড উদ্ভিদ উৎপাদন করা যায়?",
+      "options": [
+        "মেরিস্টেম কালচার",
+        "ক্যালাস কালচার",
+        "পরাগধানী কালচার",
+        "কক্ষ মুকুল কালচার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "116822",
+      "question": "নিচের কোন প্রক্রিয়ার দ্বারা হ্যাপ্লয়েড চারা উৎপাদন করা যায়?",
+      "options": [
+        "প্রোটোপ্লাস্ট কালচার",
+        "মেরিস্টেম কালচার",
+        "পরাগরেণু কালচার",
+        "ভ্রূণ কালচার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "116823",
+      "question": "পরাগধানী আবাদ এর মাধ্যমে যে উদ্ভিদ তৈরি হবে, সেটি-",
+      "options": [
+        "পলিপ্লয়েড",
+        "ট্রিপ্লয়েড",
+        "ডিপ্লয়েড",
+        "হ্যাপ্লয়েড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "116824",
+      "question": "নিচের কোন প্রযুক্তি প্রয়োগ করে জীবের জিনোটাইপের পরিবর্তন ঘটানো যায়?",
+      "options": [
+        "টিস্যু কালচার",
+        "জিনোম সিকোয়েন্সিং",
+        "জিন ক্লোনিং",
+        "রিকম্বিনেন্ট DNA"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "116825",
+      "question": "রিকম্বিনেন্ট ডিএনএ টেকনোলজি প্রয়োগে সৃষ্ট নতুন জীবকে বলে?",
+      "options": [
+        "ট্রান্সজেনিক",
+        "হাইব্রিড",
+        "সাইব্রিড",
+        "ক্লোন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "116826",
+      "question": "রিকম্বিনেন্ট DNA প্রযুক্তিতে নিচের কোন অণুজীব ব্যাপকভাবে ব্যবহৃত হয়?",
+      "options": [
+        "Azotobactor",
+        "Pseduomonas",
+        "Clostridium",
+        "E. coli"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "116827",
+      "question": "",
+      "options": [
+        "সংকর",
+        "ট্রান্সজেনিক",
+        "হ্যাপ্লয়েড",
+        "সমগুণসম্পন্ন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "116828",
+      "question": "Recombinant DNA এর ধাপ কোনটি?",
+      "options": [
+        "এক্সপ্লান্ট সংগ্রহ",
+        "বাহক দ্বারা জীন খন্ড করা",
+        "অনুচারা সৃষ্টি",
+        "লাইগেজ এনজাইমের ব্যবহার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "116829",
+      "question": "রিকম্বিনেন্ট DNA প্রযুক্তিতে নিম্নের কোন এনজাইম দিয়ে DNA কর্তন করা হয়?",
+      "options": [
+        "লাইগেজ এনজাইম",
+        "রেস্ট্রিকশন এনজাইম",
+        "স্ট্রেপটোকাইনেজ এনজাইম",
+        "প্লাজমিন এনজাইম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "116830",
+      "question": "কোনটি আণবিক কাঁচি নামে পরিচিত",
+      "options": [
+        "প্লাজমিড",
+        "লাইগেজ এনজাইম",
+        "রেস্ট্রিকশন এনজাইম",
+        "প্রাইমেড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "116831",
+      "question": "রেস্ট্রিকশন এনজাইম নয় কোনটি?",
+      "options": [
+        "EcoRI",
+        "Hindi lll",
+        "HPa-ll",
+        "All-Po"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "116832",
+      "question": "কোনটি জৈবিক ছুরি?",
+      "options": [
+        "E. coli",
+        "Eco-RI",
+        "Colicin",
+        "Vibriocin"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "116834",
+      "question": "বায়োলজিক্যাল নাইফ কোনটি?",
+      "options": [
+        "পলিমারেজ",
+        "লাইগেজ",
+        "রেস্ট্রিকশন এনজাইম",
+        "অ্যামাইলেজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "116966",
+      "question": "রিকম্বিনেন্ট ডিএনএ তৈরিতে ব্যবহৃত এনজাইমটি হচ্ছে-",
+      "options": [
+        "প্রাইমেজ",
+        "হেলিকেজ",
+        "রেস্ট্রিকশন এন্ডোনিউক্লিয়েজ",
+        "পলিমারেজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "116967",
+      "question": "রিস্ট্রিকশন এনজাইম কি কাজে ব্যবহৃত হয়?",
+      "options": [
+        "mRNA নির্দিষ্ট অংশ কাটতে",
+        "Amino Acid জোড়া লাগাতে",
+        "tRNA নির্দিষ্ট অংশ কাটতে",
+        "DNA এর নির্দিষ্ট অংশ কাটতে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "116968",
+      "question": "জেনেটিক ইঞ্জিনিয়ারিং-এ প্লাজমিড DNA এর কর্তিত অংশে target DNA জোড়া লাগানোর জন্য কোন এজাইম ব্যবহৃত হয়",
+      "options": [
+        "এন্ডোনিউক্লিয়েজ",
+        "পলিমারেজ",
+        "লাইয়েজ",
+        "লাইগেজ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "116969",
+      "question": "DNA খণ্ডকে জোড়া লাগানোর জন্য ব্যবহৃত হয় কোন এনজাইম?",
+      "options": [
+        "রেস্ট্রিকশন",
+        "হেলিকেজ",
+        "পলিমারেজ",
+        "লাইগেজ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "116970",
+      "question": "নিচের কোনটিতে প্লাজমিড পাওয়া যায়?",
+      "options": [
+        "Pneumococcus sp",
+        "TMV",
+        "E. coli",
+        "Vibrio cholerae"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "116971",
+      "question": "",
+      "options": [
+        "ক্রোমোজোম",
+        "গলজিবস্তু",
+        "নিউক্লিওয়েড",
+        "প্লাজমিড"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "116972",
+      "question": "প্লাজমিড এর ক্ষেত্রে প্রযোজ্য নয় কোনটি?",
+      "options": [
+        "বৃত্তাকার DNA",
+        "স্বল্প জিন বহন করে",
+        "এক সূত্রক DNA বহন",
+        "দ্বি-সূত্রক DNA বহন করে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "116973",
+      "question": "প্লাসমিডের ক্ষেত্রে প্রযোজ্য হলো-",
+      "options": [
+        "ইহা বৃত্তাকার দ্বিসূত্রক DNA অণু",
+        "রেস্ট্রিকশন এনজাইম দ্বারা কাটা অসম্ভব",
+        "জিন প্রকৌশলে বাহক হিসেবে কাজ করে না",
+        "এটি শ্বসনের ক্ষেত্রে ভূমিকা রাখে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "116974",
+      "question": "যে সকল প্লাজমিডে অ্যান্টিবায়োটিক প্রতিরোধী জীন থাকে, তাকে বলে",
+      "options": [
+        "F- প্লাজমিড",
+        "R- প্লাজমিড",
+        "কোল প্লাজমিড",
+        "ডিগ্রেটিব প্লাজমিড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "116975",
+      "question": "PCR-এর সঠিক পূর্ণরূপ কী?",
+      "options": [
+        "Peptide Chain Reaction",
+        "Polysaccharide Chain Reaction",
+        "Polyribosome Chain Reaction",
+        "Polymerase Chain Reaction"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "116976",
+      "question": "একটি জীনকে দ্রুত বহু কপি জিনে পরিণত করা যায় কোন পদ্ধতিতে ?",
+      "options": [
+        "রিপ্রোডাক্টিভ ক্লোনিং",
+        "টিস্যু কালচার",
+        "রিকম্বিনেন্ট DNA প্রযুক্তি",
+        "PCR"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "116977",
+      "question": "Bt. বেগুনে সংযুক্ত অতিরিক্ত জিন নিম্নের কোন অণুজীব থেকে সংগৃহীত?",
+      "options": [
+        "Bacillus subtilis",
+        "Bacillus thuringiensis",
+        "Escherichia coli",
+        "Agrobacterium tumefacians"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "116978",
+      "question": "Bt-বেগুন উৎপন্ন করার জন্য কোন অণুজীবটি ব্যবহার করা হয়?",
+      "options": [
+        "Bacillus dysenteri",
+        "Bacillus anthracis",
+        "Bacillus thuringiensis",
+        "Bacillus denitrificans"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "116979",
+      "question": "ট্রান্সজেনিক ক্লোভার ঘাসে নিচের কোন উপাদানটি উৎপাদনকারী জিন সংযোজন করা হয়েছে?",
+      "options": [
+        "সালফার",
+        "আয়রন",
+        "জিংক",
+        "কপার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "116980",
+      "question": "STT প্রযুক্তি ব্যবহৃত হয় কোন শিল্পে?",
+      "options": [
+        "ঔষধ",
+        "কৃষি",
+        "বস্ত্র",
+        "খাদ্য"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "116981",
+      "question": "সুপার রাইসে কোন ভিটামিন থাকে?",
+      "options": [
+        "A",
+        "B-6",
+        "D",
+        "E"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "116982",
+      "question": "সুপার রাইস ধানে কোন ভিটামিন থাকে?",
+      "options": [
+        "ভিটামিন- A",
+        "ভিটামিন- B",
+        "ভিটামিন- C",
+        "ভিটামিন- D"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "116983",
+      "question": "রোগ প্রতিরোধী জাত উদ্ভাবনে নিম্নের কোন জিনটি ব্যবহৃত হয়?",
+      "options": [
+        "CP",
+        "CRT-1",
+        "Nif",
+        "PG"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "116984",
+      "question": "পানিতে তেল শোধনে ব্যবহৃত হয়",
+      "options": [
+        "Pseudomonas tabaci",
+        "Pseudomonas aeruginosa",
+        "Pseudomonas syringae",
+        "Xanthomonas oryzae"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "116985",
+      "question": "ইন্টারফেরন নিঃসৃত হয়-",
+      "options": [
+        "মাস্ট কোষ হতে",
+        "ব্যাকটেরিয়া আক্রান্ত কোষ হতে",
+        "ক্যান্সার কোষ হতে",
+        "ভাইরাস আক্রান্ত কোষ হতে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "116986",
+      "question": "মানুষের শরীরে ভাইরাসের সংক্রমণ ও ক্যান্সার প্রতিরোধ করে-",
+      "options": [
+        "ইন্টারফেরন",
+        "ইনসুলিন",
+        "সোমাটোস্ট্যাটিন",
+        "গ্লোবিউলিন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "116987",
+      "question": "ইনসুলিন হল",
+      "options": [
+        "প্রোটিন",
+        "ভিটামিন",
+        "লিপিড",
+        "কার্বোহাইড্রেট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "116988",
+      "question": "ইন্টারফেরন কোন ধরনের পদার্থ?",
+      "options": [
+        "প্রোটিন",
+        "শর্করা",
+        "চর্বি",
+        "গ্লাইকোলিপিড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 51,
+      "id": "116989",
+      "question": "নিচের কোনটি জলাতঙ্ক রোগের চিকিৎসায় সাফল্য অর্জনে করেছে?",
+      "options": [
+        "হিউমুলিন",
+        "ইন্টারফেরন",
+        "প্লাজমিনোজেন",
+        "ইরিথ্রোপোইটিন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 52,
+      "id": "116990",
+      "question": "মানুষের দেহকোষ জিনোম সংখ্যা কতটি?",
+      "options": [
+        "01",
+        "02",
+        "22",
+        "44"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "116991",
+      "question": "জিনোম সিকোয়েন্সিং এর প্রয়োগ করা হয় কোথায়?",
+      "options": [
+        "মলিকুলার ফার্মিং এ",
+        "ট্রান্সেজেনিক প্রাণী সৃষ্টিতে",
+        "ইন্টারফেরন উৎপাদনে",
+        "স্বজন নির্ধারণে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "116992",
+      "question": "কোন ক্ষেত্রে জিনোম সিকোয়েন্সিং প্রয়োগ করা হয়?",
+      "options": [
+        "অপরাধী সনাক্তকরণে",
+        "পরিবেশ ব্যবস্থাপনায়",
+        "ক্যান্সার সৃষ্টিতে",
+        "হ্যাপ্লয়েড উদ্ভিদ তৈরিতে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    }
+  ]
+}

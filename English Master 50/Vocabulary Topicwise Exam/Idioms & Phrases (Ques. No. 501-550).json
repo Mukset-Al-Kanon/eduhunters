@@ -1,0 +1,761 @@
+{
+  "exam_id": 8087,
+  "title": "Idioms & Phrases (Ques. No. 501-550)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "Idioms & Phrases Exam (938 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "9d4a6c5c-01a4-42a6-a064-ff8acbf910bc",
+      "question": "\"Step down\" means-[]",
+      "options": [
+        "Bend low and keep down",
+        "Skip the steps",
+        "Resign from an important position",
+        "Climb up the stairs"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "c596e1c9-91fd-40e5-a6c9-75bb1b6d0380",
+      "question": "\"A slow coach\" means -[]",
+      "options": [
+        "A irresponsible person",
+        "A careless person",
+        "An unthoughtfull person",
+        "A very lazy person"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "5f3223d0-1ddb-4f0e-a0c9-45930f078b59",
+      "question": "\"A slow coach\" means -[]",
+      "options": [
+        "An untrained coach",
+        "A dull fellow",
+        "A bad companion",
+        "A lost guy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "88547986-aed0-4091-a1bb-c52dcd5acf43",
+      "question": "Sharp practice' means -[]",
+      "options": [
+        "Temptation",
+        "Quick practice",
+        "Very clever",
+        "Dishonest business"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "2707390c-e40d-4f2d-a2fd-63a6d35bb63b",
+      "question": "Sharp practice' means -[]",
+      "options": [
+        "Intelligent person",
+        "Moral practice",
+        "Deceptive practice",
+        "Formal practice"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "d0d15f9e-cab2-448a-9ec8-4358f4732a0a",
+      "question": "My uncle is 'six feet under'. Here six feet under means -[]",
+      "options": [
+        "Dead and buried",
+        "Disheartened",
+        "Wounded and lost",
+        "None of these"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "e7fabcd3-6f74-45da-a797-ea68670f83b1",
+      "question": "\"To smell a rat\" is-[]",
+      "options": [
+        "to smell a bad rat",
+        "to detect a dead person",
+        "to suspect a trick or deceit",
+        "to do sharp in smelling"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "29e1694b-70e4-4fb7-bc74-1f13ba0bccc7",
+      "question": "Smell a rat -[]",
+      "options": [
+        "Bad smell",
+        "Presence of a thief",
+        "Suspect something",
+        "Make difficult"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "b30a781b-d59b-4a83-ba7f-81d7f968f9fa",
+      "question": "To smell a rat means -[]",
+      "options": [
+        "To give smelly food to rats",
+        "To put rats in cages",
+        "To suspect something wrong",
+        "The smell of a rat"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "b1b1a5d0-ea69-4c70-accc-7c00c31091d0",
+      "question": "Hush money' means -[]",
+      "options": [
+        "Silent money",
+        "Quiet money",
+        "Borrowed money",
+        "Money given as bribe"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "d0a1773d-a111-4c0b-a4ff-407b87413b4a",
+      "question": "Speed money' means -[]",
+      "options": [
+        "Bribe",
+        "Percentage of interest",
+        "Black money",
+        "Hard earned money"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "7cf5f83c-1a29-4b7c-9f35-3f4f7a3b0c77",
+      "question": "Sit on the fence' means -[]",
+      "options": [
+        "Watch over the fence",
+        "Sit on a height",
+        "Remain neutral in a dispute",
+        "Sit idly"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "3f8227e6-cb9f-4bf6-b87e-35311de62d48",
+      "question": "A snake in the grass' means -[]",
+      "options": [
+        "A snake laying eggs",
+        "An unpleasant person who cannot be trusted",
+        "A snake sun bathing",
+        "A sleeping snake"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "4c05c000-5c77-4a8a-a9c4-5e9a7b95c97f",
+      "question": "A snake in the grass means -[]",
+      "options": [
+        "A sleeping snake",
+        "A piece of rope",
+        "A hidden enemy",
+        "A dead snake"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "f7d2250c-9b08-43c6-8ca9-feb7e0036dcd",
+      "question": "A snake in the grass means -[]",
+      "options": [
+        "Secret or hidden enemy",
+        "Unforeseen happening",
+        "Unrecognizable danger",
+        "Unreliable person"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "dc7b8925-5fb6-4cb0-9810-3490ab388e0f",
+      "question": "Straw vote means-[]",
+      "options": [
+        "Unofficial poll or public opinion",
+        "Poll based on random representation",
+        "Poll based on yes-no vote",
+        "Manipulated voting"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "6912be03-6345-45b5-a726-b3e86c7e479e",
+      "question": "Straw poll means -[]",
+      "options": [
+        "Yes-no vote",
+        "Manipulated voting",
+        "Official poll or public opinion",
+        "Unofficial survey of public opinion"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "0f1d2c74-bffc-4e77-b660-96ef2db38be9",
+      "question": "\"Show good manners' means -[]",
+      "options": [
+        "Behave gently",
+        "Practice manner",
+        "Behave yourself",
+        "Do not talk rudely"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "40ed4aa0-5430-488b-a83c-53abb0776419",
+      "question": "\"A sitting duck\" is-[]",
+      "options": [
+        "A duck which was always in a sitting position",
+        "An easy target",
+        "A duck that cannot swim",
+        "A useless person or thing"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "b47a3c34-4bef-4e83-b58f-d96e8b2224bc",
+      "question": "The expression 'to see red' means -[]",
+      "options": [
+        "To become very angry",
+        "To draw blood",
+        "To be enthusiastic",
+        "To be lethargic"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "9fda10e8-19b8-43a8-b5a8-19d0cedc52b6",
+      "question": "Sixes and sevens means -[]",
+      "options": [
+        "Early evening",
+        "A game plated six seven persons",
+        "Six o' clock to seven a clock",
+        "Confused or disorganized"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "3c1613c5-0bc6-456b-b89b-95e6f8297600",
+      "question": "Six of, one and a half a dozen of another' means -[]",
+      "options": [
+        "Twelve pieces",
+        "Negligible difference",
+        "Thoroughly",
+        "Countless"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "881ef017-93c0-4bef-8427-b82de8b71634",
+      "question": "\"In seven heaven\" means -[]",
+      "options": [
+        "In a state of shock",
+        "A state of exasperation",
+        "In a state of supreme happiness",
+        "In a state of disenchantment"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "21c3974a-4718-4a69-8540-e2bd9c5df043",
+      "question": "\"Spectator sport\" means -[]",
+      "options": [
+        "A game which is spectacular",
+        "A game which is interesting to watch",
+        "A game which is spectators play",
+        "A game which is profitable"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "aa1c6493-5b1d-4c17-9ef4-f6c9fca67ec7",
+      "question": "To stay put' means -[]",
+      "options": [
+        "To sit down",
+        "To go out of the room",
+        "To remain still",
+        "Not to go out of the room"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "d76d29da-1baf-4fb3-b46d-8f1deaacd831",
+      "question": "Three score is -[]",
+      "options": [
+        "Thirty times",
+        "Three hundred times",
+        "Three times twenty",
+        "More than three"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "ead8729c-5140-4886-9d4b-a4fbc86e9153",
+      "question": "Talk through one's hat means -[]",
+      "options": [
+        "Talking irresponsible",
+        "Talking ignorantly",
+        "Talking nonsense",
+        "Talking insultingly"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "e517abc1-4cb1-47ba-9dea-73199e309fc8",
+      "question": "You should not take for -.[]",
+      "options": [
+        "wanted",
+        "granted",
+        "required",
+        "settled"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "3c8dab75-d80f-440a-85bd-a156c52a084f",
+      "question": "Take into account' means -[]",
+      "options": [
+        "Count numbers",
+        "Consider",
+        "Assess",
+        "Think seriously"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "be6a9126-9184-479f-a26c-71eeba392def",
+      "question": "I never read instruction manual.I learned how to use the computer by trial and ---.[]",
+      "options": [
+        "error",
+        "mistake",
+        "test",
+        "experiment"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "a058ebc5-4d8b-4ea9-90ff-2e48a22af0b8",
+      "question": "\"To be partial of something\" means -[]",
+      "options": [
+        "Want half",
+        "Like it",
+        "Hate it",
+        "Preserve it"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "e0094c27-6772-420b-92a7-425ad4090772",
+      "question": "\"Take the chair\" means -[]",
+      "options": [
+        "Taking a chair",
+        "Make a chair",
+        "Preside",
+        "Bring the chair"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "9e4931dd-994a-4a7a-b595-80f78fa40309",
+      "question": "\"Tooth and nail\" means -[]",
+      "options": [
+        "Get by heart",
+        "Go with heart",
+        "Tried hard",
+        "Get hard"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "84d3e8dc-827a-4f28-af6c-4d66bd0aefe7",
+      "question": "Tooth and nail' means -[]",
+      "options": [
+        "Strongly",
+        "Mouthwash",
+        "Everything",
+        "None of the above"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "76ddd73a-8616-4250-a29e-f31a77dfcc51",
+      "question": "Tooth and nail' means -[]",
+      "options": [
+        "Beautiful",
+        "Precise",
+        "Completely",
+        "Incompletely"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "71b5610a-596d-4fdf-b86e-4b0e47ab3dea",
+      "question": "\"To be one's wits' end\" means -[]",
+      "options": [
+        "To become mad",
+        "To come to the end of the journey",
+        "Not to know what to do",
+        "To finish a job"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "9ea9b4a0-1256-4454-a4b1-35572de8e46a",
+      "question": "He was taken to task এর বাংলা অনুবাদ -[]",
+      "options": [
+        "তাকে কাজ দেওয়া হয়েছিল",
+        "তাকে কাজের জন্য বলা হয়েছিল",
+        "তাকে কাজে নিয়েছিল",
+        "তাকে তিরষ্কার করা হয়েছিল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "43d117b7-adfe-4989-9af9-67f70516723e",
+      "question": "\"Take one to task\" means -[]",
+      "options": [
+        "Imitate",
+        "Rescue",
+        "Rebuke",
+        "Restrain"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "8d9c2726-ff24-4971-b5b8-08c53f6a3468",
+      "question": "\"Take after\" means -[]",
+      "options": [
+        "Similarity between two persons",
+        "Dissimilarity between two persons",
+        "Take the opportunity",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "1a33cd77-6af9-4ae8-91dd-06bda73358e6",
+      "question": "Through thick and thin' means -[]",
+      "options": [
+        "Under all conditions",
+        "To make thick and thin",
+        "To clear understanding",
+        "Of great density"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "a8a83723-c42f-43a1-8741-d92ea567a32d",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "Family and friends together stay thick and thin",
+        "Family and friends stay through  thick and thin together",
+        "Family and friends stay together through  thick and thin",
+        "Family and friends through  thick and thin together stay"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "faccbaa3-c56e-444b-8d3a-021b17d7bad7",
+      "question": "Take to one's heel' means -[]",
+      "options": [
+        "To stand on one's own feet",
+        "To wear expensive shoe",
+        "To escape",
+        "To reach"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "dcdf7a5c-29ae-4a7d-8af1-593fc0c61df6",
+      "question": "\"Take full advantage\" means -[]",
+      "options": [
+        "Take pictures",
+        "Make a survey",
+        "Make good use",
+        "Visit to get an idea"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "6f26661b-f78e-4727-9c4f-8ffab730a6e2",
+      "question": "A tenure position' means -[]",
+      "options": [
+        "A permanent post",
+        "A temporary post",
+        "An ordinary post",
+        "A high post"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "6a1ff14b-e73c-4ffa-8d6e-8804479b52a5",
+      "question": "\"Take somebody for cruising\" means -[]",
+      "options": [
+        "To provide entertainment",
+        "To deceive or humiliate a person",
+        "To keep company",
+        "To exploit a person"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "8d5dfd15-fb73-4037-8d79-cab311dd8bff",
+      "question": "Mr. Rahman was a gentleman ---.[]",
+      "options": [
+        "whole heartedly",
+        "through and through",
+        "politely",
+        "inside and outside"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "83b9f313-6b73-4b62-ac78-0d80c4f93ccd",
+      "question": "Talk out' means -[]",
+      "options": [
+        "Settle by talking",
+        "Out of talk",
+        "Cannot talk",
+        "Talk nonscence"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "cd0d3ce7-ad6a-4684-89c5-ed7552dabcff",
+      "question": "\"Turn a deaf ear\" means -[]",
+      "options": [
+        "Be attentive",
+        "Disregard",
+        "Speak loudly",
+        "Be caring"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "1585f34f-66f0-4aca-9235-d64fcf038a77",
+      "question": "\"Toot your own horn\" means -[]",
+      "options": [
+        "Self destruction",
+        "Boast",
+        "Talks a lot",
+        "Possessive"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "8f308653-b16d-48c7-864e-f9b59f3691d0",
+      "question": "\"Tooth for tooth\" means -[]",
+      "options": [
+        "To take revenge",
+        "To take a tooth",
+        "To drop a tooth",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

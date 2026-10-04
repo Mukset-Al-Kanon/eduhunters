@@ -1,0 +1,385 @@
+{
+  "exam_id": 1181,
+  "title": "Exam (35)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 20,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "6400f09a-c748-440f-9016-41cde2a69b62",
+      "question": "পদ্মা সেতুর ফলে বাংলাদেশের জিডিপি এর প্রবৃদ্ধি কত শতাংশ বাড়াবে?",
+      "options": [
+        "১%",
+        "১.৪%",
+        "১.২%",
+        "১.৫%"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "2d5ff11c-7771-4aae-9663-c21419d4850c",
+      "question": "যমুনা নদীর উপর নির্মিত বঙ্গবন্ধু সেতুর দুই প্রান্ত কোন দুটি জেলায় অবস্থিত?",
+      "options": [
+        "ঢাকা ও পাবনা",
+        "টাঙ্গাইল ও সিরাজগঞ্জ",
+        "টাঙ্গাইল ও ময়মনসিংহ",
+        "পাবনা ও টাঙ্গাইল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "22987acf-74dd-4c1f-800e-e024eb4ee75f",
+      "question": "বাংলাদেশ চীন মৈত্রী সেতু কোন নদীর উপর অবস্থিত?",
+      "options": [
+        "মেঘনা",
+        "বুড়িগঙ্গা",
+        "যমুনা",
+        "ধলেশ্বরী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "8c3ded62-0401-4b03-b0c8-f27ca78c4233",
+      "question": "পদ্মা সেতুর প্রস্থ কত মিটার?",
+      "options": [
+        "১৮",
+        "১৮.২৮",
+        "১৯",
+        "১৮.১০"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "6818cf76-c76a-4a6e-aef5-4d9622627bed",
+      "question": "ঢাকায় দীর্ঘতম ফ্লাইওভার কোনটি?",
+      "options": [
+        "কুড়িল",
+        "যাত্রাবাড়ী",
+        "খিলগাঁও",
+        "মহাখালী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "f3d100f6-c2ba-4e99-bd8a-f80b61db5d7d",
+      "question": "স্বাধীন বাংলাদেশের নির্মিত প্রথম সমুদ্র বন্দরের নাম কি?",
+      "options": [
+        "পতেঙ্গা সমুদ্র বন্দর",
+        "পায়রা সমুদ্র বন্দর",
+        "কুয়াকাটা বন্দর",
+        "মংলা সমুদ্র বন্দর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "cc01a1f8-a697-4952-b571-10cc6d070052",
+      "question": "দেশের প্রথম মেট্রোরেল কখন উদ্বোধন করা হয়?",
+      "options": [
+        "১১ ডিসেম্বর, ২০২২",
+        "১৬ ডিসেম্বর, ২০২২",
+        "২২ ডিসেম্বর, ২০২২",
+        "২৮ ডিসেম্বর, ২০২২"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "94f8ecad-6a8f-44bd-b446-4e8e2c901f88",
+      "question": "বেনাপোল স্থল বন্দর সংলগ্ন ভারতীয় স্থল বন্দর-",
+      "options": [
+        "পেট্রাপোল",
+        "কৃষ্ণনগর",
+        "ডাউকি",
+        "মোহাদিপুর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "a77a0f45-d339-4667-9a14-bc04e9605362",
+      "question": "বাংলাদেশ রেলওয়ের সর্ববৃহৎ কারখানা কোথায়",
+      "options": [
+        "পাকশী",
+        "চট্টগ্রাম",
+        "আখাউড়া",
+        "সৈয়দপুর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "cc85f8aa-c3d4-44f7-a26d-4a7e2cf8407b",
+      "question": "কর্ণফুলী নদীর নিচে নির্মিত বঙ্গবন্ধু টানেলের গভীরতা কত?",
+      "options": [
+        "১৪৫ ফুট",
+        "১৫৫ ফুট",
+        "১৫০ ফুট",
+        "১৬০ ফুট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "502b7fd6-4379-4903-88da-aed717ec18f4",
+      "question": "'I like <strong>japanese</strong> cars'-Which form of adjective is the underlined word?",
+      "options": [
+        "possessive",
+        "exclamatory",
+        "proper",
+        "relative"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "dc8a4970-eed2-43d3-a3b0-84c4d0a2b612",
+      "question": "Few students come to school today. Here 'few' is an adjective of-",
+      "options": [
+        "quality",
+        "quantity",
+        "numeral",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "bcdf8a33-82e8-49d5-9124-6bede76c5607",
+      "question": "Which one is an example of ordinal numeral adjective?",
+      "options": [
+        "five",
+        "third",
+        "single",
+        "some"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "0d445db6-4698-4fbb-9ed9-7736dbc5599a",
+      "question": "Say the <strong>same</strong> thing twice over.",
+      "options": [
+        "Demonstrative",
+        "Descriptive",
+        "Distributive",
+        "Indefinite Numeral"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "c12fbd7c-9a34-4766-95f1-64b423f2445a",
+      "question": "_____ parent plays a different but important role in a child's life.",
+      "options": [
+        "Each",
+        "One",
+        "Anyone",
+        "The"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "819c49a6-5ffa-4785-bdd0-76da236788b8",
+      "question": "Which colour do you like best? Here the word 'Which' is a/an-",
+      "options": [
+        "Interrogative pronoun",
+        "Relative pronoun",
+        "Demonstrative pronoun",
+        "Interrogative adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "1196a02a-4f45-4364-a2e6-24d03c056621",
+      "question": "Choose the sentence which shows possessive adjective:",
+      "options": [
+        "This is his car.",
+        "That book is mine",
+        "It's a business of their's.",
+        "This house is belongs to them"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "92f1d44d-8906-499c-80fc-09a8e04c301b",
+      "question": "Complete the sentence: I took part in a",
+      "options": [
+        "Three hours examinations",
+        "Three hours examination",
+        "Three hour examinations",
+        "Three hour examination"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "a22a3a00-1989-4afc-ad93-5dda4b7c8acd",
+      "question": "An adverb-",
+      "options": [
+        "modifies a pronoun",
+        "modifies an adjective",
+        "modifies a preposition",
+        "modifies a noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "a8359527-b760-4a4d-8855-09f8f55ceb7b",
+      "question": "My mother always dresses (beautiful).",
+      "options": [
+        "beauty",
+        "beautify",
+        "beautiful",
+        "beautifully"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "f4dd706b-b2a5-42c7-918b-26754a0ff6ac",
+      "question": "He lived very ___ with his wife for many years.",
+      "options": [
+        "happier",
+        "happiest",
+        "happy",
+        "happily"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "8c0998f3-2545-480f-b688-ad5f5db67b31",
+      "question": "He did __ in the test.",
+      "options": [
+        "badly",
+        "good",
+        "imaginative",
+        "bad"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "5dcf64b3-9f90-4c70-9ef0-77cb07ca05e9",
+      "question": "Identify the correct sentence.",
+      "options": [
+        "She behaved with me in a friendly way.",
+        "She behaved with me friendly.",
+        "She behaved with me in friendly way.",
+        "She behaved with me friendly way."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "fd5de302-6128-489d-bda7-48ebe6dee5ee",
+      "question": "The old man was weak to get out of bed.",
+      "options": [
+        "most",
+        "So",
+        "very",
+        "too"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "895905ce-f103-4fb8-9335-4b5aba12809b",
+      "question": "He didn't get the job because he wasn't __.",
+      "options": [
+        "enough experienced",
+        "experienced enough",
+        "experience enough",
+        "experience although"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

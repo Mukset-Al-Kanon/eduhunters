@@ -1,0 +1,218 @@
+{
+  "title": "BDS 2017-18",
+  "category": "Medical & Dental Questions > Dental English Questions",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "140652",
+      "question": "The food is not _______ my taste.",
+      "options": [
+        "for",
+        "to",
+        "in",
+        "with"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "To one's taste phrase টির অর্থ কারো রুচি বা পছন্দ অনুযায়ী। বাক্যটির বাংলা অর্থ 'খাবারটি আমার পছন্দের নয়।"
+    },
+    {
+      "question_no": 2,
+      "id": "140653",
+      "question": "'কদাচিৎ সে এখানে আসে' বাক্যটির ইংরেজি অনুবাদ কোনটি?",
+      "options": [
+        "He ever comes here",
+        "He casually comes here",
+        "He hardly comes here",
+        "He seldom comes here"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Hardly/seldom অর্থ almost not প্রায় না, কদাচিৎ। কদাচিৎ/ প্রায়ই আসে না/ খায় না/ যায় না/দেখে না/পড়ে না ইত্যাদি বোঝাতে সাধারণত hardly/seldom"
+    },
+    {
+      "question_no": 3,
+      "id": "140654",
+      "question": "'এত সুন্দর একটা কলম হাতছাড়া কর না' বাক্যটির ইংরেজি অনুবাদ কোনটি?",
+      "options": [
+        "Do not separate from this good pen",
+        "Do not part with such a good pen.",
+        "Do not part by such a good pen.",
+        "Do not wall off with such a good pen"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Separate অর্থ আলাদা করা। আর part with অর্থ কাউকে কোনো কিছু দেয়া বা হাত ছাড়া করা। Wall something off অর্থ কোনো জায়গার চারপাশে দেয়াল নির্মাণ করা।"
+    },
+    {
+      "question_no": 4,
+      "id": "140655",
+      "question": "Which one is the correct active sentence of the passive form: 'The wounded man was being helped by some boys'",
+      "options": [
+        "Some boys were helping the wounded man",
+        "Someboys were helping the wounded man",
+        "Some boys were helped the wounded man",
+        "Some boys were being help the wounded man"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাক্যটির বাংলা অনুবাদ: কয়েকজন বালক আঘাতপ্রাপ্ত লোকটিকে সাহায্য করছিল। এর passive হলো the wounded man was being helped by some boys, some এবং boys দুইটি আলাদা শব্দ, তাই some-এর পর gap দিয়ে boys বসাতে হবে।"
+    },
+    {
+      "question_no": 5,
+      "id": "140656",
+      "question": "'Admire' শব্দের antonym নিম্নের কোনটি?",
+      "options": [
+        "esteem",
+        "wonder",
+        "appreciate",
+        "abhor"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Admire শব্দের অর্থ হলো কদর করা/ মূল্যায়ন করা। এর synonym হলো: appreciate, value, honour, esteem, praise প্রভৃতি। আর antonym হলো abhor, hate, detest, criticise, condemn প্রভৃতি।"
+    },
+    {
+      "question_no": 6,
+      "id": "140657",
+      "question": "Which one is the correct sentence given below?",
+      "options": [
+        "I eat neither mangoes nor bananas",
+        "I eat mangoes neither bananas nor.",
+        "Neither I eat mangoes nor I eat bananas",
+        "I neither eat mangoes nor bananas"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Neither-এর সাথে nor বসে, যার অর্থ কোনোটাই না। এখানে neither-এর পরই common object বা বস্তুটা বসবে, verb-এর আগে নয়। এটাও নয়, ওটাও নয়.... neither mangoes nor bananas, ... neither it nor that"
+    },
+    {
+      "question_no": 7,
+      "id": "140658",
+      "question": "'সব ভাল যার শেষ ভাল।' বাক্যটির সঠিক ইংরেজি অনুবাদ হলো-",
+      "options": [
+        "All well that ends well",
+        "All are well that end well",
+        "All well that end well",
+        "All one well when all finishes well"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রশ্নে ভুল আছে। (A)-তে All is well.... অথবা All's well হবে, যার অর্থ সব ভালো তার, শেষ ভালো যার।"
+    },
+    {
+      "question_no": 8,
+      "id": "140659",
+      "question": "The doctor took the 'round' in the hospital. Here 'round' is a/an-",
+      "options": [
+        "adjective",
+        "noun",
+        "verb",
+        "adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Adjective-এর আগে the বসলে, সেটি noun বা object হয়। বাক্যটির বাংলা অর্থ: ডাক্তার সাহেব হাসপাতালে রাউন্ড দিলেন।"
+    },
+    {
+      "question_no": 9,
+      "id": "140660",
+      "question": "I cannot make ........his handwriting.",
+      "options": [
+        "up",
+        "for",
+        "to",
+        "out"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Make out অর্থ বুঝতে পারা (understand)। বাক্যটির বাংলা অর্থ: আমি তার হাতের লেখা বুঝতে পারি না।"
+    },
+    {
+      "question_no": 10,
+      "id": "140661",
+      "question": "'They rested at sunset'. Here 'at sunset' is a/an--",
+      "options": [
+        "adjective clause",
+        "noun clause",
+        "adverb clause",
+        "adverb phrase"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "At sunset হলো adverb of time-এর উদাহরণ। আর এটি একটি phrasel"
+    },
+    {
+      "question_no": 11,
+      "id": "140662",
+      "question": "'আমাকে এখন যেতে হবে' বাক্যটির সঠিক ইংরেজি অনুবাদ নিচের কোনটি?",
+      "options": [
+        "I will go now.",
+        "I am going now",
+        "I have to go now",
+        "I must go now."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমাকে যেতে হয় - am to go. আমাকে অবশ্যই যেতে হবে- must go. আমাকে যেতেই হবে বা আমাকে অবশ্যই যেতে হবে = I must go। আমাকে যেতে হবে -I have to go. আমার যাওয়া উচিত- I should go. আমার যাওয়া উচিত ছিল = I should have gone. আমি (নিয়মিত) যেতাম = I used to go ."
+    },
+    {
+      "question_no": 12,
+      "id": "140663",
+      "question": "'It takes two to make a quarrel.' বাক্যটির বাংলা অনুবাদ কোনটি-",
+      "options": [
+        "ঝগড়া তৈরিতে দুই উপাদান প্রয়োজন",
+        "দুই-এ ঝগড়া তৈরি হয়।",
+        "দুইয়ে দুইয়ে ঝগড়া হয়।",
+        "এক হাতে তালি বাজে না।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "'It takes two to make a quarrel হলো একটি proverb বা প্রবাদবাক্য যার অর্থ 'এক হাতে তালি বাজে না'।"
+    },
+    {
+      "question_no": 13,
+      "id": "140664",
+      "question": "'Concern' শব্দের synonym নিম্নের কোনটি?",
+      "options": [
+        "negligence",
+        "indifference",
+        "worry",
+        "apathy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Concern অর্থ সংশ্লিষ্ট, উদ্বিগ্ন, চিন্তিত। এর synonym হলো worry, trouble, disturb, bother, anxiety, unease, apprehension, disquiet, related, relevant প্রভৃতি। এর বিপরীত হলো indifference, unkind, apathy, negligence, callous, inattention প্রভৃতি।"
+    },
+    {
+      "question_no": 14,
+      "id": "140665",
+      "question": "I found the place ..... my liking.",
+      "options": [
+        "to",
+        "for",
+        "with",
+        "on"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "To my liking অর্থ আমার পছন্দ অনুযায়ী, যেমনটা আমি পছন্দ করি বা চাই।"
+    },
+    {
+      "question_no": 15,
+      "id": "140666",
+      "question": "'May you live long.' Which kind of sentence is the above one?",
+      "options": [
+        "assertive sentence",
+        "imperative sentence",
+        "interrogative sentence",
+        "optative sentence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Optative বাক্য দ্বারা প্রার্থনা, দোয়া, আশীর্বাদ ইত্যাদি বুঝায়। আর imperative বাক্য দ্বারা আদেশ, অনুরোধ, উপদেশ ইত্যাদি নির্দেশ করে।"
+    }
+  ]
+}

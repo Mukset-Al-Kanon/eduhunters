@@ -1,0 +1,461 @@
+{
+  "exam_id": 8411,
+  "title": "Identification of Parts of Speech (Ques. No. 101-130)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Identification of Parts of Speech (130 Marks)",
+  "duration_minutes": 15,
+  "total_questions": 30,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "baf9fceb-2675-45e6-981f-73993f7033a6",
+      "question": "কোন শব্দটি noun ?[]",
+      "options": [
+        "Sing",
+        "Song",
+        "Feed",
+        "Tell"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Option B ছাড়া বাকিগুলো verb",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5ce3effc-8a91-4bb2-8721-f5723ad6cd09",
+      "question": "Which one is a noun ?[]",
+      "options": [
+        "Cute",
+        "Acute",
+        "Flute",
+        "Mute"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Flute অর্থ বাঁশি!",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "b7a7e692-d9f0-4743-a1cb-6df293f6d3bb",
+      "question": "Which one of the following is a noun ?[]",
+      "options": [
+        "ordain",
+        "imprimatur",
+        "pontificate",
+        "ricochet"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Imprimatur হলো noun (বিশেষ্য)।\nকারণ এটা কোনো অনুমোদন বা ছাপ/স্বীকৃতিকে বোঝায়, অর্থাৎ বস্তু বা ধারণার নাম।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "05f5db32-6b45-4aa9-85a7-9b587e39f35c",
+      "question": "Which one is adjective ?[]",
+      "options": [
+        "pain",
+        "break",
+        "mortal",
+        "hour"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "১. যে মৃত্যুতে শেষ হয়; নश्वर।\n২. জীবন বা মৃত্যুর সাথে সম্পর্কিত।\nউদাহরণ:\nAll humans are mortal.\n→ সব মানুষই নশ্বর।\nHe was in mortal danger during the storm.\n→ ঝড়ের সময় সে প্রাণহানির ঝুঁকিতে ছিল।\nছোট করে:\nMortal (adj) = নশ্বর / প্রাণঘাতী।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "1d789d3b-fd91-463b-9f97-137f441e6204",
+      "question": "Which is the adjective among the following words ?[]",
+      "options": [
+        "Diploma",
+        "Diplomacy",
+        "Diplomatic",
+        "Diplomat"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Diplomatic একটি adjective (বিশেষণ)।\nঅর্থ:\n১. কূটনৈতিক বা রাষ্ট্রসংক্রান্ত।\n২. মসৃণভাবে, বিবেকবানভাবে বা বিচক্ষণভাবে সম্পর্ক পরিচালনার ক্ষমতা থাকা।\nউদাহরণ:\nShe is very diplomatic in handling conflicts.\n→ সে বিরোধ মোকাবেলায় খুবই বিচক্ষণ।\nDiplomatic relations between the two countries improved.\n→ দুই দেশের কূটনৈতিক সম্পর্ক উন্নত হলো।\nছোট করে:\nDiplomatic = কূটনৈতিক / বিচক্ষণভাবে সম্পর্ক পরিচালনার।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "ef4d29cd-4675-45c1-9944-7075c9403924",
+      "question": "Which of the following is a verb ?[]",
+      "options": [
+        "retitude",
+        "retch",
+        "retardant",
+        "reconnoire"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Retch একটি verb (ক্রিয়া)।\nঅর্থ:\nঅপ্রীতিকর কিছু দেখার বা খাওয়ার কারণে বমি করার চেষ্টা করা বা বমি আসা।\nউদাহরণ:\nThe smell of the rotten food made him retch.\n→ নষ্ট খাবারের গন্ধে তার বমি করতে ইচ্ছে করল।\nShe started to retch after seeing the gruesome scene.\n→ ভয়ঙ্কর দৃশ্য দেখে সে বমি করতে শুরু করল।\nছোট করে:\nRetch = বমি করতে চেষ্টা করা / বমি আসা।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "b54a3a8a-a7d5-400e-8ea5-c6d7914f576f",
+      "question": "Which of the following word is an adjective ?[]",
+      "options": [
+        "Freedom",
+        "Cheerful",
+        "Beautify",
+        "Attentively"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Cheerful একটি adjective (বিশেষণ)।\nঅর্থ:\nসুখী, আনন্দিত বা উজ্জ্বল মনোভাবপূর্ণ।\nউদাহরণ:\nShe was cheerful despite the rainy weather.\n→ বৃষ্টির দিনে ও সে আনন্দিত ছিল।\nThe room looked cheerful with all the colorful decorations.\n→ রঙিন সজ্জার কারণে ঘরটি আনন্দদায়ক দেখাচ্ছিল।\nছোট করে:\nCheerful = আনন্দিত / উজ্জ্বল মনোভাবপূর্ণ।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "baf54cda-217a-445e-805c-8248d0f5fdaf",
+      "question": "Which of the following words is an adjective ?[]",
+      "options": [
+        "Hogwash",
+        "Hokum",
+        "Hoki",
+        "Hoity-toity"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Hoity-toity একটি adjective (বিশেষণ)।\nঅর্থ:\nদুর্গম বা অহংকারী; যারা নিজেরকে অন্যদের চেয়ে উঁচু মনে করে।\nউদাহরণ:\nShe acted all hoity-toity after getting the promotion.\n→ পদোন্নতি পাওয়ার পর সে অনেক অহংকারী আচরণ করল।\nHe spoke in a hoity-toity manner, as if he knew everything.\n→ সে এমন অহংকারীভাবে বলল, মনে হচ্ছিল সে সব জানে।\nছোট করে:\nHoity-toity = অহংকারী / দৃষ্টিনন্দন ও গর্বিত।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "8f987f84-a30e-491c-aabe-28b90026bfc7",
+      "question": "Which one of the following words is a verb ?[]",
+      "options": [
+        "Penance",
+        "Penetrate",
+        "Pensive",
+        "Pendant"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Penetrate একটি verb (ক্রিয়া)।\nঅর্থ:\nকোনো কিছু দিয়ে প্রবেশ করা, ভেদ করা বা গভীরে প্রবেশ করা।\nউদাহরণ:\nThe bullet penetrated the wall.\n→ গুলি দেয়ালটি ভেদ করল।\nLight can penetrate the darkness of the room.\n→ আলো ঘরের অন্ধকারে প্রবেশ করতে পারে।\nছোট করে:\nPenetrate = প্রবেশ করা / ভেদ করা / গভীরে পৌঁছানো।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "9765a4c3-df83-4b5a-a668-7ff972c2913c",
+      "question": "The word 'Tyranny' is ---[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Tyranny একটি noun (বিশেষ্য)।\nঅর্থ:\n১. নিপীড়ন বা অত্যাচার; ক্ষমতার অপব্যবহার।\n২. এক ব্যক্তির কঠোর এবং অবাধী শাসন।\nউদাহরণ:\nThe people revolted against the tyranny of the king.\n→ জনগণ রাজার অত্যাচারের বিরুদ্ধে বিদ্রোহ করল।\nThey suffered under the tyranny of unfair laws.\n→ তারা অন্যায় আইনগুলোর অত্যাচারে ভুগেছিল।\nছোট করে:\n**Tyranny = অত্যাচার",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "495d0fa9-5070-4d17-9a76-9696a5a950af",
+      "question": "Which one of the following is not an adjective ?[]",
+      "options": [
+        "humble",
+        "humane",
+        "humid",
+        "humour"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Humour একটি noun (বিশেষ্য)।\nঅর্থ:\n১. হাস্যরস বা মজা।\n২. কোনো ব্যক্তির হাস্যরসের স্বভাব বা মনোভাব।\nউদাহরণ:\nHe has a great sense of humour.\n→ তার হাস্যরসের চমৎকার অনুভূতি আছে।\nHer humour made everyone laugh.\n→ তার হাস্যরস সবাইকে হাসিয়েছে।\nছোট করে:\nHumour = হাস্যরস / মজা।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "e40aa376-3d5a-444f-bfd4-ad9d75519080",
+      "question": "Which word is not an adjective ?[]",
+      "options": [
+        "Solar",
+        "Polar",
+        "Linear",
+        "Hammer"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Hammer (Noun)\nঅর্থ:\nহাত বা যন্ত্র দিয়ে কিছু চাপ দেওয়ার বা নখ ঠুকার জন্য ব্যবহৃত হাতিয়ার।\nউদাহরণ:\nI need a hammer to fix the shelf.\n→ তাক ঠিক করার জন্য আমার একটি হাতুড়ি প্রয়োজন।\nHe picked up a hammer from the toolbox.\n→ সে টুলবক্স থেকে একটি হাতুড়ি নিল।\nছোট করে:\nHammer (noun) = হাতুড়ি।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "f9769a0c-334f-4654-b984-7c6f5fd23b05",
+      "question": "The word 'diabetic' is ---[]",
+      "options": [
+        "a noun adjective",
+        "an adjective",
+        "a noun",
+        "both a noun and an adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Diabetic শব্দটি noun এবং adjective উভয় হিসেবে ব্যবহার হয়।\n1️⃣ As a Noun (বিশেষ্য)\nঅর্থ:\nযে ব্যক্তি ডায়াবেটিস রোগে আক্রান্ত।\nউদাহরণ:\nMany diabetics need to monitor their sugar levels daily.\n→ অনেক ডায়াবেটিক রোগীকে প্রতিদিন তাদের রক্তের চিনি নিয়ন্ত্রণ করতে হয়।\nছোট করে:\nDiabetic (noun) = ডায়াবেটিস রোগী।\n2️⃣ As an Adjective (বিশেষণ)\nঅর্থ:\nডায়াবেটিস বা রক্তে চিনি সম্পর্কিত।\nউদাহরণ:\nHe follows a diabetic diet to control his sugar.\n→ সে তার চিনি নিয়ন্ত্রণের জন্য ডায়াবেটিক ডায়েট অনুসরণ করে।\nDiabetic patients should avoid too much sugar.\n→ ডায়াবেটিক রোগীদের অতিরিক্ত চিনি এড়ানো উচিত।\nছোট করে:\nDiabetic (adj) = ডায়াবেটিস সম্পর্কিত / চিনি নিয়ন্ত্রণের জন্য।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "40a43b27-6557-43d6-8ec9-086029a86346",
+      "question": "Which one is adjective ?[]",
+      "options": [
+        "Immigration",
+        "Meritorious",
+        "Abroad",
+        "Sensation"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Meritorious একটি adjective (বিশেষণ)।\nঅর্থ:\nযা প্রশংসার যোগ্য বা কৃতিত্বপূর্ণ।\nউদাহরণ:\nShe received an award for her meritorious work.\n→ তার কৃতিত্বপূর্ণ কাজের জন্য সে একটি পুরস্কার পেল।\nHis meritorious service to the community was widely recognized.\n→ সমাজের প্রতি তার কৃতিত্বপূর্ণ সেবাকে ব্যাপকভাবে স্বীকৃতি দেওয়া হলো।\nছোট করে:\nMeritorious = প্রশংসনীয় / কৃতিত্বপূর্ণ।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "69c6945a-aa18-4907-a313-bcf2b4a46f8d",
+      "question": "Which one of the following words is not a verb ?[]",
+      "options": [
+        "Beauty",
+        "Vary",
+        "Verify",
+        "Glory"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Beauty একটি noun (বিশেষ্য)।\nঅর্থ:\n১. সৌন্দর্য বা আকর্ষণীয়তা।\n২. কোনো জিনিসের বা ব্যক্তির ভালো দিক।\nউদাহরণ:\nThe beauty of the sunset amazed everyone.\n→ সূর্যাস্তের সৌন্দর্য সবাইকে মুগ্ধ করল।\nShe is known for her inner beauty.\n→ সে তার অন্তর্দৃষ্টি বা অন্তর্নিহিত সৌন্দর্যের জন্য পরিচিত।\nছোট করে:\nBeauty = সৌন্দর্য / আকর্ষণীয়তা।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "025bcd85-960f-43c3-85e7-eaced75eb246",
+      "question": "Which one is a verb ?[]",
+      "options": [
+        "Advise",
+        "Dream",
+        "Beautify",
+        "All of these"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "be118430-e7cc-4bba-967f-40ec7bd73560",
+      "question": "Isolate' is ---[]",
+      "options": [
+        "Adverb",
+        "Pronoun",
+        "Verb",
+        "Noun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Isolate (Verb)\nঅর্থ:\nকাউকে বা কোনো জিনিসকে অন্যদের থেকে আলাদা করা বা বিচ্ছিন্ন করা।\nউদাহরণ:\nThe scientist isolated the bacteria in the lab.\n→ বিজ্ঞানী ল্যাবে ব্যাকটেরিয়াগুলো আলাদা করল।\nDuring the pandemic, many people were isolated at home.\n→ মহামারীর সময় অনেক মানুষকে বাড়িতে আলাদা করা হয়েছিল।\nShe isolated herself from her friends after the argument.\n→ বিতর্কের পরে সে তার বন্ধুদের থেকে নিজেকে আলাদা করল।\nছোট করে:\nIsolate (verb) = আলাদা করা / বিচ্ছিন্ন করা।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "cba0ff70-7e0e-4c5d-946c-dfd73be02d77",
+      "question": "Which of the following is a verb ?[]",
+      "options": [
+        "Joyously",
+        "Glorify",
+        "Horrible",
+        "Idiocy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Glorify একটি verb (ক্রিয়া)।\nঅর্থ:\nকাউকে বা কোনো কিছুকে অতিরিক্ত প্রশংসা করা বা মহিমান্বিত করা।\nউদাহরণ:\nThe movie glorifies war too much.\n→ সিনেমাটি যুদ্ধকে অত্যধিক মহিমান্বিত করছে।\nPeople glorify heroes for their bravery.\n→ মানুষ তাদের সাহসিকতার জন্য বীরদের মহিমান্বিত করে।\nছোট করে:\nGlorify = প্রশংসা করা / মহিমান্বিত করা।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "0dea6bae-cccd-4b6f-a4dc-93b07fbd573f",
+      "question": "The word 'paralyse' is ---[]",
+      "options": [
+        "verb",
+        "noun",
+        "adjective",
+        "pronoun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Paralyse একটি verb (ক্রিয়া)।\nঅর্থ:\n১. শারীরিক বা কার্যক্ষমতা হারানো; অচল করা।\n২. কোনো পরিস্থিতি বা ব্যক্তিকে স্তব্ধ বা অচল করে দেওয়া।\nউদাহরণ:\nThe accident paralyzed him from the waist down.\n→ দুর্ঘটনায় সে কোমর থেকে নিচের দিকটি অচল হয়ে গেল।\nFear can paralyze a person and stop them from acting.\n→ ভয় একজন ব্যক্তিকে স্তব্ধ করে দিতে পারে এবং কাজ করতে বাধা দিতে পারে।\nছোট করে:\nParalyse = অচল করা / স্তব্ধ করে দেওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "6127f89e-2183-4b81-8e26-7e251ac73b0d",
+      "question": "The word 'telephone' is used as ---[]",
+      "options": [
+        "a noun",
+        "an adjective",
+        "a verb",
+        "both a verb and a noun"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Telephone শব্দটি noun এবং verb উভয় হিসেবে ব্যবহার হয়।\n1️⃣ As a Noun (বিশেষ্য)\nঅর্থ:\nএকটি যন্ত্র যার মাধ্যমে দূরত্বে কথা বলা যায়।\nউদাহরণ:\nI answered the telephone.\n→ আমি ফোনটি উত্তর দিলাম।\nThe telephone rang loudly.\n→ ফোনটি জোরে বেজে উঠল।\nছোট করে:\nTelephone (noun) = টেলিফোন / ফোন।\n2️⃣ As a Verb (ক্রিয়া)\nঅর্থ:\nফোন করে কথা বলা।\nউদাহরণ:\nI will telephone my friend tonight.\n→ আমি আজ রাতে আমার বন্ধুকে ফোন করব।\nShe telephoned the office to confirm the appointment.\n→ সে অ্যাপয়েন্টমেন্ট নিশ্চিত করতে অফিসে ফোন করল।\nছোট করে:\nTelephone (verb) = ফোন করা / কল করা।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "2dcabaed-00ce-4e64-acfe-20c42914790c",
+      "question": "Which of the following is a verb ?[]",
+      "options": [
+        "misleading",
+        "lacklustere",
+        "jab",
+        "dealer"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Jab (Verb)\nঅর্থ:\nদ্রুত বা হঠাৎ কোনো জিনিসে আঘাত করা বা ঠোকা দেওয়া।\nউদাহরণ:\nHe jabbed the punching bag with his fists.\n→ সে তার মুষ্টি দিয়ে পাঞ্চিং ব্যাগে আঘাত করল।\nThe doctor jabbed the syringe into the patient’s arm.\n→ ডাক্তারটি রোগীর বাহুতে সুঁই ঢুকাল।\nShe jabbed him lightly in the ribs to get his attention.\n→ তার মনোযোগ আকর্ষণ করতে সে তার পাঁজরের কাছে হালকা ঠোকা দিল।\nছোট করে:\nJab (verb) = আঘাত করা / ঠোকা দেওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "9eafed13-a486-4c6a-8ed5-0ad508bdfca7",
+      "question": "Which one is verb ?[]",
+      "options": [
+        "Cloth",
+        "Blood",
+        "Food",
+        "Feed"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাকি গুলো Noun",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "902fd976-d15f-4430-9238-92f198d240ba",
+      "question": "Which word is not noun ?[]",
+      "options": [
+        "Articulation",
+        "Simulation",
+        "Defame",
+        "Indemnity"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Defame =Verb",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "06e2163d-80bd-40d2-b7f5-894b4ad5c42d",
+      "question": "Which of the following is a verb ?[]",
+      "options": [
+        "Economize",
+        "Economy",
+        "Economical",
+        "Economic"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Economize একটি verb (ক্রিয়া)।\nঅর্থ:\nটাকা, সময় বা সম্পদ সংরক্ষণ করা; কম ব্যবহার করা বা বাঁচিয়ে ব্যবহার করা।\nউদাহরণ:\nWe need to economize to save money for our trip.\n→ আমাদের ভ্রমণের জন্য টাকা বাঁচাতে সংযতভাবে ব্যবহার করতে হবে।\nShe economizes on electricity by turning off lights when not needed.\n→ সে প্রয়োজন না হলে বাতি বন্ধ করে বিদ্যুৎ বাঁচায়।\nছোট করে:\nEconomize = সংরক্ষণ করা / বাঁচিয়ে ব্যবহার করা।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "3ac0e809-5aff-4499-a07f-eb7b11e007ee",
+      "question": "The word 'massacre' is ---[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Both noun and verb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Massacre শব্দটি noun এবং verb উভয় হিসেবে ব্যবহার হয়।\n1️⃣ As a Noun (বিশেষ্য)\nঅর্থ:\nএকটি নির্দয় হত্যাযজ্ঞ, যেখানে অনেক মানুষ হত্যা করা হয়।\nউদাহরণ:\nThe village suffered a terrible massacre.\n→ গ্রামটি একটি ভয়ঙ্কর হত্যাযজ্ঞের শিকার হলো।\nHistory remembers the massacre of innocent civilians.\n→ ইতিহাস নিরপরাধ নাগরিকদের হত্যাযজ্ঞ মনে রাখে।\nছোট করে:\nMassacre (noun) = হত্যাযজ্ঞ / গণহত্যা।\n2️⃣ As a Verb (ক্রিয়া)\nঅর্থ:\nনির্দয়ভাবে হত্যা করা বা গণহত্যা করা।\nউদাহরণ:\nThe army massacred hundreds of villagers.\n→ সেনারা শত শত গ্রামবাসীকে হত্যা করল।\nMany people were massacred during the war.\n→ যুদ্ধে অনেক মানুষ হত্যা করা হয়েছিল।\nছোট করে:\nMassacre (verb) = গণহত্যা করা / নির্দয়ভাবে হত্যা করা।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "6db0ed92-9ac2-4d90-8c28-0c222d075ee1",
+      "question": "Which word is both a noun and a verb ?[]",
+      "options": [
+        "Believe",
+        "Water",
+        "Advise",
+        "Maker"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Water = পানি =Noun \nWater =পানি দেয়া অর্থে।=verb",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "dcad2ad6-bf54-46cf-a460-138fa95946c5",
+      "question": "Which word can be used as noun and verb ?[]",
+      "options": [
+        "furniture",
+        "information",
+        "book",
+        "today"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Book শব্দটি noun এবং verb উভয়ই হতে পারে।\n1️⃣ As a Noun (বিশেষ্য)\nঅর্থ:\nপাঠ্য বা পড়ার জন্য তৈরি করা একটি লেখা।\nউদাহরণ:\nI borrowed a book from the library.\n→ আমি লাইব্রেরি থেকে একটি বই ধার নিয়েছি।\nThis book is very interesting.\n→ এই বইটি খুবই আকর্ষণীয়।\nছোট করে:\nBook (noun) = বই।\n2️⃣ As a Verb (ক্রিয়া)\nঅর্থ:\nকোনো জিনিস বা সেবা আগে থেকে ঠিক করা বা সংরক্ষণ করা।\nউদাহরণ:\nI booked a ticket for the movie.\n→ আমি সিনেমার টিকেট বুক করেছি।\nShe booked a table at the restaurant.\n→ সে রেস্টুরেন্টে একটি টেবিল বুক করল।\nছোট করে:\nBook (verb) = সংরক্ষণ করা / আগে থেকে ঠিক করা।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "e1f897b5-2fc6-4f38-ad23-161c32338321",
+      "question": "Which word is both a noun and a verb ?[]",
+      "options": [
+        "Advice",
+        "Practice",
+        "Belief",
+        "Brush"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Brush শব্দটি noun এবং verb উভয়েই ব্যবহার হয়।\n1️⃣ As a Noun (বিশেষ্য)\nঅর্থ:\nএকটি হাতিয়ার যা আঁকা, পরিষ্কার করা বা চুল চেপে ধরার জন্য ব্যবহার হয়।\nউদাহরণ:\nI bought a new paint brush.\n→ আমি একটি নতুন রঙের ব্রাশ কিনেছি।\nHe combed his hair with a brush.\n→ সে চুল ব্রাশ দিয়ে চুল আঁচড়াল।\nছোট করে:\nBrush (noun) = ব্রাশ / আঁচড়ানোর হাতিয়ার।\n2️⃣ As a Verb (ক্রিয়া)\nঅর্থ:\nকোনো কিছু পরিষ্কার করা, আঁচড়ানো বা হালকাভাবে স্পর্শ করা।\nউদাহরণ:\nShe brushed the dust off the table.\n→ সে টেবিলের ধুলো ঝেড়ে দিল।\nHe brushed his hair before going out.\n→ বাইরে যাওয়ার আগে সে চুল ব্রাশ করল।\nThe cat brushed against my leg.\n→ বিড়ালটি হালকাভাবে আমার পায়ের সঙ্গে ঘষল।\nছোট করে:\nBrush (verb) = ঝাড়া / আঁচড়ানো / হালকাভাবে স্পর্শ করা।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "d367d404-b878-4618-87c0-4fa879b09a57",
+      "question": "Which word is verb ?[]",
+      "options": [
+        "Dance",
+        "Some",
+        "Little",
+        "Rose"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নাচা Verb ই তো না?",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "bcce0ae4-ceb6-4550-b0a7-dff3db66d607",
+      "question": "Which of the following words is a verb ?[]",
+      "options": [
+        "Intention",
+        "Intellect",
+        "Interim",
+        "Interest"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Interest (Verb)\nঅর্থ:\nকাউকে আকৃষ্ট করা বা মনোযোগ/আগ্রহ সৃষ্টি করা।\nউদাহরণ:\nThe teacher tried to interest the students in science.\n→ শিক্ষক শিক্ষার্থীদের বিজ্ঞান নিয়ে আগ্রহী করার চেষ্টা করলেন।\nThis book will interest anyone who loves history.\n→ যারা ইতিহাস ভালোবাসে, তাদের কেউ এই বইয়ে আগ্রহী হবে।\nHe is interested in painting, so art classes interest him a lot.\n→ সে চিত্রকলায় আগ্রহী, তাই শিল্প ক্লাস তাকে খুব আকর্ষণ করে।\nছোট করে:\nInterest (verb) = আকর্ষণ করা / আগ্রহ সৃষ্টি করা।",
+      "images": []
+    }
+  ]
+}

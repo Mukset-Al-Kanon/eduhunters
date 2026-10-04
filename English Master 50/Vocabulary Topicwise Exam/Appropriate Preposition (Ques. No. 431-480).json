@@ -1,0 +1,761 @@
+{
+  "exam_id": 8167,
+  "title": "Appropriate Preposition (Ques. No. 431-480)",
+  "category": "Vocabulary Topicwise Exam",
+  "subtopic": "Appropriate Preposition Exam (957 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "a51b2df0-4b2f-4b7f-a88b-36f88e8682af",
+      "question": "Protracted illness has reduced him ----- a skeleton.[]",
+      "options": [
+        "into",
+        "in",
+        "to",
+        "from"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5c4b76fe-3abd-4472-be30-c323771da502",
+      "question": "He rejoiced ----- his success.[]",
+      "options": [
+        "for",
+        "to",
+        "with",
+        "at"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "872eb0c1-a1be-4f89-afe3-1c2441590faf",
+      "question": "We are related ----- marriage.[]",
+      "options": [
+        "through",
+        "with",
+        "by",
+        "to"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "25ac4a46-4279-43e9-825d-c8fbd346fc1e",
+      "question": "We are related ----- each other ----- marriage.[]",
+      "options": [
+        "to, on",
+        "to, by",
+        "at, by",
+        "to, from"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "97b4df23-4c95-45e9-a7fd-b84ec9ffc26e",
+      "question": "Your answer is not relevant ----- the question.[]",
+      "options": [
+        "through",
+        "with",
+        "by",
+        "to"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "73486410-73f6-4e16-826d-d8bd39d1bc23",
+      "question": "Apara reminded him ----- their rendezvous.[]",
+      "options": [
+        "of",
+        "to",
+        "for",
+        "by"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "bd422f58-c006-4d22-91f4-fb316ba81921",
+      "question": "I remind him ----- his promise.[]",
+      "options": [
+        "of",
+        "to",
+        "with",
+        "from"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "2778df60-a894-46f2-bf2d-fe3f25103288",
+      "question": "My wife reminded/reminds me -----.[]",
+      "options": [
+        "of my appointment",
+        "to go my appointment",
+        "to my appointment",
+        "my appointment"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "df7afdad-9443-49fe-b6c2-d8a335453ff5",
+      "question": "Render the passage ----- Bengali.[]",
+      "options": [
+        "to",
+        "into",
+        "on",
+        "in"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "5d45191e-9adb-4ef9-82a5-3f779aa38234",
+      "question": "Tina is renowned ----- her oratory.[]",
+      "options": [
+        "with",
+        "of",
+        "in",
+        "for"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "5d2672d2-b840-44d9-ad3d-acfb59b5fd69",
+      "question": "The policeman rescued the child ----- danger.[]",
+      "options": [
+        "of",
+        "from",
+        "on",
+        "at"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "bbfcdfba-3b05-4fb6-82bf-0805d18f8240",
+      "question": "He is repented ----- his wrong doing.[]",
+      "options": [
+        "on",
+        "of",
+        "for",
+        "by"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "a32dbeef-bb71-4de4-855a-6188742314dc",
+      "question": "He had to repent ----- what he had done.[]",
+      "options": [
+        "at",
+        "of",
+        "for",
+        "by"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "9e73a9cf-3cc5-4109-a8f1-2ea14df3edb0",
+      "question": "He is resolved ----- going away.[]",
+      "options": [
+        "on",
+        "upon",
+        "at",
+        "for"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "ace7d86a-9a94-4853-a519-9b4f4173b5dc",
+      "question": "You are responsible ----- your immediate supervisor.[]",
+      "options": [
+        "of",
+        "to",
+        "for",
+        "into"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "87a2e43d-efce-4c20-b34c-870a1fba2f72",
+      "question": "Every driver must be held ----- his own actions.[]",
+      "options": [
+        "responsible for",
+        "blame to",
+        "liable to",
+        "responsible to"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "162fa118-2912-4db4-82eb-4b0b9a801b8b",
+      "question": "He needs some respites \n----- worries.[]",
+      "options": [
+        "from",
+        "with",
+        "against",
+        "for"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "df3b2381-4d29-4f42-bcb8-98f2347e879c",
+      "question": "Today's economic recession has ----- titanic sufferings of the lower groups.[]",
+      "options": [
+        "resulted in",
+        "resulted with",
+        "resulted of",
+        "resulted on"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "972d3551-cb9c-4836-9c15-55f35db7c127",
+      "question": "Some damage to human tissues may result ----- them to frequent X-rays.[]",
+      "options": [
+        "from exposure",
+        "the exposing",
+        "in exposing",
+        "from exposing"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "d6b5364c-ee29-451c-8476-fd337c4c58fe",
+      "question": "Frustration results ----- violence.[]",
+      "options": [
+        "at",
+        "in",
+        "of",
+        "with"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "d8a3e545-5f64-47ee-bac4-1537708a5235",
+      "question": "The decision rests ----- you.[]",
+      "options": [
+        "on",
+        "in",
+        "with",
+        "upon"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "2c24b698-3e48-4760-91ba-545b4789582c",
+      "question": "He has retired ----- business and moved ----- private life completely.[]",
+      "options": [
+        "from, into",
+        "for, with",
+        "of, to",
+        "to, in"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "c5f0563c-6f0e-4677-a615-04a2fdccd374",
+      "question": "He retired ----- loneliness in his old age.[]",
+      "options": [
+        "on",
+        "from",
+        "into",
+        "for"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "e910a546-bd61-4fa8-bb28-64681d53a9fd",
+      "question": "My dream is to retire ----- a villa in Japan.[]",
+      "options": [
+        "with",
+        "from",
+        "to",
+        "of"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "7a2c0f36-6e37-47e1-908e-34f6f33373d9",
+      "question": "He has retired ----- bed[]",
+      "options": [
+        "in",
+        "into",
+        "to",
+        "at"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "ada4e6c9-3250-4283-8920-7bb07e07e844",
+      "question": "He retired ----- a pension.[]",
+      "options": [
+        "from",
+        "into",
+        "to",
+        "on"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "b099971f-2358-4ac8-89d9-36ab3c4ca6ef",
+      "question": "Kajal returned ----- London ----- plane ----- Dhaka.[]",
+      "options": [
+        "in, by, from",
+        "from, by, to",
+        "to, by, from",
+        "at, by, in"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "d2ae6e28-294f-4f26-b53a-5bccdae2be87",
+      "question": "Marcel is French. He has just returned ----- France after two years ----- Brazil.[]",
+      "options": [
+        "to, in",
+        "to, from",
+        "at, on",
+        "in, of"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "a7ddef78-e029-4ee5-948a-2340600d324d",
+      "question": "He has suffered heavy losses, yet he was rolling ----- wealth.[]",
+      "options": [
+        "for",
+        "with",
+        "from",
+        "in"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "6429cffd-94bf-4a4f-9687-0abdf3e8cdbd",
+      "question": "There is no royal road ----- learning.[]",
+      "options": [
+        "for",
+        "to",
+        "by",
+        "from"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "7bb0b189-1983-41e9-8bcc-97b67a9ee5c4",
+      "question": "Bangladesh is rich ----- natural gas.[]",
+      "options": [
+        "in",
+        "upon",
+        "on",
+        "over"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "674a4b4e-aa9d-458e-b16c-b506405260ff",
+      "question": "Teenagers are often rude ----- their elders.[]",
+      "options": [
+        "with",
+        "at",
+        "to",
+        "about"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "d1f7c7f0-a50b-494b-9ffe-120fd6a768de",
+      "question": "Don't run ----- shadows.[]",
+      "options": [
+        "after",
+        "beside",
+        "against",
+        "at"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "2add1577-4626-4f6b-968b-b77010559eb8",
+      "question": "The brake failed and the bus ran ----- the wall of a house.[]",
+      "options": [
+        "in",
+        "into",
+        "up",
+        "to"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "1a036dff-32be-459b-b16e-eb5ef9f9efec",
+      "question": "This temple is sacred ----- Lord Vishnu.[]",
+      "options": [
+        "for",
+        "with",
+        "one",
+        "to"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "7a78ff88-2d94-42ca-b986-2fbc17e3ea54",
+      "question": "Manufacturers often sacrifice quality ---[]",
+      "options": [
+        "for a larger profit margin",
+        "to earn more money",
+        "to gain more quantities of money",
+        "to deceive people"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "ea863e43-a0b1-45fb-aeed-3c5de6e75fe6",
+      "question": "I remain satisfied ----- what I get.[]",
+      "options": [
+        "of",
+        "by",
+        "with",
+        "for"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "0ef8a60f-c41f-4fc6-a390-c1576da54ae1",
+      "question": "Mita is sensitive ----- weather changes.[]",
+      "options": [
+        "for",
+        "at",
+        "about",
+        "to"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "307f1bd2-7a39-4828-8869-58dffb8dc8c8",
+      "question": "The division of this property was a sequel ----- the agreement.[]",
+      "options": [
+        "at",
+        "to",
+        "for",
+        "in"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "ccdf92d6-dcc7-4f7e-b24e-9ebdb4fce2dc",
+      "question": "After having tea, he settled himself ----- his arm chair.[]",
+      "options": [
+        "on",
+        "into",
+        "over",
+        "at"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "101c0af8-c19b-469c-b59a-8b6ee6b1eb13",
+      "question": "I felt shame ----- his conduct.[]",
+      "options": [
+        "on",
+        "for",
+        "in",
+        "at"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "09e3ac9e-adfc-479f-9e87-d2ac7ece9996",
+      "question": "If people can't hear you, do you shout him ----- them ?[]",
+      "options": [
+        "at",
+        "to",
+        "for",
+        "down"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "3fe54fb4-fe7a-4c09-b5b4-4be317d59980",
+      "question": "I am really sick ----- this kind of behaviour.[]",
+      "options": [
+        "for",
+        "to",
+        "about",
+        "of"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "c61490da-a9f3-41e7-9e48-4c4cd9b6b029",
+      "question": "Their house is quite similar ----- ours.[]",
+      "options": [
+        "of",
+        "on",
+        "for",
+        "to"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "225c1488-4163-4404-977c-103791481a44",
+      "question": "He likes to read ----- his spare time but mainly he likes ----- skim ----- newspapers.[]",
+      "options": [
+        "in, to, through",
+        "at, on, all",
+        "on, to, read",
+        "in, for, of"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "cec6a2e0-7733-4412-99fd-e3adb5e1f368",
+      "question": "Do you know the solution ----- the problem ?[]",
+      "options": [
+        "of",
+        "for",
+        "to",
+        "in"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "20ff0cbe-fc1a-4820-994f-29dbe2673d2a",
+      "question": "There is no easy ----- to this problem.[]",
+      "options": [
+        "result",
+        "exit",
+        "release",
+        "solution"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "3e43ba71-00b1-4f37-b62c-a00b97d3b2c5",
+      "question": "Finally fortune smiled ----- him.[]",
+      "options": [
+        "on",
+        "over",
+        "with",
+        "round"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "434be269-aac1-452f-a9b1-a34d99ea49f0",
+      "question": "I don't feel ----- Rahman. All his problems are entirely his creation.[]",
+      "options": [
+        "sorry for",
+        "sorry at",
+        "sorry about",
+        "sorry upon"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "d75d33a5-6649-4adc-aa5b-cabee36ab85e",
+      "question": "My brother specializes ----- physics.[]",
+      "options": [
+        "in",
+        "at",
+        "with",
+        "on"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "exam_id": 10426,
+  "title": "MP3 Topic-07 : খাল ও জলপ্রপাত",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "ভৌগোলিক বৈচিত্র্য Exam",
+  "duration_minutes": 6,
+  "total_questions": 12,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "73589a29-ae48-4e78-b0ff-10abb120a950",
+      "question": "Which one of the following is the highest waterfall in the world? [SABAS][]",
+      "options": [
+        "অ্যাঞ্জেল",
+        "জাম্বেসি টুজেলা",
+        "ভিক্টোরিয়া",
+        "নায়াগ্রা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এঞ্জেল জলপ্রপাত ভেনেজুয়েলায় অবস্থিত এবং এটি বিশ্বের সর্বোচ্চ জলপ্রপাত।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "fb71f9be-0512-48d4-b601-d51621f1b388",
+      "question": "বিশ্বের সর্বোচ্চ জলপ্রপাত এঞ্জেল ফলস্ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ভেনেজুয়েলা",
+        "যুক্তরাষ্ট্র",
+        "কেনিয়া",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এঞ্জেল জলপ্রপাত দক্ষিণ আমেরিকার দেশ ভেনেজুয়েলায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "1ba269b7-a37d-45d8-b7da-9f2fe729a39c",
+      "question": "ভিক্টোরিয়া জলপ্রপাত কোন নদী থেকে সৃষ্টি? [SABAS][]",
+      "options": [
+        "নীল নদ",
+        "ভিক্টোরিয়া নদী",
+        "আমাজন নদী",
+        "জামবেজি নদী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ভিক্টোরিয়া জলপ্রপাত আফ্রিকা মহাদেশের জামবেজি নদীর ওপর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "3dacb764-87e8-4256-8a36-441e03a473fe",
+      "question": "Niagara Falls is located in [SABAS][]",
+      "options": [
+        "Asia",
+        "North America",
+        "South America",
+        "Africa"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নায়াগ্রা জলপ্রপাত উত্তর আমেরিকা মহাদেশে যুক্তরাষ্ট্র ও কানাডার সীমান্তে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "487ed12c-c809-4d73-a61e-b70f49b1f7ec",
+      "question": "নায়াগ্রা জলপ্রপাত কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "যুক্তরাষ্ট্র-কানাডা",
+        "যুক্তরাষ্ট্র-মেক্সিকো",
+        "কানাডা-অস্ট্রেলিয়া",
+        "যুক্তরাষ্ট্র-আফ্রিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি যুক্তরাষ্ট্র ও কানাডার আন্তর্জাতিক সীমান্তে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "3bd88822-0766-461c-8310-f7cbe91d3096",
+      "question": "স্ট্যানলি ও লিভিংস্টোন দুটি - [SABAS][]",
+      "options": [
+        "ভিক্টোরিয়া নদী",
+        "ভিক্টোরিয়া জলপ্রপাত",
+        "ভিক্টোরিয়া লিভার",
+        "ভিক্টোরিয়া হ্রদ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ঐতিহাসিকভাবে স্ট্যানলি এবং লিভিংস্টোন ভিক্টোরিয়া জলপ্রপাত আবিষ্কার ও অন্বেষণের সাথে জড়িত।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "03fd0900-d40a-4375-b753-9599827e2466",
+      "question": "স্টবাক জলপ্রপাত কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ক্যালিফোর্নিয়া",
+        "ভেনেজুয়েলা",
+        "সুইজারল্যান্ড",
+        "ভারত"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাপ জলপ্রপাত ভেনেজুয়েলায় অবস্থিত একটি চমৎকার প্রাকৃতিক দৃশ্য।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "803027af-9734-4558-96e6-9494a37c9db7",
+      "question": "Browne Falls are situated in - [SABAS][]",
+      "options": [
+        "Australia",
+        "New Zealand",
+        "Canada",
+        "Switzerland"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্রাউন জলপ্রপাত (Browne Falls) নিউজিল্যান্ডে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "65c7993f-dbc6-4131-9b88-ea1a1babe5a1",
+      "question": "বিশ্বের দীর্ঘতম খালের নাম কী? [SABAS][]",
+      "options": [
+        "পানামা খাল",
+        "সুয়েজ খাল",
+        "গ্রান্ড খাল",
+        "ম্যানচেস্টার খাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "চীনের গ্র্যান্ড খাল বিশ্বের দীর্ঘতম কৃত্রিম খাল হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "e0c427bf-32d0-4c2a-8e68-e4114a4c4ae5",
+      "question": "পৃথিবীর বৃহত্তম কৃত্রিম খাল কোনটি? [SABAS][]",
+      "options": [
+        "সুয়েজ খাল",
+        "পানামা খাল",
+        "বাল্টিক খাল",
+        "গ্রান্ড খাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দীর্ঘতার বিচারে চীনের গ্রান্ড খালকেই পৃথিবীর বৃহত্তম কৃত্রিম খাল বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "1113ae82-03d7-4ba4-a0de-93c75ca02304",
+      "question": "Which is a man made waterway? [SABAS][]",
+      "options": [
+        "Cape of Good Hope",
+        "Strait of Bosphorus",
+        "Strait of Gibraltar",
+        "Kiel Canal"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কিল খাল (Kiel Canal) জার্মানির একটি বিখ্যাত মানবসৃষ্ট জলপথ বা কৃত্রিম খাল।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "d2c7878e-6e77-4bff-89a5-f91c22235262",
+      "question": "Which one is not a man made waterway? [SABAS][]",
+      "options": [
+        "Suez Canal",
+        "Strait of Gibraltar",
+        "Kiel Canal",
+        "Panama Canal"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জিব্রাল্টার প্রণালী (Strait of Gibraltar) একটি প্রাকৃতিক জলপথ, মানবসৃষ্ট নয়।",
+      "images": []
+    }
+  ]
+}

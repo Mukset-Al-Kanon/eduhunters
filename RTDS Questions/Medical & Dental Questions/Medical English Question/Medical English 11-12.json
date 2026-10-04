@@ -1,0 +1,204 @@
+{
+  "title": "Medical English 11-12",
+  "category": "Medical & Dental Questions > Medical English Question",
+  "duration_minutes": 30,
+  "total_questions": 14,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "139676",
+      "question": "The meaning of which word is not correct?",
+      "options": [
+        "Tear-অশ্রু",
+        "Fear-সুন্দর",
+        "Gear-বেগমান করা",
+        "Desire-ইচ্ছা পোষণ করা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Fear অর্থ- ভয়।"
+    },
+    {
+      "question_no": 2,
+      "id": "139677",
+      "question": "Which one of the followings is the correct sentence?",
+      "options": [
+        "Shaon is the actress and singer",
+        "Shaon is both an actress and a singer",
+        "Shaon is both the actress and singer",
+        "Shaon is a actress and singer."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "(B)-তে singer-এর আগে a এবং actress-এর আগে an আছে যা সঠিক এবং অর্থবোধক"
+    },
+    {
+      "question_no": 3,
+      "id": "139678",
+      "question": "Which one of the followings is the incorrect passive sentence?",
+      "options": [
+        "The signal was opened by the traffic police",
+        "The signal is being opened by the traffic police.",
+        "The signal was being opened by the traffic police.",
+        "The signal was to be opened by the traffic police."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "(D)-তে was going to be opened হবে।"
+    },
+    {
+      "question_no": 4,
+      "id": "139679",
+      "question": "The antonym for 'Grievance' is which of the followings?",
+      "options": [
+        "happiness",
+        "discomfort",
+        "distress",
+        "peace"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Grievance অর্থ: অভিযোগ, দুঃখ-দুর্দশা, তাই এর সবচেয়ে কাছাকাছি বিপরীত শব্দ হবে happiness| Discomfort শব্দের অর্থ অস্বস্তি। Distress অর্থ দুঃখ-দুর্দশা। Peace অর্থ শান্তি।"
+    },
+    {
+      "question_no": 5,
+      "id": "139680",
+      "question": "Which of the following sentences is the correct English translation? 'আমরা দুর্নীতিবাজ লোকদের পছন্দ করি না।'",
+      "options": [
+        "We do not like corrupted people",
+        "We do not like corrupted people",
+        "We are not liked by corrupted people",
+        "Corrupted people are not our liking"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দুর্নীতিবাজ লোক' এর ইংরেজি শব্দ corrupted people। সুতরাং আমরা দুর্নীতিবাজ লোকদের পছন্দ করি না এর ইংরেজি হবে' We do not like corrupted people'. বাক্যটি active form এ আছে।"
+    },
+    {
+      "question_no": 6,
+      "id": "139681",
+      "question": "Do not hanker - money'",
+      "options": [
+        "to",
+        "on",
+        "for",
+        "after"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Hanker after sth phrasal টির অর্থ লোভের বশবর্তী হয়ে কোন কাজ করা অথবা কোন কিছুর জন্য অত্যন্ত লালায়িত হওয়া।"
+    },
+    {
+      "question_no": 7,
+      "id": "139682",
+      "question": "Which of the followings is a complex sentence?",
+      "options": [
+        "Tell me the truth",
+        "Many foods are poison to us",
+        "I am sure of his success",
+        "This letter proves that he is honest."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাক্যে that, when, as, since ইত্যাদি conjunction দ্বারা দুইটি clause যুক্ত হলে complex sentence হয়।"
+    },
+    {
+      "question_no": 8,
+      "id": "139683",
+      "question": "A person whose \"head is in the Clouds\" is-",
+      "options": [
+        "a day dreamer",
+        "useless",
+        "proud",
+        "an aviator"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Head is in the Clouds অর্থ: দিবা-স্বপ্নে বিভোর থাকে এমন/ অসম্ভব কল্পনাপ্রবণ ব্যক্তি।"
+    },
+    {
+      "question_no": 9,
+      "id": "139684",
+      "question": "Choose the best indirect form of the following sentence: \"Do you know the way to the zoo?\" She said to Robin",
+      "options": [
+        "She asks Robin if he knows the way to the zoo",
+        "She asked Robin whether he knew the way to the zoo",
+        "She asked Robin whether he knows the way to the zoo",
+        "She ask Robin of the knew the way to the zoo."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Interrogative sentence-এর indirect করার সময় say-এর পরিবর্তে ask/inquire এবং that না হয়ে\r\nif/whether বসবে। Asked/said থাকায় whether /if-এর পর knew (past) হবে।"
+    },
+    {
+      "question_no": 10,
+      "id": "139685",
+      "question": "\"Though Bangladesh is a riverine country........ it faces scarcity of flowing water.\"",
+      "options": [
+        "yet",
+        "but",
+        "always",
+        "occasionally"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Occasionally অর্থ মাঝে মাঝে। অর্থাৎ, বাংলাদেশ নদীপ্রধান দেশ হলেও মাঝে মাঝে এটি পানির সমস্যার মুখোমুখি হয়।"
+    },
+    {
+      "question_no": 11,
+      "id": "139686",
+      "question": "Most appropriate translation of the sentence: \"সূর্য অস্ত যাওয়ার পূর্বে আমরা কাজ করেছিলাম।\"",
+      "options": [
+        "We would have been working before the sunset",
+        "We have been working before the sunset",
+        "We has been working before the sunset",
+        "We had worked before the sunset"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "139687",
+      "question": "He lives - honest means.",
+      "options": [
+        "for",
+        "by",
+        "on",
+        "within"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জীবিকা নির্বাহ করা বোঝাতে live by হয়।"
+    },
+    {
+      "question_no": 13,
+      "id": "139688",
+      "question": "Which of the following idioms contains correct English meaning?",
+      "options": [
+        "Keep the flag flying: Keep surviving",
+        "A rare bird: An unique person",
+        "A piece of cake: An integral part",
+        "In the twinkling of an eye: Eventually"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Option A-তে Keep the flag flying অর্থ কোনো প্রতিযোগিতায় দেশের পক্ষ হয়ে বিজয়/সফলতা অর্জন করা, দেশের পক্ষে বলা; keep surviving অর্থ টিকে থাকা; একই অর্থবোধক শব্দ নয়। Rare bird অর্থ অতুলনীয় ব্যক্তি (a unique person) a piece of cake অর্থ সহজলভ্য; an integral part এর অর্থ অপরিহার্য অংশ যা একই অর্থবোধক শব্দ নয়। in the twinkling of an eye অর্থ চোখের পলকে; eventually অর্থ অবশেষে এরাও সমার্থক নয়।"
+    },
+    {
+      "question_no": 14,
+      "id": "139689",
+      "question": "Which of the following phrases is having the correct meaning?",
+      "options": [
+        "Square Meal: A nutritious meal",
+        "Under the water: If good luck is willing",
+        "Take a dive: Undecided upto the end at the last minute.",
+        "Straight and narrow: Accomplishment of three successes or wins"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Square Meal অর্থ সুষম খাবার বা পুষ্টিকর খাদ্য। Take a dive উদ্দেশ্যপূর্ণভাবে নিজের স্বার্থ সিদ্ধির জন্য প্রতিযোগিতায় হেরে যাওয়া। Under the water এর অর্থ আবেগে ডুবে থাকা (emotionally drowned); the straight and narrow অর্থ সৎ এবং নৈতিকভাবে গৃহীত জীবন পদ্ধতি"
+    }
+  ]
+}

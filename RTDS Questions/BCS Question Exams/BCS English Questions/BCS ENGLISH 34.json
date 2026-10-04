@@ -1,0 +1,92 @@
+{
+  "title": "BCS ENGLISH 34",
+  "category": "BCS Question Exams > BCS English Questions",
+  "duration_minutes": 30,
+  "total_questions": 6,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "104787",
+      "question": "What is the masculine gender of \"mare\"?",
+      "options": [
+        "Mermaid",
+        "Bear",
+        "Stallion",
+        "Dog"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Mare- ঘোটকী; Mermaid- মৎস্যকন্যা, bear- ভল্লুক ; stallion - ঘোড়া ; dog - কুকুর। সুতরাং Mare বা ঘোটকীর Masculine বা পুংলিঙ্গ  হচ্ছে (C) stallion."
+    },
+    {
+      "question_no": 2,
+      "id": "104788",
+      "question": "Fill in the blank of the following sentence with the right form of verb. If I ___ a king!",
+      "options": [
+        "am",
+        "was",
+        "were",
+        "Shall be"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "If যুক্ত conditional sentence -এ subject- এরপর be( am, is, are) verb আসলে সেক্ষেত্রে Were ব্যবহার হয়।"
+    },
+    {
+      "question_no": 3,
+      "id": "104789",
+      "question": "Tiger: Zoology: Mars:-",
+      "options": [
+        "Astrology",
+        "Cryptology",
+        "Astronomy",
+        "telescopy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Tiger বা বাঘ হলো একটি প্রাণী এবং Zoology বা প্রাণিবিদ্যা হলো প্রাণী সম্পর্কিত বিদ্যা। তেমনি Mars বা মঙ্গলগ্রহ হলো একটি গ্রহের নাম এবং Astronomy বা জ্যোতিবিদ্যা হলো গ্রহ, নক্ষত্র বিষয়ক বিদ্যা।"
+    },
+    {
+      "question_no": 4,
+      "id": "104791",
+      "question": "Note before",
+      "options": [
+        "No bar",
+        "Non bar",
+        "Non bar",
+        "Nota bene"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "N.B. হলো একটি বা সংক্ষিপ্ত রূপ।  এর পূর্ণরূপ হলো Note bene।  লেখনীতে কোনো কিছু গুরুত্বপূর্ণ হিসেবে তুলে ধরার ক্ষেত্রে N.B. ব্যবহার হয়।"
+    },
+    {
+      "question_no": 5,
+      "id": "104792",
+      "question": "Maiden speech means -",
+      "options": [
+        "First speech",
+        "Middle Speech",
+        "Maid servants speech",
+        "Final speech"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জীবনের প্রথম বা অভিষেক বক্তব্যকে Maidan speech বা First speech বলা হয়।"
+    },
+    {
+      "question_no": 6,
+      "id": "104793",
+      "question": "Botany is to plants as Zoology is to-",
+      "options": [
+        "Flowers",
+        "Rivers",
+        "Mountains",
+        "Animals"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Botany হচ্ছে উদ্ভিদবিদ্যা যা plants (উদ্ভিদ)  নিয়ে আলোচনা করে। তেমনি Zoology হলো প্রাণিবিদ্যা যা Animals (প্রাণী) নিয়ে আলোচনা করে।"
+    }
+  ]
+}

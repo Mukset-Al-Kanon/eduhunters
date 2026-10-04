@@ -1,0 +1,536 @@
+{
+  "exam_id": 8439,
+  "title": "Tense (Ques. No. 1-35)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Tense (35 Marks)",
+  "duration_minutes": 15,
+  "total_questions": 35,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "d87b7f16-6eae-4a04-a229-ee627033d66b",
+      "question": "Tense means -----[]",
+      "options": [
+        "Action",
+        "Speed",
+        "Time",
+        "Verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "09c61d4a-ae07-4935-ab07-66d5103123e7",
+      "question": "The tense of a verb is mainly related to -----[]",
+      "options": [
+        "time",
+        "person",
+        "place",
+        "degree"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "843109ba-8759-4092-be86-adc6d2cc1991",
+      "question": "The 'Present Indefinite Tense' denotes -----.[]",
+      "options": [
+        "An action in the present time, habitual or eternal",
+        "An action is continued for a time in present",
+        "An action has already been finished at present",
+        "None of them"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "38dff315-21a4-4de4-99c6-1bd82f4757dd",
+      "question": "Habitual fact is expressed only in -----.[]",
+      "options": [
+        "present perfect tense",
+        "present indefinite tense",
+        "past perfect tense",
+        "past indefinite tense"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "aa81a182-e454-41a5-a276-d087090ddd19",
+      "question": "Which of the following is an example of active and present indefinite tense ?[]",
+      "options": [
+        "He is writing a letter.",
+        "I have invited them.",
+        "He has done the work.",
+        "Floods destroy them."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "2c75ba0d-427b-44ff-ab57-4dd81cc93c7d",
+      "question": "Find out the tense of the following sentence : \nLet it be done.[]",
+      "options": [
+        "Present indefinite",
+        "Past indefinite",
+        "Present perfect",
+        "Past perfect"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "28c710a1-dac6-4813-9f53-8f3d965e64d7",
+      "question": "The example of present progressive is -----[]",
+      "options": [
+        "Walking is a good exercise.",
+        "He was reading a book.",
+        "You have had your meal.",
+        "They are gossiping."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "561901e7-c135-4290-978e-a20aedaf7cb2",
+      "question": "Find out the tense of the sentence : It is interesting.[]",
+      "options": [
+        "Present indefinite",
+        "Present continuous",
+        "Present perfect",
+        "None of them"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "cd432699-98a5-44d7-8ffe-bcb88d500174",
+      "question": "Which of the sentence the future, even the verb is not future tense ?[]",
+      "options": [
+        "Maria is banana.",
+        "John is flying for Germany next week.",
+        "He is probably watching TV.",
+        "She has gone for some shopping."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "118df3ee-a8bb-452a-9e95-64f287323e64",
+      "question": "Which one is present continuous tense ?[]",
+      "options": [
+        "I read",
+        "I am reading",
+        "I have read",
+        "I had read"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "f768ca50-200d-44f8-b765-9160cdf607de",
+      "question": "Which one is present perfect tense ?[]",
+      "options": [
+        "I am walking",
+        "I have been walking",
+        "I was walking",
+        "I have walked"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "ddaf8dda-5bbd-4708-96c4-e0b888819444",
+      "question": "কোনটি Present perfect tense এর উদাহরণ ?[]",
+      "options": [
+        "I have had the news.",
+        "I have the news.",
+        "I shall have the news.",
+        "I had the news."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "4ad89b64-9d9c-4405-b1f3-3a434ff04dc5",
+      "question": "Which one is present perfect tense ?[]",
+      "options": [
+        "I am reading",
+        "I have read",
+        "I have read",
+        "I have been reading"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "907bdf3f-b695-4489-b9a9-ea07df8c2223",
+      "question": "I have done my duty.[]",
+      "options": [
+        "Present indefinite",
+        "Present perfect",
+        "Past perfect",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "80da0cb5-487e-41ed-8988-6a50244ab4a9",
+      "question": "Change the following sentence into present perfect. I do the sum.[]",
+      "options": [
+        "I have done the sum.",
+        "I was doing the sum.",
+        "The sum was done by me.",
+        "I did the sum."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "d203cdcc-3d08-45ae-957f-e14b5ace35bc",
+      "question": "The tense of verb in the sentence 'She has broken the pot' is -----[]",
+      "options": [
+        "Past indefinite",
+        "Past continuous",
+        "Present indefinite",
+        "Present perfect"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "d6cfc64d-5219-4b55-a02e-734d0d4a2d02",
+      "question": "She has been reading the book since morning'. This is an example of -----.[]",
+      "options": [
+        "past perfect tense",
+        "present continuous tense",
+        "present perfect tense",
+        "present perfect continuous tense"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "e81935a2-ec40-4b52-a9b8-92b1ac842fbf",
+      "question": "It has been raining hard all day'. This is an example of ---[]",
+      "options": [
+        "Present indefinite tense",
+        "Present perfect continuous tense",
+        "Present continuous tense",
+        "Present perfect tense"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "870afa55-60e2-4817-b7b4-25da7ec3ef40",
+      "question": "He has been studying in the same class for two years'. Identify the tense ---[]",
+      "options": [
+        "Present perfect tense",
+        "Past perfect tense",
+        "Present perfect continuous tense",
+        "Present continuous tense"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "e822995d-7e1b-44d6-9e95-15e0cfad4f1d",
+      "question": "Past indefinite tense' means -----.[]",
+      "options": [
+        "To express an action just finished",
+        "A single act in the past",
+        "An action was being done in the past",
+        "An action completed before another past action"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "f7b54974-4c1c-44ab-ad93-0850ec24fd92",
+      "question": "I read an interesting book few days ago. (Identify the tense).[]",
+      "options": [
+        "Present indefinite",
+        "Present perfect",
+        "Past indefinite",
+        "Past perfect"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "ae96b9f5-d67b-450f-aa07-37c71aedd908",
+      "question": "Which sentence is in past indefinite tense ?[]",
+      "options": [
+        "Tomal has played football.",
+        "Salam had a house.",
+        "Boys were playing.",
+        "It has rained."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "87d866d7-c1c8-4346-a27b-9a7dde76111a",
+      "question": "Which of the following is in past indefinite tense ?[]",
+      "options": [
+        "Raihan was sleeping",
+        "It was raining",
+        "It has been raining",
+        "Shohail had car"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "c7c97c05-6b61-4b97-b212-0fa008d211fc",
+      "question": "They were disturbing us' is an example of -----.[]",
+      "options": [
+        "Present continuous tense",
+        "Past perfect tense",
+        "Past continuous tense",
+        "Present perfect tense"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "689c7018-1da6-44d1-a4ac-184b2e81e5c5",
+      "question": "The past continuous tense' means -------.[]",
+      "options": [
+        "An action was being done in the past.",
+        "A single act in the past.",
+        "Action has been going on for something.",
+        "An action just finished."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "a88cd476-e33e-49de-8935-7e4bbd8791d5",
+      "question": "The construction of past perfect follows -----.[]",
+      "options": [
+        "I have spoken",
+        "He has eaten",
+        "I have gone",
+        "He had spoken the truth"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "e57d7b0b-6ca9-4393-b232-7be4d1786e24",
+      "question": "The patient had died before the doctor came. কোন tense এর উদাহরণ ?[]",
+      "options": [
+        "Past and present",
+        "Present perfect",
+        "Past perfect",
+        "Past perfect continuous"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "d7e103a9-0c65-41ee-9953-03b2e922f50f",
+      "question": "The patient had died' Which form of tense does the sentence represent ?[]",
+      "options": [
+        "Present perfect",
+        "Past indefinite",
+        "Past perfect",
+        "Future perfect"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "0324aadf-8ecc-43f3-8b92-a0ab99807c75",
+      "question": "Past perfect continuous form of 'I eat' is -----.[]",
+      "options": [
+        "I have eaten",
+        "I am eating",
+        "I had been eating",
+        "I shall be eating"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "ee401d21-eb97-4f0d-b19f-1812f59279b2",
+      "question": "I shall be eating' is an example of ----- tense.[]",
+      "options": [
+        "Future perfect",
+        "Future continuous",
+        "Future indefinite",
+        "None of these"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "b95debde-c32f-4570-941c-26c46d47f522",
+      "question": "আমি বইটি পড়িতে থাকিব। বাক্যটির ইংরেজি হবে ---[]",
+      "options": [
+        "I shall reading the book.",
+        "I can be reading the book.",
+        "I shall be reading the book.",
+        "I should reading the book."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "53f135a7-5852-4603-bff0-fd59d1cc6429",
+      "question": "He will have gone home. Choose the correct form of tense.[]",
+      "options": [
+        "Future perfect tense",
+        "Future indefinite",
+        "Future continuous",
+        "Future perfect continuous"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "2178ddfc-6307-41f0-90bd-fee6647c6c70",
+      "question": "Choose the Future Perfect Continuous tense of the verb 'Do' (Third person, plural number)[]",
+      "options": [
+        "They will have been doing",
+        "They will be doing",
+        "They will have done",
+        "They will have to be doing"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "7eee74c8-2978-4748-ae57-310ae85b2995",
+      "question": "The sentence 'I have been doing' is -----[]",
+      "options": [
+        "Present indefinite",
+        "Present continuous",
+        "Present perfect",
+        "Present perfect continuous"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "fd6f1ca9-01a6-4407-9365-150bb03ffab3",
+      "question": "Could you please help me ? Here 'could' is used as -----.\n'Would you mind having a cup of tea' is a sentence in -----.[]",
+      "options": [
+        "Present tense",
+        "Present continuous tense",
+        "Past tense",
+        "Past continuous tense"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

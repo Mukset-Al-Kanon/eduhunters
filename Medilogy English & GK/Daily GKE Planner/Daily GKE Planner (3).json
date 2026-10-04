@@ -1,0 +1,385 @@
+{
+  "exam_id": 1616,
+  "title": "Daily GKE Planner (3)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 12,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "06a6b6b6-aa89-480f-8ce8-b4b01e6dfd02",
+      "question": "The correct passive form of \"He taught me to read arabic\"-",
+      "options": [
+        "I was taught by him to read Arabic",
+        "I have been taught by him to read Arabic",
+        "I had been taught by him to read Arabic",
+        "I was being thought to read Arabic by him."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "3c66ce7f-e124-4799-8465-23d2e662beaa",
+      "question": "The correct passive form of \" who will help you? \"",
+      "options": [
+        "by whom you will be helped?",
+        "by whom would you be helped?",
+        "by whom will you be helped?",
+        "by whom will be you helped?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "b19cc499-d1d9-43ca-8099-a3d7efa38d4d",
+      "question": "The correct passive form of \"We insist punctuality in this office\"",
+      "options": [
+        "punctuality be insisted in this office",
+        "punctuality  should be insisted in this office",
+        "punctuality is to be insisted on this office",
+        "Punctuality is insisted on this office"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "063f6c46-74ef-47cc-a281-55cd3f2e4293",
+      "question": "The correct passive form of \" I know him \"-",
+      "options": [
+        "he was known to me",
+        "he is known to me",
+        "he is known by me",
+        "I was known to him"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "79f9de16-7d86-4a19-8ca5-5eafa9ecc015",
+      "question": "The correct passive form of \" He has a cow  \"",
+      "options": [
+        "A cow is had by him",
+        "A cow is  had by him",
+        "A cow has been by him",
+        "A cow had been by him"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "3b04577c-31a0-469d-8ac9-faf6f05b7833",
+      "question": "\" Whom were you calling? \" make it passive.",
+      "options": [
+        "who called by you?",
+        "who are you called?",
+        "who was being called by you?",
+        "who were you being called?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "84e1f2a2-7252-42e3-b405-980ec66416ab",
+      "question": "\" Who was helped by you? \" make it active.",
+      "options": [
+        "Whom did you help?",
+        "Who helped you?",
+        "Who did help you?",
+        "Whom had you helped?"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "d8df3870-c7bd-4e0c-ba2e-c305f4d87f30",
+      "question": "\" Smoke filled the room \" make it passive.",
+      "options": [
+        "the room is filled with smoke",
+        "The room was filled by smoke",
+        "The room was filled at smoke",
+        "The room was filled with smoke"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "58f83b08-c70a-4ac4-8a53-fcfdd5f4b815",
+      "question": "\" Don't take the forget me not \" make it passive.",
+      "options": [
+        "Forget me not be taken by you",
+        "Let not the forget me not be taken by you",
+        "Let never taken the forget me not",
+        "Let not taken by you the forget me not"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Forget me not হলো নীল রঙের ক্ষুদ্র ফুল বিশিষ্ট উদ্ভিদ।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "c64bdd1e-979f-4306-a7ca-41b5994c1c68",
+      "question": "\"Health should be taken care of \"make it active",
+      "options": [
+        "We should take care of one's health",
+        "One should take care of one's health",
+        "We should take care of ones health",
+        "We must take care of our health"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "53218643-d171-440e-84ec-14f5aa4684ea",
+      "question": "\" You will be helped by me\"make it active",
+      "options": [
+        "I shall help you",
+        "I must help you",
+        "I shall have helped you",
+        "I should help you"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "ffbcc67a-26d5-4865-92d4-261e7965d50a",
+      "question": "Passive form of \"Who did it?\"",
+      "options": [
+        "By whom had it been done?",
+        "Who is it done by?",
+        "By whom was it done?",
+        "By whom has it been done?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "e40b8a55-1459-4ee7-badc-81a327589629",
+      "question": "Which one is wrong?",
+      "options": [
+        "Honey is sweet when it is tasted",
+        "Honey is tasted sweet",
+        "Rice is sold cheap",
+        "Let a shirt bought for me"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Let a shirt be bought for me সঠিক",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "f2f104e1-a505-4258-925c-ef2899ce2cc0",
+      "question": "Fire burnt the ship.The correct passive form of this sentence -",
+      "options": [
+        "The ship was burnt by fire",
+        "The ship was burnt",
+        "The ship was burnt with fire",
+        "The ship was burnt of fire"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আগুন দিয়েই জ্বালানো সম্ভব। আর অন্য কোনো উপায়ে সম্ভব না।তাই কমন ইনফরমেশন passive করার সময় উহ্য থাকে",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "30c4623d-080b-4676-9d27-78197ab87629",
+      "question": "Change the voice \"Nobody trusts a traitor\"",
+      "options": [
+        "A traitor is not trusted with amybody",
+        "A traitor should not be trusted to anybody",
+        "A traitor is not trusted by anybody",
+        "A traitor is trusted by everybody"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "f0fa55f3-390c-419e-b40b-8daac4c1713a",
+      "question": "Long walk to freedom গ্রন্থের রচয়িতা -",
+      "options": [
+        "শেখ মুজিবুর রহমান",
+        "নেলসন ম্যান্ডেলা",
+        "মাহাথির মোহাম্মদ",
+        "জওহরলাল নেহেরু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "2214a3fe-ee71-42c6-9258-2d170b5285e0",
+      "question": "দক্ষিণ আফ্রিকা কত বছর শ্বেতাঙ্গ শাসনে ছিল?",
+      "options": [
+        "৩০০",
+        "৩৩৫",
+        "৩৪২",
+        "৫০০"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "d5bd63ff-d86d-4d86-b402-7a491b13b578",
+      "question": "কোন দেশকে রেইনবো নেশন বলা হয়?",
+      "options": [
+        "আমেরিকা",
+        "নরওয়ে",
+        "মিশর",
+        "দক্ষিণ আফ্রিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "da84e31e-c869-469b-ba0d-6909045d2777",
+      "question": "Serpent of the Nile নামে পরিচিত কে?",
+      "options": [
+        "নেলসন ম্যান্ডেলা",
+        "ক্লিওপেট্রা",
+        "টলেমি",
+        "এলিজাবেথ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "3e3709d1-01ee-49c8-b3c0-442354662dad",
+      "question": "মিশর যে দেশের উপনিবেশ ছিল -",
+      "options": [
+        "জার্মানি",
+        "নেদারল্যান্ড",
+        "পর্তুগাল",
+        "ব্রিটেন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "35b523c8-5a01-4017-93cc-ca7b274b9db9",
+      "question": "মিশর সুয়েজ খাল জাতীয়করণ করে কত সালে?",
+      "options": [
+        "১৯৫৬",
+        "১৯৫৪",
+        "১৯৫৩",
+        "১৯৫৮"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "bfc1b4fc-468d-4031-a705-e40ec1747cf5",
+      "question": "তাহরির স্কয়ার কোথায় অবস্থিত?",
+      "options": [
+        "সিওল",
+        "আম্মান",
+        "কায়রো",
+        "তেহরান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি মিশর বিপ্লবের কেন্দ্রবিন্দু ছিলো",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "42432798-f688-4c69-b20c-e3aeb0e7e8d6",
+      "question": "আরব ইসরায়েল চতুর্থ যুদ্ধ সংঘটিত কার শাসনামলে?",
+      "options": [
+        "হোসেনী মোবারক",
+        "হাসান আল বান্না",
+        "আনোয়ার সাদাত",
+        "জামাল আবদেন নাসের"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "e7039df9-7934-45fe-8a2a-27deb6ddb45f",
+      "question": "নেলসন ম্যান্ডেলা নোবেল শান্তি পুরস্কার লাভ করেন কত সালে?",
+      "options": [
+        "১৯৯৪",
+        "১৯৯৩",
+        "১৯৯৫",
+        "১৯৯২"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "315599c8-b0ac-425a-b46c-50b7366a83e3",
+      "question": "East London কোথায় অবস্থিত?",
+      "options": [
+        "ইংল্যান্ড",
+        "জার্মানি",
+        "আমেরিকা",
+        "দ. আফ্রিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

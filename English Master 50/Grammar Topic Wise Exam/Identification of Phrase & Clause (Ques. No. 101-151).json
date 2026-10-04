@@ -1,0 +1,776 @@
+{
+  "exam_id": 8496,
+  "title": "Identification of Phrase & Clause (Ques. No. 101-151)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Identification of Phrase & Clause (151 Marks)",
+  "duration_minutes": 21,
+  "total_questions": 51,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "3af12005-b5ff-4a05-97ad-69538f6bec2e",
+      "question": "He can go <u>where he wants</u>.\nI shall go <u>where he lives</u>[]",
+      "options": [
+        "A noun clause",
+        "A verb clause",
+        "An adverbial clause",
+        "An adjective phrase"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. An adverbial clause\nকারণ\n“where he wants / where he lives” বাক্যাংশগুলো verb এর স্থান নির্দেশ করছে, তাই এগুলো adverbial clause of place।\nA. A noun clause → subject বা object হিসেবে কাজ করছে না\nB. A verb clause → “verb clause” আলাদা grammatical term হিসেবে এখানে প্রযোজ্য নয়\nD. An adjective phrase → noun modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "1db0169f-5a74-4664-a7f3-dcd53e137e5f",
+      "question": "You may go <u>wherever you like</u>.[]",
+      "options": [
+        "adverbial clause of place",
+        "adverbial clause of time",
+        "adverbial clause of reason",
+        "adverbial clause of noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. Adverbial clause of place\nকারণ\n“wherever you like” বাক্যাংশটি verb “go” এর স্থান নির্দেশ করছে, তাই এটি adverbial clause of place।\nB. adverbial clause of time → সময় নির্দেশ করছে না\nC. adverbial clause of reason → কারণ নির্দেশ করছে না\nD. adverbial clause of noun → noun modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "397b6565-5bec-424a-aab9-b78bcef4f3a3",
+      "question": "<u>Wherever I went</u> I saw signs of poverty. The underlined clause is an -----.[]",
+      "options": [
+        "adverbial clause of time",
+        "adverbial clause of place",
+        "adverbial clause of manner",
+        "adverbial clause of purpose"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. adverbial clause of place\nকারণ\n“Wherever I went” বাক্যাংশটি verb “saw” এর স্থান নির্দেশ করছে, তাই এটি adverbial clause of place।\nA. adverbial clause of time → সময় নির্দেশ করছে না\nC. adverbial clause of manner → কিভাবে কিছু হলো তা নির্দেশ করছে না\nD. adverbial clause of purpose → উদ্দেশ্য নির্দেশ করছে না",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "44e3b083-95fc-44ba-940f-bf1ac20e079d",
+      "question": "I will not go there <u>unless you go with me.</u>[]",
+      "options": [
+        "Adjective clause",
+        "Adverbial clause of condition",
+        "Adverbial clause of manner",
+        "Adverbial clause of purpose"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adverbial clause of condition\nকারণ\n“unless you go with me” বাক্যাংশটি শর্ত নির্দেশ করছে (I will go only if you go), তাই এটি adverbial clause of condition।\nA. Adjective clause → কোনো noun modify করছে না\nC. Adverbial clause of manner → কিভাবে কিছু হলো তা নির্দেশ করছে না\nD. Adverbial clause of purpose → উদ্দেশ্য নির্দেশ করছে না",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "e3d67c57-5e3e-4aa0-802c-e57b75936e02",
+      "question": "Strike while the iron is hot' is an example of ---[]",
+      "options": [
+        "Noun clause",
+        "Adjective clause",
+        "Adverbial clause",
+        "Subordinate clause"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. Adverbial clause\nকারণ\n“while the iron is hot” বাক্যাংশটি time নির্দেশ করছে (কখন strike করতে হবে), তাই এটি adverbial clause of time।\nA. Noun clause → subject বা object হিসেবে কাজ করছে না\nB. Adjective clause → কোনো noun modify করছে না\nD. Subordinate clause → ঠিক আছে, কিন্তু আরও specific হলো adverbial clause",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "e31cbe75-455b-49ad-aef7-324e4078623e",
+      "question": "This is the book <u>I lost</u>. Here 'I lost' is ---[]",
+      "options": [
+        "A noun clause",
+        "An adverbial clause",
+        "An adjective clause",
+        "None of the three"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. An adjective clause\nকারণ\n“I lost” বাক্যাংশটি noun (“book”) modify করছে, তাই এটি adjective clause।\nA. A noun clause → object বা subject হিসেবে কাজ করছে না\nB. An adverbial clause → verb modify করছে না\nD. None of the three → clause ঠিক আছে, তাই সঠিক নয়",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "38d43bc1-3b71-4571-a957-0df1c254ca2d",
+      "question": "Behave <u>as a gentleman behaves</u>. The underlined part is ---[]",
+      "options": [
+        "An adverb clause",
+        "An adjective clause",
+        "A noun clause",
+        "A principal clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. An adverb clause\nকারণ\n“as a gentleman behaves” বাক্যাংশটি verb “Behave” কিভাবে করতে হবে তা নির্দেশ করছে, তাই এটি adverbial clause of manner।\nB. An adjective clause → কোনো noun modify করছে না\nC. A noun clause → subject বা object হিসেবে কাজ করছে না\nD. A principal clause → main clause হিসেবে নয়, dependent clause",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "47293c44-0d84-4a50-b704-34f23f7d8bff",
+      "question": "He tells a tale <u>that sounds untrue.</u>[]",
+      "options": [
+        "Adjective clause",
+        "Adverb clause",
+        "Noun clause",
+        "Pronoun and Antecedent"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. Adjective clause\nকারণ\n“that sounds untrue” বাক্যাংশটি noun (“tale”) modify করছে, তাই এটি adjective clause।\nB. Adverb clause → verb modify করছে না\nC. Noun clause → subject বা object হিসেবে কাজ করছে না\nD. Pronoun and Antecedent → এখানে pronoun “that” এবং তার antecedent “tale” আছে, কিন্তু clause হিসেবে প্রশ্নের উত্তর নয়",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "6c80719b-fd3a-456d-ad18-561dfbc0e3a3",
+      "question": "They were asked to wait <u>till the signal was given</u>.[]",
+      "options": [
+        "An adjective clause",
+        "A noun clause",
+        "A pronoun clause",
+        "An adverb clause"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "✅ D. An adverb clause\nকারণ\n“till the signal was given” বাক্যাংশটি verb “wait” এর সময় নির্দেশ করছে, তাই এটি adverbial clause of time।\nA. An adjective clause → কোনো noun modify করছে না\nB. A noun clause → subject বা object হিসেবে কাজ করছে না\nC. A pronoun clause → pronoun দিয়ে শুরু হলেও clause হিসেবে প্রযোজ্য নয় এখানে",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "9f1924c5-163c-4e66-9a5a-1f9431c78cbe",
+      "question": "Do you remember the place <u>where we met first</u> ?[]",
+      "options": [
+        "Main clause",
+        "Adjective clause",
+        "Adverbial clause",
+        "Noun clause"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adjective clause\nকারণ\n“where we met first” বাক্যাংশটি noun (“place”) modify করছে, তাই এটি adjective clause।\nA. Main clause → main clause হলো “Do you remember the place?”; underlined অংশ main clause নয়\nC. Adverbial clause → verb modify করছে না\nD. Noun clause → object হিসেবে কাজ করছে না",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "e4f68b06-e59a-445a-8fb7-0ca12df9860c",
+      "question": "The umbrella which has a broken handle is mine.[]",
+      "options": [
+        "Noun clause",
+        "Adjective clause",
+        "Adverb clause",
+        "Adverb clause of time"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adjective clause\nকারণ\n“which has a broken handle” বাক্যাংশটি noun (“umbrella”) modify করছে, তাই এটি adjective clause।\nA. Noun clause → subject বা object হিসেবে কাজ করছে না\nC. Adverb clause → verb modify করছে না\nD. Adverb clause of time → সময় নির্দেশ করছে না",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "98f85712-34de-466e-a809-2a5a76ce57ee",
+      "question": "The book <u>which I bought</u> is lost.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Adverbial",
+        "Principal"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adjective\nকারণ\n“which I bought” বাক্যাংশটি noun (“book”) modify করছে, তাই এটি adjective clause।\nA. Noun → subject বা object হিসেবে কাজ করছে না\nC. Adverbial → verb modify করছে না\nD. Principal → main clause হিসেবে নয়, dependent clause",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "42bb3c41-ffce-485d-9163-765b2054d9ae",
+      "question": "The prices were a great deal higher <u>than I had anticipated</u>.[]",
+      "options": [
+        "Adverbial clause",
+        "Noun clause",
+        "Adjective clause",
+        "Main clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. Adverbial clause\nকারণ\n“than I had anticipated” বাক্যাংশটি “higher” এর তুলনা নির্দেশ করছে (extent/degree), তাই এটি adverbial clause of comparison।\nB. Noun clause → subject বা object হিসেবে কাজ করছে না\nC. Adjective clause → কোনো noun modify করছে না\nD. Main clause → main clause হলো “The prices were a great deal higher”; underlined অংশ main clause নয়",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "fc99bb3d-560e-4fa3-a7a6-e07f20e00afe",
+      "question": "<u>Though he is poor</u>, he is honest.[]",
+      "options": [
+        "An adjective clause",
+        "A principal clause",
+        "A noun clause",
+        "An adverbial clause"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "✅ D. An adverbial clause\nকারণ\n“Though he is poor” বাক্যাংশটি main clause “he is honest” এর বিপরীত অবস্থা নির্দেশ করছে, তাই এটি adverbial clause of concession।\nA. An adjective clause → কোনো noun modify করছে না\nB. A principal clause → main clause হলো “he is honest”, underlined অংশ principal clause নয়\nC. A noun clause → subject বা object হিসেবে কাজ করছে না",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "8dbbebef-5889-4abd-9fcd-558c12e2abed",
+      "question": "He was so hungry <u>that he began to eat greedily.</u>[]",
+      "options": [
+        "An adjective clause",
+        "A noun clause",
+        "A principal clause",
+        "An adverbial clause"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "✅ D. An adverbial clause\nকারণ\n“that he began to eat greedily” বাক্যাংশটি main clause “He was so hungry” এর ফলাফল বা consequence নির্দেশ করছে, তাই এটি adverbial clause of result।\nA. An adjective clause → কোনো noun modify করছে না\nB. A noun clause → subject বা object হিসেবে কাজ করছে না\nC. A principal clause → main clause হলো “He was so hungry”, underlined অংশ principal clause নয়",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "5eb04579-6ffb-44e3-b634-bf8cb24c550a",
+      "question": "I know <u>how he struggled against poverty</u>. The underlined clause is ---[]",
+      "options": [
+        "Noun clause",
+        "Main clause",
+        "Adjective clause",
+        "Adverbial clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. Noun clause\nকারণ\n“how he struggled against poverty” বাক্যাংশটি object হিসেবে কাজ করছে (“know” verb এর object), তাই এটি noun clause।\nB. Main clause → main clause হলো “I know”, underlined অংশ main clause নয়\nC. Adjective clause → কোনো noun modify করছে না\nD. Adverbial clause → verb modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "278a1b85-5368-49f1-9635-8910c7af3237",
+      "question": "Did you expect ----- ?[]",
+      "options": [
+        "that he will visit you",
+        "him to visit you",
+        "that he visited you",
+        "that he would visit you"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "✅ D. that he would visit you\nকারণ:\n“expect” verb-এর সঙ্গে that-clause ব্যবহার করা যায়, বিশেষ করে ভবিষ্যৎ-in-the-past বোঝাতে।\n“that he would visit you” এখানে future-in-the-past tense দেখাচ্ছে, তাই এটি সঠিক।\nA. that he will visit you → tense mismatch\nB. him to visit you → object + infinitive structure, কিন্তু contextually “would” বেশি ঠিক\nC. that he visited you → past tense, meaning ঠিক হয়",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "eddec624-33aa-493c-ba24-cf1afabbbec8",
+      "question": "<u>If it rains,</u> I will stay at home.\n<u>If you make a promise,</u> you must keep it.[]",
+      "options": [
+        "Noun clause",
+        "Adjective clause",
+        "Adverbial clause",
+        "Principal clause"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. Adverbial clause\nকারণ\n“If it rains / If you make a promise” বাক্যাংশগুলো main clause-এর শর্ত নির্দেশ করছে, তাই এগুলো adverbial clause of condition।\nA. Noun clause → subject বা object হিসেবে কাজ করছে না\nB. Adjective clause → কোনো noun modify করছে না\nD. Principal clause → main clause হলো “I will stay at home / you must keep it”, underlined অংশ principal clause নয়",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "bb383914-4cf8-43fe-bc8f-03470a1ca1db",
+      "question": "<u>Whoever wants to know</u> should ask :[]",
+      "options": [
+        "Noun clause",
+        "Main clause",
+        "Adjective clause",
+        "Adverbial clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. Noun clause\nকারণ\n“Whoever wants to know” বাক্যাংশটি subject হিসেবে কাজ করছে (“should ask” verb এর subject), তাই এটি noun clause।\nB. Main clause → main clause হলো “should ask” এর অংশ নয়, clause itself subject হিসেবে কাজ করছে\nC. Adjective clause → কোনো noun modify করছে না\nD. Adverbial clause → verb modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "77aee78b-cd37-4fea-be4e-936e644ed485",
+      "question": "You can go wherever you like'. The underlined clause is ---[]",
+      "options": [
+        "An adjective clause",
+        "A noun clause",
+        "An adverbial clause",
+        "An adjective clause of time"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. An adverbial clause\nকারণ\n“wherever you like” বাক্যাংশটি verb “go” এর স্থান নির্দেশ করছে, তাই এটি adverbial clause of place।\nA. An adjective clause → কোনো noun modify করছে না\nB. A noun clause → subject বা object হিসেবে কাজ করছে না\nD. An adjective clause of time → time নির্দেশ করছে না, স্থান নির্দেশ করছে",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "286d9931-6402-4ad9-acf6-b625354581e8",
+      "question": "Globally,<u>what we are experiencing</u> is that English is replacing other languages.[]",
+      "options": [
+        "Noun clause",
+        "Adjective clause",
+        "Adverbial clause",
+        "Prepositional clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. Noun clause\nকারণ\n“what we are experiencing” বাক্যাংশটি subject হিসেবে কাজ করছে (“is” verb এর subject), তাই এটি noun clause।\nB. Adjective clause → কোনো noun modify করছে না\nC. Adverbial clause → verb modify করছে না\nD. Prepositional clause → preposition দিয়ে শুরু হয়নি",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "d56851d3-0a39-46de-b837-b631782f557b",
+      "question": "Tell me <u>who did it</u>. []",
+      "options": [
+        "A noun clause",
+        "An adjective clause",
+        "An adverbial clause",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. A noun clause\nকারণ\n“who did it” বাক্যাংশটি object হিসেবে কাজ করছে (“Tell me” verb এর object), তাই এটি noun clause।\nB. An adjective clause → কোনো noun modify করছে না\nC. An adverbial clause → verb modify করছে না\nD. None → এখানে clause আছে, তাই সঠিক নয়",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "f799c2b3-d50f-430e-946b-97866c5efb81",
+      "question": "Those <u>who are bewildered by the teeming life in White chapel </u> devised methods of finding their way around.[]",
+      "options": [
+        "Noun clause",
+        "Adjective clause",
+        "Adverbial clause",
+        "Prepositional clause"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adjective clause\nকারণ\n“who are bewildered by the teeming life in Whitechapel” বাক্যাংশটি noun (“Those”) modify করছে, তাই এটি adjective clause।\nA. Noun clause → subject বা object হিসেবে কাজ করছে না\nC. Adverbial clause → verb modify করছে না\nD. Prepositional clause → preposition দিয়ে শুরু হয়নি",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "c1fe4361-17f7-4320-b5e2-4c35191a765e",
+      "question": "Rani was a poor boy <u>who lived in the orphanage.</u>[]",
+      "options": [
+        "Principal clause",
+        "Noun clause",
+        "Adjective clause",
+        "Adverbial clause"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. Adjective clause\nকারণ\n“who lived in the orphanage” বাক্যাংশটি noun (“boy”) modify করছে, তাই এটি adjective clause।\nA. Principal clause → main clause হলো “Rani was a poor boy”, underlined অংশ principal clause নয়\nB. Noun clause → subject বা object হিসেবে কাজ করছে না\nD. Adverbial clause → verb modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "4a4aa81a-2121-4471-b147-0421fd14e9fa",
+      "question": "Which sentence contains an adverbial clause ?[]",
+      "options": [
+        "This is the way he writes.",
+        "She went back to England where she was born.",
+        "This is the pen I lost yesterday.",
+        "The house in which we live in is small."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. This is the way he writes\nকারণ:\nএখানে “the way he writes” বাক্যাংশটি verb “writes” কিভাবে ঘটে তা নির্দেশ করছে, তাই এটি adverbial clause of manner।\nB. “where she was born” → adverbial clause of place\nC. “I lost yesterday” → adjective clause\nD. “in which we live in” → adjective clause",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "8880007a-209b-4cf0-8377-ec72e9eb6e64",
+      "question": "I didn't believe them at first, but in fact everything ----- was true.[]",
+      "options": [
+        "they said",
+        "that said",
+        "what that they said",
+        "which they said"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. they said\nকারণ:\n“they said” এখানে relative clause হিসেবে কাজ করছে না, বরং directly “everything” কে বর্ণনা করছে।\nএই construction-এ “everything they said” পুরো phrase subject + verb structure হিসেবে ঠিক আছে।\nB. that said → grammatically incomplete\nC. what that they said → ভুল structure",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "99ed925b-ae9b-477b-8a89-1d10524a5fa1",
+      "question": "Some of the boys ----- did not come.[]",
+      "options": [
+        "I invited",
+        "whom I invited them",
+        "whose I invited",
+        "I invited them"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. I invited\nকারণ:\n“I invited” বাক্যাংশটি noun (“Some of the boys”) modify করছে, তাই এটি adjective clause হিসেবে ঠিক আছে।\nB. whom I invited them → grammatically ভুল, pronoun ও object একসাথে ব্যবহার হয়েছে\nC. whose I invited → grammatically ভুল, possessive ঠিক নয়\nD. I invited them → “them” redundant, clause structure ঠিক নেই",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "8c1ce6ba-aecc-4a81-9638-26a0b3ee3382",
+      "question": "----- surprised me.[]",
+      "options": [
+        "What you said",
+        "If you say so",
+        "Because of saying so",
+        "What did you say"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. What you said\nকারণ:\n“What you said” বাক্যাংশটি এখানে subject হিসেবে কাজ করছে, তাই এটি noun clause।\nB. If you say so → শর্ত নির্দেশ করছে, adverbial clause হবে, subject নয়\nC. Because of saying so → prepositional phrase, subject নয়\nD. What did you say → প্রশ্ন sentence, এখানে grammatically ঠিক নয়",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "62384616-be65-42c2-a4e2-5ae14e698740",
+      "question": "He always does what -----.[]",
+      "options": [
+        "he cannot see",
+        "he likes",
+        "is quite certain",
+        "see the point"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. he likes\nকারণ:\n“he likes” বাক্যাংশটি “what” দ্বারা নির্দেশিত object হিসেবে কাজ করছে, তাই এটি noun clause।\nA. he cannot see → grammatically ঠিক হলেও context অনুযায়ী “does what he likes” বেশি প্রাকৃতিক\nC. is quite certain → subject/verb mismatch, clause incomplete\nD. see the point → grammatically ভুল, subject নেই",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "2d51eeb2-a83d-4cf6-95ee-b351805a607d",
+      "question": "I know the man/boy <u>who came here yesterday.</u> []",
+      "options": [
+        "Noun clause",
+        "Adjective clause",
+        "Adverbial clause",
+        "Principal clause"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adjective clause\nকারণ:\n“who came here yesterday” বাক্যাংশটি noun (“man/boy”) modify করছে, তাই এটি adjective clause।\nA. Noun clause → subject বা object হিসেবে কাজ করছে না\nC. Adverbial clause → verb modify করছে না\nD. Principal clause → main clause হলো “I know the man/boy”, underlined অংশ principal clause নয়",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "7c826fef-fdb1-47e1-af3e-211cea4ce18f",
+      "question": "The vegetables <u>that people leave uneaten</u> are often the most nutrious.[]",
+      "options": [
+        "Noun clause",
+        "Appositive",
+        "Adjective clause",
+        "Complement"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. Adjective clause\nকারণ:\n“that people leave uneaten” বাক্যাংশটি noun (“vegetables”) modify করছে, তাই এটি adjective clause।\nA. Noun clause → subject বা object হিসেবে কাজ করছে না\nB. Appositive → nounের নাম বা ব্যাখ্যা দেয়, এখানে নয়\nD. Complement → predicate বা verb complete করছে না",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "3f9a9f74-2f3a-4b11-b35c-0b3090fd61c0",
+      "question": "This parcel is from <u>where I spent my childhood.</u> The underlined part is ---[]",
+      "options": [
+        "A noun clause",
+        "An adjective clause",
+        "An adverbial clause",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. An adverbial clause\nকারণ:\n“where I spent my childhood” বাক্যাংশটি preposition “from” এর স্থান নির্দেশ করছে, তাই এটি adverbial clause of place।\nA. A noun clause → subject বা object হিসেবে কাজ করছে না\nB. An adjective clause → কোনো noun modify করছে না\nD. None → এখানে clause আছে, তাই সঠিক নয়",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "1c0bdd25-36d6-481a-8266-746a8f7586f6",
+      "question": "This is the pen <u>which I wanted.</u>[]",
+      "options": [
+        "Adjective clause",
+        "Main clause",
+        "Noun clause",
+        "Adverbial clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. Adjective clause\nকারণ:\n“which I wanted” বাক্যাংশটি noun (“pen”) modify করছে, তাই এটি adjective clause।\nB. Main clause → main clause হলো “This is the pen”, underlined অংশ main clause নয়\nC. Noun clause → subject বা object হিসেবে কাজ করছে না\nD. Adverbial clause → verb modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "91c6b34d-6164-458f-8284-295c8fbf4fdb",
+      "question": "<u>That he is a rogue</u> is well-known to all.\n<u>That he is very intelligent</u> is known to me.[]",
+      "options": [
+        "An adjective clause",
+        "A prepositional clause",
+        "A noun clause",
+        "A noun phrase"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. A noun clause\nকারণ:\n“That he is a rogue / That he is very intelligent” বাক্যাংশগুলো subject হিসেবে কাজ করছে, তাই এগুলো noun clause।\nA. An adjective clause → কোনো noun modify করছে না\nB. A prepositional clause → preposition দিয়ে শুরু হয়নি\nD. A noun phrase → clause, phrase নয়",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "6680d2c2-110f-42b3-9ad8-67600fb825f0",
+      "question": "He came <u>when I was there</u>. The underlined clause is ---[]",
+      "options": [
+        "Noun clause",
+        "Adverbial clause",
+        "Adjective clause",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adverbial clause\nকারণ:\n“when I was there” বাক্যাংশটি main clause “He came” এর সময় নির্দেশ করছে, তাই এটি adverbial clause of time।\nA. Noun clause → subject বা object হিসেবে কাজ করছে না\nC. Adjective clause → কোনো noun modify করছে না\nD. None → এখানে clause আছে, তাই সঠিক নয়",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "88913bc2-0317-4557-93b7-ca690c680174",
+      "question": "This is the multimedia projector <u>that our class used.</u>[]",
+      "options": [
+        "A noun clause",
+        "An adjective clause",
+        "A verb clause",
+        "A preposition clause"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. An adjective clause\nকারণ:\n“that our class used” বাক্যাংশটি noun (“multimedia projector”) modify করছে, তাই এটি adjective clause।\nA. A noun clause → subject বা object হিসেবে কাজ করছে না\nC. A verb clause → clause কিন্তু noun modify করছে না\nD. A preposition clause → preposition দিয়ে শুরু হয়নি",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "568bf669-7c0c-4bc7-8307-1f12c49b7eff",
+      "question": "The man <u>who called for an appointment</u> has just arrived.\nThis is the man <u>who called you yesterday.</u>[]",
+      "options": [
+        "Independent clause",
+        "Adjective clause",
+        "Adverb clause",
+        "Noun clause"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adjective clause\nকারণ:\n“who called for an appointment / who called you yesterday” বাক্যাংশগুলো noun (“man”) modify করছে, তাই এগুলো adjective clause।\nA. Independent clause → main clause নয়, underlined অংশ dependent clause\nC. Adverb clause → verb modify করছে না\nD. Noun clause → subject বা object হিসেবে কাজ করছে না",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "5c2e985a-6f8a-4fa1-91a2-7eee16b499bf",
+      "question": "The station master knows <u>when the train will depart.</u> The underlined clause is ---[]",
+      "options": [
+        "A noun clause",
+        "An adverbial clause",
+        "An adjective clause",
+        "A noun phrase"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. A noun clause\nকারণ:\n“when the train will depart” বাক্যাংশটি verb “knows” এর object হিসেবে কাজ করছে, তাই এটি noun clause।\nB. An adverbial clause → verb modify করছে না\nC. An adjective clause → কোনো noun modify করছে না\nD. A noun phrase → clause, phrase নয়",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "7ae1fb40-e398-4e9e-b34b-cb594d2dec64",
+      "question": "Which of the following sentences contains an adjective clause ?[]",
+      "options": [
+        "He works hard so that he can succeed in life.",
+        "I know the boy who stood first in the exam.",
+        "Though he is poor,he is honest.",
+        "What he says is true."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. I know the boy who stood first in the exam\nকারণ:\n“who stood first in the exam” বাক্যাংশটি noun (“boy”) modify করছে, তাই এটি adjective clause।\nA. “so that he can succeed in life” → adverbial clause of purpose\nC. “Though he is poor” → adverbial clause of concession\nD. “What he says” → noun clause",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "7a78cd65-eb04-44a1-b0a9-9570ae433652",
+      "question": "Identify the sentence with adjective clause.[]",
+      "options": [
+        "I know what he said.",
+        "The rumour, that she died, is not true",
+        "He is the boy who came here.",
+        "She reads hard so that she can pass."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. He is the boy who came here\nকারণ:\n“who came here” বাক্যাংশটি noun (“boy”) modify করছে, তাই এটি adjective clause।\nA. “what he said” → noun clause\nB. “that she died” → noun clause (appositive)\nD. “so that she can pass” → adverbial clause of purpose",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "bc25a5b5-a5c3-403e-99a6-899e1519fb22",
+      "question": "We all know <u>that humans are mortal.</u>\nI know <u>how he became successful.</u>\nI know <u>where he lives.</u>[]",
+      "options": [
+        "An adverbial clause",
+        "A noun clause",
+        "An adjective clause",
+        "The principal clause"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. A noun clause\nকারণ:\n“that humans are mortal / how he became successful / where he lives” বাক্যাংশগুলো verb এর object হিসেবে কাজ করছে, তাই এগুলো noun clause।\nA. An adverbial clause → verb modify করছে না\nC. An adjective clause → noun modify করছে না\nD. The principal clause → main clause হলো “We all know / I know”, underlined অংশ principal clause নয়",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "d7d76412-c68f-4c29-a4ca-d127c4321f04",
+      "question": "<u>Supposing that he passes the B.A.</u> but will he get a job ?[]",
+      "options": [
+        "A noun clause",
+        "An adverbial clause",
+        "A co-ordinate clause",
+        "An adjective clause"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. An adverbial clause\nকারণ:\n“that he passes the B.A.” বাক্যাংশটি main clause “will he get a job?” এর শর্ত নির্দেশ করছে, তাই এটি adverbial clause of condition।\nA. A noun clause → subject বা object হিসেবে কাজ করছে না\nC. A co-ordinate clause → independent clause নয়\nD. An adjective clause → কোনো noun modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "cc3eb24d-0144-4e86-b0c9-fb0b8723697f",
+      "question": "It was raining <u>when Jiban came back home</u>. []",
+      "options": [
+        "Main clause",
+        "Noun clause",
+        "Adjective clause",
+        "Adverb clause"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "✅ D. Adverb clause\nকারণ:\n“when Jiban came back home” বাক্যাংশটি main clause “It was raining” এর সময় নির্দেশ করছে, তাই এটি adverbial clause of time।\nA. Main clause → main clause হলো “It was raining”, underlined অংশ নয়\nB. Noun clause → subject বা object হিসেবে কাজ করছে না\nC. Adjective clause → কোনো noun modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "6857687b-48cd-430b-b8c4-a8db78c0a7c8",
+      "question": "He <u>whom you call uncle</u> has died. The underlined part is a/an ---[]",
+      "options": [
+        "An adjective clause",
+        "A noun clause",
+        "An adverbial clause",
+        "A co-ordinate clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. An adjective clause\nকারণ:\n“whom you call uncle” বাক্যাংশটি noun (“He”) modify করছে, তাই এটি adjective clause।\nB. A noun clause → subject বা object হিসেবে কাজ করছে না\nC. An adverbial clause → verb modify করছে না\nD. A co-ordinate clause → independent clause নয়",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "766e70cd-1789-466c-8f9a-e6bcb9497c69",
+      "question": "I apprehended <u>whether the home assignment has been finished</u>. []",
+      "options": [
+        "A co-ordinate clause",
+        "An adverbial clause",
+        "A noun clause",
+        "An adjective clause"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. A noun clause\nকারণ:\n“whether the home assignment has been finished” বাক্যাংশটি verb “apprehended” এর object হিসেবে কাজ করছে, তাই এটি noun clause।\nA. A co-ordinate clause → independent clause নয়\nB. An adverbial clause → verb modify করছে না\nD. An adjective clause → কোনো noun modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "87b99908-066d-4c25-b318-4e9e674f8224",
+      "question": "The man <u>who works hard </u> succeeds finally.[]",
+      "options": [
+        "Adjective clause",
+        "Adverb clause",
+        "Noun clause",
+        "Independent clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. Adjective clause\nকারণ:\n“who works hard” বাক্যাংশটি noun (“man”) modify করছে, তাই এটি adjective clause।\nB. Adverb clause → verb modify করছে না\nC. Noun clause → subject বা object হিসেবে কাজ করছে না\nD. Independent clause → main clause হলো “The man succeeds finally”, underlined অংশ নয়",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "49308c5d-087f-491f-bfec-b23a25614b64",
+      "question": "The man <u>who came here</u> is a professor of English.[]",
+      "options": [
+        "A principal clause",
+        "A noun clause",
+        "An adjective clause",
+        "An adverbial clause"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "✅ C. An adjective clause\nকারণ:\n“who came here” বাক্যাংশটি noun (“man”) modify করছে, তাই এটি adjective clause।\nA. A principal clause → main clause হলো “The man is a professor of English”, underlined অংশ নয়\nB. A noun clause → subject বা object হিসেবে কাজ করছে না\nD. An adverbial clause → verb modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "6ab5a9e9-4502-477c-b389-f4c3502561b7",
+      "question": "People <u>who are involved in politics</u> try to get power.[]",
+      "options": [
+        "Noun clause",
+        "Adjective clause",
+        "Adverbial clause",
+        "None of the above"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "✅ B. Adjective clause\nকারণ:\n“who are involved in politics” বাক্যাংশটি noun (“People”) modify করছে, তাই এটি adjective clause।\nA. Noun clause → subject বা object হিসেবে কাজ করছে না\nC. Adverbial clause → verb modify করছে না\nD. None of the above → সঠিক নয়, কারণ এটি একটি adjective clause",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "47c07a9f-e81e-41c9-9c37-37be8dc1c870",
+      "question": "The fruits <u>that are available in summer</u> bear antibodies to fight against summer diseases.[]",
+      "options": [
+        "An adjective clause",
+        "A noun clause",
+        "A prepositional clause",
+        "An adverbial clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. An adjective clause\nকারণ:\n“that are available in summer” বাক্যাংশটি noun (“fruits”) modify করছে, তাই এটি adjective clause।\nB. A noun clause → subject বা object হিসেবে কাজ করছে না\nC. A prepositional clause → preposition দিয়ে শুরু হয়নি\nD. An adverbial clause → verb modify করছে না",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "a1b4b8ba-57b9-4648-a572-a0e11267cf2f",
+      "question": "<u>What he knew</u> was clear to all.[]",
+      "options": [
+        "A noun clause",
+        "An adjective clause",
+        "An adverbial clause",
+        "A co-ordinate clause"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "✅ A. A noun clause\nকারণ:\n“What he knew” বাক্যাংশটি subject হিসেবে কাজ করছে, তাই এটি noun clause।\nB. An adjective clause → কোনো noun modify করছে না\nC. An adverbial clause → verb modify করছে না\nD. A co-ordinate clause → independent clause নয়",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "sabas_8496_51",
+      "question": "The shirt <u>which my father bought for me</u> suits me well.",
+      "options": [
+        "Noun clause",
+        "Adverbial clause",
+        "Principal clause",
+        "Adjective clause"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

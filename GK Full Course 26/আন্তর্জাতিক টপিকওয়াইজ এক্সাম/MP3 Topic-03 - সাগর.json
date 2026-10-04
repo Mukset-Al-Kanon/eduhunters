@@ -1,0 +1,656 @@
+{
+  "exam_id": 10423,
+  "title": "MP3 Topic-03 : সাগর",
+  "category": "আন্তর্জাতিক টপিকওয়াইজ এক্সাম",
+  "subtopic": "ভৌগোলিক বৈচিত্র্য Exam",
+  "duration_minutes": 22,
+  "total_questions": 43,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "b674b33e-2251-4b23-8cd1-17e7f761f208",
+      "question": "বাল্টিক সাগর তীরবর্তী দেশ কোনটি? [SABAS][]",
+      "options": [
+        "তুরস্ক",
+        "যুক্তরাজ্য",
+        "সুইডেন",
+        "নরওয়ে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুইডেন বাল্টিক সাগর তীরবর্তী দেশগুলোর অন্যতম।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "7899afd2-5319-4afd-a9ee-6a31c315b18d",
+      "question": "কোন দেশটি ইউরোপের বাল্টিক অঞ্চলে অবস্থিত নয়? [SABAS][]",
+      "options": [
+        "ফিনল্যান্ড",
+        "পোল্যান্ড",
+        "অস্ট্রিয়া",
+        "সুইডেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অস্ট্রিয়া ইউরোপের মধ্যভাগে অবস্থিত একটি স্থলবেষ্টিত দেশ, এটি বাল্টিক অঞ্চলে নেই।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "086fd2ca-e651-4c97-b9ff-10786e2c6332",
+      "question": "কোন দেশটি বাল্টিক রাষ্ট্র (Baltic state) এর অন্তর্ভুক্ত নয়? [SABAS][]",
+      "options": [
+        "ইউক্রেন",
+        "এস্তোনিয়া",
+        "লাটভিয়া",
+        "লিথুয়ানিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এস্তোনিয়া, লাটভিয়া ও লিথুয়ানিয়া হলো বাল্টিক রাষ্ট্র। ইউক্রেন এর অন্তর্ভুক্ত নয়।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "8dfdfd9d-a89f-44db-bd6b-a0e4e365d3b5",
+      "question": "The smallest sea of the World is - [SABAS][]",
+      "options": [
+        "Red Sea",
+        "Dead Sea",
+        "Baltic sea",
+        "Arabian Sea"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বিশ্বের ক্ষুদ্রতম সাগর হলো বাল্টিক সাগর।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "865a487b-47a2-47e3-9176-00b43bd8a83b",
+      "question": "ভূমধ্যসাগরীয় দেশ কোনটি? [SABAS][]",
+      "options": [
+        "আলজেরিয়া",
+        "সুদান",
+        "ইরান",
+        "ওমান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আলজেরিয়া একটি ভূমধ্যসাগরীয় দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "efcd8ce3-a4fb-45da-a3b7-3651665ad030",
+      "question": "কোন দেশটি ভূমধ্যসাগরের তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "রোমানিয়া",
+        "মিশর",
+        "চেক প্রজাতন্ত্র",
+        "পোল্যান্ড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মিশর ভূমধ্যসাগরের তীরবর্তী একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "f519c262-b17c-4d35-8828-2688137ec8ab",
+      "question": "নিচের কোন দেশটি ভূমধ্যসাগরের তীরে অবস্থিত নয়? [SABAS][]",
+      "options": [
+        "আলবেনিয়া",
+        "তিউনিসিয়া",
+        "পর্তুগাল",
+        "মিশর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পর্তুগাল ভূমধ্যসাগরের তীরে অবস্থিত নয়, এটি আটলান্টিক মহাসাগরের উপকূলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "d4db8963-148f-4b96-bd38-41b30e8cb8cb",
+      "question": "ভূমধ্যসাগরের বৃহৎ দ্বীপ কোনটি? [SABAS][]",
+      "options": [
+        "সিসিলি",
+        "আটাফু",
+        "সাইপ্রাস",
+        "সার্ডিনিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সিসিলি ভূমধ্যসাগরের বৃহত্তম দ্বীপ।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "bb805171-282a-4eac-a5ab-60dbf0cd6ca2",
+      "question": "Which one is an island nation in the Mediterranean Ocean? [SABAS][]",
+      "options": [
+        "Gibraltar",
+        "Tunisia",
+        "Malta",
+        "Albania"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মাল্টা ভূমধ্যসাগরে অবস্থিত একটি দ্বীপ রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "2d180a66-b446-4d1d-8696-75a798dc807c",
+      "question": "Port of Valencia is in- [SABAS][]",
+      "options": [
+        "Spain",
+        "Morocco",
+        "Portugal",
+        "Italy"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভ্যালেন্সিয়া বন্দরটি স্পেনে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "8cfbfc8c-2c85-4a61-8813-2577aeaf1d2e",
+      "question": "হাইফা কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "ইসরায়েল",
+        "ইরান",
+        "ইন্দোনেশিয়া",
+        "কুয়েত"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাইফা ইসরায়েলের একটি গুরুত্বপূর্ণ সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "2a9e1d10-550a-4590-80dc-fafd1d8bebb3",
+      "question": "আলেকজান্দ্রিয়া বন্দর কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মিশর",
+        "সিরিয়া",
+        "ইসরায়েল",
+        "মরক্কো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আলেকজান্দ্রিয়া বন্দর মিশরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "de16030f-a31a-4120-85bf-b928bd57276c",
+      "question": "আলেকজান্দ্রিয়া শহরটি কোন সমুদ্রের তটে অবস্থিত? [SABAS][]",
+      "options": [
+        "লোহিত সাগর",
+        "ভূ-মধ্যসাগর",
+        "কৃষ্ণ সাগর",
+        "ইজিয়ান সাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আলেকজান্দ্রিয়া ভূমধ্যসাগরের উপকূলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "dba08675-aec1-4494-96d1-c78e1466e947",
+      "question": "পোর্ট সৈয়দ কোন দেশের বন্দর? [SABAS][]",
+      "options": [
+        "আলজেরিয়া",
+        "লেবানন",
+        "মিশর",
+        "সিঙ্গাপুর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পোর্ট সৈয়দ মিশরে অবস্থিত একটি বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "c4d92d90-6232-4974-946c-b63a0c2af5cb",
+      "question": "তুরস্কের বন্দরনগরী কোনটি? [SABAS][]",
+      "options": [
+        "বুসান",
+        "আলেকজান্দ্রিয়া",
+        "ইসকানদারুন",
+        "আকাবা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইসকানদারুন তুরস্কের একটি গুরুত্বপূর্ণ বন্দরনগরী।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "ff8bab30-ae47-470d-916c-14021c1afa36",
+      "question": "লাটাকিয়া কোন দেশের সমুদ্রবন্দর? [SABAS][]",
+      "options": [
+        "সিরিয়ার",
+        "ইরানের",
+        "ইরাকের",
+        "তুরস্কের"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লাটাকিয়া সিরিয়ার প্রধান সমুদ্রবন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "548109b2-2574-4991-bd35-5bcf89c15ed3",
+      "question": "এর মধ্যে কোন দেশ ভারত মহাসাগরে নয়? [SABAS][]",
+      "options": [
+        "মালদ্বীপ",
+        "মাদাগাস্কার",
+        "মরিশাস",
+        "মাল্টা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মাল্টা ভূমধ্যসাগরে অবস্থিত, ভারত মহাসাগরে নয়।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "ee14fc70-beae-4652-8915-a6a89b970641",
+      "question": "মালদ্বীপ কোন মহাসাগরে অবস্থিত? [SABAS][]",
+      "options": [
+        "প্রশান্ত",
+        "উত্তর",
+        "আটলান্টিক",
+        "ভারত"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মালদ্বীপ ভারত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "07547166-f750-475e-a0c1-6020b8ded10b",
+      "question": "পৃথিবীর গভীরতম খালের নাম কী? [SABAS][]",
+      "options": [
+        "গ্রান্ড খাল",
+        "পানামা খাল",
+        "সুয়েজ খাল",
+        "অকানেম খাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুয়েজ খাল বিশ্বের অন্যতম গভীর ও দীর্ঘ কৃত্রিম খাল।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "ba855272-5c53-47df-a326-f74793a670a8",
+      "question": "সুয়েজ খাল কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ইরান",
+        "সৌদিআরব",
+        "মিশর",
+        "জর্ডান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুয়েজ খাল মিশরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "b0b5f13a-2ff8-4cd6-a31b-2483da45569e",
+      "question": "সুয়েজ খাল কোন দুটি মহাদেশকে বিভক্ত করে? [SABAS][]",
+      "options": [
+        "এশিয়া ও অস্ট্রেলিয়া",
+        "আমেরিকা ও আফ্রিকা",
+        "ইউরোপ ও আমেরিকা",
+        "এশিয়া ও আফ্রিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সুয়েজ খাল এশিয়া ও আফ্রিকা মহাদেশকে বিভক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "0d34018a-fc85-45c9-b848-874038b64aa7",
+      "question": "সুয়েজ খাল কোন সাগরকে সংযুক্ত করে? [SABAS][]",
+      "options": [
+        "ভূমধ্যসাগর ও লোহিত সাগর",
+        "বাল্টিক সাগর ও কাস্পিয়ান সাগর",
+        "লোহিত সাগর ও কাস্পিয়ান সাগর",
+        "ভূমধ্য সাগর ও উত্তর সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সুয়েজ খাল ভূমধ্যসাগর ও লোহিত সাগরকে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "2bcae7c3-ce23-48c5-8896-977ef4f23a55",
+      "question": "লোহিত সাগর যে দুটি মহাদেশকে আলাদা করেছে- [SABAS][]",
+      "options": [
+        "ইউরোপ ও আফ্রিকা",
+        "এশিয়া ও ইউরোপ",
+        "এশিয়া ও অস্ট্রেলিয়া",
+        "আফ্রিকা ও এশিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "লোহিত সাগর এশিয়া ও আফ্রিকা মহাদেশের মাঝে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "a6268edb-6738-45a3-bb12-7858c0cf11bb",
+      "question": "লোহিত সাগর ও সুয়েজখাল এশিয়াকে বিচ্ছিন্ন করেছে কোন মহাদেশ থেকে? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "ইউরোপ",
+        "অস্ট্রেলিয়া",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লোহিত সাগর ও সুয়েজখাল এশিয়াকে আফ্রিকা থেকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "ac6757d4-2010-4713-a37b-3ccac4882203",
+      "question": "কোন সনে সুয়েজ খালের খনন কাজ শেষ হয়? [SABAS][]",
+      "options": [
+        "১৮৬০",
+        "১৮৬২",
+        "১৮৬৭",
+        "১৮৬৯"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "১৮৬৯ সালে সুয়েজ খালের খনন কাজ শেষ হয়।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "7c91038a-a6f6-4f9b-b89c-fe6877d43b99",
+      "question": "সুয়েজ খাল কোন বছরের চালু হয়? [SABAS][]",
+      "options": [
+        "১৮৬৩",
+        "১৮৬৯",
+        "১৮৮৯",
+        "১৮৫৪"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৮৬৯ সালে সুয়েজ খাল চলাচলের জন্য উন্মুক্ত করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "39cf047f-9b2b-4394-9f30-e23d2c4a4e0b",
+      "question": "সুয়েজ খাল খননের ফলে এশিয়ার সাথে যোগাযোগ সহজ হয়েছে- [SABAS][]",
+      "options": [
+        "আফ্রিকার",
+        "অস্ট্রেলিয়ার",
+        "ইউরোপের",
+        "আমেরিকার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুয়েজ খাল খননের ফলে ইউরোপ ও এশিয়ার নৌপথের দূরত্ব কমেছে।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "05f63a40-d954-4e69-a513-7cce6b759037",
+      "question": "Which canal is known as the 'Highway to india'? [SABAS][]",
+      "options": [
+        "Suez Canal",
+        "Grand Canal",
+        "Indus Canal",
+        "Ravi Canal"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সুয়েজ খালকে 'Highway to India' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "5d468d30-7c54-445f-8475-31f0c2154230",
+      "question": "কোনটি পারস্য উপসাগরীয় রাষ্ট্র? [SABAS][]",
+      "options": [
+        "সৌদি আরব",
+        "তুরস্ক",
+        "জর্ডান",
+        "ইসরায়েল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সৌদি আরব পারস্য উপসাগরের তীরবর্তী একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "2f70b1c1-86d8-4daf-9653-18256e1dc43e",
+      "question": "কুয়েত কোন সাগরের তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "বঙ্গোপসাগর",
+        "ভারত মহাসাগর",
+        "পারস্য উপসাগর",
+        "আরব সাগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কুয়েত পারস্য উপসাগরের উপকূলে অবস্থিত একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "25f1fb35-a67a-44bc-aaae-37411dfa9354",
+      "question": "বন্দর আব্বাস' কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "মিশর",
+        "ইরান",
+        "জর্ডান",
+        "ইরাক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বন্দর আব্বাস ইরানের একটি প্রধান সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "ec8dcdc5-5702-48f4-b1fe-aa8ae6dbf038",
+      "question": "আবাদান বন্দর কোন দেশে? [SABAS][]",
+      "options": [
+        "ইরাকে",
+        "ইরানে",
+        "তুরস্কে",
+        "লিবিয়ায়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আবাদান ইরানের একটি গুরুত্বপূর্ণ বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "b2af65c8-5387-4e4c-8c0a-50f98d95c3d7",
+      "question": "Palm Island কোথায় তৈরি করা হয়েছে? [SABAS][]",
+      "options": [
+        "মুম্বাই",
+        "নিউইয়র্ক",
+        "সিঙ্গাপুর",
+        "দুবাই"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Palm Island সংযুক্ত আরব আমিরাতের দুবাইয়ে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "c56687dd-7528-4dfd-97a0-a13faca374ac",
+      "question": "বঙ্গোপসাগর হলো বিশ্বের বৃহত্তম- [SABAS][]",
+      "options": [
+        "মহাসাগর",
+        "সাগর",
+        "উপসাগর",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বঙ্গোপসাগর বিশ্বের বৃহত্তম উপসাগর (Bay)।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "f43ec424-0db7-4870-881a-654c2f995d4f",
+      "question": "বঙ্গোপসাগর কোন মহাসাগরের অংশ- [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগর",
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "আর্কটিক মহাসাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বঙ্গোপসাগর ভারত মহাসাগরের একটি অংশ।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "cc8ecb49-0fdd-4174-8888-f5dfe478d690",
+      "question": "বঙ্গোপসাগর গড় গভীরতা কত ফুট? [SABAS][]",
+      "options": [
+        "২,৬০০",
+        "৮,৫০০",
+        "৩,৬৭০",
+        "৫,৫৩০"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বঙ্গোপসাগরের গড় গভীরতা প্রায় ৮,৫০০ ফুট।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "00365115-b448-4919-b318-0297ad206452",
+      "question": "সোয়াচ অব নো গ্রাউন্ড' (Swatch of no ground) কী? [SABAS][]",
+      "options": [
+        "একটি দ্বীপের নাম",
+        "সাবমেরিন ক্যানিয়ন",
+        "মানগ্রোভ বন",
+        "একটি দ্বীপ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সোয়াচ অব নো গ্রাউন্ড' বঙ্গোপসাগরের তলদেশের একটি সাবমেরিন ক্যানিয়ন।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "7849c188-f06e-4d70-98f8-26125dd5e63f",
+      "question": "সোয়াচ অব নো গ্রাউন্ড বলতে কী বুঝায়? [SABAS][]",
+      "options": [
+        "একটি খেলার মাঠ",
+        "একটি প্লাবন ভূমির নাম",
+        "বঙ্গোপসাগরের একটি খাদের নাম",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি বঙ্গোপসাগরের একটি বিশাল ও গভীর খাদ।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "ac5c3be9-9654-4b58-afdf-93e0939d45df",
+      "question": "সোয়াচ অব নো গ্রাউন্ড' কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "যমুনা নদীতে",
+        "মেঘনার মোহনায়",
+        "বঙ্গোপসাগরে",
+        "সন্দ্বীপ চ্যানেলে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সোয়াচ অব নো গ্রাউন্ড বঙ্গোপসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "a5b846dc-c688-477c-b642-cde92795e82e",
+      "question": "সোয়াচ অব নো গ্রাউন্ড বলতে কী বুঝায়? [SABAS][]",
+      "options": [
+        "একটি খেলার মাঠ",
+        "একটি প্লাবন ভূমির নাম",
+        "বঙ্গোপসাগরের একটি খাদের নাম",
+        "বঙ্গোপসাগরের একটি দ্বীপের নাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সোয়াচ অব নো গ্রাউন্ড হলো বঙ্গোপসাগরের তলদেশের একটি গভীর সামুদ্রিক খাদ বা সাবমেরিন ক্যানিয়ন।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "afe9a8ee-c254-4de5-a5f8-f86f6e939ad1",
+      "question": "সোয়াচ অব নো গ্রাউন্ড কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "যমুনা নদীতে",
+        "মেঘনার মোহনায়",
+        "বঙ্গোপসাগরে",
+        "সন্দ্বীপ চ্যানেলে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি বঙ্গোপসাগরের তলদেশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "d2b12e17-8efa-40da-9a58-cc87fd7de0c3",
+      "question": "\"বেঙ্গল ফ্যান\" ভূমিরূপটি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মধুপুর গড়ে",
+        "টারশিয়ারি পাহাড়তে",
+        "হাওর অঞ্চলে",
+        "বঙ্গোপসাগরে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বেঙ্গল ফ্যান বঙ্গোপসাগরের তলদেশে অবস্থিত বিশ্বের দীর্ঘতম সাবমেরিন উপদ্বীপ।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "a3d5a3a0-7ccc-4b92-b989-45b3bccc94f7",
+      "question": "Ninety East Ridge বাংলাদেশের কোন অংশের সাথে সম্পর্কিত? [SABAS][]",
+      "options": [
+        "মধুপুর-বরেন্দ্র অঞ্চল",
+        "জয়ন্তিকা পাহাড়",
+        "বঙ্গোপসাগর",
+        "তিন বিঘা করিডোর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি বঙ্গোপসাগরের তলদেশে অবস্থিত একটি শৈলশিরা যা বাংলাদেশের জলসীমার নিকটে অবস্থিত।",
+      "images": []
+    }
+  ]
+}

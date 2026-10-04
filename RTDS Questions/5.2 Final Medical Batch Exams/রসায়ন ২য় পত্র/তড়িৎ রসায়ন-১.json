@@ -1,0 +1,708 @@
+{
+  "title": "তড়িৎ রসায়ন(শুরু থেকে তড়িৎদার বিভাগ ধাতু সক্রিয়তা সিরিজ পর্যন্ত)",
+  "category": "5.2 Final Medical Batch Exams > রসায়ন ২য় পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "103284",
+      "question": "নিচের কোনটি দুর্বল তড়িৎ বিশ্লেষ্য?",
+      "options": [
+        "H2SO4",
+        "HF",
+        "H20",
+        "NaOH"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "112576",
+      "question": "তড়িৎ কোষের অ্যানোডে কি ঘটে?",
+      "options": [
+        "ধাতব আয়ন আগমন",
+        "বিজারণ",
+        "ধাতব আয়ন নির্গমন",
+        "জারণ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তড়িৎ কোষের অ্যানোডে জারণ ঘটে, ক্যাথোডে বিজারণ ঘটে।"
+    },
+    {
+      "question_no": 3,
+      "id": "117832",
+      "question": "ক্যালকুলেটরে কোন ব্যাটারি ব্যবহার করা হয়?",
+      "options": [
+        "Li",
+        "Ni- Cd",
+        "H2",
+        "Li+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ক্যালকুলেটরে Ni-Cd ব্যাটারি  ব্যবহার করা হয়"
+    },
+    {
+      "question_no": 4,
+      "id": "117833",
+      "question": "তড়িৎ পরিবাহীকে কয় শ্রেণিতে ভাগ করা হয়?",
+      "options": [
+        "৩",
+        "৬",
+        "৪",
+        "৫"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "তড়িৎ পরিবাহীকে ৩ ভাগে ভাগ করা হয়"
+    },
+    {
+      "question_no": 5,
+      "id": "117834",
+      "question": "নিচের কোনটি মেটালয়েড?",
+      "options": [
+        "Mg",
+        "Fe",
+        "Si",
+        "C"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Si, Ge মেটালয়েড"
+    },
+    {
+      "question_no": 6,
+      "id": "117835",
+      "question": "Nb3Ge এর সন্ধি তাপমাত্রা কত?",
+      "options": [
+        "23.2 K",
+        "90 K",
+        "30 K",
+        "45 K"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Nb3Ge এর সন্ধি তাপমাত্রা  23.2 ক"
+    },
+    {
+      "question_no": 7,
+      "id": "117836",
+      "question": "নিচের কোন টি তড়িৎ অবিশ্লেষ্য?",
+      "options": [
+        "HCl",
+        "লবণ",
+        "HF",
+        "চিনি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "চিনি তড়িৎ অবিশ্লেষ্য"
+    },
+    {
+      "question_no": 8,
+      "id": "117837",
+      "question": "নিচের কোনটি ব্যতিক্রম?",
+      "options": [
+        "Na",
+        "Fe",
+        "Cu",
+        "Hg"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "117838",
+      "question": "নিচের কোন টি তড়িৎ বিশ্লেষ্য পরিবাহীর বৈশিষ্ট্য?",
+      "options": [
+        "ভৌত প্রক্রিয়া",
+        "তাপমাত্রা বৃদ্ধিতে পরিবাহীতা বৃদ্ধি পায়",
+        "কুলম্বের সূত্র প্রযোজ্য",
+        "ইলেকট্রন দ্বারা তড়িৎ পরিবাহীত হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তাপমাত্রা বৃদ্ধিতে  তড়িৎ বিশ্লেষ্য পরিবাহীর পরিবাহীতা বৃদ্ধি পায়"
+    },
+    {
+      "question_no": 10,
+      "id": "117839",
+      "question": "CGS পদ্ধতিতে পরিবাহীতার একক কী?",
+      "options": [
+        "mho",
+        "ohm",
+        "S",
+        "g"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "CGS পদ্ধতিতে পরিবাহীতার একক mho"
+    },
+    {
+      "question_no": 11,
+      "id": "117840",
+      "question": "নিচের কোন বিষয়ের উপর আপেক্ষিক পরিবাহীতা নির্ভর করে না?",
+      "options": [
+        "তাপমাত্রা",
+        "দ্রবণের গাড়ত্ব",
+        "আয়নের আকার",
+        "দ্রবের প্রকৃতি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দ্রাবকের প্রকৃতির উপর নির্ভর করে"
+    },
+    {
+      "question_no": 12,
+      "id": "117841",
+      "question": "Na2CO3 এর তুল্য ভর কত?",
+      "options": [
+        "১০৬",
+        "৫৩",
+        "২৫",
+        "১০০"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১০৬÷২= ৫৩"
+    },
+    {
+      "question_no": 13,
+      "id": "117842",
+      "question": "তড়িৎ বিশ্লেষ্যের ঘনমাত্রার সাথে তুল্য পরিবাহীতার সম্পর্ক স্থাপন করেন কে?",
+      "options": [
+        "কোলরাশ",
+        "ডাল্টন",
+        "ফ্যারাডে",
+        "বোর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কোলরাশ তড়িৎ বিশ্লেষ্যের ঘনমাত্রার সাথে তুল্য পরিবাহীতার সম্পর্ক স্থাপন করেন"
+    },
+    {
+      "question_no": 14,
+      "id": "117843",
+      "question": "কোষ ধ্রুবক কোনটি?",
+      "options": [
+        "l×a",
+        "a/l",
+        "l/a",
+        "l+a"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "l/a কোষ ধ্রুবক"
+    },
+    {
+      "question_no": 15,
+      "id": "117844",
+      "question": "তড়িৎ বিভব এর একক কী?",
+      "options": [
+        "V",
+        "J",
+        "F",
+        "mC"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভল্ট তড়িৎ বিভব এর একক"
+    },
+    {
+      "question_no": 16,
+      "id": "117845",
+      "question": "সিলভার এর তড়িৎ রাসায়নিক তুল্যাংক কত g C^-1",
+      "options": [
+        "0.000010447",
+        "0.001118",
+        "0.000118",
+        "0.0118"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিলভার এর তড়িৎ রাসায়নিক তুল্যাংক 0.001118 g C^-1"
+    },
+    {
+      "question_no": 17,
+      "id": "117846",
+      "question": "1 mol ইলেকট্রন এর চার্জ কত?",
+      "options": [
+        "৯৬৫০০ C",
+        "৬.০২৩×১০^২৩ C",
+        "৯৬৫০ C",
+        "৯.১১×১০^-২৮ C"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "৯৬৫০০ C"
+    },
+    {
+      "question_no": 18,
+      "id": "117847",
+      "question": "1 mol Cr পেতে কতটা বিদ্যুৎ প্রয়োজন?",
+      "options": [
+        "3 F",
+        "খ 2 F",
+        "4F",
+        "1 F"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "1 mol  Cr পেতে 3 F বিদ্যুৎ প্রয়োজন"
+    },
+    {
+      "question_no": 19,
+      "id": "117848",
+      "question": "নিচের কোন টি আগে চার্জমুক্ত হবে?",
+      "options": [
+        "K+",
+        "Al3+",
+        "Sn2+",
+        "H+"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "H+আগে চার্জমুক্ত হবে"
+    },
+    {
+      "question_no": 20,
+      "id": "117849",
+      "question": "0.1 M NaCl এর জলীয় দ্রবণে OH- এর ঘনমাত্রা কত?",
+      "options": [
+        "10^-14 M",
+        "10^-7 M",
+        "0. 1 M",
+        "0.01 M"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "0.1 M NaCl এর জলীয় দ্রবণে OH- এর ঘনমাত্রা 10^-7 M"
+    },
+    {
+      "question_no": 21,
+      "id": "117850",
+      "question": "Na ধাতু নিষ্কাশন করা হয় কোন পদ্ধতিতে?",
+      "options": [
+        "ডাউন পদ্ধতি",
+        "মারকারি ক্যাথোড সেল",
+        "অসওয়াল্ড",
+        "বোর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Na ধাতু নিষ্কাশন করা হয় ডাউন পদ্ধতিতে"
+    },
+    {
+      "question_no": 22,
+      "id": "117851",
+      "question": "কপার সালফেটের বর্ণ কী?",
+      "options": [
+        "লালচে কাল",
+        "লাল",
+        "নীল",
+        "সবুজ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কপার সালফেটের বর্ণ নীল"
+    },
+    {
+      "question_no": 23,
+      "id": "117852",
+      "question": "পানি থেকে H2 কে প্রতিস্থাপন করতে পারে নিচের কোনটি?",
+      "options": [
+        "Al",
+        "Al",
+        "Ca",
+        "Cu"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পানি থেকে H2 কে প্রতিস্থাপন করতে পারে Ca"
+    },
+    {
+      "question_no": 24,
+      "id": "117853",
+      "question": "রাজঅম্লে HCl ও HNO3 এসিডএর mol অনুপাত কত?",
+      "options": [
+        "1:3",
+        "3:1",
+        "1:2",
+        "2:1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রাজঅম্লে HCl ও HNO3 এসিডএর  mol অনুপাত 3:1"
+    },
+    {
+      "question_no": 25,
+      "id": "117854",
+      "question": "কোনটি রিচার্জ করা যায়?",
+      "options": [
+        "লিথিয়াম ব্যাটারি",
+        "লিথিয়াম আয়ন ব্যাটারি",
+        "শুষ্ক কোষ",
+        "লেড স্টোরেজ ব্যাটারি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "117855",
+      "question": "লবণ সেতুতে কত ঘনমাত্রার দ্রবণ ব্যবহার করা হয়?",
+      "options": [
+        "0.1 M",
+        "খ 0.001 M",
+        "1.0 M",
+        "10 M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "0.1 M"
+    },
+    {
+      "question_no": 27,
+      "id": "117856",
+      "question": "লবণ সেতুতে নিচের কোনটি থাকে?",
+      "options": [
+        "KNO3",
+        "NaCl",
+        "Na2 CO3",
+        "(NH4)2 SO4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": ":লবণ সেতুতে KNO3 থাকে"
+    },
+    {
+      "question_no": 28,
+      "id": "117857",
+      "question": "সোডিয়াম ধাতুর স্ফুটনাংক কত?",
+      "options": [
+        "801°©",
+        "883°©",
+        "801K",
+        "883K"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "117858",
+      "question": "তড়িৎদ্বার বিভবের একক কী?",
+      "options": [
+        "J",
+        "V",
+        "F",
+        "C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তড়িৎদ্বার বিভবের একক V"
+    },
+    {
+      "question_no": 30,
+      "id": "117859",
+      "question": "প্রমাণ H2 তড়িৎদ্বার এর বিভব কত?",
+      "options": [
+        "0.1 V",
+        "1.0 V",
+        "0.0 V",
+        "12 V"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রমাণ H2 তড়িৎদ্বার এর বিভব 0.0 V"
+    },
+    {
+      "question_no": 31,
+      "id": "117860",
+      "question": "নিচের কোনটি গৌণ নির্দেশক তড়িৎদ্বার?",
+      "options": [
+        "ক্যালোমেল তড়িৎ দ্বার",
+        "জিংক তড়িৎদ্বার",
+        "হাইড্রোজেন তড়িৎদ্বার",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ক্যালোমেল তড়িৎ দ্বার গৌণ নির্দেশক তড়িৎদ্বার"
+    },
+    {
+      "question_no": 32,
+      "id": "117861",
+      "question": "Zn ইলেকট্রোডের জারণ বিভব কত?",
+      "options": [
+        "+ 0.34",
+        "+0.76",
+        "-0.76",
+        "-0.34"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Zn ইলেকট্রোডের জারণ বিভব 0.76 ভ"
+    },
+    {
+      "question_no": 33,
+      "id": "117862",
+      "question": "প্রমাণ বিজারণ বিভব কত তাপমাত্রায় মাপা হয়?",
+      "options": [
+        "20° C",
+        "0° C",
+        "25 ° C",
+        "100° C"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রমাণ বিজারণ বিভব 25 ° C তাপমাত্রায় মাপা হয়"
+    },
+    {
+      "question_no": 34,
+      "id": "117863",
+      "question": "গ্যালভানাইজিং এর ক্ষেত্রে কোন ধাতুর প্রলেপ দেওয়া হয়?",
+      "options": [
+        "Cu",
+        "Fe",
+        "Zn",
+        "Ca"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গ্যালভানাইজিং এর ক্ষেত্রে  Zn ধাতুর প্রলেপ দেওয়া হয়"
+    },
+    {
+      "question_no": 35,
+      "id": "117864",
+      "question": "G=?",
+      "options": [
+        "H- TS",
+        "TS- H",
+        "H+ TS",
+        "H+ T"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "G=H- TS"
+    },
+    {
+      "question_no": 36,
+      "id": "117865",
+      "question": "delta G ধনাত্বক হলে কোষ বিক্রিয়া কেমন হবে?",
+      "options": [
+        "স্বতঃস্ফূর্ত",
+        "অস্বতস্ফুর্ত",
+        "বিক্রিয়া হবে না",
+        "উপরের কোনো টিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "delta G ধনাত্বক হলে কোষ বিক্রিয়া অস্বতস্ফুর্ত  হবে"
+    },
+    {
+      "question_no": 37,
+      "id": "117866",
+      "question": "কোষের emf কীসের উপর নির্ভর করে না?",
+      "options": [
+        "ধাতব তড়িৎদ্বার এর প্রকৃতি",
+        "দ্রবণে আয়নের ঘনমাত্রা",
+        "দ্রবণের তাপমাত্রা",
+        "দ্রাবকের ঘনমাত্রা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কোষের emf ধাতব তড়িৎদ্বার এর প্রকৃতি, \r\nদ্রবণে আয়নের ঘনমাত্রা, \r\nদ্রবণের তাপমাত্রার\r\nউপর নির্ভর করে"
+    },
+    {
+      "question_no": 38,
+      "id": "117867",
+      "question": "ক্যালকুলেটর ব্যাটারির emf কত?( মার্কারি)",
+      "options": [
+        "1.30 V",
+        "12 V",
+        "3.70 V",
+        "1.60 V"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "117868",
+      "question": "তড়িৎদ্বার বিভব সম্পর্কীত সূত্র দেন কে?",
+      "options": [
+        "নার্নস্ট",
+        "বোর",
+        "ফ্যারাডে",
+        "কুলম্ব"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "117869",
+      "question": "প্রতিটি সেলে কতটি অর্ধকোষ থাকে?",
+      "options": [
+        "২",
+        "৬",
+        "৩",
+        "৫"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অ্যানোড ও ক্যাথোড"
+    },
+    {
+      "question_no": 41,
+      "id": "117870",
+      "question": "নিচের কোনটি নিষ্ক্রিয় ধাতু?",
+      "options": [
+        "He",
+        "Pt",
+        "Fe",
+        "Ne"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Pt নিষ্ক্রিয় ধাতু"
+    },
+    {
+      "question_no": 42,
+      "id": "117871",
+      "question": "দ্রবণ চাপ কম হয় কোন ধরনের ধাতুর ক্ষেত্রে?",
+      "options": [
+        "কম সক্রিয়",
+        "অধিক সক্রিয়",
+        "নিষ্ক্রিয়",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দ্রবণ চাপ কম হয় কম সক্রিয় ধাতুর ক্ষেত্রে"
+    },
+    {
+      "question_no": 43,
+      "id": "117913",
+      "question": "কোনটি ব্লিস্টার কপারে অপদ্রব্য হিসেবে থাকে না?",
+      "options": [
+        "Au",
+        "Ag",
+        "Fe",
+        "Na"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "117914",
+      "question": "ড্রাইসেলের বিভব কত?",
+      "options": [
+        "2.00 V",
+        "1.50 V",
+        "1.23 V",
+        "1.60 V"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "117915",
+      "question": "পানির ডাই ইলেকট্রিক ধ্রুবক কত?",
+      "options": [
+        "25",
+        "80",
+        "75",
+        "30"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "117916",
+      "question": "কোনটির সম্পৃক্ত জলীয় দ্রবণকে ব্রাইন বলে?",
+      "options": [
+        "Na",
+        "NaOH",
+        "Cu",
+        "NaCI"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "117917",
+      "question": "1 ফ্যারাডে সমান-",
+      "options": [
+        "95600 C",
+        "96500 A",
+        "96500 C",
+        "9560 C"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "117918",
+      "question": "নিম্নের কোনটি বিদ্যুৎ অপরিবাহী?",
+      "options": [
+        "গ্রাফাইট",
+        "তামা",
+        "লোহা",
+        "হীরক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "117919",
+      "question": "রক্তের সিরামে কোনটি উপস্থিত?",
+      "options": [
+        "I-",
+        "H+",
+        "K+",
+        "F-"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "117920",
+      "question": "তড়িৎ অপরিবাহী কোনটি?",
+      "options": [
+        "পারদ",
+        "ধাতু",
+        "পেট্রোল",
+        "ক্ষার দ্রবণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    }
+  ]
+}

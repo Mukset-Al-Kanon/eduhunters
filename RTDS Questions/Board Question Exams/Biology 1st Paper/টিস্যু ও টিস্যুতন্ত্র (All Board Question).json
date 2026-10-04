@@ -1,0 +1,1058 @@
+{
+  "title": "টিস্যু ও টিস্যুতন্ত্র (All Board Question) - Review Purpose",
+  "category": "Board Question Exams > Biology 1st Paper",
+  "duration_minutes": 30,
+  "total_questions": 75,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "116500",
+      "question": "নিচের কোন টিস্যুর কোষগুলো আকারে ছোট এবং দৈর্ঘ্য ও প্রস্থ প্রায় সমান?",
+      "options": [
+        "ভাজক টিস্যু",
+        "সরল টিস্যু",
+        "জটিল টিস্যু",
+        "ক্ষরণকারী টিস্যু"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "116501",
+      "question": "ভাজক টিস্যুর বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "কোষ প্রাচীর পুরু",
+        "কোষগুলি পরিণত",
+        "কোষগুলি ঘনসন্নিবিষ্ট",
+        "বিপাক হার কম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "116502",
+      "question": "উদ্ভিদের মূল ও কান্ডের শীর্ষে টিস্যু কোনটি?",
+      "options": [
+        "ভাজক টিস্যু",
+        "সরল টিস্যু",
+        "জটিল টিস্যু",
+        "ক্ষরণকারী টিস্যু"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "116503",
+      "question": "ভাজক টিস্যুর কোষসমূহ-",
+      "options": [
+        "অবিভাজনক্ষম",
+        "পুরু কোষপ্রাচীর বিশিষ্ট",
+        "আন্তঃকোষীয় ফাঁকবিহীন",
+        "সাইটোপ্লাজম স্বল্প"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "116504",
+      "question": "কোষ বিভাজন অনুসারে ভাজক ‍টিস্যু কত প্রকার?",
+      "options": [
+        "২",
+        "৩",
+        "৪",
+        "৫"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "116505",
+      "question": "কাজ অনুসারে ভাজক টিস্যুর প্রকার হলো",
+      "options": [
+        "২",
+        "৩",
+        "৪",
+        "৫"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "116506",
+      "question": "উদ্ভিদের ভ্রুণাবস্থায় উৎপত্তি লাভ করে কোনটি?",
+      "options": [
+        "প্রোমোরিস্টেম",
+        "প্রাইমারি ভাজক টিস্যু",
+        "প্রোক্যাম্বিয়াম",
+        "কর্ক ক্যাম্বিয়াম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "116507",
+      "question": "সেকেন্ডারি ভাজক টিস্যু কোনটি?",
+      "options": [
+        "প্রোটোডার্ম",
+        "প্রোক্যাম্বিয়াম",
+        "কর্ক ক্যাম্বিয়াম",
+        "ক্যাম্বিয়াম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "116508",
+      "question": "মাস ভাজক টিস্যুর উদাহরণ কোনটি?",
+      "options": [
+        "কান্ডের মজ্জারশ্মি",
+        "পাতা",
+        "সস্য টিস্যু",
+        "বর্ধিষ্ণু বহিঃত্বক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "116509",
+      "question": "মাস ভাজক টিস্যু কোনটি সৃষ্টি করে?",
+      "options": [
+        "বধিষ্ণু মূল",
+        "মজ্জা রশ্মি",
+        "পাতা",
+        "কর্টেক্স"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "116510",
+      "question": "কোন ভাজক টিস্যুর কারণে উদ্ভিদের আয়তন বৃদ্ধি পায়?",
+      "options": [
+        "মাস ভাজক টিস্যু",
+        "প্লেট ভাজক টিস্যু",
+        "সেকেন্ডারি ভাজক টিস্যু",
+        "প্রাইমারি ভাজক টিস্যু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "116511",
+      "question": "পাতা কোন ভাজক টিস্যুর উদাহরণ",
+      "options": [
+        "মাস",
+        "রিব",
+        "প্লেট",
+        "প্রোটোডার্ম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 13,
+      "id": "116512",
+      "question": "প্লেট ভাজক টিস্যুর উদারহণ",
+      "options": [
+        "পাতা",
+        "কান্ডের মজ্জা",
+        "কর্টেক্স",
+        "বেণুথলি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 14,
+      "id": "116513",
+      "question": "তরুণ মূলে কোন ভাজক টিস্যু দেখা যায়?",
+      "options": [
+        "রিব ভাজক টিস্যু",
+        "মাস ভাজক টিস্যু",
+        "প্লেট ভাজক টিস্যু",
+        "নিবেশিত ভাজক টিস্যু"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "116514",
+      "question": "যে ভাজক টিস্যুর কোষগুলি এক তলে বিভাজিত হয় তাকে কী বলে?",
+      "options": [
+        "রিব",
+        "মাস",
+        "প্লেট",
+        "শীর্ষস্থ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "116515",
+      "question": "প্রোটোর্ডাম নিচের কোন অঙ্গটি তৈরি করে?",
+      "options": [
+        "ত্বক",
+        "শাখা",
+        "পাতা",
+        "মুকুল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 17,
+      "id": "116516",
+      "question": "নিচের কোনটি প্রোক্যাম্বিয়াম থেকে সৃষ্টি হয়?",
+      "options": [
+        "কর্টেক্স",
+        "জাইলেম",
+        "মজ্জা",
+        "মজ্জারশ্মি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 18,
+      "id": "116542",
+      "question": "নিম্নের কোন ধরনের ভাজক টিস্যু হতে এপিডার্মিস সৃষ্টি হয়?",
+      "options": [
+        "প্রোটোডার্ম",
+        "প্রোক্যাম্বিয়াম",
+        "গ্রাইন্ড মেরিস্টেম",
+        "ইন্টারক্যালরি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 19,
+      "id": "116543",
+      "question": "যে ভাজক টিস্যু বিভাজিত হয়ে উদ্ভিদের ত্বক সৃষ্টি করে তাকে কী বলে?",
+      "options": [
+        "প্রোটোডার্ম",
+        "প্রোক্যাম্বিয়াম",
+        "মাস মেরিস্টোম",
+        "ইন্টারক্যালরি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 20,
+      "id": "116544",
+      "question": "গ্রাউন্ড মেরিস্টেম কলা বিভাজিত হয়ে কোনটি সৃষ্টি হয়?",
+      "options": [
+        "এপিডার্মিস",
+        "জাইলেম",
+        "ফ্লোয়েম",
+        "মজ্জা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "116545",
+      "question": "কান্ডের পরিধি বৃদ্ধির জন্য নিম্নের কোন টিস্যু দায়ী?",
+      "options": [
+        "ক্যাম্বিয়াম",
+        "জাইলেম",
+        "ফ্লোয়েম",
+        "কর্টেক্স"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "116546",
+      "question": "স্থায়ী টিস্যুর বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "কোষগুলো ঘন সন্নিবেশিত",
+        "আন্তঃকোষীয় ফাঁক নাই",
+        "কোষপ্রাচীর সেলুলোজ নির্মিত",
+        "কোষগুলো পরিণত"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 23,
+      "id": "116547",
+      "question": "মূলের ত্বককে কী বলে?",
+      "options": [
+        "কর্টেক্স",
+        "এন্ডোডার্মিস",
+        "এপিব্লেমা",
+        "পেরিসাইকল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "116548",
+      "question": "এপিডার্মিসের অন্তর্ভুক্ত হলো-",
+      "options": [
+        "স্টোমাটা",
+        "ট্রাইকোম",
+        "রক্ষীকোষ",
+        "হাইডাথোড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 25,
+      "id": "116549",
+      "question": "বিশেষ ধরনের বহুকোষী ট্রাইকোমকে কী বলে?",
+      "options": [
+        "কোলেটার্স",
+        "শল্ক",
+        "ব্লাণ্ডার",
+        "স্টোম্যাটা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 26,
+      "id": "116550",
+      "question": "নিচের কোন স্টোমাটা তিনটি সহকারী কোষ দ্বারা পরিবেষ্টিত?",
+      "options": [
+        "Paracytice",
+        "Anisocytic",
+        "Actinocytic",
+        "Anomocytic"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 27,
+      "id": "116551",
+      "question": "যে পত্ররন্ধ্রের চর্তুদিকের সহকারী কোষগুলো সাধারণ ত্বকীয় কোষের ন্যায় তাকে বলে-",
+      "options": [
+        "Aniscocytic",
+        "Actinocytic",
+        "Anomocytic",
+        "Tetracytic"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "116552",
+      "question": "নিচের কোনটিতে বায়বীয় অংশের ত্বকে অবস্থিত দুইটি বিশেষ কোষ দিয়ে বেষ্টিত ও নিয়ন্ত্রিত ছিদ্রপথটি রাতের বেলায় খোলা থাকে?",
+      "options": [
+        "কার্পাস তুলা",
+        "নল খাগড়া",
+        "পাথরকুচি",
+        "মেস্তাপাট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 29,
+      "id": "116553",
+      "question": "কোনটিতে হাইডাথোড থাকতে পারে?",
+      "options": [
+        "পাতা",
+        "ফুল",
+        "মূল",
+        "কাণ্ড"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 30,
+      "id": "116554",
+      "question": "নিচের কোন উদ্ভিদের পাতায় হাইডাথোড বিদ্যামান?",
+      "options": [
+        "আলু",
+        "কচু",
+        "শসা",
+        "বেগুন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "116555",
+      "question": "রক্ষীকোষের উপস্থিতি নিচের কোথায় লক্ষ্য করা যায়?",
+      "options": [
+        "পানি পত্ররন্ধ্রে",
+        "কাণ্ডরোমে",
+        "গ্রন্থিরোমে",
+        "মূলরোমে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "116556",
+      "question": "হাইডাথোড দিয়ে তরল পানি বের হয়ে যাওয়াকে বলে",
+      "options": [
+        "প্রস্বেদন",
+        "গ্যাটেশন",
+        "ডিফিউশন",
+        "অসমোসিস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "116557",
+      "question": "নিম্নের কোন উদ্ভিদে হাইডাথোড থাকে?",
+      "options": [
+        "আম",
+        "পেয়ারা",
+        "টমেটো",
+        "জবা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "116558",
+      "question": "",
+      "options": [
+        "বায়ু গহ্বর",
+        "ট্রাকিড",
+        "পানি গহ্বর",
+        "এপিথেম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "116559",
+      "question": "নিচের কোনটিতে ক্যাসপেরিয়ান স্প্রিপ বিদ্যমান?",
+      "options": [
+        "এপিডার্মিসে",
+        "হাইপোডার্মিসে",
+        "পেরিসাইকেলে",
+        "এন্ডোডার্মিসে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 36,
+      "id": "116560",
+      "question": "উদ্ভিদের মূলের কোন অংশে ক্যাসপেরিয়ান স্ট্রিপ থাকে?",
+      "options": [
+        "অন্তঃত্বকে",
+        "বহিঃত্বকে",
+        "অধঃত্বকে",
+        "পরিচক্রে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 37,
+      "id": "116561",
+      "question": "গ্রাউন্ড টিস্যুতন্ত্রের অংশ কোনটি?",
+      "options": [
+        "মূলরোম",
+        "মজ্জা",
+        "ত্বক",
+        "ফ্লোয়েম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "116562",
+      "question": "স্টিলির অংশ হলো",
+      "options": [
+        "অধঃত্বক",
+        "অন্তঃত্বক",
+        "কর্টেক্স",
+        "পরিচক্র"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "116563",
+      "question": "কোথায় ক্যাসপেরিয়ান স্ট্রিপ থাকে?",
+      "options": [
+        "বহিঃত্বকে",
+        "অধঃত্বকে",
+        "অন্তঃত্বকে",
+        "পরিচক্রে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "116564",
+      "question": "অধঃত্বকের নিচ থেকে অন্তঃত্বক পর্যন্ত বিস্তৃত অংশটির নাম কী?",
+      "options": [
+        "পরিচক্র",
+        "মজ্জা",
+        "কর্টেক্স",
+        "মজ্জারশ্মি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "116565",
+      "question": "পাতার গ্রাউন্ড টিস্যুকে কী বলে?",
+      "options": [
+        "মেসোফিল",
+        "মজ্জা",
+        "মজ্জারশ্মি",
+        "পরিচক্র"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 42,
+      "id": "116566",
+      "question": "নিচের কোনটি অন্তঃস্টিলীয় অঞ্চলের অংশ?",
+      "options": [
+        "পরিচক্র",
+        "বহিঃত্বক",
+        "অধঃত্বক",
+        "কর্টেক্স"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 43,
+      "id": "116567",
+      "question": "উদ্ভিদের অন্তঃস্টিলীয় অংশ হচ্ছে-",
+      "options": [
+        "হাইপোডার্মিস",
+        "এপিডার্মিস",
+        "মজ্জারশ্মি",
+        "কর্টেক্স"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "116568",
+      "question": "কোনটি পরিণত জাইলেম টিস্যুর সজীব উপাদান?",
+      "options": [
+        "ট্রাকিড",
+        "ভেসেল",
+        "জাইলেম প্যারেনকাইমা",
+        "জাইলেম ফাইবার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "116569",
+      "question": "নিচের কোনটি জাইলেম ও ফ্লোয়েম উভয় টিস্যুতেই বিদ্যমান?",
+      "options": [
+        "ট্রাকিড",
+        "ভেসেল",
+        "সিভনল",
+        "ফাইবার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "116570",
+      "question": "পরিণত জাইলেম টিস্যুর সজীব কোষ কোনটি?",
+      "options": [
+        "ট্রাকিড",
+        "ভেসেল",
+        "জাইলেম প্যারেনকাইমা",
+        "ট্রাকিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "116571",
+      "question": "ভাস্কুলার বান্ডিলের সৃষ্টি হয় কোন ধরনের ভাজক টিস্যু হতে?",
+      "options": [
+        "প্রোটোডার্ম",
+        "প্রোক্যাম্বিয়াম",
+        "গ্রাইন্ড মেরিস্টেম",
+        "প্রোমেরিস্টেম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "116572",
+      "question": "নিচের কোন বাক্যটি সঠিক?",
+      "options": [
+        "ভাজক টিস্যুর কোষগুলোর বিপাকীয় হার কম",
+        "জাইলেম ও ফ্লোয়েম এক ধরনের ভাজক টিস্যু",
+        "মূলে বাহিরাবরণকে এপিডার্মিস বলে",
+        "কাণ্ডের জাইলেম বিন্যাস এন্ডার্ক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "116573",
+      "question": "দ্বিবীজপত্রী উদ্ভিদের ভাস্কুলার বান্ডল কোনটি?",
+      "options": [
+        "অরীয়",
+        "সমদ্বিপার্শ্বীয়",
+        "সমপার্শ্বীয়",
+        "হ্যাড্রোসেন্ট্রিক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "116574",
+      "question": "",
+      "options": [
+        "অরীয়",
+        "সংযুক্ত সমদ্বিপার্শ্বীয়",
+        "সংযুক্ত সমপার্শ্বীয় মুক্ত",
+        "সংযুক্ত সমপার্শ্বীয় বদ্ধ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 51,
+      "id": "116575",
+      "question": "",
+      "options": [
+        "সমপার্শ্বীয় বদ্ধ",
+        "সমপার্শ্বীয় মুক্ত",
+        "সমদ্বিপার্শ্বীয়",
+        "অরীয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 52,
+      "id": "116576",
+      "question": "একবীজপত্রী কাণ্ডের ভাস্কুলার বান্ডল কোন ধরনের?",
+      "options": [
+        "মুক্ত সমপার্শ্বীয়",
+        "বদ্ধ সমপার্শ্বীয়",
+        "সমদ্বিপার্শ্বীয়",
+        "কেন্দ্রিক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 53,
+      "id": "116577",
+      "question": "বদ্ধ সমপার্শ্বীয় ভাস্কুলার বান্ডল পাওয়া যায় নিচের কোন উদ্ভিদের কাণ্ডে?",
+      "options": [
+        "ভূট্টা",
+        "ঢেঁড়স",
+        "বেগুন",
+        "টমেটো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "116578",
+      "question": "ভূট্টা উদ্ভিদের কাণ্ডে নিচের কোন ধরনের ভাস্কুলার বান্ডল দেখা যায়?",
+      "options": [
+        "মুক্ত",
+        "বদ্ধ",
+        "অরীয়",
+        "কেন্দ্রিক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 55,
+      "id": "116579",
+      "question": "স্পাইকলেট পুষ্পবিন্যাসযুক্ত উদ্ভিদের কাণ্ডে-",
+      "options": [
+        "পরিবহন কলাগুচ্ছ সংযুক্ত ও বদ্ধ",
+        "পরিবহন কলাগুচ্ছ চক্রাকারে সজ্জিত",
+        "অধঃত্বক একসারি কোষে গঠিত",
+        "মজ্জারশ্মি সুস্পষ্ট ও বড়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 56,
+      "id": "116580",
+      "question": "সমপার্শ্বীয় মুক্ত ভাস্কুলার বান্ডল পাওয়া যায়-",
+      "options": [
+        "দ্বি-বীজপত্রী কাণ্ডে",
+        "একবীজপত্রী কাণ্ডে",
+        "একবীজপত্রী কাণ্ডে",
+        "পাতায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "116581",
+      "question": "",
+      "options": [
+        "সমপার্শ্বীয় মুক্ত",
+        "সমদ্বিপার্শ্বীয়",
+        "অরীয়",
+        "জাইলেম কেন্দ্রিক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "116582",
+      "question": "কুমড়া কাণ্ডের ভাস্কুলার বান্ডেল কোন ধরনের?",
+      "options": [
+        "সমপার্শ্বীয়",
+        "সমদ্বিপার্শ্বীয়",
+        "অরীয়",
+        "কেন্দ্রিক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 59,
+      "id": "116583",
+      "question": "Lycopodium এর ভাস্কুলার বান্ডল কোন ধরনের?",
+      "options": [
+        "সমপার্শ্বীয়",
+        "সমদ্বিপার্শ্বীয়",
+        "অরীয়",
+        "কেন্দ্রিক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 60,
+      "id": "116584",
+      "question": "Pteris এ কোন প্রকারের ভাস্কুলার বান্ডল পাওয়া যায়?",
+      "options": [
+        "হ্যাড্রোসেন্ট্রিক",
+        "লেপ্টোসেন্ট্রিক",
+        "মুক্ত সমপার্শ্বীয়",
+        "বদ্ধ সমপার্শ্বীয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 61,
+      "id": "116585",
+      "question": "টেরিসের পরিবহন কলাগুচ্ছ কোন ধরনের?",
+      "options": [
+        "ফ্লোয়েম কেন্দ্রিক",
+        "অরীয়",
+        "সংযুক্তঙ",
+        "জাইলেম কেন্দ্রিক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 62,
+      "id": "116586",
+      "question": "মূলের পরিবহন কলাগুচ্ছ কী প্রকৃতির?",
+      "options": [
+        "সমপার্শ্বীয়",
+        "কেন্দ্রিক",
+        "সমদ্বিপার্শ্বীয়",
+        "অরীয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 63,
+      "id": "116587",
+      "question": "",
+      "options": [
+        "কেন্দ্রীভূত/কেন্দ্রিক",
+        "অরীয়",
+        "সমপার্শ্বীয়",
+        "সমদ্বিপার্শ্বীয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 64,
+      "id": "116588",
+      "question": "কচুর মূলের ভাস্কুলার বান্ডল হলো-",
+      "options": [
+        "লেপ্টোসেন্ট্রিক",
+        "হ্যাড্রোসেন্ট্রিক",
+        "অরীয়",
+        "সংযুক্ত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 65,
+      "id": "116589",
+      "question": "আবৃতবীজী উদ্ভিদের কোন অংশে অরীয় ভাস্কুলার বান্ডল দেখা যায়?",
+      "options": [
+        "মূলে",
+        "কাণ্ডে",
+        "পাতায়",
+        "ফুলে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 66,
+      "id": "116590",
+      "question": "",
+      "options": [
+        "Pteris",
+        "Dracaena",
+        "Lycopodium",
+        "Selaginella"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 67,
+      "id": "116591",
+      "question": "লেপ্টোসেন্টিক ভাস্কুলার বান্ডলের উদাহরণ কোনটি?",
+      "options": [
+        "Pteris",
+        "Cycas",
+        "Dracaena",
+        "Lycopodium"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 68,
+      "id": "116592",
+      "question": "Dracaena উদ্ভিদে কোন ধরনের ভাস্কুলার বান্ডল বর্তমান?",
+      "options": [
+        "সমপার্শ্বীয়",
+        "সমদ্বিপার্শ্বীয়",
+        "জাইলেম কেন্দ্রিক",
+        "ফ্লোয়েম কেন্দ্রিক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 69,
+      "id": "116593",
+      "question": "জাইলেমকেন্দ্রিক ভাস্কুলার বান্ডল দেখা যায়-",
+      "options": [
+        "টেরিডোফাইটায়",
+        "ব্যক্তবীঝী উদ্ভিদে",
+        "একবীজপত্রী উদ্ভিদে",
+        "দ্বিবীজপত্রী উদ্ভিদে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 70,
+      "id": "116594",
+      "question": "কোনটিতে হ্যাড্রোসেন্ট্রিক ভাস্কুলার বান্ডল থাকে?",
+      "options": [
+        "Pteris",
+        "Dracaena",
+        "Gnetum",
+        "Yucca"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 71,
+      "id": "116595",
+      "question": "Pteris এর ভাস্কুলার বান্ডল কোন ধরনের?",
+      "options": [
+        "হ্যাড্রোসেন্ট্রিক",
+        "লেপ্টোসেন্ট্রিক",
+        "সংযুক্ত",
+        "অরীয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 72,
+      "id": "116596",
+      "question": "একবীজপত্রী উদ্ভিদের মূলের বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "মূলত্বক কিউটিকলযুক্ত",
+        "ভাস্কুলার বান্ডল সংযুক্ত",
+        "অধঃত্বক অনুপস্থিত",
+        "ভাস্কুলার বান্ডল এর সংখ্যা চার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 73,
+      "id": "116597",
+      "question": "একবীজপত্রী মূলের অন্তর্গঠনগত শনাক্তকারী বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "বহিঃত্বকে কিউটিকল উপস্থিত",
+        "অধঃত্বকে স্ক্লেরেনকাইমা টিস্যু আছে",
+        "জাইলেম V বা Y আকৃতিবিশিষ্ট",
+        "ভাস্কুলার বান্ডল অরীয় প্রকৃতির"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 74,
+      "id": "116598",
+      "question": "একবীজপত্রী কাণ্ডের বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "কাণ্ডরোম বিদ্যমান",
+        "ভাস্কুলার বান্ডল সমদ্বিপার্শ্বীয়",
+        "ভাস্কুলার বান্ডল অসংখ্য",
+        "ক্যাম্বিয়াম উপস্থিত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 75,
+      "id": "116599",
+      "question": "একবীজপত্রী উদ্ভিদের কান্ডে ভাস্কুলার বান্ডলে",
+      "options": [
+        "জাইলেম ও ফ্লোয়েম ভিন্ন ভিন্ন ব্যাসার্ধে থাকে",
+        "জাইলেম টিস্যুর গঠন অনেকটা V বা Y আকৃতির",
+        "ফ্লোয়েম দ্বারা জাইলেম চতুর্দিকে বেষ্টিত থাকে",
+        "জাইলেম ও ফ্লোয়েমের মাঝে ক্যাম্বিয়াম থাকে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

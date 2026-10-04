@@ -1,0 +1,162 @@
+{
+  "title": "32 BCS IN GK (Review Purpose)",
+  "category": "BCS Question Exams > BCS (BD+International) GK Exams",
+  "duration_minutes": 30,
+  "total_questions": 11,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "114791",
+      "question": "জনসংখ্যার ভিত্তিতে বৃহত্তর মুসলিম রাষ্ট্র কোনটি?",
+      "options": [
+        "পাকিস্তান",
+        "সৌদি আরব",
+        "মিশর",
+        "ইন্দোনেশিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "114792",
+      "question": "রেডক্রসের সদর দপ্তর কোথায় অবস্থিত?",
+      "options": [
+        "প্যারিস",
+        "লন্ডন",
+        "নিউইয়র্ক",
+        "জেনেভা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "114793",
+      "question": "‘জুলিয়াস সীজার’ কেন বিখ্যাত?",
+      "options": [
+        "রোমান সম্রাট হিসেবে",
+        "বর্ণবাদ বিরোধী হিসেবে",
+        "ব্রিটেনের রাজা হিসেবে",
+        "আমেরিকার প্রেসিডেন্ট হিসেবে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "114794",
+      "question": "পূর্ব তিমুরের রাজধানী কোথায়?",
+      "options": [
+        "লাসা",
+        "পোর্টো নোভো",
+        "দিলি",
+        "তিয়েন আন মেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "114795",
+      "question": "নোবেল পুরস্কার বিজয়ী ‘তাওয়াক্কুল কারমান’ কোন দেশের নাগরিক?",
+      "options": [
+        "ইরান",
+        "ইন্দোনেশিয়া",
+        "তুরস্ক",
+        "ইয়েমেন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "114796",
+      "question": "আমেরিকার চালকবিহীন গোয়েন্দা বিমান ‘স্টিলথ ড্রোন’টি কী?",
+      "options": [
+        "বোমারু বিমান চালিত",
+        "মিগ চালিত",
+        "হেলিকপ্টার চালিত",
+        "শক্তিশালী রকেট চালিত"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "114797",
+      "question": "আটলান্টিক ও প্রশান্ত মহাসাগরকে যুক্ত করেছে কোনটি?",
+      "options": [
+        "সুয়েজ খাল",
+        "মিসিসিপি",
+        "ভলগা",
+        "পানামা খাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "114798",
+      "question": "‘গ্রীনল্যান্ড’ – এর মালিকানা কোন দেশের?",
+      "options": [
+        "সুইডেন",
+        "নেদারল্যান্ডস",
+        "ডেনমার্ক",
+        "ইংল্যান্ড"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "114799",
+      "question": "‘গ্রেট হল’ কোথায় অবস্থিত?",
+      "options": [
+        "ব্রিটেন",
+        "যুক্তরাষ্ট্র",
+        "চীন",
+        "রাশিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 10,
+      "id": "114800",
+      "question": "‘তাস’ কোন দেশের সংবাদ সংস্থা?",
+      "options": [
+        "রাশিয়া",
+        "চীন",
+        "ভারত",
+        "পাকিস্তান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 11,
+      "id": "114801",
+      "question": "কম্পিউটার ভাইরাস কি?",
+      "options": [
+        "একটি ক্ষতিকারক জীবাণু",
+        "একটি ক্ষতিকারক সার্কিট",
+        "একটি ক্ষতিকারক চৌম্বক ফ্লাক্স",
+        "একটি ক্ষতিকারক প্রোগ্রাম"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    }
+  ]
+}

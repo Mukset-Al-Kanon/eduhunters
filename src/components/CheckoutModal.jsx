@@ -1,0 +1,352 @@
+import React, { useState, useEffect } from 'react';
+import { X, CheckCircle, Copy } from 'lucide-react';
+import confetti from 'canvas-confetti';
+import { useTheme } from '../context/ThemeContext';
+
+export default function CheckoutModal({ bundle, course, onClose, onSuccess, siteSettings }) {
+  const { isDark } = useTheme();
+
+  const item = course || bundle || { 
+    title: 'কোর্স এনরোলমেন্ট', 
+    price: 999, 
+    salePrice: 999, 
+    regularPrice: 1999, 
+    originalPrice: 1999 
+  };
+  const price = item.salePrice || item.price || 999;
+  const originalPrice = item.regularPrice || item.originalPrice || price * 2;
+
+  const [studentName, setStudentName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [trxId, setTrxId] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('bkash');
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 15);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleSmoothClose = () => {
+    if (isClosing) return;
+    setIsClosing(true);
+    setIsOpen(false);
+    setTimeout(() => {
+      onClose();
+    }, 240);
+  };
+
+  // Close on ESC
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') handleSmoothClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isClosing]);
+
+  const bkashNumber = siteSettings?.contactPhone || "01700-000000";
+
+  const handleCopyNumber = () => {
+    navigator.clipboard.writeText(bkashNumber.replace(/[^0-9]/g, ''));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleConfirmPayment = (e) => {
+    e.preventDefault();
+    if (!phoneNumber || phoneNumber.length < 11) {
+      alert("দয়া করে সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন");
+      return;
+    }
+    if (!trxId || trxId.length < 5) {
+      alert("দয়া করে ট্রানজেকশন আইডি (TrxID) লিখুন");
+      return;
+    }
+
+    setIsProcessing(true);
+    setTimeout(() => {
+      setIsProcessing(false);
+      setIsSuccess(true);
+      try {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.5 }
+        });
+      } catch (err) {}
+      if (onSuccess) {
+        onSuccess({
+          itemTitle: item.title,
+          amount: price,
+          studentName: studentName || 'অনলাইন শিক্ষার্থী',
+          studentPhone: phoneNumber,
+          method: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
+          trxId: trxId
+        });
+      }
+    }, 1000);
+  };
+
+  return (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      {/* Backdrop */}
+      <div 
+        className={`fixed inset-0 bg-black/75 backdrop-blur-xs transition-opacity duration-240 ease-out cursor-pointer ${
+          isOpen && !isClosing ? 'opacity-100' : 'opacity-0'
+        }`}
+        onClick={handleSmoothClose}
+      />
+
+      {/* Modal Dialog Card with Smooth Pop-up & Pop-out Animation */}
+      <div 
+        className={`relative w-full max-w-md my-auto flex flex-col rounded-3xl overflow-hidden z-10 border shadow-2xl transition-all duration-240 ${
+          isOpen && !isClosing 
+            ? 'opacity-100 scale-100 translate-y-0' 
+            : 'opacity-0 scale-95 translate-y-2'
+        } ${
+          isDark 
+            ? 'bg-[#120306] border-[#e11438]/25 text-white' 
+            : 'bg-white border-gray-200 text-[#111827]'
+        }`}
+        style={{
+          transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
+        }}
+      >
+        {/* Header - Centered title without subtitle */}
+        <div className={`relative px-6 py-5 border-b flex items-center justify-center ${
+          isDark ? 'border-white/10' : 'border-gray-100'
+        }`}>
+          <h3 className={`text-base sm:text-lg font-black tracking-tight text-center ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
+            অর্ডার কনফার্মেশন ও পেমেন্ট
+          </h3>
+          <button 
+            type="button"
+            onClick={handleSmoothClose}
+            className={`absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer border-none hover:scale-110 active:scale-95 ${
+              isDark ? 'bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800'
+            }`}
+            aria-label="Close"
+          >
+            <X size={16} />
+          </button>
+        </div>
+
+        {/* Modal Body with clean, comfortable spacing */}
+        <div className="p-6 overflow-y-auto space-y-5 max-h-[calc(90vh-70px)]">
+          {isSuccess ? (
+            <div className="text-center py-6 space-y-4">
+              <div className="w-14 h-14 bg-emerald-500/15 text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-500/30">
+                <CheckCircle size={30} />
+              </div>
+              <div>
+                <h4 className={`text-lg font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>ভর্তি রিকোয়েস্ট সফল হয়েছে!</h4>
+                <p className="text-xs text-gray-400 mt-1 max-w-xs mx-auto leading-relaxed">
+                  ধন্যবাদ <strong>{studentName || 'শিক্ষার্থী'}</strong>। আপনার পেমেন্ট ট্রানজেকশন আইডি (<span className="font-mono text-emerald-500 font-bold">{trxId}</span>) এডমিন প্যানেলে সংরক্ষিত হয়েছে।
+                </p>
+              </div>
+
+              <div className={`p-4 rounded-2xl border text-left text-xs space-y-1.5 ${
+                isDark ? 'bg-white/[0.02] border-white/10 text-gray-300' : 'bg-gray-50 border-gray-100 text-gray-700'
+              }`}>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">কোর্স/আইটেম:</span>
+                  <span className="font-bold text-right ml-2">{item.title}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">মোবাইল নম্বর:</span>
+                  <span className="font-mono font-bold">{phoneNumber}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">পরিশোধিত ফি:</span>
+                  <span className="font-bold text-[#dc2626] dark:text-[#ff4d6d]">৳{price}</span>
+                </div>
+              </div>
+
+              <button 
+                type="button" 
+                onClick={handleSmoothClose}
+                className="w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white rounded-xl font-bold text-xs border-none cursor-pointer shadow-md transition-all"
+              >
+                ঠিক আছে, সম্পন্ন করুন
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* Order Item Summary Card - Full title without truncation */}
+              <div className={`p-4 sm:p-5 rounded-2xl border space-y-2 ${
+                isDark ? 'bg-white/[0.02] border-white/10' : 'bg-gray-50/80 border-gray-100'
+              }`}>
+                <div className="flex items-start justify-between gap-3">
+                  <h4 className={`text-sm sm:text-base font-black leading-snug flex-1 ${
+                    isDark ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    {item.title}
+                  </h4>
+                  <div className="text-right shrink-0">
+                    <span className="text-xl sm:text-2xl font-black text-[#dc2626] dark:text-[#ff4d6d]">
+                      ৳{price}
+                    </span>
+                    {originalPrice > price && (
+                      <span className="block text-[11px] text-gray-400 line-through font-medium">
+                        ৳{originalPrice}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Payment Method Selector Tabs */}
+              <div className="space-y-3">
+                <div className="grid grid-cols-2 gap-2.5">
+                  <button 
+                    type="button"
+                    onClick={() => setPaymentMethod('bkash')}
+                    className={`py-2.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer border flex items-center justify-center gap-1.5 ${
+                      paymentMethod === 'bkash'
+                        ? 'bg-[#dc2626] text-white border-[#dc2626] shadow-sm'
+                        : isDark
+                          ? 'bg-white/[0.02] text-gray-300 border-white/10 hover:border-white/20'
+                          : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <span>বিকাশ (bKash)</span>
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => setPaymentMethod('nagad')}
+                    className={`py-2.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer border flex items-center justify-center gap-1.5 ${
+                      paymentMethod === 'nagad'
+                        ? 'bg-[#dc2626] text-white border-[#dc2626] shadow-sm'
+                        : isDark
+                          ? 'bg-white/[0.02] text-gray-300 border-white/10 hover:border-white/20'
+                          : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <span>নগদ (Nagad)</span>
+                  </button>
+                </div>
+
+                {/* Payment Number & Instruction Card - Clear separated box */}
+                <div className={`p-4 sm:p-4.5 rounded-2xl border space-y-2.5 ${
+                  isDark 
+                    ? 'bg-[#1b050d] border-[#e11438]/20' 
+                    : 'bg-red-50/50 border-red-100'
+                }`}>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-semibold text-gray-500 dark:text-gray-400">
+                      Send Money করার নম্বর:
+                    </span>
+                    <span className="text-[11px] font-bold text-[#dc2626] dark:text-[#ff4d6d]">
+                      Personal
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-3 pt-0.5">
+                    <span className={`font-mono text-lg sm:text-xl font-black tracking-wider ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                      {bkashNumber}
+                    </span>
+                    <button 
+                      type="button" 
+                      onClick={handleCopyNumber}
+                      className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border flex items-center gap-1.5 shrink-0 ${
+                        copied
+                          ? 'bg-emerald-600 text-white border-emerald-600'
+                          : isDark
+                            ? 'bg-white/10 hover:bg-white/15 text-white border-white/15'
+                            : 'bg-white hover:bg-gray-50 text-gray-800 border-gray-300 shadow-xs'
+                      }`}
+                    >
+                      <Copy size={12} />
+                      <span>{copied ? 'কপি হয়েছে' : 'কপি করুন'}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Checkout Input Form with Clean Spacing */}
+              <form onSubmit={handleConfirmPayment} className="space-y-3.5 pt-1">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-gray-600 dark:text-gray-300">
+                    আপনার নাম (ঐচ্ছিক)
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="যেমন: মোঃ সাব্বির আহমেদ"
+                    className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border transition-all outline-none ${
+                      isDark 
+                        ? 'bg-white/[0.03] border-white/10 text-white placeholder-gray-500 focus:border-[#e11438] focus:bg-white/[0.05]' 
+                        : 'bg-white border-gray-200 text-gray-900 placeholder-gray-400 focus:border-[#dc2626]'
+                    }`}
+                    value={studentName}
+                    onChange={(e) => setStudentName(e.target.value)}
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-gray-600 dark:text-gray-300">
+                    মোবাইল নম্বর <span className="text-[#dc2626]">*</span>
+                  </label>
+                  <input 
+                    type="tel" 
+                    placeholder="01XXXXXXXXX"
+                    className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border transition-all outline-none font-mono ${
+                      isDark 
+                        ? 'bg-white/[0.03] border-white/10 text-white placeholder-gray-500 focus:border-[#e11438] focus:bg-white/[0.05]' 
+                        : 'bg-white border-gray-200 text-gray-900 placeholder-gray-400 focus:border-[#dc2626]'
+                    }`}
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-gray-600 dark:text-gray-300">
+                    ট্রানজেকশন আইডি (TrxID) <span className="text-[#dc2626]">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="যেমন: 9J7A5KL0"
+                    className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border transition-all outline-none font-mono uppercase tracking-wider ${
+                      isDark 
+                        ? 'bg-white/[0.03] border-white/10 text-white placeholder-gray-500 focus:border-[#e11438] focus:bg-white/[0.05]' 
+                        : 'bg-white border-gray-200 text-gray-900 placeholder-gray-400 focus:border-[#dc2626]'
+                    }`}
+                    value={trxId}
+                    onChange={(e) => setTrxId(e.target.value.toUpperCase())}
+                    required
+                  />
+                </div>
+
+                <p className="text-[11px] text-gray-400 text-center pt-1">
+                  পেমেন্ট সাবমিট করার পর দ্রুত যাচাই সম্পন্ন হবে।
+                </p>
+
+                <button 
+                  type="submit" 
+                  className="w-full py-3.5 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:brightness-110 active:scale-[0.99] text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition-all cursor-pointer border-none flex items-center justify-center gap-2"
+                  disabled={isProcessing}
+                >
+                  <span>{isProcessing ? 'যাচাই করা হচ্ছে...' : `৳${price} পরিশোধ নিশ্চিত করুন`}</span>
+                </button>
+              </form>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

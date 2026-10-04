@@ -1,0 +1,385 @@
+{
+  "exam_id": 1037,
+  "title": "Exam (34)",
+  "category": "Daily GKE Planner",
+  "duration_minutes": 12,
+  "total_questions": 25,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "01eb8b58-b77e-4bca-b82d-68f5472103d1",
+      "question": "নিচের কোন ব্যক্তি 'বুদ্ধির মুক্তি' আন্দোলনের সঙ্গে যুক্ত ছিলেন না?",
+      "options": [
+        "আবুল ফজল",
+        "আবদুল কাদির",
+        "এস ওয়াজেদ আলী",
+        "কাজী আবদুল ওয়াদুদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এই আন্দোলনের উল্লেখযোগ্য সদস্যদের মধ্যে ছিলেন কাজী আবদুল ওয়াদুদ, আবুল ফজল, মুহম্মদ শহীদুল্লাহ, কাজী মোতাহার হোসেন, কাজী নজরুল ইসলাম এবং আবদুল কাদির ।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "8837c6a9-b201-4a6e-a26e-79704b01b542",
+      "question": "সকলের তরে সকলে আমরা/প্রত্যেকে আমরা পরের তরে।'-কার রচিত পঙ্ক্তি?",
+      "options": [
+        "সজল কান্তি",
+        "দ্বিজেন্দ্রলাল রায়",
+        "কামিনী রায়",
+        "শেখ ওয়াদুদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সকলের তরে সকলে আমরা/প্রত্যেকে আমরা পরের তরে।'-কবি কামিনী রায় রচিত \"পরার্থে\" কবিতার পঙ্ক্তি ।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "68736f47-4bb8-4262-801d-89def9d7604a",
+      "question": "ঈশ্বরচন্দ্র বিদ্যাসাগর কোথায় জন্মগ্রহণ করেন?",
+      "options": [
+        "চৌবেরিয়া গ্রাম, নদীয়া",
+        "কাঁঠালপাড়া গ্রাম, চব্বিশ পরগনা",
+        "বীরসিংহ গ্রাম, মেদিনীপুর",
+        "দেবান্দপুর, হুগলি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ঈশ্বরচন্দ্র বিদ্যাসাগর মেদিনীপুরের বীরসিংহ গ্রামে জন্মগ্রহণ করেন ।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "f50a053d-4be3-4549-b025-76b20cc1004e",
+      "question": "হরপ্রসাদ শাস্ত্রীর উপাধি কী?",
+      "options": [
+        "পন্ডিত",
+        "বিদ্যাসাগর",
+        "শাস্ত্রী",
+        "মহামহোপাধ্যায়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তিনি ছিলেন শিক্ষাবিদ, সাহিত্যিক, বহু ভাষাবিদ, দার্শনিক, প্রত্নতত্ত্ববিদ ও ঐতিহাসিক। ১৮৯৮-তে 'মহামহোপাধ্যায়'এবং ১৯১১-তে সি,আই,ই উপাধি লাভ করেন। ঢাকা বিশ্ববিদ্যালয় থেকে ডি-লিট উপাধিতে ভূষিত হন ১৯২৭ সালে।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "fc6b29b4-008d-461d-9848-040f27592f29",
+      "question": "মীর মশাররফ হোসেনের 'বিষাদসিন্ধু' একটি-",
+      "options": [
+        "মহাকাব্য",
+        "ইতিহাস",
+        "ইতিহাস-আশ্রিত জীবনীগ্রন্থ",
+        "উপন্যাস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মীর মশাররফ হোসেনের 'বিষাদসিন্ধু' একটি উপন্যাস।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "fd3d7186-3f76-42a1-b2d2-4135be8c5688",
+      "question": "বাংলা সাহিত্যে 'কালকূট' নামে পরিচিত কোন লেখক?",
+      "options": [
+        "সমরেশ মজুমদার",
+        "সমরেশ বসু",
+        "শওকত উসমান",
+        "আলাউদ্দিন আল আজাদ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাংলা সাহিত্যে 'কালকূট' নামে পরিচিত লেখক সমরেশ বসু।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "779ac99a-f12c-479f-8585-8067f8a7268e",
+      "question": "উনসত্তরের গণ-অভ্যুত্থানের পটভূমিকায় লেখা উপন্যাস কোনটি?",
+      "options": [
+        "ভূমিপুত্র",
+        "কাঁটাতারের প্রজাপতি",
+        "মাটির জাহাজ",
+        "চিলেকোঠার সেপাই"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উনসত্তরের গণ-অভ্যুত্থানের পটভূমিকায় লেখা উপন্যাস চিলেকোঠার সেপাই",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "5eac093e-25b9-41c7-810f-c8d04d2aa32e",
+      "question": "বাংলা আধুনিক উপন্যাস-এর প্রবর্তক ছিলেন-",
+      "options": [
+        "রবীন্দ্রনাথ ঠাকুর",
+        "ঈশ্বরচন্দ্র বিদ্যাসাগর",
+        "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
+        "সমরেশ বসু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাংলা আধুনিক উপন্যাস-এর প্রবর্তক ছিলেন-বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "4bec1c9a-f667-4942-87c8-88b9cc11a929",
+      "question": "\" সকালে উঠিয়া আমি মনে মনে বলি সারাদিন আমি যেন ভালো হয়ে চলি\" চরণ দু'টির রচয়িতা কে?",
+      "options": [
+        "কাজী নজরুল ইসলাম",
+        "রবীন্দ্রনাথ ঠাকুর",
+        "মদনমোহন তর্কালঙ্কার",
+        "চণ্ডীচরণ মুনশী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "\" সকালে উঠিয়া আমি মনে মনে বলি সারাদিন আমি যেন ভালো হয়ে চলি\" চরণ দু'টি মদনমোহন তর্কালঙ্কার রচিত\"আমার পণ\" কবিতার পঙ্ক্তি।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "42406988-b562-48e7-bd9b-fec9a6f92c23",
+      "question": "পূর্বাশা' পত্রিকার সম্পাদক কে ছিলেন?",
+      "options": [
+        "শাহাদাত হোসেন",
+        "সঞ্জয় ভট্টাচার্য",
+        "সধীন্দ্রনাথ দত্ত",
+        "কাজী নজরুল ইসলাম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সঞ্জয় ভট্টাচার্য 'পূর্বাশা' পত্রিকার সম্পাদক  ছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "8262342c-cf74-4088-aeb8-958f82afd3db",
+      "question": "'বীরবল' কোন লেখকের ছদ্মনাম?",
+      "options": [
+        "প্রমথনাথ বিশী",
+        "প্রমথ চৌধুরী",
+        "সুনীল গঙ্গোপাধ্যায়",
+        "আবু ইসহাক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বীরবল' লেখক প্রমথ চৌধুরীর ছদ্মনাম।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "305eb90b-f645-41c5-b106-c22a79e3f8c5",
+      "question": "দীনবন্ধু মিত্রের 'নীলদর্পণ' নাটক প্রথম কোথা থেকে প্রকাশিত হয়?",
+      "options": [
+        "ঢাকা",
+        "কলকাতা",
+        "মুর্শিদাবাদ",
+        "লন্ডন"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দীনবন্ধু মিত্রের 'নীলদর্পণ' নাটক প্রথম ঢাকা থেকে প্রকাশিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "362020d3-e1a4-4e59-becd-29251004c107",
+      "question": "কাজী নজরুল ইসলাম তাঁর কবিতায় 'কালাপাহাড়'কে স্মরণ করেছেন কেন?",
+      "options": [
+        "ব্রাহ্মণ্যযুগে নব মুসলিম ছিলেন বলে",
+        "ইসলামের গুণকীর্তন করেছিলেন বলে",
+        "প্রাচীন বাংলার বিদ্রোহী ছিলেন বলে",
+        "প্রচলিত ধর্ম ও সংস্কার বিদ্বেষী ছিলেন বলে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রচলিত ধর্ম ও সংস্কার বিদ্বেষী ছিলেন বলে কাজী নজরুল ইসলাম তাঁর কবিতায় 'কালাপাহাড়'কে স্মরণ করেছেন ।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "10267c89-3fa1-4ee9-8ad6-e918c96afc99",
+      "question": "কবি কায়কোবাদ রচিত 'মহাশ্মশান' কাব্যের ঐতিহাসিক পটভূমি ছিল-",
+      "options": [
+        "ছিয়াত্তরের মন্বন্তর",
+        "পলাশীর যুদ্ধ",
+        "তৃতীয় পানিপথের যুদ্ধ",
+        "১৮৫৭ সালের সিপাহী বিদ্রোহ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কবি কায়কোবাদ রচিত 'মহাশ্মশান' কাব্যের ঐতিহাসিক পটভূমি ছিল তৃতীয় পানিপথের যুদ্ধ।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "3d43f956-7ac2-4e6a-8412-d160725663fe",
+      "question": "রবীন্দ্রনাথ ঠাকুরের 'গীতাঞ্জলি' কাব্য প্রকাশিত হয় কত সনে?",
+      "options": [
+        "১৯১০",
+        "১৯১১",
+        "১৯১২",
+        "১৯১৩"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "রবীন্দ্রনাথ ঠাকুরের 'গীতাঞ্জলি' কাব্য প্রকাশিত হয় ১৯১০ সনে।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "57adb0b3-c5da-4b99-a53d-f72f76f8f6a7",
+      "question": "I am in class twelve. Here 'am' is-",
+      "options": [
+        "Cognate verb",
+        "Factitive verb",
+        "Main verb",
+        "Auxiliary verb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কোনো বাক্যে একটিমাত্র verb থাকলে তা অবশ্যই Main/Principal Verb হয়। কেননা, Main/Principal verb ছাড়া কোনো sentence গঠিত হতে পারে না। যেমন: I am in class twelve. I did the work",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "4a191493-12dc-47a3-9930-58d902f14ec2",
+      "question": "The number of auxiliary verbs in English is -",
+      "options": [
+        "Eleven",
+        "Twelve",
+        "Thirteen",
+        "Fourteen"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The number of auxiliary verbs in English is -12",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "21a1e25b-28da-4575-8255-6dd1df7cfe0e",
+      "question": "Mother laughs, বাক্যে Laughs কিসের উদাহরণ?",
+      "options": [
+        "Transitive verb",
+        "Intransitive verb",
+        "Auxiliary verb",
+        "Cognitive verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাক্যের অর্থ সম্পন্ন করতে যে verb এর object প্রয়োজন হয় না, তাকে Intransitive verb বলে। বাক্যে verb এর পরে কোনো word না থাকলে অথবা verb এর পরে adverb থাকলে অথবা শুধু preposition থাকলে verb টি অবশ্যই Intransitive verb হবে।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "a50ae366-6931-4d1a-9d30-a990617e9069",
+      "question": "Which one is intransitive verb?",
+      "options": [
+        "Rise",
+        "Raise",
+        "Lay",
+        "Set"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "lie, rise, sit হচ্ছে intransitive verb এবং lay, raise, set হচ্ছে transitive verb",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "ca738506-7912-45f2-9317-87910b90661d",
+      "question": "Which of the following is NOT a type of incomplete verb?",
+      "options": [
+        "Auxiliary verb",
+        "Semi- auxiliary verb",
+        "Transitive verb",
+        "Intransitive verb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "intransitive verb গুলো শুধু একা সম্পূর্ণরূপে অর্থ প্রকাশ করতে পারে তাই তাদেরকে complete verb বলে এবং অন্য verb গুলো object/complement ছাড়া সম্পূর্ণরূপে অর্থ প্রকাশ করতে পারে না বলে তারা incomplete verb।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "a7dabac3-475c-40c2-b566-3e7f60302a1c",
+      "question": "Rahat gave ________ a book.",
+      "options": [
+        "at the friends",
+        "to the friends",
+        "his friend",
+        "for the friend"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সাধারণত Indirect object টি direct object এর পূর্বে বসে। এক্ষেত্রে এদের মাঝে কোনো preposition বসে না।বতিক্রম: I presented her with a rose. He provided me with a fan. He supplied us with food.তবে direct object আগে বসলে এবং Indirect object পরে বসলে এর পূর্বে to বসে কিন্তু জন্য বুঝালে for বসে।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "dcac9895-8c96-4f26-b0d3-32ad3ef85a44",
+      "question": "They elected him captain. Here 'elected' is -",
+      "options": [
+        "Transitive verb",
+        "Factitive verb",
+        "Reflexive verb",
+        "Cognitive verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যখন কোনো transitive verb অতিরিক্ত word এর সাহায্য ছাড়া তার direct object টি দ্বারা পূর্ণ অর্থ প্রকাশ করতে পারে না, তাকে factitive verb বলে। অর্থ সম্পন্ন করতে অতিরিক্ত যে word এর প্রয়োজন হয় তাকে factitive object বা objective complement বলে",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "80f1431f-2d56-454f-9aac-e3ec51943c80",
+      "question": "Dip, Feed, Fell, Raise, Set- all these words are:",
+      "options": [
+        "Transitive verb",
+        "Factitive verb",
+        "Intransitive",
+        "Causative verb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যে সকল verb দ্বারা subject সরাসরি নিজে কাজ না করে অন্যকে দিয়ে কাজটি করায় তাদেরকে causative verb বলে। যেমন: My mother feeds me.",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "0c117c44-c14f-42c3-bdd0-1f27dd83fd24",
+      "question": "Which sentence of the following is an example of cognate object?",
+      "options": [
+        "He teaches us English.",
+        "We sang a song.",
+        "He called me a fool.",
+        "I know him to be a coward."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কানো intransitive verb তারই noun form অথবা সমজাতীয় কোনো noun কে object রূপে গ্রহণ করলে তাকে cognate verb বলে। আর তার object টিকে cognate object বলে। Ex-I live a simple life.",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "d53ef914-7ab3-4eaf-aa6b-e4370865cf33",
+      "question": "The wind made such____  noises, that the children hid under the bed.",
+      "options": [
+        "fearing",
+        "frightened",
+        "frightening",
+        "feared"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "fear - নিজে ভয় পাওয়া: frighten- অন্যকে ভয় পাইয়ে দেয়া, ভীত/আতঙ্কিত করা। তাই frightening হবে",
+      "images": []
+    }
+  ]
+}

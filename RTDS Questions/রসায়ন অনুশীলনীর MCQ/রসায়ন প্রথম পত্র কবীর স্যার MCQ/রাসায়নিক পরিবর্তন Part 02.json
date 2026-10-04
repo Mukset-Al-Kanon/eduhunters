@@ -1,0 +1,1422 @@
+{
+  "title": "আহসানুল কবীর স্যার রসায়ন ১ম পত্র - ৪র্থ অধ্যায়: রাসায়নিক পরিবর্তন 2 Part",
+  "category": "রসায়ন অনুশীলনীর MCQ > রসায়ন প্রথম পত্র কবীর স্যার MCQ",
+  "duration_minutes": 30,
+  "total_questions": 101,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "135411",
+      "question": "বিভিন্ন বিক্রিয়ার সক্রিয়ন শক্তি দেওয়া হলো। কোন বিক্রিয়াটির গতির হার সর্বোচ্চ?",
+      "options": [
+        "1.32 kJmol-1",
+        "2.31 kJmol-1",
+        "1.02 kJmol-1",
+        "0.5 × 10^-2kJmol-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সক্রিয়ন শক্তি যত কম বিক্রিয়ার গতি তত বেশি।"
+    },
+    {
+      "question_no": 2,
+      "id": "135808",
+      "question": "নিম্নের কোন বিক্রিয়ার সাম্যাবস্থার উপর চাপের প্রভাব নেই?",
+      "options": [
+        "N204(g) = 2NO2(g)",
+        "2SO2 (g) + 02(g) = 2S03(g",
+        "H2(g) + I2(g) = 2HI(g)",
+        "CaC03 (s) = Ca0(s) + CO2(g}"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বিক্রিয়ক ও উৎপাদের মোল সংখ্যা সমান\r\nহওয়ায় বিক্রিয়ায় চাপের প্রভাব নেই।"
+    },
+    {
+      "question_no": 3,
+      "id": "135809",
+      "question": "নিম্নের কোন বিক্রিয়ায় Kc এবং Kp এর মান সমান?",
+      "options": [
+        "N₂(g) +3H2(g) = 2NH3(g)",
+        "N204(g) = 2NO2(g)",
+        "2HI(g) = H2(g) +I2(g)",
+        "A2(g) + B2(l) = C2(g) + D₂(g)"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "135810",
+      "question": "সাম্যাঙ্কের উপর কোন নিয়ামকের প্রভাব রয়েছে?",
+      "options": [
+        "তাপমাত্রা",
+        "চাপ",
+        "ঘনমাত্রা",
+        "তাপমাত্রা ও চাপ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "135811",
+      "question": "বিক্রিয়কের ঘনমাত্রা বৃদ্ধি করলে সাম্যাবস্থার অবস্থান কোন দিকে স্থানান্তরিত হয়?",
+      "options": [
+        "ডানে",
+        "বামে",
+        "স্থির থাকে",
+        "সম্পর্ক নেই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বিক্রিয়কের ঘনমাত্রা বৃদ্ধি করলে উৎপাদ বৃদ্ধি\r\nপায় অর্থাৎ বিক্রিয়া ডান দিকে অগ্রসর হয়।"
+    },
+    {
+      "question_no": 6,
+      "id": "135812",
+      "question": "নিম্নের বিক্রিয়ায় NH3 কে উচ্চ চাপ প্রয়োগে তরল করা হলে সাম্যাবস্থার অবস্থান কোন দিকে স্থানান্তরিত হয়? N₂(g) + 3H2(g) = 2NH3(g)",
+      "options": [
+        "কোনো দিকে নয়",
+        "বামে",
+        "ডানে",
+        "সম্পর্ক নেই"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "চাপের প্রভাব: উৎপাদের মোল সংখ্যা কম\r\nহলে চাপ বাড়ালে বিক্রিয়া সামনের দিকে অগ্রসর\r\nহয়।"
+    },
+    {
+      "question_no": 7,
+      "id": "135813",
+      "question": "নিম্নের বিক্রিয়ায় উপাদান 'D' এর ঘনমাত্রা বৃদ্ধি করলে সাম্যাবস্থা কোন দিকে স্থানান্তরিত হয়? A(aq) +B(aq) = C(aq) +D(aq)",
+      "options": [
+        "ডানে",
+        "স্থির থাকে",
+        "বামে",
+        "সম্পর্ক নেই"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "135814",
+      "question": "চাপের একক atm হলে নিম্নের বিক্রিয়ায় Kp এর একক কি? COCl2(g) = CO(g) + Cl₂(g)",
+      "options": [
+        "atm-1",
+        "atm",
+        "atm²",
+        "একক নেই"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "135815",
+      "question": "",
+      "options": [
+        "উৎপাদন বৃদ্ধি পায়",
+        "উৎপাদন হ্রাস পায়",
+        "কোন প্রভাব নেই",
+        "অত্যানুকুল তাপমাত্রায় উৎপাদন বৃদ্ধি পায়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তাপ উৎপাদী বিক্রিয়ায় তাপমাত্রা বৃদ্ধি করলে\r\nবিক্রিয়া বাম দিকে অগ্রসর হয় অর্থাৎ উৎপাদ এর\r\nপরিমাণ হ্রাস পায়।"
+    },
+    {
+      "question_no": 10,
+      "id": "135816",
+      "question": "",
+      "options": [
+        "প্রভাব নেই",
+        "সাম্যাবস্থা ডানে স্থানান্তরিত হয়",
+        "সাম্যাবস্থা বামে স্থানান্তরিত হয়",
+        "সাম্যাবস্থা বিলুপ্ত হয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মোল সংখ্যা সমান হওয়ায় বিক্রিয়ায় চাপের প্রভাব নেই। তাপউৎপাদী বিক্রিয়া হওয়ায় তাপমাত্রা বাড়ালে সাম্যাবস্থা বামে স্থানান্তরিত হয়।"
+    },
+    {
+      "question_no": 11,
+      "id": "135817",
+      "question": "একটি তীব্র এসিড ও মৃদু ক্ষার টাইট্রেশনে উপযুক্ত নির্দেশক কোনটি?",
+      "options": [
+        "ফেনফথেলিন",
+        "মিথাইল অরেঞ্জ",
+        "লিটমাস",
+        "থাইমল ব্লু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 12,
+      "id": "135818",
+      "question": "",
+      "options": [
+        "ফেনফথ্যালিন",
+        "মিথাইল অরেঞ্জ",
+        "মিথাইল রেড",
+        "থাইমল ব্লু"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মৃদু এসিড ও তীব্র ক্ষারকের টাইট্রেশনে\r\nব্যবহৃত নির্দেশক ফেনফথ্যালিন, ক্রিসল রেড, থাইমল\r\nব্লু (ক্ষার) ইত্যাদি।"
+    },
+    {
+      "question_no": 13,
+      "id": "135819",
+      "question": "HSO4- আয়নের অনুবন্ধী এসিড কি?",
+      "options": [
+        "H2SO4",
+        "S04^2-",
+        "H30+",
+        "H20"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "HSO4- এর অনুবন্ধী অম্ল:H2SO4"
+    },
+    {
+      "question_no": 14,
+      "id": "135820",
+      "question": "Fe2O3 এর অম্লত্ব কত?",
+      "options": [
+        "2",
+        "3",
+        "6",
+        "4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Fe203 এর অম্লত্ব 6\r\nFe203 +6HCl → 2FeCl3 +3H20"
+    },
+    {
+      "question_no": 15,
+      "id": "135821",
+      "question": "একটি জলীয় দ্রবণের pOH এর মান ৪ হলে দ্রবণটির H+ আয়নের ঘনমাত্রা-",
+      "options": [
+        "10^-8 mol L-1",
+        "10^-6 mol L-1",
+        "10^-4 mol L-1",
+        "10^-2 mol L-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "135822",
+      "question": "একটি জলীয় দ্রবণের H+ আয়নের ঘনমাত্রা 0.001 mol L-1 হলে দ্রবণটির pH কত?",
+      "options": [
+        "1.0",
+        "2.0",
+        "3",
+        "11"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "pH = - log[H+] = −log(0.001) = -log(10^-3) = 3"
+    },
+    {
+      "question_no": 17,
+      "id": "135823",
+      "question": "মৃদু এসিড ও মৃদু ক্ষারকের টাইট্রেশনে উপযুক্ত নির্দেশক কী?",
+      "options": [
+        "ফেনফথ্যালিন",
+        "মিথাইল রেড",
+        "কোনো উপযুক্ত নির্দেশক নেই",
+        "মিথাইল অরেঞ্জ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মৃদু এসিড ও মৃদু ক্ষারকের টাইট্রেশনে উপযুক্ত কোন নির্দেশক নেই।"
+    },
+    {
+      "question_no": 18,
+      "id": "135824",
+      "question": "",
+      "options": [
+        "H30+",
+        "HCI",
+        "OH-",
+        "Cl-"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অনুবন্ধী এসিড: H+ যোগ করতে হবে।\r\nH₂0 এর অনুবন্ধী এসিড : H30+"
+    },
+    {
+      "question_no": 19,
+      "id": "135825",
+      "question": "H₂O এর অনুবন্ধী ক্ষারক কি?",
+      "options": [
+        "H30+",
+        "HCl",
+        "OH-",
+        "Cl-"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অনুবন্ধী ক্ষারক: H+ অপসারণ করতে হবে।\r\nH₂0 এর অনুবন্ধী ক্ষারক OH-"
+    },
+    {
+      "question_no": 20,
+      "id": "135826",
+      "question": "0.1 M HCl দ্রবণের pH কত?",
+      "options": [
+        "1.0",
+        "2.0",
+        "0.05",
+        "0.1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 21,
+      "id": "135827",
+      "question": "M/100 ঘনমাত্রার NaOH দ্রবণের pH কত?",
+      "options": [
+        "1.0",
+        "2.0",
+        "12.0",
+        "10"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 22,
+      "id": "135828",
+      "question": "CaO এর অম্লত্ব কত?",
+      "options": [
+        "1.0",
+        "2.0",
+        "4.0",
+        "6.0"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Ca0 এর অম্লত্ব 2। \r\nএক মোল ক্ষারক যত মোল এক ক্ষারকীয় এসিডকে\r\nপ্রশমিত করতে পারে তাকে ক্ষারকের অম্লত্ব বলে।"
+    },
+    {
+      "question_no": 23,
+      "id": "135829",
+      "question": "যে দ্রবণের pOH = 5 ঐ দ্রবণের [H+] কত?",
+      "options": [
+        "10^-5M",
+        "10^-1 M",
+        "10^-9 M",
+        "10^-2 M"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 24,
+      "id": "135830",
+      "question": "অক্সালিক এসিড ও NaOH টাইট্রেশনে উপযুক্ত নির্দেশক কোনটি?",
+      "options": [
+        "ফেনফথ্যালিন",
+        "মিথাইল অরেঞ্জ",
+        "লিটমাস",
+        "কোনো নির্দেশক নেই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দুর্বল এসিড ও সবল ক্ষারের প্রশমন বিন্দুতে\r\nফেনফথ্যালিন ও থাইমল ব্লু ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 25,
+      "id": "135831",
+      "question": "OH- এর অনুবন্ধী এসিড কোনটি?",
+      "options": [
+        "H30+",
+        "H₂0",
+        "02-",
+        "O2"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অনুবন্ধী এসিড H+ যোগ করতে হবে।\r\nOH- এর অনুবন্ধী এসিড : H₂0"
+    },
+    {
+      "question_no": 26,
+      "id": "135832",
+      "question": "তাপ উৎপাদী বিক্রিয়ায়-",
+      "options": [
+        "অভ্যন্তরীণ শক্তির বৃদ্ধি ঘটে",
+        "অভ্যন্তরীণ শক্তির হ্রাস ঘটে",
+        "অভ্যন্তরীণ শক্তি অপরিবর্তিত থাকে",
+        "তাপ উৎপাদী বিক্রিয়ার সঙ্গে অভ্যন্তরীণ শক্তির কোন সম্পর্ক নেই"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তাপ উৎপাদী বিক্রিয়ায় ΔH = –ve\r\nঅর্থাৎ, বিক্রিয়কের শক্তি > উৎপাদের শক্তি\r\n.. অভ্যন্তরীণ শক্তি হ্রাস পায়।"
+    },
+    {
+      "question_no": 27,
+      "id": "135833",
+      "question": "গঠন বিক্রিয়া একটি –",
+      "options": [
+        "তাপ উৎপাদী বিক্রিয়া",
+        "তাপহারী প্রক্রিয়া",
+        "তাপের কোনো পরিবর্তন ঘটে না",
+        "তাপের কোন সম্পর্ক নেই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গঠন বিক্রিয়ার ক্ষেত্রে উৎপাদের অভ্যন্তরীণ\r\nশক্তি বিক্রিয়কের অভ্যন্তরীণ শক্তি অপেক্ষা কম হয়।\r\nএটি একটি তাপ উৎপাদী বিক্রিয়া।"
+    },
+    {
+      "question_no": 28,
+      "id": "135834",
+      "question": "বিয়োজন বিক্রিয়ায়-",
+      "options": [
+        "তাপ শোষিত হয়",
+        "তাপ নির্গত হয়",
+        "তাপের কোনো পরিবর্তন ঘটে না",
+        "তাপের কোন সম্পর্ক নেই"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বিয়োজন বিক্রিয়ায় পরিবেশ থেকে তাপ শোষিত হয়। এটি একটি তাপহারী বিক্রিয়া।"
+    },
+    {
+      "question_no": 29,
+      "id": "135835",
+      "question": "32g CH4 কে দহন করলে 980 kJ mol-1 তাপ নির্গত হলে CH4 এর দহন তাপ কত?",
+      "options": [
+        "-980 kj mol-1",
+        "-490 kJ mol-1",
+        "-245 kj mol-1",
+        "-735 kJ mol-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "CH4 এর আণবিক ভর 16"
+    },
+    {
+      "question_no": 30,
+      "id": "135836",
+      "question": "তীব্র এসিড ও তীব্র ক্ষারের প্রশমন তাপ ΔH এর মান কত?",
+      "options": [
+        "-57.32 kJ mol-1",
+        "+57.32 kJ mol-1",
+        "+52.32 kJ mol-1",
+        "-52.32 kJ mol-1"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সব তীব্র এসিড ও তীব্র ক্ষারের প্রশমন তাপ\r\nএর মান প্রায় সমান এবং এর গড় মান -57.34 KJmol-1"
+    },
+    {
+      "question_no": 31,
+      "id": "135837",
+      "question": "বিভিন্ন বিক্রিয়ার সক্রিয়ন শক্তি দেয়া হলো। কোন বিক্রিয়াটির গতির হার সর্বনিম্ন?",
+      "options": [
+        "1.32 kJ mol-1",
+        "2.31 kJ mol-1",
+        "1.02 kj mol-1",
+        "0.5 ×10^-2 kJ mol-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সক্রিয়ন শক্তি কম হলে সহজেই বিক্রিয়ক\r\nউৎপাদে পরিণত হতে পারে। সক্রিয়ন শক্তি যত\r\nবেশি বিক্রিয়ার হার তত কম।"
+    },
+    {
+      "question_no": 32,
+      "id": "135838",
+      "question": "কোনো বিক্রিয়ার আপেক্ষিক বেগ ধ্রুবক নিম্নের কোনটির পরিমাপক?",
+      "options": [
+        "বিক্রিয়কের ঘনমাত্রা",
+        "বিক্রিয়ার গতির হার",
+        "উভয়ের",
+        "কোনটির নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "একক ঘনমাত্রায় বিক্রিয়ার হারই হলো\r\nআপেক্ষিক বেগ ধ্রুবক।"
+    },
+    {
+      "question_no": 33,
+      "id": "135839",
+      "question": "H2SO4 উৎপাদনের ক্ষেত্রে প্রভাবক কোনটি?",
+      "options": [
+        "Fe",
+        "Ni",
+        "Pt",
+        "Mo"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "স্পর্শ পদ্ধতিতে H2S04 উৎপাদনে Pt বা\r\nV205 ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 34,
+      "id": "135840",
+      "question": "১ জুল = কত ক্যালরি?",
+      "options": [
+        "4.2",
+        "2.4",
+        "0.42",
+        "0.239"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "1 ক্যালরি = 4.2 জুল\r\n1 জুল = 0.24 ক্যালরি"
+    },
+    {
+      "question_no": 35,
+      "id": "135841",
+      "question": "কোনটি দ্রবণে বেশি পরিমাণে বিয়োজিত হবে?",
+      "options": [
+        "HBr04",
+        "HClO4",
+        "H2SO4",
+        "HNO3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অক্সো এসিডের ক্ষেত্রে কেন্দ্রীয় পরমাণুর\r\nজারণ মান যত বেশি এবং আকার যত ছোট\r\nবিয়োজন মাত্রা বা শক্তিমাত্রা তত বেশি।\r\nHClO4 সবচেয়ে তীব্র এসিড।"
+    },
+    {
+      "question_no": 36,
+      "id": "135842",
+      "question": "HSO4- এর ক্ষেত্রে কোনটি সঠিক?",
+      "options": [
+        "এর অনুবন্ধী ক্ষার SO4^2-",
+        "এর অনুবন্ধী ক্ষার H2SO4",
+        "এর অনুবন্ধী অম্ল H30+",
+        "এর অনুবন্ধী অম্ল SO4^2-"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অনুবন্ধী ক্ষারকের ক্ষেত্রে H+ অপসারণ করতে হবে। HSO4- এর অনুবন্ধী ক্ষার SO4^2-"
+    },
+    {
+      "question_no": 37,
+      "id": "135843",
+      "question": "298 K তাপমাত্রায় Kw এর মান কত?",
+      "options": [
+        "10^-14",
+        "10^-7",
+        "10^7",
+        "10^14"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "135844",
+      "question": "16g মিথেন দহনে প্রয়োজনীয় ০₂ এর আয়তন (S.T.P) হবে-",
+      "options": [
+        "11.2 L",
+        "22.4 L",
+        "2.24 x 10^-2m^3",
+        "44.8L"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "135845",
+      "question": "ভরক্রিয়ার সূত্রের উদ্ভাবক কে?",
+      "options": [
+        "হেস",
+        "অসওয়াল্ড",
+        "ল্যাপ্লাস",
+        "গুলবার্গ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অধ্যাপক গুলবার্গ ও পি.ভাগে ভরক্রিয়ার সূত্রটি\r\nপ্রদান করেন।"
+    },
+    {
+      "question_no": 40,
+      "id": "135846",
+      "question": "",
+      "options": [
+        "Nm",
+        "Nm^-1",
+        "Nm^-2",
+        "N²m^-4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 41,
+      "id": "135847",
+      "question": "বিক্রিয়ার হারের একক কোনটি?",
+      "options": [
+        "moldm^2s^-1",
+        "moldm^-3s^-1",
+        "moldm³s^-1",
+        "mol^-1 dm³s"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিক্রিয়ার হারের একক mol/L/s বা mol/dm³/s. একক সময়ে বিক্রিয়ক বা উৎপাদ এর ঘনমাত্রা পরিবর্তনই বিক্রিয়ার হার।"
+    },
+    {
+      "question_no": 42,
+      "id": "135848",
+      "question": "ইস্ট থেকে নিঃসৃত প্রাণহীন, অদানাদার নাইট্রোজেনযুক্ত জটিল জৈব পদার্থকে কি বলা হয়?",
+      "options": [
+        "প্রভাবক",
+        "এনজাইম",
+        "বিবর্ধক",
+        "অণুজীব"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইষ্ট থেকে নিঃসৃত এনজাইমসমূহ: জাইমেজ,\r\nমল্টেজ, ইনভার্টেজ ইত্যাদি"
+    },
+    {
+      "question_no": 43,
+      "id": "135849",
+      "question": "বিশুদ্ধ পানিতে এক ফোটা HCL যোগ করলে ঐ দ্রবণের ক্ষেত্রে কোনটি হবে?",
+      "options": [
+        "pH = 7",
+        "pH > 7",
+        "pH < 7",
+        "pOH < 7"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "135850",
+      "question": "",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "8"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "উল্লিখিত বিক্রিয়ায়,\r\nবিক্রিয়া হার ঘনমাত্রার বর্গের সমানুপাতিক।\r\nতাই ঘনমাত্রা 2 গুণ হলে বিক্রিয়ার হার 4 গুণ হবে।"
+    },
+    {
+      "question_no": 45,
+      "id": "135852",
+      "question": "COCl2(g) = C0(g) + Cl2(g) এতে Kp এর একক কোনটি?",
+      "options": [
+        "Nm-2",
+        "atm-1",
+        "atm²",
+        "atm-2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "135853",
+      "question": "স্পর্শ পদ্ধতিতে অত্যানুকুল চাপ কত?",
+      "options": [
+        "2 atm",
+        "200 atm",
+        "450 atm",
+        "550 atm"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 47,
+      "id": "135854",
+      "question": "aL (aq) + bM(aq) → লবণ + H20 (l) বিক্রিয়াটি-",
+      "options": [
+        "বিয়োজন",
+        "সংশ্লেষণ",
+        "দ্বিবিয়োজন",
+        "প্রশমন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যে রাসায়নিক বিক্রিয়ায় এসিড ও ক্ষারের বিক্রিয়ার\r\nমাধ্যমে লবণ ও পানি উৎপন্ন হয় তাকে প্রশমন বিক্রিয়া বলে।"
+    },
+    {
+      "question_no": 48,
+      "id": "135855",
+      "question": "বন্ধন বিয়োজন শক্তির মান সর্বাধিক কোনটির?",
+      "options": [
+        "F2",
+        "Cl2",
+        "Br2",
+        "l2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "I2 এর ক্ষেত্রে ভ্যানডারওয়ালস বল সবচেয়ে শক্তিশালী।\r\nতাই I2 এর ক্ষেত্রে বন্ধন বিয়োজন শক্তির মান সর্বাধিক।"
+    },
+    {
+      "question_no": 49,
+      "id": "135856",
+      "question": "",
+      "options": [
+        "ধনাত্মক প্রভাবক",
+        "স্ব প্রভাবক",
+        "ঋণাত্মক প্রভাবক",
+        "আবিষ্ট প্রভাবক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোন রাসায়নিক বিক্রিয়ায় উৎপন্ন পদার্থের\r\nএকটি নিজেই যখন প্রভাবকের ধর্ম সম্পন্ন করে এবং\r\nনিজেই ঐ বিক্রিয়ায় গতিকে বৃদ্ধি করে তখন তাকে\r\nস্ব-প্রভাবক বলে।"
+    },
+    {
+      "question_no": 50,
+      "id": "135859",
+      "question": "ক্লোরোফরমের জারণে বিষাক্ত ফসজিন গ্যাস উৎপাদনে ঋণাত্মক প্রভাবক হিসেবে কাজ করে-",
+      "options": [
+        "গ্লিসারিন",
+        "অ্যালকোহল",
+        "MnO2",
+        "বায়ু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অ্যালকোহল ক্লোরোফরমের জারণ কমায় এবং\r\nবিষাক্ত ফসজিন গ্যাস উৎপাদনে বাধা দেয়।"
+    },
+    {
+      "question_no": 51,
+      "id": "135860",
+      "question": "C – C গড় বন্ধন এনথালপি kJ/mol এককে কত?",
+      "options": [
+        "343",
+        "724",
+        "835",
+        "945"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "C-C এর বন্ধনশক্তি 343 KJ/mol\r\nC = C এর বন্ধনশক্তি 615 KJ/mol\r\nC=_ C এর বন্ধনশক্তি 812 KJ/mol"
+    },
+    {
+      "question_no": 52,
+      "id": "135861",
+      "question": "কোন লবণটির জলীয় দ্রবণের pH > 7?",
+      "options": [
+        "NaCl",
+        "CuSO4",
+        "Na₂CO3",
+        "NH4Cl"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Na2C03 ক্ষারধর্মী হওয়ায় pH > 7"
+    },
+    {
+      "question_no": 53,
+      "id": "135862",
+      "question": "একটি প্রথম ক্রম বিক্রিয়ার অর্ধায়ু 15min হলে বিক্রিয়াটির হার ধ্রুবক কত?",
+      "options": [
+        "4.62 x 10^-1min-1",
+        "4.62 × 10^-2min-1",
+        "4.62 x 10^-3 min-1",
+        "4.62 x 10^-4 min-1"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 54,
+      "id": "135863",
+      "question": "কোনটির ΔH এর মান সবচেয়ে কম?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দুর্বল এসিড ও দুর্বল ক্ষারের প্রশমন তাপ সবচেয়ে কম।"
+    },
+    {
+      "question_no": 55,
+      "id": "135864",
+      "question": "হাইড্রাসিডসমূহের তীব্রতা কিসের উপর নির্ভর করে?",
+      "options": [
+        "কেন্দ্রীয় পরমাণুর জারণসংখ্যা",
+        "কেন্দ্রীয় পরমাণুর চার্জ ঘনত্ব",
+        "অ্যানায়নের আকার",
+        "ক্যাটায়নের আকার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাইড্রাসিডের তীব্রতা ঋণাত্মক আয়নের\r\nআকারের ওপর নির্ভর করে।\r\nঋণাত্মক আয়নের আকার যত বড়, তীব্রতা তত বেশি হয়।"
+    },
+    {
+      "question_no": 56,
+      "id": "135865",
+      "question": "",
+      "options": [
+        "5.51 × 10^-4 mol dm-3",
+        "5.51 x 10^-2 mol dm-3",
+        "5.72 x 10^-3 mol dm-3",
+        "5.62 × 10^-4 mol dm-3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 57,
+      "id": "135866",
+      "question": "রক্তের pH 7.4 হলে OH- এর ঘনমাত্রা কত mol L-1?",
+      "options": [
+        "1.5 × 10^-7",
+        "2.11 × 10^-7",
+        "2.5 x 10^-7",
+        "3.1 × 10^-7"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 58,
+      "id": "135867",
+      "question": "কোনটি ক্ষারকীয় বাফার দ্রবণ?",
+      "options": [
+        "NaOH ও CH3COOH (অতিরিক্ত)",
+        "NH4OH (অতিরিক্ত) ও HCl",
+        "HCl ও NaOH (অতিরিক্ত)",
+        "NH4OH ও CH3COOH (অতিরিক্ত)"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ক্ষারকীয় বাফার = দুর্বল ক্ষার + অনুবন্ধী অম্ল\r\nএক্ষেত্রে, NH4OH একটি দুর্বল ক্ষারক।\r\n:.NH4OH (অতিরিক্ত) +HCl একটি ক্ষারকীয় বাফার।"
+    },
+    {
+      "question_no": 59,
+      "id": "135868",
+      "question": "নিচের কোনটি সর্বাধিক তীব্র এসিড?",
+      "options": [
+        "HCl",
+        "HBr",
+        "HF",
+        "HI"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হাইড্রাসিডের তীব্রতার ক্রম HI > HBr > HCI> HF"
+    },
+    {
+      "question_no": 60,
+      "id": "135869",
+      "question": "CH4 এর দহন তাপ –890kJ mol-1. বিক্রিয়ায় 88g CO₂ উৎপন্ন হলে কত কিলোজুল তাপ উৎপন্ন হবে?",
+      "options": [
+        "-1780",
+        "-1870",
+        "-1890",
+        "-1980"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 61,
+      "id": "135870",
+      "question": "অম্লীয় বাফার দ্রবণের pH নির্ণয়ের সমীকরণ কোনটি?",
+      "options": [
+        "",
+        "",
+        "",
+        "pH = pKb + log [লবণ/অম্ল]"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 62,
+      "id": "135871",
+      "question": "HCO3- এর অনুবন্ধী ক্ষারক কোনটি?",
+      "options": [
+        "H2CO3",
+        "CO3^2-",
+        "CO2",
+        "H+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অনুবন্ধী ক্ষারকের ক্ষেত্রে  H+ অপসারণ করতে হবে। HC03- এর অনুবন্ধী ক্ষারক CO3^2-"
+    },
+    {
+      "question_no": 63,
+      "id": "135872",
+      "question": "প্রভাবক রাসায়নিক বিক্রিয়ার কোন বিষয়টি পরিবর্তন করে?",
+      "options": [
+        "সক্রিয়ন শক্তি",
+        "উৎপাদের স্থিতিশক্তি",
+        "বিক্রিয়কের স্থিতিশক্তি",
+        "বিক্রিয়া তাপ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রভাবক রাসায়নিক বিক্রিয়ার সক্রিয়ন শক্তি\r\nহ্রাস করে এবং সরলতর বিক্রিয়া পথ প্রদান করে।"
+    },
+    {
+      "question_no": 64,
+      "id": "135873",
+      "question": "অম্লায়িত KMnO4 এবং অক্সালিক এসিড দ্রবণের রিডক্স বিক্রিয়ায় কোনটি অটো প্রভাবক হিসেবে কাজ করে?",
+      "options": [
+        "MnO4-",
+        "Mn2+",
+        "Cro4/2-",
+        "K+"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Mn²+ বিক্রিয়ায় উৎপন্ন হয়ে একই বিক্রিয়ার হার নিয়ন্ত্রণ করে।"
+    },
+    {
+      "question_no": 65,
+      "id": "135874",
+      "question": "CH3COOH + NH4OH = CH3COONH4 + H₂0 বিক্রিয়াটির প্রশমন তাপের মান কত?",
+      "options": [
+        "-50.40kJ/mol",
+        "-55.2 kJ/mol",
+        "-57.3 kJ/mol",
+        "-68.5 kJ/mol"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দুর্বল CH3COOH ও NH4OH এর প্রশমন তাপ -50.40kJ/mol"
+    },
+    {
+      "question_no": 66,
+      "id": "135875",
+      "question": "কোনটি অনুবন্ধী এসিড ক্ষারক যুগল?",
+      "options": [
+        "HCl,NaOH",
+        "H30+,H2O",
+        "02,H20",
+        "H+,Cl -"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এসিড H+ দান করার ফলে যে ক্ষারক সৃষ্টি হয় তা অনুবন্ধী ক্ষারক এবং ক্ষারকের সাথে H+ সংযোগের ফলে যা সৃষ্টি হয় তা অনুবন্ধী অম্ল।\r\nতাই, H30+,H20 অনুবন্ধী এসিড ক্ষারক যুগল।"
+    },
+    {
+      "question_no": 67,
+      "id": "135876",
+      "question": "নির্দেশকের সাহায্যে কোন এসিড ক্ষারক টাইট্রেশনের শেষ বিন্দু সঠিকভাবে নির্দেশ করা যায় না?",
+      "options": [
+        "মৃদু এসিড - মৃদু ক্ষারক",
+        "মৃদু এসিড - তীব্র ক্ষারক",
+        "তীব্র এসিড - মৃদু ক্ষারক",
+        "তীব্র এসিড - তীব্র ক্ষারক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মৃদু এসিড ও মৃদু ক্ষারকের টাইট্রেশনে কোন\r\nনির্দেশক কার্যকর হয় না।"
+    },
+    {
+      "question_no": 68,
+      "id": "135878",
+      "question": "কোন বিক্রিয়াটি প্রপেনের দহন নির্দেশ করে?",
+      "options": [
+        "C3H8(g) = 3C(s) + 3H2(g)",
+        "C3H8(g) = C3H6(g) + H2(g)",
+        "C3H8(g) +202(g) = 2CO(g) + 4H20(l)",
+        "C3H8(g) +502(g) = 3C02(g) + 4H20(l)"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 69,
+      "id": "135879",
+      "question": "H3PO2 -এ ক্ষারকত্ব কত?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "H3PO4 এর ক্ষারকত্ব 3\r\nH3PO3 এর ক্ষারকত্ব 2\r\nH3PO2 এর ক্ষারকত্ব 1"
+    },
+    {
+      "question_no": 70,
+      "id": "135880",
+      "question": "গ্রিন দ্রাবক কোনটি?",
+      "options": [
+        "কঠিন CO₂",
+        "CO2(g)",
+        "31.1°C এর নিচের তাপমাত্রায় CO2",
+        "72.8°C তাপমাত্রায় CO2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুপার ক্রিটিক্যাল CO₂ অর্থাৎ ক্রান্তি তাপমাত্রার নিচের CO₂ একটি গ্রিন দ্রাবক।"
+    },
+    {
+      "question_no": 71,
+      "id": "135881",
+      "question": "কোনো স্থানের মাটির pH=11 হলে সে মাটিতে ফসল ফলানোর জন্য নিচের কোনটি প্রয়োগ করতে হবে?",
+      "options": [
+        "TSP",
+        "চুন",
+        "ডলোমাইট",
+        "(NH4)2C03"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অম্লধর্মী মাটির pH বাড়াতে চুন এবং ডলোমাইট গুঁড়া ইত্যাদি ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 72,
+      "id": "135882",
+      "question": "0.005M H2SO4 দ্রবণের pH কত?",
+      "options": [
+        "2.3",
+        "2.0",
+        "1.3",
+        "1.0"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 73,
+      "id": "135883",
+      "question": "একটি দ্রবণে H+ আয়নের ঘনমাত্রা 10^-4mol L-1 হলে উক্ত দ্রবণের pOH কত?",
+      "options": [
+        "4",
+        "6",
+        "10",
+        "14"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 74,
+      "id": "135884",
+      "question": "কোন বিক্রিয়ায় পানি একটি ব্রনস্টেড-লাউরি অম্ল হিসেবে ক্রিয়া করে?",
+      "options": [
+        "H20 + HCl = H30+ + Cl-",
+        "H20 + NH3 = NH4+ + OH-",
+        "H20 + S03 = H2S04",
+        "H20 + CO2 = H2CO3"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্রনস্টেড লাউরির মতবাদ অনুযায়ী যারা\r\nপ্রোটন দান করে তারা অম্ল এবং যারা প্রোটন গ্রহণ\r\nকরে তারা হলো ক্ষারক।"
+    },
+    {
+      "question_no": 75,
+      "id": "135885",
+      "question": "কোনটি রাসায়নিক বৈশিষ্ট্য?",
+      "options": [
+        "ঘনত্ব",
+        "দ্রাব্যতা",
+        "অম্লতা",
+        "গলনাংক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অম্লতা, বিষাক্ততা, দাহ্যতা, বিক্রিয়া করার প্রবণতা,\r\nজারণ-বিজারণ ইত্যাদি পদার্থের রাসায়নিক ধর্ম।"
+    },
+    {
+      "question_no": 76,
+      "id": "135887",
+      "question": "বিক্রিয়া হারের একক কোনটি?",
+      "options": [
+        "molL-1s",
+        "L mol-1s-1",
+        "mol L-1 s-1",
+        "L² mol-2 s-2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 77,
+      "id": "135890",
+      "question": "হেবার পদ্ধতিতে NH3 উৎপাদনকালে নিচের কোনটি প্রভাবক হিসেবে ব্যবহৃত হয়?",
+      "options": [
+        "Mo",
+        "Fe",
+        "Ni",
+        "Cr"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হেবার পদ্ধতিতে প্রভাবক হিসেবে Fe ব্যবহৃত হয় এবং প্রভাবক সহায়ক হিসেবে Mo ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 78,
+      "id": "135891",
+      "question": "নিচের কোনটি দুর্বলতম এসিড?",
+      "options": [
+        "HMnO4",
+        "H2SO4",
+        "HCIO4",
+        "HNO3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অক্সোএসিডের ক্ষেত্রে কেন্দ্রীয় পরমাণুর জারণ\r\nমান যত কম এসিড তত দুর্বল। HNO3 এর ক্ষেত্রে\r\nN এর জারণ মান +5 যা অন্যদের চেয়ে কম। তাই\r\nএটি দুর্বলতম।"
+    },
+    {
+      "question_no": 79,
+      "id": "135892",
+      "question": "NaOH এর সঙ্গে নিচের কোনটির প্রশমন তাপ সর্বাধিক?",
+      "options": [
+        "HNO3",
+        "HF",
+        "HCL",
+        "H2SO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "NaOH ও HF এর প্রশমণ তাপ – 68.5 KJ/mol"
+    },
+    {
+      "question_no": 80,
+      "id": "135894",
+      "question": "সবচেয়ে দুর্বল এসিড কোনটি?",
+      "options": [
+        "H3B03",
+        "HNO3",
+        "H3P03",
+        "HCLO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বোরিক এসিড (H3B03) একটি দুর্বল এসিড।"
+    },
+    {
+      "question_no": 81,
+      "id": "135895",
+      "question": "দুধে pH নিয়ন্ত্রণের জন্য কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "লেবুর রস",
+        "লঘু HCl",
+        "NaOH",
+        "NaHCO3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দুধের pH নিয়ন্ত্রণের জন্য NaHCO3 ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 82,
+      "id": "135897",
+      "question": "মাটির pH বৃদ্ধিতে কোনটি ব্যবহৃত হয়?",
+      "options": [
+        "KNO3",
+        "NH4NO3",
+        "CaO",
+        "(NH4)3HPO4"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মাটির pH বৃদ্ধিতে চুন, ডলোমাইট ইত্যাদি\r\nক্ষারধর্মী পদার্থ ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 83,
+      "id": "135898",
+      "question": "নিচের কোন বিক্রিয়ার তাপ অধিক?",
+      "options": [
+        "Na0H + CH3COOH → CH3COONa + H2O",
+        "NaOH + HCl → NaCl + H₂0",
+        "NaOH + HF → NaF + H2O",
+        "NaOH + HN03 → NaNO3 + H20"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "NaOH ও HF এর ক্ষেত্রে প্রশমন তাপ\r\nসর্বাধিক -68.6 Kj/mol\r\nHF এর F এর আকার ছোট হওয়ায় ও\r\nঘনত্ব অন্যান্য আয়নের চেয়ে বেশি হওয়ায় এটি\r\nপানির সাথে দৃঢ়ভাবে বন্ধন করতে পারে। তাই দৃঢ়\r\nবন্ধনের কারণে তাপ উৎপাদনের পরিমাণও বেড়ে\r\nযায়। ফলে প্রশমন তাপ সর্বাধিক।"
+    },
+    {
+      "question_no": 84,
+      "id": "135900",
+      "question": "কোনটি বাফার দ্রবণ?",
+      "options": [
+        "দুধ",
+        "মধু",
+        "রক্ত",
+        "সেলাইন দ্রবণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মানুষের রক্তের বাফার: বাইকার্বোনেট, প্রোটন, ফসফেট বাফার।"
+    },
+    {
+      "question_no": 85,
+      "id": "135901",
+      "question": "A দ্রবণের pH → 5, B দ্রবণের pH → 8, B দ্রবণ অপেক্ষা A দ্রবণ কতগুণ বেশী অম্লীয়?",
+      "options": [
+        "100",
+        "1000",
+        "10000",
+        "100000"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 86,
+      "id": "135902",
+      "question": "কোন অক্সাইডটির জলীয় দ্রবণের pH এর মান 7 এর বেশী?",
+      "options": [
+        "Na20",
+        "Cl207",
+        "SiO2",
+        "SO2"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ধাতুর অক্সাইড ক্ষারধর্মী হয় তাই pH > 7। Na₂0 একটি ধাতব অক্সাইড।"
+    },
+    {
+      "question_no": 87,
+      "id": "135905",
+      "question": "একটি বাফার দ্রবণে 0.2 মোল মনোবেসিক এসিড (pKa = 4.8) এবং 0.02 মোল উক্ত এসিডের পটাসিয়াম লবণ আছে। এর pH কত?",
+      "options": [
+        "2.8",
+        "3.8",
+        "4.8",
+        "5.8"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 88,
+      "id": "135906",
+      "question": "",
+      "options": [
+        "চাপ বৃদ্ধিতে",
+        "উৎপাদ বৃদ্ধিতে",
+        "বিক্রিয়ক বৃদ্ধিতে",
+        "তাপমাত্রা বৃদ্ধিতে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সাম্যাঙ্ক তাপমাত্রার উপর নির্ভর করে।"
+    },
+    {
+      "question_no": 89,
+      "id": "135907",
+      "question": "কোনো দ্বি অম্লীয় ক্ষারের মোলার ঘনমাত্রা 0.05 M হলে pH কত?",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 90,
+      "id": "135908",
+      "question": "কোন বিক্রিয়ায় তাপ শোষিত হয়?",
+      "options": [
+        "N2 + 3H2→ 2NH3",
+        "C2H6 + 02 → CO2 + H2O",
+        "S + O2 → SO2",
+        "N₂ + O₂→ 2NO"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "N2+ 02 = 2N0;ΔH = +180 KJ"
+    },
+    {
+      "question_no": 91,
+      "id": "135909",
+      "question": "মাটির pH বৃদ্ধির জন্য ব্যবহৃত হয় কোনটি?",
+      "options": [
+        "ইউরিয়া",
+        "ডলোমাইট",
+        "ডি এ পি",
+        "টি এস পি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অম্লীয় মাটির pH বৃদ্ধির জন্য চুন, ডলোমাইট ইত্যাদি ক্ষারধর্মী পদার্থ ব্যবহৃত হয়।"
+    },
+    {
+      "question_no": 92,
+      "id": "135912",
+      "question": "কোনটি প্রভাবক বিষ?",
+      "options": [
+        "As203",
+        "Al203",
+        "MnO2",
+        "Ni"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ধুলাবালি, সালফার গুঁড়া, আর্সেনিক অক্সাইড\r\n(As203) ইত্যাদি প্রভাবক বিষ।"
+    },
+    {
+      "question_no": 93,
+      "id": "135913",
+      "question": "কোনটি শক্তিশালী এসিড?",
+      "options": [
+        "HNO2",
+        "HNO3",
+        "H2SO4",
+        "H2SO3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "H2SO4 এর ক্ষেত্রে কেন্দ্রীয় পরমাণুর জারণ\r\nঅবস্থা সবচেয়ে বেশি তাই এটি একটি শক্তিশালী এসিড।"
+    },
+    {
+      "question_no": 94,
+      "id": "135914",
+      "question": "বিশুদ্ধ পানির pH কত?",
+      "options": [
+        "14",
+        "7",
+        "1.4",
+        "0.7"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 95,
+      "id": "135915",
+      "question": "নিচের কোন দ্রবণের pH মান সবচেয়ে বেশী?",
+      "options": [
+        "10^-2 M HCI",
+        "5×10^-2 M H2SO4",
+        "10^-1 M NaOH",
+        "10^-4 M Na2CO3"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যেকোন সবল ক্ষারের দ্রবণের pH মান অনেক বেশি হয়। \r\nNaOH একটি সবল ক্ষার তাই 0.1 M NaOH দ্রবণের  pH সবচেয়ে বেশি।"
+    },
+    {
+      "question_no": 96,
+      "id": "135916",
+      "question": "নিম্নের কোন বিক্রিয়ায় Kp > Kc?",
+      "options": [
+        "H2 + I2 = 2HI",
+        "",
+        "PCl5→ PCl3 + Cl₂",
+        "2SO2 + 02→ 2S03"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 97,
+      "id": "135917",
+      "question": "নিচের কোনটি একমুখী বিক্রিয়ার শর্ত?",
+      "options": [
+        "বিক্রিয়া বদ্ধ পাত্রে সংঘটিত হওয়া",
+        "অধঃক্ষেপ সংঘটিত হওয়া",
+        "বিক্রিয়ার অসম্পূর্ণতা",
+        "বিক্রিয়া সাম্যাবস্থা বিরাজ করা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "একমুখী বিক্রিয়ার শর্ত:\r\ni. খোলা পাত্রে সংঘটিত হওয়া\r\nii. বিক্রিয়ার সম্পূর্ণতা\r\niii. অধঃক্ষেপ সংঘটিত হওয়া"
+    },
+    {
+      "question_no": 98,
+      "id": "135918",
+      "question": "বাফার দ্রবণের কৌশলের সাথে সম্পর্কিত নিচের কোনটি?",
+      "options": [
+        "লা-শ্যতেলিয়ার নীতি",
+        "আরহেনিয়াস সমীকরণ",
+        "অসওয়াল্ড লঘুকরণ নীতি",
+        "ফাজানের নীতি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাফার দ্রবণ লা শাতেলিয়ার নীতি মেনে চলে।"
+    },
+    {
+      "question_no": 99,
+      "id": "135919",
+      "question": "নিচের কোন pH মানটি 1M HCl এর জন্য প্রযোজ্য?",
+      "options": [
+        "3",
+        "2",
+        "1",
+        "0"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 100,
+      "id": "135920",
+      "question": "100 ml 0.01M HCl এবং 70 ml 0.02M NH4OH একত্রে মিশালে মিশ্রণের প্রকৃতি কেমন হবে?",
+      "options": [
+        "অম্লীয় বাফার",
+        "ক্ষারীয় বাফার",
+        "নিরপেক্ষ",
+        "অম্লীয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "NH4OH একটি দুর্বল ক্ষার হওয়ায় ক্ষারীয় বাফার দ্রবণ তৈরি হবে।"
+    },
+    {
+      "question_no": 101,
+      "id": "135922",
+      "question": "মৃদু তড়িৎ বিশ্লেষ্যের বিয়োজন মাত্রা ও ঘনমাত্রার মধ্যে সম্পর্ক কি?",
+      "options": [
+        "বিয়োজন মাত্রা ঘনমাত্রার সমানুপাতিক",
+        "বিয়োজন মাত্রা ঘনমাত্রার বর্গমূলের সমানুপাতিক",
+        "বিয়োজন মাত্রা ঘনমাত্রার ব্যস্তানুপাতিিক",
+        "বিয়োজন মাত্রা ঘনমাত্রার বর্গমূলের ব্যস্তানুপাতিক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অসওয়াল্ডের লঘুকরণ সূত্র অনুযায়ী মৃদু তড়িৎ বিশ্লেষ্যের বিয়োজন মাত্রা মোলার ঘনমাত্রার বর্গমূলের ব্যস্তানুপাতিক।"
+    }
+  ]
+}

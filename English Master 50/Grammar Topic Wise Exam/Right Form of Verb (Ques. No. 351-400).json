@@ -1,0 +1,761 @@
+{
+  "exam_id": 8469,
+  "title": "Right Form of Verb (Ques. No. 351-400)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Right Form of Verb (1114 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "5f607332-b5a6-4848-a792-e39140a153ec",
+      "question": "Do not let those children ----- a lot of candy.[]",
+      "options": [
+        "eat",
+        "to eat",
+        "eating",
+        "being eaten"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "8a674f77-63f7-4054-b66c-dd9d8af1d33f",
+      "question": "He did not let me ----- the guitar.[]",
+      "options": [
+        "play",
+        "to play",
+        "playing",
+        "that I could play"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "cedc7c58-92ec-4db8-8443-85d191a18fa6",
+      "question": "Let him ----- what he likes./\nAs the reviews of the films were good, we let him ----- between the two.[]",
+      "options": [
+        "choice",
+        "chose",
+        "choose",
+        "choosing"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "f46fb42a-2dcb-40f1-8cc0-0f6f0c87565d",
+      "question": "He did not let me ----- what she was painting.[]",
+      "options": [
+        "saw",
+        "see",
+        "to see",
+        "sing"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "815afa3f-eff8-4183-bc20-d773c0c89a37",
+      "question": "He did not let -----.[]",
+      "options": [
+        "us to go to the theatre",
+        "us go shopping",
+        "watch us the movie",
+        "us to watch the movie"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "abe81dbf-d45b-4ac4-a398-02120e221b90",
+      "question": "My mother let me ----- late when I was a child.[]",
+      "options": [
+        "to stay out",
+        "stayed out",
+        "staying out",
+        "stay out"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "073d29ec-9d9b-408f-978b-09f427a44681",
+      "question": "I let him (go) there.\nThe trainer let the lion ----- safely.[]",
+      "options": [
+        "going",
+        "went",
+        "have gone",
+        "go"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "7784dd54-96e7-4851-b5f2-a1e131158b50",
+      "question": "Don't let that (bother) you.[]",
+      "options": [
+        "to bother",
+        "bothers",
+        "bother",
+        "bothered"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "e5b146f9-7bff-45c3-ba33-b55926809515",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "Let me to go home.",
+        "Let me to went home.",
+        "Let me go home.",
+        "Let me to have gone home."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "3e50fbc4-4ae9-419a-9ff0-e0d88f2c2f7e",
+      "question": "We helped him ----- the work.[]",
+      "options": [
+        "to finish",
+        "finishing",
+        "in finishing",
+        "finish"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "51899bde-d788-4438-9d3f-16bdbb77a851",
+      "question": "We have to help her (find) her keys.[]",
+      "options": [
+        "find",
+        "in finding",
+        "to find",
+        "by finding"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "1b586524-3643-42bd-8495-efef0682a724",
+      "question": "I must ----- you to clean this floor now.[]",
+      "options": [
+        "make",
+        "get",
+        "have",
+        "made"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "e99f3358-f795-4c45-9c45-1f032f9c4223",
+      "question": "Which one is correct ?[]",
+      "options": [
+        "Let me to go.",
+        "He made me to do so.",
+        "I got him do so.",
+        "Help me do the sum."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "b444d522-bb69-4fc0-acf9-a57c18c0a084",
+      "question": "We saw him ----- to school.\nI saw him (to go) up the hill.\nI saw him (go).[]",
+      "options": [
+        "goes",
+        "went",
+        "to go",
+        "going"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "0e2dbbc2-4170-4ea9-bf55-da936355c6eb",
+      "question": "As I reached home, I saw my sister ----- for help.[]",
+      "options": [
+        "to shout",
+        "shouting",
+        "shouted",
+        "shout"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "aee91fa7-137f-4f5b-9c3d-ce1f128e9b8e",
+      "question": "We often saw them ----- tennis.[]",
+      "options": [
+        "playing",
+        "to play",
+        "in playing",
+        "to have played"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "30131f76-760a-4fb7-af56-0d080459b45e",
+      "question": "I saw the tree ----- down.[]",
+      "options": [
+        "to fall",
+        "felling",
+        "falling",
+        "fallen"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "16c6e7e1-57a9-4374-8adf-cf877dd99b87",
+      "question": "He watched you (to go) away.[]",
+      "options": [
+        "went",
+        "gone",
+        "going",
+        "are going"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "5202f2f6-1517-45eb-8d42-5b0b4ddd546b",
+      "question": "I heard the little boy -----.\nI heard the baby ----- for his/it's food.\nThe driver saw a minor boy ----- helplessly sitting on the rail line.[]",
+      "options": [
+        "cry",
+        "crying",
+        "cried",
+        "is crying"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "b4add908-b626-4b7f-8293-b4fefeb362c3",
+      "question": "They heard the girl ----- in a melodious voice.[]",
+      "options": [
+        "song",
+        "singing",
+        "sings",
+        "sang"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "c76b65d5-c922-4e58-97d8-b9088860f281",
+      "question": "I saw a man ----- on a rope.[]",
+      "options": [
+        "walking",
+        "walked",
+        "to walk",
+        "walk"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "e4e42312-d31a-48ac-b4b3-7930666fcb45",
+      "question": "I saw the baby (weep).[]",
+      "options": [
+        "is weeping",
+        "wept",
+        "weeps",
+        "weeping"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "a0453be5-f2e9-4691-9d03-4fe1608a9ffa",
+      "question": "I can hear someone -----.[]",
+      "options": [
+        "to scream",
+        "screamed",
+        "screaming",
+        "scream"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "5060c747-6e99-4618-9c51-1f246702482f",
+      "question": "Listen ! I can hear someone ----- at the door.[]",
+      "options": [
+        "to be knocking",
+        "knocking",
+        "to knock",
+        "knock"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "f23878d1-07ab-4090-ac75-96077a3665b6",
+      "question": "He watched the boat ----- down the water.[]",
+      "options": [
+        "to float",
+        "floating",
+        "was floating",
+        "had floating"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "d35a7dcb-299f-46a2-a4b7-7fac87e5662a",
+      "question": "She noticed ----- from the house.[]",
+      "options": [
+        "him ran",
+        "him to run",
+        "him running",
+        "run"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "42f11a07-7668-4046-8ef3-806eb026e60b",
+      "question": "I heard him (to say) so.[]",
+      "options": [
+        "I heard him saying so.",
+        "I heard him says so.",
+        "I heard him say so.",
+        "I heard him so saying."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "c1005f32-f40e-42e1-9a07-bbbfdc9565de",
+      "question": "Choose the correct sentence.[]",
+      "options": [
+        "I saw him enter the room.",
+        "I saw him to enter the room.",
+        "I saw him entering the room.",
+        "I saw him to entering the room."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "e0b0aa5d-bff7-4651-8680-97c65b88c766",
+      "question": "The beggar was found ----- at the door.[]",
+      "options": [
+        "stands",
+        "standing",
+        "stood",
+        "stand"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "a36a5d0d-12cb-449e-af92-84f8a9a6026c",
+      "question": "The woman was seen ----- the ring in her bag.[]",
+      "options": [
+        "putting",
+        "put",
+        "put on",
+        "was putting"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "10fb9acf-3f6b-4f5e-b8da-996b070b9071",
+      "question": "I can't imagine Peter ----- by bike.[]",
+      "options": [
+        "going",
+        "to go",
+        "gone",
+        "to be going"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "9bdf2417-e1b9-4729-bf50-0e2e44e05929",
+      "question": "We met a girl ----- a basket of flowers.[]",
+      "options": [
+        "carries",
+        "to carry",
+        "carrying",
+        "to have carried"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "16cad1cc-d2d2-499f-bdd2-a522a27e90ec",
+      "question": "Don't let the teacher catch you -------.[]",
+      "options": [
+        "cheat",
+        "cheating",
+        "cheats",
+        "to cheat"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "a1c03637-ab67-4742-a3d2-63f660a3d9f1",
+      "question": "The play ----- over, we left the field.[]",
+      "options": [
+        "is",
+        "being",
+        "was",
+        "were"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "c09590be-ff2d-4375-abc8-4670988ebcc2",
+      "question": "The sun ----- set, we reached home.\nThe sun ----- set, the cheering crowd home.[]",
+      "options": [
+        "had",
+        "having",
+        "has",
+        "was"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "a79a86c6-d041-4a4e-889c-d407ec86bc41",
+      "question": "----- letter tonight, Rahim will post it tomorrow.[]",
+      "options": [
+        "Finishing",
+        "Finished",
+        "To finish",
+        "Finish"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "b0238c00-5d30-4976-90b9-7dff6a615011",
+      "question": "The marriage ceremony -----, the guests were going to the feast.[]",
+      "options": [
+        "was over",
+        "is over",
+        "being over",
+        "has been over"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "1e8aeb26-b488-48ff-b5b2-ad057b6ce46b",
+      "question": "She is busy ----- some letters.[]",
+      "options": [
+        "writting",
+        "write",
+        "written",
+        "writing"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "08a09fff-217b-4ebd-a372-5dd3a9117d8d",
+      "question": "They were busy ----- the materials they needed.[]",
+      "options": [
+        "to be collecting",
+        "to collect",
+        "collecting",
+        "to have collected"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "a65c58af-c323-4225-aadb-8792230607d2",
+      "question": "It is worth ----- now.[]",
+      "options": [
+        "going shopping",
+        "to go shop",
+        "to go shopping",
+        "going to shopping"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "2748c78c-b901-4ccd-8991-fea3f9cdb428",
+      "question": "It is no use ----- about it.[]",
+      "options": [
+        "worrying",
+        "to worry",
+        "worry",
+        "for worry"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "9c9ec8b4-fa4f-4d72-b21a-76b0319d96c2",
+      "question": "It is no good ----- me about your lost car.[]",
+      "options": [
+        "to tell",
+        "tell",
+        "to telling",
+        "telling"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "0d408381-134f-4a98-8ad1-1048b4728c5a",
+      "question": "Which one is right in use ?[]",
+      "options": [
+        "It is no good of the talk to him.",
+        "To talk to him of no good.",
+        "It is no use talking to him.",
+        "It is of no use how talking to him."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "23fcbec4-9ce9-41ef-af97-a9e26fcbcc1e",
+      "question": "The submarine dipped to avoid ----- by the enemy plane.\nI tried my best to avoid ----- by him.[]",
+      "options": [
+        "being seen",
+        "seen",
+        "having seen",
+        "seeing"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "25395013-f7bd-4bee-9b56-74a0e238f7ca",
+      "question": "I don't mind ----- by scholarly people.[]",
+      "options": [
+        "being asked questions",
+        "ask questions",
+        "having asked questions",
+        "asking questions"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "0539b280-db82-4f4b-a2a1-5fc9a50c86de",
+      "question": "He must avoid ----- until his knee heals.[]",
+      "options": [
+        "to jog",
+        "to jogging",
+        "on jogging",
+        "jogging"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "970da553-5999-4a78-818b-641b8e3b9aa5",
+      "question": "If you wouldn't mind ----- the line, I will try to put you through.[]",
+      "options": [
+        "hold",
+        "to hold",
+        "holding",
+        "to be holding"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "476c3e35-0d6d-4d7c-8098-20c3ac4e9f0e",
+      "question": "If you had a headache, stop ----- TV.[]",
+      "options": [
+        "watching",
+        "watched",
+        "watch",
+        "to watch"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "6d1cfcc2-5d85-4cb7-93d0-262e7f081fd2",
+      "question": "I don't mind ----- home, but I'd rather ------- a taxi.[]",
+      "options": [
+        "to walk, get",
+        "walk, get",
+        "walk, to get",
+        "walking, get"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "6ef138a9-154d-44c6-9b09-552cfb742e1d",
+      "question": "I don't mind ----- with the cooking but I am not going to wash the dishes.[]",
+      "options": [
+        "to help",
+        "help",
+        "helping",
+        "for helping"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-theme="dark"><head>
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Edu Hunters | সেরা এডটেক লার্নিং ও এক্সাম প্ল্যাটফর্ম</title>
+    <!-- Google Fonts: Hind Siliguri & Inter (Medilogy Standard) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <!-- Tailwind CSS with class-based dark mode -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary-charcoal': '#111827',
+              'neutral-text': '#4b5563',
+              'neutral-warm': '#f3f4f6',
+              'neutral-border': '#e5e7eb',
+              'primary-orange': '#ea580c',
+            },
+            fontFamily: {
+              sans: ['Hind Siliguri', 'Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      // Apply saved theme immediately to prevent flashing
+      try {
+        const savedTheme = localStorage.getItem('eduhunters_theme') || 'dark';
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+  <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Hind Siliguri, Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.inset-x-0{left:0px;right:0px}.inset-y-0{top:0px;bottom:0px}.-top-24{top:-6rem}.bottom-0{bottom:0px}.left-0{left:0px}.left-1\/2{left:50%}.left-3{left:0.75rem}.left-\[3px\]{left:3px}.right-0{right:0px}.right-\[3px\]{right:3px}.top-0{top:0px}.top-1\/2{top:50%}.top-3{top:0.75rem}.top-4{top:1rem}.top-\[3px\]{top:3px}.z-10{z-index:10}.z-50{z-index:50}.z-\[-1\]{z-index:-1}.z-\[10000\]{z-index:10000}.z-\[9999\]{z-index:9999}.col-span-1{grid-column:span 1 / span 1}.mx-auto{margin-left:auto;margin-right:auto}.my-4{margin-top:1rem;margin-bottom:1rem}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-14{margin-bottom:3.5rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-auto{margin-top:auto}.line-clamp-1{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[16\/9\]{aspect-ratio:16/9}.aspect-\[3\/4\]{aspect-ratio:3/4}.aspect-video{aspect-ratio:16 / 9}.h-1{height:0.25rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-48{height:12rem}.h-5{height:1.25rem}.h-64{height:16rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[1px\]{height:1px}.h-\[22px\]{height:22px}.h-\[28px\]{height:28px}.h-auto{height:auto}.h-full{height:100%}.min-h-0{min-height:0px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-2{width:0.5rem}.w-3{width:0.75rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-52{width:13rem}.w-60{width:15rem}.w-64{width:16rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-\[1px\]{width:1px}.w-\[22px\]{width:22px}.w-\[295px\]{width:295px}.w-\[56px\]{width:56px}.w-\[700px\]{width:700px}.w-auto{width:auto}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-32{max-width:8rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.max-w-\[85vw\]{max-width:85vw}.max-w-\[90vw\]{max-width:90vw}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-\[28px\]{--tw-translate-x:28px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-full{--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-0{--tw-rotate:0deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-90{--tw-rotate:90deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-default{cursor:default}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.flex-nowrap{flex-wrap:nowrap}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-px > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1px * var(--tw-space-y-reverse))}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.whitespace-pre-line{white-space:pre-line}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.rounded-l-\[36px\]{border-top-left-radius:36px;border-bottom-left-radius:36px}.border{border-width:1px}.border-0{border-width:0px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-t{border-top-width:1px}.border-none{border-style:none}.border-\[\#e11438\]\/15{border-color:rgb(225 20 56 / 0.15)}.border-\[\#e11438\]\/20{border-color:rgb(225 20 56 / 0.2)}.border-\[\#e11438\]\/25{border-color:rgb(225 20 56 / 0.25)}.border-\[\#e11438\]\/30{border-color:rgb(225 20 56 / 0.3)}.border-\[\#e11438\]\/40{border-color:rgb(225 20 56 / 0.4)}.border-\[\#e11438\]\/60{border-color:rgb(225 20 56 / 0.6)}.border-\[\#ff3358\]\/40{border-color:rgb(255 51 88 / 0.4)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.bg-\[\#0a0204\]{--tw-bg-opacity:1;background-color:rgb(10 2 4 / var(--tw-bg-opacity, 1))}.bg-\[\#0a0a0a\]{--tw-bg-opacity:1;background-color:rgb(10 10 10 / var(--tw-bg-opacity, 1))}.bg-\[\#0c0205\]{--tw-bg-opacity:1;background-color:rgb(12 2 5 / var(--tw-bg-opacity, 1))}.bg-\[\#120407\]{--tw-bg-opacity:1;background-color:rgb(18 4 7 / var(--tw-bg-opacity, 1))}.bg-\[\#120407\]\/90{background-color:rgb(18 4 7 / 0.9)}.bg-\[\#140307\]{--tw-bg-opacity:1;background-color:rgb(20 3 7 / var(--tw-bg-opacity, 1))}.bg-\[\#140307\]\/60{background-color:rgb(20 3 7 / 0.6)}.bg-\[\#140307\]\/80{background-color:rgb(20 3 7 / 0.8)}.bg-\[\#140307\]\/90{background-color:rgb(20 3 7 / 0.9)}.bg-\[\#160307\]{--tw-bg-opacity:1;background-color:rgb(22 3 7 / var(--tw-bg-opacity, 1))}.bg-\[\#1a080d\]{--tw-bg-opacity:1;background-color:rgb(26 8 13 / var(--tw-bg-opacity, 1))}.bg-\[\#1e1e24\]{--tw-bg-opacity:1;background-color:rgb(30 30 36 / var(--tw-bg-opacity, 1))}.bg-\[\#28050e\]{--tw-bg-opacity:1;background-color:rgb(40 5 14 / var(--tw-bg-opacity, 1))}.bg-\[\#e11438\]{--tw-bg-opacity:1;background-color:rgb(225 20 56 / var(--tw-bg-opacity, 1))}.bg-\[\#e11438\]\/15{background-color:rgb(225 20 56 / 0.15)}.bg-\[\#e11438\]\/20{background-color:rgb(225 20 56 / 0.2)}.bg-\[\#facc15\]{--tw-bg-opacity:1;background-color:rgb(250 204 21 / var(--tw-bg-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-black\/60{background-color:rgb(0 0 0 / 0.6)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/15{background-color:rgb(255 255 255 / 0.15)}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-white\/\[0\.05\]{background-color:rgb(255 255 255 / 0.05)}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-\[\#0a0204\]{--tw-gradient-from:#0a0204 var(--tw-gradient-from-position);--tw-gradient-to:rgb(10 2 4 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#120306\]{--tw-gradient-from:#120306 var(--tw-gradient-from-position);--tw-gradient-to:rgb(18 3 6 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#140307\]{--tw-gradient-from:#140307 var(--tw-gradient-from-position);--tw-gradient-to:rgb(20 3 7 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#180307\]\/75{--tw-gradient-from:rgb(24 3 7 / 0.75) var(--tw-gradient-from-position);--tw-gradient-to:rgb(24 3 7 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#180408\]{--tw-gradient-from:#180408 var(--tw-gradient-from-position);--tw-gradient-to:rgb(24 4 8 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#2e050c\]{--tw-gradient-from:#2e050c var(--tw-gradient-from-position);--tw-gradient-to:rgb(46 5 12 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#e11438\]{--tw-gradient-from:#e11438 var(--tw-gradient-from-position);--tw-gradient-to:rgb(225 20 56 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-black\/70{--tw-gradient-from:rgb(0 0 0 / 0.7) var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-transparent{--tw-gradient-from:transparent var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 255 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-\[\#0d0205\]{--tw-gradient-to:rgb(13 2 5 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #0d0205 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#0e0104\]\/80{--tw-gradient-to:rgb(14 1 4 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(14 1 4 / 0.8) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#0f0305\]{--tw-gradient-to:rgb(15 3 5 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #0f0305 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#120306\]{--tw-gradient-to:rgb(18 3 6 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #120306 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#22060c\]{--tw-gradient-to:rgb(34 6 12 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #22060c var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#e11438\]\/30{--tw-gradient-to:rgb(225 20 56 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(225 20 56 / 0.3) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#ff2e55\]\/20{--tw-gradient-to:rgb(255 46 85 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(255 46 85 / 0.2) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#ff2e55\]\/40{--tw-gradient-to:rgb(255 46 85 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(255 46 85 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#fff0f3\]{--tw-gradient-to:rgb(255 240 243 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fff0f3 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-black\/20{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(0 0 0 / 0.2) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-\[\#050102\]{--tw-gradient-to:#050102 var(--tw-gradient-to-position)}.to-\[\#070102\]{--tw-gradient-to:#070102 var(--tw-gradient-to-position)}.to-\[\#0a0204\]{--tw-gradient-to:#0a0204 var(--tw-gradient-to-position)}.to-\[\#120306\]{--tw-gradient-to:#120306 var(--tw-gradient-to-position)}.to-\[\#9b0e27\]{--tw-gradient-to:#9b0e27 var(--tw-gradient-to-position)}.to-\[\#ffccd5\]{--tw-gradient-to:#ffccd5 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.fill-white{fill:#fff}.object-contain{object-fit:contain}.object-cover{object-fit:cover}.object-top{object-position:top}.p-0{padding:0px}.p-1\.5{padding:0.375rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-\[3px\]{padding:3px}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-14{padding-top:3.5rem;padding-bottom:3.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-7{padding-top:1.75rem;padding-bottom:1.75rem}.pb-1{padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pb-24{padding-bottom:6rem}.pb-4{padding-bottom:1rem}.pl-1{padding-left:0.25rem}.pr-1{padding-right:0.25rem}.pr-2\.5{padding-right:0.625rem}.pt-1{padding-top:0.25rem}.pt-16{padding-top:4rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-5{padding-top:1.25rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:Hind Siliguri, Inter, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[15px\]{font-size:15px}.text-\[17px\]{font-size:17px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)}.leading-\[1\.05\]{line-height:1.05}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.15em\]{letter-spacing:0.15em}.tracking-\[0\.16em\]{letter-spacing:0.16em}.tracking-\[0\.22em\]{letter-spacing:0.22em}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.text-\[\#111827\]{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-\[\#e11438\]\/40{color:rgb(225 20 56 / 0.4)}.text-\[\#e11438\]\/60{color:rgb(225 20 56 / 0.6)}.text-\[\#ef4444\]{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-\[\#ff2e55\]{--tw-text-opacity:1;color:rgb(255 46 85 / var(--tw-text-opacity, 1))}.text-\[\#ff3b61\]{--tw-text-opacity:1;color:rgb(255 59 97 / var(--tw-text-opacity, 1))}.text-\[\#ff3b61\]\/60{color:rgb(255 59 97 / 0.6)}.text-\[\#ff4d6d\]{--tw-text-opacity:1;color:rgb(255 77 109 / var(--tw-text-opacity, 1))}.text-\[\#ff6b8b\]{--tw-text-opacity:1;color:rgb(255 107 139 / var(--tw-text-opacity, 1))}.text-\[\#ff6b8b\]\/80{color:rgb(255 107 139 / 0.8)}.text-gray-100{--tw-text-opacity:1;color:rgb(243 244 246 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/30{color:rgb(255 255 255 / 0.3)}.text-white\/80{color:rgb(255 255 255 / 0.8)}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-100{opacity:1}.opacity-30{opacity:0.3}.opacity-70{opacity:0.7}.opacity-80{opacity:0.8}.opacity-\[0\.32\]{opacity:0.32}.shadow-\[-16px_0_50px_rgba\(0\2c 0\2c 0\2c 0\.9\)\]{--tw-shadow:-16px 0 50px rgba(0,0,0,0.9);--tw-shadow-colored:-16px 0 50px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_12px_rgba\(225\2c 20\2c 56\2c 0\.6\)\]{--tw-shadow:0 0 12px rgba(225,20,56,0.6);--tw-shadow-colored:0 0 12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_15px_rgba\(225\2c 20\2c 56\2c 0\.3\)\]{--tw-shadow:0 0 15px rgba(225,20,56,0.3);--tw-shadow-colored:0 0 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_20px_rgba\(225\2c 20\2c 56\2c 0\.2\)\]{--tw-shadow:0 0 20px rgba(225,20,56,0.2);--tw-shadow-colored:0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_12px_40px_rgba\(0\2c 0\2c 0\2c 0\.6\)\]{--tw-shadow:0 12px 40px rgba(0,0,0,0.6);--tw-shadow-colored:0 12px 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_15px_40px_rgba\(0\2c 0\2c 0\2c 0\.85\)\]{--tw-shadow:0 15px 40px rgba(0,0,0,0.85);--tw-shadow-colored:0 15px 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_2px_10px_rgba\(0\2c 0\2c 0\2c 0\.35\)\]{--tw-shadow:0 2px 10px rgba(0,0,0,0.35);--tw-shadow-colored:0 2px 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_2px_8px_rgba\(0\2c 0\2c 0\2c 0\.35\)\2c 0_1px_2px_rgba\(0\2c 0\2c 0\2c 0\.2\)\]{--tw-shadow:0 2px 8px rgba(0,0,0,0.35),0 1px 2px rgba(0,0,0,0.2);--tw-shadow-colored:0 2px 8px var(--tw-shadow-color), 0 1px 2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_4px_16px_rgba\(0\2c 0\2c 0\2c 0\.5\)\]{--tw-shadow:0 4px 16px rgba(0,0,0,0.5);--tw-shadow-colored:0 4px 16px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_4px_16px_rgba\(225\2c 20\2c 56\2c 0\.35\)\]{--tw-shadow:0 4px 16px rgba(225,20,56,0.35);--tw-shadow-colored:0 4px 16px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_4px_20px_rgba\(0\2c 0\2c 0\2c 0\.5\)\]{--tw-shadow:0 4px 20px rgba(0,0,0,0.5);--tw-shadow-colored:0 4px 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_4px_30px_rgba\(0\2c 0\2c 0\2c 0\.7\)\]{--tw-shadow:0 4px 30px rgba(0,0,0,0.7);--tw-shadow-colored:0 4px 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_6px_20px_rgba\(225\2c 20\2c 56\2c 0\.45\)\]{--tw-shadow:0 6px 20px rgba(225,20,56,0.45);--tw-shadow-colored:0 6px 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_6px_24px_rgba\(0\2c 0\2c 0\2c 0\.5\)\]{--tw-shadow:0 6px 24px rgba(0,0,0,0.5);--tw-shadow-colored:0 6px 24px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_8px_25px_rgba\(225\2c 20\2c 56\2c 0\.45\)\]{--tw-shadow:0 8px 25px rgba(225,20,56,0.45);--tw-shadow-colored:0 8px 25px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_8px_30px_rgba\(0\2c 0\2c 0\2c 0\.4\)\]{--tw-shadow:0 8px 30px rgba(0,0,0,0.4);--tw-shadow-colored:0 8px 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_8px_30px_rgba\(0\2c 0\2c 0\2c 0\.5\)\]{--tw-shadow:0 8px 30px rgba(0,0,0,0.5);--tw-shadow-colored:0 8px 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_8px_30px_rgba\(225\2c 20\2c 56\2c 0\.35\)\]{--tw-shadow:0 8px 30px rgba(225,20,56,0.35);--tw-shadow-colored:0 8px 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[inset_0_2px_5px_rgba\(0\2c 0\2c 0\2c 0\.6\)\]{--tw-shadow:inset 0 2px 5px rgba(0,0,0,0.6);--tw-shadow-colored:inset 0 2px 5px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-white\/20{--tw-ring-color:rgb(255 255 255 / 0.2)}.blur-\[80px\]{--tw-blur:blur(80px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.blur-\[85px\]{--tw-blur:blur(85px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0_0_8px_rgba\(255\2c 77\2c 109\2c 0\.3\)\]{--tw-drop-shadow:drop-shadow(0 0 8px rgba(255,77,109,0.3));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0_4px_16px_rgba\(225\2c 20\2c 56\2c 0\.35\)\]{--tw-drop-shadow:drop-shadow(0 4px 16px rgba(225,20,56,0.35));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-md{--tw-drop-shadow:drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-\[transform\2c background-color\2c border-color\2c color\2c box-shadow\]{transition-property:transform,background-color,border-color,color,box-shadow;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-\[visibility\]{transition-property:visibility;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-300{transition-delay:300ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-700{transition-duration:700ms}.ease-\[cubic-bezier\(0\.16\2c 1\2c 0\.3\2c 1\)\]{transition-timing-function:cubic-bezier(0.16,1,0.3,1)}.ease-\[cubic-bezier\(0\.34\2c 1\.3\2c 0\.64\2c 1\)\]{transition-timing-function:cubic-bezier(0.34,1.3,0.64,1)}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.\[writing-mode\:vertical-rl\]{writing-mode:vertical-rl}.selection\:bg-\[\#e11438\] *::selection{--tw-bg-opacity:1;background-color:rgb(225 20 56 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-\[\#e11438\]::selection{--tw-bg-opacity:1;background-color:rgb(225 20 56 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.last\:border-0:last-child{border-width:0px}.hover\:scale-\[1\.03\]:hover{--tw-scale-x:1.03;--tw-scale-y:1.03;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.04\]:hover{--tw-scale-x:1.04;--tw-scale-y:1.04;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.05\]:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-\[\#e11438\]:hover{--tw-border-opacity:1;border-color:rgb(225 20 56 / var(--tw-border-opacity, 1))}.hover\:border-\[\#e11438\]\/60:hover{border-color:rgb(225 20 56 / 0.6)}.hover\:border-white\/20:hover{border-color:rgb(255 255 255 / 0.2)}.hover\:border-white\/30:hover{border-color:rgb(255 255 255 / 0.3)}.hover\:bg-\[\#1f050c\]:hover{--tw-bg-opacity:1;background-color:rgb(31 5 12 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#1f050d\]:hover{--tw-bg-opacity:1;background-color:rgb(31 5 13 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#e11438\]:hover{--tw-bg-opacity:1;background-color:rgb(225 20 56 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#e11438\]\/20:hover{background-color:rgb(225 20 56 / 0.2)}.hover\:bg-\[\#ff1744\]:hover{--tw-bg-opacity:1;background-color:rgb(255 23 68 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:bg-white\/40:hover{background-color:rgb(255 255 255 / 0.4)}.hover\:bg-white\/\[0\.09\]:hover{background-color:rgb(255 255 255 / 0.09)}.hover\:text-\[\#ff3b61\]:hover{--tw-text-opacity:1;color:rgb(255 59 97 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:shadow-\[0_12px_40px_rgba\(225\2c 20\2c 56\2c 0\.25\)\]:hover{--tw-shadow:0 12px 40px rgba(225,20,56,0.25);--tw-shadow-colored:0 12px 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:brightness-110:hover{--tw-brightness:brightness(1.1);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus-visible\:ring-2:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus-visible\:ring-\[\#e11438\]\/80:focus-visible{--tw-ring-color:rgb(225 20 56 / 0.8)}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-\[0\.95\]:active{--tw-scale-x:0.95;--tw-scale-y:0.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-\[0\.97\]:active{--tw-scale-x:0.97;--tw-scale-y:0.97;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-\[0\.98\]:active{--tw-scale-x:0.98;--tw-scale-y:0.98;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:rotate-3{--tw-rotate:3deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-\[1\.02\]{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-\[1\.04\]{--tw-scale-x:1.04;--tw-scale-y:1.04;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-\[1\.05\]{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:text-\[\#ff3b61\]{--tw-text-opacity:1;color:rgb(255 59 97 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-\[\#ff6b8b\]{--tw-text-opacity:1;color:rgb(255 107 139 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:block{display:block}.sm\:flex{display:flex}.sm\:inline-flex{display:inline-flex}.sm\:h-10{height:2.5rem}.sm\:w-10{width:2.5rem}.sm\:w-60{width:15rem}.sm\:w-64{width:16rem}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:gap-10{gap:2.5rem}.sm\:gap-2\.5{gap:0.625rem}.sm\:space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.sm\:p-7{padding:1.75rem}.sm\:p-8{padding:2rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-\[11px\]{font-size:11px}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:tracking-\[0\.24em\]{letter-spacing:0.24em}}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:mb-10{margin-bottom:2.5rem}.md\:mb-12{margin-bottom:3rem}.md\:inline-flex{display:inline-flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:gap-16{gap:4rem}.md\:rounded-3xl{border-radius:1.5rem}.md\:px-8{padding-left:2rem;padding-right:2rem}.md\:py-14{padding-top:3.5rem;padding-bottom:3.5rem}.md\:py-9{padding-top:2.25rem;padding-bottom:2.25rem}.md\:pt-20{padding-top:5rem}.md\:pt-6{padding-top:1.5rem}.md\:pt-8{padding-top:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-\[12px\]{font-size:12px}.md\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-\[1fr_2fr\]{grid-template-columns:1fr 2fr}.lg\:gap-2{gap:0.5rem}.lg\:gap-20{gap:5rem}.lg\:gap-8{gap:2rem}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-5xl{font-size:3rem;line-height:1}.lg\:text-6xl{font-size:3.75rem;line-height:1}}</style><style type="text/css" data-vite-dev-id="E:/edu hunters/src/index.css">@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root {
+  --zc-light: #7f1d1d;
+  --zc-mid: #dc2626;
+  --zc-dark: #991b1b;
+  --primary-charcoal: #111827;
+  --primary-orange: #ea580c;
+  --neutral-text: #4b5563;
+  --neutral-warm: #f3f4f6;
+  --neutral-border: #e5e7eb;
+}
+
+/* ========================================================
+   HARDWARE-ACCELERATED THEME SHIFTING (ZERO DISTORTION)
+   ======================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: theme-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: theme-fade-in;
+}
+
+@keyframes theme-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes theme-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Exclude the toggle switch from snapshot so knob slides freely */
+#drawer-theme-toggle {
+  view-transition-name: theme-toggle;
+}
+
+::view-transition-old(theme-toggle),
+::view-transition-new(theme-toggle) {
+  animation: none;
+}
+
+body {
+  font-family: 'Hind Siliguri', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #F8F9FA;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ========================================================
+   DARK MODE BODY BASE
+   ======================================================== */
+html.dark body,
+[data-theme='dark'] body {
+  background-color: #0c0205;
+  color: #f3f4f6;
+  min-height: 100vh;
+}
+
+/* Zenith Crew Band Banner - Light Mode (Original red gradient) */
+.zc-band {
+  background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 55%, #991b1b 100%);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.zc-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Zenith Crew Band Banner - Dark Mode (Premium Red Wine & Black Gradient) */
+html.dark .zc-band,
+[data-theme='dark'] .zc-band {
+  background: linear-gradient(135deg, #3d0711 0%, #1f0309 50%, #0d0104 100%);
+  border: 1px solid rgba(225, 20, 56, 0.28);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+html.dark .zc-band::after,
+[data-theme='dark'] .zc-band::after {
+  background-image: radial-gradient(rgba(225, 20, 56, 0.18) 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
+}
+
+/* Inverse button - Light Mode */
+.zc-btn-inverse {
+  background: #ffffff;
+  color: #dc2626;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.zc-btn-inverse:hover {
+  background: #fff5f5;
+  transform: translateY(-1px);
+}
+
+/* Inverse button - Dark Mode */
+html.dark .zc-btn-inverse,
+[data-theme='dark'] .zc-btn-inverse {
+  background: linear-gradient(135deg, #e11438 0%, #a80c27 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(225, 20, 56, 0.4);
+}
+html.dark .zc-btn-inverse:hover,
+[data-theme='dark'] .zc-btn-inverse:hover {
+  background: linear-gradient(135deg, #ff1744 0%, #c40e30 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(225, 20, 56, 0.6);
+}
+
+/* Zenith Hero Grid Pattern Overlay - Light Mode */
+.zc-course-hero {
+  background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 55%, #991b1b 100%);
+  position: relative;
+}
+
+.zc-course-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Zenith Hero Grid Pattern Overlay - Dark Mode */
+html.dark .zc-course-hero,
+[data-theme='dark'] .zc-course-hero {
+  background: linear-gradient(135deg, #3d0711 0%, #1f0309 50%, #0d0104 100%);
+  border-bottom: 1px solid rgba(225, 20, 56, 0.2);
+}
+
+html.dark .zc-course-hero::after,
+[data-theme='dark'] .zc-course-hero::after {
+  background-image: radial-gradient(rgba(225, 20, 56, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.8;
+}
+
+/* Zenith White Dots pattern on red bg */
+.zc-dots-light {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+html.dark .zc-dots-light,
+[data-theme='dark'] .zc-dots-light {
+  background-image: radial-gradient(rgba(255, 120, 150, 0.25) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+/* Hero Carousel */
+.hero-peek-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-track {
+  align-items: stretch;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  aspect-ratio: 3.6227514822630895;
+  transition: transform .5s cubic-bezier(.25,1,.5,1);
+  will-change: transform;
+}
+
+@media(max-width: 768px) {
+  .hero-track {
+    aspect-ratio: 2.4;
+  }
+}
+
+.hero-slide-card {
+  flex-shrink: 0;
+  height: 100%;
+  display: block;
+  position: relative;
+  transition: width .5s cubic-bezier(.25,1,.5,1), opacity .4s ease, transform .5s cubic-bezier(.25,1,.5,1), box-shadow .4s ease;
+  will-change: width, opacity, transform;
+}
+
+.hero-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-slide-inactive {
+  opacity: .45;
+  transform: scale(.88);
+  transform-origin: center center;
+}
+
+@media(max-width: 640px) {
+  .hero-track {
+    gap: 10px;
+  }
+  .hero-slide-inactive {
+    opacity: .4;
+    transform: scale(.9);
+  }
+}
+
+/* Orbit rings in hero background */
+.orbit-ring {
+  border: 1px solid hsla(0,0%,100%,.07);
+  border-radius: 50%;
+  pointer-events: none;
+  position: absolute;
+}
+.orbit-ring-1 {
+  animation: orbit-spin 30s linear infinite;
+  height: 60vw;
+  right: -15vw;
+  top: -20vw;
+  width: 60vw;
+}
+.orbit-ring-2 {
+  animation: orbit-spin 20s linear infinite reverse;
+  bottom: -10vw;
+  height: 40vw;
+  left: -8vw;
+  width: 40vw;
+}
+@keyframes orbit-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.dot-grid {
+  animation: grid-drift 20s ease-in-out infinite;
+  background-image: radial-gradient(circle, hsla(0,0%,100%,.07) 1px, transparent 0);
+  background-size: 36px 36px;
+  inset: 0;
+  position: absolute;
+}
+@keyframes grid-drift {
+  0%, 100% { transform: translate(0); }
+  50% { transform: translate(-8px, -8px); }
+}
+
+.grain-overlay {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='a'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='4' stitchTiles='stitch' type='fractalNoise'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.06'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Teacher marquee */
+.teacher-marquee-outer {
+  overflow: hidden;
+  width: 100%;
+}
+.teacher-marquee-outer:hover .teacher-marquee-track {
+  animation-play-state: paused;
+}
+.teacher-marquee-track {
+  animation: teacher-scroll 32s linear infinite;
+  display: flex;
+  gap: 20px;
+  padding-bottom: 16px;
+  width: max-content;
+  will-change: transform;
+}
+@keyframes teacher-scroll {
+  0% { transform: translate(0); }
+  100% { transform: translate(-50%); }
+}
+
+.writing-vertical {
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+}
+
+/* Testimonial tilt */
+.ti-outer-mask {
+  overflow: hidden;
+  width: 100%;
+}
+.testimonial-img-track {
+  animation: ti-scroll 35s linear infinite;
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  will-change: transform;
+}
+.testimonial-img-track:hover {
+  animation-play-state: paused;
+}
+@keyframes ti-scroll {
+  0% { transform: translate(0); }
+  100% { transform: translate(-50%); }
+}
+
+.ti-card-tilt {
+  transform: rotate(2deg);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.ti-card-tilt:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  transform: rotate(0) scale(1.02);
+}
+
+/* Shimmer on CTA */
+.btn-shine {
+  animation: shine 3.5s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, hsla(0,0%,100%,.35), transparent);
+  height: 100%;
+  left: -100%;
+  position: absolute;
+  top: 0;
+  transform: skew(-20deg);
+  width: 60%;
+}
+@keyframes shine {
+  0%, 60% { left: -100%; }
+  80%, 100% { left: 140%; }
+}
+
+/* Floating Actions */
+.social-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 50;
+}
+
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s;
+  color: white;
+}
+.social-btn:hover {
+  transform: scale(1.08);
+}
+.social-btn.wa {
+  background: #25D366;
+}
+.social-btn.tg {
+  background: #0088cc;
+}
+
+/* Mobile Drawer Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+</style><style type="text/css" data-vite-dev-id="E:/edu hunters/src/App.css">/* App Styles - Medilogy Style & Mobile First Aesthetic */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-page);
+  padding-bottom: 60px; /* Space for mobile bottom bar */
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    padding-bottom: 0;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.max-w-700 {
+  max-width: 760px;
+}
+
+/* Navbar */
+.navbar-root {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-content {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.28);
+}
+
+.brand-name {
+  font-family: var(--font-english);
+  font-weight: 800;
+  font-size: 20px;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  display: block;
+  line-height: 1.1;
+}
+
+.brand-tag {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: block;
+  font-weight: 500;
+}
+
+.desktop-nav-links {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (min-width: 860px) {
+  .desktop-nav-links {
+    display: flex;
+  }
+}
+
+.nav-link-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 14px;
+  font-family: var(--font-bangla);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-link-btn:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.nav-link-btn.active {
+  color: var(--primary);
+  font-weight: 600;
+  background: var(--primary-light);
+}
+
+.nav-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-badge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: #f1f5f9;
+  border: 1px solid var(--border-color);
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-badge-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.mobile-hamburger-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu-drawer {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-drawer-link {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.mobile-drawer-link.active {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Announcement Bar */
+.announcement-banner {
+  background: linear-gradient(90deg, #eff6ff 0%, #dbeafe 100%);
+  border-bottom: 1px solid #bfdbfe;
+  padding: 8px 0;
+  font-size: 13.5px;
+}
+
+.announcement-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.announcement-tag {
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.announcement-text {
+  flex: 1;
+  color: #1e3a8a;
+  font-weight: 500;
+  margin: 0;
+}
+
+.announcement-link {
+  background: transparent;
+  border: none;
+  color: #2563eb;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 40px 0 30px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 48px;
+    padding: 20px 0;
+  }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0f172a;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 46px;
+  }
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.hero-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.feature-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  color: #334155;
+  font-weight: 500;
+}
+
+/* Hero Visual / Card Preview */
+.hero-card-preview {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card-floating-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #f59e0b;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+  z-index: 10;
+}
+
+.hero-preview-header {
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.preview-dot.red { background: #ef4444; }
+.preview-dot.yellow { background: #f59e0b; }
+.preview-dot.green { background: #10b981; }
+
+.preview-title {
+  margin-left: 8px;
+  font-size: 12px;
+  font-family: var(--font-english);
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.hero-preview-body {
+  padding: 24px;
+}
+
+.preview-banner {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: white;
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.banner-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.preview-banner h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.preview-banner p {
+  font-size: 12.5px;
+  opacity: 0.9;
+}
+
+.preview-items-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.preview-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border-radius: var(--radius-full);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.preview-chip.active {
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+/* Stats Strip */
+.stats-strip {
+  background: #ffffff;
+  border-y: 1px solid var(--border-color);
+  padding: 24px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-english);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Sections General */
+.section-padding {
+  padding: 48px 0;
+}
+
+.bg-subtle {
+  background-color: #f1f5f9;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-header-flex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.3px;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Bundles Grid */
+.bundles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .bundles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1040px) {
+  .bundles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bundle-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.bundle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #bae6fd;
+}
+
+.bundle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.bundle-category {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0284c7;
+  background: var(--primary-light);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.bundle-discount {
+  font-size: 12px;
+  font-weight: 700;
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.bundle-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.bundle-free-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: var(--radius-sm);
+  color: #065f46;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.bundle-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.bundle-features li {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.bundle-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: 1px dashed var(--border-color);
+  border-bottom: 1px dashed var(--border-color);
+  margin-bottom: 16px;
+}
+
+.meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.bundle-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.original-price {
+  font-size: 14px;
+  text-decoration: line-through;
+  color: var(--text-light);
+  margin-right: 6px;
+}
+
+.current-price {
+  font-family: var(--font-english);
+  font-size: 24px;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.btn-link {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 0;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* Filter pills */
+.filter-pill-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-pill {
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.filter-pill.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+/* Lectures Grid */
+.lectures-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .lectures-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1040px) {
+  .lectures-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.lecture-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.lecture-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.lecture-thumb-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+}
+
+.lecture-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.play-button-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  transition: background 0.2s;
+}
+
+.lecture-card:hover .play-button-overlay {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.lecture-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.free-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #10b981;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.lecture-info {
+  padding: 14px;
+}
+
+.lecture-subject {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.lecture-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.35;
+  margin: 4px 0 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lecture-instructor {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.lecture-meta {
+  font-size: 11.5px;
+  color: var(--text-light);
+  display: flex;
+  gap: 6px;
+}
+
+/* Exam Promo Box */
+.exam-promo-box {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .exam-promo-box {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+  }
+}
+
+.promo-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 12px 0 8px;
+}
+
+.promo-text {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.exam-promo-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+.mock-exam-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 12px;
+}
+
+.mock-question-preview {
+  margin-bottom: 12px;
+}
+
+.mock-opt {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid var(--border-color);
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.mock-opt.active {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #065f46;
+  font-weight: 600;
+}
+
+.mock-result-badge {
+  font-size: 12px;
+  color: #0284c7;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 6px;
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.review-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.review-rating {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.author-college {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* FAQs */
+.faqs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(90deg);
+}
+
+.faq-chevron {
+  transition: transform 0.2s;
+  color: var(--text-light);
+}
+
+.faq-answer {
+  padding: 0 20px 16px;
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Mobile Bottom Navigation Bar (Medilogy style) */
+.mobile-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #ffffff;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 40;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bottom-bar-item {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  flex: 1;
+}
+
+.bottom-bar-item.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Modal Overlay & Base */
+.exam-modal-overlay,
+.checkout-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.exam-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.exam-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+}
+
+.exam-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.exam-subject-tag {
+  font-size: 11.5px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.exam-timer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #dbeafe;
+  color: #1e40af;
+  font-weight: 700;
+  font-family: var(--font-english);
+  border-radius: var(--radius-full);
+  font-size: 13.5px;
+}
+
+.timer-urgent {
+  background: #fee2e2;
+  color: #dc2626;
+  animation: pulseGlow 1s infinite;
+}
+
+.exam-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.question-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tracker-text {
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.tracker-dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tracker-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tracker-dot.current {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.tracker-dot.answered {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.question-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.question-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.option-btn:hover {
+  border-color: #bae6fd;
+  background: #f0f9ff;
+}
+
+.option-btn.selected {
+  border-color: var(--primary);
+  background: #e0f2fe;
+  font-weight: 600;
+  color: #0369a1;
+}
+
+.option-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.option-btn.selected .option-indicator {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.exam-footer {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Exam Result View */
+.exam-result-view {
+  padding: 24px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.result-score-card {
+  text-align: center;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.score-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.score-item {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 4px;
+}
+
+.score-val {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: var(--font-english);
+}
+
+.score-lbl {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.solution-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.solution-q-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.solution-status.correct { color: #059669; font-weight: 700; }
+.solution-status.wrong { color: #dc2626; font-weight: 700; }
+.solution-status.skipped { color: #64748b; font-weight: 600; }
+
+.solution-opt {
+  font-size: 13.5px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.solution-opt.correct-opt {
+  background: #ecfdf5;
+  color: #065f46;
+  font-weight: 600;
+}
+.solution-opt.wrong-opt {
+  background: #fee2e2;
+  color: #b91c1c;
+  text-decoration: line-through;
+}
+
+.explanation-box {
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-top: 8px;
+  color: #334155;
+}
+
+/* Protected PDF Viewer */
+.protected-pdf-modal {
+  position: fixed;
+  inset: 0;
+  background: #1e293b;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-viewer-header {
+  height: 56px;
+  background: #0f172a;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  color: #ffffff;
+}
+
+.pdf-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pdf-doc-title {
+  font-size: 14px;
+  font-weight: 600;
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pdf-security-tag {
+  font-size: 11px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pdf-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.zoom-label {
+  font-size: 12px;
+  font-family: var(--font-english);
+}
+
+.secure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border-radius: 4px;
+  font-size: 11.5px;
+}
+
+.pdf-canvas-viewport {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.pdf-page-container {
+  width: 100%;
+  max-width: 750px;
+  background: #ffffff;
+  min-height: 980px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  color: #0f172a;
+}
+
+/* Repeating Diagonal Watermark */
+.watermark-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  padding: 40px;
+  opacity: 0.13;
+  transform: rotate(-25deg);
+  z-index: 10;
+}
+
+.watermark-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.wm-brand {
+  font-size: 15px;
+  font-weight: 800;
+  font-family: var(--font-english);
+}
+
+.wm-user {
+  font-size: 16px;
+  font-weight: 800;
+  color: #b91c1c;
+}
+
+.wm-warn {
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.pdf-bottom-navigator {
+  height: 52px;
+  background: #0f172a;
+  border-top: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-nav {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-counter-badge {
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Checkout Modal */
+.checkout-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.checkout-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.checkout-body {
+  padding: 20px;
+}
+
+.order-summary-box {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.payment-methods-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.method-tab {
+  padding: 10px;
+  border: 1.5px solid var(--border-color);
+  background: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.method-tab.active {
+  border-color: #e11d48;
+  background: #fff1f2;
+}
+
+.payment-instructions-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 13.5px;
+}
+
+.copy-number-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 6px 0;
+  border: 1px solid #93c5fd;
+}
+
+.account-number {
+  font-family: var(--font-english);
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.btn-copy {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-family: inherit;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.security-notice {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: #475569;
+  background: #f1f5f9;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+/* Lecture Player Page */
+.lecture-player-page {
+  padding-bottom: 40px;
+}
+
+.player-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.btn-back {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.player-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 960px) {
+  .player-grid {
+    grid-template-columns: 2.2fr 1fr;
+  }
+}
+
+.video-player-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.yt-iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.lecture-header-details {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.subject-pill {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.lecture-headline {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.lecture-instructor-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.inst-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-placeholder {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.lecture-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.lecture-tab-btn {
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 2px solid transparent;
+}
+
+.lecture-tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.lecture-tab-content {
+  padding: 16px 0;
+}
+
+.bullet-notes {
+  margin: 12px 0 16px 20px;
+  font-size: 14.5px;
+  color: #334155;
+}
+
+.practice-prompt-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.curriculum-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.curriculum-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 12px;
+}
+
+.playlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.playlist-item:hover {
+  background: #f1f5f9;
+}
+
+.playlist-item.current {
+  background: #e0f2fe;
+}
+
+.part-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.part-dur {
+  font-size: 11.5px;
+  color: var(--text-light);
+}
+
+.sidebar-bundle-ad {
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 16px;
+}
+
+/* Admin Panel Styles */
+.admin-dashboard-page {
+  background: #f8fafc;
+  min-height: 80vh;
+}
+
+.admin-header-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 0;
+}
+
+.admin-nav-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-panel-title {
+  font-size: 18px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.admin-stat-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .admin-stat-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.admin-stat-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.admin-stat-card .stat-num {
+  font-family: var(--font-english);
+  font-size: 22px;
+  font-weight: 800;
+  color: #0284c7;
+  margin-top: 4px;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.admin-tab {
+  padding: 10px 18px;
+  background: transparent;
+  border: none;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.admin-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.admin-create-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-inline-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.flex-2 {
+  flex: 2;
+  min-width: 200px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 13.5px;
+}
+
+.admin-table th {
+  background: #f8fafc;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.btn-danger-icon {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer-root {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 48px 0 24px;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1.5fr;
+  }
+}
+
+.footer-desc {
+  font-size: 13.5px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 13.5px;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #334155;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+/* Utility Helpers */
+.text-warning { color: #f59e0b; }
+.fill-warning { fill: #f59e0b; }
+.text-emerald { color: #10b981; }
+.fill-emerald-light { fill: #d1fae5; }
+.text-danger { color: #ef4444; }
+.w-full { width: 100%; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mt-6 { margin-top: 24px; }
+.py-3 { padding-top: 12px; padding-bottom: 12px; }
+.py-4 { padding-top: 16px; padding-bottom: 16px; }
+.py-6 { padding-top: 24px; padding-bottom: 24px; }
+.text-center { text-align: center; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+
+.desktop-only {
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktop-only {
+    display: inline-flex;
+  }
+}
+
+.mobile-only {
+  display: flex;
+}
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+.mobile-hide {
+  display: none;
+}
+@media (min-width: 768px) {
+  .mobile-hide {
+    display: inline-flex;
+  }
+}
+
+/* Library Cards */
+.library-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .library-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.library-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.library-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #065f46;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.library-item-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.library-meta {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.library-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Exam Catalog Grid */
+.exams-catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .exams-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.exam-card-item {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.exam-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.exam-time {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.exam-item-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.exam-meta-pills {
+  display: flex;
+  gap: 12px;
+  font-size: 12.5px;
+  color: #475569;
+  margin-bottom: 16px;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+</style></head>
+  <body>
+    <div id="root"><div aria-hidden="true" class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none transition-opacity duration-700 opacity-100"><video autoplay="" loop="" playsinline="" class="w-full h-full object-cover opacity-[0.32]" src="/red-wine-drift.webm"></video><div class="absolute inset-0 bg-gradient-to-b from-[#180307]/75 via-[#0e0104]/80 to-[#070002]/88 pointer-events-none"></div></div><div class="min-h-screen font-sans antialiased transition-colors duration-250 bg-transparent text-gray-100 selection:bg-[#e11438] selection:text-white"><nav class="fixed top-0 left-0 right-0 z-50 transition-colors duration-250 select-none bg-[#0d0205]/92 backdrop-blur-md border-b border-[#e11438]/20 shadow-[0_4px_30px_rgba(0,0,0,0.7)]"><div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between"><div class="flex items-center gap-6 lg:gap-8 min-w-0"><button class="flex items-center gap-2 shrink-0 group border-none bg-transparent cursor-pointer p-0" title="Home"><div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-[1.05] border-none outline-none"><img alt="EDU HUNTERS" class="w-full h-full object-cover rounded-full border-none outline-none" src="/logo.png"></div><span class="text-lg sm:text-2xl font-black tracking-tight whitespace-nowrap text-[#ff2e55]">EDU <span class="text-white">HUNTERS</span></span></button><div class="hidden sm:flex items-center gap-1.5 lg:gap-2"><span class="relative inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full text-white bg-[#e11438] shadow-[0_6px_20px_rgba(225,20,56,0.45)]"><span class="w-4 h-4 flex items-center justify-center text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span><span>Home</span></span><button class="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full transition-colors border-none bg-transparent cursor-pointer text-gray-300 hover:text-white hover:bg-white/10"><span class="w-4 h-4 flex items-center justify-center text-gray-400"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10M6 10h10"></path></svg></span><span>Courses</span></button><button class="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full transition-colors border-none bg-transparent cursor-pointer text-gray-300 hover:text-white hover:bg-white/10"><span class="w-4 h-4 flex items-center justify-center text-gray-400"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span><span>Exam</span></button><button class="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full transition-colors border-none bg-transparent cursor-pointer text-gray-300 hover:text-white hover:bg-white/10"><span class="w-4 h-4 flex items-center justify-center text-gray-400"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></span><span>Store</span></button><button class="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full transition-colors border-none bg-transparent cursor-pointer text-gray-300 hover:text-white hover:bg-white/10"><span class="w-4 h-4 flex items-center justify-center text-gray-400"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg></span><span>About</span></button></div></div><div class="flex items-center gap-2 sm:gap-2.5"><button class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors cursor-pointer text-gray-300 hover:text-white bg-white/10 hover:bg-white/20 border border-white/10">এডমিন</button><button class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 text-sm font-semibold text-white rounded-full transition-all hover:scale-[1.03] active:scale-[0.97] border-none cursor-pointer bg-[#e11438] hover:bg-[#ff1744] shadow-[0_4px_16px_rgba(225,20,56,0.35)]"><span>লগইন</span></button><button class="flex items-center gap-2 pl-1 pr-2.5 py-1 rounded-full transition-all duration-200 active:scale-95 group cursor-pointer bg-white/[0.05] hover:bg-white/[0.09] border border-white/10 hover:border-white/20 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.35)]" aria-label="Open profile and menu" title="প্রোফাইল মেনু"><div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0"><img alt="Profile" class="w-full h-full object-cover rounded-full ring-1 ring-white/20" src="/avatar.jpg"></div><svg class="w-4 h-4 transition-colors shrink-0 text-gray-300 group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button></div></div></nav><div class="fixed inset-0 z-[9999] select-none transition-[visibility] duration-300 invisible pointer-events-none delay-300"><div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ease-in-out cursor-pointer opacity-0"></div><div class="fixed inset-y-0 right-0 w-[295px] max-w-[85vw] flex flex-col justify-between p-6 sm:p-7 z-[10000] rounded-l-[36px] transition-[transform,background-color,border-color,color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform overflow-hidden bg-gradient-to-b from-[#2e050c] via-[#0f0305] to-[#070102] text-white shadow-[-16px_0_50px_rgba(0,0,0,0.9)] border-l border-[#e11438]/20 translate-x-full"><div class="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#e11438]/20 rounded-full blur-[80px] pointer-events-none transition-opacity duration-500 opacity-100"></div><div class="flex-1 flex flex-col min-h-0 overflow-y-auto pr-1 relative z-10"><div class="flex items-center justify-between pb-2"><span class="w-8 h-1 rounded-full bg-white/20"></span><button class="w-8 h-8 rounded-full flex items-center justify-center transition-all border-none cursor-pointer bg-white/10 hover:bg-[#e11438]/20 text-gray-300 hover:text-white" title="Close"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div><div class="flex items-center justify-between gap-3 pt-2 pb-1"><div class="flex items-center gap-3.5 min-w-0"><div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-[#e11438]/30 shadow-[0_0_15px_rgba(225,20,56,0.3)] bg-[#1a080d]"><img alt="Edu Hunters Student" class="w-full h-full object-cover" src="/avatar.jpg"></div><div class="min-w-0"><h2 class="text-[17px] font-bold tracking-tight leading-tight truncate text-white">Edu Hunters</h2><p class="text-xs mt-0.5 font-normal tracking-wide truncate text-gray-400">HSC 2026</p></div></div><button id="drawer-theme-toggle" type="button" role="switch" aria-checked="true" aria-label="লাইট মোডে পরিবর্তন করুন" title="লাইট মোডে পরিবর্তন করুন" class="group relative inline-flex items-center w-[56px] h-[28px] p-[3px] rounded-full transition-all duration-500 cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-[#e11438]/80 hover:scale-[1.05] active:scale-[0.95] shrink-0 bg-[#1e1e24] border border-white/20 shadow-[inset_0_2px_5px_rgba(0,0,0,0.6)] shrink-0"><div class="absolute left-[3px] top-[3px] w-[22px] h-[22px] flex items-center justify-center pointer-events-none transition-all duration-450 ease-[cubic-bezier(0.34,1.3,0.64,1)] opacity-100 scale-100 rotate-0"><svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-white transition-transform duration-450"><path d="M12.5 3.5C8.36 3.5 5 6.86 5 11C5 15.14 8.36 18.5 12.5 18.5C14.72 18.5 16.71 17.53 18.08 16C13.8 15.7 10.4 12.2 10.4 7.9C10.4 6.28 10.92 4.78 11.8 3.55C12.03 3.52 12.26 3.5 12.5 3.5Z"></path></svg></div><div class="absolute right-[3px] top-[3px] w-[22px] h-[22px] flex items-center justify-center pointer-events-none transition-all duration-450 ease-[cubic-bezier(0.34,1.3,0.64,1)] opacity-0 scale-40 rotate-90"><svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-white transition-transform duration-450" fill="none"><circle cx="12" cy="12" r="3.8" fill="white"></circle><line x1="12" y1="2.2" x2="12" y2="4.7" stroke="white" stroke-width="2.2" stroke-linecap="round"></line><line x1="12" y1="19.3" x2="12" y2="21.8" stroke="white" stroke-width="2.2" stroke-linecap="round"></line><line x1="2.2" y1="12" x2="4.7" y2="12" stroke="white" stroke-width="2.2" stroke-linecap="round"></line><line x1="19.3" y1="12" x2="21.8" y2="12" stroke="white" stroke-width="2.2" stroke-linecap="round"></line><line x1="5.1" y1="5.1" x2="6.9" y2="6.9" stroke="white" stroke-width="2.2" stroke-linecap="round"></line><line x1="17.1" y1="17.1" x2="18.9" y2="18.9" stroke="white" stroke-width="2.2" stroke-linecap="round"></line><line x1="5.1" y1="18.9" x2="6.9" y2="17.1" stroke="white" stroke-width="2.2" stroke-linecap="round"></line><line x1="17.1" y1="6.9" x2="18.9" y2="5.1" stroke="white" stroke-width="2.2" stroke-linecap="round"></line></svg></div><span aria-hidden="true" class="w-[22px] h-[22px] rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.35),0_1px_2px_rgba(0,0,0,0.2)] transform transition-transform duration-450 ease-[cubic-bezier(0.34,1.3,0.64,1)] pointer-events-none z-10 translate-x-[28px]"></span></button></div><div class="h-[1px] my-4 w-full shrink-0 bg-gradient-to-r from-transparent via-[#e11438]/30 to-transparent"></div><div class="flex flex-col space-y-4"><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-white font-semibold"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-[#ef4444]"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div><span class="text-[15px] tracking-wide">হোম</span></div></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-gray-300 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10M6 10h10"></path></svg></div><span class="text-[15px] tracking-wide">কোর্সসমূহ</span></div></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-gray-300 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></div><span class="text-[15px] tracking-wide">এক্সাম পোর্টাল</span></div><span class="bg-[#facc15] text-[#111827] font-extrabold text-[11px] px-2.5 py-0.5 rounded-full shadow-sm">970+</span></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-gray-300 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-yellow-400"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7"></path><path d="M14 14.66V17c0 .55.45 1 1 1h2"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg></div><span class="text-[15px] tracking-wide">লিডারবোর্ড</span></div></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-gray-300 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></div><span class="text-[15px] tracking-wide">বই ও স্টোর</span></div></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-gray-300 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path><path d="M8 7h8"></path><path d="M8 11h8"></path><path d="M8 15h5"></path></svg></div><div class="flex items-baseline gap-2"><span class="text-[15px] tracking-wide font-medium">অর্ডার হিস্ট্রি</span><span class="text-[11px] font-normal text-gray-400">Order History</span></div></div></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-gray-300 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="14" height="11" rx="2"></rect><line x1="9" y1="14" x2="9" y2="18"></line><line x1="6" y1="18" x2="12" y2="18"></line><rect x="15" y="8" width="7" height="13" rx="2"></rect><line x1="18.5" y1="18" x2="18.5" y2="18.01"></line></svg></div><div class="flex items-baseline gap-2"><span class="text-[15px] tracking-wide font-medium">আমার ডিভাইস</span><span class="text-[11px] font-normal text-gray-400">My Devices</span></div></div></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-gray-300 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg></div><span class="text-[15px] tracking-wide">আমাদের সম্পর্কে</span></div></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors text-gray-300 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-green-400"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div><span class="text-[15px] tracking-wide">হেল্প ও সাপোর্ট</span></div></button><button class="flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors pt-1 text-gray-400 font-normal hover:text-white"><div class="flex items-center gap-3"><div class="w-5 h-5 flex items-center justify-center transition-colors text-gray-400 group-hover:text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div><span class="text-[15px] tracking-wide">এডমিন প্যানেল</span></div></button></div></div><div class="pt-5 shrink-0 relative z-10"><button class="w-full py-3.5 px-6 active:scale-[0.98] text-white font-semibold text-sm rounded-full text-center transition-all cursor-pointer border-none tracking-wide bg-[#e11438] hover:bg-[#ff1744] shadow-[0_8px_25px_rgba(225,20,56,0.45)]">লগইন / সাইন ইন</button></div></div></div><main class="pt-16 md:pt-20"><section class="relative z-10 max-w-5xl mx-auto px-3 sm:px-6 pt-3 md:pt-6 mb-8 md:mb-12"><div class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[16/9] transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6)] border border-[#e11438]/20 bg-[#0c0205]"><div class="flex h-full transition-transform duration-700 ease-in-out" style="transform: translateX(0%);"><div class="w-full h-full shrink-0 relative cursor-pointer group"><img alt="Extra Info কভার মাত্র ৩ মিনিটে! - As Sami Islam" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] block" loading="eager" src="/slides/slide-extra-info.jpg"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6"><span class="text-white font-bold text-sm sm:text-base drop-shadow-md">Extra Info কভার মাত্র ৩ মিনিটে! - As Sami Islam</span></div></div><div class="w-full h-full shrink-0 relative cursor-pointer group"><img alt="৩০ দিনে Master English শেষ করার মিশন" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] block" loading="eager" src="/slides/slide-master-english-30days.png"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6"><span class="text-white font-bold text-sm sm:text-base drop-shadow-md">৩০ দিনে Master English শেষ করার মিশন</span></div></div><div class="w-full h-full shrink-0 relative cursor-pointer group"><img alt="Noun and Its Classification - মাত্র ৩০ দিনে (Day-1)" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] block" loading="eager" src="/slides/slide-noun-day1.png"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6"><span class="text-white font-bold text-sm sm:text-base drop-shadow-md">Noun and Its Classification - মাত্র ৩০ দিনে (Day-1)</span></div></div></div></div><div class="flex justify-center items-center gap-2 mt-4"><button aria-label="Go to slide 1" class="h-2 rounded-full transition-all duration-300 border-none cursor-pointer w-7 bg-[#e11438] shadow-[0_0_12px_rgba(225,20,56,0.6)]"></button><button aria-label="Go to slide 2" class="h-2 rounded-full transition-all duration-300 border-none cursor-pointer w-2 bg-white/20 hover:bg-white/40"></button><button aria-label="Go to slide 3" class="h-2 rounded-full transition-all duration-300 border-none cursor-pointer w-2 bg-white/20 hover:bg-white/40"></button></div></section><section class="relative py-12 md:py-14 text-white overflow-hidden transition-colors duration-300 bg-gradient-to-r from-[#120306] via-[#22060c] to-[#120306] border-y border-[#e11438]/25 shadow-[0_15px_40px_rgba(0,0,0,0.85)]"><div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#ff2e55]/40 to-transparent pointer-events-none"></div><div class="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#ff2e55]/20 to-transparent pointer-events-none"></div><div class="absolute inset-0 pointer-events-none zc-dots-light" style="mask-image: radial-gradient(rgb(0, 0, 0) 35%, rgba(0, 0, 0, 0.2) 80%, transparent 100%);"></div><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] max-w-[90vw] h-48 bg-[#e11438]/15 rounded-full blur-[85px] pointer-events-none"></div><div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex flex-nowrap items-center justify-center gap-4 sm:gap-10 md:gap-16 text-center"><div class="space-y-1.5 sm:space-y-2 min-w-0 px-2 sm:px-4 group cursor-default transition-transform duration-300 hover:scale-[1.04]"><p class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-[#fff0f3] to-[#ffccd5] drop-shadow-[0_4px_16px_rgba(225,20,56,0.35)]">3000+</p><p class="text-[9px] sm:text-[11px] md:text-[12px] uppercase tracking-[0.16em] sm:tracking-[0.24em] font-bold text-[#ff4d6d] drop-shadow-[0_0_8px_rgba(255,77,109,0.3)]">#Students</p></div><div class="hidden sm:block h-12 w-[1px] shrink-0 self-center bg-gradient-to-b from-transparent via-[#e11438]/30 to-transparent"></div><div class="space-y-1.5 sm:space-y-2 min-w-0 px-2 sm:px-4 group cursor-default transition-transform duration-300 hover:scale-[1.04]"><p class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-[#fff0f3] to-[#ffccd5] drop-shadow-[0_4px_16px_rgba(225,20,56,0.35)]">70000+</p><p class="text-[9px] sm:text-[11px] md:text-[12px] uppercase tracking-[0.16em] sm:tracking-[0.24em] font-bold text-[#ff4d6d] drop-shadow-[0_0_8px_rgba(255,77,109,0.3)]">Community Members</p></div><div class="hidden sm:block h-12 w-[1px] shrink-0 self-center bg-gradient-to-b from-transparent via-[#e11438]/30 to-transparent"></div><div class="space-y-1.5 sm:space-y-2 min-w-0 px-2 sm:px-4 group cursor-default transition-transform duration-300 hover:scale-[1.04]"><p class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-[#fff0f3] to-[#ffccd5] drop-shadow-[0_4px_16px_rgba(225,20,56,0.35)]">15+</p><p class="text-[9px] sm:text-[11px] md:text-[12px] uppercase tracking-[0.16em] sm:tracking-[0.24em] font-bold text-[#ff4d6d] drop-shadow-[0_0_8px_rgba(255,77,109,0.3)]">Paid Batch</p></div></div></div></section><section id="courses-section" class="courses-showcase pt-6 md:pt-8 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="zc-band relative overflow-hidden rounded-2xl mb-6 md:mb-10"><div class="px-6 py-7 md:px-8 md:py-9 relative z-10 flex flex-wrap items-center justify-between gap-3"><div class="min-w-0"><h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">কোর্সসমূহ</h2></div><div class="shrink-0"><button class="zc-btn-inverse text-sm inline-flex items-center gap-1.5 border-none cursor-pointer">View all<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div></div></div><div class="flex flex-wrap justify-center gap-2 mb-10"><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-gradient-to-r from-[#e11438] to-[#9b0e27] text-white border-[#ff3358]/40 shadow-[0_4px_16px_rgba(225,20,56,0.35)]">সকল</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white">EXAM BATCH</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white">Medical</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white">University A Unit</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white">HSC 25</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white">Engineering</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white">HSC 27</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white">HSC 28</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all border cursor-pointer bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white">HSC 26</button></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><div class="rounded-2xl overflow-hidden flex flex-col group cursor-pointer transition-all bg-[#120407]/90 shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)] text-white "><div class="aspect-video overflow-hidden relative bg-[#0a0204]"><img alt="Mastering Text Book Biology" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" src="https://assets.codervai.com/courses/1781342599740-biology_area.jpg"></div><div class="p-4 flex flex-col flex-1"><h3 class="font-bold mb-1 line-clamp-1 transition-colors text-base text-white group-hover:text-[#ff3b61]">Mastering Text Book Biology</h3><p class="text-xs mb-3 line-clamp-2 text-gray-400">এক ক্লাসেই একাডেমিক টু মেডিকেল এডমিশন সব থিওরি কভার!</p><div class="mt-auto flex items-center justify-between"><div class="flex items-baseline gap-1.5"><span class="text-lg font-black text-[#ff3b61]">৳1199</span><span class="text-xs text-gray-400 line-through ml-1">৳3000</span></div><button class="text-xs font-semibold flex items-center gap-1 bg-transparent border-none cursor-pointer p-0 transition-colors text-[#ff3b61] group-hover:text-[#ff6b8b]">বিস্তারিত →</button></div></div></div><div class="rounded-2xl overflow-hidden flex flex-col group cursor-pointer transition-all bg-[#120407]/90 shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)] text-white border-[#e11438]/60 shadow-[0_0_20px_rgba(225,20,56,0.2)]"><div class="aspect-video overflow-hidden relative bg-[#0a0204]"><img alt="Ketab Sir MCQ Solve Combo Course" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" src="https://assets.codervai.com/bundles/1781365462904-4113.webp"><span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#e11438] text-white shadow-sm">Bundle</span></div><div class="p-4 flex flex-col flex-1"><h3 class="font-bold mb-1 line-clamp-1 transition-colors text-base text-white group-hover:text-[#ff3b61]">Ketab Sir MCQ Solve Combo Course</h3><p class="text-xs mb-3 line-clamp-2 text-gray-400">Academic Higher Math Ketab Sir MCQ Solve Course</p><div class="mt-auto flex items-center justify-between"><div class="flex items-baseline gap-1.5"><span class="text-lg font-black text-[#ff3b61]">৳1199</span><span class="text-xs text-gray-400 line-through ml-1">৳2999</span></div><button class="text-xs font-semibold flex items-center gap-1 bg-transparent border-none cursor-pointer p-0 transition-colors text-[#ff3b61] group-hover:text-[#ff6b8b]">বিস্তারিত →</button></div></div></div></div></section><section id="instructor-section" class="py-16 overflow-hidden transition-colors duration-300 bg-[#0a0a0a]"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="zc-band relative overflow-hidden rounded-2xl mb-10"><div class="px-6 py-7 md:px-8 md:py-9 relative z-10 flex flex-wrap items-center justify-between gap-3"><div class="min-w-0"><span class="block text-[11px] font-bold uppercase tracking-[0.22em] text-white opacity-80 mb-1">আমার পরিচয়</span><h2 class="text-3xl md:text-4xl font-black text-white tracking-tight leading-none">Meet Our Expert Faculty</h2></div><div class="shrink-0"><button class="zc-btn-inverse text-sm inline-flex items-center gap-1.5 border-none cursor-pointer">View all<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div></div></div><div class="flex gap-5 overflow-x-auto pb-4 scrollbar-hide"><div class="flex-shrink-0 w-60 sm:w-64 rounded-2xl overflow-hidden transition-all duration-300 group cursor-pointer bg-[#140307]/90 border border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"><div class="relative aspect-[3/4] overflow-hidden bg-[#0c0205]"><img alt="SANJID SIRAJ" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://assets.codervai.com/teachers/1781366052322-cropped-image.webp"><div class="absolute inset-0 bg-gradient-to-t from-[#140307] via-transparent to-transparent"></div><div class="absolute top-4 left-3 flex flex-col items-center"><span class="font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none text-[#ff6b8b]">SANJID</span></div></div><div class="p-4"><div class="flex items-center gap-1.5 mb-2"><svg class="w-3 h-3 text-yellow-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 14.5a1 1 0 110-2 1 1 0 010 2zm1-5a1 1 0 11-2 0V7a1 1 0 112 0v4.5z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] truncate text-[#ff6b8b]/80">CEO AND FOUNDER</span></div><h3 class="text-base font-black leading-tight mb-1 text-white">SANJID SIRAJ</h3><p class="text-xs line-clamp-2 leading-relaxed whitespace-pre-line text-gray-300">Dhaka Medical College
+DMC 2ND</p></div></div><div class="flex-shrink-0 w-60 sm:w-64 rounded-2xl overflow-hidden transition-all duration-300 group cursor-pointer bg-[#140307]/90 border border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"><div class="relative aspect-[3/4] overflow-hidden bg-[#0c0205]"><img alt="Tofayel Ahmed" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://assets.codervai.com/teachers/1781363906472-cropped-image.webp"><div class="absolute inset-0 bg-gradient-to-t from-[#140307] via-transparent to-transparent"></div><div class="absolute top-4 left-3 flex flex-col items-center"><span class="font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none text-[#ff6b8b]">Tofayel</span></div></div><div class="p-4"><div class="flex items-center gap-1.5 mb-2"><svg class="w-3 h-3 text-yellow-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 14.5a1 1 0 110-2 1 1 0 010 2zm1-5a1 1 0 11-2 0V7a1 1 0 112 0v4.5z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] truncate text-[#ff6b8b]/80">CEO AND FOUNDER</span></div><h3 class="text-base font-black leading-tight mb-1 text-white">Tofayel Ahmed</h3><p class="text-xs line-clamp-2 leading-relaxed whitespace-pre-line text-gray-300">Department of Computer Science &amp; Engineering,
+Bangladesh University of Engineering and Technology
+Rank 1st (2024-25 session)</p><a href="https://youtube.com/@zenithcrewacademic111?si=ULiRI1B8JQccSMPF" target="_blank" rel="noreferrer" class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold transition-colors text-[#ff6b8b] hover:text-white"><svg class="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>YouTube</a></div></div><div class="flex-shrink-0 w-60 sm:w-64 rounded-2xl overflow-hidden transition-all duration-300 group cursor-pointer bg-[#140307]/90 border border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"><div class="relative aspect-[3/4] overflow-hidden bg-[#0c0205]"><img alt="Nazmuddin Al Aquib" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://assets.codervai.com/teachers/1781465492086-cropped-image.webp"><div class="absolute inset-0 bg-gradient-to-t from-[#140307] via-transparent to-transparent"></div><div class="absolute top-4 left-3 flex flex-col items-center"><span class="font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none text-[#ff6b8b]">Nazmuddin</span></div></div><div class="p-4"><div class="flex items-center gap-1.5 mb-2"><svg class="w-3 h-3 text-yellow-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 14.5a1 1 0 110-2 1 1 0 010 2zm1-5a1 1 0 11-2 0V7a1 1 0 112 0v4.5z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] truncate text-[#ff6b8b]/80">PHYSICS INSTRUCTOR</span></div><h3 class="text-base font-black leading-tight mb-1 text-white">Nazmuddin Al Aquib</h3><p class="text-xs line-clamp-2 leading-relaxed whitespace-pre-line text-gray-300">DMC 62TH
+MBBS 2ND YEAR</p></div></div><div class="flex-shrink-0 w-60 sm:w-64 rounded-2xl overflow-hidden transition-all duration-300 group cursor-pointer bg-[#140307]/90 border border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"><div class="relative aspect-[3/4] overflow-hidden bg-[#0c0205]"><img alt="Jaidul Islam Nahian" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://assets.codervai.com/teachers/1781515586459-cropped-image.webp"><div class="absolute inset-0 bg-gradient-to-t from-[#140307] via-transparent to-transparent"></div><div class="absolute top-4 left-3 flex flex-col items-center"><span class="font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none text-[#ff6b8b]">Jaidul</span></div></div><div class="p-4"><div class="flex items-center gap-1.5 mb-2"><svg class="w-3 h-3 text-yellow-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 14.5a1 1 0 110-2 1 1 0 010 2zm1-5a1 1 0 11-2 0V7a1 1 0 112 0v4.5z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] truncate text-[#ff6b8b]/80">MENTOR</span></div><h3 class="text-base font-black leading-tight mb-1 text-white">Jaidul Islam Nahian</h3><p class="text-xs line-clamp-2 leading-relaxed whitespace-pre-line text-gray-300">Chittagong Medical College</p></div></div><div class="flex-shrink-0 w-60 sm:w-64 rounded-2xl overflow-hidden transition-all duration-300 group cursor-pointer bg-[#140307]/90 border border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"><div class="relative aspect-[3/4] overflow-hidden bg-[#0c0205]"><img alt="Sk Tasnim Ferdaus" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://assets.codervai.com/teachers/1788702054420-cropped-image.webp"><div class="absolute inset-0 bg-gradient-to-t from-[#140307] via-transparent to-transparent"></div><div class="absolute top-4 left-3 flex flex-col items-center"><span class="font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none text-[#ff6b8b]">Sk</span></div></div><div class="p-4"><div class="flex items-center gap-1.5 mb-2"><svg class="w-3 h-3 text-yellow-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 14.5a1 1 0 110-2 1 1 0 010 2zm1-5a1 1 0 11-2 0V7a1 1 0 112 0v4.5z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] truncate text-[#ff6b8b]/80">FOUNDER AND INSTRUCTOR</span></div><h3 class="text-base font-black leading-tight mb-1 text-white">Sk Tasnim Ferdaus</h3><p class="text-xs line-clamp-2 leading-relaxed whitespace-pre-line text-gray-300">Dhaka Medical College (DMC-3rd)</p></div></div></div></div></section><section id="free-resource-section" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="zc-band relative overflow-hidden rounded-2xl mb-14"><div class="px-6 py-7 md:px-8 md:py-9 flex-col text-center justify-center relative z-10 flex flex-wrap items-center gap-3"><div class="min-w-0"><span class="block text-[11px] font-bold uppercase tracking-[0.22em] mb-2 text-[#ff6b8b]">ইউটিউব কন্টেন্ট</span><h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">প্লে করে দেখো <br><span class="inline-block mt-1">আমার সেরা কিছু ভিডিও</span></h2></div></div></div><div class="grid md:grid-cols-2 gap-6"><div id="video-card-1" class="text-left rounded-2xl overflow-hidden transition-all duration-300 border border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)] bg-[#120407]/90"><div id="video-container-1" class="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-inner"><iframe src="https://www.youtube.com/embed/rMGOI-A5czA?rel=0&amp;playsinline=1" title="টপাররা কোনোদিনও এই মেথড কারো সাথে শেয়ার করবেনা | Admission Hack" class="absolute inset-0 w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen=""></iframe></div><div class="p-5"><div class="flex items-center justify-between gap-2 mb-2"><div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-[#ff3b61]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff3b61]">ফ্রি কন্টেন্ট</span></div><a href="https://www.youtube.com/watch?v=rMGOI-A5czA" target="_blank" rel="noopener noreferrer" class="text-xs px-2.5 py-1 rounded-md transition-all flex items-center gap-1.5 border text-decoration-none text-gray-300 hover:text-white border-white/10 hover:border-white/30 bg-white/5" title="ইউটিউবে সরাসরি দেখুন"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span>YouTube</span></a></div><h3 class="text-base font-bold transition-colors text-white">টপাররা কোনোদিনও এই মেথড কারো সাথে শেয়ার করবেনা | Admission Hack</h3></div></div><div id="video-card-2" class="text-left rounded-2xl overflow-hidden transition-all duration-300 border border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)] bg-[#120407]/90"><div id="video-container-2" class="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-inner"><iframe src="https://www.youtube.com/embed/8aIGBh4RLuA?rel=0&amp;playsinline=1" title="অ্যাডমিশন টাইমে Topper-রা যেভাবে গ্যাপ পড়ে যাওয়া পড়াগুলো Fillup করে" class="absolute inset-0 w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen=""></iframe></div><div class="p-5"><div class="flex items-center justify-between gap-2 mb-2"><div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-[#ff3b61]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff3b61]">ফ্রি কন্টেন্ট</span></div><a href="https://www.youtube.com/watch?v=8aIGBh4RLuA" target="_blank" rel="noopener noreferrer" class="text-xs px-2.5 py-1 rounded-md transition-all flex items-center gap-1.5 border text-decoration-none text-gray-300 hover:text-white border-white/10 hover:border-white/30 bg-white/5" title="ইউটিউবে সরাসরি দেখুন"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span>YouTube</span></a></div><h3 class="text-base font-bold transition-colors text-white">অ্যাডমিশন টাইমে Topper-রা যেভাবে গ্যাপ পড়ে যাওয়া পড়াগুলো Fillup করে</h3></div></div><div id="video-card-3" class="text-left rounded-2xl overflow-hidden transition-all duration-300 border border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)] bg-[#120407]/90"><div id="video-container-3" class="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-inner"><iframe src="https://www.youtube.com/embed/CdNOjNnw0tU?rel=0&amp;playsinline=1" title="চান্স পাওয়ার ক্ষেত্রে আদেও কি কোচিংয়ের মার্ক Matter করে? | Admission Coaching | As Sami Islam" class="absolute inset-0 w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen=""></iframe></div><div class="p-5"><div class="flex items-center justify-between gap-2 mb-2"><div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-[#ff3b61]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff3b61]">ফ্রি কন্টেন্ট</span></div><a href="https://www.youtube.com/watch?v=CdNOjNnw0tU" target="_blank" rel="noopener noreferrer" class="text-xs px-2.5 py-1 rounded-md transition-all flex items-center gap-1.5 border text-decoration-none text-gray-300 hover:text-white border-white/10 hover:border-white/30 bg-white/5" title="ইউটিউবে সরাসরি দেখুন"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span>YouTube</span></a></div><h3 class="text-base font-bold transition-colors text-white">চান্স পাওয়ার ক্ষেত্রে আদেও কি কোচিংয়ের মার্ক Matter করে? | Admission Coaching | As Sami Islam</h3></div></div><div id="video-card-4" class="text-left rounded-2xl overflow-hidden transition-all duration-300 border border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)] bg-[#120407]/90"><div id="video-container-4" class="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-inner"><iframe src="https://www.youtube.com/embed/wCQ-oXOFj68?rel=0&amp;playsinline=1" title="HSC 26- এই ট্রিকগুলো জানলে Retina-র সবগুলো ডেইলিতে ৪৫+মার্ক থাকবে।" class="absolute inset-0 w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen=""></iframe></div><div class="p-5"><div class="flex items-center justify-between gap-2 mb-2"><div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-[#ff3b61]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff3b61]">ফ্রি কন্টেন্ট</span></div><a href="https://www.youtube.com/watch?v=wCQ-oXOFj68" target="_blank" rel="noopener noreferrer" class="text-xs px-2.5 py-1 rounded-md transition-all flex items-center gap-1.5 border text-decoration-none text-gray-300 hover:text-white border-white/10 hover:border-white/30 bg-white/5" title="ইউটিউবে সরাসরি দেখুন"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span>YouTube</span></a></div><h3 class="text-base font-bold transition-colors text-white">HSC 26- এই ট্রিকগুলো জানলে Retina-র সবগুলো ডেইলিতে ৪৫+মার্ক থাকবে।</h3></div></div></div><div class="mt-10 flex justify-center"><button class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer border border-[#e11438]/40 text-gray-200 hover:bg-[#e11438] hover:text-white bg-[#140307]/60 shadow-[0_4px_16px_rgba(0,0,0,0.5)]">View All Free Videos<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div></section><section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="zc-band relative overflow-hidden rounded-2xl mb-16"><div class="px-6 py-7 md:px-8 md:py-9 flex-col text-center justify-center relative z-10 flex flex-wrap items-center gap-3"><div class="min-w-0"><span class="block text-[11px] font-bold uppercase tracking-[0.22em] mb-2 text-[#ff6b8b]">কি কি দিয়ে</span><h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight"><span class="inline-block mt-1">তোমার পাঁশে আছি</span></h2></div></div></div><div class="space-y-px rounded-2xl overflow-hidden border border-[#e11438]/20 bg-[#120407]"><div class="group flex items-center gap-6 p-6 sm:p-8 transition-colors duration-200 border-b last:border-0 bg-[#120407] hover:bg-[#1f050c] border-[#e11438]/15"><span class="text-[10px] font-black shrink-0 w-8 tabular-nums text-[#ff3b61]/60">01</span><div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 bg-[#28050e] border border-[#e11438]/30 text-[#ff3b61]"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><div class="flex-1 min-w-0"><h3 class="text-base sm:text-lg font-bold text-white">সেরা ক্লাস কিউরেশন</h3><p class="text-sm mt-0.5 text-gray-400">অধ্যায়ভিত্তিকভাবে মানসম্মত ক্লাস ও গাইডলাইন সাজানো থাকে।</p></div><svg class="w-4 h-4 transition-all duration-200 shrink-0 group-hover:translate-x-1 text-[#e11438]/40 group-hover:text-[#ff3b61]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div><div class="group flex items-center gap-6 p-6 sm:p-8 transition-colors duration-200 border-b last:border-0 bg-[#120407] hover:bg-[#1f050c] border-[#e11438]/15"><span class="text-[10px] font-black shrink-0 w-8 tabular-nums text-[#ff3b61]/60">02</span><div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 bg-[#28050e] border border-[#e11438]/30 text-[#ff3b61]"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><div class="flex-1 min-w-0"><h3 class="text-base sm:text-lg font-bold text-white">সিনিয়র মেন্টরশিপ</h3><p class="text-sm mt-0.5 text-gray-400">বুয়েট, মেডিকেল ও টপ পাবলিক বিশ্ববিদ্যালয়ের সিনিয়রদের টিপস ও সাজেশন।</p></div><svg class="w-4 h-4 transition-all duration-200 shrink-0 group-hover:translate-x-1 text-[#e11438]/40 group-hover:text-[#ff3b61]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div><div class="group flex items-center gap-6 p-6 sm:p-8 transition-colors duration-200 border-b last:border-0 bg-[#120407] hover:bg-[#1f050c] border-[#e11438]/15"><span class="text-[10px] font-black shrink-0 w-8 tabular-nums text-[#ff3b61]/60">03</span><div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 bg-[#28050e] border border-[#e11438]/30 text-[#ff3b61]"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><div class="flex-1 min-w-0"><h3 class="text-base sm:text-lg font-bold text-white">অ্যানিমেটেড ভিডিও কোর্স</h3><p class="text-sm mt-0.5 text-gray-400">কঠিন টপিকগুলো ভিজ্যুয়ালি সহজ করে শেখার সুযোগ।</p></div><svg class="w-4 h-4 transition-all duration-200 shrink-0 group-hover:translate-x-1 text-[#e11438]/40 group-hover:text-[#ff3b61]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div><div class="group flex items-center gap-6 p-6 sm:p-8 transition-colors duration-200 border-b last:border-0 bg-[#120407] hover:bg-[#1f050c] border-[#e11438]/15"><span class="text-[10px] font-black shrink-0 w-8 tabular-nums text-[#ff3b61]/60">04</span><div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 bg-[#28050e] border border-[#e11438]/30 text-[#ff3b61]"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><div class="flex-1 min-w-0"><h3 class="text-base sm:text-lg font-bold text-white">ডিজিটাল লার্নিং ম্যাটেরিয়াল</h3><p class="text-sm mt-0.5 text-gray-400">ইন্টারঅ্যাকটিভ বই ও সহায়ক ম্যাটেরিয়াল দিয়ে স্মার্ট প্রস্তুতি।</p></div><svg class="w-4 h-4 transition-all duration-200 shrink-0 group-hover:translate-x-1 text-[#e11438]/40 group-hover:text-[#ff3b61]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div></div></section><section class="py-24 transition-colors duration-300 "><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14"><div class="zc-band relative overflow-hidden rounded-2xl"><div class="px-6 py-7 md:px-8 md:py-9 flex-col text-center justify-center relative z-10 flex flex-wrap items-center gap-3"><div class="min-w-0"><span class="block text-[11px] font-bold uppercase tracking-[0.22em] mb-2 text-[#ff6b8b]">সামাজিক মাধ্যমে পাওয়া রিভিউ</span><h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">শিক্ষার্থীদের রিভিউ</h2></div></div></div></div><div class="ti-outer-mask"><div class="testimonial-img-track flex gap-5 py-4"><div class="flex-shrink-0 w-52 sm:w-60"><div class="rounded-2xl overflow-hidden ti-card-tilt shadow-[0_6px_24px_rgba(0,0,0,0.5)] border border-[#e11438]/25 bg-[#120407]"><img alt="Student Review" class="w-full h-auto object-cover" loading="lazy" src="https://assets.codervai.com/testimonial-images/1781465623292-cropped-image.webp"></div></div><div class="flex-shrink-0 w-52 sm:w-60"><div class="rounded-2xl overflow-hidden ti-card-tilt shadow-[0_6px_24px_rgba(0,0,0,0.5)] border border-[#e11438]/25 bg-[#120407]"><img alt="Student Review" class="w-full h-auto object-cover" loading="lazy" src="https://assets.codervai.com/testimonial-images/1781465623292-cropped-image.webp"></div></div><div class="flex-shrink-0 w-52 sm:w-60"><div class="rounded-2xl overflow-hidden ti-card-tilt shadow-[0_6px_24px_rgba(0,0,0,0.5)] border border-[#e11438]/25 bg-[#120407]"><img alt="Student Review" class="w-full h-auto object-cover" loading="lazy" src="https://assets.codervai.com/testimonial-images/1781465623292-cropped-image.webp"></div></div><div class="flex-shrink-0 w-52 sm:w-60"><div class="rounded-2xl overflow-hidden ti-card-tilt shadow-[0_6px_24px_rgba(0,0,0,0.5)] border border-[#e11438]/25 bg-[#120407]"><img alt="Student Review" class="w-full h-auto object-cover" loading="lazy" src="https://assets.codervai.com/testimonial-images/1781465623292-cropped-image.webp"></div></div></div></div></section><section id="contact-section" class="py-24 border-t transition-colors duration-300 relative overflow-hidden bg-gradient-to-b from-[#0a0204] via-[#120306] to-[#0a0204] border-[#e11438]/20 text-white"><div class="grain-overlay absolute inset-0 pointer-events-none opacity-30"></div><div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"><div class="space-y-6"><h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-white">আমাদের সাথে যোগাযোগ করো</h2><p class="text-sm md:text-base leading-relaxed text-gray-300">যেকোনো কোর্স এনরোলমেন্ট বা একাডেমিক সহায়তায় আমাদের ফেসবুক পেজ এবং স্টাডি কমিউনিটিতে যুক্ত থাকুন।</p></div><div class="flex flex-col gap-4"><a href="https://facebook.com" target="_blank" rel="noreferrer" class="group flex items-center justify-between gap-4 px-6 py-5 text-white rounded-2xl transition-all duration-200 relative overflow-hidden bg-gradient-to-r from-[#e11438] to-[#9b0e27] shadow-[0_8px_30px_rgba(225,20,56,0.35)] hover:brightness-110"><div class="flex items-center gap-4"><div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></div><div><p class="font-bold text-sm text-white">পেজে মেসেজ করো</p><p class="text-xs text-white/80 mt-0.5">Reach out on our page</p></div></div><svg class="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg><span class="btn-shine"></span></a><a href="https://www.facebook.com" target="_blank" rel="noreferrer" class="group flex items-center justify-between gap-4 px-6 py-5 rounded-2xl transition-all duration-200 border border-[#e11438]/30 bg-[#140307]/80 hover:bg-[#1f050d] hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.4)] text-white"><div class="flex items-center gap-4"><div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border bg-[#28050e] border-[#e11438]/30 text-[#ff3b61]"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><div><p class="font-bold text-sm text-white">আমাদের কমিউনিটি তে যুক্ত হও</p><p class="text-xs mt-0.5 text-gray-400">Connect with other learners</p></div></div><svg class="w-4 h-4 group-hover:translate-x-1 transition-all duration-200 shrink-0 text-[#e11438]/60 group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div></div></div></section></main><footer class="zc-dots-light text-white transition-colors duration-300 bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] border-t border-[#e11438]/25"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14"><div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20"><div class="flex flex-col justify-between gap-8"><div><div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6 bg-[#140307] border border-[#e11438]/30 shadow-[0_4px_20px_rgba(0,0,0,0.5)]"><img alt="EDU HUNTERS" class="h-8 w-auto max-w-32 object-contain" src="/logo.png"><span class="text-base font-black text-[#ff3b61]">EDU HUNTERS</span></div><p class="text-xs max-w-sm leading-relaxed text-gray-300">দেশের সেরা শিক্ষকমন্ডলী ও মেন্টরদের তত্ত্বাবধানে তোমার স্বপ্নের প্রস্তুতি নিশ্চিত করো।</p></div><div class="flex gap-2"><a href="https://facebook.com" target="_blank" rel="noreferrer" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white border border-[#e11438]/30 bg-[#160307] hover:border-[#e11438] hover:bg-[#e11438]/20"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a><a href="https://youtube.com/@eduhunters" target="_blank" rel="noreferrer" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white border border-[#e11438]/30 bg-[#160307] hover:border-[#e11438] hover:bg-[#e11438]/20"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a></div></div><div class="grid grid-cols-2 md:grid-cols-3 gap-8"><div><p class="text-[10px] font-bold uppercase tracking-[0.2em] mb-4 text-[#ff6b8b]">দ্রুত লিঙ্ক</p><ul class="space-y-2 text-xs text-gray-300"><li><button class="hover:text-white bg-transparent border-none p-0 cursor-pointer">সকল কোর্সসমূহ</button></li><li><button class="hover:text-white bg-transparent border-none p-0 cursor-pointer">ফ্রি ও পেইড এক্সাম</button></li><li><button class="hover:text-white bg-transparent border-none p-0 cursor-pointer">বুক ও ম্যাটেরিয়াল স্টোর</button></li><li><button class="hover:text-white bg-transparent border-none p-0 cursor-pointer">আমাদের শিক্ষক পরিচিতি</button></li></ul></div><div class="col-span-1 md:col-span-2"><p class="text-[10px] font-bold uppercase tracking-[0.2em] mb-4 text-[#ff6b8b]">আমাদের ব্যাচ সমূহ</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-300"><span class="hover:text-white cursor-pointer truncate">Mastering Text Book Biology</span><span class="hover:text-white cursor-pointer truncate">Mastering Text Book Chemistry</span><span class="hover:text-white cursor-pointer truncate">Medical Exam Batch</span><span class="hover:text-white cursor-pointer truncate">Ketab Sir MCQ Solve Course</span></div></div></div></div><div class="border-t mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs gap-3 border-[#e11438]/20 text-gray-400"><p>© 2026 Edu Hunters. All rights reserved.</p><div class="flex items-center gap-4"><span>Privacy Policy</span><span>Terms of Use</span><span>Refund Policy</span><button class="transition-colors bg-transparent border-none text-xs cursor-pointer text-white/30 hover:text-[#ff3b61]" title="গোপন এডমিন প্যানেল প্রবেশদ্বার">এডমিন প্যানেল</button></div></div></div></footer></div></div>
+    <script type="module" src="/src/main.jsx?t=1791016959481"></script>
+  
+
+</body></html>

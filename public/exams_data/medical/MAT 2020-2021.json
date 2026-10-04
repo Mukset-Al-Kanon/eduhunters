@@ -1,0 +1,1354 @@
+{
+    "exam_id":  "MAT_2020-2021",
+    "title":  "Medical Admission Test (2020-2021)",
+    "category":  "Medical Admission Test (11 Years MAT)",
+    "duration_minutes":  60,
+    "total_questions":  96,
+    "negative_mark":  25,
+    "questions":  [
+                      {
+                          "question_no":  1,
+                          "id":  "MAT_2020_2021_BN_Q001",
+                          "question":  "নিচের কোন অক্সাইড পানিতে মিশালে সবচেয়ে বেশি অম্লীয় দ্রবণ তৈরি করে?",
+                          "options":  [
+                                          "P2O5",
+                                          "CO",
+                                          "CO2",
+                                          "SiO2"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "CO,SiO2,P2O5 এবং CO2 অক্সাইড সমূহের কেন্দ্রীয় পরমাণুর জারণ সংখ্যা যথাক্রমে +2,+4,+5 এবং +4 । P2O5 অক্সাইডটির কেন্দ্রীয় পরমাণুর জারণ সংখ্যা সবেচেয়ে বেশি হওয়ায় পানিতে মিশালে এটি সবেচেয়ে বেশি অম্লীয় দ্রবণ তৈরি করে।"
+                      },
+                      {
+                          "question_no":  2,
+                          "id":  "MAT_2020_2021_BN_Q002",
+                          "question":  "শিশিরাঙ্ক বলতে কী বুঝায়?",
+                          "options":  [
+                                          "তাপ",
+                                          "আপেক্ষিক আর্দ্রতা",
+                                          "তাপমাত্রা",
+                                          "আর্দ্রতা"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "যে তাপমাত্রায় শিশির জমতে বা অদৃশ্য হতে শুরু করে তাকে শিশিরাঙ্ক বলে।"
+                      },
+                      {
+                          "question_no":  3,
+                          "id":  "MAT_2020_2021_BN_Q003",
+                          "question":  "Which one of the following is antonym of \u0027Laud\u0027?",
+                          "options":  [
+                                          "Adore",
+                                          "Latch",
+                                          "Abhor",
+                                          "Inept"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Laud- প্রশংসা, Adore-উপাসনা করা; Inept-অদক্ষ; Latch-দরজার ছিটকিনি; Abhor-ঘৃণার চোখে দেখা। তাই এর Laud যথোপযুক্ত antonym হবে Abhor."
+                      },
+                      {
+                          "question_no":  4,
+                          "id":  "MAT_2020_2021_BN_Q004",
+                          "question":  "মুক্তিযুদ্ধের সময় ১০ নং সেক্টর কোনটা ছিল?",
+                          "options":  [
+                                          "রংপুর-ঠাকুরগাঁও",
+                                          "বরিশাল-পটুয়াখালী",
+                                          "নৌ-কমান্ডো",
+                                          "টাঙ্গাইল-ময়মনসিংহ"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  5,
+                          "id":  "MAT_2020_2021_BN_Q005",
+                          "question":  "ধুলা মেঘে (dust cloud) কত শতাংশ হাইড্রোজেন থাকে?",
+                          "options":  [
+                                          "70%",
+                                          "65%",
+                                          "60%",
+                                          "75%"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "ধুলিমেঘে প্রায় 75% হাইড্রোজেন, 24% হিলিয়াম এবং কার্বন, নাইট্রোজেন, অক্সিজেনসহ অন্যান্য গ্যাস 1% থাকে।"
+                      },
+                      {
+                          "question_no":  6,
+                          "id":  "MAT_2020_2021_BN_Q006",
+                          "question":  "সমবায় বন্ধনে (covalent bond) ইলেকট্রনগুলির জন্য নিচের কোন উপাদানটির সবাির্ধক আকর্ষণ আছে?",
+                          "options":  [
+                                          "As",
+                                          "Br",
+                                          "Ge",
+                                          "Se"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Ge,Se,Br এবং As এর তড়িৎ ঋনাত্মকের মান যথাক্রমে 1.8,2.4,2.8 এবং 2.0 । অতএব, তড়িৎ ঋনাত্মকতার মান বেশি হওয়ায় Br এর ক্ষেত্রে সমবায় বন্ধনে ইলেকট্রনগুলোর জন্য সবাির্ধক আকর্ষণ রয়েছে।"
+                      },
+                      {
+                          "question_no":  7,
+                          "id":  "MAT_2020_2021_BN_Q007",
+                          "question":  "একটি বস্তুর ভর পৃথিবীতে 75 কেজি। চাঁদে বস্তুটির ভর কী হবে?",
+                          "options":  [
+                                          "75 kg",
+                                          "14 kg",
+                                          "70 kg",
+                                          "280 kg"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "বস্তুর ভর সর্বত্র একই থাকে। তাই পৃথিবীতে ও চাঁদে কোনো বস্তুর ভর একই হবে।"
+                      },
+                      {
+                          "question_no":  8,
+                          "id":  "MAT_2020_2021_BN_Q008",
+                          "question":  "স্বাধীনতার পর মুক্তিযুদ্ধের প্রথম স্থাপত্য কোনটি?",
+                          "options":  [
+                                          "মোদের গরব",
+                                          "জাগ্রত চৌরঙ্গী",
+                                          "অপরাজেয় বাংলা",
+                                          "শাবাশ বাংলাদেশ"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "জাগ্রত চৌরঙ্গী ভাস্কর্যটি গাজীপুর জেলার জয়দেবপুর চৌরাস্তায় অবস্থিত। ১৯৭৩ সালে ভাস্কর আব্দুর রাজ্জাক এটি নির্মাণ করেন।"
+                      },
+                      {
+                          "question_no":  9,
+                          "id":  "MAT_2020_2021_BN_Q009",
+                          "question":  "নিচের কোন পরমাণুর d অরবিটালে ইলেকট্রন আছে?",
+                          "options":  [
+                                          "Sc",
+                                          "Ar",
+                                          "K",
+                                          "Ca"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "যেসব মৌলের সর্বশেষ ইলেকট্রন d- অরবিটালে প্রবেশ করে তাদের d-ব্লক মৌল বলে। Sc d ব্লক মৌল হওয়ায় এর d- অরবিটালে ইলেকট্রন আছে। Sc → 1s²2s²2p⁶3s²3p⁶3d¹4s² উল্লিখিত অন্যান্য মৌলসমূহের ইলেকট্রন বিন্যাস নিম্নরূপ- Ca → 1s²2s²2p⁶3s²3p⁶4s² Ar → 1s²2s²2p⁶3s²3p⁶ K → 1s²2s²2p⁶3s²3p⁶4s¹"
+                      },
+                      {
+                          "question_no":  10,
+                          "id":  "MAT_2020_2021_BN_Q010",
+                          "question":  "উদ্ভিদ দ্বারা কোন টি সবচেয়ে দ্রুত শোষিত হয়?",
+                          "options":  [
+                                          "OH⁻",
+                                          "SO42-",
+                                          "HCO3-",
+                                          "NO3-"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "সবচেয়ে ধীরগতিতে শোষিত: → Ca²⁺ ও SO42- এবং সবচেয়ে দ্রুত গতিতে শোষিত: → K⁺ ও NO3-"
+                      },
+                      {
+                          "question_no":  11,
+                          "id":  "MAT_2020_2021_BN_Q011",
+                          "question":  "নেমাটোসিস্টের (Nematocyst) ভিতরের বিষাক্ত তরল পর্দাথের নাম কী?",
+                          "options":  [
+                                          "Hemozoin",
+                                          "Toxin",
+                                          "Hemocyanin",
+                                          "Hypnotoxin"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "নেমাটোসিস্টের ভেতর হিপনোটক্সিন (Hypnotoxin) নামক বিষাক্ত তরল থাকে যা প্রোটিন ও ফেনল দ্বারা গঠিত।"
+                      },
+                      {
+                          "question_no":  12,
+                          "id":  "MAT_2020_2021_BN_Q012",
+                          "question":  "Golgi complex কোনটি সংশ্লেষ (synthesis) করে না?",
+                          "options":  [
+                                          "Ribosome",
+                                          "Enzyme",
+                                          "Lysosome",
+                                          "Sperm"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Golgi complex থেকে যা যা তৈরি বা সংশ্লেষিত (synthesis) হয়:লাইসোসোম ও ভিটামিনঅ-প্রোটিন জাতীয় পর্দাথ প্রোটিন, হেমিসেলুলোজ, মাইক্রোফাইব্রিল কোষপ্লেট শুক্রাণু (Sperm) এর অ্যাক্রোসোম এনজাইম ও হরমোন/প্রাণরস ক্ষরণ।"
+                      },
+                      {
+                          "question_no":  13,
+                          "id":  "MAT_2020_2021_BN_Q013",
+                          "question":  "একমাত্র বিদেশি যিনি মুক্তিযোদ্ধাদের সাহায্য করার জন্য বীরপ্রতীক উপাধি পেয়েছেন-",
+                          "options":  [
+                                          "রবিশংকর",
+                                          "আন্দ্রে মালরো",
+                                          "ডেভিড নালিন",
+                                          "উইলিয়াম ওডারল্যান্ড"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "তার জন্ম-আমস্টারডাম, নেদারল্যান্ড; আর নাগরিকত্ব অস্ট্রেলিয়ার। বিদেশি হয়েও বাংলাদেশের মুক্তিযুদ্ধে প্রত্যক্ষভাবে অংশগ্রহণ করেছিলেন। মুক্তিযুদ্ধে রাষ্ট্রীয় খেতাব প্রাপ্ত একমাত্র বীরপ্রতীক উইলিয়াম ওডারল্যান্ড। মুক্তিযুদ্ধকালে তিনি বাটা কোম্পানিতে চাকরি করতেন। তিনি ২ নয় সেক্টরে যুদ্ধ করেছেন।"
+                      },
+                      {
+                          "question_no":  14,
+                          "id":  "MAT_2020_2021_BN_Q014",
+                          "question":  "দুটি পরমাণুর মধ্যে সমান সংখ্যাক ইলেকট্রন দিয়ে কী বন্ধন গঠিত হয়?",
+                          "options":  [
+                                          "Metallic bond",
+                                          "Covalent bond",
+                                          "Hydrogen bond",
+                                          "Ionic bond"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "দুটি একই বা ভিন্ন মৌলের পরমাণুর মধ্যে রাসায়নিক সংযোগের সময় দুটি পরমাণু নিজেদের মধ্যে জোড়ায় জোড়ায় ইলেকট্রন শেয়ারের মাধ্যমে সমযোজী বা Covalent bond গঠিত হয়।"
+                      },
+                      {
+                          "question_no":  15,
+                          "id":  "MAT_2020_2021_BN_Q015",
+                          "question":  "Masculine gender for \u0027bee\u0027 is-",
+                          "options":  [
+                                          "Drone",
+                                          "Drake",
+                                          "Dam",
+                                          "Doe"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Bee (স্ত্রী মৌমাছি) এর সঠিক masculine gender হলো Drone (পুরুষ মৌমাছি)। Option এর বাকি শব্দগুলোর অর্থ - Drake (পাতিহাঁস), Dam (ভেড়ি), Doe (হরিণী)"
+                      },
+                      {
+                          "question_no":  16,
+                          "id":  "MAT_2020_2021_BN_Q016",
+                          "question":  "আলোর দ্রুতিতে চলমান কোন কণার (particle) ভর কত?",
+                          "options":  [
+                                          "অর্ধেক",
+                                          "অসীম",
+                                          "শূন্য",
+                                          "দ্বিগুণ"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "কোনো বস্তুর বেগ আলোর বেগের সমান হলে অর্থাৎ v = c হলে, m = (m0 / √(1-(c² / c²)) = (m0 / √(1-1) = (m0 / 0) = ∞"
+                      },
+                      {
+                          "question_no":  17,
+                          "id":  "MAT_2020_2021_BN_Q017",
+                          "question":  "10 কেজি বস্তু (object) যদি 12ms⁻¹ এ চলে, তবে এর গতিবেগ (momentum) হবে-",
+                          "options":  [
+                                          "10kgms⁻¹",
+                                          "12kgms⁻¹",
+                                          "120kgms⁻¹",
+                                          "1.2kgms⁻¹"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "ভরবেগ, p = m × v = (10 × 12)kgms⁻¹ = 120kgms⁻¹."
+                      },
+                      {
+                          "question_no":  18,
+                          "id":  "MAT_2020_2021_BN_Q018",
+                          "question":  "নিচের কোন আয়নটির আকার সবচেয়ে ছোট?",
+                          "options":  [
+                                          "Na⁺",
+                                          "Mg²⁺",
+                                          "Be²⁺",
+                                          "Ca²⁺"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Be- ২য় পর্যায়, Na,গম- ৩য় পর্যায় এবং Ca- ৪র্থ পযাের্য়র অন্তভুর্ক্ত। Be ২য় পযাের্য়র অন্তভুর্ক্ত হওয়ায় এতে মাত্র ২টি শক্তিস্তর বিদ্যমান। তাই Be আকারে সবেচেয়ে ছোট।"
+                      },
+                      {
+                          "question_no":  19,
+                          "id":  "MAT_2020_2021_BN_Q019",
+                          "question":  "নিচের কোনটি কম বিক্রিয়াশীল ধাতু?",
+                          "options":  [
+                                          "Chromium",
+                                          "Gold",
+                                          "Platinum",
+                                          "Silver"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Chromium, Silver, Platinum এবং Gold এর সক্রিয়তার ক্রম হলো Cr\u003eAg\u003ePt\u003eAu . সুতরাং Gold সবচেয়ে কম বিক্রিয়াশীল।"
+                      },
+                      {
+                          "question_no":  20,
+                          "id":  "MAT_2020_2021_BN_Q020",
+                          "question":  "কোন রশ্মির সবাির্ধক অনুপ্রবেশ ক্ষমতা রয়েছে?",
+                          "options":  [
+                                          "Gamma",
+                                          "Beta",
+                                          "X-ray",
+                                          "Alpha"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "ভেদন ক্ষমতার ক্রম: γ রশ্মি \u003eβ রশ্মি \u003eα রশ্মি।"
+                      },
+                      {
+                          "question_no":  21,
+                          "id":  "MAT_2020_2021_BN_Q021",
+                          "question":  "নিউট্রন তারকা সংকুচিত হয়ে কী হয়?",
+                          "options":  [
+                                          "কৃষ্ণ গহ্বর",
+                                          "শ্বেতবামন",
+                                          "রক্তিম দৈত্য",
+                                          "সুপারনোভা"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "নক্ষত্রের পরিণতি: লাল দানব তারা → সূর্য → সাদা বামন তারা → নিউট্রন তারা → কৃষ্ণ গহ্বর।"
+                      },
+                      {
+                          "question_no":  22,
+                          "id":  "MAT_2020_2021_BN_Q022",
+                          "question":  "Fill up the blank with appropriate word. I am glad _______ your glorious result in the examination.",
+                          "options":  [
+                                          "at",
+                                          "of",
+                                          "to",
+                                          "for"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "\u0027Glad at\u0027 আনন্দিত। \u0027At\u0027 বসিয়ে বাক্যটির অর্থ: পরীক্ষায় তোমার গৌরবময় সাফল্যে আমি আনন্দিত।"
+                      },
+                      {
+                          "question_no":  23,
+                          "id":  "MAT_2020_2021_BN_Q023",
+                          "question":  "বল (force) এবং স্থানচ্যূতকরণের মধ্যের কোণটি যদি 0∘ হয়, তবে কাজের পরিমাণ হবে-",
+                          "options":  [
+                                          "শূন্য",
+                                          "অসীমতা",
+                                          "ন্যূনতম",
+                                          "সবোর্চ্চ"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "বল ও সরণের মধ্যবর্তী কোণ 0∘ হলে কাজ সবোর্চ্চ হয় এবং 90∘ হলে সর্বনিম্ন হয়।"
+                      },
+                      {
+                          "question_no":  24,
+                          "id":  "MAT_2020_2021_BN_Q024",
+                          "question":  "নিচের কোনটি পারমাণবিক ব্যাসের নিকটতম?",
+                          "options":  [
+                                          "1 × 10⁻⁵cm",
+                                          "1 × 10⁻¹⁰cm",
+                                          "1 × 10⁻¹³cm",
+                                          "1 × 10⁻⁸cm"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "হাইড্রোজেন পরমাণুর পারমাণবিক ব্যাস 1 × 10⁻⁸cm বা 1 × 10⁻¹⁰m । অর্থাৎ অপশন (d) 1 × 10⁻⁸cm পারমাণবিক ব্যাসের নিকটতম।"
+                      },
+                      {
+                          "question_no":  25,
+                          "id":  "MAT_2020_2021_BN_Q025",
+                          "question":  "Synonym of \u0027unwavering\u0027 is-",
+                          "options":  [
+                                          "Ensure",
+                                          "Steady",
+                                          "Unreliable",
+                                          "Urgent"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Unwavering (অটল) এর সঠিক synonym হচ্ছে Steady (অটল), অপশন এর বাকি শব্দগুলোর অর্থ: Unreliable - অবিশ্বস্ত; Urgent - জরুরী; Ensure - নিশ্চিত করা।"
+                      },
+                      {
+                          "question_no":  26,
+                          "id":  "MAT_2020_2021_BN_Q026",
+                          "question":  "কোন পদ্ধতিতে Hydra লম্বা দূরত্ব অতিক্রম করে?",
+                          "options":  [
+                                          "সাঁতার (swimming)",
+                                          "হামাগুড়ি (looping)",
+                                          "গ্লাইডিং (gliding)",
+                                          "ডিগবাজি (somersaulting)"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ডিগবাজি (Somersaulting): এটি Hydra এর সাধারণ ও দ্রুত চলন প্রক্রিয়া। হামাগুড়ি (Looping): এটি জোঁকা চলন বা শুঁয়াপোকা চলন নামে পরিচিত। এ পদ্ধতিতে হাইড্রা লম্বা দূরত্ব অতিক্রম করে। (মনে রাখো: ল তে লুপিং, ল তে লম্বা দূরত্ব!)"
+                      },
+                      {
+                          "question_no":  27,
+                          "id":  "MAT_2020_2021_BN_Q027",
+                          "question":  "গ্রোথ হরমোন কোথায় তৈরি হয়?",
+                          "options":  [
+                                          "Pituitary gland",
+                                          "Adrenal gland",
+                                          "Thalamus",
+                                          "Hypothalamus"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "অগ্র পিটুইটারি গ্রন্থি থেকে বৃদ্ধিপোষক হরমোন (STH) বা Growth hormone তৈরি ও নিঃসৃত হয়। অগ্র পিটুইটারি গ্রন্থি থেকে আর যে সব হরমোন সিঃসৃত হয়-Prolactin, LH, ACTH, TSH, FSH."
+                      },
+                      {
+                          "question_no":  28,
+                          "id":  "MAT_2020_2021_BN_Q028",
+                          "question":  "মানবদেহের রক্তে কোন বাফার দ্রবণ (buffer solution) থাকে?",
+                          "options":  [
+                                          "NH4ClandNH4OH",
+                                          "CH3COONaandCH3COOH",
+                                          "NaHCO3andH2CO3",
+                                          "Na2HPO4andH3PO4"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "মানবদেহের রক্তে তিন ধরনের বাফার সিস্টেম থাকে। যথা-বাইকাবোের্নট বাফার, ফসফেট বাফার ও প্রোটিন বাফার। হিমোগ্লোবিন উৎকৃষ্ট বাফাররূপে রক্তের \u0027বাইকার্বনেট-কার্বনিক এসিড বাফার\u0027 এর সামান্য (2%) নিয়ন্ত্রণ করে। ফসফেট বাফার সিস্টেম হলো আন্তঃকোষীয় বাফার। আর, প্রোটিন বাফার সিস্টেমটি প্লাজমা প্রোটিন সমন্বয়ে গঠিত।"
+                      },
+                      {
+                          "question_no":  29,
+                          "id":  "MAT_2020_2021_BN_Q029",
+                          "question":  "\u0027সাভার জাতীয় স্মৃতিসৌধ\u0027 - এর স্থপতি কে?",
+                          "options":  [
+                                          "সৈয়দ মইনুল হোসেন",
+                                          "মাজহারুল ইসলাম",
+                                          "আব্দুর রাজ্জাক",
+                                          "মৃণাল হক"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "সাভার জাতীয় স্মৃতিসৌধ এর উচ্চতা ১৫০ ফুট এবং ফলক সংখ্যা ৭টি ১৯৭২ সালের ডিসেম্বর প্রথম বিজয় দিবসে জাতির জনক বঙ্গবন্ধু শেখ মুজিবুর রহমান এর ভিত্তি প্রস্তর স্থাপন করেন। ১৯৮২ সালের আগস্ট মাসে সৌধের নির্মাণ কাজ শেষ হয়। এর মূল কাঠামোর নকশা তৈরি করেন স্থপতি সৈয়দ মইনুল হোসেন।"
+                      },
+                      {
+                          "question_no":  30,
+                          "id":  "MAT_2020_2021_BN_Q030",
+                          "question":  "প্রতিক্রিয়ার অ্যাক্টিভেশন শক্তি নির্ধারণে কোনটি কার্যত সহায়ক হবে?",
+                          "options":  [
+                                          "Collision rate",
+                                          "Concentration of reactant",
+                                          "Nature of reactant",
+                                          "Temperature"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "বিজ্ঞানী এস. অ্যারহেনিয়ার সর্বপ্রথম বিক্রিয়ার হারের ওপর তাপমাত্রার প্রভাব অনুধাবন করেন। তার মতবাদ অনুসারে, তাপমাত্রা বৃদ্ধিতে বিক্রিয়কের অণসমূহের মধ্যে পারস্পরিক আণবিক সংঘর্ষ (Collision rate) বৃদ্ধি পায় এবং ফলশ্রুতিতে বিক্রিয়ার সক্রিয়ণ শক্তি (Activation energy)- ও বৃদ্ধি পায়। তাই (d) Collision rate এর চেয়ে (c) Temperature উত্তর করা অধিক সঠিক।"
+                      },
+                      {
+                          "question_no":  31,
+                          "id":  "MAT_2020_2021_BN_Q031",
+                          "question":  "কোনটি Exocrine গ্রন্থি নয়?",
+                          "options":  [
+                                          "Thyroid gland",
+                                          "Salivary gland",
+                                          "Liver",
+                                          "Pancreas"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Thyroid gland থেকে শুধুমাত্র হরমোন ( T 3 , T 4 \u0026 C a l c i t o n i n ) নিঃসৃত হয়। তাই এটি Endocrine gland বা অন্তঃক্ষরা গ্রন্থি।"
+                      },
+                      {
+                          "question_no":  32,
+                          "id":  "MAT_2020_2021_BN_Q032",
+                          "question":  "নিচের কোন দ্রবণের pH সবাির্ধক?",
+                          "options":  [
+                                          "0.01MHCl",
+                                          "0.01MH2SO4",
+                                          "0.01MHNO3",
+                                          "0.01MH2CO3"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "ঘনামাত্রা একই সবচেয়ে দুর্বল এসিডটির pH মান সবাির্ধক হবে। HCl,HNO3,H2SO4 এবং H2CO3 এসিড গুলোর মধ্যে H2CO3 সবচেয়ে দুর্বল। সুতরাং H2CO3 এর pH মান সবাির্ধক।"
+                      },
+                      {
+                          "question_no":  33,
+                          "id":  "MAT_2020_2021_BN_Q033",
+                          "question":  "দুধের নিচের কোন disaccharide টি থাকে?",
+                          "options":  [
+                                          "Sucrose",
+                                          "Cellulose",
+                                          "Maltose",
+                                          "Lactose"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "দুধে অ্যাকটোজ বা দুগ্ধচিনি নামক ডাইস্যাকরাইড থাকে যা ভাঙলে ১ অণু গ্লুকোজ ও ১ অণু গ্যালাকটোজ নামক মনোস্যাকারাইডস পাওয়া যায়। মায়ের দূধে 7.1% এবং গাভীর দুধে 4.8% ল্যকাটোজ থাকে।"
+                      },
+                      {
+                          "question_no":  34,
+                          "id":  "MAT_2020_2021_BN_Q034",
+                          "question":  "কোনটি attenuated টিকা?",
+                          "options":  [
+                                          "BCG vaccine",
+                                          "Diphtheria vaccine",
+                                          "Hepatitis B vaccine",
+                                          "Tetanus vaccine"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Vaccine → Type;Diphtheria → টক্সোয়ড (Toxoid);BCG → শক্তি হ্রাস (Attenuated);Hepatitis → উপএকক (Sub-unit);Tetanus → টক্সোয়ড (Toxoid)"
+                      },
+                      {
+                          "question_no":  35,
+                          "id":  "MAT_2020_2021_BN_Q035",
+                          "question":  "কোন উপাদান কয়লার জন্য সবচেয়ে ক্ষতিকারক?",
+                          "options":  [
+                                          "Carbon",
+                                          "Nitrogen",
+                                          "Sulphur",
+                                          "Silicon"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "সালফার দহনকালে বায়ুদূষক spelling SO2 গ্যাস উৎপন্ন হয়, তাই কয়লাতে সালফারের পরিমাণ কম (0.5–1.0%) হওয়া ভালো।"
+                      },
+                      {
+                          "question_no":  36,
+                          "id":  "MAT_2020_2021_BN_Q036",
+                          "question":  "500 ml 0.5 M NaOH দ্রবণ থেকে কত ml 0.1 M NaOH দ্রবণ প্রস্তুত করা যায়?",
+                          "options":  [
+                                          "2500 ml",
+                                          "2000 ml",
+                                          "1350 ml",
+                                          "5000 ml"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "V1S1 = V2S2∴V2 = (500 × 0.5 / 0.1)ml = 2500ml."
+                      },
+                      {
+                          "question_no":  37,
+                          "id":  "MAT_2020_2021_BN_Q037",
+                          "question":  "বাংলাদেশে কবে প্রথম জাতীয় সংসদ নির্বাচন অনুষ্ঠিত হয়?",
+                          "options":  [
+                                          "৭ মার্চ, ১৯৭৩",
+                                          "৬ এপ্রিল, ১৯৭৩",
+                                          "২৮ ফেব্রুয়ারি, ১৯৭৩",
+                                          "১৯ এপ্রিল, ১৯৭৩"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "জাতীয় সংসদের প্রথম অধিবেশন বসে ৭ এপ্রিল, ১৯৭৩ সালে। আর, প্রথম গণভোট অনুষ্ঠিত হয় ৩০ মে, ১৯৭৭ সালে।"
+                      },
+                      {
+                          "question_no":  38,
+                          "id":  "MAT_2020_2021_BN_Q038",
+                          "question":  "প্রাণিজগতের বৃহত্তম Phylum কোনটি?",
+                          "options":  [
+                                          "Porifera",
+                                          "Arthropoda",
+                                          "Mollusca",
+                                          "Annelida"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "প্রাণিজগতের বৃহত্তম পর্ব Arthropoda। আর দ্বিতীয় বৃহত্তম পর্ব হলো Mollusca।"
+                      },
+                      {
+                          "question_no":  39,
+                          "id":  "MAT_2020_2021_BN_Q039",
+                          "question":  "মানুষের সোমটিক কোষে কয়টি অটোসোম থাকে?",
+                          "options":  [
+                                          "46",
+                                          "44",
+                                          "22",
+                                          "23"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "মানুষের কোষ → অটোসোম সংখ্যা → সেক্স ক্রোমোসোম সংখ্যা;সোমাটিক কোষ → 44 → 2; জনন কোষ → 22 → 1"
+                      },
+                      {
+                          "question_no":  40,
+                          "id":  "MAT_2020_2021_BN_Q040",
+                          "question":  "Fill up the blank with the appropriate option: \"______ the word in the dictionary\".",
+                          "options":  [
+                                          "look to",
+                                          "look over",
+                                          "look after",
+                                          "look up"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Look over- পরীক্ষা করা, look after- দেখাশুনা করা, look to- মনোযোগ দেওয়া এবং look up- খোঁজা। তাই প্রশ্নোক্ত শূন্যস্থানের জন্য সঠিক expression হলো \"Look up the word in the dictionary\" যার অর্থ অভিধানে শব্দটি খুঁজে বের করো।"
+                      },
+                      {
+                          "question_no":  41,
+                          "id":  "MAT_2020_2021_BN_Q041",
+                          "question":  "Antonym of \u0027bizarre\u0027 is-",
+                          "options":  [
+                                          "Messy",
+                                          "Normal",
+                                          "Horrible",
+                                          "Flexible"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Bizarre (উদ্ভট)-এর সঠিক antonym হচ্ছে Normal (স্বাভাবিক), বাকিগুলোর অর্থ: Flexible নমনীয়; Horrible -ভয়ঙ্কর; Messy -নোংরা।"
+                      },
+                      {
+                          "question_no":  42,
+                          "id":  "MAT_2020_2021_BN_Q042",
+                          "question":  "Choose the correct words to fill up the blank of the sentence \"I have not heard from him ______\".",
+                          "options":  [
+                                          "since long",
+                                          "for long",
+                                          "long since",
+                                          "for a long time"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  43,
+                          "id":  "MAT_2020_2021_BN_Q043",
+                          "question":  "পদ্মা সেতুর দৈর্ঘ্য কত?",
+                          "options":  [
+                                          "6.15 কিলোমিটার",
+                                          "6.00 কিলোমিটার",
+                                          "6.40 কিলোমিটার",
+                                          "5.95 কিলোমিটার"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "পদ্মা সেতু সংক্রান্ত গুরুত্বপূর্ণ তথ্য: দৈর্ঘ্য - 6.15 কিলোমিটার;প্রস্থ - 16.10 মিটার;উচ্চতা - 13.6 মিটার;পিলার - 42 টি, স্প্যান সংখ্যা - 41 টি;সংযোগ সড়ক - দুই প্রান্তে 14 কিলোমিটার।"
+                      },
+                      {
+                          "question_no":  44,
+                          "id":  "MAT_2020_2021_BN_Q044",
+                          "question":  "ছত্রাক কোষ প্রাচীরের প্রধান উপাদান কোনটি?",
+                          "options":  [
+                                          "Chitin",
+                                          "Cellulose",
+                                          "Starch",
+                                          "Glycogen"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "Chitin → ছত্রাকের কোষ প্রাচীরের প্রধান উপাদান; Cellulose → উদ্ভিদের কোষ প্রাচীরের প্রধান উপাদান;Glycogen → প্রাণিকোষের প্রধান সঞ্চিত পলিস্যাকারাইড;Starch → উদ্ভিদকোষের প্রধান সঞ্চিত পলিস্যাকারাইড"
+                      },
+                      {
+                          "question_no":  45,
+                          "id":  "MAT_2020_2021_BN_Q045",
+                          "question":  "Which of the following sentence is the present perfect tense of \"I have just seen Mahia\"?",
+                          "options":  [
+                                          "I see Mahia now",
+                                          "I just saw Mahia",
+                                          "I saw Mahia just now",
+                                          "I have just saw Mahia"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "প্রশ্নটি ত্রুটিপূর্ণ। The given sentence- \"I have just seen Mahia\" is in present perfect tense."
+                      },
+                      {
+                          "question_no":  46,
+                          "id":  "MAT_2020_2021_BN_Q046",
+                          "question":  "একটি \u0027200V- 40 W\u0027 বাল্বের মধ্য দিয়ে কি পরিমাণ তড়িৎ প্রবাহিত হবে?",
+                          "options":  [
+                                          "0.02 A",
+                                          "0.2 A",
+                                          "0.05 A",
+                                          "0.5 A"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "VI = P⇒I = (P / V) = (40 / 200)A = 0.2A"
+                      },
+                      {
+                          "question_no":  47,
+                          "id":  "MAT_2020_2021_BN_Q047",
+                          "question":  "বস্তুর কোন বৈশিষ্ট্যটি পাইরোমিটারে ব্যবহৃত হয়?",
+                          "options":  [
+                                          "দৈর্ঘ্য সম্প্রসারণ বৈশিষ্ট্য",
+                                          "বিকিরণ বৈশিষ্ট্য",
+                                          "বৈদ্যুতিক বৈশিষ্ট্য",
+                                          "অপটিক্যাল বৈশিষ্ট্য"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "বিকিরণ পাইরোমিটারে উত্তপ্ত বস্তুর বিকিরণ ধর্ম কাজে লাগিয়ে 500∘C এর ঊর্ধ্বের তাপমাত্রা পরিমাপ করা হয়। সূর্যের তাপমাত্রা নির্ণয়ে পাইরোমিটার ব্যবহৃত হয়।"
+                      },
+                      {
+                          "question_no":  48,
+                          "id":  "MAT_2020_2021_BN_Q048",
+                          "question":  "100 ডিগ্রি সেলসিয়াসে পানির বাষ্পের চাপ হয়-",
+                          "options":  [
+                                          "1489 mm Hg",
+                                          "760 mm Hg",
+                                          "55 mm Hg",
+                                          "355 mm Hg"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  49,
+                          "id":  "MAT_2020_2021_BN_Q049",
+                          "question":  "ক্ষুদ্রান্ত্রের কোন স্তরে পানপাত্র (Goblet cell) সেল পাওয়া যায়?",
+                          "options":  [
+                                          "Muscularis mucosa",
+                                          "Mucosa",
+                                          "Serosa",
+                                          "Submucosa"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ক্ষুদ্রান্ত্রের মিউকোসাতে গবলেট ও শোষণক্ষম কোষ রয়েছে। এপিথেলিয়াম কোষ দ্বারা গঠিত এ স্তর থেকে ভিলাই নামক আঙ্গুলের মতো অভিক্ষেপ বের হয়।"
+                      },
+                      {
+                          "question_no":  50,
+                          "id":  "MAT_2020_2021_BN_Q050",
+                          "question":  "রক্ত হলো-",
+                          "options":  [
+                                          "শক্তিশালী(strongly) অম্লীয়",
+                                          "নিরপেক্ষ",
+                                          "সামান্য ক্ষারীয়",
+                                          "কিছুটা অম্লীয়"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "রক্ত সামান্য ক্ষারীয় বাফার। এর pH এর মাত্রা 7.4 (7.35-7.45)।"
+                      },
+                      {
+                          "question_no":  51,
+                          "id":  "MAT_2020_2021_BN_Q051",
+                          "question":  "পৃথিবীর ভূত্বকে সবচেয়ে বেশি পরিমাণে বিদ্যামান ধাতুটি হলো-",
+                          "options":  [
+                                          "Cu",
+                                          "Fe",
+                                          "Al",
+                                          "Na"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  52,
+                          "id":  "MAT_2020_2021_BN_Q052",
+                          "question":  "কোন প্রযুক্তিতে ইনসুলিন তৈরি করা হয়?",
+                          "options":  [
+                                          "এক্সপ্লান্ট কালচার (Explant culture)",
+                                          "ন্যানো টেকনোলজি (Nano technology)",
+                                          "টিস্যু কালচার (Tissue culture)",
+                                          "রিকম্বিনেন্ট ডিএনএ টেকনোলজি Recombinant DNA technology)"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "চিকিৎসাক্ষেত্রে রিকম্বিনেন্ট DNA প্রযুক্তির প্রয়োগ: Insulin, Interferon, Tissue Plasminogen Activator (TPA), Erythropoetin, Enzyme ইত্যাদি তৈরি, জিন থেরাপি, গর্ভের শিশুর পরীক্ষা, বায়োফার্মিং, মলিকুলার ফার্মিং প্রভৃতি।"
+                      },
+                      {
+                          "question_no":  53,
+                          "id":  "MAT_2020_2021_BN_Q053",
+                          "question":  "ঘাসফড়িং এর রক্ত কণিকার নাম কী?",
+                          "options":  [
+                                          "Erythrocyte",
+                                          "Thrombocyte",
+                                          "Hemocyte",
+                                          "Leukocyte"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "প্রাণী → রক্তকণিকা;মানুষ → Leukocyte, Erythrocyte,Thrombocyte;রুই মাছ → Leukocyte, Erythrocyte;ঘাসফড়িং → Hemocyte"
+                      },
+                      {
+                          "question_no":  54,
+                          "id":  "MAT_2020_2021_BN_Q054",
+                          "question":  "The correct passive voice of the sentence \u0027Who taught you grammar?\u0027 is:",
+                          "options":  [
+                                          "By whom was you taught grammar?",
+                                          "By whom you taught grammar?",
+                                          "By whom were you taught grammar?",
+                                          "By whom grammar was taught you?"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Who\u0027 যুক্ত Interrogative sentence -কে Passive করার নিয়ম: By whom + auxiliary verb (tense অনুযায়ী) +subject+V3+ ? তাই সঠিক উত্তর হবে- By whom were you taught grammar?"
+                      },
+                      {
+                          "question_no":  55,
+                          "id":  "MAT_2020_2021_BN_Q055",
+                          "question":  "Choose the correct spelling:",
+                          "options":  [
+                                          "Sovreinty",
+                                          "Soverenity",
+                                          "Sovreignty",
+                                          "Sovereignty"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Sovereignty সঠিক spelling; যার অর্থ সার্বভৌমত্ব।"
+                      },
+                      {
+                          "question_no":  56,
+                          "id":  "MAT_2020_2021_BN_Q056",
+                          "question":  "নিচের কোনটিতে কুঁড়ি সৃষ্টি (budding) হয়?",
+                          "options":  [
+                                          "Lemon",
+                                          "Hibiscus rosa-sinensis",
+                                          "Homie",
+                                          "Rose"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Rose (গোলাপ), কুল (বরই) ইত্যাদি উদ্ভিদে কুঁড়ি সংযোজন (Budding)/চোখকলম প্রক্রিয়া লক্ষ্য করা যায়।"
+                      },
+                      {
+                          "question_no":  57,
+                          "id":  "MAT_2020_2021_BN_Q057",
+                          "question":  "Choose the correct sentence:",
+                          "options":  [
+                                          "You must cut off your expenditure",
+                                          "You must cut down your expenditure",
+                                          "You must cut up your expenditure",
+                                          "You must cut out your expenditure"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "Cut down- কমানো; Cut off- মারা যাওয়া; Cut up-মর্মাহত হওয়া; Cut out-বাদ দেওয়া। তাই সঠিক expression হবে-(b) You must cut down your expenditure (তোমাকে অবশ্যই ব্যয় কমাতে হবে)।"
+                      },
+                      {
+                          "question_no":  58,
+                          "id":  "MAT_2020_2021_BN_Q058",
+                          "question":  "লিভারের কোন লোবটি পিত্তথলির সাথে সংযুক্ত থাকে?",
+                          "options":  [
+                                          "Right lobe",
+                                          "Quadrate lobe",
+                                          "Left lobe",
+                                          "Caudate lobe"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "আজমল স্যারের বইয়ের তথ্যনুযায়ী (a) সঠিক উত্তর; অপরদিকে মাজেদা ম্যাডামের বইয়ের তথ্য মতে (b) সঠিক উত্তর।"
+                      },
+                      {
+                          "question_no":  59,
+                          "id":  "MAT_2020_2021_BN_Q059",
+                          "question":  "হাইড্রোকার্বন জ্বালানি এবং কয়লার অসম্পূর্ণ জ্বলন থেকে কোন গ্যাস উৎপাদিত হয়?",
+                          "options":  [
+                                          "SO2",
+                                          "CO",
+                                          "SO3",
+                                          "CO2"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "কয়লা ও হাইড্রোকার্বন জ্বালানির অসম্পূর্ণ দহনে C গুড়া, CO ও CO2 গ্যাস এবং সম্পূর্ণ দহনে শুধুমাত্র CO2 গ্যাস উৎপন্ন হয়।"
+                      },
+                      {
+                          "question_no":  60,
+                          "id":  "MAT_2020_2021_BN_Q060",
+                          "question":  "15 ওয়াট (Watt) শক্তি অর্থ-",
+                          "options":  [
+                                          "3 J work in 5 sec",
+                                          "1 J work in 15 sec",
+                                          "5 J work in 3 sec",
+                                          "15 J work in 1 sec"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "আমরা জানি, P = (W / t) ;সুতরাং-অপশন (a) অনুসারে ক্ষমতা (3 / 5) W অপশন (b) অনুসারে ক্ষমতা (1 / 15) Wঅপশন (c) অনুসারে ক্ষমতা (5 / 3) Wঅপশন (d) অনুসারে ক্ষমতা 15 W"
+                      },
+                      {
+                          "question_no":  61,
+                          "id":  "MAT_2020_2021_BN_Q061",
+                          "question":  "যদি কোন বস্তু ভূমির উপরে তোলা হয়, তবে কোন শক্তির বিপরীতে কাজটি করা হলো?",
+                          "options":  [
+                                          "রাসায়নিক শক্তি (Chemical force)",
+                                          "তড়িৎ চৌম্বকীয় শক্তি (Electromagnetic force)",
+                                          "মাধ্যাকর্ষণ শক্তি (Gravitational force)",
+                                          "ঘর্ষণমূলক শক্তি (Frictional force)"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "মাটি থেকে চাউলের বস্তাকে মাটির উপরে তোলা, বইকে মেঝে থেকে আলমারিতে তোলা প্রভৃতিতে মাধ্যাকর্ষণ শক্তির বিরুদ্ধে কাজ করা হয়। মাটির উপরে তোলা → অভিকর্ষজ ত্বরণ দ্বারা কাজ -ve মাটির দিকে নামানো → অভিকর্ষজ ত্বরণ দ্বারা কাজ +ve"
+                      },
+                      {
+                          "question_no":  62,
+                          "id":  "MAT_2020_2021_BN_Q062",
+                          "question":  "একটি সাধারণ সুরেলা দোলনের (simple harmonic oscillation) জন্য, কৌণিক স্থানচ্যুতি (angular displacement) নিচের কোনটির চেয়ে বেশি হতে পারে না?",
+                          "options":  [
+                                          "6∘",
+                                          "5∘",
+                                          "3∘",
+                                          "4"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "সরল দোলকের কৌণিক বিস্তার 4∘ এর বেশি হলে, এর গতি সরলরৈখিক না হয়ে বৃত্তাকার হয়।"
+                      },
+                      {
+                          "question_no":  63,
+                          "id":  "MAT_2020_2021_BN_Q063",
+                          "question":  "কোনটি হাড়ের সাথে পেশি সংযুক্ত করে?",
+                          "options":  [
+                                          "Myofibril",
+                                          "Synovium",
+                                          "Ligament",
+                                          "Tendon"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "কন্ডরা/টেনডন → অস্থি ও পেশির মধ্যে সংযোগ স্থাপন করে। লিগামেন্ট → দুটি অস্থিকে সংযুক্ত করে। মায়োফাইব্রিল → পেশি কোষের অভ্যন্তরে বিদ্যমান অতি সূক্ষ্ণ তন্তু।সাইনোভিয়াম → সাইনোভিয়াল অস্থিসন্ধির একটি আবরণী।"
+                      },
+                      {
+                          "question_no":  64,
+                          "id":  "MAT_2020_2021_BN_Q064",
+                          "question":  "কোন কোষ ম্যাক্রোফেজে (macrophages) রূপান্তরিত হয়?",
+                          "options":  [
+                                          "Lymphocyte",
+                                          "Monocyte",
+                                          "Basophil",
+                                          "Eosinophil"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "পরিণত মনোসাইটকে ম্যাক্রোফেজ বলে যা ফ্যাগোসাইটোসিস এ সহায়তা করে।"
+                      },
+                      {
+                          "question_no":  65,
+                          "id":  "MAT_2020_2021_BN_Q065",
+                          "question":  "তড়িৎচুম্বকীয় বণাির্লতে (electromagnetic spectrum) নিচের কোনটির তরঙ্গদৈর্ঘ্য সবচেয়ে বেশি?",
+                          "options":  [
+                                          "TV-waves",
+                                          "X-ray",
+                                          "Infrared ray",
+                                          "UV-ray"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "UV - ray এর তরঙ্গদৈর্ঘ্য → 380nm-10nm ; X - ray এর তরঙ্গদৈর্ঘ্য → 10nm-0.01nm ; TV/Radiowave এর তরঙ্গদৈর্ঘ্য → 10km-1mm ; Infraredray এর তরঙ্গদৈর্ঘ্য → 1mm-780nm"
+                      },
+                      {
+                          "question_no":  66,
+                          "id":  "MAT_2020_2021_BN_Q066",
+                          "question":  "Choose the correct spelling:",
+                          "options":  [
+                                          "Entrepreneur",
+                                          "Entreprenor",
+                                          "Enterpreneur",
+                                          "Entrepreneor"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "সঠিক spelling হচ্ছে (en-tre-pre-neur) Entrepreneur (উদ্যোক্তা)"
+                      },
+                      {
+                          "question_no":  67,
+                          "id":  "MAT_2020_2021_BN_Q067",
+                          "question":  "Fill up the blank with appropriate word: A good teacher discovers the treasure hidden _______ each student.",
+                          "options":  [
+                                          "inside",
+                                          "in",
+                                          "within",
+                                          "with"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "The word \u0027discover\u0027 implies something abstract inside someone. So, the correct sentence is – A good teacher discovers the treasure hidden inside each student."
+                      },
+                      {
+                          "question_no":  68,
+                          "id":  "MAT_2020_2021_BN_Q068",
+                          "question":  "Are you an early riser? Here \u0027early\u0027 is:",
+                          "options":  [
+                                          "Verb",
+                                          "Noun",
+                                          "Adjective",
+                                          "Adverb"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "\u0027Early\u0027 এর পর যখন কোনো Noun থাকে এবং তা যদি ঐ Noun -কে describe করে তখন \u0027early\u0027 adjective হিসেবে পরিগণিত হয়। প্রশ্নোক্ত sentence টিতে \u0027early\u0027 \u0027riser\u0027-কে describe করছে।"
+                      },
+                      {
+                          "question_no":  69,
+                          "id":  "MAT_2020_2021_BN_Q069",
+                          "question":  "ফুড প্রিজারভেটিভ হিসাবে ব্যবহৃত সাইট্রিক এসিডের pH কত?",
+                          "options":  [
+                                          "3.01",
+                                          "4.50",
+                                          "4.74",
+                                          "3.14"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "ফুড প্রিজারভেটিভ হিসাবে ব্যবহৃত এসিডের pH মান 4.74(CH3COOH) থেকে নিম্নমান 3.14 (সাইট্রিক এসিড) এর মধ্যে থাকে।"
+                      },
+                      {
+                          "question_no":  71,
+                          "id":  "MAT_2020_2021_BN_Q071",
+                          "question":  "Which pair of words is synonymous?",
+                          "options":  [
+                                          "Philanthropic and Pessimistic",
+                                          "Apartheid and Apprehend",
+                                          "Clutter and Consistent",
+                                          "Acclimatize and Accustom"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "Clutter (গোলমাল), Consistent (সামঞ্জস্যপূর্ণ) শব্দযুগল বিপরীতার্থক; Apartheid (জাতিবিদ্বেষ), Apprehend (গ্রেপ্তার করা) শব্দযুগল বিপরীতার্থক; Philanthropic (বিশ্ব প্রেমিক), Pessimistic (হতাশাপীড়িত) শব্দযুগলও বিপরীতার্থক; Acclimatize (নতুন পরিস্থিতির সঙ্গে মানিয়ে নেওয়া), Accustom (অভ্যস্ত করানো) শব্দযুগল synonymous তাই সঠিক উত্তর হবে (b) Acclimatize and Accustom."
+                      },
+                      {
+                          "question_no":  73,
+                          "id":  "MAT_2020_2021_BN_Q073",
+                          "question":  "কোনটি আমিষ পরিপাককারী (digesting) এনজাইম?",
+                          "options":  [
+                                          "Lactase",
+                                          "Lipase",
+                                          "Pepsin",
+                                          "Isomaltase"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "Lipase → স্নেহ পরিপাককারী এনজাইম। Isomaltase, Lactase → শর্করা পরিপাককারী এনজাইম। Pepsin, Trypsin, Chymotrypsin, Aminopeptidase, Carboxypeptidase, Tri/Di-peptidase প্রভৃতি → আমিষ পরিপাককারী এনজাইম।"
+                      },
+                      {
+                          "question_no":  74,
+                          "id":  "MAT_2020_2021_BN_Q074",
+                          "question":  "নিচের কোনটির গলনাঙ্ক (melting point) সবচাইতে কম?",
+                          "options":  [
+                                          "AgI",
+                                          "AgCl",
+                                          "AgF",
+                                          "AgBr"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "অ্যানায়নের আকার বৃদ্ধির সাথে পোলারায়িত হওয়ার প্রবণতা বৃদ্ধি পায়। একই গ্রূপে উপর থেকে নিচের দিকে অ্যানায়নের পোলারায়িত হওয়ার প্রবণতা বাড়ে। যেমন, F − C l − B r − I − . AgCl,AgF,AgBr এবং AgI যৌগগুলোর মধ্যে AgI এর অ্যানায়নের আকার সবচেয়ে বড়। তাই এর সমযোজী বৈশিষ্ট্য বেশি। এজন্য AgI এর গলনাঙ্ক সবচেয়ে কম।"
+                      },
+                      {
+                          "question_no":  75,
+                          "id":  "MAT_2020_2021_BN_Q075",
+                          "question":  "কোষের কোথায় ক্রেবস চক্র (Krebs cycle) সংঘটিত হয়?",
+                          "options":  [
+                                          "Chloroplast",
+                                          "Cytoplasm",
+                                          "Mitochondria",
+                                          "Ribosome"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "ক্রেবস চক্র সবাত শ্বসনের একটি ধাপ যা মাইটোকন্ড্রিয়ার ম্যাট্রিক্সে সংঘটিত হয়। Sir Hans Adolf Krebs এটি আবিষ্কার করেন। গ্লাইকোলাইসিস ছাড়া শ্বসনের সবকটি বিক্রিয়া (ক্রেবস চক্র, ETS/ অক্সিডেটিভ ফসফোরাইলেশন) মাইটোকন্ড্রিয়ায় ঘটে থাকে।"
+                      },
+                      {
+                          "question_no":  76,
+                          "id":  "MAT_2020_2021_BN_Q076",
+                          "question":  "Scalar quantity এবং magnitude of gradient এর মধ্যে সম্পর্কটি হলো-",
+                          "options":  [
+                                          "Opposite",
+                                          "Equal",
+                                          "Disproportional",
+                                          "Proportional"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  ""
+                      },
+                      {
+                          "question_no":  77,
+                          "id":  "MAT_2020_2021_BN_Q077",
+                          "question":  "কোনটি ভাইরাস বৃদ্ধিতে বাঁধা দেয়?",
+                          "options":  [
+                                          "Defensin",
+                                          "Lactorine",
+                                          "Interferon",
+                                          "Lysozyme"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "ইন্টারফেরন হলো প্রতিরক্ষামূলক প্রোটিন যা ভাইরাস আক্রান্ত কোষে উৎপন্ন হয়ে ভাইরাসের সংখ্যাবৃদ্ধিতে বাঁধা দেয়। এটি ক্যান্সার আক্রান্ত কোষের বৃদ্ধিতেও বাঁধা দিয়ে থাকে।"
+                      },
+                      {
+                          "question_no":  78,
+                          "id":  "MAT_2020_2021_BN_Q078",
+                          "question":  "একটি 2 কেজি ভরের বস্তু 10 মিটার উচ্চতা থেকে পড়লে ভূমি স্পর্শ করার পূর্ব মুহূর্তে এর গতিশক্তি কত হবে?",
+                          "options":  [
+                                          "19.6 J",
+                                          "95.0 J",
+                                          "39.2 J",
+                                          "74.4 J"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "যেহেতু ভূমি স্পর্শ করার পূর্ব মুহূর্তে বস্তুটির গতিশক্তি এর বিভবশক্তির সমান হয়, সুতরাং গতিশক্তির মান হবে = mgh = (2 × 9.8 × 10)J = 196J."
+                      },
+                      {
+                          "question_no":  79,
+                          "id":  "MAT_2020_2021_BN_Q079",
+                          "question":  "কম তাপমাত্রায় কোনটি সংরক্ষণ করা যায়?",
+                          "options":  [
+                                          "Flower",
+                                          "Bulb",
+                                          "Seed",
+                                          "Rhizome"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "বীজকে শুকিয়ে নিম্ন তাপমাত্রায় -20∘C শতাব্দীর পর শতাব্দী অঙ্কুরোদগম ক্ষমতাসহ সংরক্ষণ করে রাখা যায়।"
+                      },
+                      {
+                          "question_no":  80,
+                          "id":  "MAT_2020_2021_BN_Q080",
+                          "question":  "কোন দেশ প্রথম বাংলাদেশকে স্বীকৃতি দেয়?",
+                          "options":  [
+                                          "যুক্তরাজ্য",
+                                          "ভারত",
+                                          "ভুটান",
+                                          "নেপাল"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "১৯৭১ সালের ৬ ডিসেম্বর ভূটান বাংলাদেশকে প্রথম দেশ হিসেবে স্বীকৃতি দেয়। প্রশ্নের অপশনে ভুটান উল্লেখ না থাকলে ভারত উত্তর করতে হবে।"
+                      },
+                      {
+                          "question_no":  81,
+                          "id":  "MAT_2020_2021_BN_Q081",
+                          "question":  "রাজশাহী বিশ্ববিদ্যালয়ের ভাস্কর্য \u0027সাবাশ বাংলাদেশ\u0027 এর ভাস্কর কে?",
+                          "options":  [
+                                          "মৃণাল হক",
+                                          "নিতুন কুন্ডু",
+                                          "নভেরা আহমেদ",
+                                          "রূপম রায়"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "নিতুন কুন্ডু নির্মিত ভাস্কর্য: সার্ক ফোয়ারা (কারওয়ান বাজার, ঢাকা), কদম ফোয়ারা (সুপ্রিম কোটর্, ঢাকা), সাম্পান (শাহ আমানত বিমানবন্দর, চট্টগ্রাম), সাবাশ বাংলাদেশ (রাজশাহী বিশ্ববিদ্যালয়)।"
+                      },
+                      {
+                          "question_no":  83,
+                          "id":  "MAT_2020_2021_BN_Q083",
+                          "question":  "প্রশ্বাস বায়ুতে কার্বন ডাইঅক্সাইড (CO2) এর পরিমাণ কত?",
+                          "options":  [
+                                          "0.40%",
+                                          "13.7%",
+                                          "5.2%",
+                                          "20.0%"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "সঠিক উত্তর 0.04% (আলীম স্যারের বই অনুসারে) প্রশ্বাস বায়ু : O2 → 20.9% , CO2 → 0.04%;নিশ্বাস বায়ু : O2 →13.7%, CO2 → 5.2%"
+                      },
+                      {
+                          "question_no":  84,
+                          "id":  "MAT_2020_2021_BN_Q084",
+                          "question":  "ইউনেস্কো কোন তারিখে ২১ শে ফেব্রুয়ারিকে আন্তজাির্তক মাতৃভাষা দিবস হিসেবে স্বীকৃতি দেয়?",
+                          "options":  [
+                                          "২১ ফেব্রুয়ারি ২০০৪",
+                                          "২২ সেপ্টেম্বর ১৯৯৮",
+                                          "২৬ মার্চ ১৯৯৭",
+                                          "১৭ নভেম্বর ১৯৯৯"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "১৯৯৯ খ্রিষ্টাব্দের ১৭ নভেম্বর অনুষ্ঠিত ইউনেস্কোর প্যারিস অধিবেশনে (৩০ তম সাধারণ সম্মেলন) এ প্রস্তাব উত্থাপন করা হয় এবং বিশ্বের ১৮৮ টি দেশ এটিতে সমর্থন জানালে একুশে ফেব্রুয়ারিকে আন্তজাির্তক মাতৃভাষা দিবস হিসেবে ঘোষণা করা হয়। ২০০০ সালে বিশ্বের ১৮৮ টি দেশে সর্বপ্রথম দিবসটি পালিত হয়। ২০০৩ সালে ইউনেস্কো একুশে পদক লাভ করে।"
+                      },
+                      {
+                          "question_no":  85,
+                          "id":  "MAT_2020_2021_BN_Q085",
+                          "question":  "নিচের কোনটি উত্তপ্ত লোহার উপস্থিতিতে অ্যাসিটিলিন দ্বারা উৎপাদিত হয়?",
+                          "options":  [
+                                          "Neoprene",
+                                          "Cyclohexane",
+                                          "Ethane",
+                                          "Benzene"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "অ্যাসিটিলিন গ্যাসকে 450℃ তাপমাত্রায় উত্তপ্ত লৌহ নলের মধ্যে চালনা করলে তিন অণু অ্যাসিটিলিনের পলিমারকরণের ফলে বেনজিন উৎপন্ন হয়। HC≡CH → 450∘C,FeC6H6"
+                      },
+                      {
+                          "question_no":  86,
+                          "id":  "MAT_2020_2021_BN_Q086",
+                          "question":  "কোন তীব্রতার মাত্রাকে কানের শ্রবণসীমা (threshold of audibility of ear) বলে?",
+                          "options":  [
+                                          "1 dB",
+                                          "2 dB",
+                                          "0 dB",
+                                          "10 dB"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "শব্দোচ্চতার পার্থক্য বা তীব্রতা লেভেল শূন্যকে নিম্নতর প্রান্তীয় সীমা বা শ্রাব্যতার সীমা বলা হয়। সুতরাং সর্বনিম্ন শ্রাব্য শব্দ 0 dB। সর্বোচ্চ শ্রাব্য শব্দ 120 dB."
+                      },
+                      {
+                          "question_no":  87,
+                          "id":  "MAT_2020_2021_BN_Q087",
+                          "question":  "ডিনামাইট তৈরি করতে নিচের কোনটি ব্যবহার করা হয়?",
+                          "options":  [
+                                          "Nitroglycerine",
+                                          "Nitrotoluene",
+                                          "Nitrobenzene",
+                                          "Nitrophenol"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "নাইট্রোগ্লিসারিনকে কাঠের গুড়ার উপর অধিশোষিত করে এর সঙ্গে কঠিন NH4NO2 যোগ করে পেস্টরূপে ডিনামাইট প্রস্তুত করা হয়। বিজ্ঞানী নোবেল সর্বপ্রথম ডিনামাইট তৈরি করেন।"
+                      },
+                      {
+                          "question_no":  88,
+                          "id":  "MAT_2020_2021_BN_Q088",
+                          "question":  "এক molCH3OH -এ কতটি পরমাণু থাকে?",
+                          "options":  [
+                                          "6.0 × 10²³",
+                                          "6",
+                                          "12.0 × 10²³",
+                                          "3.6 × 10²⁴"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "CH3OH অণুতে 6টি পরমাণু আছে। ∴ পরমাণুর সংখ্যা = 6 × 6.02 × 10²³ = 3.6 × 10²⁴"
+                      },
+                      {
+                          "question_no":  89,
+                          "id":  "MAT_2020_2021_BN_Q089",
+                          "question":  "0.1MHCl দ্রবণ প্রস্তুতের জন্য ঘনকৃত HCl পরিমাপ করতে কোনটি ব্যবহৃত হয়?",
+                          "options":  [
+                                          "Pipette",
+                                          "Volumetric flask",
+                                          "Wash bottle",
+                                          "Measuring cylinder"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "নির্দিষ্ট আয়তনের গাঢ় এসিড ও পানির পরিমাপ করার জন্য মেজারিং সিলিন্ডার ব্যবহৃত হয়। ক্ষয়কারক তরল সেকেন্ডারি পর্দাথ যেমন, HCl এসিড ও H2SO4 এসিডকে মেপে নিতেও মেজারিং সিলিন্ডার ব্যবহার করতে হয়।"
+                      },
+                      {
+                          "question_no":  90,
+                          "id":  "MAT_2020_2021_BN_Q090",
+                          "question":  "নিম্নলিখিত কোন গ্যাস photochemical ধোঁয়াশার (smog) জন্য দায়ী নয়?",
+                          "options":  [
+                                          "Hydrocarbon",
+                                          "O3",
+                                          "CFC",
+                                          "NO2"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "বিভিন্ন বিক্রিয়ায় উৎপন্ন পারমাণবিক অক্সিজেন, পার অক্সাইড NO2,O3 ও অন্যতম বায়ুদূষক ডিজেল ইঞ্জিনে দহনযুক্ত হাইড্রোকার্বন এবং বিভিন্ন ফ্রি রেডিকেল মিলে পারক্সি অ্যাসাইল নাইট্রেট (PANs) নামে মিশ্র বায়ু দূষক সৃষ্টি হয় এ মিশ্র বায়ুদূষক বিভিন্ন শহর এলাকায় ভোরবেলা নিচু আকাশে বাদামি কুয়াশাস্তর সৃষ্টি করে। এটিকে ফটোকেমিক্যাল স্মোগ (Photochemical smog) বলে।"
+                      },
+                      {
+                          "question_no":  92,
+                          "id":  "MAT_2020_2021_BN_Q092",
+                          "question":  "শ্যাওলাগুলোর অযৌন প্রজনন কোনটি দ্বারা সম্পন্ন হয়?",
+                          "options":  [
+                                          "Spore",
+                                          "Rhizoid",
+                                          "Tuber",
+                                          "Fragmentation"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "শৈবালের জননের প্রকারভেদ: জনন → যার মাধ্যমে ঘটে;অঙ্গজ → Cell division, Fragmentation, Rhizoid/Tuber, Budding, Hormogonia;অযৌন → Spore, Akinete, Palmela stage; যৌন → Thallus"
+                      },
+                      {
+                          "question_no":  93,
+                          "id":  "MAT_2020_2021_BN_Q093",
+                          "question":  "স্থির তাপমাত্রার ক্ষেত্রে সমস্ত গ্যাসের অণুগুলির জন্য কোন প্যারামিটার ধ্রুব (constant)?",
+                          "options":  [
+                                          "আয়তন",
+                                          "ভর",
+                                          "গতিবেগ",
+                                          "গতিবেগ শক্তি"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "তাপমাত্রা স্থির থাকলে নির্দিষ্ট ভরের গ্যাসের তাপের পরিমাণ স্থির থাকায় মোট গতিশক্তিও স্থির থাকে। স্থির তাপমাত্রায় মোট গতিশক্তি E = (1 / 2)mnc² = constant."
+                      },
+                      {
+                          "question_no":  94,
+                          "id":  "MAT_2020_2021_BN_Q094",
+                          "question":  "ভ্রূণে লোহিত কনিকাসমূহ নিম্নের কোথায় তৈরি হয়?",
+                          "options":  [
+                                          "প্লীহা",
+                                          "থাইমাস",
+                                          "অস্থি মজ্জা",
+                                          "অগ্ন্যাশয়"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ভ্রূণীয় জীবনে লোহিত কণিকাসমূহ কুসুম থলি (৩ সপ্তাহ বয়সে) যকৃত, প্লীহা ও থাইমাস (৬ মাস বয়স পযর্ন্ত) থেকে উৎপন্ন হয়। আর, ভূমিষ্ট হওয়ার সময় থেকে পর্শুকা, কশেরুকা, স্টার্নাম ও শ্রোণিচক্রের লাল অস্থিমজ্জায় অবস্থিত বড় নিউক্লিয়াসযুক্ত এরিথ্রোরাস্ট নামক স্টেম কোষ থেকে অবিরাম লোহিত কণিকা সৃষ্টি হয়।"
+                      },
+                      {
+                          "question_no":  95,
+                          "id":  "MAT_2020_2021_BN_Q095",
+                          "question":  "কোন প্রোটিন পানিতে অদ্রবনীয়?",
+                          "options":  [
+                                          "হিস্টোন",
+                                          "গ্লুটেলিন",
+                                          "অ্যালবুমিন",
+                                          "প্রোটামিন"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "পানিতে দ্রবীভূত সরল প্রোটিন: হিসপানিক (HisPAnic).His → Histone; P → Protamine; Albumin → Anic"
+                      },
+                      {
+                          "question_no":  96,
+                          "id":  "MAT_2020_2021_BN_Q096",
+                          "question":  "শুকনো (dry) H2 গ্যাসের চাপ কত হবে?",
+                          "options":  [
+                                          "101.75kPa",
+                                          "01.325kPa",
+                                          "105kPa",
+                                          "101.75kPa"
+                                      ],
+                          "correct_answer":  "A",
+                          "correct_index":  0,
+                          "explanation":  "প্রশ্নটি অসম্পূর্ণ। এখানে, বইয়ের উদ্দীপক অনুসারে, Pdry = Patm-Pf = 105-3.25 = 101.75kPa ."
+                      },
+                      {
+                          "question_no":  97,
+                          "id":  "MAT_2020_2021_BN_Q097",
+                          "question":  "মুক্তিযুদ্ধকালে পাকিস্তানি জাহাজের উপর মুক্তিযোদ্ধাদের অভিযানের নাম কী ছিল?",
+                          "options":  [
+                                          "অপারেশন ইভেনিং লাইট",
+                                          "অপারেশন মেঘদূত",
+                                          "অপারেশন জ্যাকপট",
+                                          "অপারেশন সার্চলাইট"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "অপারেশন জ্যাকপট-মুক্তিযুদ্ধকালে চট্টগ্রাম ও মংলা বন্দরে পাকিস্তানি জাহাজের উপর ১০নং সেক্টর (নৌ সেক্টর) পরিচালিত আত্মঘাতী গেরিলা আক্রমণ।"
+                      },
+                      {
+                          "question_no":  98,
+                          "id":  "MAT_2020_2021_BN_Q098",
+                          "question":  "নিচের কোনটি ঋনাত্মক প্রভাবক (negative catalyst)?",
+                          "options":  [
+                                          "Na",
+                                          "SO2",
+                                          "SO3",
+                                          "Glycerin"
+                                      ],
+                          "correct_answer":  "D",
+                          "correct_index":  3,
+                          "explanation":  "সোডিয়াম সালফাইট দ্রবণে সামান্য গ্লিসারিন যোগ করলে জারণ ক্রিয়া যথেষ্ট পরিমাণে হ্রাস পায়। এক্ষেত্রে গ্লিসারিন ঋনাত্মক প্রভাবক হিসেবে কাজ করে।"
+                      },
+                      {
+                          "question_no":  99,
+                          "id":  "MAT_2020_2021_BN_Q099",
+                          "question":  "কোন এনজাইম অগ্নাশয়ে নাই?",
+                          "options":  [
+                                          "Trypsin",
+                                          "Amylase",
+                                          "Ptyalin",
+                                          "Maltase"
+                                      ],
+                          "correct_answer":  "C",
+                          "correct_index":  2,
+                          "explanation":  "পরিপাককারী পর্দাথ → এনজাইম;শর্করা → অ্যামাইলেজ ও মল্টেজ । প্রোটিন → ট্রিপসিন, কাইমোট্রিপসিন, কাবোির্ক্সপেপটাইডেজ। অ্যামিনোপেপটাইডেজ, ডাইপেপটাইডেজ, ট্রাইপেপটাইডেজ, কোলাজিনেজ। লিপিড → লাইপেজ, ফসফোলাইপেজ, কোলেস্টরল এস্টারেজ।"
+                      },
+                      {
+                          "question_no":  100,
+                          "id":  "MAT_2020_2021_BN_Q100",
+                          "question":  "নিচের কোনটি এসি-কে ডিসি-তে রূপান্তরিত করে?",
+                          "options":  [
+                                          "অ্যামিটার (Ammeter)",
+                                          "ডায়োড (Diode)",
+                                          "ট্রানজিস্টর (Transistor)",
+                                          "ভোল্টমিটার (Voltmeter)"
+                                      ],
+                          "correct_answer":  "B",
+                          "correct_index":  1,
+                          "explanation":  "ডায়োড একটা বিশেষ দিকে তড়িৎ প্রবাহ সৃষ্টি করে কিন্তু বিপরীত দিকে কোনো তড়িৎ প্রবাহ সৃষ্টি হয় না। ফলে এটি প্রবাহ একমুখীকারক বা Rectifier হিসেবে কাজ করে। AC কে DC করাসহ বেতার ও টিভির মধ্যে সিগন্যাল ডিটেক্টর হিসেবে ডায়োড ব্যবহৃত হয়।"
+                      }
+                  ]
+}

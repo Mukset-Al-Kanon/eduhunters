@@ -1,0 +1,218 @@
+{
+  "title": "BDS 2020-21",
+  "category": "Medical & Dental Questions > Dental English Questions",
+  "duration_minutes": 30,
+  "total_questions": 15,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "140496",
+      "question": "Choose the correct tense of the sentence, 'It was raining when I got up'.",
+      "options": [
+        "Present continuous tense",
+        "Past continuous tense",
+        "Past perfect tense",
+        "Simple past tense"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "140497",
+      "question": "Choose the correct antonym for the word 'exuberant'-",
+      "options": [
+        "Vigorous",
+        "Apathetic",
+        "Cherful",
+        "Happy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Exuberant (adjective)- উচ্ছ্বসিত। এর বিপরীত শব্দ Apathetic (উদাসীন)। Happy (adjective)-, সুখী; Cheerful (adjective)- উচ্ছ্বসিত; Vigorous (adjective)- তেজস্বী।"
+    },
+    {
+      "question_no": 3,
+      "id": "140498",
+      "question": "Choose the correct spelling-",
+      "options": [
+        "Encyclopedia",
+        "Encyclopidia",
+        "Encyclopaedia",
+        "Encyclopadia"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এখানে Encyclopaedia বানানটি British English এ এবং Encyclopedia বানানটি American English এ ব্যবহৃত হয়। ব্যবহারিক দিক থেকে উভয়ই সঠিক।"
+    },
+    {
+      "question_no": 4,
+      "id": "140499",
+      "question": "The word 'Wholesome' is-",
+      "options": [
+        "Adverb",
+        "Noun",
+        "Verb",
+        "Adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Wholesome (স্বাস্থ্যকর) শব্দটি adjectivel"
+    },
+    {
+      "question_no": 5,
+      "id": "140500",
+      "question": "Choose the correct tense of the sentence, 'Habib has been using this pen for the last five years'.",
+      "options": [
+        "Past perfect tense",
+        "Past perfect continuous tense",
+        "Present perfect continuous tense",
+        "Present perfect tense"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Present perfect continuous tense-এর গঠন প্রণালি: Subject + has been/ have been + verb-এর ing form + অন্যান্য শব্দ (যদি প্রয়োজন হয়)। Subject third person singular number হলে has been বসে এবং Plural subject-এর ক্ষেত্রে have been বসে।"
+    },
+    {
+      "question_no": 6,
+      "id": "140502",
+      "question": "Choose the correct translation of the sentence \"তোমাকে অবশ্যই তোমার কর্তব্য পালন করতে হবে\"।",
+      "options": [
+        "You should perform your duty",
+        "You will perform your duty.",
+        "Perform your duty properly",
+        "You must perform your duty."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "You will perform your duty - তুমি তোমার দায়িত্ব পালন করবে।\r\nYou should perform your duty.-  তোমাকে তোমার দায়িত্ব পালন করা উচিত।\r\nPerform your duty properly. - যথাযথভাবে তোমার দায়িত্ব পালন করো।\r\nYou must perform your duty. - তোমাকে অবশ্যই তোমার দায়িত্ব পালন করতে হবে"
+    },
+    {
+      "question_no": 7,
+      "id": "140503",
+      "question": "Choose the correct antonym of the word 'Solidarity'-",
+      "options": [
+        "Empathy",
+        "Affinity",
+        "Rapport",
+        "Hostility"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Solidarity অর্থ সংহতি। এর বিপরীত শব্দ Hostility (শত্রুতা)।. Empathy- সহমর্মিতা; Affinity- ঘনিষ্ঠতা; Rapport- সহানুভূতিপূর্ণ সম্পর্ক।"
+    },
+    {
+      "question_no": 8,
+      "id": "140504",
+      "question": "Do not prevent me.......going.",
+      "options": [
+        "in",
+        "from",
+        "going",
+        "to"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Prevent sb from doing sth (কাউকে কোনো কিছু করা থেকে বিরত রাখা)- Do not prevent me from going."
+    },
+    {
+      "question_no": 9,
+      "id": "140506",
+      "question": "What is the noun of the word 'conclude'?",
+      "options": [
+        "Conclusive",
+        "Conclusively",
+        "Concluded",
+        "Conclusion"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Conclude- উপসংহার করা/সমাপ্ত করা। এটি একটি verb। এর noun হবে Conclusion (উপসংহার) Conclusive (adjective, সমাপ্তিমূলক/ চূড়ান্ত); Conclusively (adverb, সমাপ্তিমূলকভাবে/চূড়ান্তভাবে)।"
+    },
+    {
+      "question_no": 10,
+      "id": "140507",
+      "question": "Choose the correct translation of \"আমি তোমার সর্ব সাফল্য কামনা করছি\"।",
+      "options": [
+        "I long for your all success.",
+        "I wish you all success",
+        "I wish all success of you.",
+        "I hope you all success"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Wish somebody something (to say that you hope somebody will be happy, lucky etc.)"
+    },
+    {
+      "question_no": 11,
+      "id": "140509",
+      "question": "Choose the correct synonym for the word 'pertinent'-",
+      "options": [
+        "Contradictory",
+        "Inappropriate",
+        "Inapplicable",
+        "Relevant"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Pertinent শব্দের অর্থ প্রাসঙ্গিক। এর সমার্থক শব্দ Relevant (প্রাসঙ্গিক)। Inappropriate- ভুল; Contradictory-পরস্পর বিরোধী; Inapplicable- অপ্রযোজ্য। Pertinent এর Synonym Relevant."
+    },
+    {
+      "question_no": 12,
+      "id": "140510",
+      "question": "What is the noun form of the word 'forget'?",
+      "options": [
+        "Forgotten",
+        "Forgetfully",
+        "Forgetful",
+        "Forgetfulness"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Forget (verb) ভুলে যাওয়া। Forgetfulness (noun)- বিস্মৃতি; Forgetful (adjective)- বিস্মৃতিপ্রবণ; Forgetfully (adverb)- ভুল বশত।"
+    },
+    {
+      "question_no": 13,
+      "id": "140511",
+      "question": "Choose the correct spelling-",
+      "options": [
+        "Milenneum",
+        "Millennium",
+        "Milleneum",
+        "Millenium"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Millennium (Noun)- সহস্র বছর।"
+    },
+    {
+      "question_no": 14,
+      "id": "140512",
+      "question": "What is the adjective form of the word 'benefit'?",
+      "options": [
+        "Beneficent",
+        "beneficial",
+        "beneficially",
+        "Beneficiary"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 15,
+      "id": "140513",
+      "question": "He has great ambition- fame'.",
+      "options": [
+        "to",
+        "for",
+        "over",
+        "in"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Ambition for অর্থ আকাঙ্ক্ষা। Ambitious of অর্থ উচ্চাকাঙ্ক্ষী"
+    }
+  ]
+}

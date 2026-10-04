@@ -1,0 +1,134 @@
+{
+  "title": "মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি ২০১৮-১৯",
+  "category": "Medical & Dental Questions > মেডিকেল-ডেন্টাল আন্তর্জাতিক বিষয়াবলি",
+  "duration_minutes": 30,
+  "total_questions": 9,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "146665",
+      "question": "কোন সালে বাংলাদেশ জাতিসংঘের সদস্য পদ লাভ করে?",
+      "options": [
+        "১৯৭২",
+        "১৯৭৪",
+        "১৯৭৬",
+        "১৯৭৮"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "146666",
+      "question": "War and Peace- গ্রন্থের রচয়িতা কে?",
+      "options": [
+        "Leo Tolstory",
+        "Shakespeare",
+        "Chairls Dickens",
+        "Jane Austen"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "146667",
+      "question": "World Wide Web (WWW) এর প্রতিষ্ঠাতা কে?",
+      "options": [
+        "বিল গেটস",
+        "মার্ক জুকারবার্গ",
+        "স্টিভ জবস",
+        "টিম বার্নার্স-লি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "146668",
+      "question": "‘BIMSTEC' কোন ধরনের প্রতিষ্ঠান?",
+      "options": [
+        "সামরিক",
+        "সামাজিক",
+        "অর্থনৈতিক",
+        "পরিবেশগত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 5,
+      "id": "146669",
+      "question": "কোন রোগের নিরাময় চিকিৎসা আবিষ্কারের জন্য ২০১৮ সালে চিকিৎসাশাস্ত্রে নোবেল পুরস্কার দেয়া হয়েছে?",
+      "options": [
+        "AIDS",
+        "Cancer",
+        "TB",
+        "Leprosy"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 6,
+      "id": "146670",
+      "question": "'প্রমিলা এশিয়া কাপ ক্রিকেট ২০১৮' এর আয়োজনকারী দেশ-",
+      "options": [
+        "সিঙ্গাপুর",
+        "ইন্দোনেশিয়া",
+        "মালয়েশিয়া",
+        "ভারত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 7,
+      "id": "146671",
+      "question": "'বিশ্ব হাত ধোয়া দিবস'কবে পালিত হয়?",
+      "options": [
+        "১৫ নভেম্বর",
+        "১৫ জানুয়ারি",
+        "১৭ অক্টোবর",
+        "১৫ অক্টোবর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 8,
+      "id": "146672",
+      "question": "সাম্প্রতিক চালু হওয়া পৃথিবীর দীর্ঘতম সেতু, হংকং-কে কোন ভূখণ্ডের সাথে সংযুক্ত করেছে?",
+      "options": [
+        "ম্যাকাও",
+        "তাইপে",
+        "বোর্নিও",
+        "বেইজিং"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 9,
+      "id": "146673",
+      "question": "ATM-এর পূর্ণরূপ কোনটি?",
+      "options": [
+        "Automatic Teller Machine",
+        "Automated Teller Money",
+        "Automated Teller Machine",
+        "Any time Money"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    }
+  ]
+}

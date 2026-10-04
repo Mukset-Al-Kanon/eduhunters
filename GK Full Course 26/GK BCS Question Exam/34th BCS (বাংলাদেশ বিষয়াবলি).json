@@ -1,0 +1,221 @@
+{
+  "exam_id": 9470,
+  "title": "34th BCS (বাংলাদেশ বিষয়াবলি)",
+  "category": "GK BCS Question Exam",
+  "subtopic": "বিসিএস প্রশ্নে এক্সাম (বাংলাদেশ বিষয়াবলি)",
+  "duration_minutes": 10,
+  "total_questions": 14,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "4a7f4c55-016b-4fd1-8edc-615c0dbead2c",
+      "question": "১৯৭১ সালের কত তারিখে মুজিবনগরে স্বাধীন বাংলাদেশের অস্থায়ী সরকার গঠিত হয়?💨৩৪তম বিসিএস[]",
+      "options": [
+        "৭ মার্চ ১৯৭১",
+        "২৬ মার্চ ১৯৭১",
+        "১০ এপ্রিল ১৯৭১",
+        "১৬ ডিসেম্বর ১৯৭১"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "efd9903c-daa3-489a-a3fe-936bcb191792",
+      "question": "বহুল আলোচিত মুহুরীর চর কোন জেলায় অবস্থিত?[]",
+      "options": [
+        "ফেনী",
+        "নোয়াখালী",
+        "লালমনিরহাট",
+        "সাতক্ষীরা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "071d2b46-d723-4325-abac-761e0e9176a8",
+      "question": "বাংলাদেশ টেলিভিশনের যাত্রা শুরু হয় কত সালে?[]",
+      "options": [
+        "১৯৪৭",
+        "১৯৫৮",
+        "১৯৬৪",
+        "১৯৬৫"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "cc38fdd8-ab15-46c2-ae71-c43661c297ec",
+      "question": "জাতীয় সংসদের প্রথম নির্বাচন কবে অনুষ্ঠিত হয়?[]",
+      "options": [
+        "৭ এপ্রিল ১৯৭৩",
+        "১৬ই ডিসেম্বর ১৯৭২",
+        "৭ ডিসেম্বর ১৯৭২",
+        "৭ মার্চ ১৯৭৩"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "ced7508d-aaa5-4138-b2d0-ac60f12f5c3b",
+      "question": "বাংলাদেশ উন্নয়ন ফোরামের সমন্বয়কারী কোন সংস্থা?[]",
+      "options": [
+        "এ.ডি.বি",
+        "বিশ্ব ব্যাংক",
+        "আই এম এফ",
+        "জায়কা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "ac28908a-e927-4763-8c44-8b5c0bb7d818",
+      "question": "বাংলাদেশ ও বার্মার সীমান্তবর্তী নদী কোনটি?[]",
+      "options": [
+        "গোমতী",
+        "জিনজিরাম",
+        "নাফ",
+        "কর্ণফুলী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "1b460f1d-960d-4d94-bc9d-e05cbbf3c153",
+      "question": "বাংলাদেশের শেয়ার বাজারের কার্যক্রম কোন সংস্থা নিয়ন্ত্রণ করে?[]",
+      "options": [
+        "অর্থ মন্ত্রণালয়",
+        "প্রধানমন্ত্রীর কার্যালয়",
+        "বাংলাদেশ ব্যাংক",
+        "সিকিউরিটিজ এক্সচেঞ্জ কমিশন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "cdfaf2fd-b94f-4462-a240-49dbd3cb81b6",
+      "question": "জামাল নজরুল ইসলাম কে?[]",
+      "options": [
+        "কবি",
+        "ফুটবল খেলোয়াড়",
+        "বৈজ্ঞানিক",
+        "অর্থনীতিবিদ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "966b8998-45df-4cec-a22f-1b166f2048e4",
+      "question": "নিচের কোন সংস্থাটি একুশে ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস হিসেবে স্বীকৃতি দিয়েছে?[]",
+      "options": [
+        "ইউএনডিপি",
+        "ইউনেস্ক",
+        "UNICEF",
+        "UNCTAD"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "8b630a0f-5942-4da1-a831-38034b6d0408",
+      "question": "ভাষা আন্দোলন ভিত্তিক নাটক কোনটি?[]",
+      "options": [
+        "কবর",
+        "পায়ের আওয়াজ পাওয়া যায়",
+        "জন্ডিস ও বিভেদ বেলুন",
+        "ওরা কদম আলী"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "b32c8ded-3441-453c-b41c-1f99cf3c000c",
+      "question": "\"দেয়াল\" রচনাটি কার?[]",
+      "options": [
+        "বুদ্ধদেব বসু",
+        "হুমায়ূন আহমেদ",
+        "তারাশঙ্কর বন্দ্যোপাধ্যায়",
+        "সেলিনা হোসেন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "00ec2e7c-5516-4867-9dd6-35885ca22429",
+      "question": "মুক্তিযুদ্ধভিত্তিক উপন্যাস কোনটি?[]",
+      "options": [
+        "ক্রীতদাসের হাসি",
+        "মাটি আর অশ্রু",
+        "হাঙ্গর নদী গ্রেনেড",
+        "সারেং বউ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "7ec3057a-fbb6-4db4-8d1a-d04873c7ee98",
+      "question": "\"আমার ভাইয়ের রক্তে রাঙানো একুশে ফেব্রুয়ারি আমি কি ভুলিতে পারি\" গানটির প্রথম সুরকার কে?[]",
+      "options": [
+        "আব্দুল গাফফার চৌধুরী",
+        "আসাদ চৌধুরী",
+        "আলতাফ মাহমুদ",
+        "আব্দুল লতিফ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "7e3f45ed-c007-40bc-a7fc-be8e526a507d",
+      "question": "\"তুমি আসবে বলে হে স্বাধীনতা\" কার কবিতা?[]",
+      "options": [
+        "শওকত ওসমান",
+        "সিকান্দার আবু জাফর",
+        "সুফিয়া কামাল",
+        "শামসুর রহমান"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

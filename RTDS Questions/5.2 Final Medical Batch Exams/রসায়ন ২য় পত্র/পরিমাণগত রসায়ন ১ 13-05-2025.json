@@ -1,0 +1,708 @@
+{
+  "title": "পরিমাণগত রসায়ন ১ 13/05/2025",
+  "category": "5.2 Final Medical Batch Exams > রসায়ন ২য় পত্র",
+  "duration_minutes": 30,
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "120799",
+      "question": "1.008 g H2-এ অণুর সংখ্যা-",
+      "options": [
+        "6.023×10^23",
+        "12.046×10^23",
+        "3.0115×10^23",
+        "6.023×10^22"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 2,
+      "id": "120800",
+      "question": "2L দ্রবণে 80g NaOH দ্রবীভূত থাকলে দ্রবণের ঘনমাত্রা কত?",
+      "options": [
+        "1.0 M",
+        "2 M",
+        "0.5 M",
+        "0.05 M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 3,
+      "id": "120801",
+      "question": "NaCl এর ফর্মুলা ভর কত?",
+      "options": [
+        "23",
+        ". 35.5",
+        "58.5",
+        "12.5"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 4,
+      "id": "120802",
+      "question": "STP তে গ্যাসের মোলার আয়তন কত?",
+      "options": [
+        "22.4 L",
+        "24.789 L",
+        "30.6 L",
+        "1 L"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": ":0°C বা 273K তাপমাত্রা ও 1atm চাপে বা STP তে গ্যাসের মোলার আয়তন 22.4 L ।  \r\nSATP এর ক্ষেত্রে, 25°C 3 100 KPa চাপে তা 24.789 L  \r\n[Ref: হাজারী"
+    },
+    {
+      "question_no": 5,
+      "id": "120803",
+      "question": "গ্যাসের মোলার আয়তন কিসের উপর নির্ভর করে নাহ?",
+      "options": [
+        "পদার্থের অবস্থা",
+        "তাপমাত্রা",
+        "চাপ",
+        "ঘনমাত্রা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "গ্যাসের মোলার আয়তন-তাপমাত্রা, চাপ ও পদার্থের অবস্থার উপর নির্ভর করে কিন্তু ঘনমাত্রার উপর নির্ভরশীল নয়। গ্যাসের আয়তন প্রকাশের একক মোলার আয়তন এবং পরিমাণ  \r\nপ্রকাশের একক মোল ।"
+    },
+    {
+      "question_no": 6,
+      "id": "120804",
+      "question": "কঠিন চুনাপাথরকে কত তাপমাত্রায় উত্তপ্ত করলে চুনাপাথরের বিয়োজন ঘটে?",
+      "options": [
+        "700°C",
+        "800°C",
+        "300°C",
+        "200°C"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কঠিন চুনাপাথরের বিয়োজনে CaO ও CO2 উৎপন্ন হয়।"
+    },
+    {
+      "question_no": 7,
+      "id": "120805",
+      "question": "100L NO গ্যাস প্রস্তুতির জন্য কত লিটার NH3 গ্যাসের প্রয়োজন?",
+      "options": [
+        "100L",
+        "120L",
+        "1.25",
+        "150L"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "4NH3 + 502 4NO + 6H2O  \r\nএখানে\r\n 4 মোল NO গ্যাস প্রস্তুতিতে 4 মোল NH3 প্রয়োজন . 1 মোল NO গ্যাস প্রস্তুতিতে 1 মোল NH3 প্রয়োজন :: 100L NO গ্যাস প্রস্তুতিতে 100L NH3 প্রয়োজন"
+    },
+    {
+      "question_no": 8,
+      "id": "120806",
+      "question": "প্রমাণ অবস্থায় 1.7g অ্যামোনিয়া গ্যাসের আয়তন কত?",
+      "options": [
+        "22.4 L",
+        "1.7 L",
+        "2.24 L",
+        "0.224 L"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "1 মোল অ্যামোনিয়ার ভর =   17g \r\n17g অ্যামোনিয়া গ্যাসের আয়তন  = 22.4 L  \r\n.:. 1.7g অ্যামোনিয়া গ্যাসের আয়তন =22.4x1.7/17  \r\n=2.24 L [Ref: হাজারী]"
+    },
+    {
+      "question_no": 9,
+      "id": "120807",
+      "question": "কোনটি গ্যাসের আয়তন প্রকাশের একক?",
+      "options": [
+        "মোল",
+        "মোলার আয়তন",
+        "অ্যাভোগাড্রো সংখ্যা",
+        "মোলারিটি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পরিমাণ প্রকাশের একক → মোল  \r\nআয়তন প্রকাশের একক → মোলার আয়তন"
+    },
+    {
+      "question_no": 10,
+      "id": "120808",
+      "question": "গ্যাসের আণবিক ভর বাষ্প ঘনত্বের কত গুণ?",
+      "options": [
+        "1/2× বাষ্প ঘনত্ব",
+        "2 × বাষ্প ঘনত্ব",
+        "4 × বাষ্প ঘনত্ব",
+        ". 1/4× বাষ্প ঘনত্ব"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": ": আণবিক ভর M এবং বাষ্প ঘনত্ব D হলে, M=2xD  \r\n[Ref: হাজারী।"
+    },
+    {
+      "question_no": 11,
+      "id": "120809",
+      "question": "SO2 গ্যাস নিচের কোন এসিড উৎপাদনে ব্যবহার করা যায়?",
+      "options": [
+        "HSO4",
+        "H2SO4",
+        "HNO3",
+        "HCl"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "2SO2(g)+O2(g)>2SO3(g)  \r\nSO3(g)+H2O→H2SO4(l)"
+    },
+    {
+      "question_no": 12,
+      "id": "120810",
+      "question": "কোন তথ্যটি সঠিক নয়?",
+      "options": [
+        "STP-তে মোলার আয়তন=22.4 Lmol^-1",
+        "25°C ও 1atm এ মোলার আয়তন = 24.789 Lmol^-1",
+        "20°C-এ মোলার আয়তন= 22.8 Lmol^-1",
+        "SATP-তে মোলার আয়তন=24.789 Lmol^-1"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "20°C এ মোলার আয়তন = 24.04 Lmol^-1(NTP)"
+    },
+    {
+      "question_no": 13,
+      "id": "120811",
+      "question": "সেমিমোলার দ্রবণ কোনটি?",
+      "options": [
+        "0.001M",
+        "0.05M",
+        "0.01M",
+        "0.5M"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মোলার দ্রবন-1M\r\nসেমিমোলার দ্রবন-0.5M\r\nডেসিমোলার দ্রবন-0.1M\r\nসেন্টি মোলার দ্রবন-0.01M\r\nমিলিমোলার দ্রবন-0.001M"
+    },
+    {
+      "question_no": 14,
+      "id": "120812",
+      "question": "5% NaOH এর 1000ml দ্রবণে কতগ্রাম NaOH থাকে",
+      "options": [
+        "5g",
+        "25g",
+        "40g",
+        "50g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "5% NaOH হচ্ছে-\r\n 100ml দ্রবণে NaOH = 5g  \r\n= 1000ml দ্রবণে NaOH  \r\n5× 1000 /100  \r\n= 50g"
+    },
+    {
+      "question_no": 15,
+      "id": "120813",
+      "question": "প্রমাণ দ্রবণ কোনটি?",
+      "options": [
+        "1.0M H2SO4",
+        "1.0mol H2SO4",
+        ". 1.0mL H2SO4",
+        "1.0g H2SO4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 16,
+      "id": "120814",
+      "question": "ল্যাবরেটরির পরীক্ষা কাজে কোন দ্রবণটি ব্যবহৃত হয়?",
+      "options": [
+        "মোলার দ্রবণ",
+        "সেমিমোলার দ্রবণ",
+        "ডেসিমোলার দ্রবণ",
+        "সেন্টিমোলার দ্রবণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নির্দিষ্ট তাপমাত্রায় এক লিটার দ্রবণে 1 mole দ্রব দ্রবীভূত থাকলে মোলার দ্রবণ, অর্ধ মোল দ্রবীভূত থাকলে সেমি মোলার দ্রবণ, এক দশমাংশ মোল দ্রবীভূত থাকলে ডেসিমোলার দ্রবণ  \r\nবলে।"
+    },
+    {
+      "question_no": 17,
+      "id": "120815",
+      "question": "নিচের কোনটি দ্রবণের ঘনমাত্রার শতকরা হারের প্রকাশ নয়?",
+      "options": [
+        "w/w",
+        "v/v",
+        "w/v",
+        "v/w"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দ্রবণে দ্রবের শতকরা হার, শতকরা ভর % (w/w), শতকরা আয়তন% (v/v), শতকরা ভর/আয়তন% (w/v) ইত্যাদিতে প্রকাশ করা হয়।"
+    },
+    {
+      "question_no": 18,
+      "id": "120816",
+      "question": "সেকেন্ডারি স্ট্যান্ডার্ড পদার্থের বৈশিষ্ট্য কোনটি?",
+      "options": [
+        "বিশুদ্ধ অবস্থায় পাওয়া যায়",
+        "জলীয় বাষ্প দ্বারা আক্রান্ত হয় না",
+        "ব্যালেন্সের ক্ষতি করে",
+        "দীর্ঘদিন ঘনমাত্রা অপরিবর্তিত থাকে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রাইমারি স্ট্যান্ডার্ড পদার্থের বৈশিষ্ট্যঃ \r\n১) বিশুদ্ধ অবস্থায় পাওয়া যায়  \r\n২) জলীয় বাষ্প দ্বারা আক্রান্ত হয় না \r\n৩) দীর্ঘদিন ঘনমাত্রা অপরিবর্তিত থাকে  \r\n৪) প্রমাণ দ্রবণ প্রস্তুত করা যায়।"
+    },
+    {
+      "question_no": 19,
+      "id": "120817",
+      "question": "বাণিজ্যিক HCl এসিড হল 12.0M জলীয় দ্রবণ। ঐ রূপ 12M HCI বাণিজ্যিক এসিডের 300.0 mL এ কত মোল HCI থাকে?",
+      "options": [
+        ". 0.3 mol",
+        "3.6 mol",
+        "12 mol",
+        "36 mol"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মোলসংখ্যা n = মোলারিটি × আয়তন (L)  \r\n=12/1×0.3L\r\n= 3.60 mol.  \r\n20. নিচের কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?  \r\nA. HCI  \r\nB. K2Cr2O7  \r\nC. কস্টিক সোডা  \r\nD. H2SO4"
+    },
+    {
+      "question_no": 20,
+      "id": "120818",
+      "question": "নিচের কোনটি প্রাইমারি স্ট্যান্ডার্ড পদার্থ?",
+      "options": [
+        "HCI",
+        "K2Cr2O7",
+        "কস্টিক সোডা",
+        "H2SO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রাইমারি স্ট্যান্ডার্ড পদার্থঃ অনার্দ্র Na2CO3, K2Cr2O7, অক্সালিক এসিড বা কেলাসিত ইথেন ডাইঅয়িক এসিড (H2C2O4.2H2O) কেলাসিত সোডিয়াম ইথেন ডাইঅয়েট বা অক্সালেট (Na2C2O4.2H2O)  \r\nসেকেন্ডারি স্ট্যান্ডার্ড পদার্থ: KMnO4, H2SO4, NaOH, • Na2S2O3, 5H2O, HCI ইত্যাদি।\r\n[যে সব যৌগের নামে C আছে তারা প্রাইমারি স্ট্যান্ডার্ড except HCl)"
+    },
+    {
+      "question_no": 21,
+      "id": "120819",
+      "question": "11g কার্বন ডাইঅক্সাইডে কয়টি অণু থাকে?",
+      "options": [
+        "3×10^23",
+        "1.5×10^23",
+        "6.02×10^23",
+        "6.02×10^26"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "44g CO2 এ অণুর সংখ্যা = 6.022×10°23টি।  \r\n11g CO2 এ অণুর সংখ্যা =6.022×10^23×11/44টি \r\n= 1.5505×10^23G"
+    },
+    {
+      "question_no": 22,
+      "id": "120820",
+      "question": "1.0 ppm বলতে কী বুঝায়?",
+      "options": [
+        ". 1.0mgL",
+        "1.0mg L^-1",
+        "1.0mgL^-2",
+        "1.0mgL^-1"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "1.0mgL^-1"
+    },
+    {
+      "question_no": 23,
+      "id": "120821",
+      "question": "নিচের কোনটি জারক পদার্থ নয়?",
+      "options": [
+        "F2",
+        "FeCl 3",
+        "HNO3",
+        "FeCl2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "জারক পদার্থের উদাহরণঃ CuSO4, Cl2, O2, HNO H2O2, MnO2, FeCl3, KCIO3 এর মিশ্রণ। [Ref: হাজারী"
+    },
+    {
+      "question_no": 24,
+      "id": "120822",
+      "question": "পরমাণুর ভরের ক্ষুদ্রতম একক কোনটি?",
+      "options": [
+        "mole",
+        "ppm",
+        "amu",
+        "esu"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "1 amu =   1.660539×10^-24 g"
+    },
+    {
+      "question_no": 25,
+      "id": "120823",
+      "question": "1 মোল আয়ন বলতে কি বুঝায়?",
+      "options": [
+        "6.023×10^23 টি ইলেকট্রন",
+        "6.023×10^-23 টি আয়ন",
+        "6×10^23 টি আয়ন",
+        "6.023×10^23 টি আয়ন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "1 mol ইলেকট্রন =6.023×10^23টি ইলেকট্রন \r\n1 mol বন্ধন =6.023×10^23টি বন্ধন\r\n1 mol আয়ন=6.023×10^23টি আয়ন"
+    },
+    {
+      "question_no": 26,
+      "id": "120824",
+      "question": "রাসায়নিক মোলার আয়তনভিত্তিক গণনায় বিক্রিয়ক ও উৎপাদ কি হয়?",
+      "options": [
+        "কঠিন",
+        "তরল",
+        "গ্যাসীয়",
+        "উর্ধ্বপাতিত"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রাসায়নিক বিক্রিয়ার বিক্রিয়ক ও উৎপাদের মোলভিত্তিক গণনাকে পরিমাণগত রসায়ন বা Stoichiometric Chemistry বলা হয়।  \r\n। বায়ু দূষণ, পানি ও খাদ্য দূষণ মাত্রাকে বোঝাবার জন্য মিশ্রিত থাকা সুক্ষ্ম কণার পরিমাণকে ppm (parts per million) এককেও  \r\nপ্রকাশ করা হয়।"
+    },
+    {
+      "question_no": 27,
+      "id": "120825",
+      "question": "25°C 12.395L O2 গ্যাসে অণুর সংখ্যা কত?",
+      "options": [
+        ". 3.11×10^23",
+        "3.02×10^22",
+        "3.01×10^23",
+        ". 3.21×10^23"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 28,
+      "id": "120826",
+      "question": ".-273°C তাপমাত্রায় N2 গ্যাসের মোলার আয়তন কত?",
+      "options": [
+        "22.4 dm3",
+        "6.023 L",
+        ". 0 dm3",
+        "24.789 L"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "-273°C বা 0k তাপমাত্রায় গ্যাসের মোলাত আয়তন তাত্বিকভাবে শূন্য হয়।"
+    },
+    {
+      "question_no": 29,
+      "id": "120827",
+      "question": "12gm কার্বন =.....?",
+      "options": [
+        "6.02×10^23 অণু",
+        ". 6.84×10^22",
+        "2×10^5",
+        "2.99×10^10"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "12g কার্বন = 1mol = 6.023×10^23 টি অণু"
+    },
+    {
+      "question_no": 30,
+      "id": "120828",
+      "question": "CH4(g)+2O2(g)→CO2(g)+2H2O(g) বিক্রিয়াটির লিমিটিং রিঅ্যাক্‌ট্যান্ট কোনটি?",
+      "options": [
+        "CH4",
+        "O2",
+        "CO2",
+        "H2O"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 31,
+      "id": "120829",
+      "question": "ক্যালসিয়াম ক্লোরাইড দ্রবণের সঙ্গে সোডিয়াম কার্বনেট দ্রবণ মিশ্রিত করলে কীরূপ অধঃক্ষেপের সৃষ্টি হয়?",
+      "options": [
+        "কালো",
+        "সাদা",
+        "লাল",
+        "নীল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 32,
+      "id": "120830",
+      "question": "0.01M 500mL H2SO4 দ্রবনের ঘনমাত্রা কত ppm?",
+      "options": [
+        "196",
+        "392",
+        "980",
+        "4900"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 33,
+      "id": "120831",
+      "question": "দ্রবণের মোলারিটির একক কোনটি?",
+      "options": [
+        ". N/V",
+        "mol/kg",
+        "g/L",
+        "mol/L"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 34,
+      "id": "120832",
+      "question": "মিলিমোলার দ্রবণ কোনটি?",
+      "options": [
+        "0.001M",
+        "0.05M",
+        "0.01M",
+        "0.5M"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 35,
+      "id": "120833",
+      "question": "নির্দিষ্ট তাপমাত্রায় এক লিটার দ্রবণে যত মোল দ্রব দ্রবীভূত থাকে, তাকে বলে-",
+      "options": [
+        "নরমালিটি",
+        "মোলালিটি",
+        "মোলারিটি",
+        "মোলার দ্রবণ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মোলার দ্রবণ"
+    },
+    {
+      "question_no": 36,
+      "id": "120834",
+      "question": "কপার পাইরাইটস এর সংকেত কোনটি?",
+      "options": [
+        "CuSO4",
+        "CaSO4",
+        "Cu2S",
+        "CuFeS2"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হাজারী স্যারের বইতে, কপার পাইরাইটস এর সংকেত Cu2S দেওয়া আছে; যেটা মূলত কপার সালফাইড এর সংকেত। CuFeS2- কপার পাইরাইটস এর সংকেত।\r\n\r\nতবে Cu2S ই দিও"
+    },
+    {
+      "question_no": 37,
+      "id": "120835",
+      "question": "ঘনমাত্রার কোন এককটি তাপমাত্রার উপর নির্ভরশীল নয়?",
+      "options": [
+        "মোলারিটি",
+        "মোলালিটি",
+        "নরমালিটি",
+        "ডেসিমোলার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 38,
+      "id": "120836",
+      "question": "প্রাইমারি স্ট্যান্ডার্ড পদার্থের বৈশিষ্ট্য নয় কোনটি?",
+      "options": [
+        "বিশুদ্ধ অবস্থায় পাওয়া যায়",
+        "জলীয় বাষ্প দ্বারা আক্রান্ত হয় না",
+        "দীর্ঘদিন ঘনমাত্রা অপরিবর্তিত থাকে।",
+        "প্রমাণ দ্রবণ প্রস্তুত করা যায় না।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 39,
+      "id": "120837",
+      "question": "দূষিত বায়ুতে থাকা টক্সিক CO এর পরিমাণ-",
+      "options": [
+        ". 0.05 mol",
+        "B. 0.5 ppmv",
+        "5 ppmv",
+        "50 ppmv"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 40,
+      "id": "120838",
+      "question": "এক মিলি মোল H2SO4 এর ভর কত?",
+      "options": [
+        "98g",
+        "9.88g",
+        "9.8g",
+        "0.098g"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "1 mol H2SO4=98g\r\n0.001 mol H2SO4=(98×0.001)g=0.098g"
+    },
+    {
+      "question_no": 41,
+      "id": "120839",
+      "question": "প্রমাণ দ্রবণ নিচের কোথায় ব্যবহৃত হয়?",
+      "options": [
+        "নাইট্রেশন",
+        "তড়িৎ বিশ্লেষণে",
+        "টাইট্রেশন",
+        "তড়িৎ সংশ্লেষণে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "টাইট্রেশনে কোনো প্রমাণ দ্রবণ ব্যবহার করে অজানা  দ্রবণের ঘনমাত্রা নির্ণয় করা হয়।"
+    },
+    {
+      "question_no": 42,
+      "id": "120840",
+      "question": "নিচের কোনটি মিথ্যা?",
+      "options": [
+        "1ppm = 1mg/L",
+        "1M = 1mol/L",
+        "1 centimolar = 0.01M",
+        "1 Decimolar = 0.5M"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "1 Decimolar = 0.1M"
+    },
+    {
+      "question_no": 43,
+      "id": "120841",
+      "question": "5% NaOH এর মোলারিটি কত?",
+      "options": [
+        "1.25",
+        "1.30",
+        "0.98",
+        "0.93"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 44,
+      "id": "120842",
+      "question": "মৃদু এসিড ও মৃদু ক্ষারকের টাইট্রেশনে উপযুক্ত নির্দেশক কী?",
+      "options": [
+        "ফেনলফথ্যালিন",
+        "মিথাইল রেড",
+        "কোনো উপযুক্ত নির্দেশক নেই",
+        "মিথাইল অরেঞ্জ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 45,
+      "id": "120843",
+      "question": "তীব্র এসিড ও তীব্র ক্ষারের টাইট্রেশনে নির্দেশক হিসেবে ব্যবহার উপযোগী কোনটি?",
+      "options": [
+        "মিথাইল অরেঞ্জ",
+        "মিথাইল রেড",
+        "ফেনলফথ্যালিন",
+        "সবকটি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 46,
+      "id": "120844",
+      "question": "নিচের কোন জোড়াটি জারক ও বিজারকের উদাহরণ?",
+      "options": [
+        "KMnO4, K2Cr2O7",
+        "Na2C2O4, KMnO4",
+        "CuSO4, K2Cr2O7",
+        "KMnO4, HI"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কঠিন জারক :, KMnO4, পটাসিয়াম ডাইক্রোমেট (K2Cr2O7), পটাসিয়াম ক্লোরেট (KCIO3), MnO2, FeCl3, পার-অক্সাইডসমূহ, পার-অক্সি এসিডসমূহ ও তাদের লবণসমূহ ইত্যাদি।  \r\nকঠিন বিজারক :অধিকাংশ ধাতু, কার্বন, ফেরাস লবণ (FeCl), স্ট্যানাস ক্লোরাইড (SnCl2), Hg2Cl2, অক্সালিক এসিড (H2C2O4.2H2O), সোডিয়াম থায়োসালফেট (Na2S2O3.5H2O), লিথিয়াম অ্যালুমিনিয়াম হাইড্রাইড (LiAIH4) কার্বন ©"
+    },
+    {
+      "question_no": 47,
+      "id": "120845",
+      "question": "O2 এর আণবিক ভর কত?",
+      "options": [
+        "৮",
+        "১৬",
+        "৩২",
+        "৬৪"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 48,
+      "id": "120846",
+      "question": "গ্যাসীয় জারক কোনটি?",
+      "options": [
+        "Br2",
+        "H2O2",
+        "H2SO4",
+        "O3"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 49,
+      "id": "120847",
+      "question": "জারক পদার্থ সম্পর্কিত কোন তথ্যটি সঠিক নয়-",
+      "options": [
+        "ইলেকট্রন গ্রহীতা",
+        "ইলেকট্রন গ্রহণের প্রবণতা কম থাকলে বেশি সবল হয়",
+        "অপর বিক্রিয়ক পদার্থকে জারিত করে",
+        "নিজে বিজারিত হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    },
+    {
+      "question_no": 50,
+      "id": "120848",
+      "question": "নিচের কোনটি জারক ও বিজারক উভয় হিসাবেই কাজ করে?",
+      "options": [
+        "H2O",
+        "03",
+        "H2SO4",
+        "KMnO4"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "missing"
+    }
+  ]
+}

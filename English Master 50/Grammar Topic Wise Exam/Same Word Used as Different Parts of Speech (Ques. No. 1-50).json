@@ -1,0 +1,761 @@
+{
+  "exam_id": 8422,
+  "title": "Same Word Used as Different Parts of Speech (Ques. No. 1-50)",
+  "category": "Grammar Topic Wise Exam",
+  "subtopic": "Same Word Used as Different Parts of Speech (79 Marks)",
+  "duration_minutes": 20,
+  "total_questions": 50,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "c6ad3290-1b92-4190-b77b-1c473eb7d928",
+      "question": "He told us about the battle. এখানে about শব্দটি ---[]",
+      "options": [
+        "Pronoun",
+        "Adjective",
+        "Adverb",
+        "Preposition"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "about the battle — battle এর আগে বসে সম্পর্ক বোঝাচ্ছে, তাই preposition",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "ee3609a2-e243-42d4-8dd2-d9a68f69d0f8",
+      "question": "Our blessings come from <u>above.</u> \nDivine inspiration comes from <u>above.</u>[]",
+      "options": [
+        "Preposition",
+        "Adverb",
+        "Noun",
+        "Adjective"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "from above = ওপর থেকে (স্বর্গ/উপরের স্থান বোঝাচ্ছে) — এখানে noun হিসেবে ব্যবহৃত।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "8398c260-dc17-4b51-adb8-5eb6466b34c2",
+      "question": "The heavens are <u>above.</u>\nHere 'above' is ---[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Noun",
+        "Conjunction"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "above কোনো noun কে modify করছে না, শুধু অবস্থান বলছে → adverb।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "cf62adf2-ec92-4f90-b240-eddd4698cecf",
+      "question": "The moral law is <u>above</u> the civil law.[]",
+      "options": [
+        "Noun",
+        "Preposition",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "civil law এর আগে বসে সম্পর্ক দেখাচ্ছে → preposition।\n''The civil law''  Noun তাই এর আগে preposition",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "aed683e3-fc92-402e-ad12-3e9983efd90e",
+      "question": "Analyze the <u>above</u> sentences. The underlined word is ---[]",
+      "options": [
+        "Preposition",
+        "Adjective",
+        "Pronoun",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "above sentences — sentences কে বর্ণনা করছে → adjective।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "b7215bbe-26dc-4fa3-8522-17b59e302fe9",
+      "question": "In which sentence 'above' is used as preposition ?[]",
+      "options": [
+        "The heavens are above.",
+        "The moral law is above the civil law.",
+        "Analyze the above sentence.",
+        "Our blessings come from above."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Object + Noun এর আগে Preposition",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "4cb5ad6b-7bfa-455a-95c1-72a0fafcbed9",
+      "question": "<u>After</u> ages will sing his glory. / His <u>after</u> were miserable.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Noun",
+        "Pronoun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "after ages (পরবর্তী যুগ) — ages কে describe করছে → adjective।",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "ee41fd72-4518-4c6c-a6c3-b849b34e6289",
+      "question": "The patient died after the doctor had come. Here 'after' is ---[]",
+      "options": [
+        "A conjunction",
+        "A preposition",
+        "An adverb",
+        "An adjective"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "after the doctor had come — clause যুক্ত করছে → conjunction।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "fcf8edbc-b6fb-4383-b955-c298012bc74b",
+      "question": "He was <u>all</u> alone when I saw him./ She was <u>all</u> alone when her father died. Here 'all' is -----[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Preposition",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "all alone — alone কে জোর দিচ্ছে → adverb।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "d3a9e7c4-63b0-4a66-9c21-63ba204d8c34",
+      "question": "He lost his <u>all</u> in speculation.[]",
+      "options": [
+        "Pronoun",
+        "Noun",
+        "Adjective",
+        "Verb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "his = possessive adjective (determiner)\nএটা noun-এর আগে বসে তাকে modify করে।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "c6cae40f-78ed-4ae3-8367-7d0b188b2550",
+      "question": "<u>All</u> spoke in his favour.[]",
+      "options": [
+        "Noun",
+        "Pronoun",
+        "Verb",
+        "Conjunction"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "All এখানে subject হিসেবে ব্যবহৃত → pronoun।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "2691160b-75fc-47db-b140-b34e8e08a792",
+      "question": "<u>All</u> men are mortal.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Pronoun",
+        "Noun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "All men — men কে modify করছে → adjective।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "f7ea78da-a0ff-4166-8d91-9820cadd12a9",
+      "question": "Look <u>before</u> you leap. The word 'before' used in the sentence is ---[]",
+      "options": [
+        "Preposition",
+        "Conjunction",
+        "Adverb",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "before you leap — clause যুক্ত করছে → conjunction।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "33253d78-6fdf-420f-81a8-a28208a64893",
+      "question": "I saw him/you once <u>before.</u>[]",
+      "options": [
+        "Noun",
+        "Pronoun",
+        "Verb",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "once before — সময় বোঝাচ্ছে → adverb।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "dec967c0-0252-45ce-98da-a8c162b1e5b2",
+      "question": "He is a <u>better</u> worker than I.\nI think yours is a <u>better</u> plan.[]",
+      "options": [
+        "Adverb",
+        "Verb",
+        "Noun",
+        "Adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Noun কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "47eafb82-1395-4038-8106-62b58df91e8c",
+      "question": "You should honour your <u>betters.</u>\nGive place to your <u>betters.</u>[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Adverb",
+        "Pronoun"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "possessive determiner এর পরে Noum",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "fb5c288c-5a60-4aa2-bb4f-4a7dcbd10471",
+      "question": "I know him <u>better.</u> Here the word 'better' is ---[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Verb",
+        "Noun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "know him better — verb কে modify করছে → adverb।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "7e774a3c-3ad7-46fa-b367-c5c14e162e76",
+      "question": "Which underlined word is a preposition ?[]",
+      "options": [
+        "You are <u>but</u> a child.",
+        "None <u>but</u> the brave deserves the fair.",
+        "He is poor <u>but</u> honest.",
+        "<u>But</u> me no buts."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Object plus Noun এর আগে  preposition",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "ab8690ef-6a59-4caf-bc0e-6c965e85d122",
+      "question": "But me no <u>buts.</u> The underlined word is a -----[]",
+      "options": [
+        "Conjunction",
+        "Preposition",
+        "Noun",
+        "Pronoun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Determiner এরপরে Noun",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "9b547d6e-dcd5-49f1-9681-625bfb260a93",
+      "question": "There is no mother <u>but</u> loves her child'. Here 'but' is ---[]",
+      "options": [
+        "Conjunction",
+        "Adjective",
+        "Adverb",
+        "Negative relative"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "no mother but loves — but = who does not → negative relative।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "fff86bc5-4efe-4444-9956-de73afb83448",
+      "question": "He came down the hill'. In this sentence 'down' is ---[]",
+      "options": [
+        "Noun",
+        "Preposition",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Obj+ Noun এরাগে preposition",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "fdc7f880-f604-4f06-b4dc-120bb0480846",
+      "question": "Which of the following sentences uses the word 'down' as adverb ?[]",
+      "options": [
+        "Try to down him.",
+        "Down went the Royal George.",
+        "The down train has left the station.",
+        "She came down the hill."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Down went the Royal George — দিক বোঝাচ্ছে → adverb।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "43a00718-c724-483d-961a-78edc17cf41a",
+      "question": "<u>Either</u> of the two girls will be awarded. The underlined word is -----[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Noun",
+        "Pronoun"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দুই জনের মধ্যে একজন → pronoun।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "88db6c7d-2174-441d-8031-f00f4e95c614",
+      "question": "He was wise enough to accept the office./ It was wise enough to accept the offer. Here 'enough' is -----.[]",
+      "options": [
+        "Adjective",
+        "Preposition",
+        "Adverb",
+        "Conjunction"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "wise enough — adjective কে modify করছে → adverb।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "f01d3da3-f60a-4471-8ec5-99b32067fd94",
+      "question": "Few know where he is'. Here 'few' is used as -----.[]",
+      "options": [
+        "Pronoun",
+        "Adjective",
+        "Noun",
+        "Adverb"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Few know — subject → pronoun।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "add8fca9-c674-480c-bd93-86ca23ef5ab4",
+      "question": "Karim <u>headed</u> the ball.[]",
+      "options": [
+        "A verb",
+        "A pronoun",
+        "A conjunction",
+        "None of the above"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কাজ বোঝাচ্ছে → verb।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "e721324d-f9bd-4b2d-a837-f047d29eeabe",
+      "question": "They are men of like build and stature. Here the word 'like' is a/an -----.[]",
+      "options": [
+        "Preposition",
+        "Noun",
+        "Adverb",
+        "Adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "like build — build কে বর্ণনা করছে।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "b6076301-ff0c-4ea2-8753-feecf05396e4",
+      "question": "In which of the following sentences 'like' has been used as a preposition ?[]",
+      "options": [
+        "He <u>likes</u> to eat fish.",
+        "He climbed the tree <u>like</u> a cat.",
+        "He laughs <u>like</u> his father does.",
+        "<u>like</u>-minded people are necessary for a cooperative"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Noun এর  আগে preposition",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "d54586ae-4d0a-4239-b255-ddc55c78dc65",
+      "question": "Which of the following sentences is having the word 'like' as adjective ?[]",
+      "options": [
+        "We shall not see his <u>like</u> again.",
+        "Children <u>like</u> sweets.",
+        "They are men of <u>like</u> build and stature.",
+        "Do not talk <u>like</u> that."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "like’ is used to describe the similarities in build and stature among the men. In this context, it functions as an adjective, giving information about the noun ‘men.’",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "da5463de-6bd6-4ef5-8740-6ffa5ffedab7",
+      "question": "Which of the following sentences is having the word 'near' as adverb ?[]",
+      "options": [
+        "The times near.",
+        "He is a near relation.",
+        "Draw near and listen.",
+        "The school is near the post office."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Verb কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "3cb9058d-9bc0-415c-90d2-6496cf26303a",
+      "question": "There is a big pond <u>near</u> the school.[]",
+      "options": [
+        "Noun",
+        "Pronoun",
+        "Adjective",
+        "Preposition"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The + Noun এর আগে preposition",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "819e0d94-e435-4803-88c0-9771b9630381",
+      "question": "Where the word 'Near' is used as preposition ?[]",
+      "options": [
+        "Draw near and listen.",
+        "My school was near the mosque.",
+        "She is a near relation.",
+        "Death nears with the passage of time."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "The + Noun এর আগে preposition",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "0603d6b0-babb-4b39-a4d5-b11337446106",
+      "question": "The day of my sister's marriage ceremony is drawing <u>near</u>./ The exam were drawing <u>near</u>. The underlined word is a/an ---[]",
+      "options": [
+        "Adjective",
+        "Verb",
+        "Preposition",
+        "Adverb"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "verb কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "810bb1fd-062d-4294-8b2f-f345710c4a01",
+      "question": "My <u>needs</u> are few.[]",
+      "options": [
+        "verb",
+        "adverb",
+        "noun",
+        "pronoun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Needs Noun\nPossesive Determiner এরপর Noun",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "e43cd7d0-57be-4ac8-ac98-00937444dcd3",
+      "question": "Please take what I have, <u>only</u> let me go.[]",
+      "options": [
+        "Adjective",
+        "Adverb",
+        "Conjunction",
+        "Preposition"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "দুটি clause যুক্ত করছে।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "8d886d36-fd4c-4b66-a595-455c2118e2da",
+      "question": "He is the <u>only</u> son of his father. Here 'only' is ---[]",
+      "options": [
+        "a preposition",
+        "an interjection",
+        "an adverb",
+        "an adjective"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Noun কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "ee1b12e3-0f9c-4a0f-8cdf-64d2c33b28da",
+      "question": "She did it <u>right.</u> []",
+      "options": [
+        "Preposition",
+        "Adverb",
+        "Noun",
+        "Adjective"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Verb কে modify",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "fd2a6450-20e7-44e3-9201-0340cba7ed1d",
+      "question": "I cannot <u>right</u> the wrong.[]",
+      "options": [
+        "Noun",
+        "Adjective",
+        "Verb",
+        "Pronoun"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "right the wrong — ঠিক করা → verb।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "54d6a745-b44f-4d3a-9c13-afe58ac5029d",
+      "question": "Which of the following sentences uses <u>right</u> word as adjective ?[]",
+      "options": [
+        "Serve him right.",
+        "He is the right man for the job.",
+        "It is such a fault that will right itself.",
+        "It is a matter of right."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Man' Noun কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "af3b5806-2e5b-49a7-aec9-ad9c666fe3a2",
+      "question": "Which of the following sentences uses the word 'round' adverb ?[]",
+      "options": [
+        "A square peg in the round hole.",
+        "The boy played well in the first round.",
+        "They rounded the temple silently.",
+        "At last he came round to their belief."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "verb কে modify  করা হচ্ছে",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "cd1854dd-1699-404e-b746-0ad8a930c1a0",
+      "question": "The earth moves <u>round</u> the sun.[]",
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Preposition"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "The + Noun এর  আগে preposition",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "d6fe511b-a72c-4806-b253-dd412c3dfb54",
+      "question": "Which of the following sentences uses the word 'round' adjective ?[]",
+      "options": [
+        "A square peg in a round hole.",
+        "The boy played well in the first round.",
+        "They rounded the temple silently.",
+        "At last he came round to their belief."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "A+ Adj+ Noun হয়",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "a046152b-38f8-4d0e-be9a-da3a11805fe9",
+      "question": "The word 'Still' is used as an adjective in which of the following sentences ?[]",
+      "options": [
+        "He heard a shrill cry in the still of night.",
+        "Mothers still their babies with a lulling song.",
+        "Mosquitoes lay eggs in still water.",
+        "He is still in idleness."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Water(Noun) er অবস্থা বুঝায়",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "781c7ac9-7eb3-4e47-a1c4-6196b1055c77",
+      "question": "I water in the garden'. / The man is honest'. Here 'the' is ---[]",
+      "options": [
+        "Noun",
+        "Adverb",
+        "Adjective",
+        "Preposition"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Noun কে modify করছে",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "9b71e269-b362-44af-b947-dc53dd5cc955",
+      "question": "Which of the following sentences uses 'What' as an interrogative adjective ?[]",
+      "options": [
+        "What ! You don't mean to say so.",
+        "Give me what you can.",
+        "What book do you want ?",
+        "What do you want ?"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "What book — book কে modify করছে।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "c139ccf3-26bd-4be4-8eee-605d37c928d8",
+      "question": "Give me what you wish. Here 'what' is used as -----.[]",
+      "options": [
+        "An interrogative",
+        "An adjective",
+        "A pronoun",
+        "A conjunction"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Give me what you wish — object হিসেবে ব্যবহৃত।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "4aaea484-03bf-4ee3-9fdf-5369620bd140",
+      "question": "Sit down and rest for a <u>while</u>' / 'I walked for a <u>while</u>'.[]",
+      "options": [
+        "Adverb",
+        "Adjective",
+        "Preposition",
+        "Noun"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "a while — noun phrase।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "84fcf243-e3d3-4725-9f5d-c6f1779bb2c4",
+      "question": "Which of the following sentences contains the word 'why' as relative adverb ?[]",
+      "options": [
+        "I don't know the why and wherefore of it.",
+        "Why did he come here ?",
+        "I don't know the reason why he did it.",
+        "Why, it is surely Mahboob."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "reason why — reason কে modify করছে।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "d1835ac9-6fa6-47c9-9f31-368370cbc36f",
+      "question": "He has done no <u>wrong</u>.[]",
+      "options": [
+        "pronoun",
+        "adverb",
+        "adjective",
+        "noun"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Determiner এরপর Noun",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "68999e6e-da9b-4f73-93cb-c1b34aa0467b",
+      "question": "Do not go in the <u>wrong</u> path.[]",
+      "options": [
+        "Verb",
+        "Noun",
+        "Adjective",
+        "Adverb"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "wrong path — path কে modify করছে।",
+      "images": []
+    }
+  ]
+}
