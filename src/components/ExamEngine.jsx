@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, AlertCircle, CheckCircle, ArrowLeft, RefreshCw, Award } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { stripEmoji } from '../utils/textUtils';
 
 export default function ExamEngine({ exam, onClose }) {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -99,7 +100,7 @@ export default function ExamEngine({ exam, onClose }) {
           </button>
           
           <div className="exam-title-box">
-            <h2 className="exam-title">{exam.title}</h2>
+            <h2 className="exam-title">{stripEmoji(exam.title)}</h2>
             <span className="exam-subject-tag">{exam.subject}</span>
           </div>
 

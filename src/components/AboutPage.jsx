@@ -11,11 +11,28 @@ export default function AboutPage({
   onNavigateStore, 
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin, 
   onLoginClick 
 }) {
   const { isDark } = useTheme();
   const instructors = data.instructors || instructorsData;
+  const siteSettings = data.siteSettings || {};
+  const sectionTexts = data.sectionTexts || {};
+
+  const facebookUrl = sectionTexts.contactPageUrl || (
+    siteSettings.facebookPage && siteSettings.facebookPage !== 'https://facebook.com'
+      ? siteSettings.facebookPage
+      : "https://www.facebook.com/profile.php?id=61585769408167"
+  );
+
+  const youtubeUrl = (
+    siteSettings.youtubeChannel && 
+    siteSettings.youtubeChannel !== 'https://youtube.com/@eduhunters' && 
+    siteSettings.youtubeChannel !== 'https://www.youtube.com'
+      ? siteSettings.youtubeChannel
+      : "https://www.youtube.com/channel/UC1XpmoV-Phk1q1N5D2PTd0g"
+  );
 
   return (
     <div className={`min-h-screen font-sans antialiased transition-colors duration-300 selection:bg-[#e11438] selection:text-white ${
@@ -32,6 +49,7 @@ export default function AboutPage({
         onNavigateAbout={() => {}}
         onNavigateDevices={onNavigateDevices}
         onNavigateOrders={onNavigateOrders}
+        onNavigatePolicies={onNavigatePolicies}
         onOpenAdmin={onOpenAdmin}
         onLoginClick={onLoginClick}
       />
@@ -134,30 +152,60 @@ export default function AboutPage({
             : 'bg-[#fff5f5] border-t border-red-100 text-[#111827]'
         }`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-black mb-6">
-              আমাদের সাথে যোগাযোগ করো
+            <h2 className="text-3xl md:text-4xl font-black mb-3">
+              {sectionTexts.contactTitle || "আমাদের সাথে যোগাযোগ করো"}
             </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <p className={`text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed ${
+              isDark ? 'text-gray-300' : 'text-[#4b5563]'
+            }`}>
+              {sectionTexts.contactDesc || "যেকোনো কোর্স এনরোলমেন্ট বা একাডেমিক সহায়তায় আমাদের ফেসবুক পেজ এবং ইউটিউব চ্যানেলে যুক্ত থাকো।"}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
+              {/* Facebook Page Button */}
               <a 
-                href="https://www.facebook.com" 
+                href={facebookUrl} 
                 target="_blank" 
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#dc2626] text-white font-bold rounded-2xl shadow-lg hover:brightness-110 transition-all text-decoration-none"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#dc2626] text-white font-bold rounded-2xl shadow-lg hover:bg-[#b91c1c] hover:shadow-red-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all text-decoration-none group"
               >
-                পেজে মেসেজ করো
+                <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>{sectionTexts.contactPageTitle || "পেজে মেসেজ করো"}</span>
               </a>
+
+              {/* YouTube Channel Button */}
               <a 
-                href="https://www.facebook.com" 
+                href={youtubeUrl} 
                 target="_blank" 
                 rel="noreferrer"
-                className={`inline-flex items-center justify-center gap-2 px-8 py-4 border font-bold rounded-2xl transition-all text-decoration-none ${
+                className={`w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 font-bold rounded-2xl transition-all text-decoration-none hover:scale-[1.02] active:scale-[0.98] border group ${
                   isDark 
-                    ? 'border-[#e11438]/30 bg-[#140307]/80 text-white hover:bg-[#1f050d]' 
-                    : 'border-gray-300 bg-white text-gray-800 hover:border-red-400 shadow-sm'
+                    ? 'border-[#e11438]/30 bg-[#140307]/80 text-white hover:bg-[#1f050d] hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.4)]' 
+                    : 'border-gray-300 bg-white text-gray-800 hover:border-red-400 hover:text-[#dc2626] shadow-sm'
                 }`}
               >
-                আমাদের কমিউনিটিতে যুক্ত হও
+                <svg className="w-5 h-5 fill-[#e11438] shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                </svg>
+                <span>আমাদের ইউটিউব চ্যানেল</span>
               </a>
+
+              {/* Community Button (if URL configured) */}
+              {sectionTexts.contactCommunityUrl && sectionTexts.contactCommunityUrl !== 'https://www.facebook.com' && (
+                <a 
+                  href={sectionTexts.contactCommunityUrl} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 font-bold rounded-2xl transition-all text-decoration-none hover:scale-[1.02] border ${
+                    isDark 
+                      ? 'border-white/10 bg-white/5 text-gray-300 hover:text-white' 
+                      : 'border-gray-200 bg-gray-50 text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <span>{sectionTexts.contactCommunityTitle || "কমিউনিটিতে যুক্ত হও"}</span>
+                </a>
+              )}
             </div>
           </div>
         </section>
@@ -167,16 +215,28 @@ export default function AboutPage({
       {/* Footer (Hidden on mobile) */}
       <div className="hidden sm:block">
         {isDark ? (
-          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 py-10 text-center text-xs text-gray-400">
-            <div className="max-w-7xl mx-auto px-4">
+          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 py-8 text-center text-xs text-gray-400">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
               <p>© 2026 Edu Hunters. All rights reserved.</p>
+              <div className="flex items-center gap-4">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         ) : (
-          <footer className="bg-[#dc2626] eh-dots-light text-white py-10 text-center text-xs">
-            <div className="max-w-7xl mx-auto px-4">
-              <p className="text-white/80">Academic to admission EDU HUNTERS with you.</p>
-              <p className="text-white/60 mt-1">© 2026 Edu Hunters. All rights reserved.</p>
+          <footer className="bg-[#dc2626] eh-dots-light text-white py-8 text-center text-xs">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div>
+                <p className="text-white/80">Academic to admission EDU HUNTERS with you.</p>
+                <p className="text-white/60 mt-0.5">© 2026 Edu Hunters. All rights reserved.</p>
+              </div>
+              <div className="flex items-center gap-4 text-white/80">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         )}

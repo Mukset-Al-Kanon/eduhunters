@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import CheckoutModal from './CheckoutModal';
+import BundleDetailModal from './BundleDetailModal';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
+import { isItemEnrolled, grantCourseAccess } from '../utils/enrollmentService';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 
 const calcDiscount = (orig, curr) => {
@@ -26,11 +29,13 @@ export default function CoursesPage({
   data = {},
   onNavigateHome,
   onNavigateCourse,
+  onNavigateBundle,
   onNavigateExams,
   onNavigateStore,
   onNavigateAbout,
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin,
   onLoginClick,
   onEnrollSuccess
@@ -40,28 +45,33 @@ export default function CoursesPage({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('সকল');
   const [selectedCourseForCheckout, setSelectedCourseForCheckout] = useState(null);
+  const [selectedBundleForDetails, setSelectedBundleForDetails] = useState(null);
   const [showCheckout, setShowCheckout] = useState(false);
 
-  const REMOVED_CATEGORIES = ["HSC 25", "Engineering", "HSC 27", "HSC 28", "HSC 26"];
-  const rawCategories = (data.categories && data.categories.length > 0) ? data.categories : [
+  const REMOVED_CATEGORIES = ["HSC 25", "Engineering", "HSC 27", "HSC 28", "HSC 26", "Free", "free"];
+  const rawCategories = Array.isArray(data.categories) ? data.categories : [
     "সকল",
     "EXAM BATCH",
-    "Medical",
-    "Free"
+    "Medical"
   ];
   const categories = rawCategories
-    .filter(c => !REMOVED_CATEGORIES.includes(c))
-    .map(c => c === "University A Unit" ? "Free" : c);
+    .filter(c => !REMOVED_CATEGORIES.includes(c) && (c || '').toLowerCase() !== 'free')
+    .map(c => c === "University A Unit" ? "Medical" : c);
 
   // Guarantee the courses are present and 100% free of Zenith Crew copied courses
-  const rawCourses = (data.courses && data.courses.length > 0) 
+  const rawCourses = Array.isArray(data.courses) 
     ? data.courses 
     : (initialData.courses || []);
   const courses = rawCourses.filter(c => !isZenithCopiedCourse(c));
 
   const isExamBatch = selectedCategory === 'EXAM BATCH' || selectedCategory.toLowerCase() === 'exam batch';
 
-  const displayedExamBatches = EXAM_CATEGORIES_METADATA.filter(cat => {
+  const allExamBatches = Array.isArray(data?.examBatches)
+    ? data.examBatches
+    : EXAM_CATEGORIES_METADATA;
+
+  const displayedExamBatches = allExamBatches.filter(cat => {
+    if (cat.isHidden) return false;
     if (!searchQuery.trim()) return true;
     const q = searchQuery.toLowerCase().trim();
     return (cat.title || '').toLowerCase().includes(q) ||
@@ -69,29 +79,74 @@ export default function CoursesPage({
            (cat.badge || '').toLowerCase().includes(q);
   });
 
+  // Bundles Data
+  const allBundles = Array.isArray(data?.bundles)
+    ? data.bundles
+    : (initialData.bundles || []);
+  const activeBundles = allBundles.filter(b => (b.status || 'ACTIVE') === 'ACTIVE');
+
+  const categoriesWithBundles = activeBundles.length > 0 
+    ? (categories.includes('Bundles') ? categories : [categories[0], 'Bundles', ...categories.slice(1)])
+    : categories;
+
+  const isBundles = selectedCategory === 'Bundles' || selectedCategory.toLowerCase() === 'bundles' || selectedCategory === 'বান্ডিল';
+
+  const displayedBundles = activeBundles.filter(b => {
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase().trim();
+    return (b.title || '').toLowerCase().includes(q) ||
+           (b.subtitle || '').toLowerCase().includes(q) ||
+           (b.badge || '').toLowerCase().includes(q) ||
+           (b.description || '').toLowerCase().includes(q);
+  });
+
   // Filter courses by search query and category
   const filteredCourses = courses.filter(c => {
+    const isFreeFilter = selectedCategory === 'Free' || selectedCategory?.toLowerCase() === 'free';
+    const isMedicalFilter = selectedCategory === 'Medical' || selectedCategory?.toLowerCase() === 'medical';
+    const isExamFilter = selectedCategory === 'EXAM BATCH' || selectedCategory?.toLowerCase() === 'exam batch';
     const matchesCategory = selectedCategory === 'সকল' || 
       c.category === selectedCategory ||
-      ((selectedCategory === 'Free' || selectedCategory === 'free') && ((c.category || '').toLowerCase() === 'free' || c.isFree));
+      (isExamFilter && (c.category === 'EXAM BATCH' || c.isExamBatch)) ||
+      (isFreeFilter && ((c.category || '').toLowerCase() === 'free' || c.isFree || Number(c.salePrice) === 0)) ||
+      (isMedicalFilter && ((c.category || '').toLowerCase() === 'medical' || c.filterGroup === 'medical' || (c.title || '').includes('মেডিকেল')));
     const q = searchQuery.toLowerCase().trim();
     const matchesSearch = !q || 
       (c.title || '').toLowerCase().includes(q) || 
       (c.description || '').toLowerCase().includes(q) ||
+      (c.badge || '').toLowerCase().includes(q) ||
       (c.category || '').toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
   });
 
   const handleCourseClick = (courseId) => {
+    const foundCourse = courses.find(c => c.id === courseId || c.slug === courseId);
+    if (foundCourse?.isExamBatch || foundCourse?.category === 'EXAM BATCH') {
+      if (onNavigateExams) {
+        onNavigateExams(foundCourse.key || foundCourse.id || foundCourse.slug);
+        return;
+      }
+    }
     if (onNavigateCourse) {
       onNavigateCourse(courseId);
     }
   };
 
+  const { currentUser } = useAuth();
+
   const handleEnrollClick = (course, e) => {
     e.stopPropagation();
-    if (course.isFree || Number(course.salePrice) === 0) {
+    if (course.isFree || Number(course.salePrice) === 0 || isItemEnrolled(course, currentUser, data)) {
       handleCourseClick(course.id || course.slug);
+      return;
+    }
+    if (!currentUser) {
+      if (onLoginClick) {
+        onLoginClick(() => {
+          setSelectedCourseForCheckout(course);
+          setShowCheckout(true);
+        });
+      }
       return;
     }
     setSelectedCourseForCheckout(course);
@@ -113,6 +168,7 @@ export default function CoursesPage({
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
         onNavigateOrders={onNavigateOrders}
+        onNavigatePolicies={onNavigatePolicies}
         onOpenAdmin={onOpenAdmin}
         onLoginClick={onLoginClick}
       />
@@ -173,7 +229,7 @@ export default function CoursesPage({
           
           {/* Category Filter Pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {categories.map((cat, idx) => {
+            {categoriesWithBundles.map((cat, idx) => {
               const isSelected = selectedCategory === cat;
               return (
                 <button 
@@ -189,7 +245,7 @@ export default function CoursesPage({
                           : 'bg-white text-gray-700 border-gray-200 hover:border-red-400 hover:text-red-600')
                   }`}
                 >
-                  {cat}
+                  {cat === 'Bundles' ? 'Bundles' : cat}
                 </button>
               );
             })}
@@ -197,7 +253,147 @@ export default function CoursesPage({
 
           {/* Course Cards Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {isExamBatch ? (
+            {isBundles ? (
+              displayedBundles.length > 0 ? (
+                displayedBundles.map((bundle) => (
+                  <div 
+                    key={bundle.id}
+                    onClick={() => {
+                      if (onNavigateBundle) onNavigateBundle(bundle.id);
+                      else if (onNavigateCourse) onNavigateCourse(bundle.id);
+                    }}
+                    className={`rounded-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 flex flex-col group cursor-pointer border ${
+                      isDark 
+                        ? 'bg-[#111317] border-[#e11438]/25 hover:border-[#e11438]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' 
+                        : 'bg-white shadow-md hover:shadow-2xl border-red-200 hover:border-red-400 ring-2 ring-red-500/10'
+                    }`}
+                  >
+                    {/* Thumbnail */}
+                    <div className={`aspect-video overflow-hidden relative ${isDark ? 'bg-black/60' : 'bg-gray-100'}`}>
+                      <img 
+                        src={bundle.image || 'https://assets.codervai.com/courses/1781447985147-extra_info_batch.webp'} 
+                        alt={bundle.title} 
+                        className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
+                        <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#dc2626] text-white shadow-md">
+                          Combo Pack
+                        </span>
+                        {bundle.badge && (
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-slate-900 backdrop-blur-md shadow-xs">
+                            {bundle.badge}
+                          </span>
+                        )}
+                      </div>
+                      <div className="absolute bottom-2.5 left-3 right-3 text-white text-xs font-bold flex items-center justify-between">
+                        <span className="bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
+                          {bundle.courseIds?.length || 0} Courses Included
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Details */}
+                    <div className="p-4 flex flex-col flex-1">
+                      <h3 className={`font-bold mb-1 line-clamp-1 transition-colors text-base ${
+                        isDark ? 'text-white group-hover:text-red-300' : 'text-[#111827] group-hover:text-[#dc2626]'
+                      }`}>
+                        {bundle.title}
+                      </h3>
+                      {bundle.subtitle && (
+                        <p className={`text-xs mb-2 line-clamp-1 font-semibold ${isDark ? 'text-[#ff6b8b]' : 'text-red-600'}`}>
+                          {bundle.subtitle}
+                        </p>
+                      )}
+                      <p className={`text-xs mb-3 line-clamp-2 leading-relaxed ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
+                        {bundle.description}
+                      </p>
+
+                      {/* Included Courses Chip List */}
+                      <div className="mb-3 pt-2 border-t border-gray-100 dark:border-white/10">
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
+                          এই বান্ডিলে যা যা থাকছে:
+                        </p>
+                        <div className="flex flex-wrap gap-1">
+                          {(bundle.courseIds || []).map((cId, idx) => {
+                            const cObj = courses.find(item => item.id === cId || item.slug === cId || item.key === cId);
+                            return (
+                              <span 
+                                key={idx}
+                                className={`text-[10px] font-semibold px-2 py-0.5 rounded-md truncate max-w-[150px] ${
+                                  isDark ? 'bg-white/10 text-gray-200' : 'bg-red-50 text-red-700 border border-red-100'
+                                }`}
+                              >
+                                ✓ {cObj?.title || cId}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Price Breakdown Footer */}
+                      <div className={`mt-auto flex items-end justify-between gap-2 pt-3 border-t ${
+                        isDark ? 'border-white/[0.08]' : 'border-gray-100'
+                      }`}>
+                        <div>
+                          <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mb-0.5">
+                            বান্ডিল মূল্য
+                          </p>
+                          <div className="flex items-center gap-2">
+                            <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
+                              ৳ {bundle.salePrice}
+                            </span>
+                            {bundle.regularPrice && (
+                              <span className="text-xs sm:text-sm text-gray-400 line-through font-medium">
+                                ৳{bundle.regularPrice}
+                              </span>
+                            )}
+                            {Number(bundle.regularPrice) > Number(bundle.salePrice) && (
+                              <span className="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#dc2626] text-white shadow-xs shrink-0 whitespace-nowrap">
+                                ৳ {Number(bundle.regularPrice) - Number(bundle.salePrice)} ছাড়
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (onNavigateBundle) onNavigateBundle(bundle.id);
+                            else if (onNavigateCourse) onNavigateCourse(bundle.id);
+                          }}
+                          className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
+                            isDark 
+                              ? 'text-white hover:text-[#ff4d6d]' 
+                              : 'text-[#dc2626] hover:text-red-700'
+                          }`}
+                        >
+                          <span className="leading-none">বিস্তারিত</span>
+                          <svg 
+                            className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="#e11438" 
+                            strokeWidth="3.8" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-full py-16 text-center text-gray-400">
+                  কোনো বান্ডিল পাওয়া যায়নি
+                </div>
+              )
+            ) : isExamBatch ? (
               displayedExamBatches.map((cat) => (
                 <div 
                   key={cat.key}
@@ -280,13 +476,25 @@ export default function CoursesPage({
                           e.stopPropagation();
                           onNavigateExams && onNavigateExams(cat.key);
                         }}
-                        className={`text-xs sm:text-sm font-bold bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 mb-0.5 ${
+                        className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
                           isDark 
                             ? 'text-white hover:text-[#ff4d6d]' 
                             : 'text-[#dc2626] hover:text-red-700'
                         }`}
                       >
-                        বিস্তারিত →
+                        <span className="leading-none">বিস্তারিত</span>
+                        <svg 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="#e11438" 
+                          strokeWidth="3.8" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
                       </button>
                     </div>
                   </div>
@@ -340,7 +548,11 @@ export default function CoursesPage({
                           কোর্সের মূল্য
                         </p>
                         <div className="flex items-center gap-2">
-                          {c.isFree ? (
+                          {isItemEnrolled(c, currentUser, data) ? (
+                            <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                              এক্সেস সক্রিয় ✓
+                            </span>
+                          ) : c.isFree ? (
                             <span className="text-xl sm:text-2xl font-black text-emerald-400">FREE</span>
                           ) : (
                             <>
@@ -362,13 +574,25 @@ export default function CoursesPage({
                       
                       <button 
                         onClick={(e) => handleEnrollClick(c, e)}
-                        className={`text-xs sm:text-sm font-bold bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 mb-0.5 ${
+                        className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
                           isDark 
                             ? 'text-white hover:text-[#ff4d6d]' 
                             : 'text-[#dc2626] hover:text-red-700'
                         }`}
                       >
-                        বিস্তারিত →
+                        <span className="leading-none">{isItemEnrolled(c, currentUser, data) ? 'কোর্সে প্রবেশ' : 'বিস্তারিত'}</span>
+                        <svg 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="#e11438" 
+                          strokeWidth="3.8" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
                       </button>
                     </div>
                   </div>
@@ -413,24 +637,59 @@ export default function CoursesPage({
       <div className="hidden sm:block">
         {isDark ? (
           <footer className="mt-20 border-t border-[#e11438]/20 bg-gradient-to-b from-[#140307] to-[#070102] py-8 text-center text-xs text-gray-400">
-            <div className="max-w-7xl mx-auto px-4">
-              <p className="font-medium text-[#ff3b61] mb-1">EDU HUNTERS · Premier Edtech Learning Platform</p>
-              <p>© 2026 Edu Hunters. All rights reserved.</p>
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div>
+                <p className="font-medium text-[#ff3b61] mb-1">EDU HUNTERS · Premier Edtech Learning Platform</p>
+                <p>© 2026 Edu Hunters. All rights reserved.</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         ) : (
-          <footer className="mt-20 bg-[#dc2626] eh-dots-light text-white py-10 text-center text-xs">
-            <div className="max-w-7xl mx-auto px-4">
-              <div className="inline-flex items-center gap-2 mb-3 bg-white rounded-xl px-3 py-1.5 shadow-sm">
+          <footer className="mt-20 bg-[#dc2626] eh-dots-light text-white py-8 text-center text-xs">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div className="inline-flex items-center gap-2 bg-white rounded-xl px-3 py-1.5 shadow-sm">
                 <img src="/logo.png" alt="Edu Hunters" className="h-6 w-auto" />
                 <span className="font-black text-sm text-[#dc2626]">EDU <span className="text-[#111827]">HUNTERS</span></span>
               </div>
-              <p className="text-white/80">Academic to admission EDU HUNTERS with you.</p>
-              <p className="text-white/60 mt-1">© 2026 Edu Hunters. All rights reserved.</p>
+              <div className="flex items-center gap-4 text-white/80">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         )}
       </div>
+
+      {/* Bundle Detail Modal */}
+      {selectedBundleForDetails && (
+        <BundleDetailModal
+          isOpen={!!selectedBundleForDetails}
+          bundle={selectedBundleForDetails}
+          courses={courses}
+          onClose={() => setSelectedBundleForDetails(null)}
+          onEnroll={(bundle) => {
+            setSelectedBundleForDetails(null);
+            if (!currentUser) {
+              if (onLoginClick) {
+                onLoginClick(() => {
+                  setSelectedCourseForCheckout(bundle);
+                  setShowCheckout(true);
+                });
+              }
+              return;
+            }
+            setSelectedCourseForCheckout(bundle);
+            setShowCheckout(true);
+          }}
+          onNavigateCourse={onNavigateCourse}
+        />
+      )}
 
       {/* Checkout Modal */}
       {showCheckout && (
@@ -438,7 +697,15 @@ export default function CoursesPage({
           isOpen={showCheckout}
           onClose={() => setShowCheckout(false)}
           course={selectedCourseForCheckout || filteredCourses[0] || {}}
-          onEnrollSuccess={onEnrollSuccess}
+          onEnrollSuccess={(trxData) => {
+            if (selectedCourseForCheckout) grantCourseAccess(selectedCourseForCheckout, data);
+            if (onEnrollSuccess) onEnrollSuccess(trxData);
+          }}
+          onSuccess={(trxData) => {
+            if (selectedCourseForCheckout) grantCourseAccess(selectedCourseForCheckout, data);
+            if (onEnrollSuccess) onEnrollSuccess(trxData);
+          }}
+          siteSettings={siteSettings}
         />
       )}
     </div>

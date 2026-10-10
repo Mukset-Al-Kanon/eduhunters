@@ -4,6 +4,7 @@ import ProtectedPdfViewer from './ProtectedPdfViewer';
 import CheckoutModal from './CheckoutModal';
 import Navbar from './Navbar';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function StorePage({ 
   data = {},
@@ -13,11 +14,13 @@ export default function StorePage({
   onNavigateAbout, 
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin, 
   onLoginClick,
   onEnrollSuccess
 }) {
   const { isDark } = useTheme();
+  const { currentUser } = useAuth();
   const storeProducts = data.storeProducts || storeProductsData;
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -49,6 +52,7 @@ export default function StorePage({
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
         onNavigateOrders={onNavigateOrders}
+        onNavigatePolicies={onNavigatePolicies}
         onOpenAdmin={onOpenAdmin}
         onLoginClick={onLoginClick || (() => setShowCheckout(true))}
       />
@@ -63,8 +67,10 @@ export default function StorePage({
             : 'bg-gradient-to-r from-[#7f1d1d] via-[#dc2626] to-[#991b1b] border-b border-red-700/20'
         }`}>
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 text-white">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-black text-white">Edu Hunters Store</h1>
+            <div className="shrink-0">
+              <h1 className="text-3xl md:text-4xl font-black text-white whitespace-nowrap">
+                Hunters Store
+              </h1>
               <p className="text-white/80 mt-1 text-sm md:text-base">
                 Books, E-books, Stationery and more
               </p>
@@ -106,8 +112,8 @@ export default function StorePage({
                   {cat} 
                   <span className="ml-1.5 text-[10px] font-bold opacity-70 tabular-nums">
                     {cat === "All" 
-                      ? storeProductsData.length 
-                      : storeProductsData.filter(p => p.category === cat).length}
+                      ? storeProducts.length 
+                      : storeProducts.filter(p => p.category === cat).length}
                   </span>
                 </button>
               );
@@ -172,6 +178,15 @@ export default function StorePage({
                         )}
                         <button 
                           onClick={() => {
+                            if (!currentUser) {
+                              if (onLoginClick) {
+                                onLoginClick(() => {
+                                  setSelectedProduct(p);
+                                  setShowCheckout(true);
+                                });
+                              }
+                              return;
+                            }
                             setSelectedProduct(p);
                             setShowCheckout(true);
                           }}
@@ -186,18 +201,40 @@ export default function StorePage({
               ))}
             </div>
           ) : (
-            <div className={`py-24 text-center rounded-2xl border shadow-xl ${
-              isDark ? 'bg-[#120407]/90 border-[#e11438]/25' : 'bg-white border-gray-200'
+            <div className={`py-20 px-6 text-center rounded-3xl border transition-all max-w-2xl mx-auto ${
+              isDark 
+                ? 'bg-[#120407]/90 border-[#e11438]/25 shadow-[0_8px_30px_rgba(0,0,0,0.5)]' 
+                : 'bg-white border-gray-200 shadow-sm'
             }`}>
-              <p className={`font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>No products found in this category.</p>
-              <button 
-                onClick={() => { setActiveCategory("All"); setSearchQuery(""); }}
-                className={`mt-4 text-sm font-semibold hover:underline bg-transparent border-none cursor-pointer ${
-                  isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'
-                }`}
-              >
-                Clear filter
-              </button>
+              <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center border ${
+                isDark 
+                  ? 'bg-[#28050e] border-[#e11438]/30 text-[#ff3b61]' 
+                  : 'bg-red-50 border-red-100 text-[#dc2626]'
+              }`}>
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-2z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </div>
+              <h3 className={`text-lg font-bold mb-1.5 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                বর্তমানে কোনো প্রোডাক্ট যুক্ত নেই
+              </h3>
+              <p className={`text-xs max-w-sm mx-auto leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                খুব শীঘ্রই Hunters Store-এ নতুন বই, ই-বুক ও স্টাডি ম্যাটেরিয়াল যুক্ত করা হবে।
+              </p>
+              {(activeCategory !== "All" || searchQuery) && (
+                <button 
+                  onClick={() => { setActiveCategory("All"); setSearchQuery(""); }}
+                  className={`mt-4 px-4 py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                    isDark 
+                      ? 'border-[#e11438]/30 bg-[#1c040a] text-[#ff3b61] hover:bg-[#28050e]' 
+                      : 'border-red-200 bg-red-50 text-red-600 hover:bg-red-100'
+                  }`}
+                >
+                  ফিল্টার ক্লিয়ার করো
+                </button>
+              )}
             </div>
           )}
 
@@ -212,9 +249,14 @@ export default function StorePage({
               <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 gap-4">
                 <div className="flex items-center gap-2">
                   <img src="/logo.png" alt="Edu Hunters" className="h-6 w-auto" />
-                  <span className="font-bold text-[#ff3b61]">EDU HUNTERS STORE</span>
+                  <span className="font-bold text-[#ff3b61]">HUNTERS STORE</span>
                 </div>
                 <p>© 2026 Edu Hunters. All rights reserved.</p>
+                <div className="flex items-center gap-4">
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+                </div>
               </div>
             </div>
           </footer>
@@ -224,9 +266,14 @@ export default function StorePage({
               <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-white/80 gap-4">
                 <div className="flex items-center gap-2 bg-white rounded-lg px-2.5 py-1">
                   <img src="/logo.png" alt="Edu Hunters" className="h-5 w-auto" />
-                  <span className="font-bold text-[#dc2626]">EDU HUNTERS STORE</span>
+                  <span className="font-bold text-[#dc2626]">HUNTERS STORE</span>
                 </div>
                 <p className="text-white/70">© 2026 Edu Hunters. All rights reserved.</p>
+                <div className="flex items-center gap-4 text-white/80">
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+                </div>
               </div>
             </div>
           </footer>

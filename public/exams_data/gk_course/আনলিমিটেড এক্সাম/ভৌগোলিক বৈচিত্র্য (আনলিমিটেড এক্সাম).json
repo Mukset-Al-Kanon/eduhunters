@@ -1,0 +1,3951 @@
+{
+  "exam_id": 10427,
+  "title": "ভৌগোলিক বৈচিত্র্য (আনলিমিটেড এক্সাম)",
+  "category": "আনলিমিটেড এক্সাম",
+  "subtopic": "আনলিমিটেড এক্সাম : আন্তর্জাতিক",
+  "duration_minutes": 12,
+  "total_questions": 263,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "11245369-d2ee-40dd-8544-1baa35da708a",
+      "question": "The longest mountain range in the world is- [SABAS][]",
+      "options": [
+        "হিমালয় পর্বতমালা",
+        "অ্যাটলাস পর্বতমালা",
+        "আন্দিজ পর্বতমালা",
+        "আল্পস পর্বতমালা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আন্দিজ পর্বতমালা দক্ষিণ আমেরিকা মহাদেশে অবস্থিত এবং এটি বিশ্বের দীর্ঘতম পর্বতমালা.",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "02868b1e-ed23-486b-b1e3-5dbb8a11c0eb",
+      "question": "আন্দিজ পর্বতমালা কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা",
+        "ইউরোপ",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আন্দিজ পর্বতমালা দক্ষিণ আমেরিকা মহাদেশের পশ্চিমে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "530d7a12-6942-43e7-9ef9-55b40cad79b6",
+      "question": "ইউরোপের উচ্চতম পর্বতশ্রেণি- [SABAS][]",
+      "options": [
+        "ভলগা",
+        "লাগাডা",
+        "আল্পস",
+        "লাটভিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আল্পস পর্বতমালা ইউরোপের উচ্চতম এবং সবচেয়ে গুরুত্বপূর্ণ পর্বতশ্রেণি.",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "a6308aea-1c78-4ac9-9e80-520c86f2ba51",
+      "question": "আল্পস পর্বতমালা কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "পশ্চিম ইউরোপে",
+        "পূর্ব ইউরোপে",
+        "উত্তর আমেরিকায়",
+        "দক্ষিণ আমেরিকায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আল্পস পর্বতমালা মূলত পশ্চিম ইউরোপে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "8bb36bd2-4b90-49bf-9654-227baf1cea48",
+      "question": "পিরেনীজ পর্বত কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মিশরে",
+        "সিরিয়ায়",
+        "স্পেনে",
+        "ইরানে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পিরেনীজ পর্বতমালা ইউরোপের দক্ষিণ-পশ্চিমে স্পেন এবং ফ্রান্সের সীমান্তে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "17b711a2-0229-429b-bf49-0f3a27c7864e",
+      "question": "হিন্দুকুশ....দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফগানিস্তান",
+        "ভারত",
+        "কাজাখস্তান",
+        "নেপাল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হিন্দুকুশ পর্বতমালা মূলত আফগানিস্তানে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "2700c3af-dd8a-46ef-a53e-d7fc8afbf65b",
+      "question": "হিমালয় পর্বতমালা কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "নেপাল ও ভারতে",
+        "নেপাল ও চীনে",
+        "ভারত ও চীনে",
+        "নেপাল ও ভূটানে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হিমালয় পর্বতমালা নেপাল ও ভূটানসহ দক্ষিণ এশিয়ার একাধিক দেশের মধ্য দিয়ে বিস্তৃত.",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "6911d590-6667-4d63-a677-3c895411b0c6",
+      "question": "কোন দেশকে হিমালয় কন্যা বলা হয়? [SABAS][]",
+      "options": [
+        "নেপাল",
+        "ভূটান",
+        "চীন",
+        "ভারত"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নেপালকে হিমালয় কন্যা হিসেবে অভিহিত করা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "62811f3d-8acb-4df8-ac94-da106a0daa17",
+      "question": "এভারেস্ট শৃঙ্গে আরোহণের জন্য কোন দেশের অনুমতির প্রয়োজন? [SABAS][]",
+      "options": [
+        "ভারত",
+        "চীন",
+        "পাকিস্তান",
+        "নেপাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মাউন্ট এভারেস্টের দক্ষিণ দিক দিয়ে আরোহণের জন্য নেপালের অনুমতির প্রয়োজন হয়.",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "6ab536b0-4b3e-4021-a8c0-09c96f3da6d2",
+      "question": "কোন দুটি প্লেটের সংযোগস্থল বরাবর মাউন্ট এভারেস্ট অবস্থিত? [SABAS][]",
+      "options": [
+        "ইন্ডিয়ান ও বার্মিজ",
+        "ইন্ডিয়ান ও ইউরেশিয়ান",
+        "ইন্ডিয়ান ও আফ্রিকান",
+        "বার্মিজ ও ইউরেশিয়ান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট এভারেস্ট ইন্ডিয়ান এবং ইউরেশিয়ান টেকটোনিক প্লেটের সংযোগস্থল বরাবর অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "a96edd2b-8844-4e70-a076-f456929de593",
+      "question": "হিমালয় পর্বতমালার উদ্ভব কোন্ দুটি টেকটোনিক প্লেটের সংঘর্ষে হয়েছে? [SABAS][]",
+      "options": [
+        "ইউরেশিয়ান ও আফ্রিকান",
+        "ইন্ডোঅস্ট্রেলিয়ান ও ইউরেশিয়ান",
+        "আমেরিকান ও ইউরেশিয়ান",
+        "প্যাসিফিক ও ইন্ডোঅস্ট্রেলিয়ান"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হিমালয় পর্বতমালা গঠিত হয়েছে ইন্ডিয়ান প্লেট (ইন্ডোঅস্ট্রেলিয়ান) এবং ইউরেশিয়ান প্লেটের সংঘর্ষের ফলে।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "6746a78b-2218-44bb-a3c7-587ac9270f0f",
+      "question": "পৃথিবীর সর্ব্বোচ্চ পর্বতশৃঙ্গ কোন্টি? [SABAS][]",
+      "options": [
+        "কেটু",
+        "মাউন্ট এভারেস্ট",
+        "কিলিমাঞ্জরো",
+        "মাউন্ট ব্লাঁ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট এভারেস্ট হলো সমুদ্রপৃষ্ঠ থেকে উচ্চতার দিক দিয়ে পৃথিবীর সর্বোচ্চ পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "c9e9d9f0-0bdd-4494-8cb3-2deb87245a96",
+      "question": "Mount Everest is located in - [SABAS][]",
+      "options": [
+        "India",
+        "Nepal",
+        "Bhutan",
+        "China"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট এভারেস্ট নেপাল ও চীনের সীমান্তে অবস্থিত, তবে এর শীর্ষবিন্দু নেপালের অংশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "b91f3032-fced-46bc-ac72-e284c0c275d5",
+      "question": "মাউন্ট কিলিমাঞ্জরো কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আফ্রিকা",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মাউন্ট কিলিমাঞ্জরো তানজানিয়ায় অবস্থিত, যা আফ্রিকার সর্বোচ্চ পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "b427a275-c020-49c7-9b62-7dccbf50d9e4",
+      "question": "Mount Kilimanjaro is in - [SABAS][]",
+      "options": [
+        "Kenya",
+        "Tanzania",
+        "Uganda",
+        "Japan"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট কিলিমাঞ্জরো তানজানিয়াতে অবস্থিত একটি সুপ্ত আগ্নেয়গিরি।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "6c4fbea7-0d99-455f-bc33-f47943d761d0",
+      "question": "এভারেস্ট শৃঙ্গের উচ্চতা কত? [SABAS][]",
+      "options": [
+        "৮,৪৫০ মিটার",
+        "৮,৮৪৮ মিটার",
+        "৮,৮৪০ মিটার",
+        "৮,০০০ মিটার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট এভারেস্টের স্বীকৃত উচ্চতা ৮,৮৪৮ মিটার।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "522a69ac-ffd8-420b-a751-cc8dcd54007b",
+      "question": "সমুদ্রপৃষ্ঠ থেকে মাউন্ট এভারেস্টের উচ্চতা কত? [SABAS][]",
+      "options": [
+        "২৯০২৯ ফুট",
+        "৩২০০০ ফুট",
+        "৪১০৪১ ফুট",
+        "২১০২১ ফুট"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ফুট হিসেবে মাউন্ট এভারেস্টের উচ্চতা প্রায় ২৯,০২৯ ফুট।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "c8e6a2fa-0a46-4dee-9ee7-6fca03592500",
+      "question": "এভারেস্ট শৃঙ্গ প্রথম জয় করা হয়- [SABAS][]",
+      "options": [
+        "১৯৫০ সালে",
+        "১৯৫১ সালে",
+        "১৯৫২ সালে",
+        "১৯৫৩ সালে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এডমন্ড হিলারি ও তেনজিং নোরগে ১৯৫৩ সালের ২৯ মে প্রথম এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "7e5754de-825c-4941-ae05-2af3c02d15be",
+      "question": "Who is the first person to reach the summit of Mount Everest? [SABAS][]",
+      "options": [
+        "Musa Ibrahim",
+        "Edmund Hillary",
+        "Jorden Romero",
+        "Mona Mulepati"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৫৩ সালে স্যার এডমন্ড হিলারি প্রথম ব্যক্তি হিসেবে এভারেস্টের চূড়ায় পৌঁছান।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "9254a399-f890-4f6f-836f-783f5c10707a",
+      "question": "তেনজিং ও হিলারি কবে এভারেস্ট-এর চূড়ায় পা রাখেন? [SABAS][]",
+      "options": [
+        "১৯৫৩ সালের ২৯ মে",
+        "১৯৭২ সালের ২১ জুন",
+        "১৯৭৪ সালের ২৬ জুলাই",
+        "১৯৭৪ সালের ২২ ডিসেম্বর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "১৯৫৩ সালের ২৯ মে তেনজিং নোরগে এবং এডমন্ড হিলারি যৌথভাবে এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "be454080-32e6-4aec-bcf4-a09dffb92707",
+      "question": "Who is the first woman to climb Mount Everest? [SABAS][]",
+      "options": [
+        "Junko Tabei",
+        "Nishat Majumder",
+        "Raha Moharrak",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জাপানি পর্বতারোহী জুনকো তাবেই ১৯৭৫ সালে প্রথম নারী হিসেবে মাউন্ট এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "f5211418-8a7a-435a-a954-c41d8f701d2a",
+      "question": "প্রথম কোন ভারতীয় এভারেস্ট শৃঙ্গে আরোহন করেন? [SABAS][]",
+      "options": [
+        "অবতার সিং",
+        "শিপ্রা মজুমদার",
+        "নিশাত",
+        "কেউ না"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অবতার সিং চিমা প্রথম ভারতীয় হিসেবে ১৯৬৫ সালে এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "9458fb71-f884-4c6e-b6d0-8c3513bc47b0",
+      "question": "এভারেস্ট জয়ী প্রথম বাঙ্গালী কে? [SABAS][]",
+      "options": [
+        "নিশাত মজুমদার",
+        "সতব্রত দাম",
+        "মুসা ইব্রাহিম",
+        "ওয়াসফিয়া নাজরীন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মুসা ইব্রাহিম ২০১০ সালে প্রথম বাংলাদেশী হিসেবে এভারেস্ট জয়ের কৃতিত্ব অর্জন করেন।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "a2f960f7-4b42-4cfe-8950-18133a692749",
+      "question": "Who is the first arab woman to conquer the Everest? [SABAS][]",
+      "options": [
+        "Bilkis Habibi",
+        "Suzanne Al Houby",
+        "Junkeya Tabei",
+        "Salma Hayek"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সুজান আল হুবি ২০১১ সালে প্রথম আরব নারী হিসেবে এভারেস্টের চূড়ায় আরোহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "550febd6-5dee-4f03-8b09-80d538f98d32",
+      "question": "The first Bangladeshi who climbed Mount Everest is- [SABAS][]",
+      "options": [
+        "Edmond Hillary",
+        "Neil Armstrong",
+        "Musa Ibrahim",
+        "Serpa Tenjing"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মুসা ইব্রাহিম প্রথম বাংলাদেশী হিসেবে এভারেস্ট জয়ের মাইলফলক স্পর্শ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "b0529e82-18b5-432f-b06d-ccd0f8abe09e",
+      "question": "মুসা ইব্রাহিম কিসে খ্যাতি লাভ করেন? [SABAS][]",
+      "options": [
+        "সৌদে",
+        "এভারেস্ট শৃঙ্গে আরোহন",
+        "দাবায়",
+        "সাঁতারে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মুসা ইব্রাহিম প্রথম বাংলাদেশী হিসেবে মাউন্ট এভারেস্ট আরোহন করে খ্যাতি লাভ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "2c7a1dc3-b7cb-47e3-9a79-754b9b80723f",
+      "question": "বাংলাদেশের মুসা ইব্রাহিম কত তারিখে পৃথিবীর সর্ব্বোচ্চ পর্বতশৃঙ্গ এভারেস্টের শিখরে পা রাখেন? [SABAS][]",
+      "options": [
+        "২০ মে, ২০১০",
+        "২১ মে, ২০১০",
+        "২২ মে, ২০১০",
+        "২৩ মে, ২০১০"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মুসা ইব্রাহিম ২০১০ সালের ২৩ মে তারিখে এভারেস্টের শিখরে পা রাখেন।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "090086d9-4b55-4df9-9c50-bb136caad33b",
+      "question": "The name of the first Bangladeshi female conquering the everest is - [SABAS][]",
+      "options": [
+        "রানী হামিদ",
+        "শারমিন সুলতানা শিরিন",
+        "জান্নাতুল ফেরদৌস",
+        "নিশাত মজুমদার"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নিশাত মজুমদার প্রথম বাংলাদেশী নারী হিসেবে এভারেস্ট জয় করেন।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "f12bbe58-5dc6-45f3-89d9-59e689b12465",
+      "question": "নিশাত মজুমদার কত তারিখে এভারেস্টের চূড়ায় আরোহন করেন? [SABAS][]",
+      "options": [
+        "১৮ মে, ২০১২",
+        "১৯ মে, ২০১২",
+        "২১ মে, ২০১২",
+        "২২ মে, ২০১২"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নিশাত মজুমদার ২০১২ সালের ২২ মে তারিখে এভারেস্টের চূড়ায় আরোহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "30209be6-9e95-4e04-a46a-fe568bf188f2",
+      "question": "এভারেস্টের চূড়ায় আরোহণকারী দ্বিতীয় বাংলাদেশী কে? [SABAS][]",
+      "options": [
+        "মুসা ইব্রাহিম",
+        "নিশাত মজুমদার",
+        "ওয়াসফিয়া নাজরীন",
+        "এম.এ. মুহিত"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এম.এ. মুহিত এভারেস্টের চূড়ায় আরোহণকারী দ্বিতীয় বাংলাদেশী।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "ef3666d0-1311-4519-914a-40e4d2df72a3",
+      "question": "ওয়াসফিয়া নাজরীন বিখ্যাত - [SABAS][]",
+      "options": [
+        "অ্যাথলেট হিসেবে",
+        "নারী উদ্যোক্তা হিসেবে",
+        "এভারেস্টজয়ী হিসেবে",
+        "ক্রিকেটার হিসেবে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ওয়াসফিয়া নাজরীন একজন বাংলাদেশী পর্বতারোহী যিনি সাত মহাদেশের সাতটি সর্বোচ্চ শৃঙ্গ জয় করেছেন।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "dd6fd957-7b34-4e23-b0a1-697ed08ea177",
+      "question": "ওয়াসফিয়া নাজরীন কত তারিখে এভারেস্টের চূড়ায় আরোহন করেন? [SABAS][]",
+      "options": [
+        "২৩ মে, ২০১২",
+        "২৪ মে, ২০১২",
+        "২৫ মে, ২০১২",
+        "২৬ মে, ২০১২"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ওয়াসফিয়া নাজরীন ২০১২ সালের ২৬ মে তারিখে এভারেস্টের চূড়ায় আরোহণ করেন।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "f5f017f8-b1ca-4da1-a65c-ef1df9a6e931",
+      "question": "‘গডউইন অস্টিন’ পর্বতশৃঙ্গটি কোন পর্বতমালা? [SABAS][]",
+      "options": [
+        "হিমালয়",
+        "আল্পস",
+        "কারাকোরাম",
+        "আলাস্কা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "গডউইন অস্টিন (K2) কারাকোরাম পর্বতমালায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "ff64c89a-a367-4322-8522-8cf6217a7ebd",
+      "question": "Which one is the second highest mountain on the earth? [SABAS][]",
+      "options": [
+        "Makalu",
+        "Himalayas",
+        "Annapurna",
+        "K2"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "K2 বা গডউইন অস্টিন পৃথিবীর দ্বিতীয় উচ্চতম পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "5e5df631-f13f-4ae1-87a9-0f0ce0128d48",
+      "question": "যুক্তরাজ্যের সর্ব্বোচ্চ পর্বতশৃঙ্গ হচ্ছে- [SABAS][]",
+      "options": [
+        "এলবর্জ",
+        "আল্পস",
+        "বেননেভিস",
+        "এঙ্গন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বেন নেভিস যুক্তরাজ্যের সর্বোচ্চ পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "6a9ee9c7-01b7-4b21-9c51-be20771ca304",
+      "question": "Adam's Peak শীর্ষস্থানটি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ইন্দোনেশিয়া",
+        "ভিয়েতনাম",
+        "শ্রীলংকা",
+        "ফিলিপাইন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আদমস পিক (Adam's Peak) শ্রীলঙ্কায় অবস্থিত একটি পবিত্র পর্বত।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "67012dca-9eaa-4b92-b979-befaea79cad4",
+      "question": "তোরাবোরা পাহাড় অবস্থিত কোন দেশে? [SABAS][]",
+      "options": [
+        "সুইড",
+        "আফগানিস্তান",
+        "শ্রীলংকা",
+        "সৌদি আরব"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "তোরাবোরা পাহাড় আফগানিস্তানে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "1f9e1653-c893-4084-a2e8-5a43ae58eb1f",
+      "question": "‘Mount Kinabalu’ কোন দেশের পর্বতমালা? [SABAS][]",
+      "options": [
+        "ইন্দোনেশিয়া",
+        "মালয়েশিয়া",
+        "থাইল্যান্ড",
+        "মায়ানমার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মাউন্ট কিনাবালু মালয়েশিয়ার সর্বোচ্চ পর্বতশৃঙ্গ।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "e175c007-37b0-4e71-888e-731218d2a043",
+      "question": "অলিভ পর্বতটি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "পাকিস্তান",
+        "জেরুজালেম",
+        "ইয়েমেন",
+        "ইরাক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অলিভ পর্বত জেরুজালেমে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "2824d7f9-61fd-4ff7-b742-8bc3c0e83719",
+      "question": "The Pico Island is located in - [SABAS][]",
+      "options": [
+        "Turkey",
+        "Egypt",
+        "China",
+        "Portugal"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পিকো দ্বীপ পর্তুগালের আজোরেস দ্বীপপুঞ্জে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "b262c9a2-63c3-49d6-8591-5c35bc5db9e1",
+      "question": "Khyber pass is in - [SABAS][]",
+      "options": [
+        "India",
+        "Nepal",
+        "Pakistan",
+        "Bangladesh"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "খাইবার পাস পাকিস্তান ও আফগানিস্তান সীমান্তে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "14f30a2f-6dbd-4397-90e8-3d906674830e",
+      "question": "বিশ্বের উচ্চতম গিরিপথ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "যুক্তরাষ্ট্র",
+        "নেপাল",
+        "তিব্বত",
+        "রাশিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বিশ্বের উচ্চতম গিরিপথ উমলিংলা তিব্বত (লাদাখ অঞ্চল, ভারত) এলাকায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "472d8801-722b-439e-8534-044155568111",
+      "question": "সেট বার্নার্ড গিরিপথ কোথায়? [SABAS][]",
+      "options": [
+        "কলোরাডো",
+        "অস্ট্রেলিয়ান আল্পস",
+        "আফগানিস্তান",
+        "সুইস আল্পস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সেন্ট বার্নার্ড গিরিপথ সুইস আল্পস পর্বতমালায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "c7586631-4281-4a4a-b8e0-66b086cce52a",
+      "question": "সোয়াত উপত্যকা কোন দেশে? [SABAS][]",
+      "options": [
+        "আফগানিস্তান",
+        "ভারত",
+        "পাকিস্তান",
+        "ইরান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সোয়াত উপত্যকা পাকিস্তানের খাইবার পাখতুনখোয়া প্রদেশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "623473f1-ca5c-4de8-8cfd-4c6a75fd4fd7",
+      "question": "How many oceans are there in the world? [SABAS][]",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "4"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বর্তমানে বিশ্বে মহাসাগরের সংখ্যা ৫টি (প্রশান্ত, আটলান্টিক, ভারত, দক্ষিণ ও সুমেরু)।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "558ab679-caf6-410b-8027-c9ed2ca05630",
+      "question": "The largest ocean of the world is- [SABAS][]",
+      "options": [
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "উত্তর মহাসাগর",
+        "প্রশান্ত মহাসাগর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রশান্ত মহাসাগর হলো আয়তনে পৃথিবীর বৃহত্তম মহাসাগর।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "cadbfde3-2ac4-4c7d-8382-74481b31797b",
+      "question": "পৃথিবীর বৃহত্তম ও গভীরতম (largest and deepest) মহাসাগরের নাম কী? [SABAS][]",
+      "options": [
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "প্রশান্ত মহাসাগর",
+        "দক্ষিণ মহাসাগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রশান্ত মহাসাগর আয়তনে বৃহত্তম এবং গভীরতার দিক থেকেও গভীরতম।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "c7a98467-b53b-4fd5-a674-5d24b8e89f1c",
+      "question": "প্রশান্ত মহাসাগরে আকৃতি কিরূপ? [SABAS][]",
+      "options": [
+        "ত্রিভুজ আকৃতির মতো",
+        "রম্বসের মতো",
+        "পরাবৃত্তের মতো",
+        "আয়তক্ষেত্রের মতো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রশান্ত মহাসাগরের আকৃতি অনেকটা ত্রিভুজাকৃতির।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "72c6d386-41ea-46a0-84ab-7c3ecffa88ea",
+      "question": "ভূ-পৃষ্ঠের সর্বনিম্ন স্থান কোথায় ও তার গভীরতা কত- [SABAS][]",
+      "options": [
+        "আটলান্টিক মহাসাগরে এবং গভীরতা ৪০১৩৭ ফুট",
+        "ভারত মহাসাগরে এবং গভীরতা ৩৭০০০ ফুট",
+        "প্রশান্ত মহাসাগরে এবং গভীরতা ৩৬১৯৯ ফুট",
+        "উত্তর মহাসাগরে এবং গভীরতা ৩৫১২০ ফুট"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পৃথিবীর গভীরতম স্থান মারিয়ানা ট্রেঞ্চ প্রশান্ত মহাসাগরে অবস্থিত, যার গভীরতা প্রায় ৩৬,১৯৯ ফুট।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "968a61dc-d2b2-496d-8596-e85088af3653",
+      "question": "পৃথিবীর গভীরতম স্থান- [SABAS][]",
+      "options": [
+        "মারিয়ানা ট্রেঞ্চ",
+        "ডেড সি",
+        "বৈকাল হ্রদ",
+        "লোহিত সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মারিয়ানা ট্রেঞ্চ হলো পৃথিবীর সমুদ্র পৃষ্ঠের গভীরতম স্থান।",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "b9f5e5c0-3aeb-482d-aff6-ac029dcf2795",
+      "question": "প্রশান্ত মহাসাগরের গভীরতম খাত- [SABAS][]",
+      "options": [
+        "মারিয়ানা ট্রেঞ্চ",
+        "পোয়ের্তোরিকো ট্রেঞ্চ",
+        "সুন্দা ট্রেঞ্চ",
+        "ম্যাটপ্যান ট্রেঞ্চ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মারিয়ানা ট্রেঞ্চ প্রশান্ত মহাসাগরের গভীরতম খাত।",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "70cd7029-e210-4928-a04c-a89c4220c9f7",
+      "question": "পৃথিবীর গভীরতম স্থান কোন মহাসাগরে অবস্থিত? [SABAS][]",
+      "options": [
+        "ভারত মহাসাগরে",
+        "আটলান্টিক মহাসাগরে",
+        "প্রশান্ত মহাসাগরে",
+        "উত্তর মহাসাগরে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মারিয়ানা ট্রেঞ্চ প্রশান্ত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "6594572c-9f8f-490e-96d5-cf218030788f",
+      "question": "পৃথিবীর গভীরতম স্থান 'মারিয়ানা ট্রেঞ্চ' এর গভীরতা- [SABAS][]",
+      "options": [
+        "১০০০০০ মিটার",
+        "১১০০০ মিটার",
+        "১১১০০ মিটার",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মারিয়ানা ট্রেঞ্চের গভীরতা প্রায় ১১,০০০ মিটারের বেশি।",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "6b0b66ff-fd60-4ce2-af6d-94a332fb72f4",
+      "question": "মারিয়ানা ট্রেঞ্চ অবস্থিত- [SABAS][]",
+      "options": [
+        "পৃথিবীর উত্তর গোলার্ধে",
+        "আমেরিকা ও এশিয়ার মধ্যবর্তী স্থানে",
+        "ভারত ও অস্ট্রেলিয়ার মধ্যবর্তী স্থানে",
+        "ইউরোপ ও আফ্রিকার মধ্যবর্তী স্থানে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মারিয়ানা ট্রেঞ্চ উত্তর-পশ্চিম প্রশান্ত মহাসাগরে, আমেরিকা ও এশিয়ার মাঝে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "b9cacc34-e235-4c85-b150-a7038bcf1ce3",
+      "question": "Which famous marine World Heritage site is home to 400 species of coral and 1500 species of fish? [SABAS][]",
+      "options": [
+        "Belize Barrier Reef Reserve System, Belize",
+        "Great Barrier Reef, Australia",
+        "Galapagos Islands, Ecuador",
+        "Ha Long Bay, Vietnam"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অস্ট্রেলিয়ার গ্রেট ব্যারিয়ার রিফ বিশ্বের বৃহত্তম কোরাল রিফ সিস্টেম যা বৈচিত্র্যময় সামুদ্রিক জীবনের জন্য বিখ্যাত।",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "71b5ab63-9253-4ce5-948e-7dc11013b13f",
+      "question": "গ্রেট বেরিয়ার রিফ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগরে",
+        "আটলান্টিক মহাসাগরে",
+        "ভারত মহাসাগরে",
+        "পারস্য উপসাগরে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গ্রেট ব্যারিয়ার রিফ প্রশান্ত মহাসাগরে, অস্ট্রেলিয়ার উত্তর-পূর্ব উপকূলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "73db78a7-5167-4595-ab7e-5d5cb480ad1d",
+      "question": "গ্রেট ব্যারিয়ার রিফ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "অস্ট্রেলিয়া",
+        "ক্যারিবিয়ান দ্বীপপুঞ্জ",
+        "ইন্দোনেশিয়া",
+        "জাপান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গ্রেট ব্যারিয়ার রিফ অস্ট্রেলিয়ার কুইন্সল্যান্ড উপকূলে প্রশান্ত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "8e2c9acd-8fc0-4e30-8e29-55154fba2eee",
+      "question": "In what sea would you find the Great Barrier Reef? [SABAS][]",
+      "options": [
+        "Coral Sea",
+        "Black Sea",
+        "Aral Sea",
+        "Dead Sea"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "গ্রেট ব্যারিয়ার রিফ কোরাল সাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "c1cf4497-6f80-4cff-a993-f2d8de04644d",
+      "question": "এশিয়ার বৃহত্তম সাগর কোন্টি? [SABAS][]",
+      "options": [
+        "আরব সাগর",
+        "আটলান্টিক মহাসাগর",
+        "ভারত মহাসাগর",
+        "দক্ষিণ মহাসাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আরব সাগর হলো এশিয়ার বৃহত্তম সাগর।",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "f5035f53-9663-4953-a7f5-80d6bad08c9c",
+      "question": "দ্বিতীয় বৃহত্তম মহাসাগর- [SABAS][]",
+      "options": [
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "আরব সাগর",
+        "দক্ষিণ মহাসাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আটলান্টিক মহাসাগর প্রশান্ত মহাসাগরের পর পৃথিবীর দ্বিতীয় বৃহত্তম মহাসাগর।",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "243372cc-1c09-4b3b-be70-edf62d10a0de",
+      "question": "Which ocean divides America & Europe? [SABAS][]",
+      "options": [
+        "Pacific",
+        "Arctic",
+        "Atlantic",
+        "Southern"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আটলান্টিক মহাসাগর আমেরিকা মহাদেশ এবং ইউরোপ ও আফ্রিকাকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "4c8b98e6-88fc-4933-b5e5-1188da17a545",
+      "question": "আটলান্টিক মহাসাগরের পশ্চিম তীরে কোন্টি অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "ইউরোপ",
+        "আমেরিকা",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আটলান্টিক মহাসাগরের পশ্চিমে উত্তর ও দক্ষিণ আমেরিকা মহাদেশ অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "0bf2ab24-0d1f-49ff-98a5-e0dafc415363",
+      "question": "North America shares boundary with Pacific Ocean from - [SABAS][]",
+      "options": [
+        "South",
+        "West",
+        "North",
+        "East"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "উত্তর আমেরিকা মহাদেশের পশ্চিমে প্রশান্ত মহাসাগর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": "a07f8673-49f2-4be2-a2d2-6a6b739e7563",
+      "question": "পোর্টি রিকো খাতটি কোন্ মহাসাগরে? [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "ভারত মহাসাগর",
+        "সুমেরু মহাসাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পুয়ের্তো রিকো বা পোর্টি রিকো খাত আটলান্টিক মহাসাগরের গভীরতম স্থান।",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": "2762cd8d-c81e-4b23-af31-9497c28de3f3",
+      "question": "পানামা খাল কোন মহাদেশে? [SABAS][]",
+      "options": [
+        "এশিয়া",
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পানামা খালটি উত্তর আমেরিকা মহাদেশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": "1367bc56-25f4-42cb-afb2-b8bf386a6362",
+      "question": "পানামা খাল কোন কোন মহাসাগরকে যুক্ত করেছে? [SABAS][]",
+      "options": [
+        "আটলান্টিক ও ভূমধ্যসাগর",
+        "আটলান্টিক ও প্রশান্ত মহাসাগর",
+        "ভারত ও প্রশান্ত মহাসাগর",
+        "প্রশান্ত ও ভূমধ্যসাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই খালটি আটলান্টিক মহাসাগর এবং প্রশান্ত মহাসাগরকে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": "0b27063a-915b-4929-8e2d-9648e8edd5fb",
+      "question": "কোন খাল উত্তর আমেরিকাকে দক্ষিণ আমেরিকা থেকে বিচ্ছিন্ন করেছে? [SABAS][]",
+      "options": [
+        "সুয়েজ খাল",
+        "গ্রান্ট খাল",
+        "ক্যানিয়ন খাল",
+        "পানামা খাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পানামা খাল উত্তর ও দক্ষিণ আমেরিকা মহাদেশের সংযোগস্থলে অবস্থিত এবং তাদের বিচ্ছিন্ন করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": "8d532069-5033-4886-90a2-17b273d7a4f8",
+      "question": "উত্তর আমেরিকাকে দক্ষিণ আমেরিকার সাথে যুক্ত করেছে - [SABAS][]",
+      "options": [
+        "বেরিং প্রণালি",
+        "পানামা যোজক",
+        "গ্রেট লেকস",
+        "ফ্লোরিডা প্রণালি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পানামা যোজক উত্তর ও দক্ষিণ আমেরিকাকে সংযুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": "1c054377-15e2-4f2f-8ecf-0db28f49645e",
+      "question": "পানামা খাল খনন সমাপ্তকারী দেশের নাম? [SABAS][]",
+      "options": [
+        "ফ্রান্স",
+        "যুক্তরাজ্য",
+        "যুক্তরাষ্ট্র",
+        "পানামা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফ্রান্স খনন কাজ শুরু করলেও যুক্তরাষ্ট্র পরবর্তীতে ১৯০৪ সালে কাজ শুরু করে এবং সমাপ্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": "14a6125e-fc06-405d-8164-837b418fecb8",
+      "question": "পানামা খালের মালিকানা কত সালে পানামার নিকট হস্তান্তর হয়? [SABAS][]",
+      "options": [
+        "২০০০ সালে",
+        "১৯৯৯ সালে",
+        "১৯৯৮ সালে",
+        "১৯৯০ সালে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৯৯৯ সালের ৩১ ডিসেম্বর যুক্তরাষ্ট্র এই খালের মালিকানা ও পরিচালনা পানামার নিকট হস্তান্তর করে।",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": "a221b916-d29e-4ad1-8813-2a0cfd6eaceb",
+      "question": "বাল্টিক সাগর তীরবর্তী দেশ কোনটি? [SABAS][]",
+      "options": [
+        "তুরস্ক",
+        "যুক্তরাজ্য",
+        "সুইডেন",
+        "নরওয়ে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুইডেন বাল্টিক সাগর তীরবর্তী দেশগুলোর অন্যতম।",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": "3b1b2af6-0b10-4718-9b08-bc2c46a92a51",
+      "question": "কোন দেশটি ইউরোপের বাল্টিক অঞ্চলে অবস্থিত নয়? [SABAS][]",
+      "options": [
+        "ফিনল্যান্ড",
+        "পোল্যান্ড",
+        "অস্ট্রিয়া",
+        "সুইডেন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অস্ট্রিয়া ইউরোপের মধ্যভাগে অবস্থিত একটি স্থলবেষ্টিত দেশ, এটি বাল্টিক অঞ্চলে নেই।",
+      "images": []
+    },
+    {
+      "question_no": 73,
+      "id": "8de934cd-a37b-48a0-8d1e-826f9990b420",
+      "question": "কোন দেশটি বাল্টিক রাষ্ট্র (Baltic state) এর অন্তর্ভুক্ত নয়? [SABAS][]",
+      "options": [
+        "ইউক্রেন",
+        "এস্তোনিয়া",
+        "লাটভিয়া",
+        "লিথুয়ানিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এস্তোনিয়া, লাটভিয়া ও লিথুয়ানিয়া হলো বাল্টিক রাষ্ট্র। ইউক্রেন এর অন্তর্ভুক্ত নয়।",
+      "images": []
+    },
+    {
+      "question_no": 74,
+      "id": "895fae76-49e0-4b90-8822-3c40b3e3fa73",
+      "question": "The smallest sea of the World is - [SABAS][]",
+      "options": [
+        "Red Sea",
+        "Dead Sea",
+        "Baltic sea",
+        "Arabian Sea"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বিশ্বের ক্ষুদ্রতম সাগর হলো বাল্টিক সাগর।",
+      "images": []
+    },
+    {
+      "question_no": 75,
+      "id": "bbf5c1a6-cad7-4ef0-b0b6-85a8091d0981",
+      "question": "ভূমধ্যসাগরীয় দেশ কোনটি? [SABAS][]",
+      "options": [
+        "আলজেরিয়া",
+        "সুদান",
+        "ইরান",
+        "ওমান"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আলজেরিয়া একটি ভূমধ্যসাগরীয় দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 76,
+      "id": "5ae3b58d-d536-4720-9841-78fb837d6535",
+      "question": "কোন দেশটি ভূমধ্যসাগরের তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "রোমানিয়া",
+        "মিশর",
+        "চেক প্রজাতন্ত্র",
+        "পোল্যান্ড"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মিশর ভূমধ্যসাগরের তীরবর্তী একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 77,
+      "id": "28c7db67-8882-4661-bcd6-397b6c093356",
+      "question": "নিচের কোন দেশটি ভূমধ্যসাগরের তীরে অবস্থিত নয়? [SABAS][]",
+      "options": [
+        "আলবেনিয়া",
+        "তিউনিসিয়া",
+        "পর্তুগাল",
+        "মিশর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পর্তুগাল ভূমধ্যসাগরের তীরে অবস্থিত নয়, এটি আটলান্টিক মহাসাগরের উপকূলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 78,
+      "id": "22553edb-ac24-40f1-ae03-c9842411966e",
+      "question": "ভূমধ্যসাগরের বৃহৎ দ্বীপ কোনটি? [SABAS][]",
+      "options": [
+        "সিসিলি",
+        "আটাফু",
+        "সাইপ্রাস",
+        "সার্ডিনিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সিসিলি ভূমধ্যসাগরের বৃহত্তম দ্বীপ।",
+      "images": []
+    },
+    {
+      "question_no": 79,
+      "id": "4d074297-13d8-415f-a952-570c302a539d",
+      "question": "Which one is an island nation in the Mediterranean Ocean? [SABAS][]",
+      "options": [
+        "Gibraltar",
+        "Tunisia",
+        "Malta",
+        "Albania"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মাল্টা ভূমধ্যসাগরে অবস্থিত একটি দ্বীপ রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 80,
+      "id": "433bfd80-e2cb-4546-8336-046c1d3c4b15",
+      "question": "Port of Valencia is in- [SABAS][]",
+      "options": [
+        "Spain",
+        "Morocco",
+        "Portugal",
+        "Italy"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভ্যালেন্সিয়া বন্দরটি স্পেনে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 81,
+      "id": "52cbaf0e-50f3-42fd-9994-4f13101791c4",
+      "question": "হাইফা কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "ইসরায়েল",
+        "ইরান",
+        "ইন্দোনেশিয়া",
+        "কুয়েত"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হাইফা ইসরায়েলের একটি গুরুত্বপূর্ণ সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 82,
+      "id": "d5f2370a-925b-4d7e-8e68-dbb6c79cef30",
+      "question": "আলেকজান্দ্রিয়া বন্দর কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মিশর",
+        "সিরিয়া",
+        "ইসরায়েল",
+        "মরক্কো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আলেকজান্দ্রিয়া বন্দর মিশরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 83,
+      "id": "ea09616c-aeb3-41ae-8840-a073e6b562fd",
+      "question": "আলেকজান্দ্রিয়া শহরটি কোন সমুদ্রের তটে অবস্থিত? [SABAS][]",
+      "options": [
+        "লোহিত সাগর",
+        "ভূ-মধ্যসাগর",
+        "কৃষ্ণ সাগর",
+        "ইজিয়ান সাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আলেকজান্দ্রিয়া ভূমধ্যসাগরের উপকূলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 84,
+      "id": "1b4c11d3-0f56-40e5-9a93-1126ed593ae0",
+      "question": "পোর্ট সৈয়দ কোন দেশের বন্দর? [SABAS][]",
+      "options": [
+        "আলজেরিয়া",
+        "লেবানন",
+        "মিশর",
+        "সিঙ্গাপুর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পোর্ট সৈয়দ মিশরে অবস্থিত একটি বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 85,
+      "id": "817a2993-6e1b-4180-baa4-72d90bd5373b",
+      "question": "তুরস্কের বন্দরনগরী কোনটি? [SABAS][]",
+      "options": [
+        "বুসান",
+        "আলেকজান্দ্রিয়া",
+        "ইসকানদারুন",
+        "আকাবা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইসকানদারুন তুরস্কের একটি গুরুত্বপূর্ণ বন্দরনগরী।",
+      "images": []
+    },
+    {
+      "question_no": 86,
+      "id": "6c76df5c-6d9d-4e54-9a5f-0d705a64f9ac",
+      "question": "লাটাকিয়া কোন দেশের সমুদ্রবন্দর? [SABAS][]",
+      "options": [
+        "সিরিয়ার",
+        "ইরানের",
+        "ইরাকের",
+        "তুরস্কের"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লাটাকিয়া সিরিয়ার প্রধান সমুদ্রবন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 87,
+      "id": "fb8446de-555a-4939-994e-8176de8458f9",
+      "question": "এর মধ্যে কোন দেশ ভারত মহাসাগরে নয়? [SABAS][]",
+      "options": [
+        "মালদ্বীপ",
+        "মাদাগাস্কার",
+        "মরিশাস",
+        "মাল্টা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মাল্টা ভূমধ্যসাগরে অবস্থিত, ভারত মহাসাগরে নয়।",
+      "images": []
+    },
+    {
+      "question_no": 88,
+      "id": "b44f5628-940a-4622-af6c-cee0c3edfecd",
+      "question": "মালদ্বীপ কোন মহাসাগরে অবস্থিত? [SABAS][]",
+      "options": [
+        "প্রশান্ত",
+        "উত্তর",
+        "আটলান্টিক",
+        "ভারত"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মালদ্বীপ ভারত মহাসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 89,
+      "id": "92876b2a-76d3-4c78-8c53-80f3384787c8",
+      "question": "পৃথিবীর গভীরতম খালের নাম কী? [SABAS][]",
+      "options": [
+        "গ্রান্ড খাল",
+        "পানামা খাল",
+        "সুয়েজ খাল",
+        "অকানেম খাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুয়েজ খাল বিশ্বের অন্যতম গভীর ও দীর্ঘ কৃত্রিম খাল।",
+      "images": []
+    },
+    {
+      "question_no": 90,
+      "id": "b055ee5a-8d6d-48c3-ba89-dca2d6c242bc",
+      "question": "সুয়েজ খাল কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ইরান",
+        "সৌদিআরব",
+        "মিশর",
+        "জর্ডান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুয়েজ খাল মিশরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 91,
+      "id": "97e560f9-24b0-4370-a588-0dd3eae6d587",
+      "question": "সুয়েজ খাল কোন দুটি মহাদেশকে বিভক্ত করে? [SABAS][]",
+      "options": [
+        "এশিয়া ও অস্ট্রেলিয়া",
+        "আমেরিকা ও আফ্রিকা",
+        "ইউরোপ ও আমেরিকা",
+        "এশিয়া ও আফ্রিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সুয়েজ খাল এশিয়া ও আফ্রিকা মহাদেশকে বিভক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 92,
+      "id": "7727aaed-2e16-4f58-a1ee-178a121e251a",
+      "question": "সুয়েজ খাল কোন সাগরকে সংযুক্ত করে? [SABAS][]",
+      "options": [
+        "ভূমধ্যসাগর ও লোহিত সাগর",
+        "বাল্টিক সাগর ও কাস্পিয়ান সাগর",
+        "লোহিত সাগর ও কাস্পিয়ান সাগর",
+        "ভূমধ্য সাগর ও উত্তর সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সুয়েজ খাল ভূমধ্যসাগর ও লোহিত সাগরকে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 93,
+      "id": "8f1bdccc-566c-4ae7-8301-f0cf1557a3e2",
+      "question": "লোহিত সাগর যে দুটি মহাদেশকে আলাদা করেছে- [SABAS][]",
+      "options": [
+        "ইউরোপ ও আফ্রিকা",
+        "এশিয়া ও ইউরোপ",
+        "এশিয়া ও অস্ট্রেলিয়া",
+        "আফ্রিকা ও এশিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "লোহিত সাগর এশিয়া ও আফ্রিকা মহাদেশের মাঝে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 94,
+      "id": "b5c0b7b7-77ad-4ef5-9691-cd208d1f5b14",
+      "question": "লোহিত সাগর ও সুয়েজখাল এশিয়াকে বিচ্ছিন্ন করেছে কোন মহাদেশ থেকে? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "ইউরোপ",
+        "অস্ট্রেলিয়া",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "লোহিত সাগর ও সুয়েজখাল এশিয়াকে আফ্রিকা থেকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 95,
+      "id": "3698f085-1952-47af-9323-972cf3e76261",
+      "question": "কোন সনে সুয়েজ খালের খনন কাজ শেষ হয়? [SABAS][]",
+      "options": [
+        "১৮৬০",
+        "১৮৬২",
+        "১৮৬৭",
+        "১৮৬৯"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "১৮৬৯ সালে সুয়েজ খালের খনন কাজ শেষ হয়।",
+      "images": []
+    },
+    {
+      "question_no": 96,
+      "id": "09259bf1-7bb4-4886-84aa-a31a7f995c14",
+      "question": "সুয়েজ খাল কোন বছরের চালু হয়? [SABAS][]",
+      "options": [
+        "১৮৬৩",
+        "১৮৬৯",
+        "১৮৮৯",
+        "১৮৫৪"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "১৮৬৯ সালে সুয়েজ খাল চলাচলের জন্য উন্মুক্ত করা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 97,
+      "id": "61d5f2a1-c108-4ec6-93ba-a7b261741ebc",
+      "question": "সুয়েজ খাল খননের ফলে এশিয়ার সাথে যোগাযোগ সহজ হয়েছে- [SABAS][]",
+      "options": [
+        "আফ্রিকার",
+        "অস্ট্রেলিয়ার",
+        "ইউরোপের",
+        "আমেরিকার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সুয়েজ খাল খননের ফলে ইউরোপ ও এশিয়ার নৌপথের দূরত্ব কমেছে।",
+      "images": []
+    },
+    {
+      "question_no": 98,
+      "id": "ec66df68-ca3b-4971-af67-b17e6c93bb26",
+      "question": "Which canal is known as the 'Highway to india'? [SABAS][]",
+      "options": [
+        "Suez Canal",
+        "Grand Canal",
+        "Indus Canal",
+        "Ravi Canal"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সুয়েজ খালকে 'Highway to India' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 99,
+      "id": "8ed06adc-6394-41c2-a9ab-60b489d80c8e",
+      "question": "কোনটি পারস্য উপসাগরীয় রাষ্ট্র? [SABAS][]",
+      "options": [
+        "সৌদি আরব",
+        "তুরস্ক",
+        "জর্ডান",
+        "ইসরায়েল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সৌদি আরব পারস্য উপসাগরের তীরবর্তী একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 100,
+      "id": "303042d7-f2e8-4115-b50f-884a2763bfc3",
+      "question": "কুয়েত কোন সাগরের তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "বঙ্গোপসাগর",
+        "ভারত মহাসাগর",
+        "পারস্য উপসাগর",
+        "আরব সাগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কুয়েত পারস্য উপসাগরের উপকূলে অবস্থিত একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 101,
+      "id": "eff203a3-c599-40ef-a924-b3190221bc63",
+      "question": "বন্দর আব্বাস' কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "মিশর",
+        "ইরান",
+        "জর্ডান",
+        "ইরাক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বন্দর আব্বাস ইরানের একটি প্রধান সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 102,
+      "id": "cc912799-493b-4e87-8199-cc60ceb60b4b",
+      "question": "আবাদান বন্দর কোন দেশে? [SABAS][]",
+      "options": [
+        "ইরাকে",
+        "ইরানে",
+        "তুরস্কে",
+        "লিবিয়ায়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আবাদান ইরানের একটি গুরুত্বপূর্ণ বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 103,
+      "id": "f92a6a9e-9481-4f83-9696-3e94ae468e89",
+      "question": "Palm Island কোথায় তৈরি করা হয়েছে? [SABAS][]",
+      "options": [
+        "মুম্বাই",
+        "নিউইয়র্ক",
+        "সিঙ্গাপুর",
+        "দুবাই"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Palm Island সংযুক্ত আরব আমিরাতের দুবাইয়ে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 104,
+      "id": "8575a98d-f90e-4ee1-ad89-c8b42c600c28",
+      "question": "ইলিশ চ্যানেল কোন দুইট দেশকে পৃথক করেছে? [SABAS][]",
+      "options": [
+        "ইল্যান্ড ও ফ্রান্স",
+        "বেলজিয়াম ও ইল্যান্ড",
+        "ইল্যান্ড ও রাশিয়া",
+        "ফ্রান্স ও জার্মানি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইলিশ চ্যানেল ব্রিটেন ও ফ্রান্সকে পৃথক করেছে (এখানে অপশনে ইল্যান্ড বা ইংল্যান্ড হবে)।",
+      "images": []
+    },
+    {
+      "question_no": 105,
+      "id": "41fecc9a-82c5-4f69-a753-e1b2b87a69fd",
+      "question": "ইলিশ চ্যানেল সংযুক্ত করেছে- [SABAS][]",
+      "options": [
+        "ভূমধ্যসাগর ও লোহিত সাগরকে",
+        "ভারত মহাসাগর ও ভূমধ্যসাগরকে",
+        "আটলান্টিক ও প্রশান্ত মহাসাগরকে",
+        "উত্তর সাগর ও আটলান্টিক মহাসাগরকে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ইলিশ চ্যানেল আটলান্টিক মহাসাগর ও উত্তর সাগরকে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 106,
+      "id": "bd1d062e-a331-464a-b244-b48fe34bf7a4",
+      "question": "ইলিশ চ্যানেলকে উত্তর সাগরের সাথে সংযুক্ত করেছে- [SABAS][]",
+      "options": [
+        "বসফরাস প্রণালি",
+        "বেরিং প্রণালি",
+        "মেসিনা প্রণালি",
+        "ডোভার প্রণালি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ডোভার প্রণালি ইংলিশ চ্যানেল ও উত্তর সাগরকে সংযুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 107,
+      "id": "c397a31b-c7dd-41e5-a160-ae343dbc235c",
+      "question": "যুক্তরাজ্য থেকে ফ্রান্সকে পৃথক করেছে কোন প্রণালি? [SABAS][]",
+      "options": [
+        "ডোভার",
+        "পক",
+        "বেরিং",
+        "জিব্রাল্টার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ডোভার প্রণালি যুক্তরাজ্য ও ফ্রান্সের মাঝখানে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 108,
+      "id": "3b4f7c6b-7498-455a-882b-feb60c600147",
+      "question": "ইলিশ চ্যানেল অতিক্রমকারী প্রথম বাঙালি মহিলার নাম কী? [SABAS][]",
+      "options": [
+        "সালমা আলী",
+        "সুফিয়া আহমেদ",
+        "আরতি সেনগুপ্ত",
+        "অনিরুদ্ধ রায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আরতি সেনগুপ্ত প্রথম এশীয় মহিলা হিসেবে ইংলিশ চ্যানেল অতিক্রম করেন।",
+      "images": []
+    },
+    {
+      "question_no": 109,
+      "id": "20ef4d2b-2868-4819-add4-a7060a7ab686",
+      "question": "বাঙালির (বাংলাদেশির) মধ্যে কে প্রথম ইলিশ চ্যানেল সাঁতার কেটে অতিক্রম করেন? [SABAS][]",
+      "options": [
+        "আব্দুল মালেক",
+        "ব্রজেন দাস",
+        "মোশারফ হোসেন",
+        "সামেদুল ইসলাম"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্রজেন দাস প্রথম দক্ষিণ এশীয় ব্যক্তি হিসেবে ইংলিশ চ্যানেল অতিক্রম করেন।",
+      "images": []
+    },
+    {
+      "question_no": 110,
+      "id": "a1f9e8fa-6d4a-45e8-aab6-656cd66570f6",
+      "question": "হামবুর্গ' কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "ইল্যান্ড",
+        "সুইজারল্যান্ড",
+        "লুক্সেমবার্গ",
+        "জার্মানি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "হামবুর্গ জার্মানির একটি প্রধান সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 111,
+      "id": "b334a356-9fb6-40e8-8dff-c9459c0a7779",
+      "question": "আন্টওয়ার্প কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "সুইজারল্যান্ড",
+        "বেলজিয়াম",
+        "জার্মানি",
+        "ইতালি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আটওয়ার্প বেলজিয়ামের একটি বন্দর শহর।",
+      "images": []
+    },
+    {
+      "question_no": 112,
+      "id": "80fef10a-2bdf-49ed-af96-3a86f4d28bf7",
+      "question": "রটেরডাম' কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "ইল্যান্ড",
+        "বেলজিয়াম",
+        "নেদারল্যান্ডস",
+        "জার্মানি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "রটারডাম নেদারল্যান্ডসের বিখ্যাত সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 113,
+      "id": "7d133ac6-93d6-4c32-a9ad-ba696b2bf55d",
+      "question": "ভূ-মধ্যসাগর ও আটলান্টিক মহাসাগরের মধ্যে কোন প্রণালির অবস্থান? [SABAS][]",
+      "options": [
+        "হরমুজ",
+        "জিব্রাল্টার",
+        "বসফরাস",
+        "দার্দানেলিস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জিব্রাল্টার প্রণালি ভূ-মধ্যসাগর ও আটলান্টিক মহাসাগরকে যুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 114,
+      "id": "a6018940-66f8-49a1-9b7b-ae537bb53042",
+      "question": "Which water bodies are connected through the 'Strait of Gibraltar'? [SABAS][]",
+      "options": [
+        "Atlantic Ocean & Mediterranean sea",
+        "Indian Ocean & Pacific Ocean",
+        "Arab Sea & Gulf of Aden",
+        "Arab sea & Caspian Sea"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জিব্রাল্টার প্রণালি আটলান্টিক মহাসাগর এবং ভূ-মধ্যসাগরকে সংযুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 115,
+      "id": "f59c3944-ac46-40e1-9ba4-be5b2516ccdc",
+      "question": "কোন প্রণালি আফ্রিকা মহাদেশকে ইউরোপ থেকে পৃথক করেছে? [SABAS][]",
+      "options": [
+        "মালাক্কা",
+        "জিব্রাল্টার",
+        "পক",
+        "পানামা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জিব্রাল্টার প্রণালি ইউরোপ এবং আফ্রিকাকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 116,
+      "id": "49267d6c-b14a-4e96-900c-95cd1a50c2fc",
+      "question": "আফ্রিকাকে স্পেন থেকে আলাদা করেছে - [SABAS][]",
+      "options": [
+        "মালাক্কা প্রণালি",
+        "ফ্লোরিডা প্রণালি",
+        "জিব্রাল্টার প্রণালি",
+        "লোহিত সাগর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "জিব্রাল্টার প্রণালি স্পেন ও মরক্কোর (আফ্রিকা) মাঝখানে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 117,
+      "id": "d5de7bc8-e053-4af3-a105-11b17cd77fd4",
+      "question": "জিব্রাল্টার প্রণালি কোন কোন দেশকে পৃথক করেছে? [SABAS][]",
+      "options": [
+        "মরক্কো ও স্পেন",
+        "মৌরিতানিয়া ও স্পেন",
+        "আলবেনিয়া ও স্পেন",
+        "পর্তুগাল ও মরক্কো"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "জিব্রাল্টার প্রণালি মরক্কো ও স্পেনকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 118,
+      "id": "af673941-b37c-454e-9bdd-fb93b54dac7f",
+      "question": "জিব্রাল্টার প্রণালি পৃথক করেছে- [SABAS][]",
+      "options": [
+        "ইতালি-সিসিলি",
+        "আফ্রিকা-স্পেন",
+        "ফ্রান্স-ব্রিটেন",
+        "আমেরিকা-এশিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জিব্রাল্টার প্রণালি আফ্রিকা মহাদেশ ও স্পেনকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 119,
+      "id": "9e1f2efa-4f0e-44e8-9317-692cfef11387",
+      "question": "মরক্কোর প্রধান সমুদ্র বন্দর হচ্ছে- [SABAS][]",
+      "options": [
+        "আকাবা",
+        "এডেন",
+        "হাইফা",
+        "কাসাব্লাঙ্কা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মরক্কোর অন্যতম প্রধান সমুদ্র বন্দর হলো কাসাব্লাঙ্কা।",
+      "images": []
+    },
+    {
+      "question_no": 120,
+      "id": "f060bcab-30fa-4a84-afb1-0e0b560c639f",
+      "question": "বসফরাস প্রণালি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "দক্ষিণ আফ্রিকা",
+        "রাশিয়া",
+        "ইরান",
+        "তুরস্ক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বসফরাস প্রণালি তুরস্কে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 121,
+      "id": "2e869928-8906-4ad3-82c6-9014759f2e00",
+      "question": "বসফরাস প্রণালি কোন দুটি সাগরকে সংযুক্ত করেছে? [SABAS][]",
+      "options": [
+        "প্রশান্ত ও ভূমধ্যসাগর",
+        "ভূমধ্য ও পারস্য উপসাগর",
+        "আটলান্টিক ও ভূমধ্যসাগর",
+        "কৃষ্ণ ও মর্মর সাগর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বসফরাস প্রণালি কৃষ্ণ সাগর ও মর্মর সাগরকে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 122,
+      "id": "af3b969c-f871-403c-a1c8-168058210fee",
+      "question": "এশিয়া ও ইউরোপকে পৃথক করেছে কোন প্রণালি? [SABAS][]",
+      "options": [
+        "জিব্রাল্টার প্রণালি",
+        "পক প্রণালি",
+        "বসফরাস প্রণালি",
+        "হরমুজ প্রণালি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বসফরাস প্রণালি এশিয়া ও ইউরোপকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 123,
+      "id": "89142771-6013-4616-ade5-c0609531dc23",
+      "question": "ইস্তাম্বুলকে পৃথক করেছে যে প্রণালি? [SABAS][]",
+      "options": [
+        "হরমুজ",
+        "সুয়েজ",
+        "বসফরাস",
+        "জিব্রাল্টার"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বসফরাস প্রণালি ইস্তাম্বুল শহরকে দুই ভাগে বিভক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 124,
+      "id": "4ce7d6fe-c365-4907-af38-38f18df3d9b7",
+      "question": "ইজিয়ান সাগরের সাথে মর্মর সাগরের সংযোগকারী প্রণালির নাম - [SABAS][]",
+      "options": [
+        "বসফরাস",
+        "দার্দানেলিস",
+        "বেরিং",
+        "জিব্রাল্টার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "দার্দানেলিস প্রণালি ইজিয়ান সাগর ও মর্মর সাগরকে সংযুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 125,
+      "id": "519d1309-07cc-4e67-ba27-640e8a40d505",
+      "question": "এশিয়া ও ইউরোপকে কোন প্রণালি পৃথক করেছে? [SABAS][]",
+      "options": [
+        "পক",
+        "জিব্রাল্টার",
+        "বেরিং",
+        "দার্দানেলিস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দার্দানেলিস প্রণালি এশিয়া ও ইউরোপকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 126,
+      "id": "d969f826-08c0-49bf-92fe-87ea2172b970",
+      "question": "Which country is located in both Asia and Europe? Or, কোন দেশ এশিয়া এবং ইউরোপ মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "জাপান",
+        "সৌদি আরব",
+        "তুরস্ক",
+        "ওমান"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "তুরস্ক এশিয়া এবং ইউরোপ উভয় মহাদেশে অবস্থিত একটি দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 127,
+      "id": "b5fe7a3c-c518-47b4-9700-706f890dbd3e",
+      "question": "পৃথিবীর কোন শহর দুই মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "কায়রো",
+        "লিসবন",
+        "ইস্তাম্বুল",
+        "কাসাব্লাঙ্কা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইস্তাম্বুল শহর এশিয়া ও ইউরোপ মহাদেশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 128,
+      "id": "07c79194-b27d-4f7c-a3b9-5a30b3a7e36f",
+      "question": "ইস্তাম্বুল কোন দেশে? [SABAS][]",
+      "options": [
+        "বাংলাদেশ",
+        "ইরানে",
+        "তুরস্কে",
+        "কুয়েতে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইস্তাম্বুল তুরস্কের একটি বিখ্যাত শহর।",
+      "images": []
+    },
+    {
+      "question_no": 129,
+      "id": "8036b4ad-cb86-4103-b1f0-328443daf758",
+      "question": "ইস্তানবুল শহরটি কোন দুই মহাদেশ জুড়ে অবস্থিত? [SABAS][]",
+      "options": [
+        "এশিয়া ও আফ্রিকা",
+        "উ.আমেরিকা ও দ.আমেরিকা",
+        "এশিয়া ও ইউরোপ",
+        "ইউরোপ ও আফ্রিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইস্তানবুল এশিয়া ও ইউরোপ মহাদেশ জুড়ে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 130,
+      "id": "8a88f5e2-b060-4a5f-9377-24cda658262c",
+      "question": "হরমুজ প্রণালি সংযুক্ত করেছে- [SABAS][]",
+      "options": [
+        "লোহিত সাগর ও ভূমধ্যসাগরকে",
+        "ওমান উপসাগর ও পারস্য উপসাগরকে",
+        "জিব্রাল্টার ও লোহিত উপসাগরকে",
+        "জাপান সাগর ও সুম্যা সাগরকে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হরমুজ প্রণালি পারস্য উপসাগর ও ওমান উপসাগরকে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 131,
+      "id": "53ac5d78-2bde-45a2-9c76-e51fff280c1a",
+      "question": "কোন দুটি দেশকে হরমুজ প্রণালি ভৌগোলিকভাবে পৃথক করেছে? [SABAS][]",
+      "options": [
+        "ইরাক ও কুয়েত",
+        "সৌদি আরব ও ইয়েমেন",
+        "ইরান ও ওমান",
+        "কাতার ও বাহরাইন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "হরমুজ প্রণালি ইরান ও ওমানকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 132,
+      "id": "08675865-838f-4af2-86e8-b8f01b416abe",
+      "question": "এডেন কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "ইয়েমেন",
+        "ওমান",
+        "কাতার",
+        "ইসরায়েল"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এডেন ইয়েমেনের একটি প্রধান বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 133,
+      "id": "3770b50c-ffda-4dbe-a187-57b1bbdc9fe4",
+      "question": "আকাবা একটি- [SABAS][]",
+      "options": [
+        "সমুদ্র বন্দর",
+        "বিমান বন্দর",
+        "স্থল বন্দর",
+        "নদী বন্দর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আকাবা হলো জর্ডানের একটি সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 134,
+      "id": "5098348c-a56b-4a3e-85cf-70211da9ff0e",
+      "question": "আকাবা কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "মায়ানমার",
+        "জর্ডান",
+        "ইরাক",
+        "ইসরায়েল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আকাবা জর্ডান দেশের সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 135,
+      "id": "c42229d2-8305-4c68-a2df-3a0c1a64127c",
+      "question": "বাবেল মান্দেব' কি শব্দ? [SABAS][]",
+      "options": [
+        "ফারসি",
+        "উর্দু",
+        "আরবি",
+        "ইংরেজি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাবেল মান্দেব' একটি আরবি শব্দ।",
+      "images": []
+    },
+    {
+      "question_no": 136,
+      "id": "1caf5247-6bb5-467f-ad97-d227b0725b2e",
+      "question": "এশিয়াকে আফ্রিকা মহাদেশ থেকে পৃথক করেছে কোন প্রণালি? [SABAS][]",
+      "options": [
+        "জিব্রাল্টার প্রণালি",
+        "বাবেল মান্দেব প্রণালি",
+        "বসফরাস প্রণালি",
+        "বেরিং প্রণালি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বাবেল মান্দেব প্রণালি এশিয়া ও আফ্রিকাকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 137,
+      "id": "4a87df34-4b46-4bf7-8784-c1ab7620cb0a",
+      "question": "আরব সাগর ও লোহিত সাগরের মধ্যস্থিত প্রণালির নাম- [SABAS][]",
+      "options": [
+        "মালাক্কা",
+        "দার্দানেলিস",
+        "হরমুজ",
+        "বাব-এল-মান্দেব"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাব-এল-মান্দেব প্রণালি আরব সাগর ও লোহিত সাগরের মধ্যে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 138,
+      "id": "fc2d04ad-3f19-426a-a7ea-7874de286b0b",
+      "question": "লোহিত সাগর ও এডেন উপসাগরকে সংযোগকারী প্রণালীর নাম কী? [SABAS][]",
+      "options": [
+        "পক প্রণালী",
+        "জিব্রাল্টার প্রণালী",
+        "বাব এল মান্দেব",
+        "সুন্দা প্রণালী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাব এল মান্দেব লোহিত সাগর ও এডেন উপসাগরকে সংযোগ করে।",
+      "images": []
+    },
+    {
+      "question_no": 139,
+      "id": "fcf4e210-9f7f-49fd-aa83-73142c3fc990",
+      "question": "লোহিত সাগর ও এডেন উপসাগরকে সংযোগকারী প্রণালীর নাম কী? [SABAS][]",
+      "options": [
+        "পক প্রণালী",
+        "জিব্রাল্টার প্রণালী",
+        "বাব এল মান্দেব",
+        "সুন্দা প্রণালী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বাব এল মান্দেব প্রণালী লোহিত সাগর ও এডেন উপসাগরকে সংযুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 140,
+      "id": "0c6dfaac-a874-47cf-a03d-917d9f554109",
+      "question": "মিশর ও সৌদি আরবকে বিভাজনকারী সাগর- [SABAS][]",
+      "options": [
+        "আরব সাগর",
+        "বাল্টিক সাগর",
+        "কৃষ্ণ সাগর",
+        "লোহিত সাগর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "লোহিত সাগর মিশর ও সৌদি আরবের মধ্যবর্তী সীমানা হিসেবে কাজ করে।",
+      "images": []
+    },
+    {
+      "question_no": 141,
+      "id": "b339d859-688d-474b-a4eb-7b7425863120",
+      "question": "বাব আল মান্দেব' প্রণালীর সাথে সরাসরি সংশ্লিষ্ট একটি সমুদ্র- [SABAS][]",
+      "options": [
+        "লোহিত সাগর",
+        "আরব সাগর",
+        "পারস্য সাগর",
+        "ভূমধ্যসাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাব আল মান্দেব প্রণালী লোহিত সাগরকে এডেন উপসাগর ও আরব সাগরের সাথে যুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 142,
+      "id": "e4084594-c50f-4d17-ad58-bbbe2892534d",
+      "question": "বাব-আল মান্দেব সংযুক্ত করেছে- [SABAS][]",
+      "options": [
+        "ইয়েমেন, কেনিয়া এবং সুদানকে",
+        "ইয়েমেন, জিবুতি এবং ইথিওপিয়াকে",
+        "ইয়েমেন, জিবুতি এবং ইরিথ্রিয়াকে",
+        "ইয়েমেন, জিবুতি এবং সোমালিয়াকে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি লোহিত সাগর ও এডেন উপসাগরকে যুক্ত করে এবং সংশ্লিষ্ট দেশগুলো হলো ইয়েমেন, জিবুতি ও ইরিথ্রিয়া।",
+      "images": []
+    },
+    {
+      "question_no": 143,
+      "id": "0de37952-4c46-4547-9ece-c2cd17445e26",
+      "question": "জিবুতি দেশটি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগরে",
+        "এডেন উপসাগরের পাশে",
+        "দক্ষিণ আমেরিকায়",
+        "ক্যারিবিয়ান সাগরে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জিবুতি আফ্রিকার হর্ন অঞ্চলে এডেন উপসাগরের তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 144,
+      "id": "98c93bc6-99e2-4111-a268-4d09d3de74c7",
+      "question": "আবু মুসা' দ্বীপ কোন সাগরে অবস্থিত? [SABAS][]",
+      "options": [
+        "পারস্য উপসাগর",
+        "আরব সাগর",
+        "বঙ্গোপসাগর",
+        "ক্যারিবিয়ান সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আবু মুসা দ্বীপটি পারস্য উপসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 145,
+      "id": "216b2ec2-e06f-4091-bbcd-819ad1050829",
+      "question": "আবু মুসা' দ্বীপটির মালিকানা নিয়ে কোন দুটি দেশের মধ্যে বিরোধ চলছে? [SABAS][]",
+      "options": [
+        "ইরান ও ইরাক",
+        "সংযুক্ত আরব আমিরাত ও ইরান",
+        "জর্ডান ও সিরিয়া",
+        "সিরিয়া ও মিশর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আবু মুসা দ্বীপের মালিকানা নিয়ে ইরান ও সংযুক্ত আরব আমিরাতের মধ্যে দীর্ঘদিনের বিরোধ রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 146,
+      "id": "c0bd5ec8-8567-4d87-a2b8-206b1091ec78",
+      "question": "The waterway separating India and Sri Lanka is - [SABAS][]",
+      "options": [
+        "হরমুজ প্রণালি",
+        "পক প্রণালি",
+        "জিব্রাল্টার প্রণালি",
+        "মালাক্কা প্রণালি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভারত ও শ্রীলঙ্কাকে পৃথক করেছে পক প্রণালি।",
+      "images": []
+    },
+    {
+      "question_no": 147,
+      "id": "4c2e9d8d-935b-49a7-8c20-fcef18f84bf1",
+      "question": "পক প্রণালি কোন কোন দেশের মধ্যে অবস্থিত? [SABAS][]",
+      "options": [
+        "ফিলিপাইন",
+        "ভারত ও শ্রীলঙ্কা",
+        "নেপাল ও বাংলাদেশ",
+        "ভারত ও বাংলাদেশ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পক প্রণালি ভারত ও শ্রীলঙ্কার মাঝে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 148,
+      "id": "f7a9243d-1236-4ba3-83cc-e9ddb86c556f",
+      "question": "পক প্রণালি সংযুক্ত করেছে- [SABAS][]",
+      "options": [
+        "আটলান্টিক ও ভূমধ্যসাগর",
+        "বঙ্গোপসাগর ও জাভা সাগর",
+        "ভারত মহাসাগর ও জাভা সাগর",
+        "ভারত মহাসাগর ও আরব সাগর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "পক প্রণালি ভারত মহাসাগর (মন্নার উপসাগর) ও আরব সাগরকে সংযুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 149,
+      "id": "ae0c668f-003e-4458-bf28-9393664b0394",
+      "question": "মান্নার দ্বীপ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ফিলিপাইনে",
+        "শ্রীলঙ্কায়",
+        "অস্ট্রেলিয়ায়",
+        "ইন্দোনেশিয়ায়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মান্নার দ্বীপ শ্রীলঙ্কায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 150,
+      "id": "f61bbb87-0645-4af7-8d20-6e1942e6161f",
+      "question": "Which country has a shoreline on the Andaman seas? [SABAS][]",
+      "options": [
+        "Tango",
+        "Tibet",
+        "Thailand",
+        "Tasmania"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "থাইল্যান্ড আন্দামান সাগরের উপকূলবর্তী একটি রাষ্ট্র।",
+      "images": []
+    },
+    {
+      "question_no": 151,
+      "id": "4e40ab45-691e-424b-aa51-772dddf33b45",
+      "question": "The Sunda strait connects- [SABAS][]",
+      "options": [
+        "Mediterranean Sea",
+        "Java sea & Indian ocean",
+        "Adriatic Sea & Ionian Sea",
+        "Gulf of Mexico & Caribbean Sea"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সুন্দা প্রণালী জাভা সাগর ও ভারত মহাসাগরকে সংযুক্ত করে।",
+      "images": []
+    },
+    {
+      "question_no": 152,
+      "id": "1b4a632f-0cd5-47fc-99b9-2dd83e148cd5",
+      "question": "মালয়েশিয়া ও সুমাত্রাকে পৃথক করেছে কোন প্রণালী? [SABAS][]",
+      "options": [
+        "পক প্রণালী",
+        "জিব্রাল্টার প্রণালী",
+        "মালাক্কা প্রণালী",
+        "ডোভার প্রণালী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মালাক্কা প্রণালী মালয়েশিয়া ও সুমাত্রাকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 153,
+      "id": "1f51a31f-354a-4a1d-9e6e-1dabf4632771",
+      "question": "মালাক্কা প্রণালীর অবস্থান- [SABAS][]",
+      "options": [
+        "পশ্চিম এশিয়া",
+        "দক্ষিণ এশিয়া",
+        "পূর্ব এশিয়ার",
+        "দক্ষিণ-পূর্ব এশিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মালাক্কা প্রণালী দক্ষিণ-পূর্ব এশিয়ায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 154,
+      "id": "76656677-a3cc-4207-98cf-c7c0513fbc84",
+      "question": "Malacca Strait কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ভারত মহাসাগর",
+        "প্রশান্ত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মালাক্কা প্রণালী ভারত মহাসাগর ও দক্ষিণ চীন সাগরের সংযোগস্থলে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 155,
+      "id": "bc2e7e1b-834f-48b8-b872-f083d357eb8f",
+      "question": "কোন প্রণালী ভারত মহাসাগরকে দক্ষিণ চীন সাগরের সাথে সংযুক্ত করেছে? [SABAS][]",
+      "options": [
+        "বেরিং",
+        "পক",
+        "সুশিমা",
+        "মালাক্কা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মালাক্কা প্রণালী ভারত মহাসাগরকে দক্ষিণ চীন সাগরের সাথে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 156,
+      "id": "4a4533a8-2ec7-41e1-84c5-8467bb3a35c1",
+      "question": "বঙ্গোপসাগর ও জাভা সাগরকে সংযুক্ত করেছে- [SABAS][]",
+      "options": [
+        "বেরিং প্রণালী",
+        "সুন্দা প্রণালী",
+        "মালাক্কা প্রণালী",
+        "মেসিনা প্রণালী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মালাক্কা প্রণালী বঙ্গোপসাগর ও জাভা সাগরকে সংযুক্ত করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 157,
+      "id": "d2a36f6b-a64b-45c2-8d34-92a1ed3f9039",
+      "question": "ল্যানকাউ দ্বীপ' কোন সাগরে অবস্থিত? [SABAS][]",
+      "options": [
+        "দক্ষিণ চীন সাগর",
+        "জাভা সাগর",
+        "জাপান সাগর",
+        "শৈবাল সাগর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ল্যানকাউ দ্বীপটি শৈবাল সাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 158,
+      "id": "279599df-43c1-4992-907a-8096994c8c52",
+      "question": "পেনারে' কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "ভিয়েতনাম",
+        "মালয়েশিয়া",
+        "থাইল্যান্ড",
+        "ইন্দোনেশিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পেনারে মালয়েশিয়ার একটি সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 159,
+      "id": "639528d2-f48b-47b3-98f6-abc6a680d898",
+      "question": "বাংলাদেশের ভৌগোলিক অবস্থান কোন দুটি গুরুত্বপূর্ণ সামুদ্রিক করিডোরের মাঝখানে? [SABAS][]",
+      "options": [
+        "মালাক্কা ও হরমুজ প্রণালী",
+        "সুয়েজ খাল ও জিব্রাল্টার প্রণালী",
+        "হরমুজ ও পক প্রণালী",
+        "জিব্রাল্টার ও বসফরাস প্রণালী"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "বাংলাদেশমালাক্কা ও হরমুজ প্রণালীর মতো গুরুত্বপূর্ণ সামুদ্রিক করিডোরের কৌশলগত অবস্থানে রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 160,
+      "id": "2c437920-ca3c-42f2-9c1b-6e60f7e41594",
+      "question": "বেরিং প্রণালী' কোন দুটি মহাদেশকে পৃথক করেছে? [SABAS][]",
+      "options": [
+        "আফ্রিকা ও ইউরোপ",
+        "এশিয়া ও ইউরোপ",
+        "উত্তর আমেরিকা ও এশিয়া",
+        "আফ্রিকা ও দক্ষিণ আমেরিকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বেরিং প্রণালী উত্তর আমেরিকা (আলাস্কা) ও এশিয়া (রাশিয়া) মহাদেশকে পৃথক করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 161,
+      "id": "ea88cc0b-4f5c-4771-ac57-4131518bcfdf",
+      "question": "The American state that is nearest to Russia is- [SABAS][]",
+      "options": [
+        "Washington",
+        "Hawaii",
+        "Alaska",
+        "New York"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আলাস্কা যুক্তরাষ্ট্রের একটি অঙ্গরাজ্য যা রাশিয়ার সবচেয়ে কাছে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 162,
+      "id": "a5dc0f78-6cc4-4bc2-a139-cbd92d56600d",
+      "question": "এর মধ্যে কোন দেশ যুক্তরাষ্ট্রের সব থেকে কাছে? [SABAS][]",
+      "options": [
+        "গ্রিনল্যান্ড",
+        "রাশিয়া",
+        "গুয়াতেমালা",
+        "ভেনেজুয়েলা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রাশিয়া যুক্তরাষ্ট্রের সবচেয়ে কাছে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 163,
+      "id": "a74054f6-d30c-4dfa-bfc2-315fd1539171",
+      "question": "Which country is there between Russia and Canada? [SABAS][]",
+      "options": [
+        "Greenland",
+        "Iceland",
+        "USA",
+        "Japan"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "রাশিয়া ও কানাডার মাঝখানে যুক্তরাষ্ট্র অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 164,
+      "id": "0a1a591b-8d4e-4a67-9c95-f2ad54d37d9a",
+      "question": "হামবুর্গ' কোন দেশের সমুদ্র বন্দর? [SABAS][]",
+      "options": [
+        "জার্মানি",
+        "কানাডা",
+        "স্পেন",
+        "রাশিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "হামবুর্গ জার্মানির একটি বিখ্যাত সমুদ্র বন্দর।",
+      "images": []
+    },
+    {
+      "question_no": 165,
+      "id": "dbfb3e24-597e-4d76-a788-9ce799c3674a",
+      "question": "বঙ্গোপসাগর হলো বিশ্বের বৃহত্তম- [SABAS][]",
+      "options": [
+        "মহাসাগর",
+        "সাগর",
+        "উপসাগর",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বঙ্গোপসাগর বিশ্বের বৃহত্তম উপসাগর (Bay)।",
+      "images": []
+    },
+    {
+      "question_no": 166,
+      "id": "b01da17d-8db9-4e32-a20c-e116e297277f",
+      "question": "বঙ্গোপসাগর কোন মহাসাগরের অংশ- [SABAS][]",
+      "options": [
+        "প্রশান্ত মহাসাগর",
+        "ভারত মহাসাগর",
+        "আটলান্টিক মহাসাগর",
+        "আর্কটিক মহাসাগর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বঙ্গোপসাগর ভারত মহাসাগরের একটি অংশ।",
+      "images": []
+    },
+    {
+      "question_no": 167,
+      "id": "d799161b-ba3a-41ac-bff4-679bc8544979",
+      "question": "বঙ্গোপসাগর গড় গভীরতা কত ফুট? [SABAS][]",
+      "options": [
+        "২,৬০০",
+        "৮,৫০০",
+        "৩,৬৭০",
+        "৫,৫৩০"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বঙ্গোপসাগরের গড় গভীরতা প্রায় ৮,৫০০ ফুট।",
+      "images": []
+    },
+    {
+      "question_no": 168,
+      "id": "a5a0dd4a-29eb-495c-8d3b-b2b1eb0a48cf",
+      "question": "সোয়াচ অব নো গ্রাউন্ড' (Swatch of no ground) কী? [SABAS][]",
+      "options": [
+        "একটি দ্বীপের নাম",
+        "সাবমেরিন ক্যানিয়ন",
+        "মানগ্রোভ বন",
+        "একটি দ্বীপ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সোয়াচ অব নো গ্রাউন্ড' বঙ্গোপসাগরের তলদেশের একটি সাবমেরিন ক্যানিয়ন।",
+      "images": []
+    },
+    {
+      "question_no": 169,
+      "id": "743620b2-acd5-4386-93f7-d781f394f77b",
+      "question": "সোয়াচ অব নো গ্রাউন্ড বলতে কী বুঝায়? [SABAS][]",
+      "options": [
+        "একটি খেলার মাঠ",
+        "একটি প্লাবন ভূমির নাম",
+        "বঙ্গোপসাগরের একটি খাদের নাম",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি বঙ্গোপসাগরের একটি বিশাল ও গভীর খাদ।",
+      "images": []
+    },
+    {
+      "question_no": 170,
+      "id": "b45e81c7-8072-438b-b62b-4c3c116668f5",
+      "question": "সোয়াচ অব নো গ্রাউন্ড' কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "যমুনা নদীতে",
+        "মেঘনার মোহনায়",
+        "বঙ্গোপসাগরে",
+        "সন্দ্বীপ চ্যানেলে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সোয়াচ অব নো গ্রাউন্ড বঙ্গোপসাগরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 171,
+      "id": "f8aed18e-8f20-4684-a424-96bcd0add516",
+      "question": "সোয়াচ অব নো গ্রাউন্ড বলতে কী বুঝায়? [SABAS][]",
+      "options": [
+        "একটি খেলার মাঠ",
+        "একটি প্লাবন ভূমির নাম",
+        "বঙ্গোপসাগরের একটি খাদের নাম",
+        "বঙ্গোপসাগরের একটি দ্বীপের নাম"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সোয়াচ অব নো গ্রাউন্ড হলো বঙ্গোপসাগরের তলদেশের একটি গভীর সামুদ্রিক খাদ বা সাবমেরিন ক্যানিয়ন।",
+      "images": []
+    },
+    {
+      "question_no": 172,
+      "id": "755607ba-675e-4b3b-953c-0d6ad24f9a63",
+      "question": "সোয়াচ অব নো গ্রাউন্ড কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "যমুনা নদীতে",
+        "মেঘনার মোহনায়",
+        "বঙ্গোপসাগরে",
+        "সন্দ্বীপ চ্যানেলে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি বঙ্গোপসাগরের তলদেশে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 173,
+      "id": "6cc8b0f6-d60a-489c-9b4d-b3c140e5f856",
+      "question": "\"বেঙ্গল ফ্যান\" ভূমিরূপটি কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মধুপুর গড়ে",
+        "টারশিয়ারি পাহাড়তে",
+        "হাওর অঞ্চলে",
+        "বঙ্গোপসাগরে"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বেঙ্গল ফ্যান বঙ্গোপসাগরের তলদেশে অবস্থিত বিশ্বের দীর্ঘতম সাবমেরিন উপদ্বীপ।",
+      "images": []
+    },
+    {
+      "question_no": 174,
+      "id": "2ff036e1-f52b-4896-a345-6177f70e6389",
+      "question": "Ninety East Ridge বাংলাদেশের কোন অংশের সাথে সম্পর্কিত? [SABAS][]",
+      "options": [
+        "মধুপুর-বরেন্দ্র অঞ্চল",
+        "জয়ন্তিকা পাহাড়",
+        "বঙ্গোপসাগর",
+        "তিন বিঘা করিডোর"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি বঙ্গোপসাগরের তলদেশে অবস্থিত একটি শৈলশিরা যা বাংলাদেশের জলসীমার নিকটে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 175,
+      "id": "56ff570e-0c3b-4618-9735-5bb8edcf3ca3",
+      "question": "Which of the following is the largest lake in the world? [SABAS][]",
+      "options": [
+        "কাস্পিয়ান সাগর",
+        "সুপিরিয়ার হ্রদ",
+        "ভিক্টোরিয়া হ্রদ",
+        "বৈকাল হ্রদ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আয়তনের দিক থেকে কাস্পিয়ান সাগর বিশ্বের বৃহত্তম হ্রদ.",
+      "images": []
+    },
+    {
+      "question_no": 176,
+      "id": "8b047646-933d-475b-93f6-fcc7c97cda49",
+      "question": "Which of the following is an inland sea? [SABAS][]",
+      "options": [
+        "Caribbean Sea",
+        "Caspian Sea",
+        "Red Sea",
+        "Yellow Sea"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কাস্পিয়ান সাগর একটি বিশাল inland sea বা ভূ-বেষ্টিত সাগর.",
+      "images": []
+    },
+    {
+      "question_no": 177,
+      "id": "661afc50-ccc1-4448-885c-3f020fc7595e",
+      "question": "পৃথিবীর বৃহত্তম লবণাক্ত হ্রদের নাম কী? [SABAS][]",
+      "options": [
+        "কাস্পিয়ান",
+        "বৈকাল",
+        "মন্নার উপসাগর",
+        "সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কাস্পিয়ান সাগর পৃথিবীর বৃহত্তম লবণাক্ত হ্রদ বা লোনা পানির হ্রদ.",
+      "images": []
+    },
+    {
+      "question_no": 178,
+      "id": "cd7b09c1-fccc-4ccc-9abf-76e6e0dbd502",
+      "question": "সুপিরিয়র, মিসিগান, হুরন, ইরি, অন্টারিও - এই পাঁচটি হ্রদকে একত্রে কী বলে? [SABAS][]",
+      "options": [
+        "ফাইভ লেকস",
+        "গ্রেট লেকস",
+        "গ্রান্ড লেকস",
+        "ইউনিলপেক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "যুক্তরাষ্ট্র ও কানাডায় অবস্থিত এই পাঁচটি হ্রদকে একত্রে গ্রেট লেকস বলা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 179,
+      "id": "846ee369-32d4-47d8-b8c6-69d5414d4360",
+      "question": "Which is the deepest lake in the world? [SABAS][]",
+      "options": [
+        "কাস্পিয়ান",
+        "বৈকাল",
+        "মানস সরোবর",
+        "ডেড সি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বৈকাল হ্রদ বিশ্বের গভীরতম হ্রদ.",
+      "images": []
+    },
+    {
+      "question_no": 180,
+      "id": "f44e91c6-c68b-4c5c-ab65-5bcf27ef06c0",
+      "question": "ডেড সী' (Dead Sea) কী? [SABAS][]",
+      "options": [
+        "একটি নদী (River)",
+        "একটি সাগর (Sea)",
+        "একটি হ্রদ (Lake)",
+        "মৃত সাগর (Dead Sea)"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ডেড সি বা মৃত সাগর একটি হ্রদ.",
+      "images": []
+    },
+    {
+      "question_no": 181,
+      "id": "92ee8de1-3fdc-45b7-a4d7-1d5523d8723f",
+      "question": "মৃত সাগর' অবস্থিত যে দেশে- [SABAS][]",
+      "options": [
+        "ইরান",
+        "জর্ডান",
+        "সিরিয়া",
+        "ইসরায়েল"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মৃত সাগর জর্ডান ও ইসরায়েলের সীমান্তে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 182,
+      "id": "b16c99e6-6ce0-4e29-99ac-c5b6b4444a76",
+      "question": "Dead Sea কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "Egypt এবং Jordan এর মধ্যে",
+        "Israil এবং Jordan এর মধ্যে",
+        "Iraq এবং Jordan এর মধ্যে",
+        "Iraq এবং Turkey এর মধ্যে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মৃত সাগর জর্ডান ও ইসরায়েলের সীমান্তে অবস্থিত.",
+      "images": []
+    },
+    {
+      "question_no": 183,
+      "id": "048bbdbb-63c2-42b9-a56d-7975767cc5d7",
+      "question": "Which of the following sea is also called Salt Sea? [SABAS][]",
+      "options": [
+        "Persian Gulf",
+        "Bay of Bengal",
+        "Caspian Sea",
+        "Dead Sea"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "লবণাক্ততার আধিক্যের কারণে মৃত সাগরকে (Dead Sea) অনেক সময় সল্ট সি বলা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 184,
+      "id": "ec4c49d3-1ae1-4563-b3d4-9f66b498f7ba",
+      "question": "পৃথিবীর কোন সাগরে মানুষ অনায়াসে গা ভাসিয়ে থাকতে পারে? [SABAS][]",
+      "options": [
+        "বাল্টিক",
+        "লোহিত",
+        "মৃত",
+        "আড্রিয়াটিক"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মৃত সাগরের পানির লবণাক্ততা ও ঘনত্ব অত্যন্ত বেশি হওয়ায় মানুষ অনায়াসে গা ভাসিয়ে থাকতে পারে.",
+      "images": []
+    },
+    {
+      "question_no": 185,
+      "id": "7efb0536-9306-4c6d-94b2-d3ea242250ee",
+      "question": "[SABAS] \nপৃথিবীর বৃহত্তম হ্রদ \"কাস্পিয়ান সাগর\" কোন মহাদেশে অবস্থিত?[]",
+      "options": [
+        "আফ্রিকা",
+        "উত্তর আমেরিকা",
+        "এশিয়া",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 186,
+      "id": "87fb7fd3-06ec-4690-8d8e-589a6a4b9bb5",
+      "question": "[SABAS]\nটিটিকাকা কি?[]",
+      "options": [
+        "পাখি",
+        "গাছ",
+        "শহর",
+        "হ্রদ"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 187,
+      "id": "9ba860bb-7277-4d2a-9fa4-e1df9832ff2a",
+      "question": "[SABAS]\nWhich two countries share the location of the European lake \"Lake Geneva\"?[]",
+      "options": [
+        "Switzerland and Germany",
+        "Switzerland and Italy",
+        "Switzerland and France",
+        "Switzerland and Austria"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 188,
+      "id": "f8b0e0a8-a994-429d-b6e2-ebe3e44d71f7",
+      "question": "পৃথিবীর (তথা আফ্রিকার) দীর্ঘতম নদী (longest river) কোনটি? [SABAS][]",
+      "options": [
+        "কঙ্গো",
+        "নীলনদ",
+        "নাইজার",
+        "আমাজন"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নীলনদ আফ্রিকা মহাদেশের দীর্ঘতম এবং পৃথিবীর দীর্ঘতম নদী হিসেবে স্বীকৃত।",
+      "images": []
+    },
+    {
+      "question_no": 189,
+      "id": "7124d608-663e-4016-ab98-53340ee3aa35",
+      "question": "পৃথিবীর বৃহত্তম নদী (largest river) কোনটি? [SABAS][]",
+      "options": [
+        "Nile",
+        "Mississippi",
+        "Amazon",
+        "Padma"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমাজন নদী পানি প্রবাহের পরিমাণের দিক থেকে পৃথিবীর বৃহত্তম নদী।",
+      "images": []
+    },
+    {
+      "question_no": 190,
+      "id": "34521e30-3967-417b-a84a-985c9a622aeb",
+      "question": "নীলনদের দৈর্ঘ্য কত? [SABAS][]",
+      "options": [
+        "৬৬৫০ কি.মি.",
+        "৬৫০০ কি.মি.",
+        "৬৪০০ কি.মি.",
+        "৬৩০০ কি.মি."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নীলনদের আনুমানিক দৈর্ঘ্য ৬৬৫০ কি.মি. বা ৪১৩২ মাইল।",
+      "images": []
+    },
+    {
+      "question_no": 191,
+      "id": "cca1db47-6907-45f0-813b-5b0e5d1aac51",
+      "question": "The river which carries maximum quantity of water into the sea? [SABAS][]",
+      "options": [
+        "Amazon",
+        "Nile",
+        "Ganges",
+        "Indus"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আমাজন নদী বিশ্বের সবচেয়ে বেশি পানি সমুদ্রে বহন করে।",
+      "images": []
+    },
+    {
+      "question_no": 192,
+      "id": "59efbed6-b792-4648-992c-5aae482808ac",
+      "question": "নীল নদের উৎপত্তি হয়েছে— [SABAS][]",
+      "options": [
+        "ভিক্টোরিয়া",
+        "ককেশাস পর্বতমালা থেকে",
+        "পামির মালভূমি থেকে",
+        "ইথিওপিয়া পর্বতমালা থেকে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নীলনদ আফ্রিকার ভিক্টোরিয়া হ্রদ থেকে উৎপন্ন হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 193,
+      "id": "9edc8da7-c016-40a6-a0b8-35a2688dd279",
+      "question": "পৃথিবীর দীর্ঘতম নদী ‘নীলনদ’ কয়টি দেশের মধ্যে দিয়ে প্রবাহিত হয়েছে? [SABAS][]",
+      "options": [
+        "৭টি",
+        "৮টি",
+        "৯টি",
+        "১১টি"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নীলনদ আফ্রিকার মোট ১১টি দেশের মধ্য দিয়ে প্রবাহিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 194,
+      "id": "391ff283-bb28-41b9-8631-51cbd102deba",
+      "question": "নীল নদ কোন মহাদেশ দিয়ে প্রবাহিত? [SABAS][]",
+      "options": [
+        "দক্ষিণ আমেরিকা",
+        "উত্তর আমেরিকা",
+        "এশিয়া",
+        "আফ্রিকা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নীলনদ আফ্রিকা মহাদেশের মধ্য দিয়ে উত্তর দিকে প্রবাহিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 195,
+      "id": "ec552fe7-712e-4b2d-99a3-f7aa41302593",
+      "question": "নীল নদ কোন দুটি দেশের মধ্য দিয়ে প্রবাহিত? [SABAS][]",
+      "options": [
+        "মিশর-লিবিয়া",
+        "মিশর-সুদান",
+        "লিবিয়া-মরক্কো",
+        "মিশর-ঘানা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নীলনদ মিশর ও সুদানসহ মোট ১১টি দেশের মধ্য দিয়ে প্রবাহিত।",
+      "images": []
+    },
+    {
+      "question_no": 196,
+      "id": "af5bd972-ce3b-4998-aac4-69befb88c3e8",
+      "question": "নীল নদের পানি নিয়ে দ্বন্দ্ব কোন দুই দেশের? [SABAS][]",
+      "options": [
+        "মিশর ও ইথিওপিয়া",
+        "সোমালিয়া ও মিশর",
+        "কেনিয়া ও তানজানিয়া",
+        "লিবিয়া ও উগান্ডা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নীলনদের পানি বণ্টন ও বাঁধ নির্মাণ নিয়ে মিশর ও ইথিওপিয়ার মধ্যে বিরোধ রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 197,
+      "id": "04661018-75ca-4222-801d-469340ba60db",
+      "question": "নীল নদ প্রবাহিত— [SABAS][]",
+      "options": [
+        "উত্তর থেকে দক্ষিণে",
+        "দক্ষিণ থেকে উত্তরে",
+        "পূর্ব থেকে পশ্চিমে",
+        "পশ্চিম থেকে পূর্বে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নীলনদ দক্ষিণ থেকে উত্তরে প্রবাহিত হয়ে ভূমধ্যসাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 198,
+      "id": "79f87c61-ee21-49cd-ad24-cbfa2e5e573a",
+      "question": "নীলনদ কোন সাগরে পতিত হয়েছে? [SABAS][]",
+      "options": [
+        "লোহিত সাগরে",
+        "ভূমধ্যসাগরে",
+        "এডেন উপসাগরে",
+        "আরব সাগরে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নীলনদ উত্তর-পূর্ব আফ্রিকার মধ্য দিয়ে প্রবাহিত হয়ে মিশরের ভূমধ্যসাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 199,
+      "id": "849e91ab-79b1-43cc-b1c1-738527509984",
+      "question": "আফ্রিকার বৃহত্তম হ্রদ কোনটি? [SABAS][]",
+      "options": [
+        "তানজানিয়া",
+        "রুদলফ",
+        "আলবার্ট",
+        "ভিক্টোরিয়া"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ভিক্টোরিয়া হ্রদ আফ্রিকা মহাদেশের বৃহত্তম এবং বিশ্বের দ্বিতীয় বৃহত্তম মিঠা পানির হ্রদ।",
+      "images": []
+    },
+    {
+      "question_no": 200,
+      "id": "daeec4fc-e41f-43cf-bcf4-6dad57d9f1f3",
+      "question": "নিম্নে উল্লিখিত কোন হ্রদটি তানজানিয়া ও উগান্ডার মধ্যে আন্তর্জাতিক সীমানা হিসেবে বিবেচিত? [SABAS][]",
+      "options": [
+        "চাদ",
+        "মালাউই",
+        "ভিক্টোরিয়া",
+        "জামবেজি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভিক্টোরিয়া হ্রদের অংশবিশেষ তানজানিয়া, উগান্ডা এবং কেনিয়ার মধ্য দিয়ে সীমানা নির্ধারণ করেছে।",
+      "images": []
+    },
+    {
+      "question_no": 201,
+      "id": "8aa464f9-6303-45ba-9d53-4eccdd13b04a",
+      "question": "আসওয়ান বাঁধ অবস্থিত— [SABAS][]",
+      "options": [
+        "তুরস্কে",
+        "মিশরে",
+        "ইরানে",
+        "পাকিস্তানে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আসওয়ান বাঁধ মিশরের নীল নদের ওপর নির্মিত একটি বৃহৎ বাঁধ।",
+      "images": []
+    },
+    {
+      "question_no": 202,
+      "id": "7bdf3b03-2c6b-4c82-b5e7-5419383ca519",
+      "question": "পৃথিবীর দ্বিতীয় দীর্ঘতম নদী— [SABAS][]",
+      "options": [
+        "নীল",
+        "মিসিসিপি",
+        "আমাজন",
+        "সেন্ট লরেন্স"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নীলনদ বিশ্বের দীর্ঘতম নদী, আর আমাজন নদী দৈর্ঘ্য বিবেচনায় দ্বিতীয় অবস্থানে রয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 203,
+      "id": "202db70a-08a0-4953-bd5e-256eccc77c68",
+      "question": "পৃথিবীর প্রশস্ততম নদী কোনটি? [SABAS][]",
+      "options": [
+        "আমাজন",
+        "মেঘনা",
+        "মিসিসিপি",
+        "নীলনদ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আমাজন নদী তার বিশাল প্রশস্ততা এবং পানি ধারণ ক্ষমতার জন্য পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 204,
+      "id": "bccd356b-a548-4b59-a777-322b4502a250",
+      "question": "আমাজন নদী কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "উত্তর আমেরিকা",
+        "দক্ষিণ আমেরিকা",
+        "এশিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "আমাজন নদী দক্ষিণ আমেরিকা মহাদেশের মধ্য দিয়ে প্রবাহিত একটি বিখ্যাত নদী।",
+      "images": []
+    },
+    {
+      "question_no": 205,
+      "id": "075c6255-daa6-408b-bbc5-67cfdad15ca7",
+      "question": "দক্ষিণ আমেরিকার দীর্ঘতম নদী কোনটি? [SABAS][]",
+      "options": [
+        "আমাজন",
+        "মারে ডার্লিং",
+        "নীলনদ",
+        "ভলগা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "আমাজন নদী দক্ষিণ আমেরিকার দীর্ঘতম নদী হিসেবে স্বীকৃত।",
+      "images": []
+    },
+    {
+      "question_no": 206,
+      "id": "8d599f13-9bc9-489d-bebf-fed8814dbd8d",
+      "question": "What is the name of the river that does not cross by any bridge? [SABAS][]",
+      "options": [
+        "Yangtze",
+        "Amazon",
+        "Nile",
+        "Mwogo"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আমাজন নদী তার প্রশস্ততা এবং প্রতিকূল পরিবেশের কারণে এই নদী পারাপারের জন্য কোনো স্থায়ী ব্রিজ নেই।",
+      "images": []
+    },
+    {
+      "question_no": 207,
+      "id": "16d442a0-0d71-4dfc-9917-056a48385d4a",
+      "question": "সবচেয়ে বড় নদী ‘মিসিসিপি’ কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "আফ্রিকা",
+        "এশিয়া",
+        "আমেরিকা",
+        "ইউরোপ"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মিসিসিপি নদী উত্তর আমেরিকা মহাদেশের দীর্ঘতম নদী ব্যবস্থা।",
+      "images": []
+    },
+    {
+      "question_no": 208,
+      "id": "34583128-44c4-46f9-b454-7db9d4ccf5fd",
+      "question": "মিসিসিপি-মিসৌরি নদীর একত্রে দৈর্ঘ্য প্রায়- [SABAS][]",
+      "options": [
+        "৯৫০৮ কি.মি.",
+        "৫০৯৮ কি.মি.",
+        "৬০৯৫ কি.মি.",
+        "৪০৯৫ কি.মি."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মিসিসিপি এবং মিসৌরি নদী ব্যবস্থার মিলিত দৈর্ঘ্য প্রায় ৬০৯৫ কি.মি. বা ৩৭৯০ মাইল।",
+      "images": []
+    },
+    {
+      "question_no": 209,
+      "id": "c3c34ddb-b519-4448-a19a-8677e7279b9a",
+      "question": "Which of the following cities is located on the bank of the Mississippi? [SABAS][]",
+      "options": [
+        "Ottawa",
+        "Quebec",
+        "New Orleans",
+        "California"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নিউ অরলিন্স শহরটি মিসিসিপি নদীর তীরে অবস্থিত একটি বিখ্যাত মার্কিন শহর।",
+      "images": []
+    },
+    {
+      "question_no": 210,
+      "id": "accdd06c-929f-456b-b23f-0e5da4bf009f",
+      "question": "এশিয়ার দীর্ঘতম নদী কোনটি? [SABAS][]",
+      "options": [
+        "হোয়াংহো",
+        "ইয়াংসিজিয়াং",
+        "গঙ্গা",
+        "সিন্ধু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ইয়াংসিজিয়াং এশিয়া মহাদেশের দীর্ঘতম এবং বিশ্বের তৃতীয় দীর্ঘতম নদী।",
+      "images": []
+    },
+    {
+      "question_no": 211,
+      "id": "e5d78fa0-2660-4dc4-b598-6412b154984e",
+      "question": "The longest river in Asia, Yangtze, is located in- [SABAS][]",
+      "options": [
+        "China",
+        "India",
+        "Thailand",
+        "Japan"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইয়াংসিজিয়াং নদী সম্পূর্ণভাবে চীন রাষ্ট্রের অভ্যন্তরে প্রবাহিত।",
+      "images": []
+    },
+    {
+      "question_no": 212,
+      "id": "b7aec9f3-5b4c-44ac-8d64-870186f4e097",
+      "question": "হোয়াংহো নদী কোথায় অবস্থিত- [SABAS][]",
+      "options": [
+        "জাপান",
+        "চীন",
+        "ভিয়েতনাম",
+        "কোরিয়া"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হোয়াংহো নদী চীনের একটি প্রধান নদী, যা পলিমাটির জন্য বিখ্যাত।",
+      "images": []
+    },
+    {
+      "question_no": 213,
+      "id": "a41f614f-f80c-44b3-80eb-30f2a4bd88fc",
+      "question": "হোয়াংহো নদীর উৎপত্তি স্থল কোথায়? [SABAS][]",
+      "options": [
+        "হিমালয়",
+        "কুনলুন পর্বত",
+        "ব্ল্যাক ফরেস্ট",
+        "আল্পস"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হোয়াংহো নদীর উৎপত্তি চীনের কুনলুন পর্বতমালা থেকে হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 214,
+      "id": "e4909e28-d4eb-4bad-933e-eb4faf977eed",
+      "question": "চীনের দুঃখ বলে পরিচিত- [SABAS][]",
+      "options": [
+        "মেনাম নদী",
+        "হোয়াংহো নদী",
+        "ইয়াংসিজিয়াং নদী",
+        "মেকং নদী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিপজ্জনক বন্যার কারণে হোয়াংহো নদীকে ‘চীনের দুঃখ’ (Sorrow of China) বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 215,
+      "id": "e61b8c5e-216a-4be1-a4ed-23cc79c48ee2",
+      "question": "Which of the following is the deepest river in the world? [SABAS][]",
+      "options": [
+        "Volga",
+        "Nile",
+        "Congo",
+        "Amazon"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কঙ্গো নদী বিশ্বের গভীরতম নদী হিসেবে পরিচিত, যার গভীরতা প্রায় ২৩০ মিটারের বেশি।",
+      "images": []
+    },
+    {
+      "question_no": 216,
+      "id": "20f36811-d6c9-4801-9a11-a2f09f40442b",
+      "question": "আমুদরিয়া নদীর উৎপত্তি স্থল কোনটি? [SABAS][]",
+      "options": [
+        "ইউরাল পর্বত",
+        "পামির মালভূমি",
+        "হিন্দুকুশ পর্বত",
+        "ভিয়েনশান পর্বত"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "আমু দরিয়া নদীর উৎপত্তি পামির মালভূমি থেকে হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 217,
+      "id": "67f44cfe-8ffe-4baf-86c2-ac5e84096232",
+      "question": "‘মারে ডালিং’ কোন দেশের নদী? [SABAS][]",
+      "options": [
+        "অস্ট্রেলিয়া",
+        "আফ্রিকা",
+        "ইরান",
+        "ইরাক"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "মারে-ডালিং অববাহিকা অস্ট্রেলিয়ার।",
+      "images": []
+    },
+    {
+      "question_no": 218,
+      "id": "afaa486a-e195-437d-84cb-c7ad71baa3bd",
+      "question": "ইউরোপের দীর্ঘতম নদী- [SABAS][]",
+      "options": [
+        "দানিয়ুব",
+        "রাইন",
+        "ভলগা",
+        "টেমস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভলগা নদী ইউরোপ মহাদেশের দীর্ঘতম এবং বৃহত্তম নদী ব্যবস্থা।",
+      "images": []
+    },
+    {
+      "question_no": 219,
+      "id": "eeed3f4f-076f-43be-abc2-69f5c34b14ba",
+      "question": "ভলগা নদী কোন দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "যুক্তরাষ্ট্র",
+        "চীন",
+        "রাশিয়া",
+        "জার্মানি"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ভলগা নদী রাশিয়ার পশ্চিমাঞ্চলের মধ্য দিয়ে প্রবাহিত হয়ে কাস্পিয়ান সাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 220,
+      "id": "c3d08e8c-d18c-4de9-ad38-e0408f5ae5e8",
+      "question": "‘ভলগা নদী’ - কোন সাগরে পতিত হয়েছে? [SABAS][]",
+      "options": [
+        "কাস্পিয়ান সাগর",
+        "কৃষ্ণ সাগর",
+        "বাল্টিক সাগরে",
+        "আরব সাগরে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ভলগা নদী ইউরোপের দীর্ঘতম নদী হিসেবে রাশিয়ার দক্ষিণ-পূর্বাঞ্চলে কাস্পিয়ান সাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 221,
+      "id": "601ce61d-53e5-4dcd-bafc-139b54648b35",
+      "question": "টাইগ্রিস নদীর অপর নাম কী? [SABAS][]",
+      "options": [
+        "নাইল",
+        "দানিয়ুব",
+        "দজলা",
+        "সিন্ধু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "টাইগ্রিস নদীকেই বাংলায় দজলা নদী বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 222,
+      "id": "df96d401-e38e-40a9-a123-f1ad42191c51",
+      "question": "টাইগ্রিস নদী কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "মিশর",
+        "আফগানিস্তান",
+        "সৌদি আরব",
+        "ইরাক"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "টাইগ্রিস বা দজলা নদী ইরাক ও তুরস্কের মধ্য দিয়ে প্রবাহিত একটি ঐতিহাসিক নদী।",
+      "images": []
+    },
+    {
+      "question_no": 223,
+      "id": "fdba585f-8c4e-4a3d-a96f-263f511d8647",
+      "question": "টাইগ্রিস নদী পতিত হয়েছে- [SABAS][]",
+      "options": [
+        "পারস্য উপসাগরে",
+        "মেক্সিকো উপসাগর",
+        "ভারত মহাসাগর",
+        "কাস্পিয়ান সাগর"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "টাইগ্রিস নদী ফোরাত নদীর সাথে মিলিত হয়ে পারস্য উপসাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 224,
+      "id": "5b66e939-5d69-4cd7-8f08-746dbd9f562a",
+      "question": "ইউফ্রেটিস নদীর অন্য নাম কী? [SABAS][]",
+      "options": [
+        "ফোরাত",
+        "নীল নদ",
+        "দজলা",
+        "টাইমিস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইউফ্রেটিস নদীকেই বাংলায় ফোরাত নদী হিসেবে ডাকা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 225,
+      "id": "f58d20c7-175f-44f5-90b9-d697bc1c7d46",
+      "question": "Basra lies in- [SABAS][]",
+      "options": [
+        "Japan",
+        "China",
+        "Iraq",
+        "Iran"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বসরা ইরাকের একটি প্রধান বন্দরনগরী, যা শাত-ইল-আরব নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 226,
+      "id": "01c1353f-a678-4072-9b53-2c6b794cb784",
+      "question": "শাত-ইল আরব হলো- [SABAS][]",
+      "options": [
+        "ইরাবতি ও সালুইন নদীর মিলিত প্রবাহ",
+        "টাইমিস ও ইউফ্রেটিস নদীর মিলিত প্রবাহ",
+        "আমুরিয়া ও শিরদরিয়া নদীর মিলিত প্রবাহ",
+        "তারিম নদী ও হেলমন্দ নদীর মিলিত প্রবাহ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "টাইগ্রিস ও ফোরাত (ইউফ্রেটিস) নদীর মিলিত প্রবাহকে শাত-ইল-আরব বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 227,
+      "id": "c8ec5df7-56b2-4e0f-8f7d-da43fb1f623c",
+      "question": "Baghdad stands on the river- [SABAS][]",
+      "options": [
+        "Euphrates",
+        "Shatt al-Arab",
+        "Nile",
+        "Tigris"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাগদাদ ইরাকের রাজধানী, যা টাইগ্রিস (Tigris) নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 228,
+      "id": "2b25c4b1-0cea-4918-9f0e-33b0b8ad5c97",
+      "question": "The city ‘Mosul’ is in which country? [SABAS][]",
+      "options": [
+        "Syria",
+        "Iraq",
+        "Iran",
+        "Turkey"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মসুল ইরাকের একটি প্রাচীন এবং গুরুত্বপূর্ণ শহর।",
+      "images": []
+    },
+    {
+      "question_no": 229,
+      "id": "0fddf64d-75f5-435b-9149-0e130aad2cc0",
+      "question": "কারবালা কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ইরাক",
+        "ইরান",
+        "মিশর",
+        "কাতার"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কারবালা ইরাকের একটি ঐতিহাসিক শহর।",
+      "images": []
+    },
+    {
+      "question_no": 230,
+      "id": "d60168db-3f3d-4246-829f-9ad3daf3c81c",
+      "question": "কারবালা কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "টাইগ্রিস",
+        "নীলনদ",
+        "ইউফ্রেটিস",
+        "সিন্ধু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কারবালা শহরটি ইউফ্রেটিস (ফোরাত) নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 231,
+      "id": "a37b6e1b-fddb-47a0-bdaa-3e3f62df2989",
+      "question": "‘ফালুজা’ শহরটি কোন দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইরান",
+        "সিরিয়া",
+        "ইরাক",
+        "লিবিয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ফালুজা ইরাকের আনবার প্রদেশে অবস্থিত একটি শহর।",
+      "images": []
+    },
+    {
+      "question_no": 232,
+      "id": "ff6a184c-5fc7-4219-a7bb-1349a1588d6f",
+      "question": "কুফা কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইউফ্রেটিস",
+        "টাইগ্রিস",
+        "গোয়াদাল কুইভার",
+        "ভলগা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "কুফা ইরাকের ইউফ্রেটিস নদীর তীরে অবস্থিত একটি প্রাচীন শহর।",
+      "images": []
+    },
+    {
+      "question_no": 233,
+      "id": "13591e2e-8d3f-48e4-9d5d-0d34f74a7c2d",
+      "question": "কোন নদীটি সরাসরি আরব সাগরে পতিত হয়েছে? [SABAS][]",
+      "options": [
+        "যমুনা",
+        "সিন্ধু",
+        "ঝিলাম",
+        "তাফিরধি"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সিন্ধু নদ হিমালয় থেকে উৎপন্ন হয়ে পাকিস্তানে প্রবাহিত হয়ে সরাসরি আরব সাগরে পতিত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 234,
+      "id": "dbd4c8c1-2aab-40fa-8b10-e8a2249cda77",
+      "question": "‘দানিউব’ নদী কোন মহাদেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "ইউরোপ",
+        "এশিয়া",
+        "আফ্রিকা",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দানিউব নদী ইউরোপ মহাদেশের দ্বিতীয় দীর্ঘতম নদী, যা অনেক দেশের মধ্য দিয়ে প্রবাহিত।",
+      "images": []
+    },
+    {
+      "question_no": 235,
+      "id": "2cf1ca7e-f5f1-4375-8382-43f597896991",
+      "question": "ব্ল্যাক ফরেস্ট (Black Forest) কোন দেশে অবস্থিত? [SABAS][]",
+      "options": [
+        "জার্মানিতে",
+        "যুক্তরাষ্ট্রে",
+        "ইংল্যান্ড",
+        "আমেরিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ব্ল্যাক ফরেস্ট জার্মানির একটি বিশাল বনাঞ্চল এবং পর্বতমালা।",
+      "images": []
+    },
+    {
+      "question_no": 236,
+      "id": "66d2658b-b28c-4b27-9056-3bbcb8eefb70",
+      "question": "কোন নদীর তীরে ৪টি দেশের রাজধানী শহর অবস্থিত? [SABAS][]",
+      "options": [
+        "দানিউব",
+        "আমাজন",
+        "টেমাস",
+        "ভলগা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "দানিউব নদীর তীরে ভিয়েনা, ব্রাতিস্লাভা, বুদাপেস্ট এবং বেলগ্রেড এই চারটি রাজধানী শহর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 237,
+      "id": "4ba79e9f-c48e-4854-831f-9932d1418e9a",
+      "question": "The Orange River flows in- [SABAS][]",
+      "options": [
+        "Indonesia",
+        "Egypt",
+        "South Africa",
+        "Mexico"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অরেঞ্জ নদী দক্ষিণ আফ্রিকা মহাদেশের অন্যতম গুরুত্বপূর্ণ নদী।",
+      "images": []
+    },
+    {
+      "question_no": 238,
+      "id": "99b9251c-84bc-44c9-a0a9-2991701ed59d",
+      "question": "পশ্চিম তীর (West Bank) কোন নদীর পশ্চিম তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "নীল",
+        "ফোরাত",
+        "জর্দান",
+        "সিন্ধু"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পশ্চিম তীর অঞ্চলটি জর্দান নদীর পশ্চিম তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 239,
+      "id": "8da3ce1f-055d-454a-aca9-b1f248877e33",
+      "question": "পৃথিবীর কোন নদীতে মাছ হয় না? [SABAS][]",
+      "options": [
+        "আমাজন",
+        "জর্দান",
+        "দানিউব",
+        "জাহেদী"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জর্দান নদীতে লবণাক্ততার আধিক্যের কারণে মাছ বসবাস করতে পারে না।",
+      "images": []
+    },
+    {
+      "question_no": 240,
+      "id": "53133619-7879-4ae1-a7b9-58c3e9be42b7",
+      "question": "নিউইয়র্ক কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "হাডসন",
+        "পোতোমাক",
+        "মিসিসিপি",
+        "টেমস"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নিউইয়র্ক শহরটি হাডসন নদীর মোহনায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 241,
+      "id": "3abedf20-7b36-4b61-9f1f-092bd44dd53f",
+      "question": "টেমস নদীর তীরে কোন শহর অবস্থিত- [SABAS][]",
+      "options": [
+        "অটয়া",
+        "সিডল",
+        "প্যারিস",
+        "লন্ডন"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "যুক্তরাজ্যের রাজধানী লন্ডন টেমস নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 242,
+      "id": "239e4862-628d-4ca3-8dc7-1371842fd17e",
+      "question": "রোম শহর কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "টাইবার",
+        "টেমস",
+        "ডার্লিং",
+        "দানিউব"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "ইতালির রাজধানী রোম টাইবার নদীর তীরে অবস্থিত একটি ঐতিহাসিক শহর।",
+      "images": []
+    },
+    {
+      "question_no": 243,
+      "id": "6714f0cf-8ef3-42eb-9eea-94ef41e00d29",
+      "question": "Paris is situated on the bank of the river- [SABAS][]",
+      "options": [
+        "Volga",
+        "Hudson",
+        "Amsteel",
+        "Seine"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ফ্রান্সের রাজধানী প্যারিস সীন (Seine) নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 244,
+      "id": "9a03bff0-8dbc-4204-9a25-ed8573dffca2",
+      "question": "পোল্যান্ডের রাজধানী ওয়ারস কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "দানিউব",
+        "রাইন",
+        "ভিস্তুলা",
+        "সীন"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "পোল্যান্ডের রাজধানী ওয়ারস ভিস্তুলা নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 245,
+      "id": "6c3a927a-fb6b-42ec-9ed9-6e7b0faf6510",
+      "question": "কায়রো কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "টাইগ্রিস",
+        "সিন্ধু",
+        "নীল",
+        "ইউফ্রেটিস"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মিশরের রাজধানী কায়রো নীল নদের তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 246,
+      "id": "9f81ddb9-ed3a-4755-a2fc-9af25b58cf6f",
+      "question": "ইয়াংগুন কোন নদীর তীরে অবস্থিত? [SABAS][]",
+      "options": [
+        "কিজিল",
+        "ইরাবতি",
+        "চাকজিং",
+        "ইয়াং সিকিয়াং"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "মিয়ানমারের বৃহত্তম শহর ইয়াংগুন ইরাবতি নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 247,
+      "id": "bdd30f8c-ecae-4d84-bafd-d5b119e5bc8b",
+      "question": "Delhi is situated on the bank of which river? [SABAS][]",
+      "options": [
+        "Padma",
+        "Yamuna",
+        "Iraboti",
+        "Meghna"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ভারতের রাজধানী দিল্লি যমুনা নদীর তীরে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 248,
+      "id": "9ce0f0f2-c34b-44db-8d17-69283426b197",
+      "question": "যেটি নদীর নাম নয়- [SABAS][]",
+      "options": [
+        "ডন",
+        "ভলগা",
+        "দানিয়ুব",
+        "আল্পস"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আল্পস হলো একটি পর্বতমালা, নদী নয়।",
+      "images": []
+    },
+    {
+      "question_no": 249,
+      "id": "b60c4c3b-9afd-415e-9c41-4b4bbfdcae67",
+      "question": "নদীবিহীন দেশ কোনটি? [SABAS][]",
+      "options": [
+        "ইরাক",
+        "সোদি আরব",
+        "সিরিয়া",
+        "মিশর"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সৌদি আরব একটি নদীবিহীন দেশ।",
+      "images": []
+    },
+    {
+      "question_no": 250,
+      "id": "9a3de53f-437e-4a0e-bae1-ff943ac68763",
+      "question": "Hoover Dam is built on which of the following rivers? [SABAS][]",
+      "options": [
+        "Seine River",
+        "Colorado River",
+        "Rhine River",
+        "Niger River"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হুভার বাঁধ মার্কিন যুক্তরাষ্ট্রের কলোরাডো নদীর ওপর নির্মিত।",
+      "images": []
+    },
+    {
+      "question_no": 251,
+      "id": "bde02414-f92e-4b2c-9799-65f0b920d5ab",
+      "question": "Which one of the following is the highest waterfall in the world? [SABAS][]",
+      "options": [
+        "অ্যাঞ্জেল",
+        "জাম্বেসি টুজেলা",
+        "ভিক্টোরিয়া",
+        "নায়াগ্রা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এঞ্জেল জলপ্রপাত ভেনেজুয়েলায় অবস্থিত এবং এটি বিশ্বের সর্বোচ্চ জলপ্রপাত।",
+      "images": []
+    },
+    {
+      "question_no": 252,
+      "id": "0719a779-51be-4832-8fd0-8b838b15dd28",
+      "question": "বিশ্বের সর্বোচ্চ জলপ্রপাত এঞ্জেল ফলস্ কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ভেনেজুয়েলা",
+        "যুক্তরাষ্ট্র",
+        "কেনিয়া",
+        "অস্ট্রেলিয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এঞ্জেল জলপ্রপাত দক্ষিণ আমেরিকার দেশ ভেনেজুয়েলায় অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 253,
+      "id": "aae94c6f-be23-4fa3-a520-089772f8a688",
+      "question": "ভিক্টোরিয়া জলপ্রপাত কোন নদী থেকে সৃষ্টি? [SABAS][]",
+      "options": [
+        "নীল নদ",
+        "ভিক্টোরিয়া নদী",
+        "আমাজন নদী",
+        "জামবেজি নদী"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ভিক্টোরিয়া জলপ্রপাত আফ্রিকা মহাদেশের জামবেজি নদীর ওপর অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 254,
+      "id": "e9f4cce0-7ef1-4df9-a125-591935dc0b69",
+      "question": "Niagara Falls is located in [SABAS][]",
+      "options": [
+        "Asia",
+        "North America",
+        "South America",
+        "Africa"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নায়াগ্রা জলপ্রপাত উত্তর আমেরিকা মহাদেশে যুক্তরাষ্ট্র ও কানাডার সীমান্তে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 255,
+      "id": "14e5f878-639e-4401-aaea-094f5b7e7267",
+      "question": "নায়াগ্রা জলপ্রপাত কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "যুক্তরাষ্ট্র-কানাডা",
+        "যুক্তরাষ্ট্র-মেক্সিকো",
+        "কানাডা-অস্ট্রেলিয়া",
+        "যুক্তরাষ্ট্র-আফ্রিকা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি যুক্তরাষ্ট্র ও কানাডার আন্তর্জাতিক সীমান্তে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 256,
+      "id": "82e97ead-21a6-4f54-b134-f19c2f79e29e",
+      "question": "স্ট্যানলি ও লিভিংস্টোন দুটি - [SABAS][]",
+      "options": [
+        "ভিক্টোরিয়া নদী",
+        "ভিক্টোরিয়া জলপ্রপাত",
+        "ভিক্টোরিয়া লিভার",
+        "ভিক্টোরিয়া হ্রদ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ঐতিহাসিকভাবে স্ট্যানলি এবং লিভিংস্টোন ভিক্টোরিয়া জলপ্রপাত আবিষ্কার ও অন্বেষণের সাথে জড়িত।",
+      "images": []
+    },
+    {
+      "question_no": 257,
+      "id": "b797292e-44c5-47ae-8525-805f539a9a50",
+      "question": "স্টবাক জলপ্রপাত কোথায় অবস্থিত? [SABAS][]",
+      "options": [
+        "ক্যালিফোর্নিয়া",
+        "ভেনেজুয়েলা",
+        "সুইজারল্যান্ড",
+        "ভারত"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "হাপ জলপ্রপাত ভেনেজুয়েলায় অবস্থিত একটি চমৎকার প্রাকৃতিক দৃশ্য।",
+      "images": []
+    },
+    {
+      "question_no": 258,
+      "id": "8f33da69-8766-491b-964e-8670c409314a",
+      "question": "Browne Falls are situated in - [SABAS][]",
+      "options": [
+        "Australia",
+        "New Zealand",
+        "Canada",
+        "Switzerland"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ব্রাউন জলপ্রপাত (Browne Falls) নিউজিল্যান্ডে অবস্থিত।",
+      "images": []
+    },
+    {
+      "question_no": 259,
+      "id": "0e75ee3b-e704-4711-8e91-547d77b92e38",
+      "question": "বিশ্বের দীর্ঘতম খালের নাম কী? [SABAS][]",
+      "options": [
+        "পানামা খাল",
+        "সুয়েজ খাল",
+        "গ্রান্ড খাল",
+        "ম্যানচেস্টার খাল"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "চীনের গ্র্যান্ড খাল বিশ্বের দীর্ঘতম কৃত্রিম খাল হিসেবে পরিচিত।",
+      "images": []
+    },
+    {
+      "question_no": 260,
+      "id": "6c4ff79e-493f-4b0d-a704-bf65b86b7b9c",
+      "question": "পৃথিবীর বৃহত্তম কৃত্রিম খাল কোনটি? [SABAS][]",
+      "options": [
+        "সুয়েজ খাল",
+        "পানামা খাল",
+        "বাল্টিক খাল",
+        "গ্রান্ড খাল"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "দীর্ঘতার বিচারে চীনের গ্রান্ড খালকেই পৃথিবীর বৃহত্তম কৃত্রিম খাল বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 261,
+      "id": "77edf1e8-d974-455f-b92b-29a68dee5d3a",
+      "question": "Which is a man made waterway? [SABAS][]",
+      "options": [
+        "Cape of Good Hope",
+        "Strait of Bosphorus",
+        "Strait of Gibraltar",
+        "Kiel Canal"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "কিল খাল (Kiel Canal) জার্মানির একটি বিখ্যাত মানবসৃষ্ট জলপথ বা কৃত্রিম খাল।",
+      "images": []
+    },
+    {
+      "question_no": 262,
+      "id": "da7db269-3411-418f-bc66-b1bb512242f4",
+      "question": "Which one is not a man made waterway? [SABAS][]",
+      "options": [
+        "Suez Canal",
+        "Strait of Gibraltar",
+        "Kiel Canal",
+        "Panama Canal"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "জিব্রাল্টার প্রণালী (Strait of Gibraltar) একটি প্রাকৃতিক জলপথ, মানবসৃষ্ট নয়।",
+      "images": []
+    },
+    {
+      "question_no": 263,
+      "id": "sabas_gk_10427_263",
+      "question": "Type your question here for voice question",
+      "options": [],
+      "correct_answer": null,
+      "correct_index": null,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

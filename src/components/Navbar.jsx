@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 import ThemeToggleSwitch from './ThemeToggleSwitch';
 
 export default function Navbar({
   activePage = 'home', // 'home' | 'courses' | 'exams' | 'store' | 'about' | 'devices' | 'orders'
   siteSettings = {},
+  courseTitle = null,
+  onBackCourse = null,
   onNavigateHome,
   onNavigateCourse,
   onNavigateExams,
@@ -12,11 +15,13 @@ export default function Navbar({
   onNavigateAbout,
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin,
   onLoginClick
 }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { theme, isDark, toggleTheme, setTheme } = useTheme();
+  const { currentUser, logout } = useAuth();
 
   // Close drawer on ESC key
   useEffect(() => {
@@ -68,9 +73,8 @@ export default function Navbar({
     },
     {
       id: 'exams',
-      label: 'Exam',
-      bnLabel: 'এক্সাম পোর্টাল',
-      badge: '970+ Exams',
+      label: 'Exam Batch',
+      bnLabel: 'এক্সাম ব্যাচ',
       action: onNavigateExams,
       icon: (
         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -120,81 +124,149 @@ export default function Navbar({
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           
-          {/* Left: Brand Logo & Desktop Nav Links */}
-          <div className="flex items-center gap-6 lg:gap-8 min-w-0">
-            <button 
-              onClick={() => handleNav(onNavigateHome)} 
-              className="flex items-center gap-2 shrink-0 group border-none bg-transparent cursor-pointer p-0"
-              title="Home"
-            >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-[1.05] border-none outline-none">
+          {/* Left: Brand Logo & Desktop Nav Links OR Course Title when in Course Player */}
+          {courseTitle ? (
+            <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 max-w-[70%] sm:max-w-[75%] md:max-w-[80%]">
+              <button 
+                onClick={() => handleNav(onBackCourse || onNavigateCourse || onNavigateHome)} 
+                className={`p-2 rounded-xl border transition-all duration-200 cursor-pointer flex items-center justify-center shrink-0 active:scale-95 ${
+                  isDark 
+                    ? 'bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border-white/10 hover:border-red-500/40' 
+                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-950 border-gray-200'
+                }`}
+                title="Back to Course"
+                aria-label="Back to Course"
+              >
+                <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+              </button>
+
+              <button 
+                onClick={() => handleNav(onNavigateHome)} 
+                className="w-8 h-8 rounded-full overflow-hidden shrink-0 hidden xs:flex items-center justify-center border-none bg-transparent cursor-pointer p-0 group"
+                title="Edu Hunters Home"
+              >
                 <img 
                   src={siteSettings.logoUrl || "/logo.png"} 
                   alt={siteSettings.siteName || "Edu Hunters"} 
-                  className="w-full h-full object-cover rounded-full border-none outline-none"
+                  className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform"
                 />
-              </div>
-              <span className={`text-lg sm:text-2xl font-black tracking-tight whitespace-nowrap ${
-                isDark ? 'text-[#ff2e55]' : 'text-[#dc2626]'
-              }`}>
-                EDU <span className={isDark ? 'text-white' : 'text-[#111827]'}>HUNTERS</span>
-              </span>
-            </button>
+              </button>
 
-            {/* Desktop Navigation Links (Hidden on Mobile) */}
-            <div className="hidden sm:flex items-center gap-1.5 lg:gap-2">
-              {navItems.map((item) => {
-                const isActive = activePage === item.id;
-                if (isActive) {
+              <div className="flex items-center gap-2 min-w-0">
+                <span className={`text-sm sm:text-base md:text-lg font-black tracking-tight truncate ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}>
+                  {courseTitle}
+                </span>
+                <span className="hidden md:inline-flex text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/25 shrink-0">
+                  Course
+                </span>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center gap-6 lg:gap-8 min-w-0">
+              <button 
+                onClick={() => handleNav(onNavigateHome)} 
+                className="flex items-center gap-2 shrink-0 group border-none bg-transparent cursor-pointer p-0"
+                title="Home"
+              >
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-[1.05] border-none outline-none">
+                  <img 
+                    src={siteSettings.logoUrl || "/logo.png"} 
+                    alt={siteSettings.siteName || "Edu Hunters"} 
+                    className="w-full h-full object-cover rounded-full border-none outline-none"
+                  />
+                </div>
+                <span className={`text-lg sm:text-2xl font-black tracking-tight whitespace-nowrap ${
+                  isDark ? 'text-[#ff2e55]' : 'text-[#dc2626]'
+                }`}>
+                  {siteSettings.siteName ? (
+                    <>
+                      {siteSettings.siteName.split(' ')[0]}{' '}
+                      <span className={isDark ? 'text-white' : 'text-[#111827]'}>
+                        {siteSettings.siteName.split(' ').slice(1).join(' ') || ''}
+                      </span>
+                    </>
+                  ) : (
+                    <>EDU <span className={isDark ? 'text-white' : 'text-[#111827]'}>HUNTERS</span></>
+                  )}
+                </span>
+              </button>
+
+              {/* Desktop Navigation Links (Hidden on Mobile) */}
+              <div className="hidden sm:flex items-center gap-1.5 lg:gap-2">
+                {navItems.map((item) => {
+                  const isActive = activePage === item.id;
+                  if (isActive) {
+                    return (
+                      <span 
+                        key={item.id}
+                        className={`relative inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full text-white transition-all duration-300 ease-out ${
+                          isDark 
+                            ? 'bg-[#e11438] shadow-[0_6px_20px_rgba(225,20,56,0.45)]' 
+                            : 'bg-[#dc2626] shadow-[0_6px_16px_rgba(220,38,38,0.32)]'
+                        }`}
+                      >
+                        <span className="w-4 h-4 flex items-center justify-center text-white">
+                          {item.icon}
+                        </span>
+                        <span>{item.label}</span>
+                      </span>
+                    );
+                  }
                   return (
-                    <span 
+                    <button 
                       key={item.id}
-                      className={`relative inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full text-white transition-all duration-300 ease-out ${
+                      onClick={() => handleNav(item.action)}
+                      className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ease-out border-none bg-transparent cursor-pointer ${
                         isDark 
-                          ? 'bg-[#e11438] shadow-[0_6px_20px_rgba(225,20,56,0.45)]' 
-                          : 'bg-[#dc2626] shadow-[0_6px_16px_rgba(220,38,38,0.32)]'
+                          ? 'text-gray-300 hover:text-white hover:bg-white/10' 
+                          : 'text-[#111827] hover:bg-[#f3f4f6]'
                       }`}
                     >
-                      <span className="w-4 h-4 flex items-center justify-center text-white">
+                      <span className={`w-4 h-4 flex items-center justify-center ${isDark ? 'text-gray-400' : 'text-[#4b5563]'}`}>
                         {item.icon}
                       </span>
                       <span>{item.label}</span>
-                    </span>
+                    </button>
                   );
-                }
-                return (
-                  <button 
-                    key={item.id}
-                    onClick={() => handleNav(item.action)}
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ease-out border-none bg-transparent cursor-pointer ${
-                      isDark 
-                        ? 'text-gray-300 hover:text-white hover:bg-white/10' 
-                        : 'text-[#111827] hover:bg-[#f3f4f6]'
-                    }`}
-                  >
-                    <span className={`w-4 h-4 flex items-center justify-center ${isDark ? 'text-gray-400' : 'text-[#4b5563]'}`}>
-                      {item.icon}
-                    </span>
-                    <span>{item.label}</span>
-                  </button>
-                );
-              })}
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Right Action buttons */}
           <div className="flex items-center gap-2 sm:gap-2.5">
-            {/* Desktop Quick Exam / Login Button */}
-            <button 
-              onClick={onLoginClick || onNavigateExams}
-              className={`hidden sm:inline-flex items-center gap-1.5 px-5 py-2 text-sm font-semibold text-white rounded-full transition-all hover:scale-[1.03] active:scale-[0.97] border-none cursor-pointer ${
-                isDark 
-                  ? 'bg-[#e11438] hover:bg-[#ff1744] shadow-[0_4px_16px_rgba(225,20,56,0.35)]' 
-                  : 'bg-[#dc2626] hover:bg-[#b91c1c] shadow-sm'
-              }`}
-            >
-              <span>লগইন</span>
-            </button>
+            {/* Desktop Quick Exam / Login or User Badge */}
+            {currentUser ? (
+              <div className="hidden sm:flex items-center gap-2">
+                <button 
+                  onClick={() => setIsDrawerOpen(true)}
+                  className={`inline-flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all border cursor-pointer ${
+                    isDark 
+                      ? 'bg-white/5 hover:bg-white/10 text-white border-white/15' 
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-900 border-gray-200'
+                  }`}
+                  title="My Account"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="max-w-[120px] truncate">{currentUser.displayName || currentUser.email.split('@')[0]}</span>
+                </button>
+              </div>
+            ) : (
+              <button 
+                onClick={onLoginClick || onNavigateExams}
+                className={`hidden sm:inline-flex items-center gap-1.5 px-5 py-2 text-sm font-semibold text-white rounded-full transition-all hover:scale-[1.03] active:scale-[0.97] border-none cursor-pointer ${
+                  isDark 
+                    ? 'bg-[#e11438] hover:bg-[#ff1744] shadow-[0_4px_16px_rgba(225,20,56,0.35)]' 
+                    : 'bg-[#dc2626] hover:bg-[#b91c1c] shadow-sm'
+                }`}
+              >
+                <span>Sign In</span>
+              </button>
+            )}
 
             {/* Profile Avatar Trigger Button that opens Right Side Menu Drawer */}
             <button
@@ -205,12 +277,12 @@ export default function Navbar({
                   : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-300 shadow-[0_2px_8px_rgba(0,0,0,0.06)]'
               }`}
               aria-label="Open profile and menu"
-              title="প্রোফাইল মেনু"
+              title="Profile Menu"
             >
               {/* Profile Avatar with subtle clean ring */}
               <div className="relative w-8 h-8 rounded-full overflow-hidden shrink-0">
                 <img
-                  src="/avatar.jpg"
+                  src={currentUser?.photoURL || "/avatar.jpg"}
                   alt="Profile"
                   className={`w-full h-full object-cover rounded-full ${
                     isDark ? 'ring-1 ring-white/20' : 'ring-1 ring-black/10'
@@ -302,8 +374,8 @@ export default function Navbar({
                     : 'border border-gray-200 shadow-sm bg-gray-50'
                 }`}>
                   <img
-                    src="/avatar.jpg"
-                    alt="Edu Hunters Student"
+                    src={currentUser?.photoURL || "/avatar.jpg"}
+                    alt={currentUser?.displayName || "Edu Hunters Student"}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.onerror = null;
@@ -316,12 +388,14 @@ export default function Navbar({
                   <h2 className={`text-[17px] font-bold tracking-tight leading-tight truncate ${
                     isDark ? 'text-white' : 'text-gray-900'
                   }`}>
-                    Edu Hunters
+                    {currentUser ? (currentUser.displayName || currentUser.email.split('@')[0]) : 'Edu Hunters'}
                   </h2>
                   <p className={`text-xs mt-0.5 font-normal tracking-wide truncate ${
                     isDark ? 'text-gray-400' : 'text-gray-500'
                   }`}>
-                    HSC 2026
+                    {currentUser 
+                      ? (currentUser.role === 'admin' ? '🛡️ Admin' : (currentUser.email || 'Student')) 
+                      : 'Not signed in'}
                   </p>
                 </div>
               </div>
@@ -401,13 +475,8 @@ export default function Navbar({
                       <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                     </svg>
                   </div>
-                  <span className="text-[15px] tracking-wide">এক্সাম পোর্টাল</span>
+                  <span className="text-[15px] tracking-wide">এক্সাম ব্যাচ</span>
                 </div>
-
-                {/* Bright Yellow Minimal Badge */}
-                <span className="bg-[#facc15] text-[#111827] font-extrabold text-[11px] px-2.5 py-0.5 rounded-full shadow-sm">
-                  970+
-                </span>
               </button>
 
               {/* 4. Leaderboard */}
@@ -487,10 +556,7 @@ export default function Navbar({
                       <path d="M8 15h5" />
                     </svg>
                   </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-[15px] tracking-wide font-medium">অর্ডার হিস্ট্রি</span>
-                    <span className={`text-[11px] font-normal ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Order History</span>
-                  </div>
+                  <span className="text-[15px] tracking-wide">অর্ডার হিস্ট্রি</span>
                 </div>
               </button>
 
@@ -523,10 +589,7 @@ export default function Navbar({
                       <line x1="18.5" y1="18" x2="18.5" y2="18.01" />
                     </svg>
                   </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-[15px] tracking-wide font-medium">আমার ডিভাইস</span>
-                    <span className={`text-[11px] font-normal ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>My Devices</span>
-                  </div>
+                  <span className="text-[15px] tracking-wide">আমার ডিভাইস</span>
                 </div>
               </button>
 
@@ -556,7 +619,8 @@ export default function Navbar({
               <button
                 onClick={() => {
                   setIsDrawerOpen(false);
-                  window.open('https://wa.me/8801700000000', '_blank');
+                  const cleanPhone = (siteSettings?.contactPhone || '8801700000000').replace(/[^0-9]/g, '');
+                  window.open(`https://wa.me/${cleanPhone}`, '_blank');
                 }}
                 className={`flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors ${
                   isDark ? 'text-gray-300 font-normal hover:text-white' : 'text-gray-700 font-normal hover:text-black hover:bg-gray-50'
@@ -569,6 +633,35 @@ export default function Navbar({
                     </svg>
                   </div>
                   <span className="text-[15px] tracking-wide">হেল্প ও সাপোর্ট</span>
+                </div>
+              </button>
+
+              {/* 10. Terms & Policies */}
+              <button
+                onClick={() => {
+                  setIsDrawerOpen(false);
+                  if (onNavigatePolicies) {
+                    onNavigatePolicies('terms');
+                  } else {
+                    window.history.pushState(null, '', '/terms');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  }
+                }}
+                className={`flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors ${
+                  activePage === 'policies' 
+                    ? (isDark ? 'text-white font-semibold' : 'text-[#dc2626] font-semibold bg-red-50/70') 
+                    : (isDark ? 'text-gray-300 font-normal hover:text-white' : 'text-gray-700 font-normal hover:text-black hover:bg-gray-50')
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`w-5 h-5 flex items-center justify-center transition-colors ${
+                    activePage === 'policies' ? (isDark ? 'text-[#ef4444]' : 'text-[#dc2626]') : (isDark ? 'text-gray-400 group-hover:text-white' : 'text-gray-500 group-hover:text-black')
+                  }`}>
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
+                  <span className="text-[15px] tracking-wide">শর্ত ও পলিসি</span>
                 </div>
               </button>
 
@@ -596,22 +689,45 @@ export default function Navbar({
             </div>
           </div>
 
-          {/* Bottom Rounded Pill Button */}
+          {/* Bottom Action Button: Logout if user logged in, or Login if guest */}
           <div className="pt-5 shrink-0 relative z-10">
-            <button
-              onClick={() => {
-                setIsDrawerOpen(false);
-                if (onLoginClick) onLoginClick();
-                else if (onNavigateExams) onNavigateExams();
-              }}
-              className={`w-full py-3.5 px-6 active:scale-[0.98] text-white font-semibold text-sm rounded-full text-center transition-all cursor-pointer border-none tracking-wide ${
-                isDark 
-                  ? 'bg-[#e11438] hover:bg-[#ff1744] shadow-[0_8px_25px_rgba(225,20,56,0.45)]' 
-                  : 'bg-[#dc2626] hover:bg-[#b91c1c] shadow-md'
-              }`}
-            >
-              লগইন / সাইন ইন
-            </button>
+            {currentUser ? (
+              <button
+                onClick={async () => {
+                  setIsDrawerOpen(false);
+                  if (window.confirm('Are you sure you want to sign out from your account?')) {
+                    await logout();
+                  }
+                }}
+                className={`w-full py-3.5 px-6 active:scale-[0.98] font-semibold text-sm rounded-full text-center transition-all cursor-pointer border tracking-wide flex items-center justify-center gap-2 ${
+                  isDark 
+                    ? 'bg-red-950/40 hover:bg-red-900/60 text-red-300 border-red-500/30' 
+                    : 'bg-red-50 hover:bg-red-100 text-red-600 border-red-200'
+                }`}
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                <span>Sign Out</span>
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setIsDrawerOpen(false);
+                  if (onLoginClick) onLoginClick();
+                  else if (onNavigateExams) onNavigateExams();
+                }}
+                className={`w-full py-3.5 px-6 active:scale-[0.98] text-white font-semibold text-sm rounded-full text-center transition-all cursor-pointer border-none tracking-wide ${
+                  isDark 
+                    ? 'bg-[#e11438] hover:bg-[#ff1744] shadow-[0_8px_25px_rgba(225,20,56,0.45)]' 
+                    : 'bg-[#dc2626] hover:bg-[#b91c1c] shadow-md'
+                }`}
+              >
+                Sign In / Register
+              </button>
+            )}
           </div>
         </div>
       </div>

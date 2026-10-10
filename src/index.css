@@ -535,3 +535,138 @@ html.dark .eh-dots-light,
   min-height: 0;
 }
 
+/* ========================================================
+   ULTRA-SMOOTH HARDWARE-ACCELERATED ACCORDION EXPAND/COLLAPSE
+   ======================================================== */
+.smooth-expand-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: 
+    grid-template-rows 480ms cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 380ms cubic-bezier(0.25, 1, 0.5, 1),
+    transform 440ms cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: grid-template-rows, opacity, transform;
+}
+
+.smooth-expand-container.is-expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.smooth-expand-content {
+  overflow: hidden;
+  min-height: 0;
+  padding: 1px 2px;
+}
+
+/* ========================================================
+   GLOBAL WEBSITE & PLAYLIST SMOOTH HARMONIOUS SCROLLBAR
+   ======================================================== */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(225, 20, 56, 0.6) #0a0204;
+}
+
+html.light,
+html[data-theme='light'] {
+  scrollbar-color: rgba(220, 38, 38, 0.5) #f8fafc;
+}
+
+/* Global Webkit Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0204;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #991b1b 0%, #dc2626 100%);
+  border-radius: 9999px;
+  border: 2px solid #0a0204;
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #dc2626 0%, #ff2d55 100%);
+  box-shadow: 0 0 10px rgba(225, 20, 56, 0.5);
+}
+
+/* Light Mode Global Scrollbar */
+html.light ::-webkit-scrollbar-track,
+html[data-theme='light'] ::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+html.light ::-webkit-scrollbar-thumb,
+html[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f87171 0%, #dc2626 100%);
+  border: 2px solid #f8fafc;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover,
+html[data-theme='light'] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* Playlist Specific Smooth & Modern Harmonious Scrollbar */
+.playlist-scrollbar {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(225, 20, 56, 0.65) rgba(16, 3, 7, 0.7);
+}
+
+.playlist-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.playlist-scrollbar::-webkit-scrollbar-track {
+  background: rgba(16, 3, 7, 0.65);
+  border-radius: 9999px;
+  margin: 6px 2px;
+}
+
+.playlist-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #e11438 0%, #991b1b 100%);
+  border-radius: 9999px;
+  border: 1px solid rgba(225, 20, 56, 0.35);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.playlist-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff2d55 0%, #dc2626 100%);
+  border-color: rgba(255, 45, 85, 0.6);
+  box-shadow: 0 0 8px rgba(225, 20, 56, 0.6);
+}
+
+/* Playlist Scrollbar for Light Mode */
+html.light .playlist-scrollbar,
+html[data-theme='light'] .playlist-scrollbar {
+  scrollbar-color: rgba(220, 38, 38, 0.5) rgba(241, 245, 249, 0.85);
+}
+
+html.light .playlist-scrollbar::-webkit-scrollbar-track,
+html[data-theme='light'] .playlist-scrollbar::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.85);
+}
+
+html.light .playlist-scrollbar::-webkit-scrollbar-thumb,
+html[data-theme='light'] .playlist-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+html.light .playlist-scrollbar::-webkit-scrollbar-thumb:hover,
+html[data-theme='light'] .playlist-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%);
+}
+

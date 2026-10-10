@@ -89,25 +89,25 @@ export default function CategoryDetailModal({ isOpen, category, onClose, onStart
             <div className={`p-3 rounded-2xl border text-center ${
               isDark ? 'bg-white/[0.03] border-white/[0.08]' : 'bg-gray-50 border-gray-200'
             }`}>
-              <p className="text-xs text-gray-400 font-medium">মোট এক্সাম</p>
+              <p className="text-xs text-gray-400 font-medium">Total Exams</p>
               <p className={`text-base sm:text-lg font-black mt-0.5 ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>{category.examCountText}</p>
             </div>
             <div className={`p-3 rounded-2xl border text-center ${
               isDark ? 'bg-white/[0.03] border-white/[0.08]' : 'bg-gray-50 border-gray-200'
             }`}>
-              <p className="text-xs text-gray-400 font-medium">মোট প্রশ্ন</p>
+              <p className="text-xs text-gray-400 font-medium">Total Questions</p>
               <p className="text-base sm:text-lg font-black text-emerald-400 mt-0.5">{category.questionCount}</p>
             </div>
             <div className={`p-3 rounded-2xl border text-center ${
               isDark ? 'bg-white/[0.03] border-white/[0.08]' : 'bg-gray-50 border-gray-200'
             }`}>
-              <p className="text-xs text-gray-400 font-medium">সময়</p>
+              <p className="text-xs text-gray-400 font-medium">Duration</p>
               <p className="text-base sm:text-lg font-black text-cyan-400 mt-0.5">{category.duration}</p>
             </div>
             <div className={`p-3 rounded-2xl border text-center ${
               isDark ? 'bg-white/[0.03] border-white/[0.08]' : 'bg-gray-50 border-gray-200'
             }`}>
-              <p className="text-xs text-gray-400 font-medium">নেগেটিভ মার্ক</p>
+              <p className="text-xs text-gray-400 font-medium">Negative Mark</p>
               <p className="text-base sm:text-lg font-black text-amber-400 mt-0.5">{category.negativeMark}</p>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function CategoryDetailModal({ isOpen, category, onClose, onStart
               isDark ? 'text-gray-200' : 'text-gray-900'
             }`}>
               <BookOpen size={16} className="text-[#e11438]" />
-              <span>এক্সাম ব্যাচ সম্পর্কে</span>
+              <span>About Exam Batch</span>
             </h3>
             <p className={`mt-2 text-xs sm:text-sm leading-relaxed ${
               isDark ? 'text-gray-300' : 'text-gray-600'
@@ -134,7 +134,7 @@ export default function CategoryDetailModal({ isOpen, category, onClose, onStart
                 isDark ? 'text-gray-200' : 'text-gray-900'
               }`}>
                 <CheckCircle2 size={16} className="text-emerald-500" />
-                <span>যে যে বিষয়সমূহ অন্তর্ভুক্ত</span>
+                <span>Included Subjects</span>
               </h3>
               <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {category.details.subjects.map((sub, idx) => (
@@ -160,7 +160,7 @@ export default function CategoryDetailModal({ isOpen, category, onClose, onStart
                 isDark ? 'text-gray-200' : 'text-gray-900'
               }`}>
                 <ShieldCheck size={16} className="text-blue-500" />
-                <span>এক্সামের বিশেষ সুবিধাসমূহ</span>
+                <span>Key Features</span>
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {category.details.features.map((feat, idx) => (
@@ -184,7 +184,7 @@ export default function CategoryDetailModal({ isOpen, category, onClose, onStart
               isDark ? 'bg-amber-950/20 border-amber-500/30 text-amber-200' : 'bg-amber-50 border-amber-200 text-amber-900'
             }`}>
               <h4 className="text-xs font-bold flex items-center gap-1.5 mb-1.5">
-                <AlertCircle size={14} /> এক্সামের নিয়মাবলী
+                <AlertCircle size={14} /> Exam Guidelines & Rules
               </h4>
               <ul className="text-xs space-y-1 list-disc list-inside opacity-90">
                 {category.details.rules.map((rule, idx) => (
@@ -207,7 +207,7 @@ export default function CategoryDetailModal({ isOpen, category, onClose, onStart
                 : 'bg-white hover:bg-gray-100 text-gray-700 border-gray-300'
             }`}
           >
-            বন্ধ করুন
+            Close
           </button>
 
           <button 
@@ -217,7 +217,7 @@ export default function CategoryDetailModal({ isOpen, category, onClose, onStart
             }}
             className="flex-1 sm:flex-initial px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-[#e11438] hover:to-[#991b1b] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-red-900/40 hover:scale-[1.02] cursor-pointer border-none"
           >
-            <span>এক্সাম শুরু করুন ({category.examCountText})</span>
+            <span>Start Exams ({category.examCountText})</span>
             <ArrowRight size={16} />
           </button>
         </div>

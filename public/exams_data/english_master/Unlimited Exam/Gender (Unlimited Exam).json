@@ -1,0 +1,1571 @@
+{
+  "exam_id": 8370,
+  "title": "Gender (Unlimited Exam)",
+  "category": "Unlimited Exam",
+  "subtopic": "Grammar Unlimited Exam",
+  "duration_minutes": 15,
+  "total_questions": 104,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "203da162-19ef-4e8f-a04b-2449ba67df73",
+      "question": "How many types of gender are existed/there ?[]",
+      "options": [
+        "One type",
+        "Two types",
+        "Three types",
+        "Four types"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "5cf8e89c-20a3-4f1c-a6b7-61a0b43b3ef7",
+      "question": "Which is not a kind of gender ?[]",
+      "options": [
+        "Masculine",
+        "Feminine",
+        "Neutral",
+        "Abstract"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "799ac7bf-c3f9-454d-ad06-7e2e565b1644",
+      "question": "The Feminine of 'Ram' is ---[]",
+      "options": [
+        "Ewu",
+        "Hind",
+        "Mare",
+        "Sow"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "d3ffeba3-dabd-41c5-afdf-05298854020d",
+      "question": "Find out the masculine gender.[]",
+      "options": [
+        "Drake",
+        "Princess",
+        "Ewe",
+        "Niece"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "40667d44-4b9d-449d-8b95-dd4c681c349e",
+      "question": "Select the feminine gender.[]",
+      "options": [
+        "Nun",
+        "Bishop",
+        "Clergy",
+        "Hare"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "c3ea36af-fd2e-4d5e-8a19-11c0d79d6295",
+      "question": "Select the masculine gender.[]",
+      "options": [
+        "Bitch",
+        "Witch",
+        "Doe",
+        "Drake"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "24b9f337-a65d-4718-9ff1-890692d290da",
+      "question": "What is the feminine gender of 'swain' ?[]",
+      "options": [
+        "swainness",
+        "witch",
+        "nymph",
+        "bitch"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "c0d1c4e3-1bcd-4656-b327-2e85dca13324",
+      "question": "Find out the masculine gender[]",
+      "options": [
+        "Witch",
+        "Drone",
+        "Nun",
+        "Mare"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "d9b6feff-acd3-4a5d-a96c-32c74b2676b7",
+      "question": "Identify the feminine gender.[]",
+      "options": [
+        "Buck",
+        "Bitch",
+        "Groom",
+        "Actor"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "c1ff8695-32b4-486d-82e6-88c1c7704f38",
+      "question": "Feminine gender of 'Wizard' is ---[]",
+      "options": [
+        "Wizardess",
+        "Witch",
+        "Acrobat",
+        "Female wizard"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "8dcf19ed-c5ec-4ab6-a6e4-580e2b5ea94b",
+      "question": "Find out the masculine gender.[]",
+      "options": [
+        "Witch",
+        "Drone",
+        "Nun",
+        "Mare"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "ba973f34-4f6f-4c85-82a7-59e9349775a3",
+      "question": "Which one of the following words is different from the  others ?[]",
+      "options": [
+        "Stag",
+        "Vixen",
+        "Mare",
+        "Witch"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "ffd1bd73-3e7b-48a1-93ab-43a4ce3f3f12",
+      "question": "What is the feminine gender of 'Nephew' ?[]",
+      "options": [
+        "Niece",
+        "Nice",
+        "Nephews",
+        "Nisei"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "17f99808-964b-43f8-972e-2de91df855ba",
+      "question": "Opposite gender of 'lady' is ---[]",
+      "options": [
+        "Baroness",
+        "Lord",
+        "Duchess",
+        "Laddie"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "e73f4a4a-4ef3-4593-899f-493a34e8b5c0",
+      "question": "Which one of the following is a masculine gender ? []",
+      "options": [
+        "Cob",
+        "Doe",
+        "Roe",
+        "Vixen"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "26faa586-a95d-4069-a7ae-35d17bebc93d",
+      "question": "Which one is feminine form ?[]",
+      "options": [
+        "Mare/Nun",
+        "Boar",
+        "Drone",
+        "Emperor"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "308835e3-2df2-4939-8e3d-0db7fd0c45f1",
+      "question": "What is the feminine gender of the word 'earl' ?[]",
+      "options": [
+        "lady",
+        "queen",
+        "countess",
+        "heroine"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "be6222f6-968e-4ff8-a7d0-edd4238b5dac",
+      "question": "Which one of the following is a neuter gender ?[]",
+      "options": [
+        "Student",
+        "Chairman",
+        "Vixen",
+        "Table"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "0f7d5be0-2919-4293-b30e-394e464e80a5",
+      "question": "Which of the following is feminine gender ?[]",
+      "options": [
+        "Host",
+        "Cock",
+        "Drake",
+        "Mare"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "3eb94fd8-d3af-4cc7-9118-57c4482fb58d",
+      "question": "Which one of the following is a feminine gender ?[]",
+      "options": [
+        "Hen",
+        "Chairman",
+        "Book",
+        "Table"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "9553bc6c-942a-4349-9012-06f61953f435",
+      "question": "The feminine of the word 'Man' :[]",
+      "options": [
+        "Girl",
+        "Lady",
+        "Woman",
+        "Baby"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "dcd8020d-b256-4f09-940e-cc3d58b9f35a",
+      "question": "Feminine gender of 'Cock' is ---[]",
+      "options": [
+        "Cocks",
+        "Hen",
+        "Crow",
+        "He-cocks"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "d8cb946d-13e5-4f45-b09a-ca67563073ca",
+      "question": "Select the masculine gender.[]",
+      "options": [
+        "Duck",
+        "Ewe",
+        "Ram",
+        "Mare"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "3daa06e3-afd4-44b9-a218-2861a21967d8",
+      "question": "Which one is in feminine form ?[]",
+      "options": [
+        "Nun",
+        "Boar",
+        "Drone",
+        "Emperor"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "c184b1c4-9ff2-4052-b295-3dc9fc5621fd",
+      "question": "The masculine gender of the word 'Spinster' is ---[]",
+      "options": [
+        "Unattached",
+        "Single",
+        "Bachelor",
+        "Free"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "57363547-aa82-4146-b467-4d99a752fdac",
+      "question": "The feminine gender of 'Drone' is ---[]",
+      "options": [
+        "Goose",
+        "Hind",
+        "Ewe",
+        "Bee"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "78e556e5-948c-4ebd-9280-2ba8aa159664",
+      "question": "What is the masculine form of 'Bee' ?[]",
+      "options": [
+        "Hart",
+        "Drone",
+        "Stag",
+        "Colt"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "05d66e78-0293-4a12-9462-0d7f82cd2ecb",
+      "question": "The feminine of the word 'Boy' is ---[]",
+      "options": [
+        "Girl",
+        "Women",
+        "Lady",
+        "Baby"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "0764e1ef-6924-47aa-8b2d-ce25dbf7a10f",
+      "question": "The female of a horse is called ---[]",
+      "options": [
+        "A stallion",
+        "A buck",
+        "A doe",
+        "A mare"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "0e38a3a2-07c9-468a-8fcb-483431e2dd4f",
+      "question": "What is the opposite/masculine gender of 'Mare' ?[]",
+      "options": [
+        "Mermaid",
+        "Stallion",
+        "Bear",
+        "Dog"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "03fe9695-70fa-44b0-b293-9d527c641d7b",
+      "question": "Which one is masculine gender ?[]",
+      "options": [
+        "Cow",
+        "Ox",
+        "Bitch",
+        "Hen/Nun"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "f113e402-7451-4979-b24a-eb79a81a4bda",
+      "question": "Which one is the opposite gender of 'Lad' ?[]",
+      "options": [
+        "Boy",
+        "Girl",
+        "Guy",
+        "Lady"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "177cd1ff-6b4f-444b-a013-40f00d62c56d",
+      "question": "Which one is in feminine gender ?[]",
+      "options": [
+        "Colt",
+        "Hart",
+        "Friar",
+        "Nun"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "f3a6a8bd-6a6b-4054-802b-f8ede69cbd52",
+      "question": "Which one is in masculine form ?[]",
+      "options": [
+        "Mare",
+        "Nymph",
+        "Stag",
+        "Heiress"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "2a5ba0b2-4279-4233-b594-624efb6f79ad",
+      "question": "কোনটি পুংলিঙ্গ ?[]",
+      "options": [
+        "Girl",
+        "Goose",
+        "Man",
+        "Mare"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "07f58e17-80a7-422f-9e59-35d4b2aaa917",
+      "question": "Which one is masculine gender ?[]",
+      "options": [
+        "Heir",
+        "Cow",
+        "Niece",
+        "Bee"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "622dce86-843c-4a0b-832d-2be48ea7d267",
+      "question": "Which one is in feminine form ?[]",
+      "options": [
+        "Deer",
+        "Bull",
+        "Horse",
+        "Doe"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "38843632-4ff4-4af7-8b94-8ef3f3425fc4",
+      "question": "Gender কত প্রকার ?[]",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "5"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "201cf5fb-7228-459b-a461-ddf962bcf8c8",
+      "question": "Which is in masculine form ?[]",
+      "options": [
+        "Roe",
+        "Mare",
+        "Niece",
+        "Drake"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "694b45bb-43ed-4e83-ae63-572df1300939",
+      "question": "Which of the following is a masculine gender ?[]",
+      "options": [
+        "Stag",
+        "Doe",
+        "Roe",
+        "Vixen"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "99811e66-5d18-4937-aa22-93d1be7c7b1c",
+      "question": "Which one is the opposite gender of 'Doctor' ?[]",
+      "options": [
+        "Lady doctor",
+        "Doctress",
+        "Nurse",
+        "Doctorex"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "23200e9d-1e27-469f-8cd9-5a12c1f1fe14",
+      "question": "The opposite gender of 'Fox' is ---[]",
+      "options": [
+        "Foxy",
+        "Female fox",
+        "Bitch",
+        "Vixen"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "25fa753e-feba-4382-9665-11f01fdbf740",
+      "question": "Which one denotes a feminine gender ?[]",
+      "options": [
+        "Rooster",
+        "Dog",
+        "Gander",
+        "Doe"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "6bb60470-1027-4cb3-a0c5-3cd0984d44c2",
+      "question": "The masculine gender of 'Duck' is ---[]",
+      "options": [
+        "Cob",
+        "Drake",
+        "Gander",
+        "Duckling"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "b81a13b7-4371-4ef3-b216-31a6a7f5b34d",
+      "question": "The feminine form of 'Tailor' is ---[]",
+      "options": [
+        "Seamstress",
+        "Tailoress",
+        "Tailorix",
+        "None"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "24299176-d51f-4541-a13e-3ebcd07814a1",
+      "question": "Which of the following is feminine gender ?[]",
+      "options": [
+        "Drone",
+        "Sow",
+        "Fox",
+        "Hart"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "70a7d170-3aec-48be-9b9d-be2ab426af7b",
+      "question": "Opposite gender of 'Bitch' ---[]",
+      "options": [
+        "Calf",
+        "Fox",
+        "Dog",
+        "Lion"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "5e6a0488-54cf-47fa-8a7e-9666c48fa3c6",
+      "question": "What is the feminine of 'Monk' ?[]",
+      "options": [
+        "Duchess",
+        "Nun",
+        "Friar",
+        "Madam"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "1f9c06e3-fdf0-4862-8a37-56b70ea79c70",
+      "question": "The feminine gender of 'Don' is ---[]",
+      "options": [
+        "Donne",
+        "Donna",
+        "Donni",
+        "Dona"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "407f63eb-f8d6-4709-8848-2f371ecb866b",
+      "question": "Which of the following is a feminine gender ?[]",
+      "options": [
+        "Puppy",
+        "Mare",
+        "Drone",
+        "Lion"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "bbdf75e4-4c0e-4db2-95b3-585fb08a3b38",
+      "question": "An unmarried woman is called ---[]",
+      "options": [
+        "Seamstress",
+        "Bachelor",
+        "Nurse",
+        "Spinster"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "f0eb392e-896e-4562-af54-6e49583fa83f",
+      "question": "The feminine form of the word 'Author' is ---[]",
+      "options": [
+        "Authoress",
+        "Authores",
+        "Authors",
+        "Authorss"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "c4dc74e4-cb64-4cec-acea-816612a16131",
+      "question": "The opposite gender of 'Emperor' is ---[]",
+      "options": [
+        "Emperori",
+        "Empress",
+        "Empros",
+        "Emprossi"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "821114c4-2a4f-4629-a49e-b504f6a2b697",
+      "question": "Masculine gender of 'Abbot' is ---[]",
+      "options": [
+        "Abess",
+        "Abbes",
+        "Abbess",
+        "Abbotess"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "5acc113b-3617-4ab5-9d38-944cbdb52ff2",
+      "question": "Duchess' is the feminine of ---[]",
+      "options": [
+        "Earl",
+        "Dutchman",
+        "Duke",
+        "Chess"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "f1c90e53-a475-44ac-8fb4-ad02361ac167",
+      "question": "What is the opposite gender of 'Poet' ?[]",
+      "options": [
+        "Poetess",
+        "Female poet",
+        "Poet",
+        "Poetress"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "06e3bbd4-1dc4-43fa-b143-5a6e536f5381",
+      "question": "What is the feminine gender of 'Tiger' ?[]",
+      "options": [
+        "Trigren",
+        "Tigress",
+        "Tigeri",
+        "Tigerian"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "ad511334-20a3-4887-9f9e-d69a58240c71",
+      "question": "Which one is the correct masculine form of 'she-ass' ?[]",
+      "options": [
+        "He-ass",
+        "Pea-ass",
+        "Jack-ass",
+        "Jhone-ass"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "bff21811-c8a0-4760-bc15-17cff16dc2a2",
+      "question": "The masculine gender of 'Bride' is ---[]",
+      "options": [
+        "Husband",
+        "Bridegroom",
+        "Brider",
+        "Bride"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "e38741d0-0577-4b95-b8ea-0ba25d88d3f3",
+      "question": "The feminine form of 'Prosecutor' is ---[]",
+      "options": [
+        "Prosecutrix",
+        "Prosecutress",
+        "Prosecutora",
+        "Prosecuter"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "4e17f4ef-980a-4e74-b17c-39f9cf6e8ced",
+      "question": "The feminine gender of the word 'John' is ---[]",
+      "options": [
+        "Jane",
+        "Jun",
+        "June",
+        "Junee"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "272822f9-c7db-4324-a837-31efa52a3f79",
+      "question": "The feminine gender of 'Signor' is ---[]",
+      "options": [
+        "Signora",
+        "Signorr",
+        "Signoress",
+        "Signorer"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "b4495982-8dfe-4dbf-9e87-6bfda71bf122",
+      "question": "Opposite gender of 'Administrator' is ---[]",
+      "options": [
+        "Administratrix",
+        "Administrix",
+        "Administratess",
+        "Female administrator"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": "7d8fa00c-82a3-4f98-8298-5f56a707ff6f",
+      "question": "What is the feminine equivalent of the word 'Comedian' ?[]",
+      "options": [
+        "Comedienne",
+        "Comedic",
+        "Comedi",
+        "Commodious"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": "e07a053e-1be4-41e4-a5b1-740ab661546e",
+      "question": "Which one is feminine noun ?[]",
+      "options": [
+        "Abbot",
+        "Enchanter",
+        "Pea-cock",
+        "Executrix"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": "34af3b1d-fb14-4175-8d5a-b308168cf6a9",
+      "question": "Which one is masculine gender ?[]",
+      "options": [
+        "Nurse",
+        "Judge",
+        "Virgin",
+        "Shrew"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": "3eb30302-2423-4d4e-8554-9c1408bd10e2",
+      "question": "Which one of the following is always feminine ?[]",
+      "options": [
+        "Fowl",
+        "Foal",
+        "Spouse",
+        "Shrew"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": "13abf0a8-bb9c-435e-8711-6e3b387710c3",
+      "question": "Which one is masculine noun ?[]",
+      "options": [
+        "Miss",
+        "Spring",
+        "Liberty",
+        "Death"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": "1f12562f-4f54-415f-93a1-eb87e571ef54",
+      "question": "Which of the following nouns is used in the masculine form ?[]",
+      "options": [
+        "Autumn",
+        "Moon",
+        "Peace",
+        "Time"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": "0eca9f95-9705-4246-8ac7-a2cc63eabb3d",
+      "question": "Which of the following nouns is used in the masculine form ?[]",
+      "options": [
+        "Autumn",
+        "Moon",
+        "Peace",
+        "Time"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": "5ac8f998-b4c4-4b53-9c9f-1dab598a1aaa",
+      "question": "The moon has hidden her face behind the cloud'. Here the moon is ------- gender.[]",
+      "options": [
+        "Masculine",
+        "Feminine",
+        "Common",
+        "None"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": "153e923f-13eb-4daa-8f14-f4736565f042",
+      "question": "Which gender is the word 'Orphan' ?[]",
+      "options": [
+        "Neuter",
+        "Feminine",
+        "Common",
+        "Masculine"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 73,
+      "id": "9cb28fd3-613d-4ceb-89f9-ad9f2c3a0f01",
+      "question": "Which of the following is a common gender ?[]",
+      "options": [
+        "King",
+        "Sovereign",
+        "Emperor",
+        "Queen"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 74,
+      "id": "7f137cd3-f43c-4ca2-9309-1aad0f4b74a5",
+      "question": "The word 'Sibling' means ---[]",
+      "options": [
+        "A brother",
+        "A sister",
+        "An infant",
+        "A brother or sister"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 75,
+      "id": "5ff880ff-fa49-42f4-b20b-cbab99e0faf1",
+      "question": "Which of the following is the masculine gender of 'Deer' ?[]",
+      "options": [
+        "Mate",
+        "Duck",
+        "Doe",
+        "Buck"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 76,
+      "id": "1109c979-9f09-4af0-aa30-5472d1880569",
+      "question": "The word 'parent' means ---[]",
+      "options": [
+        "Father",
+        "Mother",
+        "Father and mother",
+        "Father or mother"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 77,
+      "id": "45bd58d5-6705-49ac-8219-cb582a5e7fc0",
+      "question": "Which one of the following is a common gender ? []",
+      "options": [
+        "Teacher",
+        "Book",
+        "Boy",
+        "Madam"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 78,
+      "id": "80946eb1-aee2-461f-9cbe-71425805a785",
+      "question": "Which of the following is a neutral gender ?[]",
+      "options": [
+        "Rooster",
+        "Server",
+        "Stallion",
+        "Waiter"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 79,
+      "id": "37a2b3d4-04cb-48c6-a346-0b4532968db5",
+      "question": "Which of the following word can be used as both masculine and feminine ?[]",
+      "options": [
+        "Actor",
+        "Gander",
+        "Spinster",
+        "Spouse"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 80,
+      "id": "d274c8fb-b383-48ac-926c-19cc0310eecc",
+      "question": "What does spouse mean ?[]",
+      "options": [
+        "Family member",
+        "Parents",
+        "Husband",
+        "Husband or Wife"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 81,
+      "id": "b98f599a-3311-4d95-9335-30fa71bc735f",
+      "question": "Which of the following is a common gender ?[]",
+      "options": [
+        "Orphan",
+        "Gander",
+        "Cock",
+        "Pea-hen"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 82,
+      "id": "2b2dfbb6-fa08-4513-9a3b-a3e254357bba",
+      "question": "Which one is common gender ?[]",
+      "options": [
+        "Baby",
+        "Girl",
+        "Man",
+        "Boy"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 83,
+      "id": "7fbcc02e-fb2f-4e3f-99b4-a57c18ab93bb",
+      "question": "The opposite gender of 'Teacher' is ---[]",
+      "options": [
+        "Miss",
+        "Madam",
+        "Sir",
+        "None"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 84,
+      "id": "9b6853ab-28a2-4b82-9f48-3b8818eab24f",
+      "question": "The child cried for ----- mother./The horse fell and broke ----- legs.[]",
+      "options": [
+        "it",
+        "her",
+        "its",
+        "his"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 85,
+      "id": "185645e5-9cb6-4c84-b74a-484e9a17cda7",
+      "question": "The committee has met and -----.[]",
+      "options": [
+        "they have reached a decision",
+        "has formulated themselves some opinions",
+        "took their decision",
+        "it has reached a decision"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 86,
+      "id": "154d367e-9e1d-4663-89dc-8e2982cc4f33",
+      "question": "A noun that denotes a thing that is neither male or female is called ---[]",
+      "options": [
+        "masculine gender",
+        "feminine gender",
+        "neuter gender",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 87,
+      "id": "29306ccf-2966-4035-8fdd-9b0983975403",
+      "question": "Identify masculine gender.[]",
+      "options": [
+        "Spinster",
+        "Ewe",
+        "Sow",
+        "Stag"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 88,
+      "id": "7456ad5a-7326-416e-9fc7-a935c5245079",
+      "question": "Which one of the following is a masculine ?[]",
+      "options": [
+        "Mare",
+        "Lad",
+        "Pillow",
+        "Pony"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 89,
+      "id": "8dceec42-7809-4e89-ba00-27fd2cf9cab3",
+      "question": "Which one of the following words is an odd to others ?[]",
+      "options": [
+        "Joey",
+        "Filly",
+        "Vixen",
+        "Calf"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 90,
+      "id": "9a071612-84e1-446e-98bd-1ea2cf92c8eb",
+      "question": "Which one is the opposite gender of deer ?[]",
+      "options": [
+        "Goose",
+        "Doe",
+        "Pea hen",
+        "Hare"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 91,
+      "id": "f085237e-1ff0-443d-a10a-00753c1a8372",
+      "question": "A female 'administrator' is called ---[]",
+      "options": [
+        "an administratoress",
+        "an administress",
+        "an administratrix",
+        "an administrer"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 92,
+      "id": "2b9bd587-6a8a-4bfa-8d79-b866669752dc",
+      "question": "Find out the feminine gender.[]",
+      "options": [
+        "Tutor",
+        "Duck",
+        "Bachelor",
+        "Prince"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 93,
+      "id": "2613105a-b54f-48f3-89b4-fbf357c371bd",
+      "question": "Which of the following is not used as a dual gender ?[]",
+      "options": [
+        "Professor",
+        "Doctor",
+        "Steward",
+        "Cook"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 94,
+      "id": "9e5851b2-8bdd-4224-81d4-c1ae190e3c0e",
+      "question": "Which of the following one is a common gender ?[]",
+      "options": [
+        "Prince",
+        "Ewe",
+        "Spouse",
+        "Mare"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 95,
+      "id": "d36432db-f82d-4a83-bb77-a5dcf6624e47",
+      "question": "Which one is the example of common gender ?[]",
+      "options": [
+        "Hart",
+        "Buck",
+        "Deer",
+        "None"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 96,
+      "id": "873cebfe-bf42-46b9-8288-5f4f1db60215",
+      "question": "Which of the following is a feminine gender ?[]",
+      "options": [
+        "Spinster",
+        "Bachelor",
+        "Duke",
+        "Count"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 97,
+      "id": "8afe147f-fcbd-4a9a-b916-0cf605b75ed1",
+      "question": "Which one of the following is a masculine gender ?[]",
+      "options": [
+        "Doe",
+        "Wizard",
+        "Testatrix",
+        "Friend"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 98,
+      "id": "8d91df6c-ecd6-487a-9a61-d4a29a3b7c1d",
+      "question": "Identify the masculine gender[]",
+      "options": [
+        "The Sun",
+        "The Moon",
+        "The Earth",
+        "Spring"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 99,
+      "id": "92a9d5dd-ff6b-49dd-8e56-313760ee0ab9",
+      "question": "What is the Feminine gender of 'Duke' ?[]",
+      "options": [
+        "Duck",
+        "Duchies",
+        "Dukies",
+        "Duchess"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 100,
+      "id": "90bd8a84-894c-46b0-bdf5-559303bb8173",
+      "question": "Masculine form of 'sow' is ---[]",
+      "options": [
+        "bull",
+        "fox",
+        "hart",
+        "boar"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 101,
+      "id": "0662d9cc-87d8-437e-a932-a5a5214291b0",
+      "question": "The masculine gender of the word 'lady' is ---[]",
+      "options": [
+        "lord",
+        "lad",
+        "man",
+        "husband"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 102,
+      "id": "153de864-073b-498d-b48a-f5bbe3b7b5a2",
+      "question": "The feminine gender of the word 'horse' is --- []",
+      "options": [
+        "Bitch",
+        "Mare",
+        "Stallion",
+        "Vixen"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 103,
+      "id": "1b08842d-1b82-4196-9f46-a27e1d2e1e37",
+      "question": "Which of the following is a common gender ?[]",
+      "options": [
+        "Calf",
+        "Ram",
+        "Boar",
+        "Sow"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 104,
+      "id": "d83799c0-d961-4ffa-9178-92cef4cd9b0d",
+      "question": "A gander is a male ---[]",
+      "options": [
+        "goose",
+        "horse",
+        "duck",
+        "rhinoceros"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

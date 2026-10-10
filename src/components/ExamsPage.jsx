@@ -9,12 +9,15 @@ import { useTheme } from '../context/ThemeContext';
 export default function ExamsPage({ 
   data = {},
   selectedCategory,
+  isFromBundle = false,
+  onBackToBundle = null,
   onNavigateHome, 
   onNavigateCourse, 
   onNavigateStore, 
   onNavigateAbout, 
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin, 
   onLoginClick 
 }) {
@@ -45,6 +48,7 @@ export default function ExamsPage({
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
         onNavigateOrders={onNavigateOrders}
+        onNavigatePolicies={onNavigatePolicies}
         onOpenAdmin={onOpenAdmin}
         onLoginClick={onLoginClick}
       />
@@ -59,6 +63,10 @@ export default function ExamsPage({
             initialStep={selectedCategory ? 'category_detail' : 'category_cards'} 
             initialCategory={selectedCategory || null}
             siteSettings={siteSettings}
+            customExamBatches={data?.examBatches}
+            isFromBundle={isFromBundle}
+            onBackToBundle={onBackToBundle}
+            onLoginClick={onLoginClick}
           />
         ) : (
           <div>
@@ -235,9 +243,13 @@ export default function ExamsPage({
         <div className="hidden sm:block">
           {isDark ? (
             <footer className="mt-20 border-t border-[#e11438]/20 bg-gradient-to-b from-[#140307] to-[#070102] py-8 text-center text-xs text-gray-400">
-              <div className="max-w-7xl mx-auto px-4">
+              <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
                 <p className="font-medium text-[#ff3b61] mb-1">EDU HUNTERS · Premier Edtech Learning Platform</p>
-                <p>© 2026 Edu Hunters. All rights reserved.</p>
+                <div className="flex items-center gap-4">
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+                </div>
               </div>
             </footer>
           ) : (
@@ -269,9 +281,9 @@ export default function ExamsPage({
                       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 mb-5">দ্রুত লিঙ্ক</p>
                       <ul className="space-y-3 list-none p-0 m-0">
                         <li><a href="#courses" onClick={(e) => { e.preventDefault(); onNavigateCourse(); }} className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">All Courses</a></li>
-                        <li><a href="#dashboard" className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Dashboard</a></li>
-                        <li><a href="#profile" className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Profile</a></li>
-                        <li><a href="#orders" className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Order History</a></li>
+                        <li><a href="#orders" onClick={(e) => { e.preventDefault(); onNavigateOrders && onNavigateOrders(); }} className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Order History</a></li>
+                        <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="text-sm text-white/70 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">Terms & Conditions</button></li>
+                        <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="text-sm text-white/70 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">Refund Policy</button></li>
                       </ul>
                     </div>
 
@@ -290,9 +302,9 @@ export default function ExamsPage({
                 <div className="border-t border-white/[0.1] pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-3">
                   <p className="text-xs text-white/60">© 2026 Edu Hunters. All rights reserved.</p>
                   <div className="flex items-center gap-6">
-                    <span className="text-xs text-white/60">Privacy Policy</span>
-                    <span className="text-xs text-white/60">Terms of Use</span>
-                    <span className="text-xs text-white/60">Refund Policy</span>
+                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Privacy Policy</button>
+                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Terms of Use</button>
+                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Refund Policy</button>
                   </div>
                 </div>
               </div>

@@ -29,8 +29,37 @@
         }
       }
     </script>
+    <meta name="theme-color" content="#000000" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+      html.dark, html.dark body {
+        background-color: #050102 !important;
+        background-image: url('/dark-bg-desktop.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center top !important;
+        background-size: cover !important;
+        background-attachment: fixed !important;
+        color: #ffffff;
+      }
+      @media (max-width: 768px) {
+        html.dark, html.dark body {
+          background-image: url('/dark-bg-mobile.png') !important;
+          background-size: cover !important;
+          background-position: center top !important;
+          background-attachment: fixed !important;
+        }
+      }
+      #root {
+        background-color: transparent !important;
+        min-height: 100vh;
+      }
+    </style>
     <script>
-      // Apply saved theme immediately to prevent flashing
+      // Apply saved theme immediately and enforce black canvas to prevent white flash
       try {
         const savedTheme = localStorage.getItem('eduhunters_theme') || 'dark';
         if (savedTheme === 'dark') {
@@ -46,7 +75,7 @@
       }
     </script>
   </head>
-  <body>
+  <body style="margin: 0; padding: 0;">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

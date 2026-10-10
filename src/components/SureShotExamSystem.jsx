@@ -5,7 +5,7 @@ import {
   ChevronDown, ChevronUp, ChevronRight, Eye, ShieldAlert,
   Search, Filter, Sparkles, Flame, Bookmark, History,
   BarChart3, CheckSquare, XCircle, Grid, ListFilter, ArrowRight, User, FileText,
-  Lock, Play
+  Lock, Play, SlidersHorizontal
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useTheme } from '../context/ThemeContext';
@@ -13,6 +13,12 @@ import { EXAM_CATEGORIES_METADATA, EXAM_PAGE_FILTER_TABS } from '../data/examCat
 import CategoryDetailModal from './CategoryDetailModal';
 import ExamDetailPage from './ExamDetailPage';
 import CheckoutModal from './CheckoutModal';
+import RtdsCurriculumView from './RtdsCurriculumView';
+import { stripEmoji } from '../utils/textUtils';
+import { getMergedExamManifest, loadExamQuestions } from '../utils/examBatchStorage';
+import { useAuth } from '../context/AuthContext';
+import { getStoredEnrolledBatches, grantCourseAccess, isItemEnrolled } from '../utils/enrollmentService';
+
 
 // Fallback initial lists for instant rendering before manifest loads
 const INITIAL_SURE_SHOT = [
@@ -76,8 +82,22 @@ const calcDiscount = (orig, curr) => {
   return (o > c) ? (o - c) : 400;
 };
 
-export default function SureShotExamSystem({ onBackToCourses, initialStep = 'category_cards', initialCategory = null, onSwitchToBoard, siteSettings }) {
+export default function SureShotExamSystem({ 
+  onBackToCourses, 
+  initialStep = 'category_cards', 
+  initialCategory = null, 
+  onSwitchToBoard, 
+  siteSettings, 
+  customExamBatches = null,
+  isFromBundle = false,
+  onBackToBundle = null,
+  onLoginClick = null
+}) {
   const { isDark } = useTheme();
+  const categoriesMetadata = (customExamBatches && customExamBatches.length > 0)
+    ? customExamBatches
+    : EXAM_CATEGORIES_METADATA;
+
   // Navigation states: 'category_cards' | 'category_detail' | 'course_card' | 'exam_list' | 'exam_intro' | 'exam_live' | 'exam_result'
   const [step, setStep] = useState(() => {
     try {
@@ -97,50 +117,90 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
       const urlParams = new URLSearchParams(window.location.search);
       const urlCat = urlParams.get('category') || initialCategory;
       if (urlCat && urlCat !== 'all') {
-        return EXAM_CATEGORIES_METADATA.find(c => c.key === urlCat) || null;
+        return categoriesMetadata.find(c => c.key === urlCat) || null;
       }
     } catch (e) {}
     return null;
   });
+
+  // Keep selectedCategoryDetail synced if customized in Admin Panel
+  React.useEffect(() => {
+    if (selectedCategoryDetail) {
+      const fresh = categoriesMetadata.find(c => c.key === selectedCategoryDetail.key);
+      if (fresh && (fresh.title !== selectedCategoryDetail.title || fresh.price !== selectedCategoryDetail.price || fresh.image !== selectedCategoryDetail.image || fresh.enrolledCount !== selectedCategoryDetail.enrolledCount)) {
+        setSelectedCategoryDetail(fresh);
+      }
+    }
+  }, [categoriesMetadata]);
   const [selectedCategoryModal, setSelectedCategoryModal] = useState(null);
   const [activeCategoryFilter, setActiveCategoryFilter] = useState('all');
   const [categorySearchQuery, setCategorySearchQuery] = useState('');
 
+  const { currentUser } = useAuth();
+
   // Enrolled batch keys (e.g. ['sureshot', 'medical'])
   const [enrolledBatches, setEnrolledBatches] = useState(() => {
-    try {
-      const saved = localStorage.getItem('eduhunters_enrolled_batches');
-      return saved ? JSON.parse(saved) : [];
-    } catch (e) {
-      return [];
-    }
+    return getStoredEnrolledBatches();
   });
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setEnrolledBatches(getStoredEnrolledBatches());
+    };
+    window.addEventListener('eh:enrollment_updated', handleUpdate);
+    window.addEventListener('eh:orders_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+    return () => {
+      window.removeEventListener('eh:enrollment_updated', handleUpdate);
+      window.removeEventListener('eh:orders_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
+  }, []);
 
   // Modal state for checkout
   const [checkoutCategory, setCheckoutCategory] = useState(null);
 
+  const handleOpenCheckoutModal = (cat) => {
+    if (!currentUser) {
+      if (onLoginClick) {
+        onLoginClick(() => {
+          setCheckoutCategory(cat);
+        });
+      }
+      return;
+    }
+    setCheckoutCategory(cat);
+  };
+
   const handleEnrollBatch = (catKey) => {
+    grantCourseAccess(catKey);
     setEnrolledBatches(prev => {
       if (prev.includes(catKey)) return prev;
-      const next = [...prev, catKey];
-      try {
-        localStorage.setItem('eduhunters_enrolled_batches', JSON.stringify(next));
-      } catch (e) {}
-      return next;
+      return [...prev, catKey];
     });
+  };
+
+  const isBatchEnrolled = (catKey) => {
+    if (!catKey || catKey === 'all') return true;
+    if (enrolledBatches.includes(catKey)) return true;
+    return isItemEnrolled(catKey, currentUser);
   };
 
   // Sync state if initialCategory or initialStep changes
   React.useEffect(() => {
     if (initialCategory && initialCategory !== 'all') {
-      const cat = EXAM_CATEGORIES_METADATA.find(c => c.key === initialCategory);
+      const cat = categoriesMetadata.find(c => c.key === initialCategory);
       if (cat) {
         setSelectedCategoryDetail(cat);
         setSelectedCategory(initialCategory);
         setStep(initialStep || 'category_detail');
       }
+    } else {
+      setSelectedCategoryDetail(null);
+      setSelectedCategory('all');
+      setStep('category_cards');
     }
-  }, [initialCategory, initialStep]);
+  }, [initialCategory, initialStep, categoriesMetadata]);
 
   // Handle browser popstate / back-forward within exam views
   React.useEffect(() => {
@@ -150,7 +210,7 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
         const urlStep = urlParams.get('step');
         const urlCat = urlParams.get('category');
         if (urlCat && urlCat !== 'all') {
-          const cat = EXAM_CATEGORIES_METADATA.find(c => c.key === urlCat);
+          const cat = categoriesMetadata.find(c => c.key === urlCat);
           if (cat) {
             setSelectedCategoryDetail(cat);
             setSelectedCategory(urlCat);
@@ -174,6 +234,26 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
   const [allExams, setAllExams] = useState(INITIAL_SURE_SHOT);
   const [isLoadingManifest, setIsLoadingManifest] = useState(true);
 
+  // View states for streamlined Category Exam List (matching user screenshot)
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isSubjectDropdownOpen, setIsSubjectDropdownOpen] = useState(false);
+  const subjectDropdownRef = useRef(null);
+  const [isEnglishSuggestOpen, setIsEnglishSuggestOpen] = useState(false);
+  const englishSearchRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (subjectDropdownRef.current && !subjectDropdownRef.current.contains(e.target)) {
+        setIsSubjectDropdownOpen(false);
+      }
+      if (englishSearchRef.current && !englishSearchRef.current.contains(e.target)) {
+        setIsEnglishSuggestOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   // Filter & Search states
   const [selectedCategory, setSelectedCategory] = useState(() => {
     try {
@@ -191,6 +271,7 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
   // Helper to change step and keep URL in sync for perfect refresh retention
   const updateExamStep = (newStep, catKey = null) => {
     setStep(newStep);
+    setIsExpanded(false);
     try {
       const currentCat = catKey || selectedCategory || (selectedCategoryDetail?.key);
       const params = new URLSearchParams();
@@ -206,9 +287,11 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
 
   // Handler to enter specific exam category from card
   const handleEnterCategory = (categoryKey) => {
+    const cat = categoriesMetadata.find(c => c.key === categoryKey);
+    if (cat) setSelectedCategoryDetail(cat);
     setSelectedCategory(categoryKey);
     setSelectedSubCat('all');
-    updateExamStep('exam_list', categoryKey);
+    updateExamStep('category_detail', categoryKey);
   };
 
   // Active Exam Selection states
@@ -222,6 +305,8 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
   const [flaggedQuestions, setFlaggedQuestions] = useState({});
   const [practiceRevealed, setPracticeRevealed] = useState({});
   const [timeLeft, setTimeLeft] = useState(40 * 60);
+  const [customDurationMins, setCustomDurationMins] = useState(null);
+  const [showCustomDurationPicker, setShowCustomDurationPicker] = useState(false);
   const [showSeconds, setShowSeconds] = useState(true);
   const [isSecondTimer, setIsSecondTimer] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -245,21 +330,23 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
   const timerRef = useRef(null);
   const questionRefs = useRef({});
 
-  // 1. Fetch Master Manifest on mount
+  // 1. Fetch Master Manifest on mount (with overrides)
   useEffect(() => {
     let isMounted = true;
     async function loadManifest() {
       try {
         setIsLoadingManifest(true);
-        const res = await fetch('/exams_data/all_exams_manifest.json');
-        if (!res.ok) throw new Error("Could not load exam manifest");
-        const data = await res.json();
+        const data = await getMergedExamManifest();
         if (isMounted && data.exams && data.exams.length > 0) {
-          setManifestData(data);
-          setAllExams(data.exams);
+          const cleanedExams = data.exams.map(e => ({
+            ...e,
+            title: stripEmoji(e.title)
+          }));
+          setManifestData({ ...data, exams: cleanedExams });
+          setAllExams(cleanedExams);
           // Set initial meta to first item if default
           if (!selectedExamMeta || selectedExamMeta.id === 'sureshot-1') {
-            setSelectedExamMeta(data.exams[0]);
+            setSelectedExamMeta(cleanedExams[0]);
           }
         }
       } catch (err) {
@@ -333,63 +420,25 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
 
   // Load Exam JSON when clicked
   const handleSelectExam = async (examMeta) => {
-    const isCurrentCatEnrolled = selectedCategory === 'all' || enrolledBatches.includes(selectedCategory);
+    const catKey = examMeta.category || selectedCategory;
+    const isCurrentCatEnrolled = isBatchEnrolled(catKey);
     const examIndex = filteredExams.findIndex(e => e.id === examMeta.id);
     if (!isCurrentCatEnrolled && examIndex > 0) {
-      const targetCat = EXAM_CATEGORIES_METADATA.find(c => c.key === selectedCategory) || {
-        key: selectedCategory,
-        title: CATEGORY_TABS.find(t => t.key === selectedCategory)?.name || 'এক্সাম ব্যাচ',
+      const targetCat = categoriesMetadata.find(c => c.key === catKey) || {
+        key: catKey,
+        title: CATEGORY_TABS.find(t => t.key === catKey)?.name || 'এক্সাম ব্যাচ',
         price: 399,
         originalPrice: 799
       };
-      setCheckoutCategory(targetCat);
+      handleOpenCheckoutModal(targetCat);
       return;
     }
 
     setSelectedExamMeta(examMeta);
     setIsLoadingExam(true);
     try {
-      // Handle encoded path segments
-      const safePath = examMeta.filePath.split('/').map(segment => encodeURIComponent(segment)).join('/');
-      const res = await fetch(`/exams_data/${safePath}`);
-      if (!res.ok) throw new Error("Could not load exam data");
-      
-      let rawText = await res.text();
-      // Remove any UTF-8 BOM
-      if (rawText.charCodeAt(0) === 0xFEFF) {
-        rawText = rawText.slice(1);
-      }
-      const data = JSON.parse(rawText);
-      
-      // Normalize questions array
-      const rawQuestions = data.questions || (Array.isArray(data) ? data : []);
-      const normalized = rawQuestions.map((q, idx) => {
-        let cIdx = q.correct_index;
-        if (cIdx === undefined || cIdx === null) {
-          if (q.correct_answer !== undefined && q.correct_answer !== null) {
-            const letter = q.correct_answer.toString().trim().toUpperCase();
-            if (['A', 'B', 'C', 'D'].includes(letter)) cIdx = letter.charCodeAt(0) - 65;
-            else if (['1', '2', '3', '4'].includes(letter)) cIdx = parseInt(letter, 10) - 1;
-            else if (['ক', 'খ', 'গ', 'ঘ'].includes(letter)) cIdx = ['ক', 'খ', 'গ', 'ঘ'].indexOf(letter);
-            else cIdx = 0;
-          } else {
-            cIdx = 0;
-          }
-        }
-
-        const options = Array.isArray(q.options) 
-          ? q.options.map(opt => typeof opt === 'string' ? opt.trim() : String(opt))
-          : [];
-
-        return {
-          id: q.id || `q-${idx + 1}`,
-          question_no: q.question_no || (idx + 1),
-          question: q.question || '',
-          options: options,
-          correct_index: cIdx,
-          explanation: (q.explanation || '').trim()
-        };
-      });
+      const data = await loadExamQuestions(examMeta);
+      const normalized = data.questions || [];
 
       const totalQs = normalized.length || examMeta.totalQuestions || 100;
       const durationMins = data.duration_minutes || examMeta.durationMinutes || (totalQs <= 25 ? 15 : (totalQs <= 50 ? 30 : 40));
@@ -403,7 +452,7 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
         subject: examMeta.subject,
         duration_minutes: durationMins,
         total_questions: totalQs,
-        negative_mark: data.negative_mark ? (data.negative_mark > 1 ? data.negative_mark / 100 : data.negative_mark) : (examMeta.negativeMark || 0.25),
+        negative_mark: data.negative_mark !== undefined ? (data.negative_mark > 1 ? data.negative_mark / 100 : data.negative_mark) : (examMeta.negativeMark || 0.25),
         questions: normalized
       });
 
@@ -415,6 +464,8 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
       );
       setIsSecondTimer(isSec);
 
+      setCustomDurationMins(null);
+      setShowCustomDurationPicker(false);
       setTimeLeft(durationMins * 60);
       setStep('exam_intro');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -434,9 +485,8 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
     setPracticeRevealed({});
     setIsSubmitted(false);
     setExamResult(null);
-    if (examData) {
-      setTimeLeft(examData.duration_minutes * 60);
-    }
+    const activeDur = customDurationMins || examData?.duration_minutes || selectedExamMeta?.durationMinutes || 40;
+    setTimeLeft(activeDur * 60);
     setStep('exam_live');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -600,24 +650,66 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
   // -------------------------------------------------------------
   if (step === 'category_detail') {
     const detailToUse = selectedCategoryDetail || 
-      EXAM_CATEGORIES_METADATA.find(c => c.key === selectedCategory) || 
-      EXAM_CATEGORIES_METADATA[0];
-    const isEnrolled = enrolledBatches.includes(detailToUse?.key);
+      categoriesMetadata.find(c => c.key === selectedCategory) || 
+      categoriesMetadata[0];
+    const isEnrolled = isBatchEnrolled(detailToUse?.key);
+    const categoryExams = allExams.filter(c => c.category === detailToUse?.key);
+    let examsForDetail = categoryExams.length > 0 
+      ? categoryExams 
+      : (detailToUse?.key === 'sureshot' ? INITIAL_SURE_SHOT : []);
+
+    if (detailToUse?.key === 'sureshot') {
+      const preferred = [
+        "GK - Subject Final",
+        "Mega exam - Sure Shot",
+        "Chemistry 2nd Paper - Sure shot",
+        "Chemistry 1st paper - Sure shot",
+        "Zoology - Other writers",
+        "Sure shot - Botany extra writer",
+        "English subject Final - Sure Shot",
+        "English grammar",
+        "English Vocabulary",
+        "Chemistry 1st part - Sure Shot"
+      ];
+      examsForDetail = [...examsForDetail].sort((a, b) => {
+        const idxA = preferred.indexOf(a.title);
+        const idxB = preferred.indexOf(b.title);
+        if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+        if (idxA !== -1) return -1;
+        if (idxB !== -1) return 1;
+        return 0;
+      });
+    }
+
     return (
       <>
         <ExamDetailPage 
           category={detailToUse}
+          exams={examsForDetail}
+          isFromBundle={isFromBundle}
           onBack={() => {
-            updateExamStep('category_cards');
+            if (isFromBundle && onBackToBundle) {
+              onBackToBundle();
+            } else {
+              updateExamStep('category_cards');
+            }
           }}
           onStartExamCategory={(categoryKey) => {
-            handleEnterCategory(categoryKey);
+            setSelectedCategory(categoryKey);
+            setSelectedSubCat('all');
+            updateExamStep('exam_list', categoryKey);
           }}
           onPreviewExams={(categoryKey) => {
-            handleEnterCategory(categoryKey);
+            setSelectedCategory(categoryKey);
+            setSelectedSubCat('all');
+            updateExamStep('exam_list', categoryKey);
           }}
           onOpenEnrollModal={(cat) => {
-            setCheckoutCategory(cat || detailToUse);
+            handleOpenCheckoutModal(cat || detailToUse);
+          }}
+          onSelectExam={(exam) => {
+            setSelectedCategory(detailToUse.key);
+            handleSelectExam(exam);
           }}
           isEnrolled={isEnrolled}
         />
@@ -630,7 +722,7 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
   // VIEW 1: CATEGORY CARDS VIEW (Exact Match to User Reference Mockup)
   // -------------------------------------------------------------
   if (step === 'category_cards' || step === 'course_card') {
-    const filteredCategories = EXAM_CATEGORIES_METADATA;
+    const filteredCategories = categoriesMetadata.filter(c => !c.isHidden);
 
     return (
       <div className={`min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans transition-colors duration-300 ${
@@ -658,7 +750,7 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
                 }}
                 className={`group rounded-3xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between cursor-pointer ${
                   isDark 
-                    ? 'bg-[#111317] border-white/[0.08] hover:border-white/20 shadow-[0_12px_32px_rgba(0,0,0,0.5)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.7)]' 
+                    ? 'bg-[#111317] border-white/[0.08] hover:border-white/20' 
                     : 'bg-white border-gray-200 hover:border-red-300'
                 }`}
               >
@@ -699,41 +791,22 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
                       {cat.title}
                     </h2>
 
-                    {/* Enrolled Students Count & MCQ Count (Left) + "Free Trial" Button (Right) */}
-                    <div className="flex items-center justify-between gap-2 pt-0.5 text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <div className="flex items-center gap-1.5 shrink-0">
-                          <User size={15} className="shrink-0 text-gray-500 dark:text-gray-400" />
-                          <span className="truncate">
-                            {cat.enrolledCount 
-                              ? (cat.enrolledCount.includes('জন') ? cat.enrolledCount : `${cat.enrolledCount.replace('+', '').trim()} জন`)
-                              : '৩,৪৫০ জন'}
-                          </span>
-                        </div>
-
-                        <span className="text-gray-300 dark:text-gray-600 font-normal">·</span>
-
+                    {/* Enrolled Students Count & MCQ Count */}
+                    <div className="flex items-center gap-2 pt-0.5 text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400">
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <User size={15} className="shrink-0 text-gray-500 dark:text-gray-400" />
                         <span className="truncate">
-                          {cat.questionCount ? (cat.questionCount.includes('MCQ') ? cat.questionCount : `${cat.questionCount.replace(' প্রশ্ন', '')} MCQ`) : '১,৭০০+ MCQ'}
+                          {cat.enrolledCount 
+                            ? (cat.enrolledCount.includes('জন') ? cat.enrolledCount : `${cat.enrolledCount.replace('+', '').trim()} জন`)
+                            : '৩,৪৫০ জন'}
                         </span>
                       </div>
 
-                      {/* "Free Trial" Button on Right */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleEnterCategory(cat.key);
-                        }}
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer border shrink-0 hover:scale-105 active:scale-95 shadow-xs ${
-                          isDark 
-                            ? 'bg-white/[0.08] hover:bg-white/[0.14] text-white border-white/15 hover:border-white/30 backdrop-blur-xs' 
-                            : 'bg-red-50 hover:bg-red-100 text-[#dc2626] border-red-200 hover:border-red-300'
-                        }`}
-                        title="Free Trial"
-                      >
-                        <span>Free Trial</span>
-                        <ArrowRight size={11} className="shrink-0 text-current" />
-                      </button>
+                      <span className="text-gray-300 dark:text-gray-600 font-normal">·</span>
+
+                      <span className="truncate">
+                        {cat.questionCount ? (cat.questionCount.includes('MCQ') ? cat.questionCount : `${cat.questionCount.replace(' প্রশ্ন', '')} MCQ`) : '১,৭০০+ MCQ'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -795,593 +868,612 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
   }
 
   // -------------------------------------------------------------
-  // VIEW 2: MASTER EXAM HUB / GRID VIEW (970 EXAMS ACROSS 6 CATEGORIES)
+  // VIEW 2: STREAMLINED BATCH EXAM LIST (Exact Match to User Reference Mockup)
   // -------------------------------------------------------------
   if (step === 'exam_list') {
+    const currentCategoryDetail = selectedCategoryDetail || 
+      categoriesMetadata.find(c => c.key === selectedCategory) || 
+      categoriesMetadata[0];
+
+    const currentCategoryKey = currentCategoryDetail?.key || 'sureshot';
+    const isCurrentCatEnrolled = isBatchEnrolled(currentCategoryKey);
+
+    // Filter exams belonging to this category
+    let categoryExams = allExams.filter(e => e.category === currentCategoryKey);
+    if (categoryExams.length === 0 && currentCategoryKey === 'sureshot') {
+      categoryExams = INITIAL_SURE_SHOT;
+    }
+
+    // For Sure Shot Carnival, arrange the order to match the user's reference mockup exactly
+    if (currentCategoryKey === 'sureshot') {
+      const preferred = [
+        "GK - Subject Final",
+        "Mega exam - Sure Shot",
+        "Chemistry 2nd Paper - Sure shot",
+        "Chemistry 1st paper - Sure shot",
+        "Zoology - Other writers",
+        "Sure shot - Botany extra writer",
+        "English subject Final - Sure Shot",
+        "English grammar",
+        "English Vocabulary",
+        "Chemistry 1st part - Sure Shot"
+      ];
+      categoryExams = [...categoryExams].sort((a, b) => {
+        const idxA = preferred.indexOf(a.title);
+        const idxB = preferred.indexOf(b.title);
+        if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+        if (idxA !== -1) return -1;
+        if (idxB !== -1) return 1;
+        return 0;
+      });
+    }
+
+    // Extract available groups/subjects
+    const availableGroups = Array.from(new Set(categoryExams.map(e => e.subject).filter(Boolean)));
+    const subjectsWithCounts = (() => {
+      const counts = {};
+      categoryExams.forEach(e => {
+        if (e.subject) counts[e.subject] = (counts[e.subject] || 0) + 1;
+      });
+      return Object.entries(counts).map(([name, count]) => ({ name, count }));
+    })();
+
+    const isMasterEnglish = selectedCategory === 'english_master';
+
+    // Autocomplete topic and exam suggestions for English in exam_list
+    const englishSuggestions = (() => {
+      if (!isMasterEnglish || !searchQuery.trim()) {
+        return { topics: [], exams: [] };
+      }
+      const q = searchQuery.toLowerCase().trim();
+      const tokens = q.split(/[\s,]+/).filter(Boolean);
+      const rangeMatch = q.match(/(\d+)\s*[-–—]\s*(\d+)/);
+      const qRange = rangeMatch ? [parseInt(rangeMatch[1], 10), parseInt(rangeMatch[2], 10)] : null;
+      const singleNumMatch = !qRange ? q.match(/\b\d+\b/) : null;
+      const singleNum = singleNumMatch ? parseInt(singleNumMatch[0], 10) : null;
+
+      // Group unique topics with count
+      const topicMap = new Map();
+      categoryExams.forEach(e => {
+        const topic = (e.title || '').split('(')[0].trim();
+        if (!topicMap.has(topic)) {
+          topicMap.set(topic, { topic, count: 0 });
+        }
+        topicMap.get(topic).count++;
+      });
+
+      // Score topics
+      const scoredTopics = [];
+      topicMap.forEach((data, topic) => {
+        const tLower = topic.toLowerCase();
+        const tWords = tLower.split(/[\s,]+/).filter(Boolean);
+        let score = 0;
+
+        if (tLower === q) score += 100;
+        else if (tLower.startsWith(q)) score += 80;
+        else if (tWords.some(w => w.startsWith(q))) score += 60;
+        else if (tokens.every(tok => tWords.some(w => w.startsWith(tok) || w.includes(tok)))) score += 40;
+        else if (tLower.includes(q)) score += 20;
+
+        if (score > 0) {
+          scoredTopics.push({ topic, count: data.count, score });
+        }
+      });
+      scoredTopics.sort((a, b) => b.score - a.score || b.count - a.count || a.topic.localeCompare(b.topic));
+
+      // Score individual exams
+      const scoredExams = [];
+      categoryExams.forEach(e => {
+        const title = e.title || '';
+        const titleLower = title.toLowerCase();
+        const rMatch = titleLower.match(/(\d+)\s*[-–—]\s*(\d+)/);
+        const rStart = rMatch ? parseInt(rMatch[1], 10) : null;
+        const rEnd = rMatch ? parseInt(rMatch[2], 10) : null;
+        const titleWords = titleLower.replace(/[().,:-]/g, ' ').split(/\s+/).filter(Boolean);
+
+        let examScore = 0;
+        if (titleLower.includes(q)) examScore += 40;
+
+        if (qRange && rStart !== null && rEnd !== null) {
+          if (qRange[0] === rStart && qRange[1] === rEnd) examScore += 90;
+          else if (qRange[0] >= rStart && qRange[1] <= rEnd) examScore += 70;
+        } else if (singleNum !== null && rStart !== null && rEnd !== null) {
+          if (singleNum >= rStart && singleNum <= rEnd) examScore += 65;
+        }
+
+        const matchesAllTokens = tokens.every(tok => {
+          const num = parseInt(tok, 10);
+          if (!isNaN(num) && rStart !== null && rEnd !== null) {
+            if (num >= rStart && num <= rEnd) return true;
+          }
+          return titleWords.some(w => w.startsWith(tok) || w.includes(tok));
+        });
+
+        if (matchesAllTokens) examScore += 30;
+
+        if (examScore > 0) {
+          scoredExams.push({ exam: e, score: examScore });
+        }
+      });
+      scoredExams.sort((a, b) => b.score - a.score);
+
+      return {
+        topics: scoredTopics.slice(0, 5),
+        exams: scoredExams.slice(0, 4).map(s => s.exam)
+      };
+    })();
+
+    // Apply smart search filter for English, or subject filter for other categories
+    let filteredList = categoryExams;
+    if (isMasterEnglish && searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      const tokens = q.split(/[\s,]+/).filter(Boolean);
+      const rangeMatch = q.match(/(\d+)\s*[-–—]\s*(\d+)/);
+      const qRange = rangeMatch ? [parseInt(rangeMatch[1], 10), parseInt(rangeMatch[2], 10)] : null;
+      const singleNumMatch = !qRange ? q.match(/\b\d+\b/) : null;
+      const singleNum = singleNumMatch ? parseInt(singleNumMatch[0], 10) : null;
+
+      const scored = [];
+      categoryExams.forEach(exam => {
+        const titleLower = (exam.title || '').toLowerCase();
+        const rMatch = titleLower.match(/(\d+)\s*[-–—]\s*(\d+)/);
+        const rStart = rMatch ? parseInt(rMatch[1], 10) : null;
+        const rEnd = rMatch ? parseInt(rMatch[2], 10) : null;
+        const titleWords = titleLower.replace(/[().,:-]/g, ' ').split(/\s+/).filter(Boolean);
+
+        const matchesAll = tokens.every(tok => {
+          const tRangeMatch = tok.match(/(\d+)\s*[-–—]\s*(\d+)/);
+          if (tRangeMatch && rStart !== null && rEnd !== null) {
+            const s = parseInt(tRangeMatch[1], 10);
+            const end = parseInt(tRangeMatch[2], 10);
+            return (s === rStart && end === rEnd) || (s >= rStart && end <= rEnd) || (s <= rEnd && end >= rStart);
+          }
+          const num = parseInt(tok, 10);
+          if (!isNaN(num) && rStart !== null && rEnd !== null) {
+            if (num >= rStart && num <= rEnd) return true;
+          }
+          return titleWords.some(tWord => tWord.startsWith(tok) || tWord.includes(tok)) || titleLower.includes(tok);
+        });
+
+        if (matchesAll) {
+          let score = 0;
+          if (titleLower.startsWith(q)) score += 100;
+          if (titleLower.includes(q)) score += 70;
+          if (qRange && rStart === qRange[0] && rEnd === qRange[1]) score += 50;
+          if (singleNum && rStart !== null && rEnd !== null && singleNum >= rStart && singleNum <= rEnd) score += 30;
+          scored.push({ exam, score });
+        }
+      });
+      scored.sort((a, b) => b.score - a.score);
+      filteredList = scored.map(s => s.exam);
+    } else if (selectedSubject !== 'all') {
+      filteredList = categoryExams.filter(e => e.subject === selectedSubject);
+    }
+
+    // Show 5 items by default as requested by user
+    const initialExams = filteredList.slice(0, 5);
+    const extraExams = filteredList.slice(5);
+    const hasMore = filteredList.length > 5;
+
+    const itemCountLabel = (() => {
+      const count = filteredList.length;
+      if (currentCategoryDetail?.type === 'lecture' || currentCategoryDetail?.isLecture) {
+        return `${count} ${count === 1 ? 'Lecture' : 'Lectures'}`;
+      }
+      if (currentCategoryDetail?.type === 'video' || currentCategoryDetail?.isVideo) {
+        return `${count} ${count === 1 ? 'Video' : 'Videos'}`;
+      }
+      return `${count} ${count === 1 ? 'Exam' : 'Exams'}`;
+    })();
+
     return (
-      <div className={`min-h-screen p-4 sm:p-6 md:p-8 font-sans selection:bg-[#e11438] selection:text-white transition-colors duration-300 ${
-        isDark ? 'bg-transparent text-white' : 'bg-[#f3f4f6] text-[#111827]'
+      <div className={`min-h-screen py-6 sm:py-10 px-4 sm:px-6 font-sans transition-colors duration-300 ${
+        isDark ? 'bg-transparent text-white' : 'bg-[#f4f5f8] text-[#111827]'
       }`}>
-        <div className="max-w-7xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-4">
           
-          {/* Top Breadcrumb Navigation: Back to Categories */}
-          <div className={`flex flex-wrap items-center justify-between gap-3 p-3.5 sm:p-4 rounded-2xl border transition-all ${
-            isDark 
-              ? 'bg-[#120306]/90 border-[#e11438]/25 text-white shadow-lg' 
-              : 'bg-white border-gray-200 text-gray-800 shadow-sm'
-          }`}>
-            <button 
-              onClick={() => {
-                updateExamStep('category_cards');
-              }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-red-950/40 cursor-pointer border-none hover:scale-[1.02] active:scale-[0.98]"
+          {/* Top Breadcrumb Navigation */}
+          <div className="flex items-center justify-between gap-3">
+            <button
+              onClick={() => updateExamStep('category_cards')}
+              className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold transition-colors cursor-pointer bg-transparent border-none p-0 ${
+                isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-[#dc2626]'
+              }`}
             >
-              <ArrowLeft size={16} />
-              <span>← সকল এক্সাম ক্যাটাগরিতে ফিরে যান</span>
+              <span>← সব এক্সাম ব্যাচে ফিরে যান</span>
             </button>
 
-            {/* Currently viewing category indicator */}
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-gray-400 font-medium hidden sm:inline">বর্তমানে সিলেক্টেড:</span>
-              <span className={`px-3 py-1 rounded-full font-bold border ${
-                isDark 
-                  ? 'bg-[#1e040a] border-[#e11438]/40 text-[#ff6b8b]' 
-                  : 'bg-red-50 border-red-200 text-red-700'
+            <div className="flex items-center gap-2">
+              <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${
+                isDark ? 'bg-white/[0.04] border-white/10 text-gray-300' : 'bg-white border-gray-200 text-gray-700'
               }`}>
-                {CATEGORY_TABS.find(t => t.key === selectedCategory)?.name || 'সকল ক্যাটাগরি'}
+                {currentCategoryDetail?.title?.split('|')[0]?.trim() || 'Sure Shot Carnival'}
               </span>
-            </div>
-          </div>
-          
-          {/* Header Banner */}
-          <div className={`border rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden transition-colors duration-300 ${
-            isDark 
-              ? 'bg-gradient-to-r from-[#2c050d] via-[#140206] to-[#25040a] border-[#e11438]/25 text-white' 
-              : 'bg-gradient-to-r from-[#7f1d1d] via-[#dc2626] to-[#991b1b] border-red-700/20 text-white'
-          }`}>
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#e11438]/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div>
-                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold mb-3 ${
-                  isDark ? 'bg-[#1e040a] border border-[#e11438]/40 text-[#ff6b8b]' : 'bg-white/20 border border-white/30 text-white'
-                }`}>
-                  <Flame size={14} /> সম্পূর্ণ ক্যাটাগরিভিত্তিক প্রশ্নব্যাংক ও এক্সাম সিস্টেম
-                </div>
-                <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-                  Edu Hunters Exam Hub
-                </h1>
-                <p className="text-sm text-white/90 mt-2 max-w-2xl leading-relaxed">
-                  মেডিকেল, ডেন্টাল, সেকেন্ড টাইমার ও HSC-র জন্য <strong className="text-white">৯৭০+ পূর্ণাঙ্গ এক্সাম</strong> এবং <strong className="text-white">৬০,৭৯৫+ সঠিক প্রশ্ন</strong> দিয়ে নিজের প্রস্তুতি যাচাই করুন।
-                </p>
-              </div>
-
-              {/* Stats Counters */}
-              <div className="grid grid-cols-3 gap-3 shrink-0">
-                <div className={`border rounded-2xl p-3.5 text-center min-w-[95px] shadow-md ${
-                  isDark ? 'bg-[#120407]/90 border-[#e11438]/20' : 'bg-white/20 border-white/30'
-                }`}>
-                  <p className="text-xl sm:text-2xl font-black text-white">{manifestData?.totalExams || 970}</p>
-                  <p className="text-[11px] text-white/80 font-medium">মোট এক্সাম</p>
-                </div>
-                <div className={`border rounded-2xl p-3.5 text-center min-w-[95px] shadow-md ${
-                  isDark ? 'bg-[#120407]/90 border-[#e11438]/20' : 'bg-white/20 border-white/30'
-                }`}>
-                  <p className="text-xl sm:text-2xl font-black text-emerald-300">৬০.৮k+</p>
-                  <p className="text-[11px] text-white/80 font-medium">MCQ প্রশ্ন</p>
-                </div>
-                <div className={`border rounded-2xl p-3.5 text-center min-w-[95px] shadow-md ${
-                  isDark ? 'bg-[#120407]/90 border-[#e11438]/20' : 'bg-white/20 border-white/30'
-                }`}>
-                  <p className={`text-xl sm:text-2xl font-black ${isDark ? 'text-[#ff6b8b]' : 'text-white'}`}>৬টি</p>
-                  <p className="text-[11px] text-white/80 font-medium">ক্যাটাগরি</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Live Search Bar */}
-            <div className="mt-6 relative">
-              <div className="relative flex items-center">
-                <Search size={18} className="absolute left-4 text-gray-400" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setVisibleCount(24);
-                  }}
-                  placeholder="যেকোনো অধ্যায়, লেখক বা বিষয়ের নাম লিখে খুঁজুন (যেমন: ভেক্টর, অণুজীব, ইসহাক, হাজারী, Voice, 10th BCS)..."
-                  className={`w-full rounded-2xl py-3.5 pl-12 pr-10 text-sm focus:outline-none transition-all shadow-inner ${
-                    isDark 
-                      ? 'bg-[#120306]/90 border border-[#e11438]/30 focus:border-[#ff2e55] text-white placeholder-gray-500' 
-                      : 'bg-white border border-white/40 focus:border-white text-gray-900 placeholder-gray-400 shadow-md'
-                  }`}
-                />
-                {searchQuery && (
-                  <button 
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-4 text-gray-400 hover:text-gray-600 bg-transparent border-none cursor-pointer"
-                  >
-                    <X size={16} />
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Category Tabs Bar */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-            {CATEGORY_TABS.map((tab) => {
-              const isActive = selectedCategory === tab.key;
-              return (
-                <button
-                  key={tab.key}
-                  onClick={() => {
-                    setSelectedCategory(tab.key);
-                    setSelectedSubCat('all');
-                    setVisibleCount(24);
-                  }}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer border ${
-                    isActive
-                      ? (isDark 
-                          ? 'bg-gradient-to-r from-[#e11438] to-[#9b0e27] text-white border-[#ff3358]/40 shadow-lg shadow-red-950/60' 
-                          : 'bg-[#dc2626] text-white border-[#dc2626] shadow-sm')
-                      : (isDark 
-                          ? 'bg-[#140307]/80 text-gray-300 border-[#e11438]/20 hover:border-[#e11438]/60 hover:text-white' 
-                          : 'bg-white text-gray-700 border-gray-200 hover:border-red-400 hover:text-red-600 shadow-xs')
-                  }`}
-                >
-                  <span>{tab.icon}</span>
-                  <span>{tab.name}</span>
-                  {tab.count && (
-                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${
-                      isActive 
-                        ? 'bg-white/20 text-white' 
-                        : (isDark ? 'bg-[#20040a] text-gray-400' : 'bg-gray-100 text-gray-600')
-                    }`}>
-                      {tab.count}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Trial / Enrollment Notice Banner */}
-          {selectedCategory !== 'all' && selectedCategory !== 'history' && (
-            enrolledBatches.includes(selectedCategory) ? (
-              <div className={`p-4 rounded-2xl border flex items-center justify-between gap-3 ${
-                isDark ? 'bg-emerald-950/30 border-emerald-500/30 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-800'
-              }`}>
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                  <CheckCircle2 size={18} className="text-emerald-500 shrink-0" />
-                  <span>আপনি এই এক্সাম ব্যাচে এনরোল্ড আছেন — সকল পরীক্ষা আনলক করা হয়েছে।</span>
-                </div>
-              </div>
-            ) : (
-              <div className={`p-4 sm:p-5 rounded-3xl border flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all shadow-lg ${
-                isDark 
-                  ? 'bg-gradient-to-r from-[#200409] via-[#150206] to-[#200409] border-[#e11438]/40 shadow-red-950/40' 
-                  : 'bg-gradient-to-r from-red-50 via-white to-red-50 border-red-200 shadow-sm'
-              }`}>
-                <div className="flex items-start sm:items-center gap-3.5">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-[#dc2626] to-[#b91c1c] text-white flex items-center justify-center shrink-0 shadow-md shadow-red-900/30">
-                    <Sparkles size={20} className="animate-pulse" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className={`text-sm sm:text-base font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                        ফ্রি ডেমো ট্রায়াল মোড সক্রিয়
-                      </h4>
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                        ১টি ফ্রি এক্সাম
-                      </span>
-                    </div>
-                    <p className="text-xs text-gray-400 mt-0.5">
-                      আপনি ১ম এক্সামটি ফ্রিতে দিতে পারবেন। পূর্ণাঙ্গ সব এক্সাম আনলক করতে ব্যাচে এনরোল করুন।
-                    </p>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => {
-                    const currentCatMeta = EXAM_CATEGORIES_METADATA.find(c => c.key === selectedCategory) || {
-                      key: selectedCategory,
-                      title: CATEGORY_TABS.find(t => t.key === selectedCategory)?.name || 'এক্সাম ব্যাচ',
-                      price: 399,
-                      originalPrice: 799
-                    };
-                    setCheckoutCategory(currentCatMeta);
-                  }}
-                  className="px-5 py-2.5 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] text-white text-xs sm:text-sm font-bold rounded-xl shadow-lg shadow-red-900/40 hover:scale-105 active:scale-95 transition-all cursor-pointer border-none flex items-center justify-center gap-1.5 shrink-0"
-                >
-                  <Lock size={14} />
-                  <span>সম্পূর্ণ ব্যাচ এনরোল করুন</span>
-                  <ArrowRight size={14} />
-                </button>
-              </div>
-            )
-          )}
-
-          {/* IF "HISTORY" TAB IS SELECTED */}
-          {selectedCategory === 'history' ? (
-            <div className={`border rounded-3xl p-6 sm:p-8 space-y-6 ${
-              isDark ? 'bg-[#140306]/90 border-[#e11438]/25 shadow-[0_8px_30px_rgba(0,0,0,0.5)]' : 'bg-white border-gray-200 shadow-sm'
-            }`}>
-              <div className={`flex items-center justify-between pb-4 border-b ${
-                isDark ? 'border-[#e11438]/20' : 'border-gray-100'
-              }`}>
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                    isDark ? 'bg-[#e11438]/15 border border-[#e11438]/30 text-[#ff4d6d]' : 'bg-red-50 border border-red-200 text-[#dc2626]'
-                  }`}>
-                    <History size={20} />
-                  </div>
-                  <div>
-                    <h2 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>আমার সাম্প্রতিক এক্সাম ফলাফল</h2>
-                    <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>আপনার দেওয়া পূর্ববর্তী পরীক্ষাগুলোর স্কোর এবং অ্যানালিটিক্স</p>
-                  </div>
-                </div>
-
-                {examHistory.length > 0 && (
-                  <button
-                    onClick={() => {
-                      if (window.confirm("আপনি কি নিশ্চিত যে সকল হিস্টোরি মুছে ফেলতে চান?")) {
-                        setExamHistory([]);
-                        localStorage.removeItem('eduhunters_exam_history');
-                      }
-                    }}
-                    className="text-xs text-red-500 hover:text-red-400 bg-transparent border-none cursor-pointer"
-                  >
-                    হিস্টোরি মুছুন
-                  </button>
-                )}
-              </div>
-
-              {examHistory.length === 0 ? (
-                <div className="text-center py-12 space-y-3">
-                  <Trophy size={48} className="mx-auto text-gray-500" />
-                  <p className={`text-base font-semibold ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>এখনও কোনো এক্সাম দেওয়া হয়নি</p>
-                  <p className="text-xs text-gray-500">যেকোনো এক্সাম শুরু করুন, ফলাফল স্বয়ংক্রিয়ভাবে এখানে সংরক্ষিত হবে।</p>
-                  <button
-                    onClick={() => setSelectedCategory('all')}
-                    className="mt-3 px-5 py-2.5 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] text-white rounded-xl text-xs font-bold cursor-pointer border-none shadow-md"
-                  >
-                    এক্সাম তালিকা দেখুন
-                  </button>
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  {examHistory.map((item, hIdx) => (
-                    <div 
-                      key={hIdx}
-                      className={`rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border transition-all ${
-                        isDark ? 'bg-[#1b050d] border-[#e11438]/15 hover:border-[#e11438]/40' : 'bg-white border-gray-200 hover:border-gray-300'
-                      }`}
-                    >
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2">
-                          <span className={`px-2.5 py-0.5 rounded text-[11px] font-bold ${
-                            isDark ? 'bg-[#e11438]/20 text-[#ff6b8b]' : 'bg-red-50 text-red-700'
-                          }`}>
-                            {item.subject || 'Medical'}
-                          </span>
-                          <span className="text-xs text-gray-400">{item.date}</span>
-                        </div>
-                        <h4 className={`text-base font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.title}</h4>
-                      </div>
-
-                      <div className="flex items-center gap-4 self-end sm:self-center">
-                        <div className="text-right">
-                          <p className="text-lg font-black text-[#dc2626] dark:text-[#ff4d6d]">{item.finalScore} / {item.totalQuestions}</p>
-                          <p className="text-xs text-gray-400">সঠিক: {item.correct} | ভুল: {item.wrong}</p>
-                        </div>
-                        <span className={`px-3 py-1.5 rounded-xl text-xs font-bold ${
-                          item.isPassed ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-red-500/20 text-red-400 border border-red-500/40'
-                        }`}>
-                          {item.isPassed ? 'উত্তীর্ণ' : 'অনুত্তীর্ণ'}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              {isCurrentCatEnrolled && (
+                <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  ✓ এনরোল্ড
+                </span>
               )}
             </div>
+          </div>
+
+          {/* RTDS / GK Course Hierarchy View */}
+          {(selectedCategory === 'rtds' || selectedCategory === 'gk_course') ? (
+            <RtdsCurriculumView
+              exams={filteredList}
+              onSelectExam={handleSelectExam}
+              isEnrolled={isCurrentCatEnrolled}
+              onOpenEnrollModal={() => handleOpenCheckoutModal(currentCategoryDetail)}
+              category={currentCategoryDetail}
+            />
           ) : (
             <>
-              {/* Secondary Filters Bar: Subject Chips & Subcategory Dropdown */}
-              <div className={`rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border transition-colors ${
-                isDark ? 'bg-[#120407]/90 border-[#e11438]/20' : 'bg-white border-gray-200 shadow-sm'
-              }`}>
-                
-                {/* Subject Chips */}
-                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
-                  {SUBJECT_FILTERS.map(sub => {
-                    const isSubActive = selectedSubject === sub.key;
+              {/* Filter / Search Bar: Replace dropdown with Smart Search Bar for Master English */}
+              {isMasterEnglish ? (
+                <div className="relative w-full max-w-lg z-30" ref={englishSearchRef}>
+                  <div className="relative">
+                    <Search size={16} className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors ${
+                      searchQuery ? 'text-red-500' : 'text-gray-400'
+                    }`} />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setSearchQuery(val);
+                        setIsEnglishSuggestOpen(val.trim().length > 0);
+                        setIsExpanded(false);
+                      }}
+                      onFocus={() => {
+                        if (searchQuery.trim().length > 0) {
+                          setIsEnglishSuggestOpen(true);
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Escape' || e.key === 'Enter') {
+                          setIsEnglishSuggestOpen(false);
+                        }
+                      }}
+                      placeholder="Search exam (e.g. Adjective, 1-40)..."
+                      autoComplete="off"
+                      spellCheck="false"
+                      className={`w-full pl-11 pr-20 py-3 rounded-2xl text-xs sm:text-sm font-semibold border transition-all outline-none shadow-xs ${
+                        isDark
+                          ? 'bg-[#121724] border-[#222b3d] text-white placeholder-gray-500 focus:border-red-500/80 focus:bg-[#151c2e]'
+                          : 'bg-white border-gray-200 text-gray-800 placeholder-gray-400 focus:border-red-400 focus:bg-white'
+                      }`}
+                    />
+                    
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+                      {searchQuery && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSearchQuery('');
+                            setIsEnglishSuggestOpen(false);
+                          }}
+                          className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 cursor-pointer bg-transparent border-none rounded-full"
+                          title="ক্লিয়ার করুন"
+                        >
+                          <X size={15} />
+                        </button>
+                      )}
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
+                        isDark ? 'bg-white/10 text-gray-300' : 'bg-gray-100 text-gray-600'
+                      }`}>
+                        {filteredList.length}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Auto-suggest dropdown when typing */}
+                  {isEnglishSuggestOpen && (englishSuggestions.topics.length > 0 || englishSuggestions.exams.length > 0) && (
+                    <div className={`absolute top-full left-0 mt-2 w-full rounded-2xl border shadow-xl p-2 z-40 backdrop-blur-xl animate-fadeIn ${
+                      isDark
+                        ? 'bg-[#0f1420]/95 border-[#222b3d] text-white shadow-black/60'
+                        : 'bg-white/95 border-gray-200 text-gray-800 shadow-gray-200/80'
+                    }`}>
+                      {/* Topic Suggestions Section */}
+                      {englishSuggestions.topics.length > 0 && (
+                        <div className="mb-2">
+                          <div className="px-2.5 py-1 text-[10px] font-bold text-gray-400 uppercase tracking-wider flex items-center justify-between">
+                            <span>সাজেস্টেড টপিকসমূহ</span>
+                            <span className="text-[9px] opacity-70">টপিক সিলেক্ট করুন</span>
+                          </div>
+                          <div className="flex flex-col gap-1 mt-1">
+                            {englishSuggestions.topics.map((item, sIdx) => (
+                              <button
+                                key={`topic-${sIdx}`}
+                                type="button"
+                                onClick={() => {
+                                  setSearchQuery(item.topic);
+                                  setIsEnglishSuggestOpen(false);
+                                }}
+                                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer border-none text-left ${
+                                  isDark ? 'hover:bg-white/[0.08] text-gray-200' : 'hover:bg-red-50/60 hover:text-red-600 text-gray-800'
+                                }`}
+                              >
+                                <div className="flex items-center gap-2 min-w-0">
+                                  <BookOpen size={13} className="text-red-500 shrink-0 opacity-80" />
+                                  <span className="truncate">{item.topic}</span>
+                                </div>
+                                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full shrink-0 ${
+                                  isDark ? 'bg-white/10 text-gray-300' : 'bg-gray-100 text-gray-600'
+                                }`}>
+                                  {item.count}টি এক্সাম
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Exam / Question Range Suggestions Section */}
+                      {englishSuggestions.exams.length > 0 && (
+                        <div>
+                          {englishSuggestions.topics.length > 0 && (
+                            <div className="my-1 border-t border-gray-100 dark:border-white/[0.06]" />
+                          )}
+                          <div className="px-2.5 py-1 text-[10px] font-bold text-gray-400 uppercase tracking-wider flex items-center justify-between">
+                            <span>ম্যাচিং এক্সাম / প্রশ্ন সেট</span>
+                            <span className="text-[9px] opacity-70">সরাসরি দেখুন</span>
+                          </div>
+                          <div className="flex flex-col gap-1 mt-1">
+                            {englishSuggestions.exams.map((exam, eIdx) => (
+                              <button
+                                key={`exam-sug-${exam.id || eIdx}`}
+                                type="button"
+                                onClick={() => {
+                                  setSearchQuery(exam.title);
+                                  setIsEnglishSuggestOpen(false);
+                                }}
+                                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer border-none text-left ${
+                                  isDark ? 'hover:bg-white/[0.08] text-gray-200' : 'hover:bg-gray-100 text-gray-800'
+                                }`}
+                              >
+                                <div className="flex items-center gap-2 min-w-0">
+                                  <FileText size={13} className="text-gray-400 shrink-0" />
+                                  <span className="truncate">{stripEmoji(exam.title)}</span>
+                                </div>
+                                <ChevronRight size={13} className="text-gray-400 shrink-0" />
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ) : availableGroups.length > 0 && (
+                <div className="relative inline-block z-30" ref={subjectDropdownRef}>
+                  <button
+                    type="button"
+
+                onClick={() => setIsSubjectDropdownOpen(prev => !prev)}
+                className={`inline-flex items-center justify-between gap-3.5 px-4 py-2.5 rounded-2xl border text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer shadow-xs hover:scale-[1.01] active:scale-[0.99] min-w-[210px] sm:min-w-[230px] ${
+                  isDark
+                    ? 'bg-[#121724] hover:bg-[#181f30] border-[#222b3d] hover:border-red-500/50 text-white'
+                    : 'bg-white hover:bg-gray-50 border-gray-200 hover:border-red-300 text-gray-800'
+                }`}
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <SlidersHorizontal size={14} className="text-[#dc2626] shrink-0" />
+                  <span className="truncate">
+                    {selectedSubject === 'all' ? 'সকল বিষয় (All Subjects)' : selectedSubject}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${
+                    isDark ? 'bg-white/10 text-gray-300' : 'bg-gray-100 text-gray-600'
+                  }`}>
+                    {filteredList.length}
+                  </span>
+                  <ChevronDown
+                    size={15}
+                    className={`transition-transform duration-300 text-gray-400 ${
+                      isSubjectDropdownOpen ? 'rotate-180 text-red-500' : ''
+                    }`}
+                  />
+                </div>
+              </button>
+
+              {/* Dropdown Options Popup */}
+              {isSubjectDropdownOpen && (
+                <div className={`absolute top-full left-0 mt-2 w-64 max-h-80 overflow-y-auto rounded-2xl border shadow-xl p-1.5 z-40 backdrop-blur-xl animate-fadeIn scrollbar-thin ${
+                  isDark
+                    ? 'bg-[#0f1420]/95 border-[#222b3d] text-white shadow-black/60'
+                    : 'bg-white/95 border-gray-200 text-gray-800 shadow-gray-200/80'
+                }`}>
+                  {/* All Subjects Option */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedSubject('all');
+                      setIsExpanded(false);
+                      setIsSubjectDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer border-none text-left ${
+                      selectedSubject === 'all'
+                        ? 'bg-[#dc2626] text-white'
+                        : (isDark ? 'hover:bg-white/[0.06] text-gray-200' : 'hover:bg-gray-100 text-gray-800')
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      {selectedSubject === 'all' && <Check size={14} className="shrink-0" />}
+                      <span>সকল বিষয় (All Subjects)</span>
+                    </div>
+                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
+                      selectedSubject === 'all' ? 'bg-white/20 text-white' : (isDark ? 'bg-white/10 text-gray-400' : 'bg-gray-100 text-gray-600')
+                    }`}>
+                      {categoryExams.length}
+                    </span>
+                  </button>
+
+                  <div className="my-1 border-t border-gray-100 dark:border-white/[0.06]" />
+
+                  {/* Individual Subjects */}
+                  {subjectsWithCounts.map(({ name, count }) => {
+                    const isSelected = selectedSubject === name;
                     return (
                       <button
-                        key={sub.key}
+                        key={name}
+                        type="button"
                         onClick={() => {
-                          setSelectedSubject(sub.key);
-                          setVisibleCount(24);
+                          setSelectedSubject(name);
+                          setIsExpanded(false);
+                          setIsSubjectDropdownOpen(false);
                         }}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border whitespace-nowrap ${
-                          isSubActive
-                            ? (isDark ? 'bg-gradient-to-r from-[#e11438] to-[#9b0e27] text-white border-[#ff3358]/40 shadow' : 'bg-[#dc2626] text-white border-[#dc2626] shadow-sm')
-                            : (isDark ? 'bg-[#180409] text-gray-400 border-[#e11438]/20 hover:text-white hover:border-[#e11438]/60' : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-red-400')
+                        className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer border-none text-left ${
+                          isSelected
+                            ? 'bg-[#dc2626] text-white'
+                            : (isDark ? 'hover:bg-white/[0.06] text-gray-200' : 'hover:bg-gray-100 text-gray-800')
                         }`}
                       >
-                        {sub.label}
+                        <div className="flex items-center gap-2 min-w-0">
+                          {isSelected && <Check size={14} className="shrink-0" />}
+                          <span className="truncate">{name}</span>
+                        </div>
+                        <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full shrink-0 ${
+                          isSelected ? 'bg-white/20 text-white' : (isDark ? 'bg-white/10 text-gray-400' : 'bg-gray-100 text-gray-600')
+                        }`}>
+                          {count}
+                        </span>
                       </button>
                     );
                   })}
                 </div>
-
-                {/* Subcategory / Author Dropdown (if available) */}
-                {availableSubCategories.length > 0 && (
-                  <div className="flex items-center gap-2 shrink-0">
-                    <ListFilter size={15} className="text-gray-400" />
-                    <select
-                      value={selectedSubCat}
-                      onChange={(e) => {
-                        setSelectedSubCat(e.target.value);
-                        setVisibleCount(24);
-                      }}
-                      className={`text-xs rounded-xl px-3 py-1.5 focus:outline-none cursor-pointer border ${
-                        isDark 
-                          ? 'bg-[#180409] border-[#e11438]/30 text-gray-200 focus:border-[#ff2e55]' 
-                          : 'bg-white border-gray-300 text-gray-800 focus:border-red-500'
-                      }`}
-                    >
-                      <option value="all">সব অধ্যায় ও লেখক ({availableSubCategories.length}টি বিভাগ)</option>
-                      {availableSubCategories.map((sc, sIdx) => (
-                        <option key={sIdx} value={sc.name}>
-                          {sc.name} ({sc.examCount}টি)
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-              </div>
-
-              {/* Showing Count */}
-              <div className="flex items-center justify-between text-xs text-gray-400 px-1">
-                <p>
-                  প্রদর্শন করা হচ্ছে: <strong className={isDark ? 'text-white' : 'text-gray-900'}>{Math.min(visibleCount, filteredExams.length)}</strong> / {filteredExams.length} টি এক্সাম
-                  {searchQuery && <span> ("{searchQuery}" এর জন্য)</span>}
-                </p>
-                {(selectedSubject !== 'all' || selectedSubCat !== 'all' || searchQuery) && (
-                  <button
-                    onClick={() => {
-                      setSelectedSubject('all');
-                      setSelectedSubCat('all');
-                      setSearchQuery('');
-                    }}
-                    className={`bg-transparent border-none cursor-pointer ${isDark ? 'text-[#ff3b61] hover:text-[#ff6b8b]' : 'text-red-600 hover:text-red-800'}`}
-                  >
-                    ফিল্টার ক্লিয়ার করুন
-                  </button>
-                )}
-              </div>
-
-              {/* Exams Cards Grid */}
-              {filteredExams.length === 0 ? (
-                <div className={`rounded-3xl p-12 text-center space-y-3 border ${
-                  isDark ? 'bg-[#120407]/90 border-[#e11438]/20' : 'bg-white border-gray-200'
-                }`}>
-                  <Search size={40} className="mx-auto text-gray-400" />
-                  <p className={`text-base font-bold ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>কোনো এক্সাম পাওয়া যায়নি</p>
-                  <p className="text-xs text-gray-400">আপনার সার্চ বা সিলেক্টেড ফিল্টার পরিবর্তন করে আবার চেষ্টা করুন।</p>
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {filteredExams.slice(0, visibleCount).map((exam, idx) => {
-                    const isBio = exam.subject === 'Biology';
-                    const isPhy = exam.subject === 'Physics';
-                    const isChem = exam.subject === 'Chemistry';
-                    const isEng = exam.subject === 'English';
-                    const isGk = exam.subject === 'General Knowledge';
-
-                    const isCurrentCatEnrolled = selectedCategory === 'all' || enrolledBatches.includes(selectedCategory);
-                    const isFreeTrial = !isCurrentCatEnrolled && idx === 0;
-                    const isLocked = !isCurrentCatEnrolled && idx > 0;
-
-                    const badgeColor = isDark 
-                      ? (isBio ? 'bg-emerald-950/80 text-emerald-400 border-emerald-500/30'
-                        : isPhy ? 'bg-sky-950/80 text-sky-300 border-sky-500/30'
-                        : isChem ? 'bg-purple-950/80 text-purple-300 border-purple-500/30'
-                        : isEng ? 'bg-amber-950/80 text-amber-300 border-amber-500/30'
-                        : isGk ? 'bg-emerald-950/80 text-emerald-300 border-emerald-600/30'
-                        : 'bg-[#2a060e] text-[#ff6b8b] border-[#e11438]/30')
-                      : (isBio ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                        : isPhy ? 'bg-sky-50 text-sky-700 border-sky-200'
-                        : isChem ? 'bg-purple-50 text-purple-700 border-purple-200'
-                        : isEng ? 'bg-amber-50 text-amber-700 border-amber-200'
-                        : isGk ? 'bg-teal-50 text-teal-700 border-teal-200'
-                        : 'bg-red-50 text-red-700 border-red-200');
-
-                    return (
-                      <div
-                        key={exam.id}
-                        onClick={() => {
-                          if (isLocked) {
-                            const targetCat = EXAM_CATEGORIES_METADATA.find(c => c.key === selectedCategory) || {
-                              key: selectedCategory,
-                              title: CATEGORY_TABS.find(t => t.key === selectedCategory)?.name || 'এক্সাম ব্যাচ',
-                              price: 399,
-                              originalPrice: 799
-                            };
-                            setCheckoutCategory(targetCat);
-                          }
-                        }}
-                        className={`rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 group hover:-translate-y-0.5 border ${
-                          isLocked ? 'cursor-pointer opacity-90 hover:opacity-100' : ''
-                        } ${
-                          isDark 
-                            ? 'bg-[#120407]/90 border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]' 
-                            : 'bg-white border-gray-200 hover:border-red-300 shadow-sm hover:shadow-md'
-                        }`}
-                      >
-                        <div className="space-y-3">
-                          {/* Badges Row */}
-                          <div className="flex items-center justify-between gap-2">
-                            <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${badgeColor}`}>
-                              {exam.subject || 'General'}
-                            </span>
-
-                            {isFreeTrial && (
-                              <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black border flex items-center gap-1 shadow-xs animate-pulse ${
-                                isDark
-                                  ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40'
-                                  : 'bg-emerald-50 text-emerald-700 border-emerald-300'
-                              }`}>
-                                <span>🎁 ফ্রি ট্রায়াল</span>
-                              </span>
-                            )}
-
-                            {isLocked && (
-                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-red-500/15 text-[#ff4d6d] border border-red-500/30 flex items-center gap-1">
-                                <Lock size={10} />
-                                <span>এনরোল প্রয়োজন</span>
-                              </span>
-                            )}
-
-                            {!isFreeTrial && !isLocked && (
-                              <span className="text-[11px] text-gray-400 font-medium">
-                                {exam.categoryName || 'Exam'}
-                              </span>
-                            )}
-                          </div>
-
-                          {/* Title */}
-                          <h3 className={`text-base font-bold transition-colors line-clamp-2 leading-snug ${
-                            isDark ? 'text-white group-hover:text-[#ff3b61]' : 'text-[#111827] group-hover:text-[#dc2626]'
-                          }`}>
-                            {exam.title}
-                          </h3>
-
-                          {/* SubCategory line */}
-                          {exam.subCategory && exam.subCategory !== 'General' && (
-                            <p className="text-xs text-gray-400 line-clamp-1">
-                              📂 {exam.subCategory}
-                            </p>
-                          )}
-
-                          {/* 3 Metric Pills */}
-                          <div className="grid grid-cols-3 gap-2 pt-1 text-center">
-                            <div className={`rounded-xl p-2 border ${
-                              isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-100'
-                            }`}>
-                              <p className={`text-xs font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>{exam.totalQuestions}</p>
-                              <p className="text-[10px] text-gray-400">প্রশ্ন</p>
-                            </div>
-                            <div className={`rounded-xl p-2 border ${
-                              isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-100'
-                            }`}>
-                              <p className={`text-xs font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>{exam.durationMinutes}</p>
-                              <p className="text-[10px] text-gray-400">মিনিট</p>
-                            </div>
-                            <div className={`rounded-xl p-2 border ${
-                              isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-100'
-                            }`}>
-                              <p className={`text-xs font-black ${isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'}`}>-{exam.negativeMark || 0.25}</p>
-                              <p className="text-[10px] text-gray-400">নেগেটিভ</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className={`pt-4 mt-3 border-t flex items-center gap-2 ${
-                          isDark ? 'border-[#e11438]/15' : 'border-gray-100'
-                        }`}>
-                          {isFreeTrial ? (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleSelectExam(exam);
-                              }}
-                              disabled={isLoadingExam}
-                              className="flex-1 py-2.5 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 active:brightness-90 text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-md shadow-emerald-950/40 cursor-pointer border-none"
-                            >
-                              <Zap size={14} />
-                              <span>⚡ ফ্রি পরীক্ষা দিন</span>
-                            </button>
-                          ) : isLocked ? (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                const targetCat = EXAM_CATEGORIES_METADATA.find(c => c.key === selectedCategory) || {
-                                  key: selectedCategory,
-                                  title: CATEGORY_TABS.find(t => t.key === selectedCategory)?.name || 'এক্সাম ব্যাচ',
-                                  price: 399,
-                                  originalPrice: 799
-                                };
-                                setCheckoutCategory(targetCat);
-                              }}
-                              className={`flex-1 py-2.5 px-3 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
-                                isDark 
-                                  ? 'bg-red-950/30 hover:bg-red-950/60 text-red-200 border-red-500/30 hover:border-red-500/60' 
-                                  : 'bg-red-50 hover:bg-red-100 text-red-700 border-red-200 hover:border-red-300'
-                              }`}
-                            >
-                              <Lock size={13} className="text-[#dc2626]" />
-                              <span>🔒 আনলক করতে এনরোল করো</span>
-                            </button>
-                          ) : (
-                            <button
-                              onClick={() => handleSelectExam(exam)}
-                              disabled={isLoadingExam}
-                              className="flex-1 py-2.5 px-3 bg-[#dc2626] hover:brightness-110 active:brightness-90 text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-md cursor-pointer border-none"
-                            >
-                              <Zap size={14} />
-                              <span>পরীক্ষা শুরু</span>
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
               )}
-
-
-              {/* Load More Button */}
-              {visibleCount < filteredExams.length && (
-                <div className="pt-4 flex justify-center">
-                  <button
-                    onClick={() => setVisibleCount(prev => prev + 24)}
-                    className={`py-3 px-8 border text-xs sm:text-sm font-bold rounded-2xl transition-all cursor-pointer flex items-center gap-2 ${
-                      isDark 
-                        ? 'bg-[#1b050d] hover:bg-[#250712] border-[#e11438]/30 text-white' 
-                        : 'bg-white hover:bg-gray-100 border-gray-300 text-gray-800 shadow-sm'
-                    }`}
-                  >
-                    <span>আরও ২৪টি এক্সাম লোড করুন ∨</span>
-                    <span className="text-xs text-gray-400">({filteredExams.length - visibleCount}টি বাকি)</span>
-                  </button>
-                </div>
-              )}
-            </>
+            </div>
           )}
 
-          {/* Quick Back to Course Card */}
-          <div className={`flex justify-between items-center text-xs pt-4 border-t ${
-            isDark ? 'text-gray-400 border-[#e11438]/20' : 'text-gray-500 border-gray-200'
+          {/* Main Container Card (Screenshot exact match) */}
+          <div className={`rounded-2xl sm:rounded-3xl border p-5 sm:p-7 transition-all ${
+            isDark
+              ? 'bg-[#0c101c] border-[#1e2638]'
+              : 'bg-white border-gray-200'
           }`}>
-            <button 
-              onClick={() => setStep('course_card')} 
-              className={`flex items-center gap-1 bg-transparent border-none cursor-pointer ${
-                isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              ← কোর্সের বিবরণে ফিরে যান
-            </button>
-            <span>Edu Hunters Exam Engine v2.0 • সর্বমোট প্রশ্ন: ৬০,৭৯৫টি</span>
-          </div>
-        </div>
+            {/* Header */}
+            <div className="flex items-center justify-between gap-3 mb-5">
+              <h2 className={`text-base sm:text-lg font-bold tracking-tight ${isDark ? 'text-white' : 'text-[#111827]'}`}>
+                {isMasterEnglish && searchQuery.trim()
+                  ? `সার্চ রেজাল্ট • "${searchQuery.trim()}"`
+                  : selectedSubject !== 'all'
+                  ? `সব এক্সাম • ${selectedSubject}`
+                  : 'সব এক্সাম'}
+              </h2>
 
-        {checkoutModalMarkup}
+              <span className={`text-xs font-semibold px-2.5 py-1 rounded-lg ${
+                isDark ? 'bg-white/[0.05] text-gray-400' : 'bg-gray-100 text-gray-600'
+              }`}>
+                {itemCountLabel}
+              </span>
+            </div>
+
+            {/* Empty state if search returns zero results */}
+            {filteredList.length === 0 ? (
+              <div className="py-10 text-center flex flex-col items-center justify-center">
+                <Search size={32} className="text-gray-400 mb-2.5 opacity-50" />
+                <p className={`text-sm font-bold ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>
+                  কোনো এক্সাম বা টপিক পাওয়া যায়নি
+                </p>
+                <p className="text-xs text-gray-400 mt-1 max-w-sm">
+                  সঠিক টপিক নাম (যেমন Adjective, Preposition) বা প্রশ্ন নম্বর (যেমন 1-40) দিয়ে খুঁজুন
+                </p>
+                {isMasterEnglish && searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery('');
+                      setIsEnglishSuggestOpen(false);
+                    }}
+                    className="mt-4 px-4 py-2 text-xs font-bold rounded-xl bg-red-600 hover:bg-red-700 text-white cursor-pointer transition-colors border-none"
+                  >
+                    সার্চ ক্লিয়ার করুন
+                  </button>
+                )}
+              </div>
+            ) : (
+              <>
+                {/* Initial 5 Exam Cards (Single Column Stack, matching user screenshot) */}
+                <div className="flex flex-col gap-2.5 sm:gap-3">
+                  {initialExams.map((exam) => (
+                    <button
+                      key={exam.id}
+                      onClick={() => handleSelectExam(exam)}
+                      className={`w-full py-4 px-4 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm md:text-base text-left transition-all duration-200 cursor-pointer shadow-xs hover:scale-[1.01] active:scale-[0.99] flex items-center justify-between gap-3 min-h-[56px] border group ${
+                        isDark
+                          ? 'bg-[#121724] hover:bg-[#181f30] border-[#222b3d] hover:border-red-500/50 text-white'
+                          : 'bg-white hover:bg-red-50/40 border-gray-200 hover:border-red-300 text-gray-800'
+                      }`}
+                    >
+                      <span className="line-clamp-2 text-left flex-1 font-semibold sm:font-bold">{stripEmoji(exam.title)}</span>
+                      {!isCurrentCatEnrolled ? (
+                        <Lock size={15} strokeWidth={1.8} className="shrink-0 text-gray-400 dark:text-gray-400 group-hover:text-red-500 transition-colors" />
+                      ) : (
+                        <Play size={14} className="shrink-0 text-emerald-500 fill-current opacity-80" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Smooth Hardware-Accelerated Accordion Expand for Remaining Exams */}
+                {extraExams.length > 0 && (
+                  <div className={`smooth-expand-container ${isExpanded ? 'is-expanded' : ''}`}>
+                    <div className="smooth-expand-content">
+                      <div className="flex flex-col gap-2.5 sm:gap-3 pt-2.5 sm:pt-3">
+                        {extraExams.map((exam) => (
+                          <button
+                            key={exam.id}
+                            onClick={() => handleSelectExam(exam)}
+                            className={`w-full py-4 px-4 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm md:text-base text-left transition-all duration-200 cursor-pointer shadow-xs hover:scale-[1.01] active:scale-[0.99] flex items-center justify-between gap-3 min-h-[56px] border group ${
+                              isDark
+                                ? 'bg-[#121724] hover:bg-[#181f30] border-[#222b3d] hover:border-red-500/50 text-white'
+                                : 'bg-white hover:bg-red-50/40 border-gray-200 hover:border-red-300 text-gray-800'
+                            }`}
+                          >
+                            <span className="line-clamp-2 text-left flex-1 font-semibold sm:font-bold">{stripEmoji(exam.title)}</span>
+                            {!isCurrentCatEnrolled ? (
+                              <Lock size={15} strokeWidth={1.8} className="shrink-0 text-gray-400 dark:text-gray-400 group-hover:text-red-500 transition-colors" />
+                            ) : (
+                              <Play size={14} className="shrink-0 text-emerald-500 fill-current opacity-80" />
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* View More Button (Smooth transition matching user spec) */}
+                {hasMore && (
+                  <div className="flex justify-center mt-5 pt-1">
+                    <button
+                      onClick={() => setIsExpanded(!isExpanded)}
+                      className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full border text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer shadow-xs hover:scale-[1.02] active:scale-[0.98] ${
+                        isDark
+                          ? 'bg-[#151a27] hover:bg-[#1d2436] border-[#232c3f] text-gray-300 hover:text-white'
+                          : 'bg-gray-100 hover:bg-gray-200 border-gray-300 text-gray-700 hover:text-gray-900'
+                      }`}
+                    >
+                      <span>{isExpanded ? 'View Less' : 'View More'}</span>
+                      <ChevronDown
+                        size={15}
+                        className={`transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isExpanded ? 'rotate-180 text-red-500' : ''}`}
+                      />
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+          </>
+        )}
       </div>
-    );
+
+      {checkoutModalMarkup}
+    </div>
+  );
+
   }
 
   // -------------------------------------------------------------
@@ -1389,7 +1481,8 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
   // -------------------------------------------------------------
   if (step === 'exam_intro') {
     const qCount = examData?.total_questions || selectedExamMeta?.totalQuestions || 100;
-    const durMins = examData?.duration_minutes || selectedExamMeta?.durationMinutes || 40;
+    const defaultDurMins = examData?.duration_minutes || selectedExamMeta?.durationMinutes || 40;
+    const durMins = customDurationMins || defaultDurMins;
 
     return (
       <div className={`relative min-h-[calc(100vh-4rem)] flex items-center justify-center p-3 sm:p-4 font-sans transition-colors duration-300 ${
@@ -1445,7 +1538,7 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
               <p className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>{qCount}</p>
             </div>
 
-            <div className={`border rounded-2xl p-3 sm:p-3.5 flex flex-col items-center text-center transition-all ${
+            <div className={`border rounded-2xl p-3 sm:p-3.5 flex flex-col items-center text-center transition-all relative ${
               isDark 
                 ? 'bg-[#140306]/90 border-[#e11438]/25 shadow-[0_8px_25px_rgba(0,0,0,0.5)]' 
                 : 'bg-white border-gray-200 shadow-sm'
@@ -1455,8 +1548,115 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
               <p className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>
                 {durMins} <span className="text-xs font-normal">মি.</span>
               </p>
+              <button
+                type="button"
+                onClick={() => setShowCustomDurationPicker(prev => !prev)}
+                className="mt-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
+                title="ক্লিক করে এই পরীক্ষার সময় কাস্টমাইজ করুন"
+              >
+                <span>{customDurationMins ? '⏱️ কাস্টম সময়' : '⏱️ সময় কাস্টমাইজ'}</span>
+                <ChevronDown size={11} className={`transition-transform ${showCustomDurationPicker ? 'rotate-180' : ''}`} />
+              </button>
             </div>
           </div>
+
+          {/* Custom Duration Selector Dropdown */}
+          {showCustomDurationPicker && (
+            <div className={`p-3.5 rounded-2xl border animate-in fade-in zoom-in-95 space-y-2.5 ${
+              isDark 
+                ? 'bg-[#140306]/95 border-[#e11438]/30 shadow-lg' 
+                : 'bg-emerald-50/70 border-emerald-200 shadow-sm'
+            }`}>
+              <div className="flex items-center justify-between text-[11px] font-bold">
+                <span className={isDark ? 'text-gray-300' : 'text-slate-700'}>
+                  ⏱️ পরীক্ষার সময়কাল নির্বাচন করুন:
+                </span>
+                {customDurationMins && (
+                  <button
+                    type="button"
+                    onClick={() => setCustomDurationMins(null)}
+                    className="text-[10px] text-amber-500 font-bold hover:underline bg-transparent border-none cursor-pointer p-0"
+                  >
+                    ডিফল্টে ফিরুন ({defaultDurMins}মি.)
+                  </button>
+                )}
+              </div>
+
+              {/* Quick Preset Buttons */}
+              <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5">
+                {[10, 15, 20, 25, 30, 40, 50, 60].map((m) => {
+                  const isSel = (durMins === m);
+                  return (
+                    <button
+                      key={m}
+                      type="button"
+                      onClick={() => setCustomDurationMins(m)}
+                      className={`py-1.5 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+                        isSel
+                          ? (isDark ? 'bg-[#dc2626] text-white border-[#dc2626] shadow-sm font-black' : 'bg-emerald-600 text-white border-emerald-600 shadow-sm font-black')
+                          : (isDark ? 'bg-white/5 hover:bg-white/10 text-gray-300 border-white/10' : 'bg-white hover:bg-emerald-100/60 text-slate-700 border-emerald-200')
+                      }`}
+                    >
+                      {m} মি.
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Stepper with custom input */}
+              <div className="flex items-center justify-center gap-2 pt-0.5">
+                <button
+                  type="button"
+                  onClick={() => setCustomDurationMins(Math.max(1, durMins - 5))}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold border cursor-pointer ${
+                    isDark ? 'bg-white/10 text-white border-white/20' : 'bg-white text-slate-700 border-gray-300'
+                  }`}
+                >
+                  -5m
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCustomDurationMins(Math.max(1, durMins - 1))}
+                  className={`px-2 py-1 rounded-lg text-xs font-bold border cursor-pointer ${
+                    isDark ? 'bg-white/10 text-white border-white/20' : 'bg-white text-slate-700 border-gray-300'
+                  }`}
+                >
+                  -1m
+                </button>
+
+                <div className="flex items-center gap-1 px-3 py-1 rounded-xl bg-white dark:bg-black/40 border border-gray-300 dark:border-white/20">
+                  <input
+                    type="number"
+                    min="1"
+                    max="300"
+                    value={durMins}
+                    onChange={(e) => setCustomDurationMins(Math.max(1, parseInt(e.target.value, 10) || 1))}
+                    className="w-12 text-center text-xs font-black bg-transparent outline-none text-emerald-600 dark:text-emerald-400 font-mono"
+                  />
+                  <span className="text-[10px] font-bold text-gray-400">মি.</span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setCustomDurationMins(durMins + 1)}
+                  className={`px-2 py-1 rounded-lg text-xs font-bold border cursor-pointer ${
+                    isDark ? 'bg-white/10 text-white border-white/20' : 'bg-white text-slate-700 border-gray-300'
+                  }`}
+                >
+                  +1m
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCustomDurationMins(durMins + 5)}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold border cursor-pointer ${
+                    isDark ? 'bg-white/10 text-white border-white/20' : 'bg-white text-slate-700 border-gray-300'
+                  }`}
+                >
+                  +5m
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Negative Marking Toggle Card: Second Timer (-3 Marks) */}
           <div className={`border rounded-2xl p-3 sm:p-3.5 flex items-center justify-between gap-3.5 transition-all ${
@@ -2170,7 +2370,7 @@ export default function SureShotExamSystem({ onBackToCourses, initialStep = 'cat
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {EXAM_CATEGORIES_METADATA.map((cat) => (
+          {categoriesMetadata.filter(c => !c.isHidden).map((cat) => (
             <div 
               key={cat.key}
               onClick={() => {

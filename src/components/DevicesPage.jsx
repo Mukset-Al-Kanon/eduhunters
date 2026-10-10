@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function DevicesPage({
   data = {},
@@ -11,10 +12,12 @@ export default function DevicesPage({
   onNavigateAbout,
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin,
   onLoginClick
 }) {
   const { isDark } = useTheme();
+  const { currentUser, logout } = useAuth();
   const [removingId, setRemovingId] = useState('');
 
   // Initial registered devices matching Edu Hunters structure
@@ -76,10 +79,11 @@ export default function DevicesPage({
 
     if (window.confirm(confirmText)) {
       setRemovingId(device.id);
-      setTimeout(() => {
+      setTimeout(async () => {
         setDevices(prev => prev.filter(d => d.id !== device.id));
         setRemovingId('');
         if (device.isCurrent) {
+          await logout();
           if (onLoginClick) onLoginClick();
         }
       }, 500);
@@ -101,6 +105,7 @@ export default function DevicesPage({
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
         onNavigateOrders={onNavigateOrders}
+        onNavigatePolicies={onNavigatePolicies}
         onOpenAdmin={onOpenAdmin}
         onLoginClick={onLoginClick}
       />
@@ -322,16 +327,28 @@ export default function DevicesPage({
       {/* Footer matching Edu Hunters (Hidden on mobile) */}
       <div className="hidden sm:block">
         {isDark ? (
-          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 py-10 text-center text-xs text-gray-400">
-            <div className="max-w-7xl mx-auto px-4">
-              <p>Â© 2026 Edu Hunters. All rights reserved.</p>
+          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 py-8 text-center text-xs text-gray-400">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+              <p>© 2026 Edu Hunters. All rights reserved.</p>
+              <div className="flex items-center gap-4">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         ) : (
-          <footer className="bg-[#dc2626] eh-dots-light text-white py-10 text-center text-xs">
-            <div className="max-w-7xl mx-auto px-4">
-              <p className="text-white/80">Academic to admission EDU HUNTERS with you.</p>
-              <p className="text-white/60 mt-1">Â© 2026 Edu Hunters. All rights reserved.</p>
+          <footer className="bg-[#dc2626] eh-dots-light text-white py-8 text-center text-xs">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div>
+                <p className="text-white/80">Academic to admission EDU HUNTERS with you.</p>
+                <p className="text-white/60 mt-0.5">© 2026 Edu Hunters. All rights reserved.</p>
+              </div>
+              <div className="flex items-center gap-4 text-white/80">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         )}

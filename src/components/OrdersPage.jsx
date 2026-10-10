@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import { useTheme } from '../context/ThemeContext';
+import { getUserOrders } from '../services/orderService';
+import InvoiceModal from './InvoiceModal';
 
 export default function OrdersPage({
   data = {},
@@ -11,84 +13,35 @@ export default function OrdersPage({
   onNavigateAbout,
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin,
   onLoginClick
 }) {
   const { isDark } = useTheme();
   const [copiedId, setCopiedId] = useState('');
+  const [ordersList, setOrdersList] = useState(() => getUserOrders());
+  const [selectedInvoiceOrder, setSelectedInvoiceOrder] = useState(null);
 
-  // Sample confirmed orders matching Edu Hunters official data model
-  const [ordersData] = useState({
-    summary: {
-      totalOrders: 4,
-      coursePurchases: 3,
-      storePurchases: 1
-    },
-    orders: [
-      {
-        id: 'ord_exam_2025_9842',
-        type: 'course',
-        badge: 'Exam Batch',
-        course: {
-          name: 'Sure Shot Medical Admission Exam Batch 2025',
-          slug: 'sureshot',
-          targetType: 'exam',
-          categoryKey: 'sureshot',
-          fb_group: 'https://www.facebook.com/groups/1298423684604005'
-        },
-        paymentGateway: 'bkash',
-        totalPaid: 1500,
-        subtotal: 1800,
-        discount: 300,
-        transactionId: 'TXN90K2LM14',
-        createdAt: new Date(Date.now() - 4 * 24 * 3600 * 1000).toISOString()
-      },
-      {
-        id: 'ord_course_2025_8421',
-        type: 'course',
-        badge: 'Free Course',
-        course: {
-          name: '৩০ দিনে Master English শেষ করার মিশন',
-          slug: 'master-english-30-days',
-          targetType: 'course',
-          fb_group: 'https://youtube.com/@eduhunters'
-        },
-        paymentGateway: 'free',
-        totalPaid: 0,
-        subtotal: 1500,
-        discount: 1500,
-        transactionId: 'TXN81N4FREE',
-        createdAt: new Date(Date.now() - 2 * 24 * 3600 * 1000).toISOString()
-      },
-      {
-        id: 'ord_store_2025_6105',
-        type: 'store',
-        badge: 'Store Purchase',
-        paymentGateway: 'bkash',
-        totalPaid: 450,
-        transactionId: 'TXN72A8RT42',
-        createdAt: new Date(Date.now() - 32 * 24 * 3600 * 1000).toISOString(),
-        fullName: 'Md. Shafiqul Islam',
-        phone: '01712-345678',
-        address: 'House #12, Road #4, Dhanmondi',
-        thana: 'Dhanmondi',
-        district: 'Dhaka',
-        items: [
-          {
-            id: 'book_bio_1',
-            quantity: 1,
-            price: 450,
-            book: {
-              name: 'Biology High-Yield Concept & MCQ Practice Book',
-              book_type: 'Printed Book',
-              image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=200&auto=format&fit=crop&q=80',
-              download_url: null
-            }
-          }
-        ]
-      }
-    ]
-  });
+  // Sync with real-time purchases and storage changes
+  useEffect(() => {
+    const handleUpdate = () => {
+      setOrdersList(getUserOrders());
+    };
+    window.addEventListener('eh:orders_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+    return () => {
+      window.removeEventListener('eh:orders_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
+  }, []);
+
+  const coursePurchases = ordersList.filter(o => o.type === 'course' || o.type === 'exam' || o.type === 'bundle').length;
+  const storePurchases = ordersList.filter(o => o.type === 'store').length;
+  const summary = {
+    totalOrders: ordersList.length,
+    coursePurchases,
+    storePurchases
+  };
 
   const copyToClipboard = async (text) => {
     if (!text) return;
@@ -177,6 +130,7 @@ export default function OrdersPage({
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
         onNavigateOrders={onNavigateOrders}
+        onNavigatePolicies={onNavigatePolicies}
         onOpenAdmin={onOpenAdmin}
         onLoginClick={onLoginClick}
       />
@@ -213,19 +167,19 @@ export default function OrdersPage({
                 </div>
 
                 {/* Summary Chips in Header (Exact Edu Hunters) */}
-                {ordersData.summary && (
+                {summary && (
                   <div className="flex gap-2 text-sm flex-wrap shrink-0">
                     <div className="rounded-xl border border-white/25 bg-white/10 px-3.5 sm:px-4 py-2 text-center backdrop-blur-sm">
                       <p className="text-white opacity-80 text-xs font-medium">Total Orders</p>
-                      <p className="font-bold text-white text-base sm:text-lg">{ordersData.summary.totalOrders}</p>
+                      <p className="font-bold text-white text-base sm:text-lg">{summary.totalOrders}</p>
                     </div>
                     <div className="rounded-xl border border-white/25 bg-white/10 px-3.5 sm:px-4 py-2 text-center backdrop-blur-sm">
                       <p className="text-white opacity-80 text-xs font-medium">Course Purchases</p>
-                      <p className="font-bold text-white text-base sm:text-lg">{ordersData.summary.coursePurchases}</p>
+                      <p className="font-bold text-white text-base sm:text-lg">{summary.coursePurchases}</p>
                     </div>
                     <div className="rounded-xl border border-white/25 bg-white/10 px-3.5 sm:px-4 py-2 text-center backdrop-blur-sm">
                       <p className="text-white opacity-80 text-xs font-medium">Store Purchases</p>
-                      <p className="font-bold text-white text-base sm:text-lg">{ordersData.summary.storePurchases}</p>
+                      <p className="font-bold text-white text-base sm:text-lg">{summary.storePurchases}</p>
                     </div>
                   </div>
                 )}
@@ -233,9 +187,9 @@ export default function OrdersPage({
             </div>
 
             {/* 2. Confirmed Orders List (Exact Edu Hunters Layout) */}
-            {ordersData.orders && ordersData.orders.length > 0 ? (
+            {ordersList && ordersList.length > 0 ? (
               <div className="space-y-5">
-                {ordersData.orders.map((order) => (
+                {ordersList.map((order) => (
                   <div 
                     key={order.id} 
                     className={`overflow-hidden rounded-2xl border transition-all shadow-sm ${
@@ -278,13 +232,14 @@ export default function OrdersPage({
                           </p>
                           {order.transactionId && (
                             <button
-                              onClick={() => alert(`ইনভয়েস #${order.transactionId} ডাউনলোড হচ্ছে...`)}
-                              className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-white underline hover:opacity-80 border-none bg-transparent cursor-pointer p-0"
+                              onClick={() => setSelectedInvoiceOrder(order)}
+                              className="mt-1.5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-950 bg-white hover:bg-zinc-100 transition-all border border-zinc-200 cursor-pointer shadow-xs active:scale-95"
+                              title="View Official Monochromatic Invoice"
                             >
-                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-3.5 h-3.5 text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                               </svg>
-                              <span>Invoice / রসিদ →</span>
+                              <span>View Invoice →</span>
                             </button>
                           )}
                         </div>
@@ -398,41 +353,50 @@ export default function OrdersPage({
                       {/* Store Products List if type is store */}
                       {order.type === 'store' && order.items && (
                         <div className="grid gap-3 md:grid-cols-2">
-                          {order.items.map((item) => (
-                            <div 
-                              key={item.id} 
-                              className={`flex items-center gap-3 rounded-xl border p-4 transition-colors ${
-                                isDark ? 'border-white/10 bg-white/[0.02]' : 'border-gray-200 bg-white'
-                              }`}
-                            >
-                              <img 
-                                src={item.book.image} 
-                                alt={item.book.name} 
-                                className="h-20 w-14 rounded-lg object-cover shadow-sm shrink-0" 
-                              />
-                              <div className="min-w-0 flex-1">
-                                <p className="font-semibold text-gray-900 dark:text-white text-sm line-clamp-1">
-                                  {item.book.name}
+                          {order.items.map((item) => {
+                            const itemName = item.book?.name || item.title || 'Academic Resource';
+                            const itemType = item.book?.book_type || item.type || 'Printed Book';
+                            const itemImage = item.book?.image || item.image || 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=200&auto=format&fit=crop&q=80';
+                            const itemPrice = item.price || item.unitPrice || 450;
+                            const itemQty = item.quantity || 1;
+                            const downloadUrl = item.book?.download_url || item.download_url;
+
+                            return (
+                              <div 
+                                key={item.id} 
+                                className={`flex items-center gap-3 rounded-xl border p-4 transition-colors ${
+                                  isDark ? 'border-white/10 bg-white/[0.02]' : 'border-gray-200 bg-white'
+                                }`}
+                              >
+                                <img 
+                                  src={itemImage} 
+                                  alt={itemName} 
+                                  className="h-20 w-14 rounded-lg object-cover shadow-sm shrink-0" 
+                                />
+                                <div className="min-w-0 flex-1">
+                                  <p className="font-semibold text-gray-900 dark:text-white text-sm line-clamp-1">
+                                    {itemName}
+                                  </p>
+                                  <p className={`text-sm mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                                    {itemType} · Qty: {itemQty} x ৳{itemPrice}
+                                  </p>
+                                  {downloadUrl && (
+                                    <a 
+                                      href={downloadUrl} 
+                                      target="_blank" 
+                                      rel="noreferrer"
+                                      className="text-xs font-semibold text-[#ea580c] hover:underline mt-1 inline-block"
+                                    >
+                                      Open PDF
+                                    </a>
+                                  )}
+                                </div>
+                                <p className="font-bold text-gray-900 dark:text-white text-sm">
+                                  ৳{itemQty * itemPrice}
                                 </p>
-                                <p className={`text-sm mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                                  {item.book.book_type} · Qty: {item.quantity} x ৳{item.price}
-                                </p>
-                                {item.book.download_url && (
-                                  <a 
-                                    href={item.book.download_url} 
-                                    target="_blank" 
-                                    rel="noreferrer"
-                                    className="text-xs font-semibold text-[#ea580c] hover:underline mt-1 inline-block"
-                                  >
-                                    Open PDF
-                                  </a>
-                                )}
                               </div>
-                              <p className="font-bold text-gray-900 dark:text-white text-sm">
-                                ৳{item.quantity * item.price}
-                              </p>
-                            </div>
-                          ))}
+                            );
+                          })}
                         </div>
                       )}
                     </div>
@@ -455,20 +419,39 @@ export default function OrdersPage({
       {/* Footer matching Edu Hunters (Hidden on mobile) */}
       <div className="hidden sm:block">
         {isDark ? (
-          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 py-10 text-center text-xs text-gray-400">
-            <div className="max-w-7xl mx-auto px-4">
+          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 py-8 text-center text-xs text-gray-400">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
               <p>© 2026 Edu Hunters. All rights reserved.</p>
+              <div className="flex items-center gap-4">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         ) : (
-          <footer className="bg-[#dc2626] eh-dots-light text-white py-10 text-center text-xs">
-            <div className="max-w-7xl mx-auto px-4">
-              <p className="text-white/80">Academic to admission EDU HUNTERS with you.</p>
-              <p className="text-white/60 mt-1">© 2026 Edu Hunters. All rights reserved.</p>
+          <footer className="bg-[#dc2626] eh-dots-light text-white py-8 text-center text-xs">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div>
+                <p className="text-white/80">Academic to admission EDU HUNTERS with you.</p>
+                <p className="text-white/60 mt-0.5">© 2026 Edu Hunters. All rights reserved.</p>
+              </div>
+              <div className="flex items-center gap-4 text-white/80">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         )}
       </div>
+
+      {/* Official Monochromatic Invoice Modal */}
+      <InvoiceModal 
+        order={selectedInvoiceOrder}
+        isOpen={!!selectedInvoiceOrder}
+        onClose={() => setSelectedInvoiceOrder(null)}
+      />
     </div>
   );
 }

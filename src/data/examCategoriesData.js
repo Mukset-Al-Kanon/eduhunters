@@ -10,7 +10,7 @@ export const EXAM_CATEGORIES_METADATA = [
     image: '/sureshot_banner.jpg',
     examCount: 17,
     examCountText: '১৭টি পূর্ণাঙ্গ এক্সাম',
-    questionCount: '১,৭০০+ প্রশ্ন',
+    questionCount: '৬,৭০০+ MCQ',
     duration: '৪০ মিনিট / এক্সাম',
     marks: '১০০ মার্কস',
     negativeMark: '০.২৫',
@@ -412,3 +412,72 @@ export const EXAM_PAGE_FILTER_TABS = [
   { id: 'question_bank', label: 'অনুশীলনী প্রশ্নব্যাংক (১)', icon: '🔬' },
   { id: 'special', label: 'স্পেশাল ব্যাচ (৩)', icon: '🎯' }
 ];
+
+export const mapExamBatchToCourse = (batch) => {
+  const numericSalePrice = Number(String(batch.price || '').replace(/[^0-9]/g, '')) || 399;
+  const numericRegularPrice = Number(String(batch.originalPrice || '').replace(/[^0-9]/g, '')) || 799;
+
+  return {
+    id: batch.key,
+    key: batch.key,
+    slug: batch.key,
+    title: batch.title,
+    subtitle: batch.subtitle,
+    category: 'EXAM BATCH',
+    filterGroup: batch.filterGroup,
+    isExamBatch: true,
+    isBundle: false,
+    isFree: false,
+    image: batch.image,
+    description: batch.subtitle || batch.details?.about || '',
+    aboutText: batch.details?.about || '',
+    salePrice: numericSalePrice,
+    regularPrice: numericRegularPrice,
+    price: batch.price,
+    originalPrice: batch.originalPrice,
+    badge: batch.badge,
+    badgeColor: batch.badgeColor,
+    ribbonText: batch.ribbonText,
+    examCount: batch.examCount,
+    examCountText: batch.examCountText,
+    questionCount: batch.questionCount,
+    duration: batch.duration,
+    marks: batch.marks,
+    negativeMark: batch.negativeMark,
+    enrolledCount: batch.enrolledCount,
+    features: Array.isArray(batch.details?.features) 
+      ? batch.details.features.map((feat, idx) => ({ id: idx + 1, text: feat }))
+      : [],
+    highlights: batch.highlights || [],
+    bullets: batch.bullets || [],
+    targetAudience: batch.targetAudience || [],
+    faqs: batch.faqs || [],
+    curriculum: (batch.details?.subjects || []).map((subject, sIdx) => ({
+      id: sIdx + 1,
+      title: subject,
+      chapters: [
+        {
+          id: (sIdx + 1) * 100 + 1,
+          title: `${subject} - পূর্ণাঙ্গ প্রস্তুতি ও ওএমআর টেস্ট`,
+          lessons: [
+            {
+              id: (sIdx + 1) * 1000 + 1,
+              title: `${subject} লাইভ এক্সাম ও র‍্যাঙ্কিং`,
+              duration: batch.duration || '৪০ মিনিট',
+              type: 'exam'
+            },
+            {
+              id: (sIdx + 1) * 1000 + 2,
+              title: `${subject} বিস্তারিত ব্যাখ্যা ও সল্যুশন শিট`,
+              duration: 'পিডিএফ ও অ্যানালাইসিস',
+              type: 'pdf'
+            }
+          ]
+        }
+      ]
+    }))
+  };
+};
+
+export const EXAM_BATCHES_AS_COURSES = EXAM_CATEGORIES_METADATA.map(mapExamBatchToCourse);
+

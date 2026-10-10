@@ -10,6 +10,7 @@ import {
 } from './homeData';
 import { masterEnglishCourseData } from './masterEnglishCourseData';
 import { freeCoursesData } from './freeCoursesData';
+import { EXAM_CATEGORIES_METADATA } from './examCategoriesData';
 
 // Helper to reliably detect and purge any Zenith Crew / Codervai copied courses
 export const isZenithCopiedCourse = (course) => {
@@ -18,9 +19,20 @@ export const isZenithCopiedCourse = (course) => {
     'master-english-30-days',
     'chemistry-1st-dagano-line',
     'zoology-dagano-line-medical',
-    'hsc-26-27-step-by-step-guideline'
+    'hsc-26-27-step-by-step-guideline',
+    'sureshot',
+    'medical',
+    'rtds',
+    'english_master',
+    'gk_course',
+    'medilogy'
   ]);
-  if (VALID_COURSE_IDS.has(course.id) || VALID_COURSE_IDS.has(course.slug)) {
+  if (
+    course.isExamBatch ||
+    VALID_COURSE_IDS.has(course.id) ||
+    VALID_COURSE_IDS.has(course.slug) ||
+    VALID_COURSE_IDS.has(course.key)
+  ) {
     return false;
   }
   const str = (
@@ -65,8 +77,8 @@ export const initialData = {
     logoUrl: "/logo.png",
     contactPhone: "+880 1700-000000",
     contactEmail: "support@eduhunters.com",
-    facebookPage: "https://facebook.com",
-    youtubeChannel: "https://youtube.com/@eduhunters",
+    facebookPage: "https://www.facebook.com/profile.php?id=61585769408167",
+    youtubeChannel: "https://www.youtube.com/channel/UC1XpmoV-Phk1q1N5D2PTd0g",
     youtubeApiKey: "AIzaSyBLThxPP9oO8Uwbyftprjpg1J7_MwpH2YA"
   },
 
@@ -161,6 +173,53 @@ export const initialData = {
     return course;
   }),
 
+  // Multi-Course Discounted Combo Bundles (Admin Fully Customizable)
+  bundles: [
+    {
+      id: "bundle-medical-mega-combo",
+      title: "Medical Dream Combo Pack",
+      subtitle: "SureShot + Medical Special + RTDS + Medilogy Intensive",
+      description: "মেডিকেল ভর্তি পরীক্ষার পূর্ণাঙ্গ প্রস্তুতি নিশ্চিত করতে আমাদের ৪টি প্রিমিয়ার এক্সাম ব্যাচ ও স্পেশাল গাইডলাইন কোর্স একসাথে বিশেষ ছাড়ের বান্ডিলে এনরোল করুন।",
+      image: "https://assets.codervai.com/courses/1781447985147-extra_info_batch.webp",
+      badge: "Save 45% • 4-in-1 Combo",
+      regularPrice: 2200,
+      salePrice: 1199,
+      courseIds: ["sureshot", "medical", "rtds", "medilogy"],
+      enrolledCount: "৪,৮৫০+",
+      studentsCount: "4850+",
+      features: [
+        "৪টি সম্পূর্ণ মেডিকেল এক্সাম ও প্র্যাকটিস ব্যাচে আনলিমিটেড অ্যাক্সেস",
+        "অধ্যায়ভিত্তিক দাগানো বইয়ের PDF ও শর্টকাট চার্ট",
+        "লাইভ মেরিট লিস্ট, নেগেটিভ মার্কিং অ্যানালাইসিস ও লিডারবোর্ড",
+        "মেডিকেল টপারদের সাথে ডেডিকেটেড ডাউট সলভিং সাপোর্ট"
+      ],
+      status: "ACTIVE"
+    },
+    {
+      id: "bundle-hsc-english-science-combo",
+      title: "HSC 26 Complete Foundation Combo",
+      subtitle: "Master English 30 Days + Chemistry & Zoology Dagano Line",
+      description: "HSC ও এডমিশন ফাউন্ডেশন মজবুত করার জন্য ইংরেজি এবং সায়েন্স দাগানো বইয়ের স্পেশাল লেকচার সিরিজ একসাথে আকর্ষণীয় ডিসকাউন্টে।",
+      image: "/master_english_30_days.png",
+      badge: "Best Seller • 3-in-1 Combo",
+      regularPrice: 2500,
+      salePrice: 1450,
+      courseIds: ["master-english-30-days", "chemistry-1st-dagano-line", "zoology-dagano-line-medical"],
+      enrolledCount: "৩,৯২০+",
+      studentsCount: "3920+",
+      features: [
+        "৩টি প্রিমিয়ার ফাউন্ডেশন কোর্সের সম্পূর্ণ লেকচার অ্যাক্সেস",
+        "সম্পূর্ণ ইংরেজি গ্রামার ও ভোকাবুলারি মাস্টারক্লাস",
+        "বোর্ড স্ট্যান্ডার্ড হ্যান্ডনোট ও অধ্যায়ভিত্তিক প্র্যাকটিস শিট",
+        "লাইভ সলভ সেশন ও পার্সোনালাইজড প্রোগ্রেস ট্র্যাকিং"
+      ],
+      status: "ACTIVE"
+    }
+  ],
+
+  // Exam Batches & Mega Test Series (Fully controllable from Admin Panel)
+  examBatches: EXAM_CATEGORIES_METADATA,
+
   // Faculty & Teachers
   instructors: instructorsData,
 
@@ -180,6 +239,42 @@ export const initialData = {
     netProfit: 242200,
     totalOrders: 342,
     transactions: [
+      {
+        id: "TRX-94825",
+        studentName: "মেহেদী হাসান শুভ",
+        studentPhone: "01789-456123",
+        itemTitle: "SureShot মেডিকেল স্পেশাল এক্সাম ব্যাচ",
+        type: "INCOME",
+        amount: 399,
+        method: "bKash",
+        trxId: "BL9X48210P",
+        date: "2026-10-09",
+        status: "Pending"
+      },
+      {
+        id: "TRX-94824",
+        studentName: "নুসরাত জাহান মিম",
+        studentPhone: "01912-887766",
+        itemTitle: "Master English in 30 Days (Complete Live Course)",
+        type: "INCOME",
+        amount: 1500,
+        method: "Nagad",
+        trxId: "NG7T33910K",
+        date: "2026-10-09",
+        status: "Pending"
+      },
+      {
+        id: "TRX-94823",
+        studentName: "ফারহান আহমেদ",
+        studentPhone: "01644-223399",
+        itemTitle: "সাধারণ জ্ঞান পূর্ণাঙ্গ লাইভ ও চ্যাপ্টার ফাইনাল এক্সাম",
+        type: "INCOME",
+        amount: 299,
+        method: "bKash",
+        trxId: "BK5M77102Z",
+        date: "2026-10-08",
+        status: "Pending"
+      },
       {
         id: "TRX-94821",
         studentName: "মোঃ তানভীর হাসান",
@@ -320,5 +415,201 @@ export const initialData = {
         }
       ]
     }
-  ]
+  ],
+  termsAndConditions: {
+    lastUpdated: "৫ অক্টোবর, ২০২৬",
+    intro: "EduHunters একটি শিক্ষামূলক অনলাইন প্ল্যাটফর্ম, যেখানে বিভিন্ন Paid & Free Course, Exam, Quiz এবং অন্যান্য শিক্ষামূলক সেবা প্রদান করা হয়। আমাদের ওয়েবসাইট বা যেকোনো সেবা ব্যবহার করার মাধ্যমে আপনি নিচের শর্তগুলোতে সম্মত হচ্ছেন।",
+    clauses: [
+      {
+        id: 1,
+        title: "অ্যাকাউন্ট ও ব্যবহার",
+        points: [
+          "একটি অ্যাকাউন্ট শুধুমাত্র সংশ্লিষ্ট শিক্ষার্থীর ব্যক্তিগত ব্যবহারের জন্য।",
+          "Account, Password বা Course Access অন্য কারও সঙ্গে শেয়ার করা যাবে না।",
+          "একাধিক ব্যক্তি একই অ্যাকাউন্ট ব্যবহার করলে বা অস্বাভাবিক/অননুমোদিত ব্যবহার শনাক্ত হলে EduHunters প্রয়োজন অনুযায়ী অ্যাকাউন্ট সীমিত, স্থগিত বা বাতিল করতে পারে।"
+        ]
+      },
+      {
+        id: 2,
+        title: "কোর্স ও কনটেন্ট",
+        points: [
+          "Paid ও Free Course-এর Access Duration ও সুবিধা সংশ্লিষ্ট Course অনুযায়ী নির্ধারিত হবে।",
+          "Course-এর Video, PDF, Notes, Question, Solution বা অন্য কোনো Content Copy, Record, Distribute বা Resell করা যাবে না।",
+          "প্রয়োজন অনুযায়ী Course-এর Syllabus, Class Schedule বা Content পরিবর্তন, সংযোজন বা সংশোধন করা হতে পারে।"
+        ]
+      },
+      {
+        id: 3,
+        title: "পরীক্ষা ও Result",
+        points: [
+          "সকল Exam/Test-এ নির্ধারিত নিয়ম মেনে অংশগ্রহণ করতে হবে।",
+          "অন্যের হয়ে পরীক্ষা দেওয়া, Cheating, প্রশ্ন/উত্তর শেয়ার করা বা কোনো ধরনের Unfair Means ব্যবহার করা নিষিদ্ধ।",
+          "কোনো অনিয়ম প্রমাণিত হলে সংশ্লিষ্ট Exam/Result বাতিল করা অথবা Account-এর বিরুদ্ধে প্রয়োজনীয় ব্যবস্থা নেওয়া হতে পারে।"
+        ]
+      },
+      {
+        id: 4,
+        title: "পেমেন্ট ও Refund",
+        points: [
+          "Course বা অন্যান্য Paid Service-এর মূল্য ও Payment Information Checkout-এর সময় প্রদর্শিত হবে।",
+          "Payment সফল হওয়ার পর নির্ধারিত নিয়ম অনুযায়ী Course Access প্রদান করা হবে।",
+          "Refund বা Cancellation-এর নিয়ম সংশ্লিষ্ট Course-এর Refund Policy অনুযায়ী প্রযোজ্য হবে।"
+        ]
+      },
+      {
+        id: 5,
+        title: "শিক্ষার্থীর আচরণ",
+        points: [
+          "শিক্ষক, শিক্ষার্থী বা Support Team-এর সঙ্গে অসম্মানজনক আচরণ, Harassment, Spam বা অননুমোদিত Promotional Activity করা যাবে না।",
+          "নিয়ম ভঙ্গ করলে Community, Course বা Account Access সীমিত করা হতে পারে।"
+        ]
+      },
+      {
+        id: 6,
+        title: "Technical Issues",
+        points: [
+          "Internet Connection, Device, Server বা Third-party Service-এর সমস্যার কারণে সাময়িকভাবে কোনো Service ব্যাহত হতে পারে।",
+          "এ ধরনের পরিস্থিতিতে Service স্বাভাবিক করার জন্য EduHunters যথাসাধ্য চেষ্টা করবে।"
+        ]
+      },
+      {
+        id: 7,
+        title: "Account Suspension",
+        points: [
+          "Account Sharing, Content Piracy, Cheating, Fraud বা এই Terms & Conditions-এর গুরুতর লঙ্ঘনের ক্ষেত্রে EduHunters প্রয়োজন অনুযায়ী Account Suspend বা Terminate করতে পারে।"
+        ]
+      },
+      {
+        id: 8,
+        title: "Terms পরিবর্তন",
+        points: [
+          "EduHunters প্রয়োজন অনুযায়ী এই Terms & Conditions পরিবর্তন বা আপডেট করার অধিকার রাখে। পরিবর্তিত Terms Website-এ প্রকাশের পর কার্যকর হবে।"
+        ]
+      }
+    ],
+    agreementText: "EduHunters-এর Website, Course, Exam বা অন্যান্য Service ব্যবহার করার মাধ্যমে আপনি উপরোক্ত Terms & Conditions মেনে চলতে সম্মত হচ্ছেন।"
+  },
+  refundPolicy: {
+    lastUpdated: "৫ অক্টোবর, ২০২৬",
+    notice: "EduHunters-এ কোনো Course বা Paid Service কেনার আগে সংশ্লিষ্ট Course-এর সকল তথ্য ও শর্ত ভালোভাবে দেখে নেওয়ার জন্য অনুরোধ করা হচ্ছে।",
+    clauses: [
+      {
+        id: 1,
+        title: "রিফান্ড সংক্রান্ত সাধারণ নীতি",
+        points: [
+          "EduHunters-এর কোনো Course বা Paid Service কেনার আগে Course-এর নাম, মূল্য, সিলেবাস, সুবিধা ও Access Period ভালোভাবে দেখে নেওয়ার জন্য অনুরোধ করা হচ্ছে।",
+          "Course কেনার পর শুধুমাত্র মত পরিবর্তন, Course পছন্দ না হওয়া অথবা Course-এর Content ব্যবহার শুরু করার কারণে সাধারণত রিফান্ড প্রদান করা হবে না।"
+        ]
+      },
+      {
+        id: 2,
+        title: "কোন ক্ষেত্রে রিফান্ড প্রযোজ্য হতে পারে",
+        points: [
+          "একই Course-এর জন্য ভুলবশত একাধিকবার Payment করা হলে।",
+          "Payment সফল হওয়ার পরও নির্ধারিত সময়ের মধ্যে Course Access না পেলে এবং সমস্যাটি আমাদের পক্ষ থেকে হয়ে থাকলে।",
+          "আমাদের কোনো Technical বা System সমস্যার কারণে Paid Course-এর Service প্রদান করা সম্ভব না হলে।"
+        ]
+      },
+      {
+        id: 3,
+        title: "কোন ক্ষেত্রে রিফান্ড প্রযোজ্য নয়",
+        points: [
+          "Course কেনার পর মত পরিবর্তন করলে।",
+          "Course-এর Content দেখা বা ব্যবহার শুরু করার পর।",
+          "Course-এর Syllabus, Teaching Style বা Content পছন্দ না হলে।",
+          "নিজের Device, Internet Connection বা ব্যক্তিগত Technical সমস্যার কারণে Course ব্যবহার করতে না পারলে।",
+          "Course Access অন্য কারও সঙ্গে Share করার পর।"
+        ]
+      },
+      {
+        id: 4,
+        title: "ভুল Course বা Duplicate Payment",
+        points: [
+          "ভুল Course-এ Payment করা হলে অথবা একই Course-এর জন্য একাধিকবার Payment হয়ে গেলে দ্রুত EduHunters Support Team-এর সঙ্গে যোগাযোগ করতে হবে।",
+          "বিষয়টি যাচাই করে প্রয়োজন অনুযায়ী Course পরিবর্তন, Duplicate Payment-এর সমাধান বা Refund প্রদান করা হতে পারে।"
+        ]
+      },
+      {
+        id: 5,
+        title: "রিফান্ডের পদ্ধতি",
+        points: [
+          "Refund অনুমোদিত হলে সম্ভব হলে যে Payment Method-এর মাধ্যমে টাকা প্রদান করা হয়েছিল, সেই মাধ্যমেই Refund করা হবে।",
+          "Payment Gateway, ব্যাংক বা সংশ্লিষ্ট Payment Provider-এর কারণে Refund সম্পন্ন হতে অতিরিক্ত সময় লাগতে পারে।"
+        ]
+      },
+      {
+        id: 6,
+        title: "Refund Request",
+        points: [
+          "Refund-এর জন্য যোগাযোগ করার সময় Transaction ID, Payment-এর তথ্য এবং সমস্যার সংক্ষিপ্ত বিবরণ প্রদান করতে হবে।",
+          "প্রতিটি Refund Request আলাদাভাবে যাচাই করা হবে এবং প্রযোজ্য আইন ও EduHunters-এর নীতিমালা অনুযায়ী সিদ্ধান্ত নেওয়া হবে।"
+        ]
+      },
+      {
+        id: 7,
+        title: "যোগাযোগ",
+        points: [
+          "Email: support@eduhunters.com",
+          "WhatsApp: +880 1700-000000",
+          "Support Time: সকাল ১০:০০ টা - রাত ১০:০০ টা (প্রতিদিন)"
+        ]
+      }
+    ]
+  },
+  privacyPolicy: {
+    lastUpdated: "৫ অক্টোবর, ২০২৬",
+    intro: "EduHunters ওয়েবসাইটে আমাদের প্রধান অগ্রাধিকারগুলির মধ্যে একটি হল আমাদের ইউজার ও শিক্ষার্থীদের তথ্যের গোপনীয়তা। EduHunters ওয়েবসাইট থেকে আমরা কী কী তথ্য সংগ্রহ করি এবং কীভাবে সেটি ব্যবহার করি, সে সম্পর্কে বিস্তারিত তথ্য এই ডকুমেন্টে রয়েছে।",
+    clauses: [
+      {
+        id: 1,
+        title: "সম্মতি ও নীতিমালা",
+        points: [
+          "আমাদের ওয়েবসাইট ব্যবহার করে, আপনি এতদ্বারা আমাদের প্রাইভেসি পলিসি এবং শর্তাবলীতে সম্মত হচ্ছেন বলে ধরে নেওয়া হবে।",
+          "আপনার অনুমতি ব্যতীত ব্যক্তিগত তথ্য কারো কাছে শেয়ার বা বিক্রয় করা হয় না।"
+        ]
+      },
+      {
+        id: 2,
+        title: "আমরা কী কী তথ্য সংগ্রহ করি",
+        points: [
+          "অ্যাকাউন্ট খোলার সময় নাম, মোবাইল নম্বর, ইমেইল এড্রেস ইত্যাদি তথ্য সংগ্রহ করা হয়।",
+          "আপনি যদি সরাসরি আমাদের সাথে যোগাযোগ করেন, আমরা আপনার নাম, ফোন নম্বর ও সহায়তার মেসেজ নিরাপদে সংরক্ষণ করি।"
+        ]
+      },
+      {
+        id: 3,
+        title: "ব্যক্তিগত পাসওয়ার্ডের গোপনীয়তা",
+        points: [
+          "লগইন পাসওয়ার্ড আমাদের ডাটাবেজে ক্রিপ্টোগ্রাফিক হ্যাশ আকারে সংরক্ষিত থাকে, যা সিস্টেম অ্যাডমিনরাও দেখতে পারেন না।",
+          "পাসওয়ার্ডের গোপনীয়তা রক্ষার স্বার্থে কখনো আপনার পাসওয়ার্ড কারো সাথে শেয়ার না করার জন্য অনুরোধ করা হচ্ছে।"
+        ]
+      },
+      {
+        id: 4,
+        title: "আমরা কীভাবে আপনার তথ্য ব্যবহার করি",
+        points: [
+          "আমাদের ওয়েবসাইটে কোর্স ও এক্সাম পরিচালনা এবং অ্যাক্সেস রক্ষণাবেক্ষণ করার জন্য।",
+          "ওয়েবসাইটের ব্রাউজিং অভিজ্ঞতা আরো উন্নত ও মসৃণ করার জন্য।",
+          "জরুরি একাডেমিক আপডেট, নোটিফিকেশন ও এসএমএস বার্তা প্রেরণের জন্য।",
+          "কোনো ধরনের অনলাইন জালিয়াতি ও পাইরেসি প্রতিরোধে।"
+        ]
+      },
+      {
+        id: 5,
+        title: "লগ ফাইল ও কুকিজ",
+        points: [
+          "ইউজার এক্সপেরিয়েন্স ও সিকিউরিটি পর্যবেক্ষণে স্ট্যান্ডার্ড এনক্রিপ্টেড সেশন ও কুকিজ ব্যবহার করা হয়, যা ব্যক্তিগতভাবে শনাক্তযোগ্য নয়।"
+        ]
+      },
+      {
+        id: 6,
+        title: "যোগাযোগ ও হেল্পডেস্ক",
+        points: [
+          "Email: support@eduhunters.com",
+          "WhatsApp: +880 1700-000000",
+          "Support Time: সকাল ১০:০০ টা - রাত ১০:০০ টা (প্রতিদিন)"
+        ]
+      }
+    ]
+  }
 };

@@ -29,12 +29,12 @@ export const homeStatsData = [
 ];
 
 import { freeCoursesData } from './freeCoursesData';
+import { EXAM_BATCHES_AS_COURSES } from './examCategoriesData';
 
 export const categoriesList = [
   "সকল",
   "EXAM BATCH",
-  "Medical",
-  "Free"
+  "Medical"
 ];
 
 export const homeCoursesData = [
@@ -63,7 +63,8 @@ export const homeCoursesData = [
     regularPrice: c.regularPrice,
     slug: c.slug,
     playlistId: c.playlistId
-  }))
+  })),
+  ...EXAM_BATCHES_AS_COURSES
 ];
 
 export const instructorsData = [];
@@ -118,41 +119,5 @@ export const whyChooseUsData = [
   }
 ];
 
-export const storeProductsData = [
-  {
-    id: 1,
-    title: "Biology Extra Info Compact PDF",
-    category: "E-book",
-    price: 299,
-    regularPrice: 600,
-    cover: "https://assets.codervai.com/courses/1781447985147-extra_info_batch.webp",
-    description: "মেডিকেল ও এইচএসসি ভর্তি পরীক্ষার জন্য সবচেয়ে কমপ্যাক্ট এক্সট্রা ইনফো শিট।"
-  },
-  {
-    id: 2,
-    title: "HSC Ketab Sir Higher Math MCQ Solve Handbook",
-    category: "Book",
-    price: 450,
-    regularPrice: 750,
-    cover: "https://assets.codervai.com/bundles/1781365462904-4113.webp",
-    description: "অনুশীলনীর সকল এমসিকিউ এর শর্টকাট ও বিস্তারিত ব্যাখ্যা সহ পূর্ণাঙ্গ প্রিন্টেড হ্যান্ডবুক।"
-  },
-  {
-    id: 3,
-    title: "Chemistry Formula Sheet & Reaction Map",
-    category: "E-book",
-    price: 199,
-    regularPrice: 400,
-    cover: "https://assets.codervai.com/courses/1781334961683-chem_area.webp",
-    description: "জৈব ও অজৈব রসায়নের সমস্ত বিক্রিয়ার চার্ট এবং গুরুত্বপূর্ণ বিক্রিয়া চার্ট।"
-  },
-  {
-    id: 4,
-    title: "Medical Admission Formula Pocket Guide",
-    category: "Book",
-    price: 350,
-    regularPrice: 500,
-    cover: "https://assets.codervai.com/courses/1781342599740-biology_area.jpg",
-    description: "দ্রুত রিভিশন দেওয়ার জন্য পকেট সাইজ এক্সক্লুসিভ নোট ও হাইলাইট বই।"
-  }
-];
+export const storeProductsData = [];
+

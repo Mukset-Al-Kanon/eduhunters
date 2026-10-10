@@ -1,16 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { flushSync } from 'react-dom';
 import { initialData, isZenithCopiedCourse } from './data/mockData';
+import { EXAM_CATEGORIES_METADATA } from './data/examCategoriesData';
 import HomePage from './components/HomePage';
 import CoursesPage from './components/CoursesPage';
 import BiologyCoursePage from './components/BiologyCoursePage';
+import CoursePlayerPage from './components/CoursePlayerPage';
+import BundleDetailPage from './components/BundleDetailPage';
 import ExamsPage from './components/ExamsPage';
 import StorePage from './components/StorePage';
 import AboutPage from './components/AboutPage';
 import DevicesPage from './components/DevicesPage';
 import OrdersPage from './components/OrdersPage';
-import AdminPanel from './components/AdminPanel';
+import LegalPoliciesPage from './components/LegalPoliciesPage';
 import AuthModal from './components/AuthModal';
+import PreloaderScreen from './components/PreloaderScreen';
+import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/firestoreSyncService';
+
+// Performance Optimization: Lazy load heavy AdminPanel
+const AdminPanel = lazy(() => import('./components/AdminPanel'));
 import { useTheme } from './context/ThemeContext';
 import './App.css';
 
@@ -71,8 +79,27 @@ export default function App() {
     try {
       const path = (window.location.pathname || '').toLowerCase();
       if (path.startsWith('/courses/') && path.length > 9 && !path.includes('[object')) {
-        return path.split('/courses/')[1] || null;
+        let cid = path.split('/courses/')[1] || '';
+        if (cid.includes('/watch')) cid = cid.split('/watch')[0];
+        if (cid.includes('/lecture')) cid = cid.split('/lecture')[0];
+        return cid || null;
       }
+    } catch {}
+    return null;
+  });
+  const [selectedLessonInfo, setSelectedLessonInfo] = useState(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const v = urlParams.get('v') || urlParams.get('lesson');
+      if (v !== null) return isNaN(Number(v)) ? v : Number(v);
+    } catch {}
+    return null;
+  });
+  const [selectedBundleId, setSelectedBundleId] = useState(() => {
+    try {
+      const path = (window.location.pathname || '').toLowerCase();
+      if (path.startsWith('/bundles/')) return path.split('/bundles/')[1] || null;
+      if (path.startsWith('/bundle/')) return path.split('/bundle/')[1] || null;
     } catch {}
     return null;
   });
@@ -84,6 +111,26 @@ export default function App() {
       return null;
     }
   });
+  const [examFromBundle, setExamFromBundle] = useState(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('from') === 'bundle' || urlParams.get('fromBundle') === 'true' || urlParams.get('bundleId')) {
+        return urlParams.get('bundleId') || true;
+      }
+      return sessionStorage.getItem('eduhunters_nav_from_bundle') || false;
+    } catch {
+      return false;
+    }
+  });
+  const [selectedPolicyTab, setSelectedPolicyTab] = useState(() => {
+    try {
+      const path = (window.location.pathname || '').toLowerCase();
+      const hash = (window.location.hash || '').toLowerCase();
+      if (path.includes('/refund') || hash.includes('refund')) return 'refund';
+      if (path.includes('/privacy') || hash.includes('privacy')) return 'privacy';
+    } catch {}
+    return 'terms';
+  });
   const [viewMode, setViewMode] = useState(() => {
     const path = (window.location.pathname || '').toLowerCase();
     const hash = (window.location.hash || '').toLowerCase();
@@ -91,12 +138,18 @@ export default function App() {
     if (path.includes('/exams') || hash.includes('exams')) return 'exams';
     if (path.includes('/devices') || hash.includes('devices')) return 'devices';
     if (path.includes('/orders') || hash.includes('orders')) return 'orders';
+    if (path.includes('/terms') || path.includes('/refund') || path.includes('/privacy') || path.includes('/policies') || hash.includes('terms') || hash.includes('refund') || hash.includes('privacy')) return 'policies';
+    if (path.startsWith('/bundles/') || path.startsWith('/bundle/')) return 'bundle_detail';
+    if (path.startsWith('/courses/') && (path.includes('/watch') || path.includes('/lecture'))) return 'course_player';
     if (path.startsWith('/courses/') && path.length > 9 && !path.includes('[object')) return 'course_detail';
     if (path.includes('/courses') || hash.includes('courses')) return 'courses';
     if (path.includes('/store') || hash.includes('store')) return 'store';
     if (path.includes('/about') || hash.includes('about')) return 'about';
     return 'home';
   });
+
+  // AdobeWala-inspired cinematic initial loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   // Smooth page navigation states
   const [isNavigating, setIsNavigating] = useState(false);
@@ -170,15 +223,42 @@ export default function App() {
           try {
             const urlParams = new URLSearchParams(window.location.search);
             setSelectedExamCategory(urlParams.get('category') || null);
+            if (urlParams.get('from') === 'bundle' || urlParams.get('fromBundle') === 'true' || urlParams.get('bundleId')) {
+              setExamFromBundle(urlParams.get('bundleId') || true);
+            } else {
+              setExamFromBundle(false);
+            }
           } catch {
             setSelectedExamCategory(null);
+            setExamFromBundle(false);
           }
           setViewMode('exams');
         }
+        else if (path.startsWith('/bundles/') || path.startsWith('/bundle/')) {
+          const bId = path.split('/bundle')[1].replace(/^s?\//, '');
+          setSelectedBundleId(bId || null);
+          setViewMode('bundle_detail');
+        }
+        else if (path.startsWith('/courses/') && (path.includes('/watch') || path.includes('/lecture'))) {
+          let cid = path.split('/courses/')[1] || '';
+          if (cid.includes('/watch')) cid = cid.split('/watch')[0];
+          if (cid.includes('/lecture')) cid = cid.split('/lecture')[0];
+          const urlParams = new URLSearchParams(window.location.search);
+          const v = urlParams.get('v') || urlParams.get('lesson');
+          setSelectedCourseId(cid);
+          setSelectedLessonInfo(v !== null ? (isNaN(Number(v)) ? v : Number(v)) : 0);
+          setViewMode('course_player');
+        }
         else if (path.startsWith('/courses/') && path.length > 9 && !path.includes('[object')) {
           const id = path.split('/courses/')[1];
-          if (id) setSelectedCourseId(id);
-          setViewMode('course_detail');
+          const examKeys = new Set(['sureshot', 'medical', 'rtds', 'english_master', 'gk_course', 'medilogy']);
+          if (id && examKeys.has(id)) {
+            setSelectedExamCategory(id);
+            setViewMode('exams');
+          } else if (id) {
+            setSelectedCourseId(id);
+            setViewMode('course_detail');
+          }
         }
         else if (path.includes('/courses') || hash.includes('courses')) {
           setSelectedCourseId(null);
@@ -188,6 +268,18 @@ export default function App() {
         else if (path.includes('/about') || hash.includes('about')) setViewMode('about');
         else if (path.includes('/devices') || hash.includes('devices')) setViewMode('devices');
         else if (path.includes('/orders') || hash.includes('orders')) setViewMode('orders');
+        else if (path.includes('/refund') || hash.includes('refund')) {
+          setSelectedPolicyTab('refund');
+          setViewMode('policies');
+        }
+        else if (path.includes('/privacy') || hash.includes('privacy')) {
+          setSelectedPolicyTab('privacy');
+          setViewMode('policies');
+        }
+        else if (path.includes('/terms') || hash.includes('terms') || path.includes('/policies') || hash.includes('policies')) {
+          setSelectedPolicyTab('terms');
+          setViewMode('policies');
+        }
         else setViewMode('home');
       }, null);
     };
@@ -202,7 +294,16 @@ export default function App() {
         return {
           ...initialData,
           ...parsed,
-          siteSettings: { ...initialData.siteSettings, ...(parsed.siteSettings || {}) },
+          siteSettings: { 
+            ...initialData.siteSettings, 
+            ...(parsed.siteSettings || {}),
+            facebookPage: (parsed.siteSettings?.facebookPage && parsed.siteSettings.facebookPage !== 'https://facebook.com')
+              ? parsed.siteSettings.facebookPage
+              : initialData.siteSettings.facebookPage,
+            youtubeChannel: (parsed.siteSettings?.youtubeChannel && parsed.siteSettings.youtubeChannel !== 'https://youtube.com/@eduhunters')
+              ? parsed.siteSettings.youtubeChannel
+              : initialData.siteSettings.youtubeChannel,
+          },
           announcement: parsed.announcement || initialData.announcement,
           sectionTexts: { ...initialData.sectionTexts, ...(parsed.sectionTexts || {}) },
           whyChooseUs: Array.isArray(parsed.whyChooseUs) && parsed.whyChooseUs.length > 0 ? parsed.whyChooseUs : initialData.whyChooseUs,
@@ -211,8 +312,8 @@ export default function App() {
             : initialData.heroSlides,
           homeStats: Array.isArray(parsed.homeStats) && parsed.homeStats.length > 0 ? parsed.homeStats : initialData.homeStats,
           courses: (() => {
-            if (Array.isArray(parsed.courses) && parsed.courses.length > 0) {
-              const list = parsed.courses
+            if (Array.isArray(parsed.courses)) {
+              return parsed.courses
                 .filter(c => !isZenithCopiedCourse(c))
                 .map(c => {
                   let mapped = c.category === 'University A Unit' ? { ...c, category: 'Free' } : c;
@@ -222,18 +323,17 @@ export default function App() {
                   }
                   return mapped;
                 });
-              const existingIds = new Set(list.map(c => c.id || c.slug));
-              initialData.courses.forEach(c => {
-                if (!existingIds.has(c.id) && !existingIds.has(c.slug) && !isZenithCopiedCourse(c)) {
-                  list.push(c);
-                }
-              });
-              return list.length > 0 ? list : initialData.courses;
             }
             return initialData.courses;
           })(),
-          instructors: [],
-          freeVideos: (Array.isArray(parsed.freeVideos) && parsed.freeVideos.length > 0 && parsed.freeVideos.some(v => v.videoId?.includes('rMGOI-A5czA'))) 
+          bundles: Array.isArray(parsed.bundles)
+            ? parsed.bundles
+            : (initialData.bundles || []),
+          examBatches: Array.isArray(parsed.examBatches)
+            ? parsed.examBatches
+            : (initialData.examBatches || EXAM_CATEGORIES_METADATA),
+          instructors: Array.isArray(parsed.instructors) ? parsed.instructors : [],
+          freeVideos: Array.isArray(parsed.freeVideos)
             ? parsed.freeVideos 
             : initialData.freeVideos,
           categories: Array.isArray(parsed.categories) && parsed.categories.length > 0 
@@ -241,14 +341,28 @@ export default function App() {
                 .filter(c => !["HSC 25", "Engineering", "HSC 27", "HSC 28", "HSC 26"].includes(c))
                 .map(c => c === 'University A Unit' ? 'Free' : c)
             : initialData.categories,
-          storeProducts: Array.isArray(parsed.storeProducts) && parsed.storeProducts.length > 0 ? parsed.storeProducts : initialData.storeProducts,
-          accounting: {
-            ...initialData.accounting,
-            ...(parsed.accounting || {}),
-            transactions: Array.isArray(parsed.accounting?.transactions) && parsed.accounting.transactions.length > 0
-              ? parsed.accounting.transactions
-              : initialData.accounting.transactions
-          }
+          storeProducts: Array.isArray(parsed.storeProducts)
+            ? parsed.storeProducts.filter(p => !([1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info')))
+            : (initialData.storeProducts || []),
+          accounting: (() => {
+            const acc = parsed.accounting || initialData.accounting;
+            let txs = Array.isArray(acc?.transactions) && acc.transactions.length > 0
+              ? acc.transactions
+              : initialData.accounting.transactions;
+            const hasPending = txs.some(t => t.status === 'Pending');
+            if (!hasPending) {
+              const initPending = initialData.accounting.transactions.filter(t => t.status === 'Pending');
+              txs = [...initPending, ...txs];
+            }
+            return {
+              ...initialData.accounting,
+              ...acc,
+              transactions: txs
+            };
+          })(),
+          termsAndConditions: parsed.termsAndConditions || initialData.termsAndConditions,
+          refundPolicy: parsed.refundPolicy || initialData.refundPolicy,
+          privacyPolicy: parsed.privacyPolicy || initialData.privacyPolicy
         };
       }
     } catch (e) {
@@ -257,7 +371,7 @@ export default function App() {
     return initialData;
   });
 
-  // Permanently purge any Zenith Crew / Codervai copied courses and removed teachers from browser localStorage on load
+  // Permanently purge any Zenith Crew / Codervai copied courses and invalid items from browser localStorage on load
   useEffect(() => {
     try {
       const raw = localStorage.getItem('eduhunters_data');
@@ -265,22 +379,8 @@ export default function App() {
         const parsed = JSON.parse(raw);
         let modified = false;
         if (Array.isArray(parsed.courses)) {
-          let purged = parsed.courses.filter(c => !isZenithCopiedCourse(c)).map(c => {
-            const initialMatch = initialData.courses.find(initC => initC.id === c.id || initC.slug === c.slug);
-            if (initialMatch && (!c.curriculum || c.curriculum[0]?.chapters?.[0]?.lessons?.some(l => l.title === 'HSC 26,27'))) {
-              modified = true;
-              return { ...c, curriculum: initialMatch.curriculum };
-            }
-            return c;
-          });
-          const existingIds = new Set(purged.map(c => c.id || c.slug));
-          initialData.courses.forEach(c => {
-            if (!existingIds.has(c.id) && !existingIds.has(c.slug) && !isZenithCopiedCourse(c)) {
-              purged.push(c);
-              modified = true;
-            }
-          });
-          if (purged.length !== parsed.courses.length || modified) {
+          const purged = parsed.courses.filter(c => !isZenithCopiedCourse(c));
+          if (purged.length !== parsed.courses.length) {
             parsed.courses = purged;
             modified = true;
           }
@@ -289,12 +389,16 @@ export default function App() {
           parsed.instructors = [];
           modified = true;
         }
+        if (Array.isArray(parsed.storeProducts) && parsed.storeProducts.some(p => [1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info'))) {
+          parsed.storeProducts = parsed.storeProducts.filter(p => !([1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info')));
+          modified = true;
+        }
         if (modified) {
           localStorage.setItem('eduhunters_data', JSON.stringify(parsed));
           setData(prev => ({
             ...prev,
             courses: parsed.courses || prev.courses,
-            instructors: parsed.instructors || prev.instructors
+            storeProducts: parsed.storeProducts || prev.storeProducts
           }));
         }
       }
@@ -303,14 +407,91 @@ export default function App() {
     }
   }, []);
 
+  // Multi-tab, multi-window, and real-time state synchronization broadcaster
+  const broadcastSync = (dataToSync) => {
+    try {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('eduhunters_data_updated', { detail: dataToSync }));
+        if (typeof BroadcastChannel !== 'undefined') {
+          const bc = new BroadcastChannel('eduhunters_sync_channel');
+          bc.postMessage({ type: 'DATA_SYNC', payload: dataToSync });
+          bc.close();
+        }
+      }
+    } catch (e) {
+      console.error('Broadcast sync error:', e);
+    }
+  };
+
   const handleUpdateData = (newData) => {
     setData(newData);
     try {
       localStorage.setItem('eduhunters_data', JSON.stringify(newData));
     } catch (e) {
-      console.error('Error saving data:', e);
+      console.error('Error saving data to localStorage:', e);
     }
+    broadcastSync(newData);
+    // Cloud Firestore synchronization: Save permanently in cloud so git pushes never erase admin edits
+    saveCloudData(newData);
   };
+
+  // Real-time synchronization listener: Local tabs + Cloud Firestore
+  useEffect(() => {
+    // 1. Listen for real-time Cloud Firestore updates (across all devices & live vs local)
+    const unsubscribeCloud = subscribeToCloudData((cloudData) => {
+      if (cloudData) {
+        setData(prev => ({
+          ...prev,
+          ...cloudData
+        }));
+        try {
+          localStorage.setItem('eduhunters_data', JSON.stringify({
+            ...data,
+            ...cloudData
+          }));
+        } catch (e) {}
+      }
+    });
+
+    const handleStorageChange = (e) => {
+      if (e.key === 'eduhunters_data' && e.newValue) {
+        try {
+          const parsed = JSON.parse(e.newValue);
+          setData(parsed);
+        } catch (err) {
+          console.error('Failed to parse storage update:', err);
+        }
+      }
+    };
+
+    let bc;
+    if (typeof BroadcastChannel !== 'undefined') {
+      try {
+        bc = new BroadcastChannel('eduhunters_sync_channel');
+        bc.onmessage = (event) => {
+          if (event.data?.type === 'DATA_SYNC' && event.data?.payload) {
+            setData(event.data.payload);
+          }
+        };
+      } catch (err) {}
+    }
+
+    const handleCustomSync = (e) => {
+      if (e.detail) {
+        setData(e.detail);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('eduhunters_data_updated', handleCustomSync);
+
+    return () => {
+      if (typeof unsubscribeCloud === 'function') unsubscribeCloud();
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('eduhunters_data_updated', handleCustomSync);
+      if (bc) bc.close();
+    };
+  }, []);
 
   const handleResetData = () => {
     setData(initialData);
@@ -319,6 +500,7 @@ export default function App() {
     } catch (e) {
       console.error('Error resetting data:', e);
     }
+    broadcastSync(initialData);
   };
 
   const handleEnrollSuccess = ({ itemTitle, amount, studentName, studentPhone, method, trxId }) => {
@@ -354,19 +536,53 @@ export default function App() {
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState('signin');
+  const [pendingAuthAction, setPendingAuthAction] = useState(null);
+
+  const handleOpenAuth = (mode = 'signin', postAuthAction = null) => {
+    setAuthMode(mode);
+    setPendingAuthAction(typeof postAuthAction === 'function' ? () => postAuthAction : null);
+    setIsAuthModalOpen(true);
+  };
 
   const navHandlers = {
     onNavigateHome: () => {
+      setExamFromBundle(false);
+      try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
       navigateWithSmoothTransition(() => {
         setViewMode('home');
       }, '/');
     },
-    onNavigateCourse: (courseId) => {
+    onNavigateCourse: (courseId, options = {}) => {
+      const isFromBundle = Boolean(options?.fromBundle);
+      const bundleId = options?.bundleId || null;
+      if (isFromBundle) {
+        setExamFromBundle(bundleId || true);
+        try { sessionStorage.setItem('eduhunters_nav_from_bundle', bundleId || 'true'); } catch(e) {}
+      } else {
+        setExamFromBundle(false);
+        try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
+      }
+
+      const examKeys = new Set(['sureshot', 'medical', 'rtds', 'english_master', 'gk_course', 'medilogy']);
+      if (typeof courseId === 'string' && examKeys.has(courseId.trim())) {
+        const cat = courseId.trim();
+        const url = isFromBundle 
+          ? `/exams?category=${cat}&from=bundle${bundleId ? `&bundleId=${bundleId}` : ''}`
+          : `/exams?category=${cat}`;
+        navigateWithSmoothTransition(() => {
+          setSelectedExamCategory(cat);
+          setViewMode('exams');
+        }, url);
+        return;
+      }
       if (typeof courseId === 'string' && courseId.trim().length > 0 && !courseId.includes('[object')) {
+        const url = isFromBundle 
+          ? `/courses/${courseId}?from=bundle${bundleId ? `&bundleId=${bundleId}` : ''}`
+          : `/courses/${courseId}`;
         navigateWithSmoothTransition(() => {
           setSelectedCourseId(courseId);
           setViewMode('course_detail');
-        }, `/courses/${courseId}`);
+        }, url);
       } else {
         navigateWithSmoothTransition(() => {
           setSelectedCourseId(null);
@@ -374,7 +590,39 @@ export default function App() {
         }, '/courses');
       }
     },
+    onNavigateCoursePlayer: (courseId, lessonInfo = null) => {
+      setExamFromBundle(false);
+      try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
+      const cid = courseId || 'master-english-30-days';
+      const lessonParam = typeof lessonInfo === 'number'
+        ? lessonInfo
+        : (lessonInfo?.globalIndex !== undefined 
+          ? lessonInfo.globalIndex 
+          : (lessonInfo?.lessonIdx !== undefined ? lessonInfo.lessonIdx : 0));
+      navigateWithSmoothTransition(() => {
+        setSelectedCourseId(cid);
+        setSelectedLessonInfo(lessonInfo);
+        setViewMode('course_player');
+      }, `/courses/${cid}/watch?v=${lessonParam}`);
+    },
+    onNavigateBundle: (bundleId) => {
+      setExamFromBundle(false);
+      try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
+      if (typeof bundleId === 'string' && bundleId.trim().length > 0) {
+        navigateWithSmoothTransition(() => {
+          setSelectedBundleId(bundleId.trim());
+          setViewMode('bundle_detail');
+        }, `/bundles/${bundleId.trim()}`);
+      } else {
+        navigateWithSmoothTransition(() => {
+          setSelectedBundleId(null);
+          setViewMode('courses');
+        }, '/courses');
+      }
+    },
     onNavigateExams: (categoryKey) => {
+      setExamFromBundle(false);
+      try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
       const cat = typeof categoryKey === 'string' && categoryKey.trim().length > 0 ? categoryKey.trim() : null;
       navigateWithSmoothTransition(() => {
         setSelectedExamCategory(cat);
@@ -406,13 +654,19 @@ export default function App() {
         setViewMode('admin');
       }, '/admin');
     },
-    onLoginClick: () => {
-      setAuthMode('signin');
-      setIsAuthModalOpen(true);
+    onNavigatePolicies: (policyTab = 'terms') => {
+      const tab = ['terms', 'refund', 'privacy'].includes(policyTab) ? policyTab : 'terms';
+      const path = tab === 'refund' ? '/refund-policy' : (tab === 'privacy' ? '/privacy-policy' : '/terms');
+      navigateWithSmoothTransition(() => {
+        setSelectedPolicyTab(tab);
+        setViewMode('policies');
+      }, path);
     },
-    onSignUpClick: () => {
-      setAuthMode('signup');
-      setIsAuthModalOpen(true);
+    onLoginClick: (callback) => {
+      handleOpenAuth('signin', typeof callback === 'function' ? callback : null);
+    },
+    onSignUpClick: (callback) => {
+      handleOpenAuth('signup', typeof callback === 'function' ? callback : null);
     },
     onEnrollSuccess: handleEnrollSuccess
   };
@@ -420,15 +674,41 @@ export default function App() {
   const renderContent = () => {
     if (viewMode === 'admin') {
       return (
-        <AdminPanel 
+        <Suspense fallback={
+          <div className="min-h-screen bg-[#f4f6fa] flex items-center justify-center">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-10 h-10 border-4 border-[#5d5bf6] border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Loading MatDash Admin Portal...</p>
+            </div>
+          </div>
+        }>
+          <AdminPanel 
+            data={data}
+            onUpdateData={handleUpdateData}
+            onResetData={handleResetData}
+            onExitAdmin={() => {
+              navigateWithSmoothTransition(() => {
+                setViewMode('home');
+              }, '/');
+            }}
+          />
+        </Suspense>
+      );
+    }
+
+    if (viewMode === 'policies' || viewMode === 'terms' || viewMode === 'refund') {
+      return (
+        <LegalPoliciesPage 
           data={data}
-          onUpdateData={handleUpdateData}
-          onResetData={handleResetData}
-          onExitAdmin={() => {
-            navigateWithSmoothTransition(() => {
-              setViewMode('home');
-            }, '/');
+          initialTab={selectedPolicyTab}
+          onChangeTab={(tab) => {
+            setSelectedPolicyTab(tab);
+            const path = tab === 'refund' ? '/refund-policy' : (tab === 'privacy' ? '/privacy-policy' : '/terms');
+            try {
+              window.history.pushState(null, '', path);
+            } catch (e) {}
           }}
+          {...navHandlers}
         />
       );
     }
@@ -438,6 +718,17 @@ export default function App() {
         <ExamsPage 
           data={data}
           selectedCategory={selectedExamCategory}
+          isFromBundle={Boolean(examFromBundle)}
+          onBackToBundle={() => {
+            const bId = typeof examFromBundle === 'string' ? examFromBundle : selectedBundleId;
+            if (bId) {
+              navHandlers.onNavigateBundle(bId);
+            } else {
+              navigateWithSmoothTransition(() => {
+                setViewMode('bundle_detail');
+              });
+            }
+          }}
           {...navHandlers}
         />
       );
@@ -452,11 +743,35 @@ export default function App() {
       );
     }
 
+    if (viewMode === 'bundle_detail') {
+      return (
+        <BundleDetailPage 
+          data={data}
+          selectedBundleId={selectedBundleId}
+          {...navHandlers}
+        />
+      );
+    }
+
+    if (viewMode === 'course_player') {
+      return (
+        <CoursePlayerPage 
+          data={data}
+          courseId={selectedCourseId || 'master-english-30-days'}
+          initialLesson={selectedLessonInfo}
+          onNavigateCourse={navHandlers.onNavigateCourse}
+          onLoginClick={(postLoginAction) => handleOpenAuth('signin', postLoginAction)}
+          {...navHandlers}
+        />
+      );
+    }
+
     if (viewMode === 'course_detail') {
       return (
         <BiologyCoursePage 
           data={data}
           selectedCourseId={selectedCourseId || 'master-english-30-days'}
+          onOpenLesson={navHandlers.onNavigateCoursePlayer}
           {...navHandlers}
         />
       );
@@ -507,7 +822,7 @@ export default function App() {
     );
   };
 
-  const pageKey = `${viewMode}_${selectedCourseId || ''}_${selectedExamCategory || ''}`;
+  const pageKey = `${viewMode}_${selectedCourseId || ''}_${selectedExamCategory || ''}_${selectedPolicyTab || ''}`;
 
   return (
     <>
@@ -524,23 +839,27 @@ export default function App() {
         </div>
       </div>
 
-      {/* High-End Seamless Drifting Red Wine Lights Background Video (Dark Mode) */}
+      {/* Premium Dark Theme Background Image (Desktop: Original, Mobile: 90° Rotated Vertical) */}
       <div 
         aria-hidden="true"
         className={`fixed inset-0 z-[-1] overflow-hidden pointer-events-none transition-opacity duration-700 ${
           isDark ? 'opacity-100' : 'opacity-0'
         }`}
+        style={{ backgroundColor: '#070102' }}
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-[0.32]"
-          src="/red-wine-drift.webm"
+        {/* Desktop / Tablet Background (Landscape) */}
+        <img
+          src="/dark-bg-desktop.png"
+          alt=""
+          className="hidden md:block w-full h-full object-cover object-center select-none pointer-events-none"
         />
-        {/* 5/10 Close to Black Deep Red Wine Atmosphere Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#180307]/75 via-[#0e0104]/80 to-[#070002]/88 pointer-events-none" />
+
+        {/* Mobile Background (90° Rotated Portrait / Vertical orientation) */}
+        <img
+          src="/dark-bg-mobile.png"
+          alt=""
+          className="block md:hidden w-full h-full object-cover object-center select-none pointer-events-none"
+        />
       </div>
 
       {/* Ultra-Smooth Silk Page Container with ErrorBoundary Protection */}
@@ -553,13 +872,32 @@ export default function App() {
         </div>
       </ErrorBoundary>
 
+      {/* AdobeWala-Inspired Cinematic Preloader Screen */}
+      {isLoading && (
+        <PreloaderScreen 
+          siteSettings={data?.siteSettings}
+          onFinish={() => setIsLoading(false)} 
+        />
+      )}
+
       {/* Global Auth Modal with Exact Design from Reference Image */}
       <AuthModal
         isOpen={isAuthModalOpen}
         initialMode={authMode}
-        onClose={() => setIsAuthModalOpen(false)}
+        onClose={() => {
+          setIsAuthModalOpen(false);
+          setPendingAuthAction(null);
+        }}
         onSuccess={(user) => {
           console.log('User authenticated:', user);
+          setIsAuthModalOpen(false);
+          if (pendingAuthAction) {
+            const action = pendingAuthAction;
+            setPendingAuthAction(null);
+            setTimeout(() => {
+              action(user);
+            }, 300);
+          }
         }}
       />
     </>

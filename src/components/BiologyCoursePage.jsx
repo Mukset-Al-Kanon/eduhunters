@@ -29,6 +29,8 @@ import CheckoutModal from './CheckoutModal';
 import Navbar from './Navbar';
 import { initialData } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
+import { useEnrollmentStatus, grantCourseAccess } from '../utils/enrollmentService';
 
 function getEmbedUrl(url) {
   if (!url) return '';
@@ -49,8 +51,10 @@ export default function BiologyCoursePage({
   onNavigateAbout,
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin,
   onLoginClick,
+  onOpenLesson,
   onEnrollSuccess
 }) {
   const { isDark } = useTheme();
@@ -82,6 +86,8 @@ export default function BiologyCoursePage({
   };
 
   const [course, setCourse] = useState(baseCourse);
+  const { currentUser } = useAuth();
+  const isCourseEnrolled = useEnrollmentStatus(course, currentUser, data);
   const [isSyncing, setIsSyncing] = useState(false);
   const [showApiKeyModal, setShowApiKeyModal] = useState(false);
   const [apiKeyInput, setApiKeyInput] = useState(() => {
@@ -147,7 +153,18 @@ export default function BiologyCoursePage({
   const [showCheckout, setShowCheckout] = useState(false);
   const [showPdfViewer, setShowPdfViewer] = useState(false);
   const [showExamEngine, setShowExamEngine] = useState(false);
-  const [demoLesson, setDemoLesson] = useState(null);
+
+  const handleOpenCheckout = () => {
+    if (!currentUser) {
+      if (onLoginClick) {
+        onLoginClick(() => {
+          setShowCheckout(true);
+        });
+      }
+      return;
+    }
+    setShowCheckout(true);
+  };
 
   const toggleSection = (secId) => {
     setExpandedSections(prev => ({
@@ -178,6 +195,7 @@ export default function BiologyCoursePage({
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
         onNavigateOrders={onNavigateOrders}
+        onNavigatePolicies={onNavigatePolicies}
         onOpenAdmin={onOpenAdmin}
         onLoginClick={onLoginClick}
       />
@@ -196,11 +214,6 @@ export default function BiologyCoursePage({
                 : 'bg-gradient-to-r from-[#7f1d1d] via-[#dc2626] to-[#991b1b] border border-red-700/20'
             }`}>
               <div className="relative z-10">
-                <span className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold mb-3 ${
-                  isDark ? 'bg-[#24050d] border border-[#e11438]/40 text-[#ff6b8b]' : 'bg-white/20 border border-white/30 text-white'
-                }`}>
-                  {course.category}
-                </span>
                 <h1 className="text-2xl md:text-4xl font-black text-white leading-tight mb-2">
                   {course.name}
                 </h1>
@@ -295,6 +308,7 @@ export default function BiologyCoursePage({
                             const title = isObj ? lesson.title : lesson;
                             const duration = isObj ? lesson.duration : null;
                             const isFree = isObj ? Boolean(lesson.isFree) : false;
+                            const isUnlocked = isFree || isCourseEnrolled;
                             const videoUrl = isObj ? lesson.videoUrl : null;
                             const pdfUrl = isObj ? lesson.pdfUrl : null;
 
@@ -302,25 +316,33 @@ export default function BiologyCoursePage({
                               <div 
                                 key={lIdx} 
                                 className={`group flex items-center justify-between p-3.5 pl-6 sm:pl-8 transition-all cursor-pointer ${
-                                  isFree 
-                                    ? (isDark ? 'bg-[#1c080e] hover:bg-[#280a13]' : 'bg-white hover:bg-red-50/40') 
+                                  isUnlocked 
+                                    ? (isDark ? 'bg-[#1c080e]/60 hover:bg-[#280a13]' : 'bg-white hover:bg-red-50/50') 
                                     : (isDark ? 'hover:bg-[#1a0409]' : 'hover:bg-gray-100/60')
                                 }`}
                                 onClick={() => {
-                                  if (isFree) {
-                                    setDemoLesson({ title, videoUrl, pdfUrl, duration });
+                                  if (isUnlocked) {
+                                    if (onOpenLesson) {
+                                      onOpenLesson(course.id || course.slug || selectedCourseId, {
+                                        title,
+                                        videoUrl: videoUrl || course.previewVideoUrl,
+                                        pdfUrl,
+                                        duration,
+                                        lessonIdx: lIdx
+                                      });
+                                    }
                                   } else {
-                                    setShowCheckout(true);
+                                    handleOpenCheckout();
                                   }
                                 }}
                               >
                                 <div className="flex items-center gap-3 flex-1 min-w-0">
                                   <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:scale-105 ${
-                                    isFree 
+                                    isUnlocked 
                                       ? 'bg-red-100 text-red-600 shadow-2xs' 
                                       : (isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-200 text-gray-500')
                                   }`}>
-                                    {isFree ? (
+                                    {isUnlocked ? (
                                       <Play className="w-3.5 h-3.5 fill-red-600 text-red-600 ml-0.5" />
                                     ) : (
                                       <Lock className="w-3.5 h-3.5" />
@@ -344,7 +366,7 @@ export default function BiologyCoursePage({
                                       <span>{duration}</span>
                                     </div>
                                   )}
-                                  {!isFree && (
+                                  {!isUnlocked && (
                                     <span className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-full ${
                                       isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-600'
                                     }`}>
@@ -498,60 +520,54 @@ export default function BiologyCoursePage({
                         <div className={`text-xs sm:text-sm font-bold truncate ${isDark ? 'text-white' : 'text-[#111827]'}`}>চলমান ব্যাচ</div>
                       </div>
                     </div>
-
-                    <div 
-                      className={`rounded-xl p-2 sm:p-3 flex items-center gap-2 text-left cursor-pointer transition-all col-span-2 border ${
-                        isDark ? 'border-[#e11438]/30 bg-[#1c050e] hover:border-[#ff3b61]' : 'border-gray-200 bg-gray-50 hover:border-gray-900'
-                      }`}
-                      onClick={() => setShowPdfViewer(true)}
-                    >
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center">
-                        <svg className={`w-7 h-7 ${isDark ? 'text-[#ff6b8b]' : 'text-gray-500'}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10M6 10h10"></path></svg>
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className={`text-xs sm:text-sm font-bold truncate ${isDark ? 'text-white' : 'text-[#111827]'}`}>লেকচার শিট ও মডিউল</div>
-                        <div className="text-[10px] sm:text-xs text-[#dc2626] font-bold truncate">দেখতে ক্লিক করুন</div>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Price Tag */}
-                  <div className="flex items-center justify-center gap-3 mb-6">
-                    {(course.isFree || Number(course.salePrice) === 0) ? (
-                      <div className="flex items-baseline gap-2.5">
-                        <span className="text-4xl font-black text-emerald-500 drop-shadow-sm tracking-tight">FREE</span>
-                        {course.regularPrice && (
-                          <span className="text-xl text-gray-400 line-through font-bold">৳{Number(course.regularPrice).toLocaleString()}</span>
-                        )}
-                        <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-400 border border-emerald-300/40">
-                          ১০০% ফ্রি
-                        </span>
-                      </div>
-                    ) : (
-                      <>
-                        <span className={`text-4xl font-black ${isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'}`}>৳{Number(course.salePrice || 0).toLocaleString()}</span>
-                        {course.regularPrice && (
-                          <span className="text-xl text-gray-400 line-through font-bold">৳{Number(course.regularPrice).toLocaleString()}</span>
-                        )}
-                      </>
-                    )}
-                  </div>
+                  {!isCourseEnrolled && (
+                    <div className="flex items-center justify-center gap-3 mb-6">
+                      {(course.isFree || Number(course.salePrice) === 0) ? (
+                        <div className="flex items-baseline gap-2.5">
+                          <span className="text-4xl font-black text-emerald-500 drop-shadow-sm tracking-tight">FREE</span>
+                          {course.regularPrice && (
+                            <span className="text-xl text-gray-400 line-through font-bold">৳{Number(course.regularPrice).toLocaleString()}</span>
+                          )}
+                          <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-400 border border-emerald-300/40">
+                            ১০০% ফ্রি
+                          </span>
+                        </div>
+                      ) : (
+                        <>
+                          <span className={`text-4xl font-black ${isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'}`}>৳{Number(course.salePrice || 0).toLocaleString()}</span>
+                          {course.regularPrice && (
+                            <span className="text-xl text-gray-400 line-through font-bold">৳{Number(course.regularPrice).toLocaleString()}</span>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  )}
 
                   {/* Actions */}
                   <div className="space-y-3">
-                    {(course.isFree || Number(course.salePrice) === 0) ? (
+                    {isCourseEnrolled ? (
                       <button 
                         onClick={() => {
-                          const firstChapter = course.curriculum?.[0]?.chapters?.[0];
-                          const firstLesson = firstChapter?.lessons?.[0];
-                          if (firstLesson) {
-                            const isObj = typeof firstLesson === 'object';
-                            setDemoLesson({
-                              title: isObj ? firstLesson.title : firstLesson,
-                              videoUrl: isObj ? firstLesson.videoUrl : course.previewVideoUrl,
-                              pdfUrl: isObj ? firstLesson.pdfUrl : null,
-                              duration: isObj ? firstLesson.duration : null
-                            });
+                          if (onOpenLesson) {
+                            onOpenLesson(course.id || course.slug || selectedCourseId, 0);
+                          } else {
+                            const elem = document.getElementById('curriculum-section');
+                            if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }}
+                        className="flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base rounded-xl transition-all border-none cursor-pointer shadow-lg shadow-emerald-600/30 hover:scale-[1.01] active:scale-[0.99] group"
+                      >
+                        <Play className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
+                        ক্লাস শুরু করুন
+                      </button>
+                    ) : (course.isFree || Number(course.salePrice) === 0) ? (
+                      <button 
+                        onClick={() => {
+                          if (onOpenLesson) {
+                            onOpenLesson(course.id || course.slug || selectedCourseId, 0);
                           } else {
                             const elem = document.getElementById('curriculum-section');
                             if (elem) elem.scrollIntoView({ behavior: 'smooth' });
@@ -564,8 +580,8 @@ export default function BiologyCoursePage({
                       </button>
                     ) : (
                       <button 
-                        onClick={() => setShowCheckout(true)}
-                        className="flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-[#dc2626] hover:brightness-110 text-white font-bold text-base rounded-xl transition-all border-none cursor-pointer shadow-md"
+                        onClick={handleOpenCheckout}
+                        className="flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-[#dc2626] hover:bg-red-700 text-white font-bold text-base rounded-xl transition-all border-none cursor-pointer shadow-[0_0_25px_rgba(220,38,38,0.45)] hover:shadow-[0_0_35px_rgba(220,38,38,0.65)] hover:scale-[1.01] active:scale-[0.99]"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                         কোর্সটি কিনুন
@@ -584,10 +600,17 @@ export default function BiologyCoursePage({
       {/* Footer (Hidden on mobile) */}
       <div className="hidden sm:block">
         {isDark ? (
-          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 mt-16 py-12 text-center text-xs text-gray-400">
-            <div className="max-w-7xl mx-auto px-4">
-              <p className="font-semibold text-[#ff3b61] mb-1">EDU HUNTERS · Premier Edtech Learning Platform</p>
-              <p>© 2026 Edu Hunters. All rights reserved.</p>
+          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 mt-16 py-10 text-center text-xs text-gray-400">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div>
+                <p className="font-semibold text-[#ff3b61] mb-1">EDU HUNTERS · Premier Edtech Learning Platform</p>
+                <p>© 2026 Edu Hunters. All rights reserved.</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
+              </div>
             </div>
           </footer>
         ) : (
@@ -618,10 +641,10 @@ export default function BiologyCoursePage({
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 mb-5">দ্রুত লিঙ্ক</p>
                     <ul className="space-y-3 list-none p-0 m-0">
-                      <li><a href="#courses" className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">All Courses</a></li>
-                      <li><a href="#dashboard" className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Dashboard</a></li>
-                      <li><a href="#profile" className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Profile</a></li>
-                      <li><a href="#orders" className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Order History</a></li>
+                      <li><a href="#courses" onClick={(e) => { e.preventDefault(); if (onNavigateHome) onNavigateHome(); }} className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">All Courses</a></li>
+                      <li><a href="#orders" onClick={(e) => { e.preventDefault(); if (onNavigateOrders) onNavigateOrders(); }} className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Order History</a></li>
+                      <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="text-sm text-white/70 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">Terms & Conditions</button></li>
+                      <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="text-sm text-white/70 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">Refund Policy</button></li>
                     </ul>
                   </div>
 
@@ -640,9 +663,9 @@ export default function BiologyCoursePage({
               <div className="border-t border-white/[0.1] pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-3">
                 <p className="text-xs text-white/60">© 2026 Edu Hunters. All rights reserved.</p>
                 <div className="flex items-center gap-6">
-                  <span className="text-xs text-white/60">Privacy Policy</span>
-                  <span className="text-xs text-white/60">Terms of Use</span>
-                  <span className="text-xs text-white/60">Refund Policy</span>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Privacy Policy</button>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Terms of Use</button>
+                  <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Refund Policy</button>
                 </div>
               </div>
             </div>
@@ -684,75 +707,6 @@ export default function BiologyCoursePage({
           }}
           onClose={() => setShowCheckout(false)}
         />
-      )}
-
-      {/* Free Demo Video Lecture Modal */}
-      {demoLesson && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5">
-          <div className="bg-white w-full max-w-3xl rounded-3xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col">
-            <div className="flex items-center justify-between p-4 px-5 sm:px-6 border-b border-gray-200 bg-gray-50">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <h3 className="text-sm sm:text-base font-bold text-[#111827] truncate">
-                  {demoLesson.title}
-                </h3>
-              </div>
-              <button
-                onClick={() => setDemoLesson(null)}
-                className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 flex items-center justify-center cursor-pointer border-none shrink-0 transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div className="relative aspect-video bg-black">
-              {demoLesson.videoUrl ? (
-                <iframe
-                  src={getEmbedUrl(demoLesson.videoUrl)}
-                  title={demoLesson.title}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 p-6 text-center">
-                  <Play className="w-12 h-12 text-gray-500 mb-2" />
-                  <p className="text-sm font-semibold text-gray-300">এই লেকচারের ফ্রি ডেমো ভিডিওটি শীঘ্রই আপলোড হবে।</p>
-                </div>
-              )}
-            </div>
-
-            {(demoLesson.pdfUrl || (!course.isFree && Number(course.salePrice) > 0)) && (
-              <div className="p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 bg-white border-t border-gray-100">
-                <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                  {demoLesson.pdfUrl && (
-                    <a
-                      href={demoLesson.pdfUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors text-decoration-none border border-blue-200"
-                    >
-                      <FileText className="w-3.5 h-3.5 text-blue-600" />
-                      <span>লেকচার শিট ডাউনলোড (PDF)</span>
-                    </a>
-                  )}
-                </div>
-
-                {!course.isFree && Number(course.salePrice) > 0 && (
-                  <button
-                    onClick={() => {
-                      setDemoLesson(null);
-                      setShowCheckout(true);
-                    }}
-                    className="px-5 py-2.5 rounded-full bg-[#dc2626] hover:bg-red-700 text-white text-xs font-bold cursor-pointer border-none transition-all shadow-md flex items-center gap-1.5"
-                  >
-                    <ShoppingCart className="w-3.5 h-3.5" />
-                    <span>সম্পূর্ণ কোর্সে এনরোল করুন (৳{course.salePrice})</span>
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
       )}
 
       {/* YouTube Data API v3 Key Modal */}

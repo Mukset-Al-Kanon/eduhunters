@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle, Copy } from 'lucide-react';
+import { X, CheckCircle, Copy, FileText } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
+import { saveNewOrder } from '../services/orderService';
+import InvoiceModal from './InvoiceModal';
+import TermsModal from './TermsModal';
 
 export default function CheckoutModal({ bundle, course, onClose, onSuccess, siteSettings }) {
   const { isDark } = useTheme();
+  const { currentUser } = useAuth();
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [termsModalTab, setTermsModalTab] = useState('terms');
 
   const item = course || bundle || { 
     title: 'কোর্স এনরোলমেন্ট', 
@@ -16,8 +23,8 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
   const price = item.salePrice || item.price || 999;
   const originalPrice = item.regularPrice || item.originalPrice || price * 2;
 
-  const [studentName, setStudentName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [studentName, setStudentName] = useState(() => currentUser?.displayName || '');
+  const [phoneNumber, setPhoneNumber] = useState(() => currentUser?.phoneNumber || '');
   const [trxId, setTrxId] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('bkash');
   const [isProcessing, setIsProcessing] = useState(false);
@@ -25,13 +32,19 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [createdOrder, setCreatedOrder] = useState(null);
+  const [showInvoiceModal, setShowInvoiceModal] = useState(false);
 
   useEffect(() => {
+    if (!currentUser) {
+      onClose();
+      return;
+    }
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, 15);
     return () => clearTimeout(timer);
-  }, []);
+  }, [currentUser, onClose]);
 
   const handleSmoothClose = () => {
     if (isClosing) return;
@@ -78,6 +91,25 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
     setTimeout(() => {
       setIsProcessing(false);
       setIsSuccess(true);
+
+      // Automatically persist order & invoice in Order History
+      const finalStudentName = studentName || currentUser?.displayName || 'Enrolled Student';
+      const finalPhone = phoneNumber || currentUser?.phoneNumber || 'N/A';
+      const finalEmail = currentUser?.email || 'student@eduhunters.com.bd';
+      
+      const newOrder = saveNewOrder({
+        item,
+        studentName: finalStudentName,
+        studentPhone: finalPhone,
+        studentEmail: finalEmail,
+        paymentMethod: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
+        trxId: trxId,
+        amount: price,
+        originalPrice: originalPrice,
+        discount: Math.max(0, originalPrice - price)
+      });
+      setCreatedOrder(newOrder);
+
       try {
         confetti({
           particleCount: 80,
@@ -89,10 +121,12 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
         onSuccess({
           itemTitle: item.title,
           amount: price,
-          studentName: studentName || 'অনলাইন শিক্ষার্থী',
-          studentPhone: phoneNumber,
+          studentName: finalStudentName,
+          studentPhone: finalPhone,
           method: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
-          trxId: trxId
+          trxId: trxId,
+          orderId: newOrder.id,
+          invoiceNumber: newOrder.invoiceNumber
         });
       }
     }, 1000);
@@ -175,13 +209,27 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 </div>
               </div>
 
-              <button 
-                type="button" 
-                onClick={handleSmoothClose}
-                className="w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white rounded-xl font-bold text-xs border-none cursor-pointer shadow-md transition-all"
-              >
-                ঠিক আছে, সম্পন্ন করুন
-              </button>
+              <div className="flex flex-col sm:flex-row gap-2.5 pt-2">
+                <button 
+                  type="button" 
+                  onClick={() => setShowInvoiceModal(true)}
+                  className={`flex-1 py-3 px-3 rounded-xl font-bold text-xs border cursor-pointer shadow-md transition-all flex items-center justify-center gap-1.5 ${
+                    isDark 
+                      ? 'bg-white hover:bg-zinc-100 text-zinc-950 border-white' 
+                      : 'bg-zinc-900 hover:bg-zinc-800 text-white border-zinc-900'
+                  }`}
+                >
+                  <FileText size={15} />
+                  <span>View Official Invoice</span>
+                </button>
+                <button 
+                  type="button" 
+                  onClick={handleSmoothClose}
+                  className="flex-1 py-3 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white rounded-xl font-bold text-xs border-none cursor-pointer shadow-md transition-all"
+                >
+                  Done & Continue
+                </button>
+              </div>
             </div>
           ) : (
             <>
@@ -331,13 +379,35 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                   />
                 </div>
 
-                <p className="text-[11px] text-gray-400 text-center pt-1">
-                  পেমেন্ট সাবমিট করার পর দ্রুত যাচাই সম্পন্ন হবে।
+                <p className="text-[11px] text-gray-500 dark:text-gray-400 text-center pt-1 leading-relaxed">
+                  পেমেন্ট সাবমিট করার মাধ্যমে আপনি EduHunters-এর{' '}
+                  <button 
+                    type="button"
+                    onClick={() => {
+                      setTermsModalTab('terms');
+                      setShowTermsModal(true);
+                    }}
+                    className="text-[#dc2626] dark:text-[#ff4d6d] font-semibold underline hover:opacity-80 bg-transparent border-none p-0 cursor-pointer text-[11px]"
+                  >
+                    শর্তাবলী
+                  </button>{' '}
+                  ও{' '}
+                  <button 
+                    type="button"
+                    onClick={() => {
+                      setTermsModalTab('refund');
+                      setShowTermsModal(true);
+                    }}
+                    className="text-[#dc2626] dark:text-[#ff4d6d] font-semibold underline hover:opacity-80 bg-transparent border-none p-0 cursor-pointer text-[11px]"
+                  >
+                    রিফান্ড পলিসিতে
+                  </button>{' '}
+                  সম্মত হচ্ছেন।
                 </p>
 
                 <button 
                   type="submit" 
-                  className="w-full py-3.5 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:brightness-110 active:scale-[0.99] text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition-all cursor-pointer border-none flex items-center justify-center gap-2"
+                  className="w-full py-3.5 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:brightness-110 active:scale-[0.99] text-white font-bold text-xs sm:text-sm rounded-xl shadow-[0_0_20px_rgba(220,38,38,0.45)] hover:shadow-[0_0_30px_rgba(220,38,38,0.65)] transition-all cursor-pointer border-none flex items-center justify-center gap-2"
                   disabled={isProcessing}
                 >
                   <span>{isProcessing ? 'যাচাই করা হচ্ছে...' : `৳${price} পরিশোধ নিশ্চিত করুন`}</span>
@@ -347,6 +417,23 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
           )}
         </div>
       </div>
+
+      {/* Terms & Conditions / Refund Policy Popup Modal */}
+      <TermsModal 
+        isOpen={showTermsModal}
+        initialTab={termsModalTab}
+        onClose={() => setShowTermsModal(false)}
+        data={{ siteSettings }}
+      />
+
+      {/* Monochromatic Official Invoice Modal */}
+      {showInvoiceModal && createdOrder && (
+        <InvoiceModal 
+          order={createdOrder}
+          isOpen={showInvoiceModal}
+          onClose={() => setShowInvoiceModal(false)}
+        />
+      )}
     </div>
   );
 }

@@ -1,0 +1,3341 @@
+{
+  "exam_id": 9786,
+  "title": "Proverbs (Unlimited Exam)",
+  "category": "Unlimited Exam",
+  "subtopic": "Vocabulary Unlimited Exam",
+  "duration_minutes": 15,
+  "total_questions": 222,
+  "negative_mark": 25,
+  "questions": [
+    {
+      "question_no": 1,
+      "id": "14cbe8bc-11c4-4db2-8414-2555595d660b",
+      "question": "The saying 'enough is enough' is used when you want- [SABAS][]",
+      "options": [
+        "something to continue",
+        "something to stop",
+        "to tell instructions are clear",
+        "something to continue until it's enough"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি কোনো পরিস্থিতি বা আচরণ অসহনীয় হয়ে পড়লে তা বন্ধ করার উদ্দেশ্যে ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 2,
+      "id": "acc3c5fe-c8ff-4946-a6be-b3607ad3a9bb",
+      "question": "Two heads are better than one' এই প্রবাদটির ভাবার্থ কোনটি? [SABAS][]",
+      "options": [
+        "Comprehension",
+        "Correction",
+        "Compromise",
+        "Consultation"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "একা কাজ করার চেয়ে পরামর্শ করে কাজ করা ভালো, তাই পরামর্শ বা আলোচনা (Consultation) সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 3,
+      "id": "e7fa8699-d755-4361-8939-208033c2db78",
+      "question": "Hurry spoils --. [SABAS][]",
+      "options": [
+        "the work",
+        "the curry",
+        "to tarry",
+        "and scary"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Hurry spoils the curry' একটি প্রবাদ যার অর্থ তাড়াহুড়ো করলে কাজ নষ্ট হয়।",
+      "images": []
+    },
+    {
+      "question_no": 4,
+      "id": "73fe0452-a816-43d4-a831-78ea8f75a3c5",
+      "question": "Out of sight, out of --. (চোখের আড়াল মনের আড়াল) [SABAS][]",
+      "options": [
+        "mind",
+        "life",
+        "might",
+        "light"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো 'Out of sight, out of mind', যার বাংলা অর্থ চোখের আড়াল হলে মনের আড়াল হয়।",
+      "images": []
+    },
+    {
+      "question_no": 5,
+      "id": "ef1fa212-6078-4d91-b922-436c7b982fed",
+      "question": "A man is known by the -- he keeps. (সঙ্গ দেখে লোক চেনা যায়) [SABAS][]",
+      "options": [
+        "friends",
+        "money",
+        "asset",
+        "company"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সঠিক প্রবাদটি হলো 'A man is known by the company he keeps', অর্থাৎ মানুষ তার সঙ্গ দ্বারা পরিচিত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 6,
+      "id": "ab31d532-3d70-4914-9d8e-6088d5a6d702",
+      "question": "Many a little pickle makes a --. [SABAS][]",
+      "options": [
+        "tickle",
+        "sickle",
+        "mickle",
+        "blackle"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Many a little makes a mickle' হলো মূল প্রবাদ, যার অর্থ বিন্দু বিন্দু জল বা ছোট জিনিসে মহাসমুদ্র বা বড় কিছু তৈরি হয়।",
+      "images": []
+    },
+    {
+      "question_no": 7,
+      "id": "b6f8a14c-18bd-494d-808e-f1babcb38545",
+      "question": "লেবু কচলালে তেতো হয়'- The best translation is- [SABAS][]",
+      "options": [
+        "The lemon becomes bitter if it is rubbed.",
+        "A jest is driven hard, loses its point.",
+        "Don't try to do anything again and again.",
+        "A hungry fox is an angry fox."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কোনো বিষয়কে অতিরিক্ত চাপ দিলে বা বাড়াবাড়ি করলে তা তার মূল আবেদন হারায়, তাই এর ভাবার্থ হলো 'A jest is driven hard, loses its point'.",
+      "images": []
+    },
+    {
+      "question_no": 8,
+      "id": "1db2722f-91cd-40bf-b7cd-49bccca006aa",
+      "question": "A bolt from the blue' এর সমার্থক বাংলা প্রবাদ হলো- [SABAS][]",
+      "options": [
+        "যত গর্জে তত বর্ষে না",
+        "বিনা মেঘে বজ্রপাত",
+        "লঘু পাপে গুরু দণ্ড",
+        "ছাই ফেলতে ভাঙা কুলো"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "A bolt from the blue' অর্থ আকস্মিক বিপদ, যার বাংলা প্রবাদ 'বিনা মেঘে বজ্রপাত'।",
+      "images": []
+    },
+    {
+      "question_no": 9,
+      "id": "c68df9b1-3d9c-4d68-b159-b636623e701e",
+      "question": "What is the correct translation of 'অতি লোভে তাঁতী নষ্ট'? [SABAS][]",
+      "options": [
+        "No risk no gain",
+        "As you sow so shall you reap",
+        "Grasp all, lose all",
+        "Look before you leap"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অতি লোভে তাঁতী নষ্ট' এর ইংরেজি প্রবাদ হলো 'Grasp all, lose all', যার অর্থ অতিরিক্ত লোভ করলে সবই হারাতে হয়।",
+      "images": []
+    },
+    {
+      "question_no": 10,
+      "id": "8df61a59-fe4d-408c-9256-928a30a49ac9",
+      "question": "Education should teach us all to --. [SABAS][]",
+      "options": [
+        "oil one's tongue",
+        "oil your own machine",
+        "oil the car",
+        "oil the wheel"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এটি একটি রূপক প্রবাদ যার অর্থ হলো নিজের কাজে মন দেওয়া বা নিজেকে যোগ্য করে তোলা।",
+      "images": []
+    },
+    {
+      "question_no": 11,
+      "id": "b90d0d5c-5c02-4daa-aa2a-c390d4f3b72f",
+      "question": "A golden key can open any door' প্রবাদটির অর্থ- [SABAS][]",
+      "options": [
+        "টাকায় বাঘের দুধ মেলে",
+        "পরিশ্রম সাফল্যের চাবিকাঠি",
+        "টাকা দেবে গৌরী সেন",
+        "বন্ধ দুয়ার খোলে স্বর্গলোকের চাবি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এই প্রবাদটি দিয়ে বোঝানো হয় যে অর্থের মাধ্যমে যে কোনো কঠিন কাজ বা দুয়ার সহজ করা সম্ভব।",
+      "images": []
+    },
+    {
+      "question_no": 12,
+      "id": "eeb80a14-1aad-4aed-a15b-17a73919f5c4",
+      "question": "Like priest, like pupil' এর বাংলা প্রবচন কোনটি? [SABAS][]",
+      "options": [
+        "যেমন কর্ম, তেমন ফল",
+        "যেমন গাওয়া, তেমন পাওয়া",
+        "যেমন গুরু, তেমন চেলা",
+        "যেমন কুকুর, তেমন মুগুর"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এটি একটি ইংরেজি প্রবাদ যার ভাবার্থ শিক্ষকের আচরণের প্রতিফলন শিষ্যের মাঝে দেখা যায়।",
+      "images": []
+    },
+    {
+      "question_no": 13,
+      "id": "48519ae0-9ae4-43f1-9cfc-db85448b4650",
+      "question": "Brevity is the soul of wit' পদবন্ধটির যথাযথ বঙ্গানুবাদ- [SABAS][]",
+      "options": [
+        "অতি অল্প হইল",
+        "মানিকের ধনিক ভালো",
+        "কথা কম কাজ বেশি",
+        "প্রাণের কথা বুকে বাজে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এর অর্থ হলো অল্প কথায় অনেক গভীর ভাব প্রকাশ করাই হলো বুদ্ধিমত্তার পরিচয়।",
+      "images": []
+    },
+    {
+      "question_no": 14,
+      "id": "7ae3a1b5-0569-42c9-a385-c5a5ea855114",
+      "question": "Blood is always thicker than —. [SABAS][]",
+      "options": [
+        "water",
+        "honey",
+        "milk",
+        "juice"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটির পূর্ণরূপ 'Blood is thicker than water', যার অর্থ রক্তের সম্পর্ক অন্য যেকোনো সম্পর্কের চেয়ে গভীর।",
+      "images": []
+    },
+    {
+      "question_no": 15,
+      "id": "80cd2e9c-8bb2-49d9-8145-3a3b0ab835a7",
+      "question": "The proverb \"A burnt child dreads the fire\" means- [SABAS][]",
+      "options": [
+        "To choose between equally bad alternatives.",
+        "A bad experience may scare one's attitude.",
+        "Children are burnt easily.",
+        "A burnt child needs to see a doctor."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর অর্থ হলো কোনো খারাপ অভিজ্ঞতার পর মানুষ সেই বিষয়কে ভয় পেতে শুরু করে (যেমন: ঘর পোড়া গরু সিঁদুরে মেঘ দেখলে ডরায়)।",
+      "images": []
+    },
+    {
+      "question_no": 16,
+      "id": "a7c81e38-6650-4854-876d-fd02db61fc0a",
+      "question": "Speech is silver, but silence is —. [SABAS][]",
+      "options": [
+        "Divine",
+        "Simple",
+        "Golden",
+        "Enchanting"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদটির অর্থ হলো কথা বলা মূল্যবান হলেও নীরব থাকা তার চেয়েও বেশি মূল্যবান।",
+      "images": []
+    },
+    {
+      "question_no": 17,
+      "id": "d434f858-251d-43a2-9940-1251568dd720",
+      "question": "Man is the — of his own fate. (মানুষ নিজের ভাগ্য নিজেই গড়ে) [SABAS][]",
+      "options": [
+        "architecture",
+        "architectural",
+        "architect",
+        "archer"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি প্রবাদটি হলো 'Man is the architect of his own fate', অর্থাৎ মানুষ নিজেই তার ভাগ্যের নির্মাতা।",
+      "images": []
+    },
+    {
+      "question_no": 18,
+      "id": "5db82881-fe2d-4507-89f8-53ccd60c9e16",
+      "question": "The saying 'Enough is enough' is used to mean- [SABAS][]",
+      "options": [
+        "something to stop",
+        "something to continue",
+        "to stop behaving badly",
+        "instructions are clear"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "যখন কোনো বিষয় বা পরিস্থিতি আর সহ্য করা যায় না, তখন 'Enough is enough' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 19,
+      "id": "a503a465-6985-4eb8-ac86-0520dc7de2d2",
+      "question": "The expression 'penny wise pound foolish' indicates a situation where someone is — [SABAS][]",
+      "options": [
+        "very meticulous in discharging his duties",
+        "thrifty with small amounts but profligate with a large amounts",
+        "very prudent in spending",
+        "financially insolvent"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর অর্থ হলো সামান্য ব্যাপারে হিসেবী কিন্তু বড় ব্যাপারে বেহিসেবী।",
+      "images": []
+    },
+    {
+      "question_no": 20,
+      "id": "bd51f318-cc17-4422-8d97-84136da1929d",
+      "question": "Translate into English: চুন খেয়ে গাল পোড়ে, দই দেখলে ভয় করে। [SABAS][]",
+      "options": [
+        "A pet lamb makes a cross ram.",
+        "A square peg in round hole.",
+        "A scalded dog fears cold water.",
+        "A still tongue makes a wise head."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি একটি লোকপ্রবাদ, যার ইংরেজি ভাবানুবাদ হলো 'A scalded dog fears cold water'।",
+      "images": []
+    },
+    {
+      "question_no": 21,
+      "id": "be354c26-e6f4-48b7-802e-3e4f58450e16",
+      "question": "What is the meaning of the proverb, 'the pot calling the kettle black'? [SABAS][]",
+      "options": [
+        "be your own",
+        "never leave your root",
+        "take your decision by your own conscience",
+        "do not criticize somebody for a fault that you possess yourself"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এটি দিয়ে এমন ব্যক্তিকে বোঝানো হয় যে অন্যের দোষ ধরে কিন্তু নিজের একই দোষ আছে।",
+      "images": []
+    },
+    {
+      "question_no": 22,
+      "id": "ed9dc4dc-375b-46b3-b1d8-600e9f4fe479",
+      "question": "Give someone an inch and they'll take a mile. What does this saying mean in Bangla? [SABAS][]",
+      "options": [
+        "বসতে দিলে শুতে চায়",
+        "কেউ কেউ অল্পতেই তুষ্ট হয়",
+        "বিন্দু বিন্দু জলেই সিন্ধু হয়",
+        "ইঞ্চি ইঞ্চি মাপে মাইল হয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এর অর্থ হলো সুযোগের অপব্যবহার করা। অল্প সুবিধা দিলে সে বেশি সুবিধা দাবি করে।",
+      "images": []
+    },
+    {
+      "question_no": 23,
+      "id": "ba90bda4-77e5-41d9-a58a-9f089b591524",
+      "question": "হাতি বাঁচলেও লাখ টাকা মরলেও লাখ টাকা'-প্রবাদটির ইংরেজি কি? [SABAS][]",
+      "options": [
+        "Elephant worth million alive or death",
+        "The ruins of a great is always is great",
+        "The ruins of greatness are great",
+        "The ruins of a elephant is always is great"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এটি একটি বিখ্যাত প্রবাদ যার ইংরেজি ভাবার্থ হলো 'The ruins of greatness are great', অর্থাৎ সম্মানের অবশিষ্টাংশও মূল্যবান।",
+      "images": []
+    },
+    {
+      "question_no": 24,
+      "id": "f9dbe9aa-ad43-403e-903a-c3c4c407fe7f",
+      "question": "Which is the idiomatic Bengali meaning of 'Barking dogs seldom bite.'? [SABAS][]",
+      "options": [
+        "চিৎকাররত কুকুর কমই কামড়ায়",
+        "চিৎকার করলেই কুকুর কামড়ায়",
+        "গর্জনকারী কুকুর কখনো কামড়ায় না",
+        "যত গর্জে তত বর্ষে না"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এর ভাবার্থ হলো যারা বেশি হুমকি দেয় বা চিৎকার করে, তারা সাধারণত কাজ করে কম। তাই 'যত গর্জে তত বর্ষে না' সঠিক।",
+      "images": []
+    },
+    {
+      "question_no": 25,
+      "id": "20fb8568-b88e-4b40-ad9e-b1ed289258eb",
+      "question": "\"No news is good news\" [SABAS][]",
+      "options": [
+        "It is likely that we expect bad news",
+        "It is likely to have bad news",
+        "It is likely that nothing bad has happened",
+        "It is unlikely that another bad has happened"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কোনো খবর না থাকা মানে ধরে নেওয়া যে সব ঠিক আছে বা খারাপ কিছু ঘটেনি।",
+      "images": []
+    },
+    {
+      "question_no": 26,
+      "id": "0deebd54-313f-4e7b-a3ec-6d846704043b",
+      "question": "A wearer knows where —, (যার জ্বালা সেই জানে) [SABAS][]",
+      "options": [
+        "a man goes",
+        "he is right",
+        "the shoe pinches",
+        "the pain disturbs"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদটি হলো 'A wearer knows where the shoe pinches', যার অর্থ যার সমস্যা সেই একমাত্র তা অনুভব করতে পারে।",
+      "images": []
+    },
+    {
+      "question_no": 27,
+      "id": "24f1209f-e84b-4d7f-bbce-e3766a0badd9",
+      "question": "Uneasy lies the head — (মুকুট পরা মাথা শান্তিতে থাকে না) [SABAS][]",
+      "options": [
+        "when wears a crown",
+        "which wears a crown",
+        "that wears a crown",
+        "who wears a crown"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "শেক্সপিয়রের বিখ্যাত উক্তি 'Uneasy lies the head that wears a crown' - দায়িত্বশীল ব্যক্তির কখনো শান্তি থাকে না।",
+      "images": []
+    },
+    {
+      "question_no": 28,
+      "id": "b931e864-09bc-4e17-af63-d02644e32db0",
+      "question": "Beggars cannot be —, (ভিখার চাল কাঁড়া আর আঁকড়া) [SABAS][]",
+      "options": [
+        "choosers",
+        "reliable",
+        "honest",
+        "dishonest"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটির অর্থ হলো যারা অভাবী, তাদের নিজেদের পছন্দ করার সুযোগ থাকে না।",
+      "images": []
+    },
+    {
+      "question_no": 29,
+      "id": "78f380cc-861c-4c66-997e-6bad17cc0651",
+      "question": "Birds of the same feather —, (চোরে চোরে মাসতুতো ভাই) [SABAS][]",
+      "options": [
+        "flock together",
+        "live together",
+        "fly together",
+        "look beautiful"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "একই স্বভাবের লোকরা সাধারণত একসাথে মিশে থাকে।",
+      "images": []
+    },
+    {
+      "question_no": 30,
+      "id": "413287db-9ef2-4095-ad51-8774a77cd679",
+      "question": "To count the chickens before they are hatched' [SABAS][]",
+      "options": [
+        "চোর পালালে বুদ্ধি বাড়ে।",
+        "আগে দর্শনধারী, পরে গুণবিচারী।",
+        "ভাবিয়া করিও কাজ করিয়া ভাবিও না।",
+        "গাছে কাঁঠাল গোফে তেল।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "অর্জনের আগেই তা পাওয়ার আনন্দ করা বা পরিকল্পনা করা, যার বাংলা প্রবাদ 'গাছে কাঁঠাল গোঁফে তেল'।",
+      "images": []
+    },
+    {
+      "question_no": 31,
+      "id": "87d1facd-851f-46c3-b01a-020c56726fad",
+      "question": "Better late than —. [SABAS][]",
+      "options": [
+        "ever",
+        "never",
+        "whatever",
+        "however"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো 'Better late than never', যার অর্থ একদম না হওয়ার চেয়ে দেরিতে হওয়া ভালো।",
+      "images": []
+    },
+    {
+      "question_no": 32,
+      "id": "cf92fd05-4d6a-403e-b9b8-66aefd805904",
+      "question": "মুনীনাঞ্চ মতিভ্রম' । প্রবাদটির সমার্থক- [SABAS][]",
+      "options": [
+        "An ass that is a common property is always worst saddle.",
+        "Sweet are the uses of adversity.",
+        "All seem yellow to the jaundiced eye",
+        "To err is human"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "মুনীনাঞ্চ মতিভ্রম' এর অর্থ পন্ডিতেরও ভুল হতে পারে, যার ইংরেজি প্রবাদ 'To err is human' (মানুষ মাত্রই ভুল করে)।",
+      "images": []
+    },
+    {
+      "question_no": 33,
+      "id": "ad1b03d8-c03c-4141-8b4b-593cc92eb1ab",
+      "question": "None but a fool is always right. এর যথার্থ বঙ্গানুবাদ হবে- [SABAS][]",
+      "options": [
+        "কেউ না কিন্তু বোকা ই ঠিক",
+        "বোকাকে ঠিক ভাবলেই চলে",
+        "বোকার স্বর্গে বাস",
+        "মানুষ মাত্রই ভুল হয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটির অর্থ হলো কেউ সবসময় ঠিক হতে পারে না, মানুষ মাত্রই ভুল হয়।",
+      "images": []
+    },
+    {
+      "question_no": 34,
+      "id": "4ac71de4-e26b-40cf-8803-cde4ebebec34",
+      "question": "Which one is not a proverb? [SABAS][]",
+      "options": [
+        "A bad workman quarrels with his tools.",
+        "A tree is not known by its fruits.",
+        "Better an empty house than a bad tenant.",
+        "Every mother loves her child."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Every mother loves her child' একটি সাধারণ বাক্য, কোনো প্রবাদ নয়।",
+      "images": []
+    },
+    {
+      "question_no": 35,
+      "id": "f28b0e24-b510-4994-90db-df10e670df3b",
+      "question": "“লোভে পাপ, পাপে মৃত্যু”-এর ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "Greed leads to sin and to death.",
+        "Greed leaded to sin and to death.",
+        "Greed leading to sin and to death.",
+        "Greed leads to sin and death."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সঠিক ইংরেজি প্রবাদটি হলো 'Greed leads to sin and to death'।",
+      "images": []
+    },
+    {
+      "question_no": 36,
+      "id": "671cdde2-fa77-45a5-a073-e979740ea468",
+      "question": "The correct Bengali translation of ‘Blood is thicker than water’ is - [SABAS][]",
+      "options": [
+        "রক্ত পানি করা ভার",
+        "আপনার জন সতত আপন",
+        "পর কখনো আপন হয় না",
+        "রক্ত যেন জলের ধারা"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "রক্তের সম্পর্ক অন্য যেকোনো সম্পর্কের চেয়ে গাঢ় বা আপন, তাই 'আপনার জন সতত আপন'।",
+      "images": []
+    },
+    {
+      "question_no": 37,
+      "id": "ee6b0252-a708-4b44-a252-ef33e3c9e3d0",
+      "question": "Which one of the following five statements below tells the meaning of the proverb “The early bird catches the worm”? [SABAS][]",
+      "options": [
+        "Do not do the impossible.",
+        "Prompt persons often secure advantages over tardy ones.",
+        "Weeping is bad for the eyes.",
+        "It is foolish to fret about things we can’t help."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর অর্থ হলো যারা আগে কাজ শুরু করে বা তৎপর হয়, তারাই সুযোগ সুবিধা আগে পায়।",
+      "images": []
+    },
+    {
+      "question_no": 38,
+      "id": "c25a356a-ac4e-46e9-8bc0-8f0042a7f9e5",
+      "question": "A stitch in time saves nine- এর বঙ্গানুবাদ কি? [SABAS][]",
+      "options": [
+        "সময়ের এক ফোঁড় অসময়ের দশ ফোঁড়",
+        "এক সময়ের নয় ফোঁড় অন্য সময়ের দশ ফোঁড়",
+        "দশের লাঠি একের বোঝা",
+        "খাজনার চেয়ে বাজনা বেশি"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সময়ে কাজ করলে পরিশ্রম কম হয়, পরে করলে অনেক বেশি করতে হয়, যার বাংলা 'সময়ের এক ফোঁড় অসময়ের দশ ফোঁড়'।",
+      "images": []
+    },
+    {
+      "question_no": 39,
+      "id": "b6148eb3-b662-4762-9db4-ba5ac606b0a7",
+      "question": "The expression 'tit for tat' is synonymous with: [SABAS][]",
+      "options": [
+        "call spade a spade",
+        "a stitch in time saves nine",
+        "look before you leap",
+        "as you sow so shall you reap"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Tit for tat' মানে যেমন কর্ম তেমন ফল, যা 'As you sow so shall you reap' এর সাথে সামঞ্জস্যপূর্ণ।",
+      "images": []
+    },
+    {
+      "question_no": 40,
+      "id": "1943068e-43c1-4f38-ba93-ebf027271d59",
+      "question": "The proverb ‘blood is thicker than water’ means: [SABAS][]",
+      "options": [
+        "Two different things cannot mix",
+        "Blood and water are two different things",
+        "Family relationships are stronger than any others",
+        "Blood is heavier than water"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "রক্তের বা পারিবারিক সম্পর্ক অন্য যেকোনো সম্পর্কের চেয়ে শক্তিশালী বা গভীর।",
+      "images": []
+    },
+    {
+      "question_no": 41,
+      "id": "4698574b-57c0-45b8-8768-18bda43eb5e1",
+      "question": "Which one is incorrect? [SABAS][]",
+      "options": [
+        "Two wrongs don't make a right",
+        "Beggars must not be choosers",
+        "Absence makes the heart grow quicker",
+        "Two heads are better than three"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সঠিক প্রবাদটি হলো 'Two heads are better than one', তাই 'Two heads are better than three' ভুল।",
+      "images": []
+    },
+    {
+      "question_no": 42,
+      "id": "6e26b763-0a18-4882-b542-1f166b34a760",
+      "question": "The appropriate translation of ‘মাথা নেই তার মাথা ব্যথা’ [SABAS][]",
+      "options": [
+        "A beggar can never be a bankrupt",
+        "A beggar has not right to be a bankrupt",
+        "A bankrupt is never like a beggar",
+        "None of the above"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি একটি ব্যাঙ্গাত্মক প্রবাদ, যার অর্থ যার কোনো সম্পদ নেই তার হারানোর ভয়ও নেই।",
+      "images": []
+    },
+    {
+      "question_no": 43,
+      "id": "7e8c8c89-6e7a-46bb-a4eb-00653d191880",
+      "question": "The correct translation of “নাচতে না জানলে উঠান বাঁকা” is- [SABAS][]",
+      "options": [
+        "A bad workman quarrels with his tools.",
+        "A bad dancer complains about the stage.",
+        "Pride goes before destruction.",
+        "The wearer knows best where the shoe pinches."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নিজের অযোগ্যতা ঢাকতে পরিবেশের দোষ দেওয়াকে ইংরেজিতে বলা হয় 'A bad workman quarrels with his tools'।",
+      "images": []
+    },
+    {
+      "question_no": 44,
+      "id": "4e6e02c5-cdab-4860-9469-218f39a3544b",
+      "question": "One swallow does not make a —. (এক মাছে শীত যায় না) [SABAS][]",
+      "options": [
+        "quarrel",
+        "summer",
+        "autumn",
+        "treaty"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো 'One swallow does not make a summer', যার অর্থ একটি ভালো লক্ষণ দেখে সব ভালো বলে ধরে নেওয়া ঠিক নয়।",
+      "images": []
+    },
+    {
+      "question_no": 45,
+      "id": "a8f94636-f3a1-47cd-9186-2e4f6638b277",
+      "question": "Man is the — of his own fate. (মানুষ নিজের ভাগ্য নিজেই গড়ে) [SABAS][]",
+      "options": [
+        "projector",
+        "innovator",
+        "pioneer",
+        "architect"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সঠিক প্রবাদটি হলো 'Man is the architect of his own fate'।",
+      "images": []
+    },
+    {
+      "question_no": 46,
+      "id": "f24362e8-9274-4f36-b92c-e089d6aaae34",
+      "question": "It takes two to make a quarrel. এ বাক্যটির বাংলা অনুবাদ কি? [SABAS][]",
+      "options": [
+        "বিপদ কখনো একা আসে না",
+        "এক মাছে শীত যায় না",
+        "এক হাতে তালি বাজে না",
+        "নাচতে না জানলে উঠান বাঁকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ঝগড়া করতে অন্তত দুজন লাগে, তাই 'এক হাতে তালি বাজে না' প্রবাদটি এর অর্থ বহন করে।",
+      "images": []
+    },
+    {
+      "question_no": 47,
+      "id": "74fe1bbd-b040-4d62-bea9-c7024ea5e850",
+      "question": "Choose the correct Bengali translation of ‘Hit while the iron is hot’. [SABAS][]",
+      "options": [
+        "ঝোপ বুঝে কোপ মারা",
+        "গরম লোহার আঘাত করা",
+        "ওজন বুঝে চলা",
+        "মাথা গরম করা"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "উপযুক্ত সময়ে সুযোগের সদ্ব্যবহার করাকে বোঝাতে 'ঝোপ বুঝে কোপ মারা' প্রবাদটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 48,
+      "id": "de78f76e-4eff-4666-9b87-600841825e5c",
+      "question": "‘Killing two birds with one stone’-এই ইংরেজি প্রবচনের কাছাকাছি বাংলা প্রবচন- [SABAS][]",
+      "options": [
+        "পরের ধনে পোদ্দারি",
+        "ঘুঘু দেখেছে ফাঁদ দেখিনি",
+        "পরের ঘাড়ে বন্দুক রেখে শিকার",
+        "রথ দেখা ও কলা বেচা"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এক প্রচেষ্টায় দুটি কাজ সফল করাকে বোঝাতে 'রথ দেখা ও কলা বেচা' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 49,
+      "id": "65ceb2d7-59ed-4038-a275-2a05929803f9",
+      "question": "‘Birds of a feather flock together.’-এই ইংরেজি প্রবচনের সঙ্গে মিল রয়েছে কোন বাংলা প্রবচনের? [SABAS][]",
+      "options": [
+        "দীপাবলির পাখা ওঠে মরিবার তরে",
+        "ঝাঁকের কৈ ঝাঁকে মেশে",
+        "ঘুঘু দেখেছে, ফাঁদ দেখনি",
+        "কড়ে বক মরে ফকিরের কেরামতি বাড়ে"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "একই স্বভাবের মানুষেরা একে অপরের সাথে মিশে থাকে, যার বাংলা প্রবাদ 'ঝাঁকের কৈ ঝাঁকে মেশে'।",
+      "images": []
+    },
+    {
+      "question_no": 50,
+      "id": "809e44dc-f5c5-442f-8a4c-923e0d3c5544",
+      "question": "Like cures like এর অর্থ- [SABAS][]",
+      "options": [
+        "সবুরে মেওয়া ফলে",
+        "কাঁটায় কাঁটা তোলা",
+        "তিলকে তাল করা",
+        "মৌনতা সম্মতির লক্ষণ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "বিষ দিয়ে বিষ ধ্বংস করার প্রক্রিয়া বা সমধর্মী উপায়ে সমস্যার সমাধান করাকে 'কাঁটায় কাঁটা তোলা' বলে।",
+      "images": []
+    },
+    {
+      "question_no": 51,
+      "id": "a2ac46a7-33ff-49b9-9963-48151e613147",
+      "question": "The correct translation of ‘Like cures like’ is - [SABAS][]",
+      "options": [
+        "বিষে বিষক্ষয়",
+        "পছন্দের পছন্দ",
+        "সবচেয়ে পছন্দ",
+        "যার যা পছন্দ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এই প্রবাদটির অর্থ হলো সমজাতীয় বিষ দিয়ে বিষকে ধ্বংস করা, যার বাংলা প্রবাদ 'বিষে বিষক্ষয়'.",
+      "images": []
+    },
+    {
+      "question_no": 52,
+      "id": "e2fefba3-7fa6-484e-a9d7-6809e5de4111",
+      "question": "“One man's meat is another man's poison”-এর সঠিক অর্থ- [SABAS][]",
+      "options": [
+        "কাক কাকের মাংস খায় না।",
+        "কারও সর্বনাশ কারও পৌষ মাস।",
+        "পরের কষ্টে খুশিতে বগল বাজানো।",
+        "শত্রুর শেষ রাখতে নেই।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "একজনের জন্য যা ভালো, তা অন্যের জন্য ক্ষতিকর হতে পারে। এর ভাবার্থ হলো 'কারও সর্বনাশ কারও পৌষ মাস'.",
+      "images": []
+    },
+    {
+      "question_no": 53,
+      "id": "5925b4f9-d521-42be-be57-e76c7eea2d88",
+      "question": "‘No man is an island’, What does this proverb mean? [SABAS][]",
+      "options": [
+        "Everyone should always be prepared",
+        "It is best do everything on time",
+        "Everyone needs help from other people",
+        "Your own home is the most comfortable place to live in"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "মানুষ একা বাস করতে পারে না; প্রতিটি মানুষ সামাজিক এবং অন্যের ওপর নির্ভরশীল.",
+      "images": []
+    },
+    {
+      "question_no": 54,
+      "id": "c5b33048-bb71-4710-9b00-70ca0ee65e4c",
+      "question": "The idiom ‘A stitch in time saves nine’- refers the importance of -- [SABAS][]",
+      "options": [
+        "saving lives",
+        "timely action",
+        "saving time",
+        "time tailoring"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সময়ে কাজ করলে ভবিষ্যতে বড় ঝামেলা এড়ানো যায়, তাই এটি সময়োচিত পদক্ষেপের (timely action) গুরুত্ব বোঝায়.",
+      "images": []
+    },
+    {
+      "question_no": 55,
+      "id": "301a962b-b501-45ff-86d4-8ab432a4300c",
+      "question": "“গরু মেরে জুতা দান” এর সঠিক ইংরেজি--- [SABAS][]",
+      "options": [
+        "Penny wise pound foolish.",
+        "Good wine needs no bush.",
+        "To rob Peter to pay Paul.",
+        "Too much courtesy too much craft."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কারও ক্ষতি করে সামান্য কিছু দান করাকে ইংরেজিতে 'To rob Peter to pay Paul' বলা হয়.",
+      "images": []
+    },
+    {
+      "question_no": 56,
+      "id": "ac962df6-ec44-4a09-963d-5c28e60a6be2",
+      "question": "Every dog has his day অর্থ [SABAS][]",
+      "options": [
+        "সৌভাগ্য কারো চিরস্থায়ী নয়।",
+        "লাই দিলে কুকুর মাথায় ওঠে।",
+        "যেমন কুকুর তেমন মুগুর।",
+        "সবুরে মেওয়া ফলে।"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এর অর্থ হলো প্রত্যেকের জীবনেই ভালো সময় আসে বা সৌভাগ্যের সময় আসে, যা চিরস্থায়ী নয়.",
+      "images": []
+    },
+    {
+      "question_no": 57,
+      "id": "12f969c3-5681-4d80-aba2-36faa7ec3bcd",
+      "question": "‘কাজের সময় কাজী, কাজ ফুরালে পাজী’ এর সঠিক অনুবাদ [SABAS][]",
+      "options": [
+        "Give the devil his due.",
+        "Give a dog a bad name and hang him.",
+        "Fingers were made before forks.",
+        "Call a spade a spade."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রয়োজনের সময় কদর আর প্রয়োজন শেষ হলে অনাদর করা বোঝাতে 'Give a dog a bad name and hang him' প্রবাদটি ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 58,
+      "id": "a949a1e8-5d08-4637-b9e8-b0d25356dccd",
+      "question": "‘দেয়ালেরও কান আছে’ এর সঠিক অনুবাদ [SABAS][]",
+      "options": [
+        "There are lees to every wine.",
+        "Even the walls have ears.",
+        "There is no unmixed good",
+        "Pride has its fall"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "গোপন কথার প্রচার হওয়ার ভয় বোঝাতে 'Even the walls have ears' প্রবাদটি ব্যবহৃত হয়.",
+      "images": []
+    },
+    {
+      "question_no": 59,
+      "id": "9e7bd439-f13f-4201-bca0-6c6226597da0",
+      "question": "‘Let the sleeping dogs lie’ এর সঠিক অনুবাদ [SABAS][]",
+      "options": [
+        "ঘুমন্ত কুকুরদের জাগাইও না।",
+        "কাঁদা ঘেঁটা না।",
+        "বিরক্ত করো না।",
+        "গত্যস্য শোচনা নাস্তি।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পুরানো কোনো ঝামেলা বা বিতর্কিত বিষয়কে উস্কে না দেওয়াই ভালো, যার অনুবাদ 'কাঁদা ঘেঁটা না'.",
+      "images": []
+    },
+    {
+      "question_no": 60,
+      "id": "bd15dda2-9927-498f-bf8a-30a5c95bc0d2",
+      "question": "“সব ভালো যার শেষ ভালো” বাক্যটির সঠিক ইংরেজি অনুবাদ হলো- Which is the correct proverb? [SABAS][]",
+      "options": [
+        "All is well that ends well.",
+        "All are well that ends well.",
+        "All are well that end well.",
+        "All is well that end well."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো 'All is well that ends well', যার অর্থ কোনো কাজের শেষ ভালো হলে সবই ভালো.",
+      "images": []
+    },
+    {
+      "question_no": 61,
+      "id": "1b95f2f4-b43e-4842-91ae-7850814d883f",
+      "question": "যত গর্জে তত বর্ষে না' এর সঠিক ইংরেজি--- [SABAS][]",
+      "options": [
+        "One sows, another reaps.",
+        "All's well that ends well.",
+        "Much cry and little water.",
+        "O the times, O the manners!"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এর অর্থ হলো যারা বেশি চিৎকার বা আস্ফালন করে, তাদের কাজের পরিমাণ কম হয়। ইংরেজি প্রবাদটি হলো 'Much cry and little wool/water'.",
+      "images": []
+    },
+    {
+      "question_no": 62,
+      "id": "00be179e-210b-41b1-98ba-0ad9385abb72",
+      "question": "Choose the correct meaning of the proverb \"Handsome is what handsome does\"- [SABAS][]",
+      "options": [
+        "If you believe you will be able to do something; you will be able to do it.",
+        "If you are determined to do something, you will find a way.",
+        "Handsome people do handsome things.",
+        "Behaviour is more important than appearance"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "বাহ্যিক সৌন্দর্যের চেয়ে মানুষের কাজ ও আচরণ বেশি গুরুত্বপূর্ণ। তাই 'Behaviour is more important than appearance'।",
+      "images": []
+    },
+    {
+      "question_no": 63,
+      "id": "e1c31b39-6e71-4e39-8bb1-050d17a72375",
+      "question": "A beggar can never be bankrupt' প্রবাদটির অর্থ--- [SABAS][]",
+      "options": [
+        "বজ্র আঁটুনি ফসকা গেরো",
+        "ভিখার চাল কাঁড়া আর আঁকড়া",
+        "মাথা নেই তার মাথা ব্যথা",
+        "ঢেলা মাথায় তেল দেয়া"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যার হারানোর মতো কিছু নেই, তার কোনো চিন্তাও নেই। এটি 'মাথা নেই তার মাথা ব্যথা' প্রবাদের সমার্থক।",
+      "images": []
+    },
+    {
+      "question_no": 64,
+      "id": "1395662d-1b96-4d36-ad36-aca1c6d1ec85",
+      "question": "Which one of the following is a correct proverb? [SABAS][]",
+      "options": [
+        "Pen is mightier than a sword.",
+        "The pen is mightier than sword.",
+        "A pen is mightier than the sword.",
+        "The pen is mightier than the sword."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সঠিক প্রবাদটি হলো 'The pen is mightier than the sword' (কলম তলোয়ারের চেয়ে শক্তিশালী)।",
+      "images": []
+    },
+    {
+      "question_no": 65,
+      "id": "ee1ba99b-6b3b-40d5-aed6-0f7fcff37cb5",
+      "question": "Choose the correct translation of the proverb: চোরে চোরে মাসতুতো ভাই। [SABAS][]",
+      "options": [
+        "Two thieves are cousins.",
+        "Better late than never.",
+        "Morning shows the day.",
+        "Birds of the same feather flock together."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "একই স্বভাবের লোকরা সাধারণত মিলেমিশে থাকে, যার ইংরেজি ভাবানুবাদ 'Birds of the same feather flock together'।",
+      "images": []
+    },
+    {
+      "question_no": 66,
+      "id": "f44dd961-6112-44c5-8d62-74da4daf2503",
+      "question": "The correct proverb is - (বোবার শত্রু নাই) [SABAS][]",
+      "options": [
+        "Silence is capital",
+        "Silence is value",
+        "Silence is golden",
+        "Silence is meritorious"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "নীরবতা পালন করা বা কম কথা বলা মূল্যবান, যার ইংরেজি 'Silence is golden'।",
+      "images": []
+    },
+    {
+      "question_no": 67,
+      "id": "374b715c-cc08-4fc5-a1cd-566b1240ec02",
+      "question": "Self-preservation is the first law of nature.' ইংরেজি ভাষার এ প্রবচটির প্রায় অনুরূপ বাংলা প্রবচন কোনটি? [SABAS][]",
+      "options": [
+        "আপন বুদ্ধিতে তর, পরের বুদ্ধিতে মর।",
+        "আপন পাঁঠা লেজে কাটি।",
+        "আপন ভালো পাগলেও বোঝে।",
+        "চাচা আপন প্রাণ বাঁচা।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "নিজের জীবন রক্ষা করাই সবচেয়ে বড় কাজ, তাই 'চাচা আপন প্রাণ বাঁচা'।",
+      "images": []
+    },
+    {
+      "question_no": 68,
+      "id": "07018476-ea31-4f29-922a-bc5eed16bcef",
+      "question": "Nothing succeeds like success.' এর বঙ্গানুবাদ হলো- [SABAS][]",
+      "options": [
+        "চোর পালালে বুদ্ধি বাড়ে",
+        "চাঁদেরও কলঙ্ক আছে",
+        "জালেই জল বাঁধে",
+        "জীবন থাকলেই আশা থাকবে"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সাফল্যই সফলতার পথ প্রশস্ত করে, যার অর্থবোধক বাংলা প্রবাদ 'জালেই জল বাঁধে'।",
+      "images": []
+    },
+    {
+      "question_no": 69,
+      "id": "f3ec6325-5593-46c1-8fda-f669ee79c403",
+      "question": "Desperate disease requires desperate remedies.'-ইংরেজি প্রবাদের কাছাকাছি বাংলা প্রবাদ- [SABAS][]",
+      "options": [
+        "যেমন কর্ম তেমন ফল",
+        "যেমন বুনো ওল, তেমনি বাঘা তেঁতুল",
+        "যেমন বাপ তেমন বেটা",
+        "যে যার সে তার"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কঠিন সমস্যার জন্য কঠিন ব্যবস্থা নিতে হয়। 'যেমন বুনো ওল, তেমনি বাঘা তেঁতুল' এর উপযুক্ত বাংলা প্রবাদ।",
+      "images": []
+    },
+    {
+      "question_no": 70,
+      "id": "f1bf34f0-da7c-40f2-8c54-a8acbb0c4a67",
+      "question": "Wisdom goes by learning but not by year' এর বাংলা অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "মালা টিপলেই বৈরাগী হয় না।",
+        "বজ্র আঁটুনি ফসকা গেরো।",
+        "বয়সতে বিজ্ঞ নহে, বিজ্ঞ হয় জ্ঞানে।",
+        "ফ্যান দিয়ে খায় ভাত, গল্প মারে দই।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "শুধু বয়স বাড়লেই মানুষ জ্ঞানী হয় না, জ্ঞান অর্জনের মাধ্যমেই বিজ্ঞ হওয়া যায়।",
+      "images": []
+    },
+    {
+      "question_no": 71,
+      "id": "ef8d7e4f-0c6c-40c3-8cb3-b7df65cc2a4f",
+      "question": "‘A bird in hand is worth two in the bush’ means -- [SABAS][]",
+      "options": [
+        "to feel restricted with less.",
+        "to be content with one has",
+        "to have greed for more",
+        "to capture and control"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর অর্থ হলো অনিশ্চিত জিনিসের আশায় নিশ্চিত জিনিস হাতছাড়া করা ঠিক নয়। অর্থাৎ যা আছে তাতেই সন্তুষ্ট থাকা।",
+      "images": []
+    },
+    {
+      "question_no": 72,
+      "id": "2e7f43de-8c77-48fe-9b66-40777fc871d3",
+      "question": "Knowledge is —. (জানাই বল) [SABAS][]",
+      "options": [
+        "strength",
+        "power",
+        "gravity",
+        "comfort"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো 'Knowledge is power', যার অর্থ জ্ঞানই শক্তি।",
+      "images": []
+    },
+    {
+      "question_no": 73,
+      "id": "309c382f-ae86-4b7a-8ef6-f28f43ac6428",
+      "question": "Something is better than —. [SABAS][]",
+      "options": [
+        "everything",
+        "nothing",
+        "anything",
+        "all"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো 'Something is better than nothing', যার অর্থ শূন্যের চেয়ে সামান্য ভালো।",
+      "images": []
+    },
+    {
+      "question_no": 74,
+      "id": "22944b52-35a4-4951-98cf-55ac3eff575e",
+      "question": "Many men, many —. (নানা মুনির নানা মত) [SABAS][]",
+      "options": [
+        "faces",
+        "lives",
+        "minds",
+        "thoughts"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অনেক মানুষের অনেক মতামত থাকে, যাকে ইংরেজিতে 'Many men, many minds' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 75,
+      "id": "5f788644-dd42-4760-8b8f-ce149c6cac9b",
+      "question": "A friend — need is a friend indeed. [SABAS][]",
+      "options": [
+        "to",
+        "in",
+        "for",
+        "at"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো 'A friend in need is a friend indeed', অর্থাৎ বিপদের বন্ধুই প্রকৃত বন্ধু।",
+      "images": []
+    },
+    {
+      "question_no": 76,
+      "id": "ac056d8a-9f31-409d-920b-0d6965297184",
+      "question": "Prevention is better than —. (প্রতিকারের চেয়ে প্রতিরোধ ভালো) [SABAS][]",
+      "options": [
+        "nothing",
+        "healing",
+        "cure",
+        "remedy"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদটি হলো 'Prevention is better than cure', অর্থাৎ প্রতিকারের চেয়ে রোগ প্রতিরোধ করা উত্তম।",
+      "images": []
+    },
+    {
+      "question_no": 77,
+      "id": "caa8157d-2900-499f-867e-e2f39190d53c",
+      "question": "What is lotted cannot be —. (ভাগ্যের লিখন খণ্ডানো যায় না) [SABAS][]",
+      "options": [
+        "blotted",
+        "broken",
+        "endured",
+        "updated"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো 'What is lotted cannot be blotted', অর্থাৎ যা ভাগ্যে লেখা আছে তা মোছা যায় না।",
+      "images": []
+    },
+    {
+      "question_no": 78,
+      "id": "b423b1da-1faa-4bf2-9a75-5a186ff979d3",
+      "question": "Grasp all, —. (অতি লোভে তাঁতী নষ্ট) [SABAS][]",
+      "options": [
+        "lost all",
+        "losing",
+        "loses",
+        "lose all"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সব পেতে গিয়ে সব হারানোর অর্থ বোঝাতে 'Grasp all, lose all' প্রবাদটি ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 79,
+      "id": "46832a2e-fb4f-41c2-b88a-12cfe18f3c89",
+      "question": "It is one man's meat is another man's —. [SABAS][]",
+      "options": [
+        "wealth",
+        "joy",
+        "food",
+        "envy"
+      ],
+      "correct_answer": null,
+      "correct_index": null,
+      "explanation": "একজনের জন্য যা ভালো, অন্যজনের জন্য তা ক্ষতিকর হতে পারে। তাই 'One man's meat is another man's poison'.",
+      "images": []
+    },
+    {
+      "question_no": 80,
+      "id": "2bf36bcb-558a-4a3e-84a4-5abfa612a063",
+      "question": "Birds of the same — flock together. [SABAS][]",
+      "options": [
+        "feather",
+        "class",
+        "group",
+        "color"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "একই স্বভাবের মানুষেরা একসাথে থাকে, যার ইংরেজি প্রবাদ 'Birds of the same feather flock together'।",
+      "images": []
+    },
+    {
+      "question_no": 81,
+      "id": "e3639a3b-df47-450d-89eb-efaeb8e897d6",
+      "question": "Handsome is as handsome —. Handsome is what handsome —. The last word of the proverb, ‘Handsome is that handsome —’ [SABAS][]",
+      "options": [
+        "works",
+        "thinks",
+        "says",
+        "does"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো 'Handsome is as handsome does', যার অর্থ চেহারা নয়, কর্মই আসল।",
+      "images": []
+    },
+    {
+      "question_no": 82,
+      "id": "eadb2cb8-2681-4d7f-a84f-7e5c2afd1fa9",
+      "question": "Slow and steady — the race. [SABAS][]",
+      "options": [
+        "win",
+        "wins",
+        "won",
+        "has won"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "ধীর ও স্থির ব্যক্তিই জয়লাভ করেন—এই প্রবাদটি ইংরেজিতে 'Slow and steady wins the race'।",
+      "images": []
+    },
+    {
+      "question_no": 83,
+      "id": "de24a1f0-89f4-4549-ab64-1d404d4711a8",
+      "question": "The last word of the proverb, ‘A good husband should be deaf and a good wife —’ [SABAS][]",
+      "options": [
+        "blind",
+        "quite",
+        "dumb",
+        "gentle"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সুখী দাম্পত্য জীবনের একটি প্রচলিত হাস্যরসাত্মক প্রবাদ হলো 'A good husband should be deaf and a good wife blind'।",
+      "images": []
+    },
+    {
+      "question_no": 84,
+      "id": "e4b54bc3-e8f2-4c35-b36d-2d62a09d4a06",
+      "question": "A bad workman — with his tools. [SABAS][]",
+      "options": [
+        "fights",
+        "quarrels",
+        "plays",
+        "revolts"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নিজের অযোগ্যতা ঢাকতে যন্ত্রের দোষ দেওয়াকে ইংরেজিতে 'A bad workman quarrels with his tools' বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 85,
+      "id": "3c690869-1e2f-4a5a-ae01-d262442a29a7",
+      "question": "It is easy to say, but — to do. [SABAS][]",
+      "options": [
+        "simple",
+        "difficult",
+        "normal",
+        "regular"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "কথা বলা সহজ কিন্তু কাজ করা কঠিন, তাই ইংরেজিতে 'It is easy to say, but difficult to do'।",
+      "images": []
+    },
+    {
+      "question_no": 86,
+      "id": "b55d71ba-4cca-4cd8-9695-0dc2bda82c37",
+      "question": "— little learning is — dangerous thing. [SABAS][]",
+      "options": [
+        "the, a",
+        "a, a",
+        "no article, a",
+        "a, no article"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অল্পবিদ্যা ভয়ঙ্করী প্রবাদটির ইংরেজি রূপ হলো 'A little learning is a dangerous thing'।",
+      "images": []
+    },
+    {
+      "question_no": 87,
+      "id": "869df372-0584-4d4b-a021-6111e6ae9644",
+      "question": "— burnt child dreads — fire. [SABAS][]",
+      "options": [
+        "The, the",
+        "A, a",
+        "A, the",
+        "none"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ঘরপোড়া গরু সিঁদুরে মেঘ দেখলে ডরায়—এই প্রবাদটির সঠিক ইংরেজি হলো 'A burnt child dreads the fire'।",
+      "images": []
+    },
+    {
+      "question_no": 88,
+      "id": "ae6d9fe4-be63-4b06-b11e-fd2063f43bd6",
+      "question": "United we stand divided we —. [SABAS][]",
+      "options": [
+        "fall",
+        "stable",
+        "slide",
+        "jump"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "একতায় বল বিভাজনে পতন, যার ইংরেজি রূপ 'United we stand divided we fall'।",
+      "images": []
+    },
+    {
+      "question_no": 89,
+      "id": "59646084-36cd-41ab-bef7-7d4d9d365c2a",
+      "question": "Birds of a feather — together. [SABAS][]",
+      "options": [
+        "group",
+        "fly",
+        "flock",
+        "nest"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "চোরে চোরে মাসতুতো ভাই বা সমমনা মানুষেরা একসাথে থাকে, যার ইংরেজি 'Birds of a feather flock together'।",
+      "images": []
+    },
+    {
+      "question_no": 90,
+      "id": "ad0e29de-5a02-427d-b490-2d3a1925033e",
+      "question": "A — man catches at a straw. [SABAS][]",
+      "options": [
+        "clever",
+        "wicked",
+        "drowning",
+        "poor"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "যতক্ষণ শ্বাস ততক্ষণ আশ প্রবাদটির ইংরেজি হলো 'A drowning man catches at a straw'।",
+      "images": []
+    },
+    {
+      "question_no": 91,
+      "id": "96e79e65-82af-4d6c-9b99-0d70637a9721",
+      "question": "None but the brave deserves - [SABAS][]",
+      "options": [
+        "the success",
+        "the fair",
+        "achievement",
+        "beautiful"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদ অনুযায়ী, None but the brave deserves the fair।",
+      "images": []
+    },
+    {
+      "question_no": 92,
+      "id": "4467abeb-3440-45d0-be8d-f917f15b1f40",
+      "question": "None but the brave - the fair [SABAS][]",
+      "options": [
+        "likes",
+        "deserves",
+        "preserves",
+        "loves"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "None but the brave deserves the fair প্রবাদটির অংশ।",
+      "images": []
+    },
+    {
+      "question_no": 93,
+      "id": "ae956253-dc6d-4cf7-857a-95cd725e8345",
+      "question": "None but - brave deserves - fair [SABAS][]",
+      "options": [
+        "the, the",
+        "a, the",
+        "an, the",
+        "the, a"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "নির্দিষ্ট অর্থ বোঝাতে brave এবং fair এর পূর্বে 'the' আর্টিকেল বসে।",
+      "images": []
+    },
+    {
+      "question_no": 94,
+      "id": "1a6ae7cc-d8a8-4910-aaba-b0bfef9c5aa5",
+      "question": "Don't build castle in the -. You'll be disappointed [SABAS][]",
+      "options": [
+        "house",
+        "air",
+        "sky",
+        "earth"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "Castle in the air একটি বাগধারা যার অর্থ আকাশ কুসুম কল্পনা করা।",
+      "images": []
+    },
+    {
+      "question_no": 95,
+      "id": "78a61b00-8bd3-4719-93c1-fe65f980853d",
+      "question": "It is an old - that says 'The wearer best knows where the shoe pinches.' [SABAS][]",
+      "options": [
+        "belief",
+        "perception",
+        "person",
+        "notion"
+      ],
+      "correct_answer": null,
+      "correct_index": null,
+      "explanation": "একটি পুরোনো প্রবাদ বা বচন বোঝাতে 'adage' শব্দটি ব্যবহৃত হয়েছে।",
+      "images": []
+    },
+    {
+      "question_no": 96,
+      "id": "fd852a5b-2e20-4db2-9940-f6edce308afc",
+      "question": "Only the wearer knows where the shoe -.' [SABAS][]",
+      "options": [
+        "creaks",
+        "turns",
+        "pinches",
+        "pricks"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদটির সঠিক রূপ হলো: The wearer knows where the shoe pinches।",
+      "images": []
+    },
+    {
+      "question_no": 97,
+      "id": "a4f4918e-6a44-4203-b775-0f4428b9691d",
+      "question": "Where there is - will, there is - way [SABAS][]",
+      "options": [
+        "the, the",
+        "the, a",
+        "a, the",
+        "a, a"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো: Where there is a will, there is a way।",
+      "images": []
+    },
+    {
+      "question_no": 98,
+      "id": "4f61a802-9454-45e3-9ce0-3b6c47311cde",
+      "question": "To carry coals to -. [SABAS][]",
+      "options": [
+        "Narangonj",
+        "Newcastle",
+        "England",
+        "Lahore"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "To carry coals to Newcastle একটি প্রবাদ, যার অর্থ অপ্রয়োজনীয় স্থানে কিছু নিয়ে যাওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 99,
+      "id": "39c0a045-6751-4f35-ae6f-e752fdebe712",
+      "question": "A bird in the hand is worth -. [SABAS][]",
+      "options": [
+        "a thousand rupee",
+        "two in the bush",
+        "nothing",
+        "anything"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো: A bird in the hand is worth two in the bush।",
+      "images": []
+    },
+    {
+      "question_no": 100,
+      "id": "e792252c-1d04-433b-bb22-5b1db746676a",
+      "question": "The grass on the other side of - always looks greener [SABAS][]",
+      "options": [
+        "land",
+        "yard",
+        "boundary",
+        "fence"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো: The grass on the other side of the fence looks greener।",
+      "images": []
+    },
+    {
+      "question_no": 101,
+      "id": "4b768bcf-563a-45f9-928c-301b36a87263",
+      "question": "Who is said to have fiddled when Rome was burning? [SABAS][]",
+      "options": [
+        "Julius Caesar",
+        "Hercules",
+        "Nero",
+        "Orpheus"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ঐতিহাসিক তথ্যমতে, রোম যখন পুড়ছিল তখন সম্রাট নিরো বেহালা বা ফিডেল বাজাচ্ছিলেন।",
+      "images": []
+    },
+    {
+      "question_no": 102,
+      "id": "b77b7da7-ba00-478c-943c-8b69a75e778c",
+      "question": "Time and tide - for none. [SABAS][]",
+      "options": [
+        "waits",
+        "wait",
+        "work",
+        "works"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো: Time and tide wait for none।",
+      "images": []
+    },
+    {
+      "question_no": 103,
+      "id": "713eff71-07fa-441f-bdb5-ddf2f7511836",
+      "question": "A barking dog seldom -. [SABAS][]",
+      "options": [
+        "shouts",
+        "cries",
+        "runs",
+        "bites"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো: A barking dog seldom bites।",
+      "images": []
+    },
+    {
+      "question_no": 104,
+      "id": "0db0f995-8d8b-466c-8bd6-bd5d78438ceb",
+      "question": "Brevity is the soul of -. [SABAS][]",
+      "options": [
+        "wisdom",
+        "knowledge",
+        "intelligence",
+        "wit"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "শেক্সপিয়রের হ্যামলেট নাটকের উক্তি: Brevity is the soul of wit।",
+      "images": []
+    },
+    {
+      "question_no": 105,
+      "id": "cc2579f8-c132-4bf6-9147-eca209af6485",
+      "question": "Penny wise pound -. [SABAS][]",
+      "options": [
+        "callous",
+        "foolish",
+        "rich",
+        "poor"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো: Penny wise, pound foolish।",
+      "images": []
+    },
+    {
+      "question_no": 106,
+      "id": "9fa664a6-0a54-412a-877c-2009e5fa233e",
+      "question": "Too many cooks - the broth. [SABAS][]",
+      "options": [
+        "spoiling",
+        "spoil",
+        "made",
+        "brewed"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো: Too many cooks spoil the broth।",
+      "images": []
+    },
+    {
+      "question_no": 107,
+      "id": "d1a42490-6d6a-4eb0-ac2b-1393e1526ce2",
+      "question": "Great people - alike. [SABAS][]",
+      "options": [
+        "think",
+        "eat",
+        "work",
+        "write"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো: Great minds think alike।",
+      "images": []
+    },
+    {
+      "question_no": 108,
+      "id": "754a5136-4c75-4161-9894-4f53d2bece7a",
+      "question": "Fools step in where angels fear to -. [SABAS][]",
+      "options": [
+        "dance",
+        "jump",
+        "sing",
+        "tread"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো: Fools step in where angels fear to tread।",
+      "images": []
+    },
+    {
+      "question_no": 109,
+      "id": "a114b96a-cf02-4683-a30e-b0c3cc913b75",
+      "question": "A stitch in time saves nine' The proverb relates to- [SABAS][]",
+      "options": [
+        "Proper use of time",
+        "Sewing activities",
+        "Mathematics",
+        "None of the above"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটির অর্থ হলো সঠিক সময়ে কোনো কাজ সম্পন্ন করা, যা ভবিষ্যতে অধিক কাজ কমায়।",
+      "images": []
+    },
+    {
+      "question_no": 110,
+      "id": "daafcc29-4063-478a-b16a-854430eab5ea",
+      "question": "Look before you leap' means - [SABAS][]",
+      "options": [
+        "beware/be wary",
+        "be amazed",
+        "be ready",
+        "be successful"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটির অর্থ হলো কোনো কাজ করার আগে তার পরিণাম সম্পর্কে সতর্ক হওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 111,
+      "id": "17132154-66c5-414e-8cdf-8e1e82014b67",
+      "question": "A - in time saves nine. [SABAS][]",
+      "options": [
+        "stick",
+        "strict",
+        "stitch",
+        "stich"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সঠিক প্রবাদটি হলো: A stitch in time saves nine।",
+      "images": []
+    },
+    {
+      "question_no": 112,
+      "id": "565f3960-be51-4ee2-b6af-433ac9e2475a",
+      "question": "A stitch in time - nine. [SABAS][]",
+      "options": [
+        "saves",
+        "saved",
+        "will save",
+        "have saved"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটির সঠিক রূপ হলো: A stitch in time saves nine।",
+      "images": []
+    },
+    {
+      "question_no": 113,
+      "id": "92d01052-c134-4ad5-bbbf-960cb9f46a85",
+      "question": "A stitch in time saves -. [SABAS][]",
+      "options": [
+        "nine",
+        "a lot",
+        "much",
+        "a few"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো: A stitch in time saves nine।",
+      "images": []
+    },
+    {
+      "question_no": 114,
+      "id": "edf78450-eb9a-477b-8b13-436ed2649c50",
+      "question": "Morning shows the days' is a - [SABAS][]",
+      "options": [
+        "maxim",
+        "presentation",
+        "inkling",
+        "prediction"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি একটি প্রবাদ বা বচন, তাই একে maxim বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 115,
+      "id": "ca1793ad-2572-498b-866e-e880bff94efd",
+      "question": "As you sow, so (will) you reap is a - [SABAS][]",
+      "options": [
+        "maxim",
+        "presentation",
+        "inkling",
+        "prediction"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এটি একটি নীতিবাক্য বা প্রবাদ, তাই একে maxim বলা হয়।",
+      "images": []
+    },
+    {
+      "question_no": 116,
+      "id": "61a98735-70dd-48eb-a0a4-5d92f7713060",
+      "question": "ঢিল মারলে পাটকেল খেতে হয়। প্রবাদটির ইংরেজি অনুবাদ --- [SABAS][]",
+      "options": [
+        "Tat for tit.",
+        "Tit for taught.",
+        "Tit for tat.",
+        "Taught for tit."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ঢিল মারলে পাটকেল খেতে হয়-এর ইংরেজি প্রবাদ হলো Tit for tat।",
+      "images": []
+    },
+    {
+      "question_no": 117,
+      "id": "38e20e75-4ae9-4e99-a444-6e0b512aab1a",
+      "question": "We live in -, not in years. [SABAS][]",
+      "options": [
+        "merit",
+        "genius",
+        "talents",
+        "deeds"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো: We live in deeds, not in years.",
+      "images": []
+    },
+    {
+      "question_no": 118,
+      "id": "6b6d007b-0f9f-48b3-bff6-83b3afe07f57",
+      "question": "বাক্যটি শেষ করুন, Time and tide wait for -. [SABAS][]",
+      "options": [
+        "everyone",
+        "everybody",
+        "everyday",
+        "none"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো: Time and tide wait for none.",
+      "images": []
+    },
+    {
+      "question_no": 119,
+      "id": "4b787e9c-90ae-40a8-a7f5-20c34a73a43f",
+      "question": "Great - are never good doers. [SABAS][]",
+      "options": [
+        "talkers",
+        "talkative",
+        "talks",
+        "talker"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো: Great talkers are never good doers.",
+      "images": []
+    },
+    {
+      "question_no": 120,
+      "id": "a0eaa90b-d009-4069-a7a4-add577e8ffea",
+      "question": "Where there is a will, there is -. [SABAS][]",
+      "options": [
+        "a path",
+        "many ways",
+        "a way",
+        "a well-wisher"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদটি হলো: Where there is a will, there is a way.",
+      "images": []
+    },
+    {
+      "question_no": 121,
+      "id": "a5e57291-ea78-4df2-a740-e15e1baf7daf",
+      "question": "A - in time saves nine. [SABAS][]",
+      "options": [
+        "money",
+        "penny",
+        "stitch",
+        "saving"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সঠিক প্রবাদটি হলো: A stitch in time saves nine.",
+      "images": []
+    },
+    {
+      "question_no": 122,
+      "id": "0e50db7a-d61d-4a64-b30d-14b9d81f33f3",
+      "question": "A beggar must not be a chooser-এর বাক্যের যথার্থ অনুবাদ- [SABAS][]",
+      "options": [
+        "ভিক্ষার চাল মোটা আর সরু",
+        "ভিক্ষার চাল কাঁড়া আর আকঁড়া",
+        "ভিক্ষার চাল মোটা",
+        "ভিক্ষার চাল সরু"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটির যথার্থ অনুবাদ হলো: ভিক্ষার চাল কাঁড়া আর আকঁড়া।",
+      "images": []
+    },
+    {
+      "question_no": 123,
+      "id": "049a9061-420c-4b4b-9f90-9fd1c3b2c5a1",
+      "question": "ভুল করা মানুষের স্বভাব। [SABAS][]",
+      "options": [
+        "To err is human",
+        "To err is a human",
+        "To err is humans",
+        "To err are human"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো: To err is human.",
+      "images": []
+    },
+    {
+      "question_no": 124,
+      "id": "1c23ef18-f4a5-4fac-a83f-fa534aee698c",
+      "question": "The pen - mightier than the sword. [SABAS][]",
+      "options": [
+        "shall be",
+        "has",
+        "will be",
+        "is"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো: The pen is mightier than the sword.",
+      "images": []
+    },
+    {
+      "question_no": 125,
+      "id": "5cbe07c6-89a7-4bb9-861d-c6fc54ba1374",
+      "question": "Many a little - a mickle. [SABAS][]",
+      "options": [
+        "makes",
+        "made",
+        "make",
+        "woud make"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো: Many a little makes a mickle.",
+      "images": []
+    },
+    {
+      "question_no": 126,
+      "id": "0ba34a8b-2d84-46b6-9135-06782d91ff0a",
+      "question": "After meat comes the mustered' এর ঠিক অর্থ [SABAS][]",
+      "options": [
+        "সুধের পরে দুঃখ আসে",
+        "কষ্টে কেষ্ট মেলে",
+        "নুন আনতে পান্তা ফুরায়",
+        "যত গর্জে তত বর্ষে না"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদ 'After meat comes the mustard'-এর বাংলা অর্থ হলো নুন আনতে পান্তা ফুরায়।",
+      "images": []
+    },
+    {
+      "question_no": 127,
+      "id": "881f9759-5ed5-4c12-9b6c-734db8a3dc82",
+      "question": "উলুবনে মুক্তা ছড়িয়ে না'-The best translation is : [SABAS][]",
+      "options": [
+        "Do not help the bad people",
+        "Do not cast pearls before swine",
+        "Do not advise the wicked people",
+        "Do not cast pearls in the forest"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর সঠিক অনুবাদ হলো: Do not cast pearls before swine.",
+      "images": []
+    },
+    {
+      "question_no": 128,
+      "id": "47820b1e-df51-43f6-80f7-4934a7dad151",
+      "question": "What is the best translation of \"ঠাকুর ঘরে কে, আমি কলা খাইনি\"? [SABAS][]",
+      "options": [
+        "A guilty mind denies the fact",
+        "A guilty mind is never suspicious",
+        "I haven't taken banana though I am in the room",
+        "A guilty mind is always suspicious"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এর সঠিক ইংরেজি প্রবাদটি হলো: A guilty mind is always suspicious.",
+      "images": []
+    },
+    {
+      "question_no": 129,
+      "id": "70cc1ae0-c1b2-4500-b6a3-80e584949021",
+      "question": "নাই মামার চেয়ে কানা মামা ভালো। [SABAS][]",
+      "options": [
+        "Something is gooder than nothing",
+        "Some uncles is better than no uncle",
+        "Somethings are better than nothing",
+        "Something is better than nothing"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এর সঠিক অনুবাদ হলো: Something is better than nothing.",
+      "images": []
+    },
+    {
+      "question_no": 130,
+      "id": "c3bb1511-1e4b-4855-92ae-5370fe7c4a51",
+      "question": "নাচতে না জানলে উঠান বাঁকা' প্রবাদটির ইংরেজি কী? [SABAS][]",
+      "options": [
+        "The stage is not good because you can't dance.",
+        "For a bad dancer the stage is not good.",
+        "If your leg is broken you cannot dance.",
+        "A bad workman quarrels with his tools."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটির ইংরেজি সমতুল্য হলো: A bad workman quarrels with his tools.",
+      "images": []
+    },
+    {
+      "question_no": 131,
+      "id": "44f65970-7da0-47de-a9e4-a845daa74785",
+      "question": "সততা সর্বোৎকৃষ্ট পন্থা' The best translation is- [SABAS][]",
+      "options": [
+        "Honesty is the better way.",
+        "Honesty is a good way.",
+        "Honesty is the good policy.",
+        "Honesty is the best policy."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটি হলো: Honesty is the best policy.",
+      "images": []
+    },
+    {
+      "question_no": 132,
+      "id": "d068eaa6-4312-4bf2-a895-4a907be63e02",
+      "question": "বিপদ কখনো একা আসে না। [SABAS][]",
+      "options": [
+        "Misfortunes comes never alone.",
+        "Misfortunes never come alone.",
+        "Misfortunes never alone comes.",
+        "Misfortunes comes alone ever."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো: Misfortunes never come alone.",
+      "images": []
+    },
+    {
+      "question_no": 133,
+      "id": "88993856-267b-47cd-99fc-c38131755580",
+      "question": "Riches have wings' প্রবাদটির অর্থ- [SABAS][]",
+      "options": [
+        "মরা হাতি লাখ টাকা দাম।",
+        "বিয়ে করতে কড়ি, আর ঘর বাঁধতে দড়ি।",
+        "টাকায় টাকা হয়।",
+        "লক্ষ্মী সদাই চঞ্চল।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Riches have wings-এর অর্থ হলো ধনসম্পদ চিরস্থায়ী নয় বা লক্ষ্মী সদাই চঞ্চল।",
+      "images": []
+    },
+    {
+      "question_no": 134,
+      "id": "a14f033a-e76b-413c-b204-57b1fd2ef928",
+      "question": "A cat loves fish but is loath to wet her feet. [SABAS][]",
+      "options": [
+        "বিড়াল পানি নয় মাছ পছন্দ করে।",
+        "পা না ভিজিয়ে মাছ খায় বিড়াল।",
+        "ধরি মাছ না ছুঁই পানি।",
+        "মাছ পছন্দ কিন্তু পা ভেজাতে অরাজি।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এই ইংরেজি প্রবাদটির বাংলা ভাবার্থ হলো: ধরি মাছ না ছুঁই পানি।",
+      "images": []
+    },
+    {
+      "question_no": 135,
+      "id": "e769ffc5-71e8-4ac3-ae2f-74b2be94813f",
+      "question": "অধিক সন্ন্যাসীতে গাজন নষ্ট -Translate it into English. [SABAS][]",
+      "options": [
+        "Too many cooks spoil the broth.",
+        "Too much courtesy, too much craft.",
+        "Grasp all, lose all.",
+        "To the pure all things are pure."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "অধিক সন্ন্যাসীতে গাজন নষ্ট-এর ইংরেজি প্রবাদ হলো: Too many cooks spoil the broth.",
+      "images": []
+    },
+    {
+      "question_no": 136,
+      "id": "686931d3-cc44-4df6-a590-0bd54ce901c4",
+      "question": "Too much courtesy, too much craft. -Bengali is - [SABAS][]",
+      "options": [
+        "অতি লৌকিকতা দৃষ্টিকটু।",
+        "অধিক সন্ন্যাসীতে গাজন নষ্ট।",
+        "অতি ভক্তি চোরের লক্ষণ।",
+        "অতি সৌজন্যবোধ ভালো নয়।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Too much courtesy, too much craft-এর বাংলা প্রবাদ হলো: অতি ভক্তি চোরের লক্ষণ।",
+      "images": []
+    },
+    {
+      "question_no": 137,
+      "id": "35f6df19-1d90-4225-a02c-d607c82f4c44",
+      "question": "Faults are thick where love is thin. [SABAS][]",
+      "options": [
+        "ভালোবাসলে ত্রুটি দেখা যায় না।",
+        "ত্রুটি ভালোবাসায় বিলীন হয়ে যায়।",
+        "যাকে দেখতে নারি তার চলন বাঁকা।",
+        "ত্রুটি ও ভালোবাসা অভিন্ন।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এর ভাবার্থ হলো, যার প্রতি ভালোবাসা কম, তার দোষ বেশি দেখা যায় বা যাকে দেখতে নারি তার চলন বাঁকা।",
+      "images": []
+    },
+    {
+      "question_no": 138,
+      "id": "7afa00af-fcc2-4bae-9900-6d0469d9c58b",
+      "question": "Choose your appropriate answer. 'চকচক করলেই সোনা হয় না' [SABAS][]",
+      "options": [
+        "All that glitters is not gold.",
+        "All that glitter is not gold.",
+        "All that glitters are not gold.",
+        "All which glitters is not gold."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো: All that glitters is not gold.",
+      "images": []
+    },
+    {
+      "question_no": 139,
+      "id": "636edeab-932c-467b-9a26-9805969a07fd",
+      "question": "To rob Peter to ppay Paul.' Its Bangla equivalent is- [SABAS][]",
+      "options": [
+        "কাঁটা দিয়ে কাঁটা তোলা।",
+        "চোরের উপর বাটপারি।",
+        "গরু মেরে জুতা দান।",
+        "উসোর পিঠী বুসোর ঘাড়ে।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "To rob Peter to pay Paul-এর বাংলা সমতুল্য প্রবাদ হলো: গরু মেরে জুতা দান।",
+      "images": []
+    },
+    {
+      "question_no": 140,
+      "id": "2d2420b6-ef8d-4cb6-ab5e-5cae90697e9b",
+      "question": "As you sow, so (will) you reap. [SABAS][]",
+      "options": [
+        "যেমন কর্ম, তেমন ফল",
+        "যেমন চাইবে তেমন হবে",
+        "সময়ের এক ফোঁড়, অসময়ের নয় ফোঁড়",
+        "কোনোটিই নয়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটির অর্থ হলো কর্মের ফল অনুসারে প্রাপ্তি, যা বাংলায় 'যেমন কর্ম, তেমন ফল'।",
+      "images": []
+    },
+    {
+      "question_no": 141,
+      "id": "c79607fc-693a-4692-8623-7a3163f464e6",
+      "question": "The equivalent Bangla saying for 'Better an empty house than a bad tenant' is- [SABAS][]",
+      "options": [
+        "দাঁত থাকতে দাঁতের মর্যাদা বুঝা যায় না",
+        "নাই মামার চেয়ে কানা মামা ভালো",
+        "খারাপ ভাড়াটিয়া বিদায় করা উচিত",
+        "দুষ্ট গরুর চেয়ে শূন্য গোয়াল ভালো"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এর যথার্থ বাংলা প্রবাদ হলো 'দুষ্ট গরুর চেয়ে শূন্য গোয়াল ভালো'।",
+      "images": []
+    },
+    {
+      "question_no": 142,
+      "id": "637f364b-917e-4008-813b-a9860fbf0036",
+      "question": "Which is the good Bangla of 'A barking dog seldom bites.'? [SABAS][]",
+      "options": [
+        "পাগলা কুকুর কখনো কামড়ায় না",
+        "চিৎকার করলেই কুকুর কামড়ায়",
+        "যত গর্জে তত বর্ষে না",
+        "গর্জনকারী কুকুর কখনো কামড়ায় না"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "ইংরেজি প্রবাদ 'A barking dog seldom bites'-এর সঠিক বাংলা ভাবানুবাদ হলো 'যত গর্জে তত বর্ষে না'।",
+      "images": []
+    },
+    {
+      "question_no": 143,
+      "id": "f6d66703-9178-4072-82b4-57af658629bf",
+      "question": "\"অসারের তর্জন গর্জন সার\" [SABAS][]",
+      "options": [
+        "Ignorance is vociferous.",
+        "An incompetent man speaks much.",
+        "A barking dog seldom bites.",
+        "None of the above."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "অসারের তর্জন গর্জন সার-এর ইংরেজি প্রতিশব্দ হলো 'A barking dog seldom bites'।",
+      "images": []
+    },
+    {
+      "question_no": 144,
+      "id": "3fe7b0a3-5fc4-4ff5-a6d8-9a14c9dd6727",
+      "question": "Empty vessels sound much' means- [SABAS][]",
+      "options": [
+        "All that glitters is not gold.",
+        "Too many cooks spoil the broth.",
+        "Barking dogs seldom bite.",
+        "A little learning is a dangerous thing."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Empty vessels sound much মানে হলো খালি কলসি বাজে বেশি, যার ভাবার্থ 'Barking dogs seldom bite'।",
+      "images": []
+    },
+    {
+      "question_no": 145,
+      "id": "ad1d725a-db4e-4180-96b7-9a1afa87c553",
+      "question": "Barking dogs seldom bite'- can be replaced by: [SABAS][]",
+      "options": [
+        "All that glitters is not gold.",
+        "A little learning is a dangerous thing.",
+        "Haste makes waste",
+        "Empty vessels sound much"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "উভয় প্রবাদই অর্থহীন বা ফাঁপা অহংকারের পরিপন্থী, তাই একে অপরের পরিপূরক।",
+      "images": []
+    },
+    {
+      "question_no": 146,
+      "id": "b3a582cc-9e47-48bb-8d4c-0e78c2514992",
+      "question": "যার শেষ ভালো তার সব ভালো- [SABAS][]",
+      "options": [
+        "All's well that ends well.",
+        "He who ends well, has well in all.",
+        "All well, if well is the end.",
+        "Those who end well, has all well."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটি হলো: All's well that ends well.",
+      "images": []
+    },
+    {
+      "question_no": 147,
+      "id": "b1030532-06b2-4477-b1ac-75e2d2310989",
+      "question": "Choose the sentence that is the correct proverbial saying. [SABAS][]",
+      "options": [
+        "Never put of till tomorrow what you can do today.",
+        "Never put off till tomorrow what you can do today.",
+        "Never put off till tomorrow which you can do today.",
+        "Never put off until tomorrow what you can do today."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "সঠিক প্রবাদটি হলো: Never put off until tomorrow what you can do today.",
+      "images": []
+    },
+    {
+      "question_no": 148,
+      "id": "b037e540-a8ff-4418-a6b3-4beb0b0818d2",
+      "question": "Which of the following is a correct proverb? [SABAS][]",
+      "options": [
+        "Fools rush in where angels fear to tread.",
+        "Fools rush in where angels fears to tread.",
+        "An fool rushes in where an angel fears to tread.",
+        "Fools rush in where the angels fear to tread."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সঠিক প্রবাদটি হলো: Fools rush in where angels fear to tread.",
+      "images": []
+    },
+    {
+      "question_no": 149,
+      "id": "2f00fa4d-37cf-4cff-a227-587a97027bf1",
+      "question": "Find out the best translation of the sentence 'কাঁটা ঘায়ে নুনের ছিটা' [SABAS][]",
+      "options": [
+        "to rub salt to the wound",
+        "to make an wound which is bleeding",
+        "to add insult to injury",
+        "to cause an injury more painful by hurting it"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "কাঁটা ঘায়ে নুনের ছিটা-এর ইংরেজি বাগধারা হলো 'to add insult to injury'।",
+      "images": []
+    },
+    {
+      "question_no": 150,
+      "id": "f840f4fe-582f-43fd-9f52-37dd0917d85a",
+      "question": "[SABAS]\nAlways look before you ___.[]",
+      "options": [
+        "lip",
+        "leap",
+        "lean",
+        "jump"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 151,
+      "id": "772e7f81-b1ff-421c-bc1f-0667d20733fe",
+      "question": "Which is the best translation of 'তেলা মাথায় তেল দেওয়া'? [SABAS][]",
+      "options": [
+        "Giving oil only to head",
+        "To carry coal to New Castle",
+        "To carry coal to Old Castle",
+        "To carry coals to Newcastle"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "তেলা মাথায় তেল দেওয়া' বা অপ্রয়োজনীয় স্থানে কিছু দেওয়া বোঝাতে 'To carry coals to Newcastle' ব্যবহৃত হয়।",
+      "images": []
+    },
+    {
+      "question_no": 152,
+      "id": "e732b981-36cc-4fca-8abc-a4588545919f",
+      "question": "Bring coals to the Newcastle' What is the meaning of sentence? Carrying coals to Newcastle-এর অর্থ - [SABAS][]",
+      "options": [
+        "তেলা মাথায় তেল দেয়া",
+        "বিপদে সাহায্য করা",
+        "কয়লার খনি থেকে কয়লা উঠানো",
+        "যার নেই তাকে দেয়া"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "প্রবাদটির অর্থ হলো যেখানে প্রচুর আছে সেখানে নতুন করে কিছু পাঠানো বা 'তেলা মাথায় তেল দেওয়া'।",
+      "images": []
+    },
+    {
+      "question_no": 153,
+      "id": "95700e07-591f-4293-9e8f-317f35ec4701",
+      "question": "Which one is correct? [SABAS][]",
+      "options": [
+        "All that glittered is gold.",
+        "All that glittering was gold.",
+        "All that glittered must be gold.",
+        "All that glitters is not gold."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটির সঠিক রূপ হলো 'All that glitters is not gold', যার অর্থ চকচক করলেই সোনা হয় না।",
+      "images": []
+    },
+    {
+      "question_no": 154,
+      "id": "adc3f51c-94b7-44ed-8361-30f06a46c211",
+      "question": "সময়ের এক ফোঁড়, অসময়ের নয় ফোঁড়' এই প্রবাদটির ইংরেজি হচ্ছে- [SABAS][]",
+      "options": [
+        "A stitch in time saves ten.",
+        "A stitch in time saves nine.",
+        "A stitch in time save nine.",
+        "A stitch saves ten stitches in time."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সঠিক প্রবাদটি হলো 'A stitch in time saves nine', অর্থাৎ সঠিক সময়ের কাজ সঠিক সময়ে করা।",
+      "images": []
+    },
+    {
+      "question_no": 155,
+      "id": "16b97de3-2b59-441d-bb08-06fd4982f046",
+      "question": "Which of the following is correct? [SABAS][]",
+      "options": [
+        "Look after you leap",
+        "Look before you leap",
+        "Look when you leap",
+        "Look where you leap"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সঠিক প্রবাদটি হলো 'Look before you leap', যার অর্থ লাফ দেওয়ার আগে ভালো করে দেখে নেওয়া বা চিন্তা করা।",
+      "images": []
+    },
+    {
+      "question_no": 156,
+      "id": "0662abc0-2960-461d-8135-65e49b973c22",
+      "question": "Look before you leap. [SABAS][]",
+      "options": [
+        "লাফ দেবার আগে তাকাও।",
+        "ভাবিয়া করিও কাজ।",
+        "আগে ভাবিয়া পরে লাফ দিবে।",
+        "দেখে নাও পরে লাফ দাও।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এই প্রবাদটির বাংলা ভাবার্থ হলো যেকোনো কাজ করার আগে তা ভেবেচিন্তে করা।",
+      "images": []
+    },
+    {
+      "question_no": 157,
+      "id": "acc7c0c7-3298-44c0-b8e4-3bbdf97dbc50",
+      "question": "To carry coals to Newcastle' means- [SABAS][]",
+      "options": [
+        "to carry coal to New Zealand",
+        "to carry coal to New England",
+        "to take things where they are already plentiful",
+        "to take things where they are most needed"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এর অর্থ হলো যেখানে প্রয়োজন নেই বা প্রচুর পরিমাণে আছে সেখানে পুনরায় পাঠানো।",
+      "images": []
+    },
+    {
+      "question_no": 158,
+      "id": "36d97433-5f5f-4dde-9cb7-3336cdd8a239",
+      "question": "All's well that - well. [SABAS][]",
+      "options": [
+        "begins",
+        "ends",
+        "happens",
+        "bodes"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটি হলো 'All's well that ends well', অর্থাৎ যার শেষ ভালো তার সব ভালো।",
+      "images": []
+    },
+    {
+      "question_no": 159,
+      "id": "8a8d6eb9-8906-4036-b0f9-b4a675d4aa05",
+      "question": "Familiarity breeds contempt.' [SABAS][]",
+      "options": [
+        "বেশি কথা বলা অপমানকর।",
+        "পরিচয়ে শত্রুতা বাড়ে।",
+        "অতি মাখামাখি করলে মান থাকে না।",
+        "মানীকে গম্ভীয় হতে হয়।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদটির অর্থ হলো কারও সাথে অতিরিক্ত ঘনিষ্ঠতা সম্মানের হানি ঘটায় বা 'অতি মাখামাখি করলে মান থাকে না'।",
+      "images": []
+    },
+    {
+      "question_no": 160,
+      "id": "38df6220-1d11-4eac-9eaf-fe5146005f04",
+      "question": "ঘর পোড়া গরু সিঁদুরে মেঘ দেখে ভয় পায়। The correct translation is -. [SABAS][]",
+      "options": [
+        "A burnt child dread the fire.",
+        "A burnt child dreads the fire.",
+        "A burnt child dreads fire.",
+        "A burnt child dread fire."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সঠিক ইংরেজি অনুবাদ হলো 'A burnt child dreads the fire', যা বিপদ থেকে বেঁচে ফেরা ব্যক্তিকে সর্বদা সতর্ক রাখে।",
+      "images": []
+    },
+    {
+      "question_no": 161,
+      "id": "56b0968f-678e-43f8-9adb-91cf428d77a0",
+      "question": "বজ্র আঁটুনি ফস্কা গেরো' প্রবাদটির ইংরেজি -------- [SABAS][]",
+      "options": [
+        "Much cry, little water",
+        "The cat is out of their bag",
+        "Penny wise, pound foolish",
+        "All is well that ends well"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "বজ্র আঁটুনি ফস্কা গেরো' প্রবাদটির ইংরেজি সমার্থক হলো 'Penny wise, pound foolish'।",
+      "images": []
+    },
+    {
+      "question_no": 162,
+      "id": "b9ad2656-b74a-4e11-bfe2-93647b00571b",
+      "question": "Penny wise, pound foolish' এর বাংলা অনুবাদ কি? [SABAS][]",
+      "options": [
+        "পেনিতে জ্ঞানী, পাউন্ডে বোকা",
+        "দেখতে বোকা কিন্তু চালাক",
+        "বজ্র আঁটুনি ফস্কা গেরো",
+        "কম জ্ঞানী, বেশি বোকা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এই প্রবাদটির সঠিক বাংলা অনুবাদ হলো 'বজ্র আঁটুনি ফস্কা গেরো'।",
+      "images": []
+    },
+    {
+      "question_no": 163,
+      "id": "6c6cdd51-8d5f-49aa-80fa-0fef74a0699d",
+      "question": "“Let bygones be bygones” -which one is the correct translation? [SABAS][]",
+      "options": [
+        "অতীত সর্বদা জাগ্রত।",
+        "যে যাওয়ার সে যায়।",
+        "অতীতকে মুছে ফেল।",
+        "চলে যাওয়ার নিয়তি।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "“Let bygones be bygones” এর অর্থ হলো পুরোনো বিষয় বা অতীতের ঝগড়া ভুলে যাওয়া, তাই সঠিক অনুবাদ 'অতীতকে মুছে ফেল'।",
+      "images": []
+    },
+    {
+      "question_no": 164,
+      "id": "f52640bf-16fa-43ac-8c15-14ba1e5d552b",
+      "question": "Example is better than precept- এর সঠিক অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "উদাহরণের চেয়ে উপদেশ ভালো",
+        "উদাহরণের চেয়ে বক্তব্য ভালো",
+        "উপদেশের চেয়ে দৃষ্টান্ত শ্রেয়",
+        "উপদেশ উদাহরণের চেয়ে শ্রেয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদটির অর্থ হলো নিজে দৃষ্টান্ত স্থাপন করা উপদেশের চেয়ে কার্যকর, তাই সঠিক অনুবাদ 'উপদেশের চেয়ে দৃষ্টান্ত শ্রেয়'।",
+      "images": []
+    },
+    {
+      "question_no": 165,
+      "id": "e9621e14-9ab9-409e-a985-1bfb545862d7",
+      "question": "Cut your coat according to your cloth- এর বাংলা অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "ব্যয় যেমন কর তেমন আয় কর",
+        "যেমন বায় তেমন আয়",
+        "কাপড় অনুযায়ী কোট কাট",
+        "যেমন আয় তেমন ব্যয়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটির অর্থ হলো সামর্থ্য অনুযায়ী ব্যয় করা, যা 'যেমন আয় তেমন ব্যয়'-এর সাথে মিলে যায়।",
+      "images": []
+    },
+    {
+      "question_no": 166,
+      "id": "7abcfce1-2b37-4700-ae6c-e43f271a4720",
+      "question": "The Bangla meaning of 'No time like the present' is - [SABAS][]",
+      "options": [
+        "এই মুহূর্তে কোন কিছু করা সমীচীন নয়।",
+        "বর্তমানই কিছু করার সর্বোত্তম সময়।",
+        "বর্তমান অতীতেরই মতো",
+        "এই মুহূর্তে কিছু করা সম্ভব নয়।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর অর্থ হলো যেকোনো ভালো কাজের জন্য বর্তমান সময়টিই উপযুক্ত, অর্থাৎ 'বর্তমানই কিছু করার সর্বোত্তম সময়'।",
+      "images": []
+    },
+    {
+      "question_no": 167,
+      "id": "4ea08a76-cf4c-45fe-b125-1167dbfbc98a",
+      "question": "Ill news runs apace. এর প্রকৃত অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "দুঃসংবাদ দ্রুতগামী হয়",
+        "দুঃসংবাদ তীব্রভাবে গমন করে",
+        "দুঃসংবাদ বাতাসের আগে যায়",
+        "অসুস্থ সংবাদ বাতাসের মত দ্রুত"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এর অর্থ হলো দুঃসংবাদ খুব দ্রুত ছড়িয়ে পড়ে, তাই সঠিক অনুবাদ 'দুঃসংবাদ বাতাসের আগে যায়'।",
+      "images": []
+    },
+    {
+      "question_no": 168,
+      "id": "d482448e-4837-42d2-aede-c604d2be221b",
+      "question": "Translation of 'দুঃসংবাদ বাতাসের আগে যায়/ছড়ায়' is- [SABAS][]",
+      "options": [
+        "Bad news runs faster.",
+        "Ill news runs faster.",
+        "Bad news is faster than wind.",
+        "Ill news runs apace."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এর সঠিক ইংরেজি প্রবাদটি হলো 'Ill news runs apace'।",
+      "images": []
+    },
+    {
+      "question_no": 169,
+      "id": "0489c1da-6b5f-4718-bd1a-af74f2c494f1",
+      "question": "A little learning is a dangerous thing. [SABAS][]",
+      "options": [
+        "অল্প লেখাপড়া ভীষণ ভয়ানক",
+        "অল্প বিদ্যা ভয়ংকরী",
+        "অল্প বিদ্যা ভয়ংকর",
+        "সামান্য বিদ্যা ভীষণ ভয়ানক"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর প্রচলিত বাংলা প্রবাদটি হলো 'অল্প বিদ্যা ভয়ংকরী'।",
+      "images": []
+    },
+    {
+      "question_no": 170,
+      "id": "ef631a8c-f0c4-439a-b308-b706d132c1c3",
+      "question": "Nero fiddles while Rome burns' এর বাংলা অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "গরু মেরে জুতা দান।",
+        "কারও পৌষ মাস, কারও সর্বনাশ।",
+        "ঝোপ বুঝে কোপ মারা।",
+        "রোম জ্বলছে, নীরো বাঁশি বাজাচ্ছে।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রবাদটির অর্থ হলো অন্যের বিপদে মজা দেখা, যার সঠিক বাংলা অনুবাদ 'কারও পৌষ মাস, কারও সর্বনাশ'.",
+      "images": []
+    },
+    {
+      "question_no": 171,
+      "id": "093bf433-e74c-4903-8526-6c15f95f3beb",
+      "question": "Once bitten, twice shy'- এর সঠিক বাংলা অর্থ কোনটি? [SABAS][]",
+      "options": [
+        "নেড়া কি কভু বেলতলায় যায়?",
+        "অধিক সন্ন্যাসীতে গাজন নষ্ট",
+        "অতি দর্পে হত লঙ্কা",
+        "দশে মিলে করি কাজ, হারি জিতি নাহি লাজ"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এর অর্থ হলো একবার ঠকে সাবধান হওয়া, যা বাংলায় 'নেড়া কি কভু বেলতলায় যায়?'.",
+      "images": []
+    },
+    {
+      "question_no": 172,
+      "id": "eec05261-353f-4ecd-92a3-3bcf52b3f235",
+      "question": "ঘরপোড়া গরু সিঁদুরে মেঘ দেখে ভয় পায়'-এর এই প্রবাদটির ইংরেজি হচ্ছে- [SABAS][]",
+      "options": [
+        "At daggers dawn.",
+        "Once bitten, twice shy.",
+        "From the cradle to the grave.",
+        "He makes no friend, who never made a foe."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর সঠিক ইংরেজি প্রবাদটি হলো 'Once bitten, twice shy'.",
+      "images": []
+    },
+    {
+      "question_no": 173,
+      "id": "a3a673a0-b835-4a4a-a4e6-030ca978f8a2",
+      "question": "\"Nero fiddles while Rome burns\" প্রবাদটির অর্থ কি? [SABAS][]",
+      "options": [
+        "None but fool are always right",
+        "Make hay while the sun shines.",
+        "No smoke without fire",
+        "What is the spot to the cat is death to the rat."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "এর অর্থ হলো ভয়াবহ বিপদের সময় তুচ্ছ কাজে সময় নষ্ট করা, যার অর্থ প্রকাশ পায় 'What is the spot to the cat is death to the rat' দিয়ে.",
+      "images": []
+    },
+    {
+      "question_no": 174,
+      "id": "cafb00b6-45db-4dd0-8605-851fb0436de0",
+      "question": "আলোর নীচেই অন্ধকার-এর সঠিক ইংরেজি প্রবাদ কোনটি? [SABAS][]",
+      "options": [
+        "Pride goes before destruction.",
+        "To cast pearls before swine.",
+        "Morning shows the day.",
+        "The nearer the church, the further from God."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "আলোর নীচেই অন্ধকার অর্থাৎ প্রদীপের নিচেই অন্ধকার থাকে, যার সঠিক ইংরেজি 'The nearer the church, the further from God'.",
+      "images": []
+    },
+    {
+      "question_no": 175,
+      "id": "412d4ff1-d2f1-4ef0-a9b5-98ff09380ea4",
+      "question": "Make hay while the sun shines.' The proverb means- [SABAS][]",
+      "options": [
+        "to pay attention to trifling",
+        "to enjoy the sun in winter",
+        "to work in time",
+        "The sunshine is essential to living"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এর অর্থ হলো সুযোগের সদ্ব্যবহার করা বা 'to work in time'.",
+      "images": []
+    },
+    {
+      "question_no": 176,
+      "id": "738c86d0-084e-435b-bb53-f3951156aab8",
+      "question": "টাকায় টাকা আনে। প্রবাদটির শুদ্ধ ইংরেজি কি? [SABAS][]",
+      "options": [
+        "Money brings money.",
+        "Money beings money.",
+        "Money begets money.",
+        "Money makes money."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এর শুদ্ধ ইংরেজি হলো 'Money begets money'.",
+      "images": []
+    },
+    {
+      "question_no": 177,
+      "id": "69d86dab-1612-4498-a30e-a57645aad528",
+      "question": "Which of the following is a proverbial saying? (প্রেম ও যুদ্ধে সবই বৈধ) [SABAS][]",
+      "options": [
+        "All is fare in love and war",
+        "All is fair in love and war",
+        "All is fear in love and war",
+        "All is fire in love and war"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "সঠিক ইংরেজি প্রবাদটি হলো 'All is fair in love and war'.",
+      "images": []
+    },
+    {
+      "question_no": 178,
+      "id": "c2c2b0ff-0189-4b8c-90f7-f02d78595562",
+      "question": "Wishes never fill the bag'-এর বঙ্গানুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "অতি আশায় গাজন নষ্ট",
+        "শুধু কথায় পেট ভরে না",
+        "শুধু আশায় জীবনে উন্নতি আসে না",
+        "কোন আশাই সার্থক হয় না।"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "এর বাংলা অনুবাদ হলো 'শুধু কথায় পেট ভরে না'.",
+      "images": []
+    },
+    {
+      "question_no": 179,
+      "id": "bb143fb0-707e-4f70-8a02-31b555a7e0b4",
+      "question": "ঐশ্বর্য দীর্ঘ দিন থাকে না। [SABAS][]",
+      "options": [
+        "Riches do not last long",
+        "The riches do not last long",
+        "The rich does not last long.",
+        "The riches are not last long"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এর সঠিক ইংরেজি হলো 'Riches do not last long'.",
+      "images": []
+    },
+    {
+      "question_no": 180,
+      "id": "2d80ed9c-8260-44d1-bfa2-0549b6cce477",
+      "question": "নানা মুনীর নানা মত-প্রবাদটির ইংরেজি অনুবাদ --- [SABAS][]",
+      "options": [
+        "Many person, many opinion",
+        "Many men, many minds",
+        "Many people, many views",
+        "Many public, many opinion"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "নানা মুনীর নানা মত-এর সঠিক ইংরেজি অনুবাদ হলো Many men, many minds.",
+      "images": []
+    },
+    {
+      "question_no": 181,
+      "id": "b9976a24-3202-4733-9f8a-b7e023b01724",
+      "question": "Diamond cuts diamond. [SABAS][]",
+      "options": [
+        "সৎ দোষে নষ্ট।",
+        "সল দেখে লোক চেনা যায়।",
+        "সৎ সঙ্গে স্বর্গবাস।",
+        "মানিক মানিক চেনে।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Diamond cuts diamond-এর বাংলা অর্থ হলো মানিক মানিক চেনে।",
+      "images": []
+    },
+    {
+      "question_no": 182,
+      "id": "0f4d2a0e-abaa-45ee-8f80-53043cf334bf",
+      "question": "পায়ে মানে না আপনি মোড়ল। The correct English Translation is- [SABAS][]",
+      "options": [
+        "Every man is for himself",
+        "He is a self-styled leader",
+        "Opportunity makes the thief",
+        "Good wine needs no bush"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "পায়ে মানে না আপনি মোড়ল-এর ইংরেজি অনুবাদ হলো He is a self-styled leader.",
+      "images": []
+    },
+    {
+      "question_no": 183,
+      "id": "183e5d25-50d0-4999-aca5-53af17a6da06",
+      "question": "Fill in the gap: \"All that glitters – not gold.\" [SABAS][]",
+      "options": [
+        "are",
+        "were",
+        "is",
+        "have"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদ অনুযায়ী সঠিক শূন্যস্থান পূরণটি হলো 'is'.",
+      "images": []
+    },
+    {
+      "question_no": 184,
+      "id": "ebd84add-438b-4b2f-ad16-cfd5ace5e489",
+      "question": "Patience is bitter but its fruit is sweet. [SABAS][]",
+      "options": [
+        "ধৈর্য তেতো হলেও তা মিষ্টি।",
+        "মিষ্টি ফল তিক্ত হয় না।",
+        "ধৈর্য ধর, মিষ্টি ফল পাবে।",
+        "সবুরে মেওয়া ফলে।"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "Patience is bitter but its fruit is sweet-এর যথার্থ অনুবাদ হলো সবুরে মেওয়া ফলে।",
+      "images": []
+    },
+    {
+      "question_no": 185,
+      "id": "cd2ae1ec-723e-4bb8-96dd-cbbe4387915f",
+      "question": "Patience has its reward. এ বাক্যের যথার্থ অনুবাদ- [SABAS][]",
+      "options": [
+        "সবুরে মেওয়া ফলে",
+        "রোগী পুরস্কার পেয়েছে",
+        "রোগীর জন্য পুরস্কার আছে",
+        "ধৈর্যের মূল্যায়ন হয়েছে"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "Patience has its reward-এর যথার্থ অনুবাদ হলো সবুরে মেওয়া ফলে।",
+      "images": []
+    },
+    {
+      "question_no": 186,
+      "id": "aa943193-2ab1-4aed-a623-1a1bf1abc4ad",
+      "question": "To err is human. [SABAS][]",
+      "options": [
+        "মানুষ মরণশীল",
+        "মানবজাতি প্রতিনিয়তপরায়ণ",
+        "মানুষ মাত্রই ভুল করে",
+        "কোনটিই নয়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "To err is human-এর সঠিক অনুবাদ হলো মানুষ মাত্রই ভুল করে।",
+      "images": []
+    },
+    {
+      "question_no": 187,
+      "id": "73e8ee3b-d43e-4d09-bbdd-428cab50dcd8",
+      "question": "Choose the correct translation: ‘উলুবনে মুক্তা ছড়িও না।’ [SABAS][]",
+      "options": [
+        "Do not help the bad people",
+        "Do not cast pearls before the swine",
+        "Do not cast pearls in the forest.",
+        "Do not advise the wicked people"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘উলুবনে মুক্তা ছড়িও না’-এর সঠিক ইংরেজি অনুবাদ হলো Do not cast pearls before the swine.",
+      "images": []
+    },
+    {
+      "question_no": 188,
+      "id": "9eb4ecd9-422e-4b8c-80d8-2d8c6571f06a",
+      "question": "‘Much cry and little water’ প্রবাদটির অর্থ- [SABAS][]",
+      "options": [
+        "যেখানে যেমন সেখানে তেমন",
+        "বাড়তি কান্নায় কর্ম লাভ",
+        "যত গর্জে তত বর্ষে না",
+        "চোখে নাই পানি কাঁদছে মোর নানী"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "‘Much cry and little water’ প্রবাদটির অর্থ হলো যত গর্জে তত বর্ষে না।",
+      "images": []
+    },
+    {
+      "question_no": 189,
+      "id": "0d4005c8-a534-48d5-9699-da8a44197184",
+      "question": "The translation of ‘আগে ঘর তবে তো পর’ is- [SABAS][]",
+      "options": [
+        "Charity begins at home.",
+        "Look before you leap.",
+        "Pride goes before a fall.",
+        "Practice makes a man perfect."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "‘আগে ঘর তবে তো পর’-এর অনুবাদ হলো Charity begins at home.",
+      "images": []
+    },
+    {
+      "question_no": 190,
+      "id": "4d867168-18ca-46be-893d-40dc1eddd829",
+      "question": "“অতি দর্পে হত লঙ্কা” প্রবাদটির অর্থ- [SABAS][]",
+      "options": [
+        "Pride comes/goes before a fall.",
+        "Excessive pride takes Lanka to destruction.",
+        "If you are pride you are dead.",
+        "None of the above."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "“অতি দর্পে হত লঙ্কা” এর ইংরেজি প্রবাদ হলো Pride goes before a fall.",
+      "images": []
+    },
+    {
+      "question_no": 191,
+      "id": "053afe93-46a5-4160-a579-9c867e4a0d87",
+      "question": "‘Ill got ill spent’-এর ইংরেজি বাক্যের যথার্থ অনুবাদ হবে - [SABAS][]",
+      "options": [
+        "পীড়িত পাওয়া পীড়িত ব্যয়",
+        "খারাপ প্রাপ্তি খারাপ ব্যয়",
+        "অসুস্থ পাওয়া অসুস্থ যাওয়া",
+        "অসৎ পথে আয় অসৎ পথেই যায়"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "‘Ill got ill spent’ এর ভাবার্থ হলো অসৎ উপায়ে অর্জিত অর্থ অসৎ পথেই ব্যয় হয়।",
+      "images": []
+    },
+    {
+      "question_no": 192,
+      "id": "0b44ae4e-aec6-45ca-8b33-f0ef7b89b3fe",
+      "question": "‘Ill got ill spent’-এর সঠিক বাংলা অনুবাদ হবে- [SABAS][]",
+      "options": [
+        "রোগ হলে চিকিৎসা খরচ বহন করতে হয়",
+        "অল্প আয়ে অল্প ব্যয়",
+        "পাপের ধন প্রায়শ্চিত্তে যায়",
+        "অবৈধ আয়ের পাপ মোচন হয় না"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "‘Ill got ill spent’ প্রবাদটির প্রচলিত বাংলা ভাবার্থ হলো পাপের ধন প্রায়শ্চিত্তে যায়।",
+      "images": []
+    },
+    {
+      "question_no": 193,
+      "id": "6da479c7-3571-4d5b-bcda-983105530218",
+      "question": "Choose the correct English translation of “ফেন দিয়ে ভাত খাই, গল্প করে দই” [SABAS][]",
+      "options": [
+        "Pride goes before a fall",
+        "Ill got, ill spent",
+        "Small boast, big roast",
+        "Big boast, small roast"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "“ফেন দিয়ে ভাত খাই, গল্প করে দই” এর ইংরেজি প্রবাদটি হলো Big boast, small roast.",
+      "images": []
+    },
+    {
+      "question_no": 194,
+      "id": "e8cb1c99-d794-4d1c-9854-ad3dd5952fa2",
+      "question": "“None but the brave deserves the fair.” [SABAS][]",
+      "options": [
+        "বীরেরা সুন্দরী মেয়েদের স্বামী হয়।",
+        "সুন্দরী মেয়েরা বীর পুরুষের স্বামীত্ব বরণ করে।",
+        "বীর ভোগ্যা বসুন্ধরা।",
+        "কোনটিই নয়।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "“None but the brave deserves the fair.” প্রবাদটির ভাবার্থ হলো বীর ভোগ্যা বসুন্ধরা।",
+      "images": []
+    },
+    {
+      "question_no": 195,
+      "id": "6878fbf2-9c2b-4ba3-8d7e-ddec246bd9fe",
+      "question": "English Translation “সস্তার তিন অবস্থা” [SABAS][]",
+      "options": [
+        "cheap is nasty.",
+        "cheap but nasty.",
+        "cheap and nasty.",
+        "cheaps are nasty."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "“সস্তার তিন অবস্থা” এর সঠিক ইংরেজি অনুবাদ হলো Cheap and nasty.",
+      "images": []
+    },
+    {
+      "question_no": 196,
+      "id": "b6c8a4e3-2d28-40fd-bf6f-08c71367b57d",
+      "question": "‘চাঁদেরও কলঙ্ক আছে’- Translate it. [SABAS][]",
+      "options": [
+        "No smoke with out fire",
+        "Many drops makes a shower",
+        "There are lees to every wine",
+        "While there is life, there is hope"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "‘চাঁদেরও কলঙ্ক আছে’ বা ‘চালাকেরও চালাক আছে’ এর ইংরেজি অনুবাদ হলো There are lees to every wine.",
+      "images": []
+    },
+    {
+      "question_no": 197,
+      "id": "0028274c-fa07-4cfb-83e0-69bb465d1ae0",
+      "question": "Complete the proverb: Barking dogs -- [SABAS][]",
+      "options": [
+        "sound much",
+        "catch a thief",
+        "seldom bite",
+        "save nine"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "প্রবাদটি হলো 'Barking dogs seldom bite' (অর্থাৎ মেঘ গর্জালে বৃষ্টি হয় না)।",
+      "images": []
+    },
+    {
+      "question_no": 198,
+      "id": "3956c5c4-467c-40ea-9244-31185b16b0ac",
+      "question": "‘No smoke without fire.’ এর যথাযথ অভিপ্রকাশ- [SABAS][]",
+      "options": [
+        "আগুন ছাড়া ধোঁয়া হয় না।",
+        "বিনা স্বার্থে কিছুই হয় না।",
+        "সব গুজবেরই ভিত্তি আছে।",
+        "গুজবই রহস্য সৃষ্টি করে।"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "‘No smoke without fire’ এর ভাবার্থ হলো সব গুজবেরই ভিত্তি আছে।",
+      "images": []
+    },
+    {
+      "question_no": 199,
+      "id": "1267ee3a-4546-4534-804a-58caf58bc3fb",
+      "question": "He runs with the hare and hunts with the hounds এর বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "হাতী ঘোড়া গেল তল, ভেড়া বলে কত জল",
+        "নিজের নাক কেটে পরের যাত্রা ভঙ্গ করা",
+        "সাপ হয়ে কাটে, ওঝা হয়ে ঝাড়ে",
+        "হাটে হাঁড়ি ভেঙে যায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "He runs with the hare and hunts with the hounds এর সঠিক বাংলা প্রবাদ হলো 'সাপ হয়ে কাটে, ওঝা হয়ে ঝাড়ে' (অর্থাৎ, উভয়ের সাথে সুসম্পর্ক রাখা)।",
+      "images": []
+    },
+    {
+      "question_no": 200,
+      "id": "e61e631f-14bf-49d1-9ae3-c8f2cf370917",
+      "question": "[SABAS]\nTime and time wait for none.[]",
+      "options": [
+        "সময় ও জল কারও জন্য থেমে থাকে না",
+        "সময় ও জল অপেক্ষা করে না কখনো",
+        "সময় ও স্রোত কারও জন্য অপেক্ষা করে না",
+        "সময় ও স্রোত কখনো অপেক্ষা করে না"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "",
+      "images": []
+    },
+    {
+      "question_no": 201,
+      "id": "ca4e7b2b-c36b-439f-99c6-dfc6aff2f211",
+      "question": "He runs with the hare and hunts with the hounds এর বঙ্গানুবাদ [SABAS][]",
+      "options": [
+        "হাতী ঘোড়া গেল তল, ভেড়া বলে কত জল",
+        "নিজের নাক কেটে পরের যাত্রা ভঙ্গ করা",
+        "সাপ হয়ে কাটে, ওঝা হয়ে ঝাড়ে",
+        "হাটে হাঁড়ি ভেঙে যায়"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "He runs with the hare and hunts with the hounds এর সঠিক বাংলা প্রবাদ হলো 'সাপ হয়ে কাটে, ওঝা হয়ে ঝাড়ে' (অর্থাৎ, উভয়ের সাথে সুসম্পর্ক রাখা)।",
+      "images": []
+    },
+    {
+      "question_no": 202,
+      "id": "d3253fc7-cf81-4340-a147-9adf3dd1eee1",
+      "question": "Find out the best translation. ‘ভিক্ষার চাল কাঁড়া আর আঁকড়া’ [SABAS][]",
+      "options": [
+        "Donated rice pure or impure",
+        "Begged rice should not be checked",
+        "Beg some rice",
+        "Beggars must not be choosers"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "‘ভিক্ষার চাল কাঁড়া আর আঁকড়া’ এর সঠিক ইংরেজি প্রবাদ হলো 'Beggars must not be choosers'।",
+      "images": []
+    },
+    {
+      "question_no": 203,
+      "id": "76bf0caf-f30f-401a-bd20-346058327a7b",
+      "question": "No pains no gains এর বঙ্গানুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "ব্যথা নাই তো অর্জন নাই",
+        "কষ্ট না করলে কেষ্ট মেলে না",
+        "জীবনে কোন আশা নেই",
+        "বাধা ছাড়া অর্জন ব্যর্থ"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "No pains no gains এর প্রচলিত বাংলা ভাবার্থ হলো 'কষ্ট না করলে কেষ্ট মেলে না'।",
+      "images": []
+    },
+    {
+      "question_no": 204,
+      "id": "070fcf35-3ea8-4631-a7da-a57a9de9cbe9",
+      "question": "Waste not, want not. বাক্যটির যথাযথ অনুবাদ - [SABAS][]",
+      "options": [
+        "নষ্ট করো না, কিছু চেয়োনা",
+        "নষ্ট করো না, করলে কিছু চাইতেবে পারবেনা",
+        "অপচয় করো না, অভাবও হবে না",
+        "অপচয় করো না,কিছু চেয়োনা"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "Waste not, want not-এর অর্থ হলো অপচয় না করলে অভাব হয় না।",
+      "images": []
+    },
+    {
+      "question_no": 205,
+      "id": "a4c69cff-1724-464f-af70-699379208ff1",
+      "question": "The proverb ‘a bird in hand is worth two in the bush’ implies – [SABAS][]",
+      "options": [
+        "One bird in hand is equal to two in the bush",
+        "It is always difficult to catch birds from the bush.",
+        "Two birds in the bush are less valuable than one in hand.",
+        "Something easily available is better than many precious things out of reach."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "প্রবাদটির অর্থ হলো—যা হাতের কাছে পাওয়া যায় তা দূরের অনেক দামি জিনিসের চেয়েও উত্তম।",
+      "images": []
+    },
+    {
+      "question_no": 206,
+      "id": "0334a712-573f-4b24-bf1e-ef5613566b9f",
+      "question": "Choose the meaning of the given expressions: A bird in hand is worth two in the bush [SABAS][]",
+      "options": [
+        "Take what you have got readily available rather than expecting better in the future.",
+        "The seen is better than unseen",
+        "Promise are better than actuals",
+        "It is good beating about the bush"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "এই প্রবাদটি নির্দেশ করে যে, ভবিষ্যতের অনিশ্চিত লাভের চেয়ে বর্তমানের নিশ্চিত প্রাপ্তিই শ্রেয়।",
+      "images": []
+    },
+    {
+      "question_no": 207,
+      "id": "1cf75a90-a395-4947-8328-abf77b1deb54",
+      "question": "Our policy will be to kill two birds with one stone. [SABAS][]",
+      "options": [
+        "Our policy will be to doubly aggressive.",
+        "Our policy will be to achieve both goals in one attempt.",
+        "Our policy will be to strike out in two directions.",
+        "Our policy will be to hit all targets at once."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘To kill two birds with one stone’ বাগধারাটির অর্থ হলো এক ঢিলে দুই পাখি মারা (এক প্রচেষ্টায় দুই উদ্দেশ্য হাসিল করা)।",
+      "images": []
+    },
+    {
+      "question_no": 208,
+      "id": "292ed14b-b2dd-4130-85bf-ee0c7e425f19",
+      "question": "Which is the correct proverb?(ক্ষুধা লাগলে বাঘে ধান খায়) [SABAS][]",
+      "options": [
+        "Hunger is the best of all sauces",
+        "Hunger is the best sauce",
+        "There is no other hunger better than a sauce",
+        "Hunger is much more a sauce of choice than hunger"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘ক্ষুধা লাগলে বাঘে ধান খায়’-এর ইংরেজি প্রবাদটি হলো 'Hunger is the best sauce'।",
+      "images": []
+    },
+    {
+      "question_no": 209,
+      "id": "7c7b15a9-65e2-474a-a629-d9d211f13a84",
+      "question": "‘Bachelor’ wives and maids’ children are always well taught প্রবাদটির অর্থ কি? [SABAS][]",
+      "options": [
+        "ভিক্ষার চাল কাঁড়া আঁকড়া",
+        "মাথা নেই তার মাথা ব্যথা",
+        "বিয়ে করতে আড় ঘর বাঁধতে দড়ি",
+        "দূরের জিনিস ভালো মনে হয়"
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "অভিজ্ঞতাহীন ব্যক্তিরাই বড় বড় উপদেশ দিয়ে থাকে, এর বাংলা ভাবার্থ হলো 'মাথা নেই তার মাথা ব্যথা'।",
+      "images": []
+    },
+    {
+      "question_no": 210,
+      "id": "3ead97b8-3091-4964-9570-efc15c78692a",
+      "question": "Choose the correct answer. [SABAS][]",
+      "options": [
+        "A drowning man catches to a straw.",
+        "A drowning man catches with a straw.",
+        "A drowning man catches about a straw.",
+        "A drowning man catches at a straw."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "ডুবন্ত মানুষ খড়কুটো আঁকড়ে ধরে—এর ইংরেজি প্রবাদ হলো 'A drowning man catches at a straw'.",
+      "images": []
+    },
+    {
+      "question_no": 211,
+      "id": "ecd9deca-c27f-4761-9131-bca873bfe782",
+      "question": "কয়লা শত ধুইলেও ময়লা যায় না। [SABAS][]",
+      "options": [
+        "None can change the colour of coal.",
+        "None can wash away the black of coal.",
+        "Black will take no other hue.",
+        "The black of a coal is unwashable"
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "এই প্রবাদের সঠিক ইংরেজি রূপ হলো Black will take no other hue.",
+      "images": []
+    },
+    {
+      "question_no": 212,
+      "id": "d20d1680-8a27-4701-9abf-ea426131e88a",
+      "question": "যাকে দেখতে নারি,তার চলন বাঁকা’-এর সঠিক ইংরেজি অনুবাদ কোনটি? [SABAS][]",
+      "options": [
+        "Faults are thin where love is thick.",
+        "Faults are thick where love is thin.",
+        "Faults are thick where love is deep.",
+        "Faults are deep where love is thin."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "“যাকে দেখতে নারি, তার চলন বাঁকা” এর ইংরেজি অনুবাদ হলো Faults are thick where love is thin.",
+      "images": []
+    },
+    {
+      "question_no": 213,
+      "id": "e4261b14-4ee4-4f6c-bb0c-650a4260f34c",
+      "question": "Which of the following pair contain correct translation of that English Proverb? [SABAS][]",
+      "options": [
+        "To carry coals to Newcastle- তেল মাথায় তেল দেওয়া",
+        "To add fuel to the fire.- কোপ বুঝে কোপ মারা",
+        "Strike the iron while it is hot- কাঁটা দিয়ে কাঁটা তোলা",
+        "Practice makes a man perfect- ঘরপোড়া গরু সিঁদুরে মেঘ দেখলে ডরায়"
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "To carry coals to Newcastle এর অর্থ হলো তেল মাথায় তেল দেওয়া।",
+      "images": []
+    },
+    {
+      "question_no": 214,
+      "id": "a3af429a-d2e6-4e88-b54e-d90b9c97ffa1",
+      "question": "পায়ে মানে না আপনি মোড়ল। এই বাক্যের ইংরেজি অনুবাদ- [SABAS][]",
+      "options": [
+        "A fool to others, to himself a sage.",
+        "A fool to others, to himself a fool.",
+        "A fool to others, to himself an idiot.",
+        "A nonsense to himself, to others a sage."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "পায়ে মানে না আপনি মোড়ল এর ইংরেজি অনুবাদ হলো A fool to others, to himself a sage.",
+      "images": []
+    },
+    {
+      "question_no": 215,
+      "id": "9e619731-dd34-4045-89fb-1599470fbe07",
+      "question": "Which of the following sentences is correct? [SABAS][]",
+      "options": [
+        "A little learning is dangerous thing.",
+        "A little learning is a dangerous things.",
+        "A little learning is a dangerous thing.",
+        "Little learning is dangerous thing."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "সঠিক প্রবাদটি হলো 'A little learning is a dangerous thing'.",
+      "images": []
+    },
+    {
+      "question_no": 216,
+      "id": "f0aa867d-5e53-4a6e-92d3-e03e800a5e78",
+      "question": "সাবধানের মার নেই। [SABAS][]",
+      "options": [
+        "To be forewarned is to be forearmed.",
+        "Precaution can save much.",
+        "Precaution costs nothing.",
+        "Precaution can save a lot."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "সাবধানের মার নেই এর ইংরেজি অনুবাদ হলো To be forewarned is to be forearmed.",
+      "images": []
+    },
+    {
+      "question_no": 217,
+      "id": "26417b79-182f-4e6f-8c58-7e19385f7382",
+      "question": "‘এক হাতে তালি বাজে না’ ইংরেজি অনুবাদ - [SABAS][]",
+      "options": [
+        "One hand cannot make a sound.",
+        "To make a sound it needs to hands.",
+        "It takes two to make a quarrel.",
+        "One man cannot make a quarrel."
+      ],
+      "correct_answer": "C",
+      "correct_index": 2,
+      "explanation": "‘এক হাতে তালি বাজে না’ এর ভাবার্থ হলো It takes two to make a quarrel.",
+      "images": []
+    },
+    {
+      "question_no": 218,
+      "id": "bfc2263b-95f6-4182-a346-6518d6c1db13",
+      "question": "‘দশের লাঠি একের বোঝা’ ইংরেজিতে- [SABAS][]",
+      "options": [
+        "One cannot do as hard work easily.",
+        "Many a little makes a mickle.",
+        "Sticks of many make a bundle.",
+        "Many people can do anything easily."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "‘দশের লাঠি একের বোঝা’ এর ইংরেজি প্রবাদ হলো Many a little makes a mickle.",
+      "images": []
+    },
+    {
+      "question_no": 219,
+      "id": "4123ac12-982a-44d0-8a32-634a7cdc415d",
+      "question": "প্রয়োজন কোন আইন মানে না। [SABAS][]",
+      "options": [
+        "Necessity does not obey any law.",
+        "Necessity knows no law.",
+        "Necessity does not follow any law.",
+        "Necessity approves no law."
+      ],
+      "correct_answer": "B",
+      "correct_index": 1,
+      "explanation": "প্রয়োজন কোন আইন মানে না এর ইংরেজি প্রবাদ হলো Necessity knows no law.",
+      "images": []
+    },
+    {
+      "question_no": 220,
+      "id": "960cb0c9-d1e4-4819-aa6d-28efc48a8b48",
+      "question": "‘অতি চালাকের গলায় দড়ি’-এর ইংরেজি রূপ কোনটি? [SABAS][]",
+      "options": [
+        "Too much cunning overreaches itself.",
+        "Too much craft overreaches themselves.",
+        "To beat the hound and run with the hare.",
+        "Between two horns of dilemma."
+      ],
+      "correct_answer": "A",
+      "correct_index": 0,
+      "explanation": "‘অতি চালাকের গলায় দড়ি’ এর সঠিক ইংরেজি হলো Too much cunning overreaches itself.",
+      "images": []
+    },
+    {
+      "question_no": 221,
+      "id": "c89fab8d-0069-4b80-8da2-efb3c2fb407c",
+      "question": "অসময়ের বন্ধুই প্রকৃত বন্ধু। [SABAS][]",
+      "options": [
+        "A friend in bad time is a good friend.",
+        "A friend in bad time is a real friend.",
+        "A friend in need is an good friend.",
+        "A friend in need is a friend indeed."
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "‘অসময়ের বন্ধুই প্রকৃত বন্ধু’ এর সঠিক ইংরেজি প্রবাদ হলো A friend in need is a friend indeed.",
+      "images": []
+    },
+    {
+      "question_no": 222,
+      "id": "57352b94-ae31-4e29-8848-68c4c6908b18",
+      "question": "[SABAS]\nWhich is the closest in meaning to \"গাছে কাঁঠাল গোফে তেল”?[]",
+      "options": [
+        "Cut your coat according to your cloth",
+        "Hunger is the best sauce",
+        "To eat jackfruit before they ripe",
+        "To count one's chicken before they are hatched"
+      ],
+      "correct_answer": "D",
+      "correct_index": 3,
+      "explanation": "",
+      "images": []
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 import { 
   heroSlidesData, 
   homeStatsData, 
@@ -12,9 +13,11 @@ import {
 import ProtectedPdfViewer from './ProtectedPdfViewer';
 import ExamEngine from './ExamEngine';
 import CheckoutModal from './CheckoutModal';
+import BundleDetailModal from './BundleDetailModal';
 import Navbar from './Navbar';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
+import { grantCourseAccess } from '../utils/enrollmentService';
 import { 
   X, 
   Play, 
@@ -45,30 +48,170 @@ const calcDiscount = (orig, curr) => {
   return (o > c) ? (o - c) : 400;
 };
 
+// Animated Rising Number Counter Component
+function AnimatedStatCounter({ value, isDark }) {
+  const containerRef = React.useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Parse raw value like "3000+" -> numeric: 3000, suffix: "+", prefix: ""
+  const parseResult = React.useMemo(() => {
+    const str = String(value || '');
+    const match = str.match(/^([^\d]*)(\d+)([^\d]*)$/);
+    if (match) {
+      const num = parseInt(match[2], 10);
+      // Start from 94% of target value
+      const startNum = num > 50 ? Math.floor(num * 0.94) : Math.max(1, num - 2);
+      return {
+        prefix: match[1] || '',
+        num,
+        startNum,
+        suffix: match[3] || ''
+      };
+    }
+    return { prefix: '', num: 0, startNum: 0, suffix: str };
+  }, [value]);
+
+  const [displayVal, setDisplayVal] = useState(parseResult.startNum);
+  const [animProgress, setAnimProgress] = useState(0); // 0 -> 1 for synchronized opacity & slide-up
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || parseResult.num <= 0) {
+      if (isVisible) {
+        setDisplayVal(parseResult.num);
+        setAnimProgress(1);
+      }
+      return;
+    }
+
+    let startTimestamp = null;
+    let animationFrameId;
+    const duration = 1000; // 1s as requested
+    const startVal = parseResult.startNum;
+    const delta = parseResult.num - startVal;
+
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const elapsed = timestamp - startTimestamp;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Buttery smooth ease-out (smooth glide with zero jarring jumps)
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(startVal + (delta * ease));
+      
+      setDisplayVal(current);
+      setAnimProgress(progress);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
+      } else {
+        setDisplayVal(parseResult.num);
+        setAnimProgress(1);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [isVisible, parseResult.num, parseResult.startNum]);
+
+  // Synchronized gentle upward glide
+  const translateY = (1 - Math.min(animProgress * 1.15, 1)) * 8;
+  // Gradual, velvety fade-in over first 40% of animation
+  const opacity = Math.min(animProgress * 2.2, 1);
+
+  return (
+    <div 
+      ref={containerRef}
+      style={{
+        transform: `translateY(${translateY}px)`,
+        opacity: isVisible ? opacity : 0,
+        transition: 'none'
+      }}
+    >
+      <p className={`text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-none tabular-nums ${
+        isDark 
+          ? 'text-transparent bg-clip-text bg-gradient-to-b from-white via-[#fff0f3] to-[#ffccd5] drop-shadow-[0_4px_16px_rgba(225,20,56,0.35)]' 
+          : 'text-white drop-shadow-md'
+      }`}>
+        {parseResult.prefix}
+        {displayVal}
+        {parseResult.suffix}
+      </p>
+    </div>
+  );
+}
+
 export default function HomePage({ 
   data = {},
+  onNavigateHome,
   onNavigateCourse, 
+  onNavigateBundle,
   onNavigateExams, 
   onNavigateStore, 
   onNavigateAbout, 
   onNavigateDevices,
   onNavigateOrders,
+  onNavigatePolicies,
   onOpenAdmin, 
   onLoginClick,
   onEnrollSuccess
 }) {
   const { isDark } = useTheme();
-  const heroSlides = data.heroSlides || heroSlidesData;
-  const homeStats = data.homeStats || homeStatsData;
-  const homeCourses = data.courses || homeCoursesData;
-  const instructors = data.instructors || instructorsData;
-  const rawFreeVideos = data.freeVideos || freeVideosData;
-  const whyChooseUs = data.whyChooseUs || whyChooseUsData;
-  const REMOVED_CATEGORIES = ["HSC 25", "Engineering", "HSC 27", "HSC 28", "HSC 26"];
-  const rawCategories = (Array.isArray(data.categories) && data.categories.length > 0) ? data.categories : categoriesList;
+  const { currentUser } = useAuth();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("সকল");
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [selectedCourseForCheckout, setSelectedCourseForCheckout] = useState(null);
+  const [selectedBundleForDetails, setSelectedBundleForDetails] = useState(null);
+  const [activePlayingId, setActivePlayingId] = useState(null);
+
+  const heroSlides = Array.isArray(data.heroSlides) ? data.heroSlides : heroSlidesData;
+  const homeStats = Array.isArray(data.homeStats) ? data.homeStats : homeStatsData;
+  const homeCourses = Array.isArray(data.courses) ? data.courses : homeCoursesData;
+  const instructors = Array.isArray(data.instructors) ? data.instructors : instructorsData;
+  const rawFreeVideos = Array.isArray(data.freeVideos) ? data.freeVideos : freeVideosData;
+  const whyChooseUs = Array.isArray(data.whyChooseUs) ? data.whyChooseUs : whyChooseUsData;
+  const REMOVED_CATEGORIES = ["HSC 25", "Engineering", "HSC 27", "HSC 28", "HSC 26", "Free", "free"];
+  const rawCategories = Array.isArray(data.categories) ? data.categories : categoriesList;
   const categories = rawCategories
-    .filter(c => !REMOVED_CATEGORIES.includes(c))
-    .map(c => c === "University A Unit" ? "Free" : c);
+    .filter(c => !REMOVED_CATEGORIES.includes(c) && (c || '').toLowerCase() !== 'free')
+    .map(c => c === "University A Unit" ? "Medical" : c);
+
+  const allBundles = Array.isArray(data?.bundles)
+    ? data.bundles
+    : (initialData.bundles || []);
+  const activeBundles = allBundles.filter(b => (b.status || 'ACTIVE') === 'ACTIVE');
+
+  const categoriesWithBundles = activeBundles.length > 0
+    ? (categories.includes('Bundles') ? categories : [categories[0], 'Bundles', ...categories.slice(1)])
+    : categories;
+
+  const isBundles = selectedCategory === 'Bundles' || selectedCategory.toLowerCase() === 'bundles' || selectedCategory === 'বান্ডিল';
+
   const siteSettings = { ...initialData.siteSettings, ...(data.siteSettings || {}) };
   const st = { ...initialData.sectionTexts, ...(data.sectionTexts || {}) };
   const announcement = data.announcement || initialData.announcement;
@@ -93,19 +236,13 @@ export default function HomePage({
     };
   });
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState("সকল");
-  const [showCheckout, setShowCheckout] = useState(false);
-  const [selectedCourseForCheckout, setSelectedCourseForCheckout] = useState(null);
-  const [activePlayingId, setActivePlayingId] = useState(null);
-
 
   // If selected category was deleted or renamed in admin, reset safely to 'সকল'
   useEffect(() => {
-    if (selectedCategory !== "সকল" && !categories.includes(selectedCategory)) {
+    if (selectedCategory !== "সকল" && !categoriesWithBundles.includes(selectedCategory)) {
       setSelectedCategory("সকল");
     }
-  }, [categories, selectedCategory]);
+  }, [categoriesWithBundles, selectedCategory]);
 
   // Auto slide
   useEffect(() => {
@@ -133,12 +270,22 @@ export default function HomePage({
     .filter(course => {
       if (selectedCategory === "সকল") return true;
       if (selectedCategory.toLowerCase() === "free") {
-        return (course.category || "").toLowerCase() === "free" || course.isFree;
+        return (course.category || "").toLowerCase() === "free" || course.isFree || Number(course.salePrice) === 0;
+      }
+      if (selectedCategory.toLowerCase() === "medical") {
+        return (course.category || "").toLowerCase() === "medical" || course.filterGroup === "medical" || (course.title || "").includes("মেডিকেল");
       }
       return course.category === selectedCategory;
     });
 
   const handleCourseClick = (slug) => {
+    const foundCourse = homeCourses.find(c => c.id === slug || c.slug === slug);
+    if (foundCourse?.isExamBatch || foundCourse?.category === 'EXAM BATCH') {
+      if (onNavigateExams) {
+        onNavigateExams(foundCourse.key || foundCourse.id || foundCourse.slug);
+        return;
+      }
+    }
     if (onNavigateCourse) {
       onNavigateCourse(slug);
     }
@@ -148,6 +295,15 @@ export default function HomePage({
     e.stopPropagation();
     if (course.isFree || Number(course.salePrice) === 0) {
       handleCourseClick(course.id || course.slug);
+      return;
+    }
+    if (!currentUser) {
+      if (onLoginClick) {
+        onLoginClick(() => {
+          setSelectedCourseForCheckout(course);
+          setShowCheckout(true);
+        });
+      }
       return;
     }
     setSelectedCourseForCheckout(course);
@@ -277,13 +433,7 @@ export default function HomePage({
                     }`} />
                   )}
                   <div className="space-y-1.5 sm:space-y-2 min-w-0 px-2 sm:px-4 group cursor-default transition-transform duration-300 hover:scale-[1.04]">
-                    <p className={`text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-none ${
-                      isDark 
-                        ? 'text-transparent bg-clip-text bg-gradient-to-b from-white via-[#fff0f3] to-[#ffccd5] drop-shadow-[0_4px_16px_rgba(225,20,56,0.35)]' 
-                        : 'text-white drop-shadow-md'
-                    }`}>
-                      {stat.value}
-                    </p>
+                    <AnimatedStatCounter value={stat.value} isDark={isDark} />
                     <p className={`text-[9px] sm:text-[11px] md:text-[12px] uppercase tracking-[0.16em] sm:tracking-[0.24em] font-bold ${
                       isDark 
                         ? 'text-[#ff4d6d] drop-shadow-[0_0_8px_rgba(255,77,109,0.3)]' 
@@ -323,7 +473,7 @@ export default function HomePage({
 
           {/* Filter Pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {categories.map((cat, idx) => (
+            {categoriesWithBundles.map((cat, idx) => (
               <button 
                 key={idx}
                 onClick={() => setSelectedCategory(cat)}
@@ -337,15 +487,151 @@ export default function HomePage({
                         : 'bg-white text-gray-700 border-gray-200 hover:border-red-300 hover:text-red-600')
                 }`}
               >
-                {cat}
+                {cat === 'Bundles' ? 'Bundles' : cat}
               </button>
             ))}
           </div>
 
           {/* Course Cards Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {isExamBatch ? (
-              EXAM_CATEGORIES_METADATA.map((cat) => (
+            {isBundles ? (
+              activeBundles.length > 0 ? (
+                activeBundles.map((bundle) => (
+                  <div 
+                    key={bundle.id}
+                    onClick={() => {
+                      if (onNavigateBundle) onNavigateBundle(bundle.id);
+                      else if (onNavigateCourse) onNavigateCourse(bundle.id);
+                    }}
+                    className={`rounded-2xl overflow-hidden flex flex-col group cursor-pointer transition-all border ${
+                      isDark 
+                        ? 'bg-[#111317] border-[#e11438]/25 hover:border-[#e11438]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)] text-white' 
+                        : 'bg-white shadow-md hover:shadow-xl border-red-200 hover:border-red-400 ring-2 ring-red-500/10 text-[#111827]'
+                    }`}
+                  >
+                    <div className={`aspect-video overflow-hidden relative ${isDark ? 'bg-black/60' : 'bg-gray-100'}`}>
+                      <img 
+                        src={bundle.image || 'https://assets.codervai.com/courses/1781447985147-extra_info_batch.webp'} 
+                        alt={bundle.title} 
+                        className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
+                        <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#dc2626] text-white shadow-md">
+                          Combo Pack
+                        </span>
+                        {bundle.badge && (
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-slate-900 backdrop-blur-md shadow-xs">
+                            {bundle.badge}
+                          </span>
+                        )}
+                      </div>
+                      <div className="absolute bottom-2.5 left-3 right-3 text-white text-xs font-bold flex items-center justify-between">
+                        <span className="bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
+                          {bundle.courseIds?.length || 0} Courses Included
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 flex flex-col flex-1">
+                      <h3 className={`font-bold mb-1 line-clamp-1 transition-colors text-base ${
+                        isDark ? 'text-white group-hover:text-red-300' : 'text-[#111827] group-hover:text-[#dc2626]'
+                      }`}>
+                        {bundle.title}
+                      </h3>
+                      {bundle.subtitle && (
+                        <p className={`text-xs mb-2 line-clamp-1 font-semibold ${isDark ? 'text-[#ff6b8b]' : 'text-red-600'}`}>
+                          {bundle.subtitle}
+                        </p>
+                      )}
+                      <p className={`text-xs mb-3 line-clamp-2 ${isDark ? 'text-gray-400' : 'text-[#4b5563]'}`}>
+                        {bundle.description}
+                      </p>
+
+                      <div className="mb-3 pt-2 border-t border-gray-100 dark:border-white/10">
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
+                          এই বান্ডিলে যা যা থাকছে:
+                        </p>
+                        <div className="flex flex-wrap gap-1">
+                          {(bundle.courseIds || []).map((cId, idx) => {
+                            const cObj = homeCourses.find(item => item.id === cId || item.slug === cId || item.key === cId);
+                            return (
+                              <span 
+                                key={idx}
+                                className={`text-[10px] font-semibold px-2 py-0.5 rounded-md truncate max-w-[150px] ${
+                                  isDark ? 'bg-white/10 text-gray-200' : 'bg-red-50 text-red-700 border border-red-100'
+                                }`}
+                              >
+                                ✓ {cObj?.title || cId}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      <div className={`mt-auto flex items-end justify-between gap-2 pt-3 border-t ${
+                        isDark ? 'border-white/[0.08]' : 'border-gray-100'
+                      }`}>
+                        <div>
+                          <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mb-0.5">
+                            বান্ডিল মূল্য
+                          </p>
+                          <div className="flex items-center gap-2">
+                            <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
+                              ৳ {bundle.salePrice}
+                            </span>
+                            {bundle.regularPrice && (
+                              <span className="text-xs sm:text-sm text-gray-400 line-through font-medium">৳{bundle.regularPrice}</span>
+                            )}
+                            {Number(bundle.regularPrice) > Number(bundle.salePrice) && (
+                              <span className="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#dc2626] text-white shadow-xs shrink-0 whitespace-nowrap">
+                                ৳ {Number(bundle.regularPrice) - Number(bundle.salePrice)} ছাড়
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (onNavigateBundle) onNavigateBundle(bundle.id);
+                            else if (onNavigateCourse) onNavigateCourse(bundle.id);
+                          }}
+                          className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
+                            isDark 
+                              ? 'text-white hover:text-[#ff4d6d]' 
+                              : 'text-[#dc2626] hover:text-red-700'
+                          }`}
+                        >
+                          <span className="leading-none">বিস্তারিত</span>
+                          <svg 
+                            className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="#e11438" 
+                            strokeWidth="3.8" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-full py-16 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center">
+                    <span className="text-3xl">🎁</span>
+                  </div>
+                  <p className={`text-base font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>বর্তমানে কোনো সক্রিয় বান্ডিল নেই</p>
+                  <p className="text-xs text-gray-400 mt-1">শীঘ্রই নতুন আকর্ষণীয় কম্বো প্যাক যুক্ত করা হবে।</p>
+                </div>
+              )
+            ) : isExamBatch ? (
+              ((data?.examBatches && data.examBatches.length > 0 ? data.examBatches : EXAM_CATEGORIES_METADATA).filter(b => !b.isHidden)).map((cat) => (
                 <div 
                   key={cat.key}
                   onClick={() => onNavigateExams && onNavigateExams(cat.key)}
@@ -425,13 +711,25 @@ export default function HomePage({
                           e.stopPropagation();
                           onNavigateExams && onNavigateExams(cat.key);
                         }}
-                        className={`text-xs sm:text-sm font-bold bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 mb-0.5 ${
+                        className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
                           isDark 
                             ? 'text-white hover:text-[#ff4d6d]' 
                             : 'text-[#dc2626] hover:text-red-700'
                         }`}
                       >
-                        বিস্তারিত →
+                        <span className="leading-none">বিস্তারিত</span>
+                        <svg 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="#e11438" 
+                          strokeWidth="3.8" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
                       </button>
                     </div>
                   </div>
@@ -505,13 +803,25 @@ export default function HomePage({
                       
                       <button 
                         onClick={(e) => handleEnrollClick(c, e)}
-                        className={`text-xs sm:text-sm font-bold bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 mb-0.5 ${
+                        className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
                           isDark 
                             ? 'text-white hover:text-[#ff4d6d]' 
                             : 'text-[#dc2626] hover:text-red-700'
                         }`}
                       >
-                        বিস্তারিত →
+                        <span className="leading-none">বিস্তারিত</span>
+                        <svg 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="#e11438" 
+                          strokeWidth="3.8" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
                       </button>
                     </div>
                   </div>
@@ -799,7 +1109,7 @@ export default function HomePage({
 
               <div className="flex flex-col gap-4">
                 <a 
-                  href={st.contactPageUrl || siteSettings.facebookPage || "https://www.facebook.com"} 
+                  href={st.contactPageUrl || (siteSettings.facebookPage && siteSettings.facebookPage !== 'https://facebook.com' ? siteSettings.facebookPage : "https://www.facebook.com/profile.php?id=61585769408167")} 
                   target="_blank" 
                   rel="noreferrer"
                   className={`group flex items-center justify-between gap-4 px-6 py-5 text-white rounded-2xl transition-all duration-200 relative overflow-hidden ${
@@ -819,6 +1129,33 @@ export default function HomePage({
                   </div>
                   <svg className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                   <span className="btn-shine"></span>
+                </a>
+
+                {/* YouTube Channel Card */}
+                <a 
+                  href={siteSettings.youtubeChannel && siteSettings.youtubeChannel !== 'https://youtube.com/@eduhunters' && siteSettings.youtubeChannel !== 'https://www.youtube.com' ? siteSettings.youtubeChannel : "https://www.youtube.com/channel/UC1XpmoV-Phk1q1N5D2PTd0g"} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className={`group flex items-center justify-between gap-4 px-6 py-5 rounded-2xl transition-all duration-200 ${
+                    isDark 
+                      ? 'border border-[#e11438]/30 bg-[#140307]/80 hover:bg-[#1f050d] hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.4)] text-white' 
+                      : 'border border-gray-200 bg-[#F8F9FA] hover:bg-gray-100 text-[#111827]'
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${
+                      isDark ? 'bg-[#28050e] border-[#e11438]/30 text-[#ff3b61]' : 'bg-red-50 border-red-100 text-[#dc2626]'
+                    }`}>
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
+                    </div>
+                    <div>
+                      <p className={`font-bold text-sm ${isDark ? 'text-white' : 'text-[#111827]'}`}>আমাদের ইউটিউব চ্যানেল</p>
+                      <p className={`text-xs mt-0.5 ${isDark ? 'text-gray-400' : 'text-[#4b5563]'}`}>ফ্রি ক্লাস ও গুরুত্বপূর্ণ গাইডলাইন ভিডিও</p>
+                    </div>
+                  </div>
+                  <svg className={`w-4 h-4 group-hover:translate-x-1 transition-all duration-200 shrink-0 ${
+                    isDark ? 'text-[#e11438]/60 group-hover:text-white' : 'text-gray-400 group-hover:text-[#dc2626]'
+                  }`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                 </a>
 
                 <a 
@@ -880,9 +1217,10 @@ export default function HomePage({
 
               <div className="flex gap-2">
                 <a 
-                  href={siteSettings.facebookPage || "https://www.facebook.com"} 
+                  href={siteSettings.facebookPage && siteSettings.facebookPage !== 'https://facebook.com' ? siteSettings.facebookPage : "https://www.facebook.com/profile.php?id=61585769408167"} 
                   target="_blank" 
                   rel="noreferrer" 
+                  aria-label="Edu Hunters Facebook"
                   className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white ${
                     isDark 
                       ? 'border border-[#e11438]/30 bg-[#160307] hover:border-[#e11438] hover:bg-[#e11438]/20' 
@@ -892,9 +1230,10 @@ export default function HomePage({
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
                 </a>
                 <a 
-                  href={siteSettings.youtubeChannel || "https://www.youtube.com"} 
+                  href={siteSettings.youtubeChannel && siteSettings.youtubeChannel !== 'https://youtube.com/@eduhunters' && siteSettings.youtubeChannel !== 'https://www.youtube.com' ? siteSettings.youtubeChannel : "https://www.youtube.com/channel/UC1XpmoV-Phk1q1N5D2PTd0g"} 
                   target="_blank" 
                   rel="noreferrer" 
+                  aria-label="Edu Hunters YouTube"
                   className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white ${
                     isDark 
                       ? 'border border-[#e11438]/30 bg-[#160307] hover:border-[#e11438] hover:bg-[#e11438]/20' 
@@ -918,15 +1257,25 @@ export default function HomePage({
                   <li><button onClick={onNavigateAbout} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">আমাদের শিক্ষক পরিচিতি</button></li>
                 </ul>
               </div>
-              <div className="col-span-1 md:col-span-2">
+              <div>
+                <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 ${
+                  isDark ? 'text-[#ff6b8b]' : 'text-white'
+                }`}>LEGAL & POLICIES</p>
+                <ul className={`space-y-2 text-xs ${isDark ? 'text-gray-300' : 'text-white/80'}`}>
+                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">Terms & Conditions</button></li>
+                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">Refund Policy</button></li>
+                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">Privacy Policy</button></li>
+                </ul>
+              </div>
+              <div>
                 <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 ${
                   isDark ? 'text-[#ff6b8b]' : 'text-white'
                 }`}>আমাদের ব্যাচ সমূহ</p>
-                <div className={`grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs ${isDark ? 'text-gray-300' : 'text-white/80'}`}>
-                  <span onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Mastering Text Book Biology</span>
-                  <span onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Mastering Text Book Chemistry</span>
-                  <span onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Medical Exam Batch</span>
-                  <span onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Ketab Sir MCQ Solve Course</span>
+                <div className={`space-y-2 text-xs ${isDark ? 'text-gray-300' : 'text-white/80'}`}>
+                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Mastering Text Book Biology</div>
+                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Mastering Text Book Chemistry</div>
+                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Medical Exam Batch</div>
+                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Ketab Sir MCQ Solve Course</div>
                 </div>
               </div>
             </div>
@@ -937,9 +1286,24 @@ export default function HomePage({
           }`}>
             <p>{st.footerCopyright || "© 2026 Edu Hunters. All rights reserved."}</p>
             <div className="flex items-center gap-4">
-              <span>Privacy Policy</span>
-              <span>Terms of Use</span>
-              <span>Refund Policy</span>
+              <button 
+                onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')}
+                className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
+              >
+                Privacy Policy
+              </button>
+              <button 
+                onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')}
+                className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
+              >
+                Terms of Use
+              </button>
+              <button 
+                onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')}
+                className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
+              >
+                Refund Policy
+              </button>
               <button 
                 onClick={onOpenAdmin} 
                 className={`transition-colors bg-transparent border-none text-xs cursor-pointer ${
@@ -956,12 +1320,41 @@ export default function HomePage({
 
 
 
+      {/* BUNDLE DETAIL MODAL */}
+      {selectedBundleForDetails && (
+        <BundleDetailModal
+          isOpen={!!selectedBundleForDetails}
+          bundle={selectedBundleForDetails}
+          courses={homeCourses}
+          onClose={() => setSelectedBundleForDetails(null)}
+          onEnroll={(bundle) => {
+            setSelectedBundleForDetails(null);
+            if (!currentUser) {
+              if (onLoginClick) {
+                onLoginClick(() => {
+                  setSelectedCourseForCheckout(bundle);
+                  setShowCheckout(true);
+                });
+              }
+              return;
+            }
+            setSelectedCourseForCheckout(bundle);
+            setShowCheckout(true);
+          }}
+          onNavigateCourse={onNavigateCourse}
+        />
+      )}
+
       {/* CHECKOUT MODAL */}
       {showCheckout && (
         <CheckoutModal 
           course={selectedCourseForCheckout || homeCoursesData[5]} 
+          bundle={selectedCourseForCheckout}
           siteSettings={siteSettings}
-          onSuccess={onEnrollSuccess}
+          onSuccess={(trxData) => {
+            if (selectedCourseForCheckout) grantCourseAccess(selectedCourseForCheckout, data);
+            if (onEnrollSuccess) onEnrollSuccess(trxData);
+          }}
           onClose={() => setShowCheckout(false)} 
         />
       )}
