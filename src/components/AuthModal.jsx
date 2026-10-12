@@ -686,9 +686,6 @@ export default function AuthModal({
                   <p className="text-xs text-gray-300">
                     Enter the 6-digit verification code sent to <strong className="text-white">{email}</strong>
                   </p>
-                  <p className="text-[11.5px] text-gray-400 mt-1">
-                    ইনবক্সে না পেলে অনুগ্রহ করে আপনার Gmail-এর <strong>Spam / Junk</strong> ফোল্ডারটি চেক করুন।
-                  </p>
                 </div>
                 {/* 6 OTP Input Boxes */}
                 <div className="flex items-center justify-center gap-2 sm:gap-2.5 my-5" onPaste={handleOtpPaste}>
