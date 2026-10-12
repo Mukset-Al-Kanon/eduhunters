@@ -49,6 +49,7 @@ export default function BundleDetailPage({
   data = {},
   selectedBundleId,
   onNavigateHome,
+  onNavigateDashboard,
   onNavigateCourse,
   onNavigateExams,
   onNavigateStore,
@@ -245,6 +246,7 @@ export default function BundleDetailPage({
           activePage="courses"
           siteSettings={siteSettings}
           onNavigateHome={onNavigateHome}
+          onNavigateDashboard={onNavigateDashboard}
           onNavigateCourse={onNavigateCourse}
           onNavigateExams={onNavigateExams}
           onNavigateStore={onNavigateStore}
@@ -281,6 +283,7 @@ export default function BundleDetailPage({
         activePage="courses"
         siteSettings={siteSettings}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
         onNavigateStore={onNavigateStore}
@@ -433,20 +436,19 @@ export default function BundleDetailPage({
 
 
                   {/* Support hotline */}
-                  {(siteSettings.contactPhone || siteSettings.phone) && (
-                    <div className={`pt-4 border-t flex items-center justify-between text-xs ${
-                      isDark ? 'border-white/[0.08]' : 'border-slate-200'
-                    }`}>
-                      <span className="text-gray-400">যেকোনো সহায়তায়:</span>
-                      <a 
-                        href={`tel:${siteSettings.contactPhone || siteSettings.phone}`}
-                        className="inline-flex items-center gap-1.5 font-bold text-[#dc2626] hover:underline"
-                      >
-                        <Phone className="w-3.5 h-3.5" />
-                        <span>{siteSettings.contactPhone || siteSettings.phone}</span>
-                      </a>
-                    </div>
-                  )}
+                  <div className={`pt-4 border-t flex items-center justify-between text-xs ${
+                    isDark ? 'border-white/[0.08]' : 'border-slate-200'
+                  }`}>
+                    <span className="text-gray-400">হেল্প ও সাপোর্ট (WhatsApp):</span>
+                    <a 
+                      href={`https://wa.me/88${(siteSettings.contactPhone || siteSettings.phone || '01353828863').replace(/[^0-9]/g, '').replace(/^88/, '')}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+                    >
+                      <span>{siteSettings.contactPhone || siteSettings.phone || '01353828863'}</span>
+                    </a>
+                  </div>
 
                 </div>
               </div>
@@ -606,6 +608,79 @@ export default function BundleDetailPage({
                 </div>
               );
             })}
+          </div>
+
+          {/* Bottom Enrollment Action Card */}
+          <div className={`mt-10 p-6 sm:p-8 rounded-3xl border transition-all shadow-xl relative overflow-hidden ${
+            isDark 
+              ? 'bg-gradient-to-br from-[#24060d] via-[#140306] to-[#0c0205] border-[#e11438]/30 shadow-[0_15px_40px_rgba(225,20,56,0.18)]' 
+              : 'bg-gradient-to-br from-red-50 via-white to-red-50/40 border-red-200 shadow-md'
+          }`}>
+            {isDark && (
+              <div className="absolute top-0 right-0 w-72 h-72 bg-[#e11438]/10 rounded-full blur-3xl pointer-events-none" />
+            )}
+
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#dc2626]/10 text-[#dc2626] border border-[#dc2626]/20">
+                  <Sparkles size={13} className="text-[#dc2626]" />
+                  <span>{isBundleEnrolled ? 'ইতিমধ্যে এনরোল্ড' : 'মেগা সেভিংস অফার'}</span>
+                </div>
+
+                <h2 className={`text-xl sm:text-2xl font-black tracking-tight leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  {isBundleEnrolled ? 'আপনার বান্ডিল প্যাকেজটি সক্রিয় রয়েছে' : `একসাথে ${includedCourses.length}টি কোর্সে এনরোল করে প্রস্তুতি সম্পন্ন করুন`}
+                </h2>
+                
+                <p className={`text-xs sm:text-sm max-w-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                  {isBundleEnrolled 
+                    ? 'আপনার ড্যাশবোর্ড থেকে যেকোনো সময় এই বান্ডিলের অন্তর্ভুক্ত সকল কোর্স ও এক্সামে অংশ নিতে পারেন।' 
+                    : `আলাদা আলাদা কোর্স কেনার চেয়ে এই কম্বো বান্ডিলে আপনি পাচ্ছেন ${discountPercent}% পর্যন্ত বিশেষ ছাড় ও লাইফটাইম এক্সেস।`}
+                </p>
+
+                {!isBundleEnrolled && (
+                  <div className="flex items-center gap-3 pt-1">
+                    <span className={`text-2xl sm:text-3xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
+                      ৳ {salePrice}
+                    </span>
+                    {regPrice > salePrice && (
+                      <span className="text-sm sm:text-base text-gray-400 line-through font-medium">
+                        ৳ {regPrice}
+                      </span>
+                    )}
+                    {savings > 0 && (
+                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#dc2626] text-white shadow-xs">
+                        ৳ {savings} সাশ্রয়
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <div className="shrink-0 flex items-center">
+                {isBundleEnrolled ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (onNavigateDashboard) onNavigateDashboard();
+                    }}
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border-none"
+                  >
+                    <CheckCircle2 size={18} />
+                    <span>ড্যাশবোর্ডে যান</span>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleOpenCheckout}
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-red-600 hover:to-[#dc2626] text-white font-black text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-xl shadow-red-600/30 hover:shadow-red-600/50 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border-none"
+                  >
+                    <ShoppingCart size={18} />
+                    <span>বান্ডিলটি এনরোল করুন</span>
+                    <ArrowRight size={16} />
+                  </button>
+                )}
+              </div>
+            </div>
           </div>
 
         </div>

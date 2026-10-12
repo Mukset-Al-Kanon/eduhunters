@@ -25,7 +25,10 @@ export function normalizeStr(str) {
 export function getStoredEnrolledCourses() {
   try {
     const raw = localStorage.getItem(ENROLLED_COURSES_KEY);
-    return raw ? JSON.parse(raw) : [];
+    const legacy = localStorage.getItem('enrolled_courses');
+    const list1 = raw ? JSON.parse(raw) : [];
+    const list2 = legacy ? JSON.parse(legacy) : [];
+    return Array.from(new Set([...(Array.isArray(list1) ? list1 : []), ...(Array.isArray(list2) ? list2 : [])]));
   } catch (e) {
     return [];
   }
@@ -37,7 +40,10 @@ export function getStoredEnrolledCourses() {
 export function getStoredEnrolledBatches() {
   try {
     const raw = localStorage.getItem(ENROLLED_BATCHES_KEY);
-    return raw ? JSON.parse(raw) : [];
+    const legacy = localStorage.getItem('enrolled_exam_batches');
+    const list1 = raw ? JSON.parse(raw) : [];
+    const list2 = legacy ? JSON.parse(legacy) : [];
+    return Array.from(new Set([...(Array.isArray(list1) ? list1 : []), ...(Array.isArray(list2) ? list2 : [])]));
   } catch (e) {
     return [];
   }
@@ -215,6 +221,7 @@ export function grantCourseAccess(itemOrTitle, data = {}) {
 
 /**
  * Comprehensive check whether a course, exam batch, or bundle is unlocked/enrolled for the user.
+ * 100% accurate: only returns true if the user has actually enrolled or purchased it.
  */
 export function isItemEnrolled(itemOrId, currentUser = null, data = null) {
   if (!itemOrId) return false;
@@ -224,165 +231,154 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null) {
     return true;
   }
 
-  // 2. Free item check
-  if (typeof itemOrId === 'object' && itemOrId !== null) {
-    if (itemOrId.isFree === true) return true;
-    if (itemOrId.category?.toLowerCase() === 'free') return true;
-    if (itemOrId.salePrice !== undefined && Number(itemOrId.salePrice) === 0) return true;
-    if (itemOrId.price !== undefined && (Number(itemOrId.price) === 0 || String(itemOrId.price).toLowerCase() === 'free')) return true;
-  }
-
-  // 3. User must be logged in to access or be considered enrolled in any paid course, bundle, or batch
+  // 2. User must be logged in to access or be considered enrolled in personal dashboard
   if (!currentUser) {
     return false;
   }
 
-  // Extract possible identifiers for this item
-  const candidates = [];
+  // Extract possible candidate identifiers for this item
+  const candidates = new Set();
   if (typeof itemOrId === 'string') {
-    candidates.push(itemOrId);
-    candidates.push(itemOrId.toLowerCase());
-    candidates.push(normalizeStr(itemOrId));
+    const val = itemOrId.trim();
+    if (val) {
+      candidates.add(val);
+      candidates.add(val.toLowerCase());
+      candidates.add(normalizeStr(val));
+    }
   } else if (typeof itemOrId === 'object' && itemOrId !== null) {
-    if (itemOrId.id) candidates.push(itemOrId.id, itemOrId.id.toLowerCase(), normalizeStr(itemOrId.id));
-    if (itemOrId.slug) candidates.push(itemOrId.slug, itemOrId.slug.toLowerCase(), normalizeStr(itemOrId.slug));
-    if (itemOrId.key) candidates.push(itemOrId.key, itemOrId.key.toLowerCase(), normalizeStr(itemOrId.key));
-    if (itemOrId.title) candidates.push(itemOrId.title, itemOrId.title.toLowerCase(), normalizeStr(itemOrId.title));
-    if (itemOrId.name) candidates.push(itemOrId.name, itemOrId.name.toLowerCase(), normalizeStr(itemOrId.name));
+    if (itemOrId.id) {
+      const s = String(itemOrId.id).trim();
+      candidates.add(s);
+      candidates.add(s.toLowerCase());
+      candidates.add(normalizeStr(s));
+    }
+    if (itemOrId.slug) {
+      const s = String(itemOrId.slug).trim();
+      candidates.add(s);
+      candidates.add(s.toLowerCase());
+      candidates.add(normalizeStr(s));
+    }
+    if (itemOrId.key) {
+      const s = String(itemOrId.key).trim();
+      candidates.add(s);
+      candidates.add(s.toLowerCase());
+      candidates.add(normalizeStr(s));
+    }
+    if (itemOrId.title) {
+      const s = String(itemOrId.title).trim();
+      candidates.add(s);
+      candidates.add(s.toLowerCase());
+      candidates.add(normalizeStr(s));
+    }
+    if (itemOrId.name) {
+      const s = String(itemOrId.name).trim();
+      candidates.add(s);
+      candidates.add(s.toLowerCase());
+      candidates.add(normalizeStr(s));
+    }
   }
 
-  const cleanCandidates = Array.from(new Set(candidates.filter(Boolean)));
+  const cleanCandidates = Array.from(candidates).filter(Boolean);
+  if (cleanCandidates.length === 0) return false;
 
-  // Helper matcher against an array of enrolled string entries
-  const matchesAnyEnrolled = (enrolledArray) => {
-    if (!Array.isArray(enrolledArray) || enrolledArray.length === 0) return false;
-    for (const enrolled of enrolledArray) {
-      if (typeof enrolled !== 'string') continue;
-      const normEnrolled = normalizeStr(enrolled);
+  // Helper matcher against an array of enrolled string entries (exact ID or exact normalized string match)
+  const matchesList = (list) => {
+    if (!Array.isArray(list) || list.length === 0) return false;
+    for (const item of list) {
+      if (!item) continue;
+      const str = typeof item === 'string' ? item.trim() : (item.id || item.slug || item.key || item.title || '').trim();
+      if (!str) continue;
+      const normItem = normalizeStr(str);
+      const lowItem = str.toLowerCase();
       for (const cand of cleanCandidates) {
-        const normCand = normalizeStr(cand);
-        if (normEnrolled === normCand) return true;
-        if (normCand.length >= 5 && (normEnrolled.includes(normCand) || normCand.includes(normEnrolled))) return true;
+        if (cand === str || cand.toLowerCase() === lowItem || normalizeStr(cand) === normItem) {
+          return true;
+        }
       }
     }
     return false;
   };
 
-  // 3. Check Current User explicit enrolledCourses
+  // 3. Check Current User explicit enrolledCourses / enrolledBatches
   if (currentUser?.enrolledCourses) {
     if (currentUser.enrolledCourses.includes('All Courses (Super Admin Pass)')) return true;
-    if (matchesAnyEnrolled(currentUser.enrolledCourses)) return true;
+    if (matchesList(currentUser.enrolledCourses)) return true;
+  }
+  if (currentUser?.enrolledBatches && matchesList(currentUser.enrolledBatches)) {
+    return true;
   }
 
-  // 4. Check localStorage eduhunters_enrolled_courses
+  // 4. Check localStorage enrolled courses & batches
   const storedCourses = getStoredEnrolledCourses();
-  if (matchesAnyEnrolled(storedCourses)) return true;
+  if (matchesList(storedCourses)) return true;
 
-  // 5. Check localStorage eduhunters_enrolled_batches
   const storedBatches = getStoredEnrolledBatches();
-  if (matchesAnyEnrolled(storedBatches)) return true;
+  if (matchesList(storedBatches)) return true;
 
-  // 6. Check data.users if matching user has it
-  if (data?.users && Array.isArray(data.users)) {
-    const userPhone = (currentUser?.phoneNumber || currentUser?.phone || '').replace(/[^0-9]/g, '');
-    const userEmail = (currentUser?.email || '').toLowerCase().trim();
-    const userName = (currentUser?.displayName || currentUser?.name || '').toLowerCase().trim();
-
-    for (const u of data.users) {
-      const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
-      const uEmail = (u.email || '').toLowerCase().trim();
-      const uName = (u.name || '').toLowerCase().trim();
-
-      const isMatch = (userPhone.length >= 6 && uPhone.includes(userPhone)) ||
-                      (userEmail && uEmail === userEmail) ||
-                      (userName && uName === userName) ||
-                      (currentUser?.uid && u.id === currentUser.uid);
-
-      if (isMatch && matchesAnyEnrolled(u.enrolledCourses)) {
-        return true;
-      }
-    }
-  }
-
-  // 7. Check data.enrolledStudents
-  if (data?.enrolledStudents && Array.isArray(data.enrolledStudents)) {
-    const userPhone = (currentUser?.phoneNumber || currentUser?.phone || '').replace(/[^0-9]/g, '');
-    for (const st of data.enrolledStudents) {
-      if (st.status === 'Active') {
-        const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
-        const matchPhone = userPhone.length >= 6 && stPhone.includes(userPhone);
-        if (matchPhone || !currentUser) { // If guest / demo mode, check active enrolled entries
-          if (cleanCandidates.some(c => normalizeStr(st.courseName || '').includes(normalizeStr(c)))) {
-            return true;
-          }
-        }
-      }
-    }
-  }
-
-  // 8. Check data.accounting.transactions for approved/completed transaction
-  if (data?.accounting?.transactions && Array.isArray(data.accounting.transactions)) {
-    for (const tx of data.accounting.transactions) {
-      if (tx.status === 'Completed' || tx.status === 'Approved') {
-        const normItem = normalizeStr(tx.itemTitle || '');
-        for (const cand of cleanCandidates) {
-          const normCand = normalizeStr(cand);
-          if (normItem === normCand || (normCand.length >= 5 && (normItem.includes(normCand) || normCand.includes(normItem)))) {
-            return true;
-          }
-        }
-      }
-    }
-  }
-
-  // 9. Check User Orders in orderService
+  // 5. Check User Orders in orderService (only completed / approved / paid orders)
   try {
     const orders = getUserOrders();
     for (const ord of orders) {
-      if (ord.status === 'PAID' || ord.status === 'Completed' || ord.isApproved) {
-        const ordSlug = normalizeStr(ord.course?.slug || ord.course?.id || '');
-        const ordName = normalizeStr(ord.course?.name || '');
-        const ordItem = normalizeStr(ord.items?.[0]?.title || '');
+      const isPaid = ord.status === 'PAID' || ord.status === 'Completed' || ord.isApproved === true;
+      if (!isPaid) continue;
 
-        for (const cand of cleanCandidates) {
-          const normCand = normalizeStr(cand);
-          if (normCand === ordSlug || normCand === ordName || normCand === ordItem ||
-             (normCand.length >= 5 && (ordName.includes(normCand) || normCand.includes(ordName) || ordItem.includes(normCand)))) {
-            return true;
-          }
-        }
+      const orderKeys = [
+        ord.course?.id,
+        ord.course?.slug,
+        ord.course?.key,
+        ord.categoryKey,
+        ord.bundleId,
+        ord.items?.[0]?.id,
+        ord.items?.[0]?.key,
+        ord.items?.[0]?.slug,
+        ord.items?.[0]?.title,
+        ord.course?.name,
+        ord.course?.title
+      ].filter(Boolean);
 
-        // Also check if order was for a bundle containing this candidate
-        const allBundles = data?.bundles || initialData.bundles || [];
-        for (const b of allBundles) {
-          const bTitle = normalizeStr(b.title);
-          if (ordName.includes(bTitle) || ordItem.includes(bTitle)) {
-            for (const cand of cleanCandidates) {
-              if ((b.courseIds || []).map(normalizeStr).includes(normalizeStr(cand))) {
-                return true;
-              }
-            }
-          }
+      if (matchesList(orderKeys)) return true;
+
+      // If this order was for a bundle, check if this item is in the bundle's child courseIds
+      const allBundles = data?.bundles || initialData.bundles || [];
+      for (const b of allBundles) {
+        const isBundleMatch = orderKeys.some(ok => 
+          ok === b.id || String(ok).toLowerCase() === String(b.id).toLowerCase() || normalizeStr(ok) === normalizeStr(b.title)
+        );
+        if (isBundleMatch && Array.isArray(b.courseIds)) {
+          if (matchesList(b.courseIds)) return true;
         }
       }
     }
   } catch (e) {}
 
-  // 10. Check if this candidate belongs to any enrolled Bundle
-  const allBundles = data?.bundles || initialData.bundles || [];
-  for (const b of allBundles) {
-    const bundleCandidates = [b.id, b.title, normalizeStr(b.title)];
-    const isThisBundleEnrolled = bundleCandidates.some(bc => 
-      storedCourses.some(sc => normalizeStr(sc) === normalizeStr(bc)) ||
-      (currentUser?.enrolledCourses && currentUser.enrolledCourses.some(uc => normalizeStr(uc) === normalizeStr(bc)))
-    );
+  // 6. Check data.users if matching user has explicit enrolledCourses
+  if (data?.users && Array.isArray(data.users)) {
+    const userPhone = (currentUser?.phoneNumber || currentUser?.phone || '').replace(/[^0-9]/g, '');
+    const userEmail = (currentUser?.email || '').toLowerCase().trim();
 
-    if (isThisBundleEnrolled) {
-      for (const cand of cleanCandidates) {
-        if ((b.courseIds || []).map(normalizeStr).includes(normalizeStr(cand))) {
+    for (const u of data.users) {
+      const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
+      const uEmail = (u.email || '').toLowerCase().trim();
+
+      const isMatch = (userPhone.length >= 6 && uPhone === userPhone) ||
+                      (userEmail && uEmail === userEmail) ||
+                      (currentUser?.uid && u.id === currentUser.uid);
+
+      if (isMatch) {
+        if (matchesList(u.enrolledCourses) || matchesList(u.enrolledBatches)) {
           return true;
         }
       }
+    }
+  }
+
+  // 7. Check if user is enrolled in a Bundle that contains this item
+  const allBundles = data?.bundles || initialData.bundles || [];
+  for (const b of allBundles) {
+    const isBundleEnrolled = storedCourses.some(sc => sc === b.id || normalizeStr(sc) === normalizeStr(b.title)) ||
+                             (currentUser?.enrolledCourses && currentUser.enrolledCourses.some(uc => uc === b.id || normalizeStr(uc) === normalizeStr(b.title)));
+    if (isBundleEnrolled && Array.isArray(b.courseIds)) {
+      if (matchesList(b.courseIds)) return true;
     }
   }
 

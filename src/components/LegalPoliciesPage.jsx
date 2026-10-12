@@ -9,6 +9,7 @@ export default function LegalPoliciesPage({
   initialTab = 'privacy',
   onChangeTab,
   onNavigateHome,
+  onNavigateDashboard,
   onNavigateCourse,
   onNavigateExams,
   onNavigateStore,
@@ -38,9 +39,48 @@ export default function LegalPoliciesPage({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const supportEmail = siteSettings.contactEmail || 'support@eduhunters.com';
-  const supportPhone = siteSettings.contactPhone || '+880 1700-000000';
-  const whatsappNumber = supportPhone.replace(/[^0-9]/g, '');
+  const supportEmail = (siteSettings.contactEmail && !siteSettings.contactEmail.includes('support@eduhunters.com')) 
+    ? siteSettings.contactEmail 
+    : 'eduhuntersbd@gmail.com';
+  const supportPhone = (siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700')) 
+    ? siteSettings.contactPhone 
+    : '01353828863';
+  const rawDigits = supportPhone.replace(/[^0-9]/g, '');
+  const whatsappNumber = rawDigits.startsWith('88') ? rawDigits : `88${rawDigits}`;
+  const formattedPhone = supportPhone.startsWith('0') ? `+880 ${supportPhone.slice(1, 5)}-${supportPhone.slice(5)}` : supportPhone;
+
+  const renderClausePoint = (pt) => {
+    if (typeof pt !== 'string') return pt;
+    if (/^Email:/i.test(pt) || pt.includes('support@eduhunters.com')) {
+      return (
+        <span>
+          Email:{' '}
+          <a 
+            href={`mailto:${supportEmail}`} 
+            className="text-[#dc2626] dark:text-[#ff4d6d] underline font-semibold hover:opacity-85 transition-opacity"
+          >
+            {supportEmail}
+          </a>
+        </span>
+      );
+    }
+    if (/^WhatsApp:/i.test(pt) || /1700-000000/.test(pt)) {
+      return (
+        <span>
+          WhatsApp:{' '}
+          <a 
+            href={`https://wa.me/${whatsappNumber}`} 
+            target="_blank" 
+            rel="noreferrer" 
+            className="text-[#dc2626] dark:text-[#ff4d6d] underline font-semibold hover:opacity-85 transition-opacity"
+          >
+            {formattedPhone}
+          </a>
+        </span>
+      );
+    }
+    return pt;
+  };
 
   const termsData = data.termsAndConditions || initialData.termsAndConditions;
   const refundData = data.refundPolicy || initialData.refundPolicy;
@@ -57,6 +97,7 @@ export default function LegalPoliciesPage({
         activePage="policies"
         siteSettings={siteSettings}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
         onNavigateStore={onNavigateStore}
@@ -169,9 +210,9 @@ export default function LegalPoliciesPage({
                         {Array.isArray(clause.points) ? (
                           <div className="space-y-2">
                             {clause.points.map((pt, pIdx) => (
-                              <p key={pIdx} className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed pl-3 border-l-2 border-slate-200 dark:border-white/10">
-                                {pt}
-                              </p>
+                              <div key={pIdx} className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed pl-3 border-l-2 border-slate-200 dark:border-white/10">
+                                {renderClausePoint(pt)}
+                              </div>
                             ))}
                           </div>
                         ) : (
@@ -216,9 +257,9 @@ export default function LegalPoliciesPage({
                         {Array.isArray(clause.points) ? (
                           <div className="space-y-2">
                             {clause.points.map((pt, pIdx) => (
-                              <p key={pIdx} className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed pl-3 border-l-2 border-slate-200 dark:border-white/10">
-                                {pt}
-                              </p>
+                              <div key={pIdx} className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed pl-3 border-l-2 border-slate-200 dark:border-white/10">
+                                {renderClausePoint(pt)}
+                              </div>
                             ))}
                           </div>
                         ) : (
@@ -236,7 +277,7 @@ export default function LegalPoliciesPage({
                       Contact & Support
                     </h2>
                     <p>Email: <a href={`mailto:${supportEmail}`} className="text-[#dc2626] dark:text-[#ff4d6d] underline font-medium">{supportEmail}</a></p>
-                    <p>Hotline / WhatsApp: <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="text-[#dc2626] dark:text-[#ff4d6d] underline font-medium">{supportPhone}</a></p>
+                    <p>Hotline / WhatsApp: <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="text-[#dc2626] dark:text-[#ff4d6d] underline font-medium">{formattedPhone}</a></p>
                     <p className="text-gray-500 dark:text-gray-400">Support Hours: 10:00 AM – 10:00 PM (Daily)</p>
                   </section>
                 </>
@@ -262,9 +303,9 @@ export default function LegalPoliciesPage({
                         {Array.isArray(clause.points) ? (
                           <div className="space-y-2">
                             {clause.points.map((pt, pIdx) => (
-                              <p key={pIdx} className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed pl-3 border-l-2 border-slate-200 dark:border-white/10">
-                                {pt}
-                              </p>
+                              <div key={pIdx} className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed pl-3 border-l-2 border-slate-200 dark:border-white/10">
+                                {renderClausePoint(pt)}
+                              </div>
                             ))}
                           </div>
                         ) : (
@@ -285,7 +326,7 @@ export default function LegalPoliciesPage({
                       For any questions or inquiries regarding our privacy practices:
                     </p>
                     <p>Email: <a href={`mailto:${supportEmail}`} className="text-[#dc2626] dark:text-[#ff4d6d] underline font-medium">{supportEmail}</a></p>
-                    <p>Hotline / WhatsApp: <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="text-[#dc2626] dark:text-[#ff4d6d] underline font-medium">{supportPhone}</a></p>
+                    <p>Hotline / WhatsApp: <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="text-[#dc2626] dark:text-[#ff4d6d] underline font-medium">{formattedPhone}</a></p>
                   </section>
                 </>
               )}

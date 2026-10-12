@@ -14,7 +14,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
   const [termsModalTab, setTermsModalTab] = useState('terms');
 
   const item = course || bundle || { 
-    title: 'কোর্স এনরোলমেন্ট', 
+    title: 'Course Enrollment', 
     price: 999, 
     salePrice: 999, 
     regularPrice: 1999, 
@@ -23,8 +23,8 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
   const price = item.salePrice || item.price || 999;
   const originalPrice = item.regularPrice || item.originalPrice || price * 2;
 
-  const [studentName, setStudentName] = useState(() => currentUser?.displayName || '');
-  const [phoneNumber, setPhoneNumber] = useState(() => currentUser?.phoneNumber || '');
+  const [studentName, setStudentName] = useState(() => currentUser?.displayName || currentUser?.name || '');
+  const [phoneNumber, setPhoneNumber] = useState(() => currentUser?.whatsapp || currentUser?.phone || currentUser?.phoneNumber || '');
   const [trxId, setTrxId] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('bkash');
   const [isProcessing, setIsProcessing] = useState(false);
@@ -34,6 +34,18 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
   const [isClosing, setIsClosing] = useState(false);
   const [createdOrder, setCreatedOrder] = useState(null);
   const [showInvoiceModal, setShowInvoiceModal] = useState(false);
+
+  // Synchronize student name and phone whenever currentUser updates
+  useEffect(() => {
+    if (currentUser) {
+      if (!studentName) {
+        setStudentName(currentUser.displayName || currentUser.name || '');
+      }
+      if (!phoneNumber && (currentUser.whatsapp || currentUser.phone || currentUser.phoneNumber)) {
+        setPhoneNumber(currentUser.whatsapp || currentUser.phone || currentUser.phoneNumber);
+      }
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     if (!currentUser) {
@@ -68,22 +80,22 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
     };
   }, [isClosing]);
 
-  const bkashNumber = siteSettings?.contactPhone || "01700-000000";
+  const bkashNumber = siteSettings?.bkashNumber || "01342227935";
+  const nagadNumber = siteSettings?.nagadNumber || "01731127231";
+  const activePaymentNumber = paymentMethod === 'bkash' ? bkashNumber : nagadNumber;
+  const activeMethodLabel = paymentMethod === 'bkash' ? 'bKash' : 'Nagad';
 
   const handleCopyNumber = () => {
-    navigator.clipboard.writeText(bkashNumber.replace(/[^0-9]/g, ''));
+    navigator.clipboard.writeText(activePaymentNumber.replace(/[^0-9]/g, ''));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleConfirmPayment = (e) => {
     e.preventDefault();
-    if (!phoneNumber || phoneNumber.length < 11) {
-      alert("দয়া করে সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন");
-      return;
-    }
-    if (!trxId || trxId.length < 5) {
-      alert("দয়া করে ট্রানজেকশন আইডি (TrxID) লিখুন");
+    const cleanPhone = (phoneNumber || '').replace(/[^0-9]/g, '');
+    if (!cleanPhone || cleanPhone.length < 11) {
+      alert("Please enter a valid 11-digit mobile number");
       return;
     }
 
@@ -93,9 +105,10 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
       setIsSuccess(true);
 
       // Automatically persist order & invoice in Order History
-      const finalStudentName = studentName || currentUser?.displayName || 'Enrolled Student';
-      const finalPhone = phoneNumber || currentUser?.phoneNumber || 'N/A';
+      const finalStudentName = studentName || currentUser?.displayName || currentUser?.name || 'Enrolled Student';
+      const finalPhone = phoneNumber || currentUser?.whatsapp || currentUser?.phone || 'N/A';
       const finalEmail = currentUser?.email || 'student@eduhunters.com.bd';
+      const finalTrxId = trxId ? trxId.trim().toUpperCase() : 'PENDING_VERIFICATION';
       
       const newOrder = saveNewOrder({
         item,
@@ -103,7 +116,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
         studentPhone: finalPhone,
         studentEmail: finalEmail,
         paymentMethod: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
-        trxId: trxId,
+        trxId: finalTrxId,
         amount: price,
         originalPrice: originalPrice,
         discount: Math.max(0, originalPrice - price)
@@ -124,7 +137,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
           studentName: finalStudentName,
           studentPhone: finalPhone,
           method: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
-          trxId: trxId,
+          trxId: finalTrxId,
           orderId: newOrder.id,
           invoiceNumber: newOrder.invoiceNumber
         });
@@ -164,7 +177,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
           <h3 className={`text-base sm:text-lg font-black tracking-tight text-center ${
             isDark ? 'text-white' : 'text-gray-900'
           }`}>
-            অর্ডার কনফার্মেশন ও পেমেন্ট
+            Order Confirmation & Payment
           </h3>
           <button 
             type="button"
@@ -186,9 +199,14 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 <CheckCircle size={30} />
               </div>
               <div>
-                <h4 className={`text-lg font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>ভর্তি রিকোয়েস্ট সফল হয়েছে!</h4>
+                <h4 className={`text-lg font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>Enrollment Request Successful!</h4>
                 <p className="text-xs text-gray-400 mt-1 max-w-xs mx-auto leading-relaxed">
-                  ধন্যবাদ <strong>{studentName || 'শিক্ষার্থী'}</strong>। আপনার পেমেন্ট ট্রানজেকশন আইডি (<span className="font-mono text-emerald-500 font-bold">{trxId}</span>) এডমিন প্যানেলে সংরক্ষিত হয়েছে।
+                  Thank you, <strong>{studentName || currentUser?.displayName || currentUser?.name || 'Student'}</strong>.{' '}
+                  {trxId ? (
+                    <>Your payment Transaction ID (<span className="font-mono text-emerald-500 font-bold">{trxId}</span>) has been submitted for verification.</>
+                  ) : (
+                    <>Your enrollment request has been submitted with number <span className="font-mono text-emerald-500 font-bold">{phoneNumber}</span> for instant verification.</>
+                  )}
                 </p>
               </div>
 
@@ -196,15 +214,15 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 isDark ? 'bg-white/[0.02] border-white/10 text-gray-300' : 'bg-gray-50 border-gray-100 text-gray-700'
               }`}>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">কোর্স/আইটেম:</span>
+                  <span className="text-gray-400">Course / Item:</span>
                   <span className="font-bold text-right ml-2">{item.title}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">মোবাইল নম্বর:</span>
+                  <span className="text-gray-400">Phone Number:</span>
                   <span className="font-mono font-bold">{phoneNumber}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">পরিশোধিত ফি:</span>
+                  <span className="text-gray-400">Amount Paid:</span>
                   <span className="font-bold text-[#dc2626] dark:text-[#ff4d6d]">৳{price}</span>
                 </div>
               </div>
@@ -270,7 +288,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                           : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <span>বিকাশ (bKash)</span>
+                    <span>bKash</span>
                   </button>
                   <button 
                     type="button"
@@ -283,7 +301,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                           : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <span>নগদ (Nagad)</span>
+                    <span>Nagad</span>
                   </button>
                 </div>
 
@@ -295,7 +313,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 }`}>
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-semibold text-gray-500 dark:text-gray-400">
-                      Send Money করার নম্বর:
+                      {activeMethodLabel} Send Money Number:
                     </span>
                     <span className="text-[11px] font-bold text-[#dc2626] dark:text-[#ff4d6d]">
                       Personal
@@ -304,7 +322,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
 
                   <div className="flex items-center justify-between gap-3 pt-0.5">
                     <span className={`font-mono text-lg sm:text-xl font-black tracking-wider ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      {bkashNumber}
+                      {activePaymentNumber}
                     </span>
                     <button 
                       type="button" 
@@ -318,7 +336,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                       }`}
                     >
                       <Copy size={12} />
-                      <span>{copied ? 'কপি হয়েছে' : 'কপি করুন'}</span>
+                      <span>{copied ? 'Copied' : 'Copy'}</span>
                     </button>
                   </div>
                 </div>
@@ -328,11 +346,11 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
               <form onSubmit={handleConfirmPayment} className="space-y-3.5 pt-1">
                 <div className="space-y-1.5">
                   <label className="block text-xs font-semibold text-gray-600 dark:text-gray-300">
-                    আপনার নাম (ঐচ্ছিক)
+                    Full Name
                   </label>
                   <input 
                     type="text" 
-                    placeholder="যেমন: মোঃ সাব্বির আহমেদ"
+                    placeholder="e.g. Sabbir Ahmed"
                     className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border transition-all outline-none ${
                       isDark 
                         ? 'bg-white/[0.03] border-white/10 text-white placeholder-gray-500 focus:border-[#e11438] focus:bg-white/[0.05]' 
@@ -345,7 +363,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
 
                 <div className="space-y-1.5">
                   <label className="block text-xs font-semibold text-gray-600 dark:text-gray-300">
-                    মোবাইল নম্বর <span className="text-[#dc2626]">*</span>
+                    {paymentMethod === 'bkash' ? 'Your bKash Number' : 'Your Nagad Number'} <span className="text-[#dc2626]">*</span>
                   </label>
                   <input 
                     type="tel" 
@@ -363,11 +381,11 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
 
                 <div className="space-y-1.5">
                   <label className="block text-xs font-semibold text-gray-600 dark:text-gray-300">
-                    ট্রানজেকশন আইডি (TrxID) <span className="text-[#dc2626]">*</span>
+                    Transaction ID (TrxID)
                   </label>
                   <input 
                     type="text" 
-                    placeholder="যেমন: 9J7A5KL0"
+                    placeholder="e.g. 9J7A5KL0"
                     className={`w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border transition-all outline-none font-mono uppercase tracking-wider ${
                       isDark 
                         ? 'bg-white/[0.03] border-white/10 text-white placeholder-gray-500 focus:border-[#e11438] focus:bg-white/[0.05]' 
@@ -375,12 +393,11 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                     }`}
                     value={trxId}
                     onChange={(e) => setTrxId(e.target.value.toUpperCase())}
-                    required
                   />
                 </div>
 
                 <p className="text-[11px] text-gray-500 dark:text-gray-400 text-center pt-1 leading-relaxed">
-                  পেমেন্ট সাবমিট করার মাধ্যমে আপনি EduHunters-এর{' '}
+                  By confirming payment, you agree to EduHunters'{' '}
                   <button 
                     type="button"
                     onClick={() => {
@@ -389,9 +406,9 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                     }}
                     className="text-[#dc2626] dark:text-[#ff4d6d] font-semibold underline hover:opacity-80 bg-transparent border-none p-0 cursor-pointer text-[11px]"
                   >
-                    শর্তাবলী
+                    Terms & Conditions
                   </button>{' '}
-                  ও{' '}
+                  and{' '}
                   <button 
                     type="button"
                     onClick={() => {
@@ -400,9 +417,9 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                     }}
                     className="text-[#dc2626] dark:text-[#ff4d6d] font-semibold underline hover:opacity-80 bg-transparent border-none p-0 cursor-pointer text-[11px]"
                   >
-                    রিফান্ড পলিসিতে
-                  </button>{' '}
-                  সম্মত হচ্ছেন।
+                    Refund Policy
+                  </button>
+                  .
                 </p>
 
                 <button 
@@ -410,7 +427,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                   className="w-full py-3.5 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:brightness-110 active:scale-[0.99] text-white font-bold text-xs sm:text-sm rounded-xl shadow-[0_0_20px_rgba(220,38,38,0.45)] hover:shadow-[0_0_30px_rgba(220,38,38,0.65)] transition-all cursor-pointer border-none flex items-center justify-center gap-2"
                   disabled={isProcessing}
                 >
-                  <span>{isProcessing ? 'যাচাই করা হচ্ছে...' : `৳${price} পরিশোধ নিশ্চিত করুন`}</span>
+                  <span>{isProcessing ? 'Verifying Payment...' : `Confirm ৳${price} Payment`}</span>
                 </button>
               </form>
             </>

@@ -28,6 +28,7 @@ const calcDiscount = (orig, curr) => {
 export default function CoursesPage({
   data = {},
   onNavigateHome,
+  onNavigateDashboard,
   onNavigateCourse,
   onNavigateBundle,
   onNavigateExams,
@@ -120,7 +121,13 @@ export default function CoursesPage({
   });
 
   const handleCourseClick = (courseId) => {
-    const foundCourse = courses.find(c => c.id === courseId || c.slug === courseId);
+    const foundCourse = courses.find(c => c.id === courseId || c.slug === courseId || c.key === courseId);
+    if (foundCourse?.isBundle) {
+      if (onNavigateBundle) {
+        onNavigateBundle(foundCourse.id || foundCourse.slug);
+        return;
+      }
+    }
     if (foundCourse?.isExamBatch || foundCourse?.category === 'EXAM BATCH') {
       if (onNavigateExams) {
         onNavigateExams(foundCourse.key || foundCourse.id || foundCourse.slug);
@@ -162,6 +169,7 @@ export default function CoursesPage({
         activePage="courses"
         siteSettings={siteSettings}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
         onNavigateStore={onNavigateStore}
@@ -544,7 +552,10 @@ export default function CoursesPage({
                       </div>
                       
                       <button 
-                        onClick={(e) => handleEnrollClick(c, e)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleCourseClick(c.id || c.slug || c.key);
+                        }}
                         className={`text-sm sm:text-base font-bold ${
                           isDark 
                             ? 'text-white hover:text-gray-300' 

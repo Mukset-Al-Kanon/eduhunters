@@ -39,8 +39,48 @@ export default function TermsModal({
   if (!isOpen) return null;
 
   const siteSettings = { ...initialData.siteSettings, ...(data.siteSettings || {}) };
-  const supportPhone = siteSettings.contactPhone || '+880 1700-000000';
-  const whatsappNumber = supportPhone.replace(/[^0-9]/g, '');
+  const supportEmail = (siteSettings.contactEmail && !siteSettings.contactEmail.includes('support@eduhunters.com'))
+    ? siteSettings.contactEmail
+    : 'eduhuntersbd@gmail.com';
+  const supportPhone = (siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700'))
+    ? siteSettings.contactPhone
+    : '01353828863';
+  const rawDigits = supportPhone.replace(/[^0-9]/g, '');
+  const whatsappNumber = rawDigits.startsWith('88') ? rawDigits : `88${rawDigits}`;
+  const formattedPhone = supportPhone.startsWith('0') ? `+880 ${supportPhone.slice(1, 5)}-${supportPhone.slice(5)}` : supportPhone;
+
+  const renderClausePoint = (pt) => {
+    if (typeof pt !== 'string') return pt;
+    if (/^Email:/i.test(pt) || pt.includes('support@eduhunters.com')) {
+      return (
+        <span>
+          Email:{' '}
+          <a
+            href={`mailto:${supportEmail}`}
+            className="text-[#dc2626] dark:text-[#ff4d6d] underline font-semibold hover:opacity-85"
+          >
+            {supportEmail}
+          </a>
+        </span>
+      );
+    }
+    if (/^WhatsApp:/i.test(pt) || /1700-000000/.test(pt)) {
+      return (
+        <span>
+          WhatsApp:{' '}
+          <a
+            href={`https://wa.me/${whatsappNumber}`}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#dc2626] dark:text-[#ff4d6d] underline font-semibold hover:opacity-85"
+          >
+            {formattedPhone}
+          </a>
+        </span>
+      );
+    }
+    return pt;
+  };
 
   const termsData = data.termsAndConditions || initialData.termsAndConditions;
   const refundData = data.refundPolicy || initialData.refundPolicy;
@@ -170,7 +210,7 @@ export default function TermsModal({
                     {Array.isArray(clause.points) ? (
                       <ul className="space-y-1 text-xs sm:text-sm pl-4 list-disc text-gray-700 dark:text-gray-300 marker:text-gray-400">
                         {clause.points.map((pt, pIdx) => (
-                          <li key={pIdx} className="leading-relaxed">{pt}</li>
+                          <li key={pIdx} className="leading-relaxed">{renderClausePoint(pt)}</li>
                         ))}
                       </ul>
                     ) : (
@@ -205,7 +245,7 @@ export default function TermsModal({
                     {Array.isArray(clause.points) ? (
                       <ul className="space-y-1 text-xs sm:text-sm pl-4 list-disc text-gray-700 dark:text-gray-300 marker:text-gray-400">
                         {clause.points.map((pt, pIdx) => (
-                          <li key={pIdx} className="leading-relaxed">{pt}</li>
+                          <li key={pIdx} className="leading-relaxed">{renderClausePoint(pt)}</li>
                         ))}
                       </ul>
                     ) : (
@@ -236,7 +276,7 @@ export default function TermsModal({
                     {Array.isArray(clause.points) ? (
                       <ul className="space-y-1 text-xs sm:text-sm pl-4 list-disc text-gray-700 dark:text-gray-300 marker:text-gray-400">
                         {clause.points.map((pt, pIdx) => (
-                          <li key={pIdx} className="leading-relaxed">{pt}</li>
+                          <li key={pIdx} className="leading-relaxed">{renderClausePoint(pt)}</li>
                         ))}
                       </ul>
                     ) : (
@@ -260,7 +300,7 @@ export default function TermsModal({
               rel="noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-inherit hover:underline"
             >
-              Helpline: {supportPhone}
+              Helpline: {formattedPhone}
             </a>
           </div>
 

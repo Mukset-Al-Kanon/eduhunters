@@ -9,6 +9,7 @@ import { useAuth } from '../context/AuthContext';
 export default function StorePage({ 
   data = {},
   onNavigateHome, 
+  onNavigateDashboard,
   onNavigateCourse, 
   onNavigateExams, 
   onNavigateAbout, 
@@ -46,6 +47,7 @@ export default function StorePage({
         activePage="store"
         siteSettings={data.siteSettings}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
         onNavigateStore={() => {}}

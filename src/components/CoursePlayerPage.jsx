@@ -8,7 +8,6 @@ import {
   ChevronDown, 
   BookOpen, 
   Layers, 
-  Share2, 
   Lock,
   ListVideo,
   Sparkles
@@ -24,22 +23,33 @@ import Navbar from './Navbar';
 function getEmbedUrl(url) {
   if (!url) return '';
   try {
-    if (url.includes('youtube.com/watch')) {
-      const v = new URL(url).searchParams.get('v');
-      if (v) return `https://www.youtube-nocookie.com/embed/${v}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`;
+    const trimmed = String(url).trim();
+    if (!trimmed) return '';
+
+    const params = 'autoplay=1&rel=0&modestbranding=1&enablejsapi=1&iv_load_policy=3&showinfo=0&fs=1&playsinline=1';
+
+    // If it's a raw 11-char YouTube ID (e.g. "JJwW2McsARM" or "bmq8JoV-IlQ")
+    if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
+      return `https://www.youtube-nocookie.com/embed/${trimmed}?${params}`;
     }
-    if (url.includes('youtu.be/')) {
-      const v = url.split('youtu.be/')[1].split('?')[0].split('&')[0];
-      if (v) return `https://www.youtube-nocookie.com/embed/${v}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`;
+
+    if (trimmed.includes('youtube.com/watch')) {
+      const v = new URL(trimmed).searchParams.get('v');
+      if (v) return `https://www.youtube-nocookie.com/embed/${v}?${params}`;
     }
-    if (url.includes('youtube.com/embed/')) {
-      const glue = url.includes('?') ? '&' : '?';
-      return `${url}${glue}autoplay=1&enablejsapi=1`;
+    if (trimmed.includes('youtu.be/')) {
+      const v = trimmed.split('youtu.be/')[1].split('?')[0].split('&')[0];
+      if (v) return `https://www.youtube-nocookie.com/embed/${v}?${params}`;
     }
-    if (url.includes('youtube.com/shorts/')) {
-      const v = url.split('youtube.com/shorts/')[1].split('?')[0];
-      if (v) return `https://www.youtube-nocookie.com/embed/${v}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`;
+    if (trimmed.includes('youtube.com/embed/')) {
+      const glue = trimmed.includes('?') ? '&' : '?';
+      return `${trimmed}${glue}${params}`;
     }
+    if (trimmed.includes('youtube.com/shorts/')) {
+      const v = trimmed.split('youtube.com/shorts/')[1].split('?')[0];
+      if (v) return `https://www.youtube-nocookie.com/embed/${v}?${params}`;
+    }
+    return trimmed;
   } catch {}
   return url;
 }
@@ -49,6 +59,7 @@ export default function CoursePlayerPage({
   courseId,
   initialLesson,
   onNavigateCourse,
+  onNavigateDashboard,
   onNavigateHome,
   onNavigateExams,
   onNavigateStore,
@@ -92,11 +103,12 @@ export default function CoursePlayerPage({
         sec.lessons.forEach((les, lesIdx) => {
           const isObj = typeof les === 'object' && les !== null;
           const lesId = isObj ? String(les.id !== undefined ? les.id : `s${secIdx}-l${lesIdx}`) : `s${secIdx}-l${lesIdx}`;
+          const lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null) || course.previewVideoUrl || course.videoUrl) : (course.previewVideoUrl || course.videoUrl);
           list.push({
             id: lesId,
             title: isObj ? les.title : les,
             duration: isObj ? les.duration : null,
-            videoUrl: isObj ? (les.videoUrl || course.previewVideoUrl) : course.previewVideoUrl,
+            videoUrl: lesVideo,
             pdfUrl: isObj ? les.pdfUrl : null,
             isFree: isObj ? Boolean(les.isFree) : false,
             sectionTitle: secTitle,
@@ -110,11 +122,12 @@ export default function CoursePlayerPage({
           (chap.lessons || []).forEach((les, lesIdx) => {
             const isObj = typeof les === 'object' && les !== null;
             const lesId = isObj ? String(les.id !== undefined ? les.id : `s${secIdx}-c${chapIdx}-l${lesIdx}`) : `s${secIdx}-c${chapIdx}-l${lesIdx}`;
+            const lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null) || course.previewVideoUrl || course.videoUrl) : (course.previewVideoUrl || course.videoUrl);
             list.push({
               id: lesId,
               title: isObj ? les.title : les,
               duration: isObj ? les.duration : null,
-              videoUrl: isObj ? (les.videoUrl || course.previewVideoUrl) : course.previewVideoUrl,
+              videoUrl: lesVideo,
               pdfUrl: isObj ? les.pdfUrl : null,
               isFree: isObj ? Boolean(les.isFree) : false,
               sectionTitle: secTitle,
@@ -125,6 +138,20 @@ export default function CoursePlayerPage({
         });
       }
     });
+
+    if (list.length === 0 && (course.previewVideoUrl || course.videoUrl)) {
+      list.push({
+        id: 'overview-lesson',
+        title: course.title || course.name || 'Course Lecture & Overview',
+        duration: course.duration || 'Lecture',
+        videoUrl: course.previewVideoUrl || course.videoUrl,
+        pdfUrl: null,
+        isFree: true,
+        sectionTitle: 'Course Lectures',
+        chapterTitle: 'Overview',
+        globalIndex: 0
+      });
+    }
 
     return list;
   }, [course]);
@@ -158,7 +185,6 @@ export default function CoursePlayerPage({
   };
 
   const [isPdfDropdownOpen, setIsPdfDropdownOpen] = useState(false);
-  const [copyFeedback, setCopyFeedback] = useState(false);
   const activeLessonRef = useRef(null);
 
   // Scroll to top on active lesson change and scroll active lesson into playlist view smoothly
@@ -169,16 +195,6 @@ export default function CoursePlayerPage({
     }
   }, [activeIndex]);
 
-  const handleShare = () => {
-    try {
-      if (navigator?.clipboard) {
-        navigator.clipboard.writeText(window.location.href);
-        setCopyFeedback(true);
-        setTimeout(() => setCopyFeedback(false), 2500);
-      }
-    } catch {}
-  };
-
   return (
     <div className={`min-h-screen transition-colors duration-200 ${
       isDark ? 'bg-[#0a0204] text-white' : 'bg-[#f8fafc] text-slate-900'
@@ -188,7 +204,11 @@ export default function CoursePlayerPage({
         activePage="courses"
         courseTitle={course?.name || course?.title || 'Course Player'}
         onBackCourse={() => {
-          if (onNavigateCourse) {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else if (onNavigateDashboard) {
+            onNavigateDashboard();
+          } else if (onNavigateCourse) {
             onNavigateCourse(course?.id || course?.slug || courseId);
           } else if (onNavigateHome) {
             onNavigateHome();
@@ -196,6 +216,7 @@ export default function CoursePlayerPage({
         }}
         siteSettings={data?.siteSettings || {}}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
         onNavigateStore={onNavigateStore}
@@ -214,18 +235,43 @@ export default function CoursePlayerPage({
           {/* Left Column: YouTube Video Player, Title, and PDF Options */}
           <div className="lg:col-span-8 flex flex-col gap-4 sm:gap-6">
             
-            {/* YouTube-like Video Player */}
-            <div className={`relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border ${
-              isDark ? 'bg-black border-[#e11438]/30 shadow-[#e11438]/10' : 'bg-black border-slate-200 shadow-slate-200'
-            }`}>
+            {/* YouTube-like Video Player with Anti-Piracy Shield */}
+            <div 
+              className={`relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border select-none ${
+                isDark ? 'bg-black border-[#e11438]/30 shadow-[#e11438]/10' : 'bg-black border-slate-200 shadow-slate-200'
+              }`}
+              onContextMenu={(e) => e.preventDefault()}
+            >
               {currentLesson.videoUrl ? (
-                <iframe
-                  src={getEmbedUrl(currentLesson.videoUrl)}
-                  title={currentLesson.title}
-                  className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
+                <>
+                  <iframe
+                    src={getEmbedUrl(currentLesson.videoUrl)}
+                    title={currentLesson.title}
+                    className="w-full h-full border-0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+
+                  {/* Anti-Piracy Security Guard: Disables YouTube Top Bar (Share, Copy Link, Watch Later & Title Link) */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-14 sm:h-16 z-20 pointer-events-auto bg-gradient-to-b from-black/80 via-black/35 to-transparent flex items-center justify-between px-3 sm:px-4 py-2 cursor-default select-none transition-opacity duration-300"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span className="text-xs sm:text-sm font-bold text-white/95 tracking-wide drop-shadow-md truncate max-w-[200px] sm:max-w-md">
+                        {course?.name || course?.title || 'EduHunters Private Class'}
+                      </span>
+                    </div>
+                    <span className="text-[10px] sm:text-xs font-mono px-2.5 py-0.5 rounded-full bg-black/60 border border-white/15 text-white/80 backdrop-blur-xs flex items-center gap-1.5 shadow-xs">
+                      🔒 Secure Stream
+                    </span>
+                  </div>
+                </>
               ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center text-center p-6 text-gray-400">
                   <Play className="w-16 h-16 text-red-500/80 mb-3 animate-pulse" />

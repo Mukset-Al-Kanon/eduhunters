@@ -76,8 +76,10 @@ export const initialData = {
     siteTagline: "সেরা এডটেক লার্নিং ও এক্সাম প্ল্যাটফর্ম",
     logoUrl: "/logo-crimson.png",
     logoLightUrl: "/logo-light.png",
-    contactPhone: "+880 1700-000000",
-    contactEmail: "support@eduhunters.com",
+    contactPhone: "01353828863",
+    bkashNumber: "01342227935",
+    nagadNumber: "01731127231",
+    contactEmail: "eduhuntersbd@gmail.com",
     facebookPage: "https://www.facebook.com/profile.php?id=61585769408167",
     youtubeChannel: "https://www.youtube.com/channel/UC1XpmoV-Phk1q1N5D2PTd0g",
     youtubeApiKey: "AIzaSyBLThxPP9oO8Uwbyftprjpg1J7_MwpH2YA"
@@ -235,108 +237,11 @@ export const initialData = {
 
   // Accounting & Financial Ledger (হিসাব-নিকাশ)
   accounting: {
-    totalRevenue: 284500,
-    totalExpenses: 42300,
-    netProfit: 242200,
-    totalOrders: 342,
-    transactions: [
-      {
-        id: "TRX-94825",
-        studentName: "মেহেদী হাসান শুভ",
-        studentPhone: "01789-456123",
-        itemTitle: "SureShot মেডিকেল স্পেশাল এক্সাম ব্যাচ",
-        type: "INCOME",
-        amount: 399,
-        method: "bKash",
-        trxId: "BL9X48210P",
-        date: "2026-10-09",
-        status: "Pending"
-      },
-      {
-        id: "TRX-94824",
-        studentName: "নুসরাত জাহান মিম",
-        studentPhone: "01912-887766",
-        itemTitle: "Master English in 30 Days (Complete Live Course)",
-        type: "INCOME",
-        amount: 1500,
-        method: "Nagad",
-        trxId: "NG7T33910K",
-        date: "2026-10-09",
-        status: "Pending"
-      },
-      {
-        id: "TRX-94823",
-        studentName: "ফারহান আহমেদ",
-        studentPhone: "01644-223399",
-        itemTitle: "সাধারণ জ্ঞান পূর্ণাঙ্গ লাইভ ও চ্যাপ্টার ফাইনাল এক্সাম",
-        type: "INCOME",
-        amount: 299,
-        method: "bKash",
-        trxId: "BK5M77102Z",
-        date: "2026-10-08",
-        status: "Pending"
-      },
-      {
-        id: "TRX-94821",
-        studentName: "মোঃ তানভীর হাসান",
-        studentPhone: "01712-345678",
-        itemTitle: "SureShot এইচএসসি স্পেশাল এক্সাম ব্যাচ",
-        type: "INCOME",
-        amount: 2999,
-        method: "bKash",
-        trxId: "9KJ34LA01X",
-        date: "2026-09-30",
-        status: "Completed"
-      },
-      {
-        id: "TRX-94820",
-        studentName: "আফরোজা সুলতানা",
-        studentPhone: "01987-654321",
-        itemTitle: "Biology Extra Info Compact PDF",
-        type: "INCOME",
-        amount: 299,
-        method: "Nagad",
-        trxId: "8BN52QP99Y",
-        date: "2026-09-30",
-        status: "Completed"
-      },
-      {
-        id: "TRX-94819",
-        studentName: "সার্ভার হোস্টিং & CDN",
-        studentPhone: "Cloudflare / AWS",
-        itemTitle: "Monthly Server & Video Streaming CDN",
-        type: "EXPENSE",
-        amount: 5200,
-        method: "Bank",
-        trxId: "INV-202609-01",
-        date: "2026-09-29",
-        status: "Completed"
-      },
-      {
-        id: "TRX-94818",
-        studentName: "রাকিবুল ইসলাম",
-        studentPhone: "01823-998877",
-        itemTitle: "মেডিকেল স্পেশাল পূর্ণাঙ্গ এক্সাম সিরিজ",
-        type: "INCOME",
-        amount: 4999,
-        method: "bKash",
-        trxId: "7TX11AZ44K",
-        date: "2026-09-29",
-        status: "Completed"
-      },
-      {
-        id: "TRX-94817",
-        studentName: "আবির মাহমুদ",
-        studentPhone: "01511-223344",
-        itemTitle: "Chemistry Formula Sheet & Reaction Map",
-        type: "INCOME",
-        amount: 1199,
-        method: "Rocket",
-        trxId: "6PL90VC33M",
-        date: "2026-09-28",
-        status: "Completed"
-      }
-    ]
+    totalRevenue: 0,
+    totalExpenses: 0,
+    netProfit: 0,
+    totalOrders: 0,
+    transactions: []
   },
 
   // Interactive Online Exams
@@ -550,8 +455,8 @@ export const initialData = {
         id: 7,
         title: "যোগাযোগ",
         points: [
-          "Email: support@eduhunters.com",
-          "WhatsApp: +880 1700-000000",
+          "Email: eduhuntersbd@gmail.com",
+          "WhatsApp: +880 1353-828863",
           "Support Time: সকাল ১০:০০ টা - রাত ১০:০০ টা (প্রতিদিন)"
         ]
       }
@@ -606,8 +511,8 @@ export const initialData = {
         id: 6,
         title: "যোগাযোগ ও হেল্পডেস্ক",
         points: [
-          "Email: support@eduhunters.com",
-          "WhatsApp: +880 1700-000000",
+          "Email: eduhuntersbd@gmail.com",
+          "WhatsApp: +880 1353-828863",
           "Support Time: সকাল ১০:০০ টা - রাত ১০:০০ টা (প্রতিদিন)"
         ]
       }

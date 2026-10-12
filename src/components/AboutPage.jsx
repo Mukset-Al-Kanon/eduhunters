@@ -6,6 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 export default function AboutPage({ 
   data = {},
   onNavigateHome, 
+  onNavigateDashboard,
   onNavigateCourse, 
   onNavigateExams, 
   onNavigateStore, 
@@ -43,6 +44,7 @@ export default function AboutPage({
         activePage="about"
         siteSettings={data.siteSettings}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
         onNavigateStore={onNavigateStore}

@@ -108,23 +108,18 @@ export default function SureShotExamSystem({
       const urlCat = urlParams.get('category');
       const urlExam = urlParams.get('exam');
 
-      // Check if user has an active or saved result for this exam
-      const savedResultRaw = sessionStorage.getItem('eduhunters_active_exam_result') ||
-                             (urlExam ? localStorage.getItem(`eduhunters_result_${urlExam}`) : null) ||
-                             localStorage.getItem('eduhunters_latest_result');
-
+      // Only enter exam_result if URL explicitly specifies step=exam_result
       if (urlStep === 'exam_result') {
         return 'exam_result';
       }
 
-      // If URL step was left on exam_live or not set, but an active result exists for this exam, STAY on result!
-      if (savedResultRaw) {
+      // Check if user was actively taking this specific exam and refreshed after submitting
+      const activeSaved = sessionStorage.getItem('eduhunters_active_exam_result');
+      if (activeSaved && urlStep === 'exam_live' && urlExam) {
         try {
-          const parsed = JSON.parse(savedResultRaw);
-          if (!urlExam || parsed.examId === urlExam) {
-            if (urlStep === 'exam_live' || !urlStep) {
-              return 'exam_result';
-            }
+          const parsed = JSON.parse(activeSaved);
+          if (parsed.examId === urlExam) {
+            return 'exam_result';
           }
         } catch (e) {}
       }
@@ -133,7 +128,7 @@ export default function SureShotExamSystem({
       if (urlCat && urlCat !== 'all') return 'category_detail';
       if (initialCategory && initialCategory !== 'all') return initialStep || 'category_detail';
     } catch (e) {}
-    return initialStep;
+    return initialStep || 'category_cards';
   });
   
   // Category Cards & Detail Page states
@@ -222,36 +217,41 @@ export default function SureShotExamSystem({
       const urlParams = new URLSearchParams(window.location.search);
       const urlStep = urlParams.get('step');
       const urlExam = urlParams.get('exam');
-      const savedResultRaw = sessionStorage.getItem('eduhunters_active_exam_result') ||
-                             (urlExam ? localStorage.getItem(`eduhunters_result_${urlExam}`) : null) ||
-                             localStorage.getItem('eduhunters_latest_result');
+      const urlCat = urlParams.get('category') || initialCategory;
 
-      // Preserve exam result if URL has it or active exam has finished
-      if (urlStep === 'exam_result' || (savedResultRaw && (urlStep === 'exam_live' || !urlStep))) {
-        let isMatching = false;
-        if (savedResultRaw) {
-          try {
-            const parsed = JSON.parse(savedResultRaw);
-            if (!urlExam || parsed.examId === urlExam) isMatching = true;
-          } catch (e) {}
-        }
-        if (urlStep === 'exam_result' || isMatching) {
-          setStep('exam_result');
-          const urlCat = urlParams.get('category') || initialCategory;
-          if (urlCat && urlCat !== 'all') {
-            const cat = categoriesMetadata.find(c => c.key === urlCat);
-            if (cat) {
-              setSelectedCategoryDetail(cat);
-              setSelectedCategory(urlCat);
-            }
+      if (urlStep === 'exam_result') {
+        setStep('exam_result');
+        if (urlCat && urlCat !== 'all') {
+          const cat = categoriesMetadata.find(c => c.key === urlCat);
+          if (cat) {
+            setSelectedCategoryDetail(cat);
+            setSelectedCategory(urlCat);
           }
-          return;
         }
+        return;
+      }
+
+      // If user was taking this live exam and refreshed after submitting
+      const activeSaved = sessionStorage.getItem('eduhunters_active_exam_result');
+      if (activeSaved && urlStep === 'exam_live' && urlExam) {
+        try {
+          const parsed = JSON.parse(activeSaved);
+          if (parsed.examId === urlExam) {
+            setStep('exam_result');
+            if (urlCat && urlCat !== 'all') {
+              const cat = categoriesMetadata.find(c => c.key === urlCat);
+              if (cat) {
+                setSelectedCategoryDetail(cat);
+                setSelectedCategory(urlCat);
+              }
+            }
+            return;
+          }
+        } catch (e) {}
       }
 
       if (urlStep) {
         setStep(urlStep);
-        const urlCat = urlParams.get('category') || initialCategory;
         if (urlCat && urlCat !== 'all') {
           const cat = categoriesMetadata.find(c => c.key === urlCat);
           if (cat) {

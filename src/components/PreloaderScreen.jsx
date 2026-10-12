@@ -117,19 +117,20 @@ export default function PreloaderScreen({ onFinish, siteSettings = {} }) {
       <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-sm sm:max-w-md w-full">
         
         {/* Brand Lockup: Logo Mark + Brand Name with soft aura */}
-        <div className="flex items-center justify-center gap-3.5 mb-8">
+        <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-8">
           <img 
             src="/eduhunters-mark-white.png" 
             alt="Edu Hunters Mark"
-            className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_0_18px_rgba(225,20,56,0.85)]"
+            className="w-8 h-8 sm:w-9 sm:h-9 object-contain shrink-0 drop-shadow-[0_0_18px_rgba(225,20,56,0.85)] translate-y-[-1px]"
           />
           <span 
-            className="text-2xl sm:text-[28px] font-black tracking-tight text-white lowercase"
+            className="text-2xl sm:text-[28px] font-black tracking-tight text-white leading-none select-none"
             style={{
+              fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
               textShadow: '0 0 30px rgba(225, 20, 56, 0.65), 0 0 12px rgba(255, 255, 255, 0.4)'
             }}
           >
-            edu hunters
+            Edu Hunters
           </span>
         </div>
 

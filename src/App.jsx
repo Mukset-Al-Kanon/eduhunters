@@ -12,8 +12,10 @@ import StorePage from './components/StorePage';
 import AboutPage from './components/AboutPage';
 import DevicesPage from './components/DevicesPage';
 import OrdersPage from './components/OrdersPage';
+import DashboardPage from './components/DashboardPage';
 import LegalPoliciesPage from './components/LegalPoliciesPage';
 import AuthModal from './components/AuthModal';
+import ProfileModal from './components/ProfileModal';
 import PreloaderScreen from './components/PreloaderScreen';
 import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/firestoreSyncService';
 
@@ -135,6 +137,7 @@ export default function App() {
     const path = (window.location.pathname || '').toLowerCase();
     const hash = (window.location.hash || '').toLowerCase();
     if (path.includes('/admin') || hash.includes('admin')) return 'admin';
+    if (path.includes('/dashboard') || hash.includes('dashboard')) return 'dashboard';
     if (path.includes('/exams') || hash.includes('exams')) return 'exams';
     if (path.includes('/devices') || hash.includes('devices')) return 'devices';
     if (path.includes('/orders') || hash.includes('orders')) return 'orders';
@@ -271,6 +274,7 @@ export default function App() {
         else if (path.includes('/about') || hash.includes('about')) setViewMode('about');
         else if (path.includes('/devices') || hash.includes('devices')) setViewMode('devices');
         else if (path.includes('/orders') || hash.includes('orders')) setViewMode('orders');
+        else if (path.includes('/dashboard') || hash.includes('dashboard')) setViewMode('dashboard');
         else if (path.includes('/refund') || hash.includes('refund')) {
           setSelectedPolicyTab('refund');
           setViewMode('policies');
@@ -300,6 +304,14 @@ export default function App() {
           siteSettings: { 
             ...initialData.siteSettings, 
             ...(parsed.siteSettings || {}),
+            contactEmail: (parsed.siteSettings?.contactEmail && !parsed.siteSettings.contactEmail.includes('support@eduhunters.com'))
+              ? parsed.siteSettings.contactEmail
+              : 'eduhuntersbd@gmail.com',
+            contactPhone: (parsed.siteSettings?.contactPhone && !parsed.siteSettings.contactPhone.includes('1700'))
+              ? parsed.siteSettings.contactPhone
+              : '01353828863',
+            bkashNumber: parsed.siteSettings?.bkashNumber || initialData.siteSettings.bkashNumber,
+            nagadNumber: parsed.siteSettings?.nagadNumber || initialData.siteSettings.nagadNumber,
             facebookPage: (parsed.siteSettings?.facebookPage && parsed.siteSettings.facebookPage !== 'https://facebook.com')
               ? parsed.siteSettings.facebookPage
               : initialData.siteSettings.facebookPage,
@@ -313,7 +325,9 @@ export default function App() {
           heroSlides: (Array.isArray(parsed.heroSlides) && parsed.heroSlides.length > 0 && !parsed.heroSlides.some(s => s.image?.includes('sanjid_vaiyar_all_batch_2627'))) 
             ? parsed.heroSlides 
             : initialData.heroSlides,
-          homeStats: Array.isArray(parsed.homeStats) && parsed.homeStats.length > 0 ? parsed.homeStats : initialData.homeStats,
+          homeStats: (Array.isArray(parsed.homeStats) && parsed.homeStats.length > 0 && !parsed.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) 
+            ? parsed.homeStats 
+            : initialData.homeStats,
           courses: (() => {
             if (Array.isArray(parsed.courses)) {
               return parsed.courses
@@ -348,18 +362,18 @@ export default function App() {
             ? parsed.storeProducts.filter(p => !([1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info')))
             : (initialData.storeProducts || []),
           accounting: (() => {
-            const acc = parsed.accounting || initialData.accounting;
-            let txs = Array.isArray(acc?.transactions) && acc.transactions.length > 0
-              ? acc.transactions
-              : initialData.accounting.transactions;
-            const hasPending = txs.some(t => t.status === 'Pending');
-            if (!hasPending) {
-              const initPending = initialData.accounting.transactions.filter(t => t.status === 'Pending');
-              txs = [...initPending, ...txs];
+            const acc = parsed.accounting;
+            if (!acc || acc.totalRevenue === 284500 || (Array.isArray(acc.transactions) && acc.transactions.some(t => t.id === 'TRX-94825'))) {
+              return initialData.accounting;
             }
+            const txs = Array.isArray(acc.transactions)
+              ? acc.transactions.filter(t => !t.id?.startsWith('TRX-948'))
+              : [];
             return {
-              ...initialData.accounting,
-              ...acc,
+              totalRevenue: acc.totalRevenue || 0,
+              totalExpenses: acc.totalExpenses || 0,
+              netProfit: acc.netProfit || 0,
+              totalOrders: acc.totalOrders || txs.length,
               transactions: txs
             };
           })(),
@@ -396,12 +410,56 @@ export default function App() {
           parsed.storeProducts = parsed.storeProducts.filter(p => !([1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info')));
           modified = true;
         }
+        if (Array.isArray(parsed.homeStats) && parsed.homeStats.some(s => s.value === '3000+' || s.value === '70000+' || s.value === '15+')) {
+          parsed.homeStats = initialData.homeStats;
+          modified = true;
+        }
+        if (parsed.siteSettings && (!parsed.siteSettings.contactEmail || parsed.siteSettings.contactEmail.includes('support@eduhunters.com') || parsed.siteSettings.contactEmail.includes('gmial.com'))) {
+          parsed.siteSettings.contactEmail = 'eduhuntersbd@gmail.com';
+          modified = true;
+        }
+        if (parsed.siteSettings && (!parsed.siteSettings.contactPhone || parsed.siteSettings.contactPhone.includes('1700'))) {
+          parsed.siteSettings.contactPhone = '01353828863';
+          modified = true;
+        }
+        if (parsed.accounting && (parsed.accounting.totalRevenue === 284500 || (Array.isArray(parsed.accounting.transactions) && parsed.accounting.transactions.some(t => t.id === 'TRX-94825')))) {
+          parsed.accounting = initialData.accounting;
+          modified = true;
+        }
+        const cleanClauses = (clauses) => {
+          if (!Array.isArray(clauses)) return false;
+          let changed = false;
+          clauses.forEach(cl => {
+            if (Array.isArray(cl.points)) {
+              cl.points = cl.points.map(pt => {
+                if (typeof pt === 'string') {
+                  if (pt.includes('support@eduhunters.com') || pt.includes('gmial.com')) {
+                    changed = true;
+                    return pt.replace(/support@eduhunters\.com/g, 'eduhuntersbd@gmail.com').replace(/eduhuntersbd@gmial\.com/g, 'eduhuntersbd@gmail.com');
+                  }
+                  if (pt.includes('1700-000000')) {
+                    changed = true;
+                    return pt.replace('+880 1700-000000', '+880 1353-828863').replace('01700-000000', '01353828863');
+                  }
+                }
+                return pt;
+              });
+            }
+          });
+          return changed;
+        };
+        if (parsed.refundPolicy?.clauses && cleanClauses(parsed.refundPolicy.clauses)) modified = true;
+        if (parsed.privacyPolicy?.clauses && cleanClauses(parsed.privacyPolicy.clauses)) modified = true;
+        if (parsed.termsAndConditions?.clauses && cleanClauses(parsed.termsAndConditions.clauses)) modified = true;
         if (modified) {
           localStorage.setItem('eduhunters_data', JSON.stringify(parsed));
+          saveCloudData({ homeStats: initialData.homeStats, siteSettings: parsed.siteSettings });
           setData(prev => ({
             ...prev,
             courses: parsed.courses || prev.courses,
-            storeProducts: parsed.storeProducts || prev.storeProducts
+            storeProducts: parsed.storeProducts || prev.storeProducts,
+            homeStats: parsed.homeStats || prev.homeStats,
+            siteSettings: parsed.siteSettings || prev.siteSettings
           }));
         }
       }
@@ -443,14 +501,19 @@ export default function App() {
     // 1. Listen for real-time Cloud Firestore updates (across all devices & live vs local)
     const unsubscribeCloud = subscribeToCloudData((cloudData) => {
       if (cloudData) {
+        const sanitized = { ...cloudData };
+        if (Array.isArray(sanitized.homeStats) && sanitized.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) {
+          sanitized.homeStats = initialData.homeStats;
+          saveCloudData({ homeStats: initialData.homeStats });
+        }
         setData(prev => ({
           ...prev,
-          ...cloudData
+          ...sanitized
         }));
         try {
           localStorage.setItem('eduhunters_data', JSON.stringify({
             ...data,
-            ...cloudData
+            ...sanitized
           }));
         } catch (e) {}
       }
@@ -460,6 +523,9 @@ export default function App() {
       if (e.key === 'eduhunters_data' && e.newValue) {
         try {
           const parsed = JSON.parse(e.newValue);
+          if (Array.isArray(parsed.homeStats) && parsed.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) {
+            parsed.homeStats = initialData.homeStats;
+          }
           setData(parsed);
         } catch (err) {
           console.error('Failed to parse storage update:', err);
@@ -538,8 +604,15 @@ export default function App() {
   };
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState('signin');
   const [pendingAuthAction, setPendingAuthAction] = useState(null);
+
+  useEffect(() => {
+    const handleOpenProfileEvent = () => setIsProfileModalOpen(true);
+    window.addEventListener('eh_open_profile_modal', handleOpenProfileEvent);
+    return () => window.removeEventListener('eh_open_profile_modal', handleOpenProfileEvent);
+  }, []);
 
   const handleOpenAuth = (mode = 'signin', postAuthAction = null) => {
     setAuthMode(mode);
@@ -548,6 +621,7 @@ export default function App() {
   };
 
   const navHandlers = {
+    onOpenProfile: () => setIsProfileModalOpen(true),
     onNavigateHome: () => {
       setExamFromBundle(false);
       try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
@@ -596,6 +670,13 @@ export default function App() {
     onNavigateCoursePlayer: (courseId, lessonInfo = null) => {
       setExamFromBundle(false);
       try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
+
+      const examKeys = new Set(['sureshot', 'medical', 'rtds', 'english_master', 'gk_course', 'medilogy']);
+      if (typeof courseId === 'string' && examKeys.has(courseId.trim())) {
+        navHandlers.onNavigateExams(courseId.trim());
+        return;
+      }
+
       const cid = courseId || 'master-english-30-days';
       const lessonParam = typeof lessonInfo === 'number'
         ? lessonInfo
@@ -625,7 +706,10 @@ export default function App() {
     },
     onNavigateExams: (categoryKey) => {
       setExamFromBundle(false);
-      try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
+      try { 
+        sessionStorage.removeItem('eduhunters_nav_from_bundle'); 
+        sessionStorage.removeItem('eduhunters_active_exam_result');
+      } catch(e) {}
       const cat = typeof categoryKey === 'string' && categoryKey.trim().length > 0 ? categoryKey.trim() : null;
       navigateWithSmoothTransition(() => {
         setSelectedExamCategory(cat);
@@ -646,6 +730,13 @@ export default function App() {
       navigateWithSmoothTransition(() => {
         setViewMode('devices');
       }, '/devices');
+    },
+    onNavigateDashboard: () => {
+      setExamFromBundle(false);
+      try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
+      navigateWithSmoothTransition(() => {
+        setViewMode('dashboard');
+      }, '/dashboard');
     },
     onNavigateOrders: () => {
       navigateWithSmoothTransition(() => {
@@ -807,6 +898,16 @@ export default function App() {
       );
     }
 
+    if (viewMode === 'dashboard') {
+      return (
+        <DashboardPage 
+          data={data}
+          onLoginClick={(postLoginAction) => handleOpenAuth('signin', postLoginAction)}
+          {...navHandlers}
+        />
+      );
+    }
+
     if (viewMode === 'orders') {
       return (
         <OrdersPage 
@@ -902,6 +1003,11 @@ export default function App() {
             }, 300);
           }
         }}
+      />
+      {/* Global Student Profile Modal */}
+      <ProfileModal
+        isOpen={isProfileModalOpen}
+        onClose={() => setIsProfileModalOpen(false)}
       />
     </>
   );

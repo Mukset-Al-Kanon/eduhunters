@@ -46,6 +46,7 @@ export default function BiologyCoursePage({
   data = {},
   selectedCourseId,
   onNavigateHome,
+  onNavigateDashboard,
   onNavigateExams, 
   onNavigateStore,
   onNavigateAbout,
@@ -75,7 +76,7 @@ export default function BiologyCoursePage({
     aboutText: foundCourse?.aboutText || foundCourse?.description || baseDefault.aboutText,
     totalClasses: foundCourse?.totalClasses || baseDefault.totalClasses,
     features: (foundCourse?.features && foundCourse.features.length > 0) ? foundCourse.features : baseDefault.features,
-    supportPhone: foundCourse?.supportPhone || baseDefault.supportPhone,
+    supportPhone: foundCourse?.supportPhone || siteSettings.contactPhone || "01353828863",
     curriculum: (foundCourse?.curriculum && foundCourse.curriculum.length > 0) ? foundCourse.curriculum : baseDefault.curriculum,
     salePrice: foundCourse?.salePrice !== undefined ? foundCourse.salePrice : baseDefault.salePrice,
     regularPrice: foundCourse?.regularPrice !== undefined ? foundCourse.regularPrice : baseDefault.regularPrice,
@@ -189,6 +190,7 @@ export default function BiologyCoursePage({
         activePage="courses"
         siteSettings={siteSettings}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={() => {}}
         onNavigateExams={onNavigateExams}
         onNavigateStore={onNavigateStore}
@@ -396,7 +398,7 @@ export default function BiologyCoursePage({
                 <div className={`shrink-0 w-11 h-11 rounded-2xl flex items-center justify-center border ${
                   isDark ? 'bg-[#2a060e] text-[#ff3b61] border-[#e11438]/30' : 'bg-red-50 text-[#dc2626] border-red-100/80 shadow-2xs'
                 }`}>
-                  <Phone className="w-5 h-5" />
+                  <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className={`text-base sm:text-lg font-black leading-tight mb-0.5 ${isDark ? 'text-white' : 'text-[#111827]'}`}>
@@ -408,26 +410,9 @@ export default function BiologyCoursePage({
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="pt-1">
                 <a 
-                  href={`tel:${course.supportPhone}`} 
-                  className={`flex items-center justify-center sm:justify-start gap-3 rounded-2xl px-4 py-3 transition-all text-decoration-none group cursor-pointer border ${
-                    isDark 
-                      ? 'border-[#e11438]/30 bg-[#1c050c] hover:bg-[#250711]' 
-                      : 'border-red-200/80 bg-red-50/60 hover:bg-red-100/80'
-                  }`}
-                >
-                  <div className="w-9 h-9 rounded-xl bg-red-100 text-[#dc2626] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <Phone className="w-4 h-4 text-[#dc2626]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="block text-sm font-black text-[#dc2626] leading-tight font-mono tracking-wide">{course.supportPhone}</span>
-                    <span className="block text-[11px] text-gray-500 font-medium">কল করুন (9AM - 11PM)</span>
-                  </div>
-                </a>
-
-                <a 
-                  href={`https://wa.me/88${course.supportPhone}`} 
+                  href={`https://wa.me/88${((course.supportPhone && !course.supportPhone.includes('1700') && !course.supportPhone.includes('1321228612')) ? course.supportPhone : ((siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700')) ? siteSettings.contactPhone : '01353828863')).replace(/[^0-9]/g, '').replace(/^88/, '') || '01353828863'}`} 
                   target="_blank" 
                   rel="noreferrer" 
                   className={`flex items-center justify-center sm:justify-start gap-3 rounded-2xl px-4 py-3 transition-all text-decoration-none group cursor-pointer border ${
@@ -441,11 +426,68 @@ export default function BiologyCoursePage({
                   </div>
                   <div className="text-left">
                     <span className="block text-sm font-black text-emerald-600 leading-tight">WhatsApp এ মেসেজ করুন</span>
-                    <span className="block text-[11px] text-gray-500 font-medium">দ্রুত উত্তর পাবেন</span>
+                    <span className="block text-[11px] text-gray-500 font-medium">01353828863 (দ্রুত উত্তর পাবেন)</span>
                   </div>
                 </a>
               </div>
             </div>
+
+            {/* Bottom Enrollment Action Card */}
+            {!isCourseEnrolled && !(course.isFree || Number(course.salePrice) === 0) && (
+              <div className={`p-6 sm:p-8 rounded-3xl border transition-all shadow-xl relative overflow-hidden ${
+                isDark 
+                  ? 'bg-gradient-to-br from-[#24060d] via-[#140306] to-[#0c0205] border-[#e11438]/30 shadow-[0_15px_40px_rgba(225,20,56,0.18)]' 
+                  : 'bg-gradient-to-br from-red-50 via-white to-red-50/40 border-red-200 shadow-md'
+              }`}>
+                {isDark && (
+                  <div className="absolute top-0 right-0 w-72 h-72 bg-[#e11438]/10 rounded-full blur-3xl pointer-events-none" />
+                )}
+
+                <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                  <div className="space-y-2">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#dc2626]/10 text-[#dc2626] border border-[#dc2626]/20">
+                      <span className="w-2 h-2 rounded-full bg-[#dc2626]"></span>
+                      <span>এখনই ভর্তি হোন</span>
+                    </div>
+
+                    <h2 className={`text-xl sm:text-2xl font-black tracking-tight leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                      আজই যুক্ত হোন এই পূর্ণাঙ্গ কোর্সে
+                    </h2>
+                    
+                    <p className={`text-xs sm:text-sm max-w-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                      সবগুলো প্রিমিয়াম ক্লাস, লেকচার শিট, মেটেরিয়াল ও প্র্যাকটিস টেস্ট আনলক করতে এখনই এনরোল করুন।
+                    </p>
+
+                    <div className="flex items-center gap-3 pt-1">
+                      <span className={`text-2xl sm:text-3xl font-black ${isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'}`}>
+                        ৳{Number(course.salePrice || 0).toLocaleString()}
+                      </span>
+                      {course.regularPrice && (
+                        <span className="text-sm sm:text-base text-gray-400 line-through font-medium">
+                          ৳{Number(course.regularPrice || 0).toLocaleString()}
+                        </span>
+                      )}
+                      {Number(course.regularPrice) > Number(course.salePrice) && (
+                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#dc2626] text-white shadow-xs">
+                          ৳{Number(course.regularPrice) - Number(course.salePrice)} ছাড়
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="shrink-0 flex items-center">
+                    <button
+                      type="button"
+                      onClick={handleOpenCheckout}
+                      className="w-full sm:w-auto px-8 py-4 text-white text-base font-bold rounded-2xl shadow-xl transition-all duration-300 cursor-pointer border-none flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] bg-gradient-to-r from-[#dc2626] via-[#e11438] to-[#b91c1c] hover:shadow-[0_0_30px_rgba(225,20,56,0.5)]"
+                    >
+                      <ShoppingCart className="w-5 h-5" />
+                      <span>কোর্সটি কিনুন • এখনই এনরোল করুন</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
           </div>
 
@@ -458,15 +500,37 @@ export default function BiologyCoursePage({
                   : 'bg-white border-gray-200 shadow-sm'
               }`}>
                 
-                {/* YouTube Video Preview */}
-                <div className="relative aspect-video bg-black border-b border-black/10 overflow-hidden">
+                {/* YouTube Video Preview with Anti-Piracy Shield */}
+                <div 
+                  className="relative aspect-video bg-black border-b border-black/10 overflow-hidden select-none"
+                  onContextMenu={(e) => e.preventDefault()}
+                >
                   <iframe 
-                    src={getEmbedUrl(course.previewVideoUrl) || "https://www.youtube-nocookie.com/embed/zskTywWaXEE?rel=0&modestbranding=1"} 
+                    src={getEmbedUrl(course.previewVideoUrl) || "https://www.youtube-nocookie.com/embed/zskTywWaXEE?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0"} 
                     title="Course Preview" 
                     className="w-full h-full"
                     frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
+
+                  {/* Security Guard: Disables YouTube Top Bar (Share, Copy Link, Watch Later & Title) */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-14 z-20 pointer-events-auto bg-gradient-to-b from-black/80 via-black/30 to-transparent flex items-center justify-between px-3 py-2 cursor-default select-none"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                  >
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-white/95 truncate">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      EduHunters Class Preview
+                    </div>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/60 border border-white/15 text-white/80">
+                      🔒 Secure Stream
+                    </span>
+                  </div>
                 </div>
 
                 <div className={`px-4 py-4 border-b ${isDark ? 'border-[#e11438]/15' : 'border-gray-100'}`}>

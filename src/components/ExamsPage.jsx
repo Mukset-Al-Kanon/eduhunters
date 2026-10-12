@@ -12,6 +12,7 @@ export default function ExamsPage({
   isFromBundle = false,
   onBackToBundle = null,
   onNavigateHome, 
+  onNavigateDashboard,
   onNavigateCourse, 
   onNavigateStore, 
   onNavigateAbout, 
@@ -42,6 +43,7 @@ export default function ExamsPage({
         activePage="exams"
         siteSettings={siteSettings}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={() => {}}
         onNavigateStore={onNavigateStore}

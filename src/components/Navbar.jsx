@@ -9,6 +9,7 @@ export default function Navbar({
   courseTitle = null,
   onBackCourse = null,
   onNavigateHome,
+  onNavigateDashboard,
   onNavigateCourse,
   onNavigateExams,
   onNavigateStore,
@@ -17,7 +18,8 @@ export default function Navbar({
   onNavigateOrders,
   onNavigatePolicies,
   onOpenAdmin,
-  onLoginClick
+  onLoginClick,
+  onOpenProfile
 }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { theme, isDark, toggleTheme, setTheme } = useTheme();
@@ -55,6 +57,31 @@ export default function Navbar({
         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      )
+    },
+    {
+      id: 'dashboard',
+      label: 'Dashboard',
+      bnLabel: 'ড্যাশবোর্ড',
+      action: () => {
+        if (typeof onNavigateDashboard === 'function') {
+          onNavigateDashboard();
+        } else {
+          try {
+            window.history.pushState(null, '', '/dashboard');
+            window.dispatchEvent(new PopStateEvent('popstate'));
+          } catch {
+            window.location.href = '/dashboard';
+          }
+        }
+      },
+      icon: (
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="7" height="9" x="3" y="3" rx="1" />
+          <rect width="7" height="5" x="14" y="3" rx="1" />
+          <rect width="7" height="9" x="14" y="12" rx="1" />
+          <rect width="7" height="5" x="3" y="16" rx="1" />
         </svg>
       )
     },
@@ -143,13 +170,13 @@ export default function Navbar({
 
               <button 
                 onClick={() => handleNav(onNavigateHome)} 
-                className="h-7 w-7 sm:h-[30px] sm:w-[30px] shrink-0 hidden xs:flex items-center justify-center border-none bg-transparent cursor-pointer p-0 group"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden shrink-0 hidden xs:flex items-center justify-center border-none bg-transparent cursor-pointer p-0 group ring-1 ring-white/15 shadow-sm"
                 title="EduHunters Home"
               >
                 <img 
                   src={isDark ? (siteSettings?.logoUrl && siteSettings.logoUrl !== '/logo.png' ? siteSettings.logoUrl : "/logo-crimson.png") : (siteSettings?.logoLightUrl || "/logo-light.png")} 
                   alt={siteSettings?.siteName || "EduHunters"} 
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                  className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform"
                 />
               </button>
 
@@ -171,11 +198,11 @@ export default function Navbar({
                 className="flex items-center gap-2 sm:gap-2.5 shrink-0 group border-none bg-transparent cursor-pointer p-0 select-none focus:outline-none"
                 title="EduHunters Home"
               >
-                <div className="h-7 w-7 sm:h-[30px] sm:w-[30px] shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+                <div className="w-8 h-8 sm:w-[33px] sm:h-[33px] rounded-full overflow-hidden shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105 shadow-sm ring-1 ring-white/15">
                   <img 
                     src={isDark ? (siteSettings?.logoUrl && siteSettings.logoUrl !== '/logo.png' ? siteSettings.logoUrl : "/logo-crimson.png") : (siteSettings?.logoLightUrl || "/logo-light.png")} 
                     alt={siteSettings?.siteName || "EduHunters"} 
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover rounded-full"
                   />
                 </div>
                 <span 
@@ -283,14 +310,14 @@ export default function Navbar({
               {/* Profile Avatar with subtle clean ring */}
               <div className="relative w-8 h-8 rounded-full overflow-hidden shrink-0">
                 <img
-                  src={currentUser?.photoURL || "/avatar.jpg"}
+                  src={currentUser?.photoURL || "/avatar.svg"}
                   alt="Profile"
                   className={`w-full h-full object-cover rounded-full ${
                     isDark ? 'ring-1 ring-white/20' : 'ring-1 ring-black/10'
                   }`}
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80";
+                    e.target.src = "/avatar.svg";
                   }}
                 />
               </div>
@@ -378,25 +405,45 @@ export default function Navbar({
 
             {/* Profile Avatar, Student Info & Theme Toggle Switch */}
             <div className="flex items-center justify-between gap-3 pt-2 pb-1">
-              <div className="flex items-center gap-3.5 min-w-0">
-                <div className={`w-12 h-12 rounded-full overflow-hidden shrink-0 ${
+              <button
+                type="button"
+                onClick={() => {
+                  setIsDrawerOpen(false);
+                  if (currentUser) {
+                    if (onOpenProfile) onOpenProfile();
+                    else window.dispatchEvent(new CustomEvent('eh_open_profile_modal'));
+                  } else {
+                    if (onLoginClick) onLoginClick();
+                  }
+                }}
+                className="flex items-center gap-3.5 min-w-0 text-left bg-transparent border-none p-1.5 -m-1.5 rounded-2xl transition-all duration-200 hover:bg-white/[0.06] active:scale-[0.98] cursor-pointer group"
+                title={currentUser ? "Click to edit profile" : "Click to sign in"}
+              >
+                <div className={`relative w-12 h-12 rounded-full overflow-hidden shrink-0 transition-transform duration-200 group-hover:scale-105 ${
                   isDark 
                     ? 'border border-[#e11438]/30 shadow-[0_0_15px_rgba(225,20,56,0.3)] bg-[#1a080d]' 
                     : 'border border-gray-200 shadow-sm bg-gray-50'
                 }`}>
                   <img
-                    src={currentUser?.photoURL || "/avatar.jpg"}
+                    src={currentUser?.photoURL || "/avatar.svg"}
                     alt={currentUser?.displayName || "Edu Hunters Student"}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&auto=format&fit=crop&q=80";
+                      e.target.src = "/avatar.svg";
                     }}
                   />
+                  {currentUser && (
+                    <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-200">
+                      <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
 
                 <div className="min-w-0">
-                  <h2 className={`text-[17px] font-bold tracking-tight leading-tight truncate ${
+                  <h2 className={`text-[17px] font-bold tracking-tight leading-tight truncate hover:text-[#ff4d6d] transition-colors ${
                     isDark ? 'text-white' : 'text-gray-900'
                   }`}>
                     {currentUser ? (currentUser.displayName || currentUser.email.split('@')[0]) : 'Edu Hunters'}
@@ -409,7 +456,7 @@ export default function Navbar({
                       : 'Not signed in'}
                   </p>
                 </div>
-              </div>
+              </button>
 
               {/* Toggle switch directly at the very right side */}
               <ThemeToggleSwitch id="drawer-theme-toggle" className="shrink-0" />
@@ -443,6 +490,35 @@ export default function Navbar({
                     </svg>
                   </div>
                   <span className="text-[15px] tracking-wide">হোম</span>
+                </div>
+              </button>
+
+              {/* Dashboard */}
+              <button
+                onClick={() => {
+                  handleNav(onNavigateDashboard || (() => {
+                    window.history.pushState(null, '', '/dashboard');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  }));
+                }}
+                className={`flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors ${
+                  activePage === 'dashboard' 
+                    ? (isDark ? 'text-white font-semibold' : 'text-[#dc2626] font-semibold bg-red-50/70') 
+                    : (isDark ? 'text-gray-300 font-normal hover:text-white' : 'text-gray-700 font-normal hover:text-black hover:bg-gray-50')
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`w-5 h-5 flex items-center justify-center transition-colors ${
+                    activePage === 'dashboard' ? (isDark ? 'text-[#ef4444]' : 'text-[#dc2626]') : (isDark ? 'text-gray-400 group-hover:text-white' : 'text-gray-500 group-hover:text-black')
+                  }`}>
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="7" height="9" x="3" y="3" rx="1" />
+                      <rect width="7" height="5" x="14" y="3" rx="1" />
+                      <rect width="7" height="9" x="14" y="12" rx="1" />
+                      <rect width="7" height="5" x="3" y="16" rx="1" />
+                    </svg>
+                  </div>
+                  <span className="text-[15px] tracking-wide">ড্যাশবোর্ড</span>
                 </div>
               </button>
 
@@ -630,7 +706,9 @@ export default function Navbar({
               <button
                 onClick={() => {
                   setIsDrawerOpen(false);
-                  const cleanPhone = (siteSettings?.contactPhone || '8801700000000').replace(/[^0-9]/g, '');
+                  const rawPhone = (siteSettings?.contactPhone && !siteSettings.contactPhone.includes('1700')) ? siteSettings.contactPhone : '01353828863';
+                  const raw = rawPhone.replace(/[^0-9]/g, '');
+                  const cleanPhone = raw.startsWith('88') ? raw : `88${raw}`;
                   window.open(`https://wa.me/${cleanPhone}`, '_blank');
                 }}
                 className={`flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors ${
@@ -680,28 +758,50 @@ export default function Navbar({
           </div>
 
           {/* Bottom Action Button: Logout if user logged in, or Login if guest */}
-          <div className="pt-5 shrink-0 relative z-10">
+          <div className="pt-4 space-y-2 shrink-0 relative z-10">
             {currentUser ? (
-              <button
-                onClick={async () => {
-                  setIsDrawerOpen(false);
-                  if (window.confirm('Are you sure you want to sign out from your account?')) {
-                    await logout();
-                  }
-                }}
-                className={`w-full py-3.5 px-6 active:scale-[0.98] font-semibold text-sm rounded-full text-center transition-all cursor-pointer border tracking-wide flex items-center justify-center gap-2 ${
-                  isDark 
-                    ? 'bg-red-950/40 hover:bg-red-900/60 text-red-300 border-red-500/30' 
-                    : 'bg-red-50 hover:bg-red-100 text-red-600 border-red-200'
-                }`}
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                  <polyline points="16 17 21 12 16 7"></polyline>
-                  <line x1="21" y1="12" x2="9" y2="12"></line>
-                </svg>
-                <span>Sign Out</span>
-              </button>
+              <>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsDrawerOpen(false);
+                    if (onOpenProfile) onOpenProfile();
+                    else window.dispatchEvent(new CustomEvent('eh_open_profile_modal'));
+                  }}
+                  className={`w-full py-3 px-6 active:scale-[0.98] font-semibold text-sm rounded-full text-center transition-all cursor-pointer border tracking-wide flex items-center justify-center gap-2 ${
+                    isDark 
+                      ? 'bg-white/[0.06] hover:bg-white/[0.1] text-white border-white/10 shadow-sm' 
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-200'
+                  }`}
+                >
+                  <svg className="w-4 h-4 text-[#ff4d6d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+                  </svg>
+                  <span>Edit Profile</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={async () => {
+                    setIsDrawerOpen(false);
+                    if (window.confirm('Are you sure you want to sign out from your account?')) {
+                      await logout();
+                    }
+                  }}
+                  className={`w-full py-3 px-6 active:scale-[0.98] font-semibold text-sm rounded-full text-center transition-all cursor-pointer border tracking-wide flex items-center justify-center gap-2 ${
+                    isDark 
+                      ? 'bg-red-950/40 hover:bg-red-900/60 text-red-300 border-red-500/30' 
+                      : 'bg-red-50 hover:bg-red-100 text-red-600 border-red-200'
+                  }`}
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+                  <span>Sign Out</span>
+                </button>
+              </>
             ) : (
               <button
                 onClick={() => {

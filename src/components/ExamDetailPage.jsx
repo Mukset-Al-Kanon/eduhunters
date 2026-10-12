@@ -857,6 +857,78 @@ export default function ExamDetailPage({
               </div>
             )}
 
+            {/* Bottom Enrollment Action Card */}
+            {!isFromBundleResolved && (
+              <div className={`p-6 sm:p-8 rounded-3xl border transition-all shadow-xl relative overflow-hidden ${
+                isDark 
+                  ? 'bg-gradient-to-br from-[#24060d] via-[#140306] to-[#0c0205] border-[#e11438]/30 shadow-[0_15px_40px_rgba(225,20,56,0.18)]' 
+                  : 'bg-gradient-to-br from-red-50 via-white to-red-50/40 border-red-200 shadow-md'
+              }`}>
+                {isDark && (
+                  <div className="absolute top-0 right-0 w-72 h-72 bg-[#e11438]/10 rounded-full blur-3xl pointer-events-none" />
+                )}
+
+                <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                  <div className="space-y-2">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#dc2626]/10 text-[#dc2626] border border-[#dc2626]/20">
+                      <Sparkles size={13} className="text-[#dc2626]" />
+                      <span>{isEnrolled ? 'ইতিমধ্যে এনরোল্ড' : 'এখনই ভর্তি হোন'}</span>
+                    </div>
+
+                    <h2 className={`text-xl sm:text-2xl font-black tracking-tight leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                      {isEnrolled ? 'আপনার প্রস্তুতি এগিয়ে নিতে এক্সাম শুরু করুন' : 'আজই যুক্ত হোন এই পূর্ণাঙ্গ এক্সাম ব্যাচে'}
+                    </h2>
+                    
+                    <p className={`text-xs sm:text-sm max-w-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                      {isEnrolled 
+                        ? 'সকল অধ্যায়ভিত্তিক ও টপিকভিত্তিক টেস্ট আপনার জন্য উন্মুক্ত রয়েছে।' 
+                        : 'অধ্যায়ভিত্তিক প্র্যাকটিস, লাইভ টেস্ট, ইনস্ট্যান্ট র‍্যাঙ্কিং ও বিস্তারিত সল্যুশন পেতে এখনই এনরোল করুন।'}
+                    </p>
+
+                    {!isEnrolled && (
+                      <div className="flex items-center gap-3 pt-1">
+                        <span className={`text-2xl sm:text-3xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
+                          ৳ {category.price || '399'}
+                        </span>
+                        {category.originalPrice && (
+                          <span className="text-sm sm:text-base text-gray-400 line-through font-medium">
+                            ৳ {category.originalPrice || '799'}
+                          </span>
+                        )}
+                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#dc2626] text-white shadow-xs">
+                          ৳ {discountAmount > 0 ? discountAmount : 400} OFF
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="shrink-0 flex items-center">
+                    {!isEnrolled ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onOpenEnrollModal ? onOpenEnrollModal(category) : onStartExamCategory(category.key);
+                        }}
+                        className="w-full sm:w-auto px-8 py-4 text-white text-base font-bold rounded-2xl shadow-xl transition-all duration-300 cursor-pointer border-none flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] bg-gradient-to-r from-[#dc2626] via-[#e11438] to-[#b91c1c] hover:shadow-[0_0_30px_rgba(225,20,56,0.5)]"
+                      >
+                        <span>Enroll Now • এখনই এনরোল করুন</span>
+                        <ChevronRight size={18} strokeWidth={2.8} />
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => onStartExamCategory(category.key)}
+                        className="w-full sm:w-auto px-8 py-4 text-white text-base font-bold rounded-2xl shadow-xl transition-all duration-300 cursor-pointer border-none flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] bg-gradient-to-r from-emerald-600 to-teal-600 hover:shadow-emerald-600/30"
+                      >
+                        <Play size={18} fill="currentColor" />
+                        <span>পরীক্ষা শুরু করুন</span>
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
           </div>
 
 

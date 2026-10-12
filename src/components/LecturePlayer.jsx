@@ -40,15 +40,36 @@ export default function LecturePlayer({ lecture, onBack, onStartExam }) {
         <div className="player-grid">
           {/* Main Video & Info Column */}
           <div className="player-main-col">
-            <div className="video-player-wrapper">
+            <div 
+              className="video-player-wrapper relative overflow-hidden select-none"
+              onContextMenu={(e) => e.preventDefault()}
+            >
               <iframe
-                src={`https://www.youtube-nocookie.com/embed/${lecture.youtubeId}?rel=0&modestbranding=1&enablejsapi=1`}
+                src={`https://www.youtube-nocookie.com/embed/${lecture.youtubeId}?rel=0&modestbranding=1&enablejsapi=1&iv_load_policy=3&showinfo=0`}
                 title={lecture.title}
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="yt-iframe"
               ></iframe>
+
+              {/* Security Guard: Disables YouTube Top Bar (Share, Copy Link, Watch Later & Title) */}
+              <div 
+                className="absolute top-0 left-0 right-0 h-14 z-20 pointer-events-auto bg-gradient-to-b from-black/80 via-black/30 to-transparent flex items-center justify-between px-3 py-2 cursor-default select-none"
+                onContextMenu={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                }}
+              >
+                <div className="flex items-center gap-1.5 text-xs font-bold text-white/95">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  EduHunters Secure Stream
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/60 border border-white/15 text-white/80">
+                  🔒 Secure Stream
+                </span>
+              </div>
             </div>
 
             <div className="lecture-header-details">

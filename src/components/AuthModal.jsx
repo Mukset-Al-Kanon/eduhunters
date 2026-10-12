@@ -26,10 +26,11 @@ export default function AuthModal({
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   
-  // 6-Digit OTP State
+  // 6-Digit OTP State & Timers
   const [otpDigits, setOtpDigits] = useState(['', '', '', '', '', '']);
   const [resendTimer, setResendTimer] = useState(60);
   const [canResend, setCanResend] = useState(false);
+  const [otpExpiresIn, setOtpExpiresIn] = useState(300); // 5-minute expiry in seconds
   
   // Status, Loading & UI Animation
   const [statusMsg, setStatusMsg] = useState(null);
@@ -100,25 +101,47 @@ export default function AuthModal({
     };
   }, [shouldRender, isVisible, handleClose]);
 
-  // Countdown timer for OTP Resend (60 seconds)
+  // Countdown timer for OTP Resend (60s) & Expiry (300s)
   useEffect(() => {
-    let interval = null;
-    if ((mode === 'verify-signup' || mode === 'verify-reset') && resendTimer > 0) {
-      setCanResend(false);
-      interval = setInterval(() => {
-        setResendTimer((prev) => {
-          if (prev <= 1) {
-            setCanResend(true);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    } else if (resendTimer === 0) {
-      setCanResend(true);
+    let resendInterval = null;
+    let expiryInterval = null;
+
+    if (mode === 'verify-signup' || mode === 'verify-reset') {
+      if (resendTimer > 0) {
+        setCanResend(false);
+        resendInterval = setInterval(() => {
+          setResendTimer((prev) => {
+            if (prev <= 1) {
+              setCanResend(true);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      } else {
+        setCanResend(true);
+      }
+
+      if (otpExpiresIn > 0) {
+        expiryInterval = setInterval(() => {
+          setOtpExpiresIn((prev) => Math.max(0, prev - 1));
+        }, 1000);
+      } else {
+        setCanResend(true);
+      }
     }
-    return () => clearInterval(interval);
-  }, [mode, resendTimer]);
+
+    return () => {
+      if (resendInterval) clearInterval(resendInterval);
+      if (expiryInterval) clearInterval(expiryInterval);
+    };
+  }, [mode, resendTimer, otpExpiresIn]);
+
+  const formatTimer = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
 
   // Auto focus first OTP input when entering OTP screens
   useEffect(() => {
@@ -235,6 +258,7 @@ export default function AuthModal({
       setLoading(true);
       // Dispatch 6-Digit OTP to user's email
       await sendVerificationOTP(email, name);
+      setOtpExpiresIn(300);
       setResendTimer(60);
       setCanResend(false);
       setOtpDigits(['', '', '', '', '', '']);
@@ -259,6 +283,14 @@ export default function AuthModal({
   const handleVerifySignUpOTP = async (e) => {
     e.preventDefault();
     setStatusMsg(null);
+
+    if (otpExpiresIn <= 0) {
+      setStatusMsg({
+        type: 'error',
+        text: 'Verification code has expired (5 minutes). Please click Resend Code to request a new code.'
+      });
+      return;
+    }
 
     const fullCode = otpDigits.join('');
     if (fullCode.length !== 6) {
@@ -309,13 +341,14 @@ export default function AuthModal({
       await resetPassword(email).catch(() => {});
       // Dispatch 6-digit OTP code to user's email
       await sendVerificationOTP(email, 'Student');
+      setOtpExpiresIn(300);
       setResendTimer(60);
       setCanResend(false);
       setOtpDigits(['', '', '', '', '', '']);
 
       setStatusMsg({
         type: 'success',
-        text: `A 6-digit recovery code has been sent to ${email}. Please check your inbox or spam folder.`
+        text: `A 6-digit recovery code has been sent to ${email}.`
       });
 
       setTimeout(() => {
@@ -332,6 +365,14 @@ export default function AuthModal({
   const handleVerifyResetSubmit = async (e) => {
     e.preventDefault();
     setStatusMsg(null);
+
+    if (otpExpiresIn <= 0) {
+      setStatusMsg({
+        type: 'error',
+        text: 'Verification code has expired (5 minutes). Please click Resend Code to request a new code.'
+      });
+      return;
+    }
 
     const fullCode = otpDigits.join('');
     if (fullCode.length !== 6) {
@@ -390,6 +431,7 @@ export default function AuthModal({
       if (mode === 'verify-reset') {
         await resetPassword(email).catch(() => {});
       }
+      setOtpExpiresIn(300);
       setResendTimer(60);
       setCanResend(false);
       setOtpDigits(['', '', '', '', '', '']);
@@ -508,9 +550,9 @@ export default function AuthModal({
               <p className="text-xs text-gray-400 mt-1.5 mb-5 max-w-[320px] mx-auto text-center leading-relaxed">
                 {mode === 'signin' && 'Enter your details to access your courses and exams.'}
                 {mode === 'signup' && 'Sign up to enroll in live classes and take interactive exams.'}
-                {mode === 'verify-signup' && `Enter the 6-digit verification code sent to ${email}`}
-                {mode === 'forgot-password' && 'Enter your email address to receive a 6-digit recovery code.'}
-                {mode === 'verify-reset' && `Enter the 6-digit code sent to ${email} and your new password.`}
+                {mode === 'verify-signup' && 'Verify your email address to complete registration.'}
+                {mode === 'forgot-password' && 'Enter your email address to receive a recovery code.'}
+                {mode === 'verify-reset' && 'Create a new secure password for your account.'}
               </p>
             </div>
 
@@ -682,11 +724,6 @@ export default function AuthModal({
             {/* ================= VIEW: VERIFY OTP (FOR SIGN UP) ================= */}
             {mode === 'verify-signup' && (
               <form onSubmit={handleVerifySignUpOTP}>
-                <div className="mb-4 text-center">
-                  <p className="text-xs text-gray-300">
-                    Enter the 6-digit verification code sent to <strong className="text-white">{email}</strong>
-                  </p>
-                </div>
                 {/* 6 OTP Input Boxes */}
                 <div className="flex items-center justify-center gap-2 sm:gap-2.5 my-5" onPaste={handleOtpPaste}>
                   {otpDigits.map((digit, idx) => (
@@ -704,10 +741,25 @@ export default function AuthModal({
                   ))}
                 </div>
 
-                {/* Resend Timer & Link */}
+                {/* Unified Expiry & Resend Controls */}
                 <div className="flex items-center justify-between text-xs text-gray-400 mb-5 px-1">
-                  <span>
-                    {canResend ? (
+                  <div className="flex items-center gap-1.5">
+                    {otpExpiresIn > 0 ? (
+                      <>
+                        <span className={`w-2 h-2 rounded-full ${otpExpiresIn <= 60 ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
+                        <span>Expires in:</span>
+                        <span className="font-mono text-white font-semibold">{formatTimer(otpExpiresIn)}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="w-2 h-2 rounded-full bg-red-500" />
+                        <span className="text-red-400 font-semibold">Expired</span>
+                      </>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2.5">
+                    {canResend || otpExpiresIn === 0 ? (
                       <button
                         type="button"
                         onClick={handleResendOTP}
@@ -717,17 +769,21 @@ export default function AuthModal({
                         Resend Code
                       </button>
                     ) : (
-                      `Resend code in 00:${resendTimer < 10 ? '0' + resendTimer : resendTimer}`
+                      <span className="text-gray-500">
+                        Resend in {resendTimer}s
+                      </span>
                     )}
-                  </span>
 
-                  <button
-                    type="button"
-                    onClick={() => handleModeSwitch('signup')}
-                    className="text-gray-400 hover:text-white underline bg-transparent border-none cursor-pointer p-0"
-                  >
-                    Change Email
-                  </button>
+                    <span className="text-gray-600">·</span>
+
+                    <button
+                      type="button"
+                      onClick={() => handleModeSwitch('signup')}
+                      className="text-gray-400 hover:text-white underline bg-transparent border-none cursor-pointer p-0"
+                    >
+                      Change Email
+                    </button>
+                  </div>
                 </div>
 
                 <button
@@ -780,16 +836,8 @@ export default function AuthModal({
             {/* ================= VIEW: VERIFY OTP & RESET PASSWORD ================= */}
             {mode === 'verify-reset' && (
               <form onSubmit={handleVerifyResetSubmit}>
-                <div className="mb-4 text-center">
-                  <p className="text-xs text-gray-300">
-                    Enter the 6-digit recovery code sent to <strong className="text-white">{email}</strong>
-                  </p>
-                  <p className="text-[11px] text-gray-400 mt-0.5">
-                    Please check your email inbox and spam folder.
-                  </p>
-                </div>
                 {/* 6 OTP Input Boxes */}
-                <div className="flex items-center justify-center gap-2 sm:gap-2.5 my-4" onPaste={handleOtpPaste}>
+                <div className="flex items-center justify-center gap-2 sm:gap-2.5 my-5" onPaste={handleOtpPaste}>
                   {otpDigits.map((digit, idx) => (
                     <input
                       key={idx}
@@ -805,9 +853,25 @@ export default function AuthModal({
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between text-xs text-gray-400 mb-4 px-1">
-                  <span>
-                    {canResend ? (
+                {/* Unified Expiry & Resend Controls */}
+                <div className="flex items-center justify-between text-xs text-gray-400 mb-5 px-1">
+                  <div className="flex items-center gap-1.5">
+                    {otpExpiresIn > 0 ? (
+                      <>
+                        <span className={`w-2 h-2 rounded-full ${otpExpiresIn <= 60 ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
+                        <span>Expires in:</span>
+                        <span className="font-mono text-white font-semibold">{formatTimer(otpExpiresIn)}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="w-2 h-2 rounded-full bg-red-500" />
+                        <span className="text-red-400 font-semibold">Expired</span>
+                      </>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2.5">
+                    {canResend || otpExpiresIn === 0 ? (
                       <button
                         type="button"
                         onClick={handleResendOTP}
@@ -817,16 +881,21 @@ export default function AuthModal({
                         Resend Code
                       </button>
                     ) : (
-                      `Resend code in 00:${resendTimer < 10 ? '0' + resendTimer : resendTimer}`
+                      <span className="text-gray-500">
+                        Resend in {resendTimer}s
+                      </span>
                     )}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => handleModeSwitch('forgot-password')}
-                    className="text-gray-400 hover:text-white underline bg-transparent border-none cursor-pointer p-0"
-                  >
-                    Change Email
-                  </button>
+
+                    <span className="text-gray-600">·</span>
+
+                    <button
+                      type="button"
+                      onClick={() => handleModeSwitch('forgot-password')}
+                      className="text-gray-400 hover:text-white underline bg-transparent border-none cursor-pointer p-0"
+                    >
+                      Change Email
+                    </button>
+                  </div>
                 </div>
 
                 <div className="mb-3">
@@ -958,15 +1027,14 @@ export default function AuthModal({
                 </div>
 
                 <p className="text-[11px] text-gray-500 text-center mt-4 leading-relaxed">
-                  অ্যাকাউন্ট তৈরি বা লগইন করার মাধ্যমে আপনি আমাদের{' '}
+                  By signing in or creating an account, you agree to our{' '}
                   <a href="/terms" target="_blank" rel="noreferrer" className="text-[#e11438] hover:underline font-medium">
-                    শর্তাবলী
+                    Terms
                   </a>{' '}
-                  ও{' '}
+                  &{' '}
                   <a href="/refund-policy" target="_blank" rel="noreferrer" className="text-[#e11438] hover:underline font-medium">
-                    রিফান্ড পলিসিতে
-                  </a>{' '}
-                  সম্মত হচ্ছেন।
+                    Refund Policy
+                  </a>.
                 </p>
               </>
             )}

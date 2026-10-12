@@ -53,8 +53,12 @@ import {
   ArrowUp,
   ArrowDown,
   ShieldCheck,
-  Copy
+  Copy,
+  Phone,
+  MessageCircle
 } from 'lucide-react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db, isFirebaseConfigured } from '../firebase/config';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import CourseStudioPage from './CourseStudioPage';
@@ -82,11 +86,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       : initialData.heroSlides
   );
 
-  const [homeStats, setHomeStats] = useState(() => 
-    Array.isArray(data?.homeStats) 
-      ? data.homeStats 
-      : initialData.homeStats
-  );
+  const [homeStats, setHomeStats] = useState(() => {
+    const raw = Array.isArray(data?.homeStats) ? data.homeStats : initialData.homeStats;
+    if (raw.some(s => s.value === '3000+' || s.value === '70000+')) return initialData.homeStats;
+    return raw;
+  });
 
   const [courses, setCourses] = useState(() => {
     const raw = Array.isArray(data?.courses) 
@@ -172,13 +176,25 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       : initialData.storeProducts
   );
 
-  const [accounting, setAccounting] = useState(() => ({
-    ...initialData.accounting,
-    ...(data?.accounting || {}),
-    transactions: (Array.isArray(data?.accounting?.transactions) && data.accounting.transactions.length > 0)
-      ? data.accounting.transactions
-      : initialData.accounting.transactions
-  }));
+  const [accounting, setAccounting] = useState(() => {
+    const raw = data?.accounting;
+    if (!raw || raw.totalRevenue === 284500 || (Array.isArray(raw.transactions) && raw.transactions.some(t => t.id === 'TRX-94825'))) {
+      return {
+        totalRevenue: 0,
+        totalExpenses: 0,
+        netProfit: 0,
+        totalOrders: 0,
+        transactions: []
+      };
+    }
+    return {
+      totalRevenue: raw.totalRevenue || 0,
+      totalExpenses: raw.totalExpenses || 0,
+      netProfit: raw.netProfit || 0,
+      totalOrders: raw.totalOrders || 0,
+      transactions: Array.isArray(raw.transactions) ? raw.transactions.filter(t => !t.id?.startsWith('TRX-948')) : []
+    };
+  });
 
   // 100% Dynamic Text & Headings State
   const [sectionTexts, setSectionTexts] = useState(() => ({
@@ -226,152 +242,67 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const [usersList, setUsersList] = useState(() => {
     const defaultSeed = [
       {
-        id: 'usr-1',
-        name: 'Mathew Anderson',
+        id: 'admin_master',
+        name: 'EduHunters Admin',
         email: 'admin@eduhunters.com',
-        phone: '01700-112233',
+        phone: '01353828863',
+        whatsapp: '01353828863',
+        college: 'EduHunters HQ',
+        institution: 'EduHunters HQ',
         role: 'Admin',
         status: 'Active',
-        batch: 'System Administration',
+        batch: 'Admin Staff',
+        hscBatch: 'Admin Staff',
         enrolledCourses: ['All Courses (Super Admin Pass)'],
         totalSpent: 0,
-        joinedDate: '01 Jan 2026',
+        joinedDate: 'Official Launch',
         lastActive: 'Active now',
-        device: 'Windows 11 • Chrome 124',
-        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80'
-      },
-      {
-        id: 'usr-2',
-        name: 'Dr. Sanjid Rayhan',
-        email: 'sanjid.rayhan@eduhunters.com',
-        phone: '01711-223344',
-        role: 'Instructor',
-        status: 'Active',
-        batch: 'Medical Faculty',
-        enrolledCourses: ['Biology Extra Info + Exam Batch', 'Medical Master Bundle'],
-        totalSpent: 0,
-        joinedDate: '15 Jan 2026',
-        lastActive: '15 mins ago',
-        device: 'MacBook Pro • Safari',
-        avatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=100&auto=format&fit=crop&q=80'
-      },
-      {
-        id: 'usr-3',
-        name: 'Kanon Ahmed',
-        email: 'kanon.ahmed@eduhunters.com',
-        phone: '01811-998877',
-        role: 'Moderator',
-        status: 'Active',
-        batch: 'Student Support & Ops',
-        enrolledCourses: ['Staff Access Pass'],
-        totalSpent: 0,
-        joinedDate: '01 Feb 2026',
-        lastActive: '1 hour ago',
-        device: 'Android 14 • Chrome Mobile',
-        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80'
-      },
-      {
-        id: 'usr-4',
-        name: 'Tanvir Hasan',
-        email: 'tanvir.hsc26@gmail.com',
-        phone: '01712-345678',
-        role: 'Student',
-        status: 'Active',
-        batch: 'HSC 26',
-        enrolledCourses: ['Mastering Text Book Combo', 'SureShot SecondTimer Carnival'],
-        totalSpent: 4500,
-        joinedDate: '28 Sep 2026',
-        lastActive: '10 mins ago',
-        device: 'Windows 10 • Chrome 122',
-        avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80'
-      },
-      {
-        id: 'usr-5',
-        name: 'Afroza Sultana',
-        email: 'afroza.med@gmail.com',
-        phone: '01987-654321',
-        role: 'Student',
-        status: 'Active',
-        batch: 'Medical 25',
-        enrolledCourses: ['Biology Extra Info + Exam Batch'],
-        totalSpent: 2999,
-        joinedDate: '29 Sep 2026',
-        lastActive: '30 mins ago',
-        device: 'iPhone 15 • Safari Mobile',
-        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80'
-      },
-      {
-        id: 'usr-6',
-        name: 'Rakibul Islam',
-        email: 'rakibul.hsc28@gmail.com',
-        phone: '01823-998877',
-        role: 'Student',
-        status: 'Active',
-        batch: 'HSC 28',
-        enrolledCourses: ['Medical All Batches Bundle', 'HSC Physics Vector Mega Test'],
-        totalSpent: 5200,
-        joinedDate: '29 Sep 2026',
-        lastActive: '2 hours ago',
-        device: 'Windows 11 • Edge 123',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80'
-      },
-      {
-        id: 'usr-7',
-        name: 'Sadia Tasnim',
-        email: 'sadia.tasnim@gmail.com',
-        phone: '01633-112233',
-        role: 'Student',
-        status: 'Pending',
-        batch: 'Engineering',
-        enrolledCourses: ['Ketab Sir Higher Math MCQ Solve'],
-        totalSpent: 1999,
-        joinedDate: '30 Sep 2026',
-        lastActive: '5 hours ago',
-        device: 'Android 13 • Chrome Mobile',
-        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80'
-      },
-      {
-        id: 'usr-8',
-        name: 'Shahriar Kabir',
-        email: 'shahriar.kabir@gmail.com',
-        phone: '01300-778899',
-        role: 'Student',
-        status: 'Suspended',
-        batch: 'HSC 26',
-        enrolledCourses: ['Chemistry 1st Paper Dagano Line'],
-        totalSpent: 1500,
-        joinedDate: '25 Sep 2026',
-        lastActive: '3 days ago',
-        device: 'Multiple Devices Flagged (3 IPs)',
-        avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&auto=format&fit=crop&q=80'
+        device: 'Admin Console',
+        avatar: '/logo-crimson.png'
       }
     ];
 
     if (Array.isArray(data?.users) && data.users.length > 0) {
-      return data.users;
+      const cleanUsers = data.users.filter(u => !['usr-1', 'usr-2', 'usr-3', 'usr-4', 'usr-5', 'usr-6', 'usr-7', 'usr-8'].includes(u.id));
+      if (cleanUsers.length > 0) return cleanUsers;
     }
 
     try {
       const registered = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
-      if (Array.isArray(registered) && registered.length > 0) {
-        const mapped = registered.map((u, i) => ({
+      const currentStored = JSON.parse(localStorage.getItem('eh_current_user') || 'null');
+      
+      const allLocal = [...(Array.isArray(registered) ? registered : [])];
+      if (currentStored && currentStored.email && !allLocal.some(u => u.email?.toLowerCase() === currentStored.email?.toLowerCase())) {
+        allLocal.push(currentStored);
+      }
+
+      if (allLocal.length > 0) {
+        const mapped = allLocal.map((u, i) => ({
           id: u.uid || `usr-reg-${i}`,
-          name: u.displayName || u.email.split('@')[0],
+          name: u.displayName || u.name || u.email?.split('@')[0] || 'Student',
           email: u.email,
-          phone: u.phone || '01700-000000',
-          role: u.role === 'admin' ? 'Admin' : 'Student',
-          status: 'Active',
-          batch: 'General Learner',
-          enrolledCourses: [],
-          totalSpent: 0,
+          phone: u.whatsapp || u.phone || '01700-000000',
+          whatsapp: u.whatsapp || u.phone || '',
+          college: u.college || u.institution || '',
+          institution: u.college || u.institution || '',
+          role: u.role === 'admin' ? 'Admin' : (u.role ? (u.role.charAt(0).toUpperCase() + u.role.slice(1)) : 'Student'),
+          status: u.status || 'Active',
+          batch: u.hscBatch || u.batch || 'HSC 26',
+          hscBatch: u.hscBatch || u.batch || 'HSC 26',
+          enrolledCourses: Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [],
+          totalSpent: u.totalSpent || 0,
           joinedDate: u.createdAt ? new Date(u.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently',
           lastActive: 'Recently',
           device: 'Web Client',
-          avatar: u.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(u.email)}`
+          avatar: u.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(u.email || 'user')}`
         }));
         const existingEmails = new Set(defaultSeed.map(u => u.email.toLowerCase()));
         const uniqueRegistered = mapped.filter(u => !existingEmails.has(u.email.toLowerCase()));
-        return [...defaultSeed, ...uniqueRegistered];
+        const mergedDefault = defaultSeed.map(d => {
+          const match = mapped.find(u => u.email?.toLowerCase() === d.email?.toLowerCase());
+          return match ? { ...d, ...match } : d;
+        });
+        return [...mergedDefault, ...uniqueRegistered];
       }
     } catch (e) {}
 
@@ -381,6 +312,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const [userSearchQuery, setUserSearchQuery] = useState('');
   const [userRoleFilter, setUserRoleFilter] = useState('ALL');
   const [userStatusFilter, setUserStatusFilter] = useState('ALL');
+  const [userBatchFilter, setUserBatchFilter] = useState('ALL');
   const [userSortBy, setUserSortBy] = useState('newest');
   const [selectedUserDetails, setSelectedUserDetails] = useState(null);
   const [showAddUserModal, setShowAddUserModal] = useState(false);
@@ -389,6 +321,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     name: '',
     email: '',
     phone: '',
+    whatsapp: '',
+    college: '',
     role: 'Student',
     status: 'Active',
     batch: 'HSC 26',
@@ -397,6 +331,86 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const [quickEnrollUser, setQuickEnrollUser] = useState(null);
   const [selectedCourseToEnroll, setSelectedCourseToEnroll] = useState('');
   const [userTabInsideModal, setUserTabInsideModal] = useState('profile'); // 'profile' | 'courses' | 'transactions'
+
+  // Live real-time listener for profile changes made across tabs or in ProfileModal
+  useEffect(() => {
+    const handleProfileUpdate = (e) => {
+      const updatedUser = e.detail;
+      if (!updatedUser || !updatedUser.email) return;
+      setUsersList(prev => prev.map(u => {
+        if (u.email?.toLowerCase() === updatedUser.email?.toLowerCase() || u.id === updatedUser.uid) {
+          return {
+            ...u,
+            name: updatedUser.displayName || updatedUser.name || u.name,
+            phone: updatedUser.whatsapp || updatedUser.phone || u.phone,
+            whatsapp: updatedUser.whatsapp || updatedUser.phone || u.whatsapp,
+            college: updatedUser.college || updatedUser.institution || u.college,
+            institution: updatedUser.college || updatedUser.institution || u.institution,
+            batch: updatedUser.hscBatch || updatedUser.batch || u.batch,
+            hscBatch: updatedUser.hscBatch || updatedUser.batch || u.hscBatch,
+            avatar: updatedUser.photoURL || u.avatar
+          };
+        }
+        return u;
+      }));
+    };
+
+    window.addEventListener('eh_profile_updated', handleProfileUpdate);
+    return () => window.removeEventListener('eh_profile_updated', handleProfileUpdate);
+  }, []);
+
+  // Fetch Firestore users when live Firebase is active
+  useEffect(() => {
+    if (!isFirebaseConfigured || !db) return;
+    let isMounted = true;
+    const fetchFirestoreUsers = async () => {
+      try {
+        const usersSnap = await getDocs(collection(db, 'users'));
+        if (!usersSnap.empty && isMounted) {
+          const firestoreUsers = [];
+          usersSnap.forEach(docSnap => {
+            const data = docSnap.data();
+            firestoreUsers.push({
+              id: docSnap.id,
+              name: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
+              email: data.email,
+              phone: data.whatsapp || data.phone || '01700-000000',
+              whatsapp: data.whatsapp || data.phone || '',
+              college: data.college || data.institution || '',
+              institution: data.college || data.institution || '',
+              role: data.role === 'admin' ? 'Admin' : (data.role ? (data.role.charAt(0).toUpperCase() + data.role.slice(1)) : 'Student'),
+              status: data.status || 'Active',
+              batch: data.hscBatch || data.batch || 'HSC 26',
+              hscBatch: data.hscBatch || data.batch || 'HSC 26',
+              enrolledCourses: Array.isArray(data.enrolledCourses) ? data.enrolledCourses : [],
+              totalSpent: data.totalSpent || 0,
+              joinedDate: data.createdAt?.toDate ? data.createdAt.toDate().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently',
+              lastActive: data.lastLoginAt?.toDate ? 'Active recently' : 'Recently',
+              device: (Array.isArray(data.registeredDevices) && data.registeredDevices[0]?.name) || 'Web Client',
+              avatar: data.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(data.email || 'user')}`
+            });
+          });
+
+          if (firestoreUsers.length > 0) {
+            setUsersList(prev => {
+              const prevMap = new Map(prev.map(u => [u.email?.toLowerCase(), u]));
+              firestoreUsers.forEach(fu => {
+                if (fu.email) {
+                  const existing = prevMap.get(fu.email.toLowerCase());
+                  prevMap.set(fu.email.toLowerCase(), existing ? { ...existing, ...fu } : fu);
+                }
+              });
+              return Array.from(prevMap.values());
+            });
+          }
+        }
+      } catch (err) {
+        console.warn('[AdminPanel] Could not load Firestore users:', err);
+      }
+    };
+    fetchFirestoreUsers();
+    return () => { isMounted = false; };
+  }, []);
 
   // Synchronize AdminPanel state with live updates from App.jsx or cross-tab synchronization
   useEffect(() => {
@@ -425,68 +439,28 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   }, [data]);
 
   // Edu Hunters Real Enrolled Students State
-  const [enrolledStudents, setEnrolledStudents] = useState([
-    {
-      id: 'st-101',
-      name: 'Tanvir Hasan',
-      studentId: 'EH-2026-084',
-      batch: 'HSC 26',
-      courseName: 'Mastering Text Book Combo',
-      phone: '01712-345678',
-      email: 'tanvir.hsc26@gmail.com',
-      avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80',
-      status: 'Active',
-      joinedDate: '28 Sep 2026'
-    },
-    {
-      id: 'st-102',
-      name: 'Afroza Sultana',
-      studentId: 'EH-2026-092',
-      batch: 'Medical 25',
-      courseName: 'Biology Extra Info + Exam Batch',
-      phone: '01987-654321',
-      email: 'afroza.med@gmail.com',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80',
-      status: 'Active',
-      joinedDate: '29 Sep 2026'
-    },
-    {
-      id: 'st-103',
-      name: 'Rakibul Islam',
-      studentId: 'EH-2026-115',
-      batch: 'HSC 28',
-      courseName: 'Medical All Batches Bundle',
-      phone: '01823-998877',
-      email: 'rakibul.hsc28@gmail.com',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80',
-      status: 'Active',
-      joinedDate: '29 Sep 2026'
-    },
-    {
-      id: 'st-104',
-      name: 'Sadia Tasnim',
-      studentId: 'EH-2026-140',
-      batch: 'Engineering',
-      courseName: 'Ketab Sir Higher Math MCQ Solve',
-      phone: '01633-112233',
-      email: 'sadia.tasnim@gmail.com',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80',
-      status: 'Pending',
-      joinedDate: '30 Sep 2026'
-    },
-    {
-      id: 'st-105',
-      name: 'Abir Mahmud',
-      studentId: 'EH-2026-155',
-      batch: 'HSC 27',
-      courseName: 'Mastering Text Book Series Combo',
-      phone: '01511-223344',
-      email: 'abir.buetprep@gmail.com',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80',
-      status: 'Active',
-      joinedDate: '30 Sep 2026'
+  const [enrolledStudents, setEnrolledStudents] = useState(() => {
+    try {
+      const saved = localStorage.getItem('eh_enrolled_students');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          return parsed.filter(s => !['st-101', 'st-102', 'st-103', 'st-104', 'st-105'].includes(s.id));
+        }
+      }
+    } catch {
+      // ignore
     }
-  ]);
+    return [];
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('eh_enrolled_students', JSON.stringify(enrolledStudents));
+    } catch {
+      // ignore
+    }
+  }, [enrolledStudents]);
 
   // Student Filter & Search state
   const [studentBatchFilter, setStudentBatchFilter] = useState('ALL');
@@ -586,53 +560,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   });
 
   // Recent Academic Platform Activities
-  const [academicActivities, setAcademicActivities] = useState([
-    {
-      id: 'act1',
-      title: 'Course Enrollment Confirmed: Afroza Sultana',
-      sub: 'Biology Extra Info Compact PDF',
-      time: '10 mins ago',
-      tag: 'Enrollment',
-      icon: 'check',
-      color: 'emerald'
-    },
-    {
-      id: 'act2',
-      title: 'Live Exam Submission: Rakibul Islam',
-      sub: 'HSC Physics Paper 1 Vector Mega Test (Score: 14/15)',
-      time: '25 mins ago',
-      tag: 'Exam',
-      icon: 'exam',
-      color: 'blue'
-    },
-    {
-      id: 'act3',
-      title: 'bKash Payment Verified (৳2,999)',
-      sub: 'TrxID: 9KJ34LA01X • Student: Tanvir Hasan',
-      time: '1 hour ago',
-      tag: 'Payment',
-      icon: 'payment',
-      color: 'pink'
-    },
-    {
-      id: 'act4',
-      title: 'Edu Hunters AI Study Query',
-      sub: 'Topic: Natural Cardiac Pacemaker Mechanism',
-      time: '2 hours ago',
-      tag: 'AI Study',
-      icon: 'sparkle',
-      color: 'purple'
-    },
-    {
-      id: 'act5',
-      title: 'Edu Hunters Store PDF Download Completed',
-      sub: 'Medical Biology Question Bank (Downloaded)',
-      time: '3 hours ago',
-      tag: 'Store',
-      icon: 'book',
-      color: 'amber'
-    }
-  ]);
+  const [academicActivities, setAcademicActivities] = useState([]);
 
 
   // Interactive Media Gallery Modal State
@@ -938,10 +866,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setUserForm({
       name: user.name || '',
       email: user.email || '',
-      phone: user.phone || '',
+      phone: user.whatsapp || user.phone || '',
+      whatsapp: user.whatsapp || user.phone || '',
+      college: user.college || user.institution || '',
       role: user.role || 'Student',
       status: user.status || 'Active',
-      batch: user.batch || 'HSC 26',
+      batch: user.hscBatch || user.batch || 'HSC 26',
       password: ''
     });
     setShowAddUserModal(true);
@@ -960,9 +890,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         name: userForm.name.trim(),
         email: userForm.email.trim(),
         phone: userForm.phone.trim(),
+        whatsapp: (userForm.whatsapp || userForm.phone).trim(),
+        college: (userForm.college || '').trim(),
+        institution: (userForm.college || '').trim(),
         role: userForm.role,
         status: userForm.status,
-        batch: userForm.batch
+        batch: userForm.batch || 'HSC 26',
+        hscBatch: userForm.batch || 'HSC 26'
       } : u);
       setUsersList(updated);
       persistAll({ users: updated });
@@ -973,9 +907,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         name: userForm.name.trim(),
         email: userForm.email.trim(),
         phone: userForm.phone.trim() || '01700-000000',
+        whatsapp: (userForm.whatsapp || userForm.phone || '').trim(),
+        college: (userForm.college || '').trim(),
+        institution: (userForm.college || '').trim(),
         role: userForm.role || 'Student',
         status: userForm.status || 'Active',
-        batch: userForm.batch || 'General Batch',
+        batch: userForm.batch || 'HSC 26',
+        hscBatch: userForm.batch || 'HSC 26',
         enrolledCourses: [],
         totalSpent: 0,
         joinedDate: 'Today',
@@ -995,6 +933,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       name: '',
       email: '',
       phone: '',
+      whatsapp: '',
+      college: '',
       role: 'Student',
       status: 'Active',
       batch: 'HSC 26',
@@ -1074,15 +1014,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   };
 
   const handleExportUsersCSV = () => {
-    const headers = ['User ID', 'Full Name', 'Email', 'Phone', 'Role', 'Status', 'Batch', 'Enrolled Courses Count', 'Total Spent (BDT)', 'Joined Date', 'Device'];
+    const headers = ['User ID', 'Full Name', 'Email', 'WhatsApp / Phone', 'College / Institution', 'HSC Batch', 'Role', 'Status', 'Enrolled Courses Count', 'Total Spent (BDT)', 'Joined Date', 'Device'];
     const rows = usersList.map(u => [
       u.id,
-      `"${u.name}"`,
+      `"${(u.name || '').replace(/"/g, '""')}"`,
       u.email,
-      u.phone,
+      `"${u.whatsapp || u.phone || ''}"`,
+      `"${(u.college || u.institution || '').replace(/"/g, '""')}"`,
+      `"${(u.hscBatch || u.batch || '').replace(/"/g, '""')}"`,
       u.role,
       u.status,
-      `"${u.batch}"`,
       u.enrolledCourses?.length || 0,
       u.totalSpent || 0,
       u.joinedDate,
@@ -1722,7 +1663,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         aboutText: c.aboutText || (c.id === 'master-english-30-days' ? masterEnglishCourseData.aboutText : ''),
         totalClasses: c.totalClasses || (c.id === 'master-english-30-days' ? masterEnglishCourseData.totalClasses : ''),
         features: (c.features && c.features.length > 0) ? c.features : (c.id === 'master-english-30-days' ? masterEnglishCourseData.features : []),
-        supportPhone: c.supportPhone || '01321228612',
+        supportPhone: c.supportPhone || '01353828863',
         previewVideoUrl: c.previewVideoUrl || (c.id === 'master-english-30-days' ? masterEnglishCourseData.previewVideoUrl : '')
       } : c);
       setCourses(updated);
@@ -2230,13 +2171,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       list = list.filter(u => (u.status || '').toLowerCase() === userStatusFilter.toLowerCase());
     }
 
+    if (userBatchFilter !== 'ALL') {
+      list = list.filter(u => {
+        const b = (u.hscBatch || u.batch || '').toLowerCase();
+        return b.includes(userBatchFilter.toLowerCase());
+      });
+    }
+
     if (q) {
       list = list.filter(u => 
         (u.name || '').toLowerCase().includes(q) ||
         (u.email || '').toLowerCase().includes(q) ||
         (u.phone || '').includes(q) ||
-        (u.id || '').toLowerCase().includes(q) ||
-        (u.batch || '').toLowerCase().includes(q)
+        (u.whatsapp || '').includes(q) ||
+        (u.college || '').toLowerCase().includes(q) ||
+        (u.institution || '').toLowerCase().includes(q) ||
+        (u.hscBatch || '').toLowerCase().includes(q) ||
+        (u.batch || '').toLowerCase().includes(q) ||
+        (u.id || '').toLowerCase().includes(q)
       );
     }
 
@@ -2249,7 +2201,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     }
 
     return list;
-  }, [usersList, userRoleFilter, userStatusFilter, deferredUserQuery, userSortBy]);
+  }, [usersList, userRoleFilter, userStatusFilter, userBatchFilter, deferredUserQuery, userSortBy]);
 
   const userMetrics = useMemo(() => {
     const total = usersList.length;
@@ -4104,6 +4056,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                 {/* Filter Pills */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 text-xs">
+                  {/* Batch Filter Pills */}
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">Batch:</span>
+                    {['ALL', 'HSC 26', 'HSC 27', 'HSC 28', 'HSC 29'].map((batch) => (
+                      <button
+                        key={batch}
+                        onClick={() => setUserBatchFilter(batch)}
+                        className={`px-3 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+                          userBatchFilter === batch
+                            ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                            : 'bg-slate-50 text-slate-600 border-slate-200/80 hover:bg-slate-100'
+                        }`}
+                      >
+                        {batch === 'ALL' ? 'All Batches' : batch}
+                      </button>
+                    ))}
+                  </div>
+
                   {/* Role Filter Pills */}
                   <div className="flex items-center gap-1.5 flex-wrap">
                     <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">Role:</span>
@@ -4148,10 +4118,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="bg-slate-50/80 border-b border-slate-100 text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">
-                        <th className="py-3 px-4">User & ID</th>
-                        <th className="py-3 px-4">Contact & Device</th>
+                        <th className="py-3 px-4">Student & ID</th>
+                        <th className="py-3 px-4">WhatsApp / Contact</th>
+                        <th className="py-3 px-4">College / Institution</th>
+                        <th className="py-3 px-4">HSC Batch</th>
                         <th className="py-3 px-4">Role</th>
-                        <th className="py-3 px-4">Batch / Dept</th>
                         <th className="py-3 px-4">Enrollments & Spend</th>
                         <th className="py-3 px-4">Status</th>
                         <th className="py-3 px-4">Joined Date</th>
@@ -4161,7 +4132,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
                       {filteredUsers.length === 0 ? (
                         <tr>
-                          <td colSpan="8" className="py-12 text-center text-slate-400">
+                          <td colSpan="9" className="py-12 text-center text-slate-400">
                             <Users className="w-10 h-10 mx-auto text-slate-300 mb-2" />
                             <p className="text-sm font-bold text-slate-700">No users found</p>
                             <p className="text-xs text-slate-400 mt-1">
@@ -4182,10 +4153,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           const isSuspended = user.status === 'Suspended';
                           const isPending = user.status === 'Pending';
                           const isActive = user.status === 'Active';
+                          const contactNum = user.whatsapp || user.phone || '';
+                          const cleanDigits = contactNum.replace(/[^0-9]/g, '');
+                          const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
 
                           return (
                             <tr key={user.id} className="hover:bg-slate-50/60 transition-colors">
-                              {/* User & ID */}
+                              {/* Student & ID */}
                               <td className="py-3 px-4">
                                 <div className="flex items-center gap-3">
                                   <div className="relative">
@@ -4219,23 +4193,63 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 </div>
                               </td>
 
-                              {/* Contact & Device */}
+                              {/* WhatsApp / Contact */}
                               <td className="py-3 px-4">
-                                <div className="font-semibold text-slate-800 flex items-center gap-1">
-                                  <span>{user.phone || 'N/A'}</span>
-                                  {user.phone && (
-                                    <button 
-                                      onClick={() => handleCopyText(user.phone, 'Phone')} 
-                                      title="Copy phone"
-                                      className="text-slate-400 hover:text-slate-600 bg-transparent border-none p-0 cursor-pointer"
-                                    >
-                                      <Copy className="w-3 h-3" />
-                                    </button>
+                                <div className="font-semibold text-slate-800 flex items-center gap-1.5">
+                                  <span>{contactNum || 'N/A'}</span>
+                                  {contactNum && (
+                                    <>
+                                      <button 
+                                        onClick={() => handleCopyText(contactNum, 'Phone')} 
+                                        title="Copy number"
+                                        className="text-slate-400 hover:text-slate-600 bg-transparent border-none p-0 cursor-pointer"
+                                      >
+                                        <Copy className="w-3 h-3" />
+                                      </button>
+                                      <a
+                                        href={`https://wa.me/${waPhone}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="Chat on WhatsApp"
+                                        className="inline-flex items-center text-emerald-600 hover:text-emerald-700 bg-emerald-50 p-1 rounded-md transition-colors"
+                                      >
+                                        <MessageCircle className="w-3.5 h-3.5" />
+                                      </a>
+                                    </>
                                   )}
                                 </div>
                                 <div className="text-[10px] text-slate-400 font-medium truncate max-w-[140px]" title={user.device}>
                                   {user.device || 'Web Session'}
                                 </div>
+                              </td>
+
+                              {/* College / Institution */}
+                              <td className="py-3 px-4">
+                                <div className="flex items-center gap-1.5 font-semibold text-slate-800">
+                                  <GraduationCap className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                                  <span className="truncate max-w-[180px]" title={user.college || user.institution || 'Not specified'}>
+                                    {user.college || user.institution || (
+                                      <span className="text-slate-400 font-normal italic">Not specified</span>
+                                    )}
+                                  </span>
+                                </div>
+                              </td>
+
+                              {/* HSC Batch */}
+                              <td className="py-3 px-4">
+                                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wide border shadow-2xs ${
+                                  (user.hscBatch || user.batch || '').includes('26')
+                                    ? 'bg-rose-50 text-rose-700 border-rose-200/80 ring-1 ring-rose-500/10'
+                                    : (user.hscBatch || user.batch || '').includes('27')
+                                    ? 'bg-blue-50 text-blue-700 border-blue-200/80 ring-1 ring-blue-500/10'
+                                    : (user.hscBatch || user.batch || '').includes('28')
+                                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200/80 ring-1 ring-emerald-500/10'
+                                    : (user.hscBatch || user.batch || '').includes('29')
+                                    ? 'bg-amber-50 text-amber-700 border-amber-200/80 ring-1 ring-amber-500/10'
+                                    : 'bg-slate-100 text-slate-700 border-slate-200'
+                                }`}>
+                                  {user.hscBatch || user.batch || 'HSC 26'}
+                                </span>
                               </td>
 
                               {/* Role */}
@@ -4252,11 +4266,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                   {user.role === 'Admin' && <ShieldCheck className="w-3 h-3 text-purple-600" />}
                                   {user.role}
                                 </span>
-                              </td>
-
-                              {/* Batch / Dept */}
-                              <td className="py-3 px-4">
-                                <span className="font-bold text-slate-800">{user.batch || 'General'}</span>
                               </td>
 
                               {/* Enrollments & Spend */}
@@ -6118,6 +6127,37 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   </div>
                 </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-bold text-slate-700 block mb-1.5">বিকাশ (bKash) পার্সোনাল নম্বর</label>
+                    <input
+                      type="text"
+                      placeholder="01342227935"
+                      value={siteSettings.bkashNumber || '01342227935'}
+                      onChange={(e) => {
+                        const updated = { ...siteSettings, bkashNumber: e.target.value };
+                        setSiteSettings(updated);
+                        persistAll({ siteSettings: updated });
+                      }}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all font-mono font-bold"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-bold text-slate-700 block mb-1.5">নগদ (Nagad) পার্সোনাল নম্বর</label>
+                    <input
+                      type="text"
+                      placeholder="01731127231"
+                      value={siteSettings.nagadNumber || '01731127231'}
+                      onChange={(e) => {
+                        const updated = { ...siteSettings, nagadNumber: e.target.value };
+                        setSiteSettings(updated);
+                        persistAll({ siteSettings: updated });
+                      }}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all font-mono font-bold"
+                    />
+                  </div>
+                </div>
+
                 <div className="bg-gradient-to-r from-red-50 to-rose-50/50 p-4 rounded-2xl border border-red-100">
                   <div className="flex items-center justify-between mb-1">
                     <label className="text-xs font-bold text-red-950 flex items-center gap-1.5">
@@ -7564,7 +7604,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 src={`https://www.youtube.com/embed/${previewVideoModal.videoId}?autoplay=1&rel=0`}
                 title={previewVideoModal.title || 'Video Preview'}
                 className="w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
@@ -8972,21 +9012,62 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             <div className="p-6">
               {userTabInsideModal === 'profile' && (
                 <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3.5">
                     <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
-                      <div className="text-[10px] font-bold text-slate-400 uppercase">Contact Phone</div>
-                      <div className="text-xs font-extrabold text-slate-800 mt-1">{selectedUserDetails.phone || 'N/A'}</div>
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">WhatsApp / Contact Phone</div>
+                      <div className="text-xs font-extrabold text-slate-800 mt-1 flex items-center justify-between flex-wrap gap-1">
+                        <span>{selectedUserDetails.whatsapp || selectedUserDetails.phone || 'N/A'}</span>
+                        {(selectedUserDetails.whatsapp || selectedUserDetails.phone) && (
+                          <div className="flex items-center gap-1.5">
+                            <button 
+                              onClick={() => handleCopyText(selectedUserDetails.whatsapp || selectedUserDetails.phone, 'Contact number')} 
+                              className="text-slate-400 hover:text-slate-600 bg-transparent border-none p-0 cursor-pointer"
+                              title="Copy number"
+                            >
+                              <Copy className="w-3.5 h-3.5" />
+                            </button>
+                            <a
+                              href={`https://wa.me/${(selectedUserDetails.whatsapp || selectedUserDetails.phone).replace(/[^0-9]/g, '').replace(/^0/, '880')}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md"
+                            >
+                              <MessageCircle className="w-3.5 h-3.5" />
+                              WhatsApp
+                            </a>
+                          </div>
+                        )}
+                      </div>
                     </div>
                     <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
-                      <div className="text-[10px] font-bold text-slate-400 uppercase">Batch / Program</div>
-                      <div className="text-xs font-extrabold text-slate-800 mt-1">{selectedUserDetails.batch || 'General'}</div>
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">College / Institution</div>
+                      <div className="text-xs font-extrabold text-slate-800 mt-1 flex items-center gap-1.5">
+                        <GraduationCap className="w-4 h-4 text-indigo-500 shrink-0" />
+                        <span className="truncate" title={selectedUserDetails.college || selectedUserDetails.institution || 'Not specified'}>
+                          {selectedUserDetails.college || selectedUserDetails.institution || <span className="text-slate-400 italic font-normal">Not specified</span>}
+                        </span>
+                      </div>
                     </div>
                     <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
-                      <div className="text-[10px] font-bold text-slate-400 uppercase">Registered Device</div>
-                      <div className="text-xs font-extrabold text-slate-800 mt-1">{selectedUserDetails.device || 'Web Session'}</div>
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">HSC Batch</div>
+                      <div className="mt-1">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black bg-rose-50 text-rose-700 border border-rose-200/80">
+                          {selectedUserDetails.hscBatch || selectedUserDetails.batch || 'HSC 26'}
+                        </span>
+                      </div>
                     </div>
                     <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
-                      <div className="text-[10px] font-bold text-slate-400 uppercase">Last Activity</div>
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Registered Device</div>
+                      <div className="text-xs font-extrabold text-slate-800 mt-1 truncate" title={selectedUserDetails.device}>
+                        {selectedUserDetails.device || 'Web Session'}
+                      </div>
+                    </div>
+                    <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Joined Date</div>
+                      <div className="text-xs font-extrabold text-slate-800 mt-1">{selectedUserDetails.joinedDate || 'Recently'}</div>
+                    </div>
+                    <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Last Activity</div>
                       <div className="text-xs font-extrabold text-slate-800 mt-1">{selectedUserDetails.lastActive || 'Recently'}</div>
                     </div>
                   </div>
@@ -9162,14 +9243,55 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">WhatsApp / Contact Number</label>
                   <input 
                     type="text"
-                    placeholder="01700-000000"
+                    placeholder="e.g. 01700-000000"
                     value={userForm.phone}
-                    onChange={(e) => setUserForm(prev => ({ ...prev, phone: e.target.value }))}
+                    onChange={(e) => setUserForm(prev => ({ ...prev, phone: e.target.value, whatsapp: e.target.value }))}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
                   />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">College / Institution</label>
+                  <input 
+                    type="text"
+                    placeholder="e.g. Dhaka College / Notre Dame College"
+                    value={userForm.college || ''}
+                    onChange={(e) => setUserForm(prev => ({ ...prev, college: e.target.value }))}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">HSC Batch</label>
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-1">
+                      {['HSC 26', 'HSC 27', 'HSC 28', 'HSC 29'].map((b) => (
+                        <button
+                          key={b}
+                          type="button"
+                          onClick={() => setUserForm(prev => ({ ...prev, batch: b }))}
+                          className={`px-2 py-0.5 rounded-lg text-[10px] font-bold cursor-pointer transition-all border ${
+                            userForm.batch === b
+                              ? 'bg-rose-500 text-white border-rose-500 shadow-xs'
+                              : 'bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-200'
+                          }`}
+                        >
+                          {b}
+                        </button>
+                      ))}
+                    </div>
+                    <input 
+                      type="text"
+                      placeholder="e.g. HSC 26"
+                      value={userForm.batch}
+                      onChange={(e) => setUserForm(prev => ({ ...prev, batch: e.target.value }))}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-1.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -9199,17 +9321,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     <option value="Suspended">🔴 Suspended</option>
                   </select>
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Batch / Department</label>
-                <input 
-                  type="text"
-                  placeholder="e.g. HSC 26, Medical 25, Engineering"
-                  value={userForm.batch}
-                  onChange={(e) => setUserForm(prev => ({ ...prev, batch: e.target.value }))}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
-                />
               </div>
 
               <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-2.5">

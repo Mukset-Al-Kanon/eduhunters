@@ -3,159 +3,29 @@
 
 const ORDERS_STORAGE_KEY = 'eh_user_orders_v3';
 
-export const INITIAL_ORDERS = [
-  {
-    id: 'ord_exam_2026_9842',
-    invoiceNumber: 'INV-2026-EH-009842',
-    type: 'course',
-    badge: 'Exam Batch',
-    status: 'PAID',
-    course: {
-      name: 'Sure Shot Medical Admission Exam Batch 2025/26',
-      slug: 'sureshot',
-      targetType: 'exam',
-      categoryKey: 'sureshot',
-      fb_group: 'https://www.facebook.com/groups/1298423684604005'
-    },
-    customer: {
-      name: 'Rafid Ahmed',
-      email: 'rafid.ahmed99@gmail.com',
-      phone: '01712-345678',
-      studentId: 'EH-STU-9842',
-      address: 'House 12, Road 4, Dhanmondi, Dhaka',
-      district: 'Dhaka',
-      country: 'Bangladesh'
-    },
-    paymentGateway: 'bkash',
-    paymentMethodName: 'bKash Mobile Financial Services',
-    totalPaid: 1500,
-    subtotal: 1800,
-    discount: 300,
-    vat: 0,
-    transactionId: 'TXN90K2LM14',
-    createdAt: new Date(Date.now() - 4 * 24 * 3600 * 1000).toISOString(),
-    items: [
-      {
-        id: 'item_1',
-        title: 'Sure Shot Medical Admission Exam Batch 2025/26',
-        subtitle: 'Comprehensive Medical Entrance Model Tests, Negative Marking Engine, Detailed Answer Analysis & Discussion Masterclasses',
-        type: 'Digital Exam Series Access',
-        quantity: 1,
-        unitPrice: 1800,
-        amount: 1800
-      }
-    ]
-  },
-  {
-    id: 'ord_course_2026_8421',
-    invoiceNumber: 'INV-2026-EH-008421',
-    type: 'course',
-    badge: 'Free Course',
-    status: 'PAID',
-    course: {
-      name: 'Master English Grammar & Vocabulary Bootcamp (30 Days)',
-      slug: 'master-english-30-days',
-      targetType: 'course',
-      fb_group: 'https://youtube.com/@eduhunters'
-    },
-    customer: {
-      name: 'Rafid Ahmed',
-      email: 'rafid.ahmed99@gmail.com',
-      phone: '01712-345678',
-      studentId: 'EH-STU-9842',
-      address: 'Dhanmondi, Dhaka',
-      district: 'Dhaka',
-      country: 'Bangladesh'
-    },
-    paymentGateway: 'free',
-    paymentMethodName: 'Promotional / Full Scholarship',
-    totalPaid: 0,
-    subtotal: 1500,
-    discount: 1500,
-    vat: 0,
-    transactionId: 'TXN81N4FREE',
-    createdAt: new Date(Date.now() - 2 * 24 * 3600 * 1000).toISOString(),
-    items: [
-      {
-        id: 'item_2',
-        title: 'Master English Grammar & Vocabulary Bootcamp (30 Days)',
-        subtitle: 'Full 30-Day Video Lectures, Grammar Worksheets, Daily Drills & Exam Preparation Guide',
-        type: 'Online Video Course Access',
-        quantity: 1,
-        unitPrice: 1500,
-        amount: 1500
-      }
-    ]
-  },
-  {
-    id: 'ord_store_2026_6105',
-    invoiceNumber: 'INV-2026-EH-006105',
-    type: 'store',
-    badge: 'Store Purchase',
-    status: 'PAID',
-    paymentGateway: 'bkash',
-    paymentMethodName: 'bKash Merchant Pay',
-    totalPaid: 450,
-    subtotal: 500,
-    discount: 50,
-    vat: 0,
-    transactionId: 'TXN72A8RT42',
-    createdAt: new Date(Date.now() - 32 * 24 * 3600 * 1000).toISOString(),
-    customer: {
-      name: 'Md. Shafiqul Islam',
-      email: 'shafiqul.islam@example.com',
-      phone: '01712-345678',
-      studentId: 'EH-STU-6105',
-      address: 'House #12, Road #4, Dhanmondi',
-      thana: 'Dhanmondi',
-      district: 'Dhaka',
-      country: 'Bangladesh'
-    },
-    fullName: 'Md. Shafiqul Islam',
-    phone: '01712-345678',
-    address: 'House #12, Road #4, Dhanmondi',
-    thana: 'Dhanmondi',
-    district: 'Dhaka',
-    items: [
-      {
-        id: 'book_bio_1',
-        title: 'Biology High-Yield Concept & MCQ Practice Book',
-        subtitle: 'Official Printed Edition (Paperback) with 2000+ Verified Medical & University Admission Questions',
-        type: 'Printed Academic Book',
-        quantity: 1,
-        price: 450,
-        unitPrice: 450,
-        amount: 450,
-        book: {
-          name: 'Biology High-Yield Concept & MCQ Practice Book',
-          book_type: 'Printed Book',
-          image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=200&auto=format&fit=crop&q=80',
-          download_url: null
-        }
-      }
-    ]
-  }
-];
+export const INITIAL_ORDERS = [];
 
 /**
- * Retrieves all stored user orders, initializing with sample orders if empty.
+ * Retrieves all stored user orders, initializing clean for production.
  */
 export function getUserOrders() {
   try {
     const raw = localStorage.getItem(ORDERS_STORAGE_KEY);
     if (!raw) {
-      localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(INITIAL_ORDERS));
-      return INITIAL_ORDERS;
+      return [];
     }
     const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed;
+    if (Array.isArray(parsed)) {
+      const cleaned = parsed.filter(o => !['ord_exam_2026_9842', 'ord_course_2026_8421', 'ord_store_2026_6105'].includes(o.id));
+      if (cleaned.length !== parsed.length) {
+        localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(cleaned));
+      }
+      return cleaned;
     }
-    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(INITIAL_ORDERS));
-    return INITIAL_ORDERS;
+    return [];
   } catch (err) {
     console.error('[orderService] Failed to load orders from localStorage:', err);
-    return INITIAL_ORDERS;
+    return [];
   }
 }
 

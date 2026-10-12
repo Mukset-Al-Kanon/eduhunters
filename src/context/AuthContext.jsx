@@ -73,7 +73,7 @@ export function AuthProvider({ children }) {
         uid: user.uid,
         email: user.email,
         displayName: user.displayName || additionalData.displayName || user.email?.split('@')[0],
-        photoURL: user.photoURL || null,
+        photoURL: user.photoURL || additionalData.photoURL || '/avatar.png',
         role: additionalData.role || (userSnap.exists() ? userSnap.data().role : 'student'),
         lastLoginAt: serverTimestamp(),
         ...additionalData
@@ -111,7 +111,7 @@ export function AuthProvider({ children }) {
             uid: user.uid,
             email: user.email,
             displayName: user.displayName || user.email?.split('@')[0],
-            photoURL: user.photoURL,
+            photoURL: user.photoURL || '/avatar.png',
             role: user.email === 'admin@eduhunters.com' ? 'admin' : 'student'
           };
 
@@ -162,19 +162,22 @@ export function AuthProvider({ children }) {
 
   // Sign up with Email and Password
   const signup = async (email, password, displayName) => {
+    const defaultAvatar = '/avatar.png';
     if (isFirebaseConfigured && auth) {
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      if (displayName) {
-        await updateProfile(res.user, { displayName });
-      }
-      await syncUserToFirestore(res.user, { displayName });
-      setCurrentUser({
+      await updateProfile(res.user, {
+        displayName: displayName || email.split('@')[0],
+        photoURL: defaultAvatar
+      });
+      await syncUserToFirestore(res.user, { displayName, photoURL: defaultAvatar });
+      const createdUser = {
         uid: res.user.uid,
         email: res.user.email,
         displayName: displayName || res.user.displayName || email.split('@')[0],
-        photoURL: res.user.photoURL || null,
+        photoURL: defaultAvatar,
         role: email.toLowerCase() === 'admin@eduhunters.com' ? 'admin' : 'student'
-      });
+      };
+      setCurrentUser(createdUser);
       return res.user;
     } else {
       // Demo Mode Sign up
@@ -188,7 +191,7 @@ export function AuthProvider({ children }) {
         uid: 'user_' + Date.now(),
         email,
         displayName: displayName || email.split('@')[0],
-        photoURL: null,
+        photoURL: defaultAvatar,
         role: email.toLowerCase() === 'admin@eduhunters.com' ? 'admin' : 'student',
         createdAt: new Date().toISOString()
       };
@@ -214,7 +217,7 @@ export function AuthProvider({ children }) {
         uid: 'demo_student_01',
         email: cleanEmail,
         displayName: 'Demo Student',
-        photoURL: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
+        photoURL: '/avatar.png',
         role: 'student'
       };
       localStorage.setItem('eh_current_user', JSON.stringify(demoUser));
@@ -228,6 +231,7 @@ export function AuthProvider({ children }) {
         uid: 'admin_master',
         email: 'admin@eduhunters.com',
         displayName: 'Edu Hunters Admin',
+        photoURL: '/avatar.png',
         role: 'admin'
       };
       localStorage.setItem('eh_current_user', JSON.stringify(adminUser));
@@ -269,7 +273,7 @@ export function AuthProvider({ children }) {
         uid: 'g_' + Date.now(),
         email: 'student@gmail.com',
         displayName: 'Edu Hunter Scholar',
-        photoURL: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
+        photoURL: '/avatar.png',
         role: 'student'
       };
       localStorage.setItem('eh_current_user', JSON.stringify(googleUser));
@@ -306,6 +310,76 @@ export function AuthProvider({ children }) {
     setCurrentUser(null);
   };
 
+  // Update Profile (name, photo, phone/whatsapp, college, hscBatch)
+  const updateUserProfile = async (profileUpdates) => {
+    try {
+      const mergedUser = {
+        ...(currentUser || {}),
+        ...profileUpdates
+      };
+
+      // 1. Firebase Auth Profile Update (displayName & photoURL)
+      if (isFirebaseConfigured && auth && auth.currentUser) {
+        const authUpdates = {};
+        if (profileUpdates.displayName !== undefined) authUpdates.displayName = profileUpdates.displayName;
+        if (profileUpdates.photoURL !== undefined) authUpdates.photoURL = profileUpdates.photoURL;
+
+        if (Object.keys(authUpdates).length > 0) {
+          try {
+            await updateProfile(auth.currentUser, authUpdates);
+          } catch (e) {
+            console.warn('[AuthContext] Firebase auth updateProfile notice:', e);
+          }
+        }
+
+        // Firestore sync for extra fields: phone, whatsapp, college, hscBatch, etc.
+        if (db && currentUser?.uid) {
+          try {
+            const userRef = doc(db, 'users', currentUser.uid);
+            await setDoc(userRef, {
+              ...profileUpdates,
+              updatedAt: serverTimestamp()
+            }, { merge: true });
+          } catch (e) {
+            console.warn('[AuthContext] Firestore sync notice:', e);
+          }
+        }
+      }
+
+      // 2. Persist locally to eh_current_user
+      try {
+        localStorage.setItem('eh_current_user', JSON.stringify(mergedUser));
+        
+        // Also update local registered user list if present
+        const rawList = localStorage.getItem('eh_registered_users');
+        if (rawList) {
+          const list = JSON.parse(rawList);
+          if (Array.isArray(list)) {
+            const updatedList = list.map(u => 
+              (u.uid === mergedUser.uid || u.email === mergedUser.email)
+                ? { ...u, ...profileUpdates }
+                : u
+            );
+            localStorage.setItem('eh_registered_users', JSON.stringify(updatedList));
+          }
+        }
+      } catch (e) {}
+
+      // 3. Update React state
+      setCurrentUser(mergedUser);
+      
+      // 4. Trigger storage / global event for other components
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('eh_profile_updated', { detail: mergedUser }));
+      }
+
+      return mergedUser;
+    } catch (err) {
+      console.error('Failed to update profile:', err);
+      throw err;
+    }
+  };
+
   const value = {
     currentUser,
     loading,
@@ -314,7 +388,8 @@ export function AuthProvider({ children }) {
     login,
     loginWithGoogle,
     logout,
-    resetPassword
+    resetPassword,
+    updateUserProfile
   };
 
   return (

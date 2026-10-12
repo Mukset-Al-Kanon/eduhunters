@@ -6,6 +6,7 @@ import { useAuth } from '../context/AuthContext';
 export default function DevicesPage({
   data = {},
   onNavigateHome,
+  onNavigateDashboard,
   onNavigateCourse,
   onNavigateExams,
   onNavigateStore,
@@ -99,6 +100,7 @@ export default function DevicesPage({
         activePage="devices"
         siteSettings={data.siteSettings}
         onNavigateHome={onNavigateHome}
+        onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
         onNavigateStore={onNavigateStore}

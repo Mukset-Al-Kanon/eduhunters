@@ -32,6 +32,20 @@ export default function CourseStudioPage({
   openGalleryModal,
   triggerToast
 }) {
+  // Active Studio Tab: 'curriculum' | 'basic' | 'overview'
+  const [activeTab, setActiveTab] = useState(initialTab === 'details' ? 'overview' : (initialTab || 'curriculum'));
+  const [expandedSections, setExpandedSections] = useState({ 0: true, 1: true });
+  const [newLessonDrafts, setNewLessonDrafts] = useState({});
+  const [newFeatureInput, setNewFeatureInput] = useState('');
+  const [saveStatus, setSaveStatus] = useState('saved'); // 'saved' | 'saving'
+
+  // Derived Curriculum Statistics
+  const curriculum = useMemo(() => Array.isArray(course?.curriculum) ? course.curriculum : [], [course?.curriculum]);
+  const totalSections = curriculum.length;
+  const totalChapters = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters?.length || 0), 0), [curriculum]);
+  const totalLessons = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons?.length || 0), 0), 0), [curriculum]);
+  const totalFreeDemos = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons || []).filter(l => typeof l === 'object' && l.isFree).length, 0), 0), [curriculum]);
+
   const isExamBatch = Boolean(
     course?.isExamBatch ||
     course?.category === 'EXAM BATCH' ||
@@ -55,22 +69,6 @@ export default function CourseStudioPage({
       />
     );
   }
-
-  // Active Studio Tab: 'curriculum' | 'basic' | 'overview'
-  const [activeTab, setActiveTab] = useState(initialTab === 'details' ? 'overview' : (initialTab || 'curriculum'));
-  const [expandedSections, setExpandedSections] = useState({ 0: true, 1: true });
-  const [newLessonDrafts, setNewLessonDrafts] = useState({});
-  const [newFeatureInput, setNewFeatureInput] = useState('');
-  const [saveStatus, setSaveStatus] = useState('saved'); // 'saved' | 'saving'
-
-  const isAllCat = (cat) => !cat || cat === 'All' || cat === 'সকল' || cat === 'all';
-
-  // Derived Curriculum Statistics
-  const curriculum = useMemo(() => Array.isArray(course?.curriculum) ? course.curriculum : [], [course?.curriculum]);
-  const totalSections = curriculum.length;
-  const totalChapters = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters?.length || 0), 0), [curriculum]);
-  const totalLessons = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons?.length || 0), 0), 0), [curriculum]);
-  const totalFreeDemos = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons || []).filter(l => typeof l === 'object' && l.isFree).length, 0), 0), [curriculum]);
 
   // Helper to trigger save with animation
   const notifySave = (updatedCourse) => {
@@ -1085,8 +1083,8 @@ export default function CourseStudioPage({
                   <label className="text-xs font-bold text-slate-700 block mb-1.5">Support Helpline / WhatsApp Contact</label>
                   <input
                     type="text"
-                    value={course.supportPhone || '01321228612'}
-                    placeholder="01321228612"
+                    value={course.supportPhone || '01353828863'}
+                    placeholder="01353828863"
                     onChange={(e) => handleUpdateField('supportPhone', e.target.value)}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-mono text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] transition-all"
                   />

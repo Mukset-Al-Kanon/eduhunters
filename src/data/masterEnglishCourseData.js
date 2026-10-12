@@ -28,7 +28,7 @@ export const masterEnglishCourseData = {
     "HSC ও এডমিশন ফুল কভার",
     "সহজ ও সংক্ষিপ্ত টেকনিক"
   ],
-  supportPhone: "01321228612",
+  supportPhone: "01353828863",
   previewVideoUrl: "https://www.youtube.com/watch?v=JJwW2McsARM",
   curriculum: [
     {

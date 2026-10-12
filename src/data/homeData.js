@@ -23,9 +23,9 @@ export const heroSlidesData = [
 ];
 
 export const homeStatsData = [
-  { value: "3000+", label: "#Students" },
-  { value: "70000+", label: "Community Members" },
-  { value: "15+", label: "Paid Batch" }
+  { value: "5000+", label: "Students" },
+  { value: "50000+", label: "Questions" },
+  { value: "800+", label: "Exams" }
 ];
 
 import { freeCoursesData } from './freeCoursesData';
