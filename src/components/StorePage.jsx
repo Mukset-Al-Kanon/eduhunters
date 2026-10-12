@@ -248,7 +248,7 @@ export default function StorePage({
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
               <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 gap-4">
                 <div className="flex items-center gap-2">
-                  <img src="/logo.png" alt="Edu Hunters" className="h-6 w-auto" />
+                  <img src="/logo.png" alt="Edu Hunters" className="h-6 w-6 rounded-full object-cover shadow-sm" />
                   <span className="font-bold text-[#ff3b61]">HUNTERS STORE</span>
                 </div>
                 <p>© 2026 Edu Hunters. All rights reserved.</p>
@@ -261,11 +261,11 @@ export default function StorePage({
             </div>
           </footer>
         ) : (
-          <footer className="bg-[#dc2626] eh-dots-light text-white py-10">
+          <footer className="bg-[#dc2626] text-white py-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-white/80 gap-4">
-                <div className="flex items-center gap-2 bg-white rounded-lg px-2.5 py-1">
-                  <img src="/logo.png" alt="Edu Hunters" className="h-5 w-auto" />
+                <div className="flex items-center gap-2 bg-white rounded-full px-2.5 py-1">
+                  <img src="/logo.png" alt="Edu Hunters" className="h-5 w-5 rounded-full object-cover" />
                   <span className="font-bold text-[#dc2626]">HUNTERS STORE</span>
                 </div>
                 <p className="text-white/70">© 2026 Edu Hunters. All rights reserved.</p>

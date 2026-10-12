@@ -72,7 +72,7 @@ export async function sendVerificationOTP(email, userName = 'Student') {
 
   if (serviceId && templateId && publicKey) {
     try {
-      await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -88,6 +88,12 @@ export async function sendVerificationOTP(email, userName = 'Student') {
           }
         })
       });
+      if (!response.ok) {
+        const errText = await response.text();
+        console.warn('[OTP Service] EmailJS dispatch warning:', response.status, errText);
+      } else {
+        console.info('[OTP Service] EmailJS OTP email sent successfully.');
+      }
     } catch (error) {
       console.warn('[OTP Service] EmailJS dispatch encountered an issue:', error);
     }

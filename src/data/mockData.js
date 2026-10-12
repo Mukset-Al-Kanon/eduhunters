@@ -72,9 +72,10 @@ export const isZenithCopiedCourse = (course) => {
 export const initialData = {
   // Brand & Site Settings
   siteSettings: {
-    siteName: "EDU HUNTERS",
+    siteName: "EduHunters",
     siteTagline: "সেরা এডটেক লার্নিং ও এক্সাম প্ল্যাটফর্ম",
-    logoUrl: "/logo.png",
+    logoUrl: "/logo-crimson.png",
+    logoLightUrl: "/logo-light.png",
     contactPhone: "+880 1700-000000",
     contactEmail: "support@eduhunters.com",
     facebookPage: "https://www.facebook.com/profile.php?id=61585769408167",

@@ -544,7 +544,7 @@ export default function RtdsCurriculumView({
 
   return (
     <div className={`w-full rounded-2xl border transition-all duration-300 font-sans shadow-xs ${
-      isDark ? 'bg-[#0f131d] border-white/[0.08]' : 'bg-white border-gray-200'
+      isDark ? 'bg-[#140306] border-[#e11438]/20 shadow-[0_12px_35px_rgba(0,0,0,0.7)]' : 'bg-white border-gray-200'
     }`}>
       {/* Outer Card Header: Dynamic Title with clean minimal back button on left */}
       <div className="px-6 py-4 border-b border-gray-100 dark:border-white/[0.08] flex items-center justify-between">
@@ -735,7 +735,7 @@ export default function RtdsCurriculumView({
                           onSelectExam(exam);
                         }
                       }}
-                      className={`w-full py-3.5 px-4 sm:px-5 rounded-xl border text-left transition-all duration-200 cursor-pointer shadow-2xs hover:scale-[1.01] active:scale-[0.99] flex items-center justify-between gap-4 group ${
+                      className={`w-full py-3.5 px-4 sm:px-5 rounded-xl border text-left transition-all duration-150 cursor-pointer shadow-2xs hover:scale-[1.01] active:scale-[0.98] active:brightness-95 select-none flex items-center justify-between gap-4 group ${
                         isDark
                           ? 'bg-[#121622] hover:bg-[#181f30] border-white/[0.08] hover:border-red-500/50 text-white'
                           : 'bg-white hover:bg-red-50/30 border-gray-200 hover:border-red-400 text-gray-800'
@@ -776,13 +776,8 @@ export default function RtdsCurriculumView({
                       </div>
 
                       <div className="shrink-0 flex items-center">
-                        {!isEnrolled ? (
+                        {!isEnrolled && (
                           <Lock size={16} strokeWidth={1.8} className="shrink-0 text-gray-400 dark:text-gray-400 group-hover:text-red-500 transition-colors" />
-                        ) : (
-                          <span className="text-[11px] font-bold px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1 group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                            <Play size={11} className="fill-current" />
-                            <span>শুরু করি</span>
-                          </span>
                         )}
                       </div>
                     </button>

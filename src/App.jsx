@@ -178,7 +178,7 @@ export default function App() {
         } catch (e) {}
       }
       try {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       } catch (e) {}
     };
 
@@ -191,6 +191,7 @@ export default function App() {
     };
 
     if (typeof document !== 'undefined' && 'startViewTransition' in document) {
+      document.documentElement.classList.add('page-navigating');
       try {
         const transition = document.startViewTransition(() => {
           executeUpdate();
@@ -198,10 +199,12 @@ export default function App() {
         transition.finished
           .catch(() => {})
           .finally(() => {
+            document.documentElement.classList.remove('page-navigating');
             clearTimeout(progressTimer);
             finalize();
           });
       } catch (err) {
+        document.documentElement.classList.remove('page-navigating');
         clearTimeout(progressTimer);
         executeUpdate();
         finalize();
@@ -863,10 +866,10 @@ export default function App() {
       </div>
 
       {/* Ultra-Smooth Silk Page Container with ErrorBoundary Protection */}
-      <ErrorBoundary key={pageKey}>
+      <ErrorBoundary key={`${viewMode}-${selectedCourseId || ''}-${selectedBundleId || ''}-${selectedExamCategory || ''}`}>
         <div
-          className={`page-transition-container ${isAnimatingKey ? 'page-animating' : ''}`}
-          onAnimationEnd={() => setIsAnimatingKey(false)}
+          key={`${viewMode}-${selectedCourseId || ''}-${selectedBundleId || ''}-${selectedExamCategory || ''}`}
+          className="page-transition-container page-animating"
         >
           {renderContent()}
         </div>

@@ -36,7 +36,7 @@ export default function CategoryDetailModal({ isOpen, category, onClose, onStart
       <div 
         className={`relative w-full max-w-2xl max-h-[92vh] flex flex-col rounded-3xl overflow-hidden shadow-2xl z-10 border transition-all transform animate-scaleUp ${
           isDark 
-            ? 'bg-[#111317] border-white/[0.08] text-gray-100 shadow-[0_20px_60px_rgba(0,0,0,0.8)]' 
+            ? 'bg-[#140306] border-[#e11438]/25 text-gray-100 shadow-[0_20px_60px_rgba(0,0,0,0.85)]' 
             : 'bg-white border-gray-200 text-gray-900 shadow-2xl'
         }`}
       >

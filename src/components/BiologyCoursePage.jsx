@@ -600,7 +600,7 @@ export default function BiologyCoursePage({
       {/* Footer (Hidden on mobile) */}
       <div className="hidden sm:block">
         {isDark ? (
-          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 mt-16 py-10 text-center text-xs text-gray-400">
+          <footer className="bg-[#0f0205] text-white border-t border-[#e11438]/25 mt-16 py-10 text-center text-xs text-gray-400">
             <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
               <div>
                 <p className="font-semibold text-[#ff3b61] mb-1">EDU HUNTERS · Premier Edtech Learning Platform</p>
@@ -614,7 +614,7 @@ export default function BiologyCoursePage({
             </div>
           </footer>
         ) : (
-          <footer className="bg-[#dc2626] eh-dots-light text-white border-t border-white/[0.06] mt-16">
+          <footer className="bg-[#dc2626] text-white border-t border-white/[0.06] mt-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
                 <div className="flex flex-col justify-between gap-8">
@@ -624,10 +624,10 @@ export default function BiologyCoursePage({
                         <img 
                           src="/logo.png" 
                           alt="Edu Hunters" 
-                          className="h-8 w-auto object-contain"
+                          className="h-8 w-8 rounded-full object-cover"
                         />
-                        <span className="ml-2 font-black text-xl text-[#dc2626]">
-                          EDU <span className="text-[#111827]">HUNTERS</span>
+                        <span className="ml-2 font-black text-xl">
+                          <span className="text-[#6f0113]">Edu</span><span className="text-[#111827]">Hunters</span>
                         </span>
                       </span>
                     </a>

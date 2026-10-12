@@ -1,21 +1,17 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { 
   ArrowLeft, 
   Layers, 
   BookOpen, 
   Save, 
-  Trash2, 
   Check, 
   X, 
   Search, 
   DollarSign, 
   Sparkles, 
   CheckCircle2, 
-  AlertCircle, 
-  Plus, 
-  Eye, 
-  Copy,
-  Tag
+  Upload, 
+  Image as ImageIcon
 } from 'lucide-react';
 
 export default function BundleStudioPage({
@@ -26,6 +22,7 @@ export default function BundleStudioPage({
   triggerToast
 }) {
   const isNew = !bundle?.title;
+  const fileInputRef = useRef(null);
 
   const [form, setForm] = useState({
     id: bundle?.id || `bundle-${Date.now()}`,
@@ -47,6 +44,46 @@ export default function BundleStudioPage({
 
   const [courseSearchQuery, setCourseSearchQuery] = useState('');
   const [newFeatureText, setNewFeatureText] = useState('');
+
+  // Handle direct file upload from device
+  const handleDeviceImageUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      if (triggerToast) triggerToast('Please select a valid image file');
+      else alert('Please select a valid image file');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (uploadEvent) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const maxDim = 1200;
+        let width = img.width;
+        let height = img.height;
+        if (width > maxDim || height > maxDim) {
+          if (width > height) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          } else {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        const optimized = canvas.toDataURL('image/jpeg', 0.88);
+        setForm(prev => ({ ...prev, image: optimized }));
+        if (triggerToast) triggerToast('Banner image selected successfully!');
+      };
+      img.src = uploadEvent.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
 
   // Resolve currently selected courses objects
   const selectedCourses = useMemo(() => {
@@ -94,7 +131,6 @@ export default function BundleStudioPage({
         ? prev.courseIds.filter(id => id !== courseId)
         : [...prev.courseIds, courseId];
 
-      // Calculate new sum
       let sum = 0;
       nextIds.forEach(id => {
         const match = courses.find(item => item.id === id || item.slug === id || item.key === id);
@@ -106,7 +142,6 @@ export default function BundleStudioPage({
       return {
         ...prev,
         courseIds: nextIds,
-        // Auto-suggest regularPrice if not set yet or was 0
         regularPrice: prev.regularPrice && Number(prev.regularPrice) > 0 ? prev.regularPrice : (sum > 0 ? String(sum) : '')
       };
     });
@@ -248,7 +283,7 @@ export default function BundleStudioPage({
                   <span className="w-2 h-2 rounded-full bg-[#5d5bf6]" />
                   Bundle Information
                 </h2>
-                <span className="text-[11px] text-slate-400 font-medium">Core metadata</span>
+                <span className="text-[11px] text-slate-400 font-medium">Basic info</span>
               </div>
 
               {/* Title Input */}
@@ -269,13 +304,13 @@ export default function BundleStudioPage({
               {/* Subtitle / Tagline Input */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                  Subtitle / Highlights Line
+                  Short Tagline / Subtitle
                 </label>
                 <input
                   type="text"
                   value={form.subtitle}
                   onChange={(e) => setForm({ ...form, subtitle: e.target.value })}
-                  placeholder="e.g. SureShot + Medical Special + RTDS + Medilogy Intensive"
+                  placeholder="e.g. SureShot + Medical Special + RTDS"
                   className="w-full bg-[#f8fafc] border border-slate-200 rounded-xl px-4 py-2 text-xs font-medium text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] focus:ring-2 focus:ring-[#5d5bf6]/15 transition-all placeholder:text-slate-400"
                 />
               </div>
@@ -283,14 +318,14 @@ export default function BundleStudioPage({
               {/* Description Textarea */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                  Detailed Description
+                  Description <span className="text-slate-400 font-normal">(Optional)</span>
                 </label>
                 <textarea
-                  rows={4}
+                  rows={2}
                   value={form.description}
                   onChange={(e) => setForm({ ...form, description: e.target.value })}
-                  placeholder="Provide a comprehensive summary of what students will achieve, master, and benefit from this combo pack..."
-                  className="w-full bg-[#f8fafc] border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-700 outline-none focus:bg-white focus:border-[#5d5bf6] focus:ring-2 focus:ring-[#5d5bf6]/15 transition-all resize-none leading-relaxed placeholder:text-slate-400"
+                  placeholder="Short description for bundle details..."
+                  className="w-full bg-[#f8fafc] border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-700 outline-none focus:bg-white focus:border-[#5d5bf6] focus:ring-2 focus:ring-[#5d5bf6]/15 transition-all resize-none leading-relaxed placeholder:text-slate-400"
                 />
               </div>
             </section>
@@ -488,46 +523,86 @@ export default function BundleStudioPage({
             <section className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)] space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                 <h2 className="text-sm font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-                  <Tag className="w-4 h-4 text-[#5d5bf6]" />
-                  Appearance & Badge
+                  <ImageIcon className="w-4 h-4 text-[#5d5bf6]" />
+                  Bundle Banner Image
                 </h2>
                 <button
                   type="button"
                   onClick={() => setForm(prev => ({ ...prev, image: 'https://assets.codervai.com/courses/1781447985147-extra_info_batch.webp' }))}
-                  className="text-[11px] font-bold text-[#5d5bf6] hover:underline bg-transparent border-none cursor-pointer p-0"
+                  className="text-[11px] font-bold text-slate-400 hover:text-[#5d5bf6] bg-transparent border-none cursor-pointer p-0 transition-colors"
                 >
-                  Use Standard Banner
+                  Reset Default
                 </button>
               </div>
 
-              {/* Image URL & Thumbnail Preview */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                  Cover Banner URL
-                </label>
-                <input
-                  type="text"
-                  value={form.image}
-                  onChange={(e) => setForm({ ...form, image: e.target.value })}
-                  placeholder="https://... or /image.png"
-                  className="w-full bg-[#f8fafc] border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-medium text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
-                />
-              </div>
+              {/* Hidden Device File Input */}
+              <input 
+                ref={fileInputRef}
+                type="file" 
+                accept="image/*" 
+                onChange={handleDeviceImageUpload}
+                className="hidden" 
+              />
 
-              {form.image && (
-                <div className="relative aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xs">
-                  <img src={form.image} alt="Preview" className="w-full h-full object-cover" />
-                  {form.badge && (
-                    <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#5d5bf6] text-white shadow-xs">
-                      {form.badge}
-                    </span>
+              {/* Banner Preview & Upload Trigger */}
+              <div className="space-y-3">
+                <div 
+                  onClick={() => fileInputRef.current?.click()}
+                  className="group relative aspect-video rounded-xl overflow-hidden border-2 border-dashed border-slate-200 hover:border-[#5d5bf6] bg-slate-50 cursor-pointer transition-all flex flex-col items-center justify-center text-center shadow-xs"
+                >
+                  {form.image ? (
+                    <>
+                      <img src={form.image} alt="Bundle Preview" className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" />
+                      <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white gap-2 backdrop-blur-2xs">
+                        <Upload className="w-6 h-6" />
+                        <span className="text-xs font-bold">Click to change banner from device</span>
+                      </div>
+                      {form.badge && (
+                        <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#5d5bf6] text-white shadow-xs">
+                          {form.badge}
+                        </span>
+                      )}
+                    </>
+                  ) : (
+                    <div className="p-6 flex flex-col items-center gap-2 text-slate-500">
+                      <div className="w-12 h-12 rounded-full bg-[#5d5bf6]/10 text-[#5d5bf6] flex items-center justify-center">
+                        <Upload className="w-6 h-6" />
+                      </div>
+                      <p className="text-xs font-bold text-slate-700">Choose banner from device</p>
+                      <p className="text-[11px] text-slate-400">PNG, JPG, WebP up to 5MB</p>
+                    </div>
                   )}
                 </div>
-              )}
+
+                {/* Upload Button & URL Alternative */}
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="flex-1 py-2.5 px-3 rounded-xl bg-[#5d5bf6]/10 hover:bg-[#5d5bf6]/20 text-[#5d5bf6] text-xs font-bold flex items-center justify-center gap-2 cursor-pointer border-none transition-colors"
+                  >
+                    <Upload className="w-4 h-4" />
+                    <span>Upload from Device</span>
+                  </button>
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-bold text-slate-600 mb-1">
+                    Or Image URL / Path
+                  </label>
+                  <input
+                    type="text"
+                    value={form.image}
+                    onChange={(e) => setForm({ ...form, image: e.target.value })}
+                    placeholder="https://... or /image.png"
+                    className="w-full bg-[#f8fafc] border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-medium text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
+                  />
+                </div>
+              </div>
 
               {/* Promo Badge */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <div className="pt-2 border-t border-slate-100">
+                <label className="block text-[11px] font-bold text-slate-600 mb-1">
                   Promo Badge Text
                 </label>
                 <input

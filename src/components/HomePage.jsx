@@ -505,7 +505,7 @@ export default function HomePage({
                     }}
                     className={`rounded-2xl overflow-hidden flex flex-col group cursor-pointer transition-all border ${
                       isDark 
-                        ? 'bg-[#111317] border-[#e11438]/25 hover:border-[#e11438]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)] text-white' 
+                        ? 'bg-[#140306] border-[#e11438]/25 hover:border-[#e11438]/50 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)] text-white' 
                         : 'bg-white shadow-md hover:shadow-xl border-red-200 hover:border-red-400 ring-2 ring-red-500/10 text-[#111827]'
                     }`}
                   >
@@ -534,40 +534,16 @@ export default function HomePage({
                     </div>
 
                     <div className="p-4 flex flex-col flex-1">
-                      <h3 className={`font-bold mb-1 line-clamp-1 transition-colors text-base ${
+                      <h3 className={`font-bold mb-1.5 line-clamp-1 transition-colors text-base ${
                         isDark ? 'text-white group-hover:text-red-300' : 'text-[#111827] group-hover:text-[#dc2626]'
                       }`}>
                         {bundle.title}
                       </h3>
                       {bundle.subtitle && (
-                        <p className={`text-xs mb-2 line-clamp-1 font-semibold ${isDark ? 'text-[#ff6b8b]' : 'text-red-600'}`}>
+                        <p className={`text-xs mb-4 line-clamp-1 font-semibold ${isDark ? 'text-[#ff6b8b]' : 'text-red-600'}`}>
                           {bundle.subtitle}
                         </p>
                       )}
-                      <p className={`text-xs mb-3 line-clamp-2 ${isDark ? 'text-gray-400' : 'text-[#4b5563]'}`}>
-                        {bundle.description}
-                      </p>
-
-                      <div className="mb-3 pt-2 border-t border-gray-100 dark:border-white/10">
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
-                          এই বান্ডিলে যা যা থাকছে:
-                        </p>
-                        <div className="flex flex-wrap gap-1">
-                          {(bundle.courseIds || []).map((cId, idx) => {
-                            const cObj = homeCourses.find(item => item.id === cId || item.slug === cId || item.key === cId);
-                            return (
-                              <span 
-                                key={idx}
-                                className={`text-[10px] font-semibold px-2 py-0.5 rounded-md truncate max-w-[150px] ${
-                                  isDark ? 'bg-white/10 text-gray-200' : 'bg-red-50 text-red-700 border border-red-100'
-                                }`}
-                              >
-                                ✓ {cObj?.title || cId}
-                              </span>
-                            );
-                          })}
-                        </div>
-                      </div>
 
                       <div className={`mt-auto flex items-end justify-between gap-2 pt-3 border-t ${
                         isDark ? 'border-white/[0.08]' : 'border-gray-100'
@@ -597,24 +573,23 @@ export default function HomePage({
                             if (onNavigateBundle) onNavigateBundle(bundle.id);
                             else if (onNavigateCourse) onNavigateCourse(bundle.id);
                           }}
-                          className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
+                          className={`text-sm sm:text-base font-bold ${
                             isDark 
-                              ? 'text-white hover:text-[#ff4d6d]' 
-                              : 'text-[#dc2626] hover:text-red-700'
-                          }`}
+                              ? 'text-white hover:text-gray-300' 
+                              : 'text-[#dc2626] hover:text-[#b91c1c]'
+                          } bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 leading-none group/btn`}
                         >
                           <span className="leading-none">বিস্তারিত</span>
                           <svg 
-                            className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                            className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-current transition-transform duration-200 group-hover/btn:translate-x-0.5 shrink-0" 
                             viewBox="0 0 24 24" 
                             fill="none" 
-                            stroke="#e11438" 
-                            strokeWidth="3.8" 
+                            stroke="currentColor" 
+                            strokeWidth="2.8" 
                             strokeLinecap="round" 
                             strokeLinejoin="round"
                           >
-                            <path d="M5 12h14" />
-                            <path d="m12 5 7 7-7 7" />
+                            <path d="m9 18 6-6-6-6" />
                           </svg>
                         </button>
                       </div>
@@ -637,7 +612,7 @@ export default function HomePage({
                   onClick={() => onNavigateExams && onNavigateExams(cat.key)}
                   className={`rounded-2xl overflow-hidden flex flex-col group cursor-pointer transition-all ${
                     isDark 
-                      ? 'bg-[#111317] shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/[0.08] hover:border-white/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.7)] text-white' 
+                      ? 'bg-[#140306] shadow-[0_12px_35px_rgba(0,0,0,0.7)] border border-[#e11438]/20 hover:border-[#e11438]/45 hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)] text-white' 
                       : 'bg-white shadow-sm border border-[#e5e7eb] hover:shadow-xl hover:border-red-200 text-[#111827]'
                   }`}
                 >
@@ -711,24 +686,23 @@ export default function HomePage({
                           e.stopPropagation();
                           onNavigateExams && onNavigateExams(cat.key);
                         }}
-                        className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
+                        className={`text-sm sm:text-base font-bold ${
                           isDark 
-                            ? 'text-white hover:text-[#ff4d6d]' 
-                            : 'text-[#dc2626] hover:text-red-700'
-                        }`}
+                            ? 'text-white hover:text-gray-300' 
+                            : 'text-[#dc2626] hover:text-[#b91c1c]'
+                        } bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 leading-none group/btn`}
                       >
                         <span className="leading-none">বিস্তারিত</span>
                         <svg 
-                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-current transition-transform duration-200 group-hover/btn:translate-x-0.5 shrink-0" 
                           viewBox="0 0 24 24" 
                           fill="none" 
-                          stroke="#e11438" 
-                          strokeWidth="3.8" 
+                          stroke="currentColor" 
+                          strokeWidth="2.8" 
                           strokeLinecap="round" 
                           strokeLinejoin="round"
                         >
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
+                          <path d="m9 18 6-6-6-6" />
                         </svg>
                       </button>
                     </div>
@@ -742,9 +716,9 @@ export default function HomePage({
                   onClick={() => handleCourseClick(c.id || c.slug)}
                   className={`rounded-2xl overflow-hidden flex flex-col group cursor-pointer transition-all ${
                     isDark 
-                      ? 'bg-[#111317] shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/[0.08] hover:border-white/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.7)] text-white' 
+                      ? 'bg-[#140306] shadow-[0_12px_35px_rgba(0,0,0,0.7)] border border-[#e11438]/20 hover:border-[#e11438]/45 hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)] text-white' 
                       : 'bg-white shadow-sm border border-[#e5e7eb] hover:shadow-xl hover:border-red-200 text-[#111827]'
-                  } ${c.isBundle && isDark ? 'border-white/20' : ''}`}
+                  } ${c.isBundle && isDark ? 'border-[#e11438]/40' : ''}`}
                 >
                   {/* Thumbnail */}
                   <div className={`aspect-video overflow-hidden relative ${isDark ? 'bg-black/60' : 'bg-gray-100'}`}>
@@ -782,7 +756,7 @@ export default function HomePage({
                         </p>
                         <div className="flex items-center gap-2">
                           {c.isFree ? (
-                            <span className="text-xl sm:text-2xl font-black text-emerald-400">FREE</span>
+                            <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-emerald-600'}`}>FREE</span>
                           ) : (
                             <>
                               <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
@@ -803,24 +777,23 @@ export default function HomePage({
                       
                       <button 
                         onClick={(e) => handleEnrollClick(c, e)}
-                        className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
+                        className={`text-sm sm:text-base font-bold ${
                           isDark 
-                            ? 'text-white hover:text-[#ff4d6d]' 
-                            : 'text-[#dc2626] hover:text-red-700'
-                        }`}
+                            ? 'text-white hover:text-gray-300' 
+                            : 'text-[#dc2626] hover:text-[#b91c1c]'
+                        } bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 leading-none group/btn`}
                       >
                         <span className="leading-none">বিস্তারিত</span>
                         <svg 
-                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-current transition-transform duration-200 group-hover/btn:translate-x-0.5 shrink-0" 
                           viewBox="0 0 24 24" 
                           fill="none" 
-                          stroke="#e11438" 
-                          strokeWidth="3.8" 
+                          stroke="currentColor" 
+                          strokeWidth="2.8" 
                           strokeLinecap="round" 
                           strokeLinejoin="round"
                         >
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
+                          <path d="m9 18 6-6-6-6" />
                         </svg>
                       </button>
                     </div>
@@ -953,11 +926,6 @@ export default function HomePage({
           <div className="eh-band relative overflow-hidden rounded-2xl mb-14">
             <div className="px-6 py-7 md:px-8 md:py-9 flex-col text-center justify-center relative z-10 flex flex-wrap items-center gap-3">
               <div className="min-w-0">
-                <span className={`block text-[11px] font-bold uppercase tracking-[0.22em] mb-2 ${
-                  isDark ? 'text-[#ff6b8b]' : 'text-white/80'
-                }`}>
-                  {st.videosBadge || "ইউটিউব কন্টেন্ট"}
-                </span>
                 <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
                   {st.videosTitle1 || "প্লে করে দেখো"} <br/>
                   <span className="inline-block mt-1">{st.videosTitle2 || "আমার সেরা কিছু ভিডিও"}</span>
@@ -1050,11 +1018,6 @@ export default function HomePage({
             <div className="eh-band relative overflow-hidden rounded-2xl">
               <div className="px-6 py-7 md:px-8 md:py-9 flex-col text-center justify-center relative z-10 flex flex-wrap items-center gap-3">
                 <div className="min-w-0">
-                  <span className={`block text-[11px] font-bold uppercase tracking-[0.22em] mb-2 ${
-                    isDark ? 'text-[#ff6b8b]' : 'text-white/80'
-                  }`}>
-                    {st.reviewsBadge || "সামাজিক মাধ্যমে পাওয়া রিভিউ"}
-                  </span>
                   <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
                     {st.reviewsTitle || "শিক্ষার্থীদের রিভিউ"}
                   </h2>
@@ -1191,27 +1154,33 @@ export default function HomePage({
       </main>
 
       {/* FOOTER */}
-      <footer className={`eh-dots-light text-white transition-colors duration-300 ${
+      <footer className={`text-white transition-colors duration-300 ${
         isDark 
-          ? 'bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] border-t border-[#e11438]/25' 
+          ? 'bg-[#0f0205] border-t border-[#e11438]/25' 
           : 'bg-[#dc2626]'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
             <div className="flex flex-col justify-between gap-8">
               <div>
-                <div className={`inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6 ${
+                <div className={`inline-flex items-center gap-3 rounded-full pl-1.5 pr-4 py-1.5 mb-6 ${
                   isDark 
-                    ? 'bg-[#140307] border border-[#e11438]/30 shadow-[0_4px_20px_rgba(0,0,0,0.5)]' 
-                    : 'bg-white shadow-sm'
+                    ? 'bg-white/5 border border-white/10' 
+                    : 'bg-white/10 border border-white/15'
                 }`}>
-                  <img src={siteSettings.logoUrl || "/logo.png"} alt={siteSettings.siteName || "Edu Hunters"} className="h-8 w-auto max-w-32 object-contain" />
-                  <span className={`text-base font-black ${isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'}`}>
-                    {siteSettings.siteName || "EDU HUNTERS"}
+                  <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 flex items-center justify-center shadow-md">
+                    <img 
+                      src={siteSettings.logoUrl || "/logo-crimson.png"} 
+                      alt="EduHunters" 
+                      className="w-full h-full object-contain" 
+                    />
+                  </div>
+                  <span className="text-sm font-black tracking-tight text-white">
+                    EduHunters
                   </span>
                 </div>
                 <p className={`text-xs max-w-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-white/90'}`}>
-                  {st.footerDesc || "দেশের সেরা শিক্ষকমন্ডলী ও মেন্টরদের তত্ত্বাবধানে তোমার স্বপ্নের প্রস্তুতি নিশ্চিত করো।"}
+                  Empowering ambitious students with top-tier educators, smart exams, and comprehensive admission preparation.
                 </p>
               </div>
 
@@ -1221,10 +1190,10 @@ export default function HomePage({
                   target="_blank" 
                   rel="noreferrer" 
                   aria-label="Edu Hunters Facebook"
-                  className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                     isDark 
-                      ? 'border border-[#e11438]/30 bg-[#160307] hover:border-[#e11438] hover:bg-[#e11438]/20' 
-                      : 'border border-white/20 bg-white/10 hover:bg-white/20'
+                      ? 'text-gray-300 border-white/15 bg-white/5 hover:border-white/30 hover:text-white hover:bg-white/10' 
+                      : 'text-white border-white/30 bg-white/10 hover:border-white/50 hover:bg-white/20'
                   }`}
                 >
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
@@ -1234,10 +1203,10 @@ export default function HomePage({
                   target="_blank" 
                   rel="noreferrer" 
                   aria-label="Edu Hunters YouTube"
-                  className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all text-white ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                     isDark 
-                      ? 'border border-[#e11438]/30 bg-[#160307] hover:border-[#e11438] hover:bg-[#e11438]/20' 
-                      : 'border border-white/20 bg-white/10 hover:bg-white/20'
+                      ? 'text-gray-300 border-white/15 bg-white/5 hover:border-white/30 hover:text-white hover:bg-white/10' 
+                      : 'text-white border-white/30 bg-white/10 hover:border-white/50 hover:bg-white/20'
                   }`}
                 >
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
@@ -1247,71 +1216,69 @@ export default function HomePage({
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               <div>
-                <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 ${
-                  isDark ? 'text-[#ff6b8b]' : 'text-white'
-                }`}>দ্রুত লিঙ্ক</p>
-                <ul className={`space-y-2 text-xs ${isDark ? 'text-gray-300' : 'text-white/80'}`}>
-                  <li><button onClick={onNavigateCourse} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">সকল কোর্সসমূহ</button></li>
-                  <li><button onClick={onNavigateExams} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">ফ্রি ও পেইড এক্সাম</button></li>
-                  <li><button onClick={onNavigateStore} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">বুক ও ম্যাটেরিয়াল স্টোর</button></li>
-                  <li><button onClick={onNavigateAbout} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">আমাদের শিক্ষক পরিচিতি</button></li>
+                <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-4 ${isDark ? 'text-gray-200' : 'text-white'}`}>
+                  QUICK LINKS
+                </p>
+                <ul className={`space-y-2.5 text-xs ${isDark ? 'text-gray-300' : 'text-white/90'}`}>
+                  <li><button onClick={onNavigateCourse} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">All Courses</button></li>
+                  <li><button onClick={onNavigateExams} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">Live & Practice Exams</button></li>
+                  <li><button onClick={onNavigateStore} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">Book & Resource Store</button></li>
+                  <li><button onClick={onNavigateAbout} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">Instructors & Mentors</button></li>
                 </ul>
               </div>
               <div>
-                <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 ${
-                  isDark ? 'text-[#ff6b8b]' : 'text-white'
-                }`}>LEGAL & POLICIES</p>
-                <ul className={`space-y-2 text-xs ${isDark ? 'text-gray-300' : 'text-white/80'}`}>
-                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">Terms & Conditions</button></li>
-                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">Refund Policy</button></li>
-                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer">Privacy Policy</button></li>
+                <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-4 ${isDark ? 'text-gray-200' : 'text-white'}`}>
+                  LEGAL & POLICIES
+                </p>
+                <ul className={`space-y-2.5 text-xs ${isDark ? 'text-gray-300' : 'text-white/90'}`}>
+                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">Terms & Conditions</button></li>
+                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">Refund Policy</button></li>
+                  <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">Privacy Policy</button></li>
                 </ul>
               </div>
               <div>
-                <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 ${
-                  isDark ? 'text-[#ff6b8b]' : 'text-white'
-                }`}>আমাদের ব্যাচ সমূহ</p>
-                <div className={`space-y-2 text-xs ${isDark ? 'text-gray-300' : 'text-white/80'}`}>
-                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Mastering Text Book Biology</div>
-                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Mastering Text Book Chemistry</div>
-                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Medical Exam Batch</div>
-                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate">Ketab Sir MCQ Solve Course</div>
+                <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-4 ${isDark ? 'text-gray-200' : 'text-white'}`}>
+                  FEATURED BATCHES
+                </p>
+                <div className={`space-y-2.5 text-xs ${isDark ? 'text-gray-300' : 'text-white/90'}`}>
+                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate transition-colors">Mastering Text Book Biology</div>
+                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate transition-colors">Mastering Text Book Chemistry</div>
+                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate transition-colors">Medical Exam Batch</div>
+                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate transition-colors">Ketab Sir MCQ Solve Course</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className={`border-t mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs gap-3 ${
-            isDark ? 'border-[#e11438]/20 text-gray-400' : 'border-white/20 text-white/80'
-          }`}>
-            <p>{st.footerCopyright || "© 2026 Edu Hunters. All rights reserved."}</p>
+          <div className={`border-t ${isDark ? 'border-white/10' : 'border-white/20'} mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs ${isDark ? 'text-gray-400' : 'text-white/85'} gap-3`}>
+            <p>© 2026 Edu Hunters. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <button 
                 onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')}
-                className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
+                className="hover:underline hover:text-white bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
               >
                 Privacy Policy
               </button>
               <button 
                 onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')}
-                className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
+                className="hover:underline hover:text-white bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
               >
                 Terms of Use
               </button>
               <button 
                 onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')}
-                className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
+                className="hover:underline hover:text-white bg-transparent border-none p-0 text-inherit cursor-pointer text-xs"
               >
                 Refund Policy
               </button>
               <button 
                 onClick={onOpenAdmin} 
                 className={`transition-colors bg-transparent border-none text-xs cursor-pointer ${
-                  isDark ? 'text-white/30 hover:text-[#ff3b61]' : 'text-white/60 hover:text-white'
+                  isDark ? 'text-white/30 hover:text-white' : 'text-white/70 hover:text-white'
                 }`}
-                title="গোপন এডমিন প্যানেল প্রবেশদ্বার"
+                title="Admin Portal"
               >
-                এডমিন প্যানেল
+                Admin
               </button>
             </div>
           </div>

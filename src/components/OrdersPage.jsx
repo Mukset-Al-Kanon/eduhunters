@@ -419,7 +419,7 @@ export default function OrdersPage({
       {/* Footer matching Edu Hunters (Hidden on mobile) */}
       <div className="hidden sm:block">
         {isDark ? (
-          <footer className="bg-gradient-to-b from-[#180408] via-[#0d0205] to-[#050102] text-white border-t border-[#e11438]/25 py-8 text-center text-xs text-gray-400">
+          <footer className="bg-[#0f0205] text-white border-t border-[#e11438]/25 py-8 text-center text-xs text-gray-400">
             <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
               <p>© 2026 Edu Hunters. All rights reserved.</p>
               <div className="flex items-center gap-4">
@@ -430,7 +430,7 @@ export default function OrdersPage({
             </div>
           </footer>
         ) : (
-          <footer className="bg-[#dc2626] eh-dots-light text-white py-8 text-center text-xs">
+          <footer className="bg-[#dc2626] text-white py-8 text-center text-xs">
             <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
               <div>
                 <p className="text-white/80">Academic to admission EDU HUNTERS with you.</p>

@@ -98,7 +98,10 @@ export async function loadExamQuestions(examMeta) {
 
   // 1. High speed memory cache check (0ms)
   if (inMemoryExamCache.has(examMeta.id)) {
-    return inMemoryExamCache.get(examMeta.id);
+    const cached = inMemoryExamCache.get(examMeta.id);
+    if (cached && cached.questions && cached.questions.length > 0) {
+      return cached;
+    }
   }
 
   const customKey = `${CUSTOM_EXAM_PREFIX}${examMeta.id}`;
@@ -107,8 +110,10 @@ export async function loadExamQuestions(examMeta) {
     try {
       const parsed = JSON.parse(customRaw);
       const normalized = normalizeExamQuestions(parsed, examMeta);
-      inMemoryExamCache.set(examMeta.id, normalized);
-      return normalized;
+      if (normalized && normalized.questions && normalized.questions.length > 0) {
+        inMemoryExamCache.set(examMeta.id, normalized);
+        return normalized;
+      }
     } catch (e) {
       console.warn('Error parsing cached custom exam:', e);
     }
@@ -116,25 +121,44 @@ export async function loadExamQuestions(examMeta) {
 
   // Fetch from static JSON file if filePath exists
   if (examMeta.filePath) {
-    try {
-      const safePath = examMeta.filePath.split('/').map(segment => encodeURIComponent(segment)).join('/');
-      const res = await fetch(`/exams_data/${safePath}`);
-      if (res.ok) {
-        let rawText = await res.text();
-        if (rawText.charCodeAt(0) === 0xFEFF) {
-          rawText = rawText.slice(1);
+    // Strategy 1: encodeURI (properly handles Unicode, commas, pluses and spaces)
+    const candidateUrls = [
+      `/exams_data/${encodeURI(examMeta.filePath)}`,
+      `/exams_data/${examMeta.filePath}`,
+      `/exams_data/${examMeta.filePath.split('/').map(segment => encodeURIComponent(segment)).join('/')}`
+    ];
+
+    for (const url of candidateUrls) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) {
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('text/html')) {
+            // Server returned SPA index.html fallback, skip this candidate
+            continue;
+          }
+          let rawText = await res.text();
+          if (rawText.charCodeAt(0) === 0xFEFF) {
+            rawText = rawText.slice(1);
+          }
+          const trimmed = rawText.trim();
+          if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+            const parsed = JSON.parse(trimmed);
+            const normalized = normalizeExamQuestions(parsed, examMeta);
+            if (normalized && normalized.questions && normalized.questions.length > 0) {
+              inMemoryExamCache.set(examMeta.id, normalized);
+              return normalized;
+            }
+          }
         }
-        const parsed = JSON.parse(rawText);
-        const normalized = normalizeExamQuestions(parsed, examMeta);
-        inMemoryExamCache.set(examMeta.id, normalized);
-        return normalized;
+      } catch (err) {
+        // Continue to next candidate
       }
-    } catch (err) {
-      console.warn(`Could not fetch exam file for ${examMeta.id}:`, err);
     }
+    console.warn(`Could not load valid exam questions for ${examMeta.id} (${examMeta.title})`);
   }
 
-  // Return empty structure if not found
+  // Return empty structure if not found (do NOT cache empty exam in memory)
   const emptyExam = {
     exam_id: examMeta.id,
     title: examMeta.title,
@@ -144,7 +168,6 @@ export async function loadExamQuestions(examMeta) {
     negative_mark: examMeta.negativeMark || 0.25,
     questions: []
   };
-  inMemoryExamCache.set(examMeta.id, emptyExam);
   return emptyExam;
 }
 
@@ -183,14 +206,21 @@ export function normalizeExamQuestions(examData, fallbackMeta = {}) {
     };
   });
 
-  return {
-    ...examData,
-    title: examData.title || fallbackMeta.title || 'Untitled Exam',
-    duration_minutes: fallbackMeta.durationMinutes || examData.duration_minutes || 40,
-    total_questions: normalized.length,
-    negative_mark: examData.negative_mark !== undefined ? examData.negative_mark : (fallbackMeta.negativeMark || 0.25),
-    questions: normalized
-  };
+    const rawNegVal = examData.negative_mark !== undefined ? examData.negative_mark : (fallbackMeta.negativeMark || 0.25);
+    let parsedNeg = typeof rawNegVal === 'string' 
+      ? parseFloat(rawNegVal.replace(/[০-৯]/g, d => ({ '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' })[d]))
+      : Number(rawNegVal);
+    if (isNaN(parsedNeg) || parsedNeg <= 0) parsedNeg = 0.25;
+    if (parsedNeg >= 1) parsedNeg = parsedNeg / 100; // e.g., 25 becomes 0.25
+
+    return {
+      ...examData,
+      title: examData.title || fallbackMeta.title || 'Untitled Exam',
+      duration_minutes: fallbackMeta.durationMinutes || examData.duration_minutes || 40,
+      total_questions: normalized.length,
+      negative_mark: parsedNeg,
+      questions: normalized
+    };
 }
 
 /**

@@ -58,7 +58,8 @@ export default function AuthModal({
     setIsVisible(false);
     setTimeout(() => {
       if (onClose) onClose();
-    }, 400);
+      setShouldRender(false);
+    }, 380);
   }, [onClose]);
 
   useEffect(() => {
@@ -72,11 +73,14 @@ export default function AuthModal({
       if (savedEmail) {
         setEmail(savedEmail);
       }
-      const rAF = requestAnimationFrame(() => setIsVisible(true));
-      return () => cancelAnimationFrame(rAF);
+      // Guarantee initial zero-opacity/scaled-down frame is painted before transitioning
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 20);
+      return () => clearTimeout(timer);
     } else {
       setIsVisible(false);
-      const timer = setTimeout(() => setShouldRender(false), 400);
+      const timer = setTimeout(() => setShouldRender(false), 380);
       return () => clearTimeout(timer);
     }
   }, [isOpen, initialMode]);
@@ -427,20 +431,20 @@ export default function AuthModal({
       {/* Dark blur backdrop overlay */}
       <div
         onClick={handleClose}
-        className={`fixed inset-0 bg-black/80 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer ${
-          isVisible ? 'opacity-100 backdrop-blur-md' : 'opacity-0 backdrop-blur-none'
+        className={`fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-[380ms] ease-out cursor-pointer ${
+          isVisible ? 'opacity-100' : 'opacity-0'
         }`}
       />
 
       {/* Main Auth Container */}
       <div
-        className={`relative w-full max-w-[430px] rounded-[36px] bg-gradient-to-b from-[#2e050c] via-[#0f0305] to-[#070102] text-white p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.9)] border border-[#e11438]/20 overflow-hidden z-10 max-h-[95vh] overflow-y-auto transform transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
-          isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.92] translate-y-7'
+        className={`relative w-full max-w-[430px] rounded-[36px] bg-gradient-to-b from-[#2e050c] via-[#0f0305] to-[#070102] text-white p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.9)] border border-[#e11438]/20 overflow-hidden z-10 max-h-[95vh] overflow-y-auto transform transition-all duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity] ${
+          isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.93] translate-y-6 pointer-events-none'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Crimson Radial Glow */}
-        <div className="absolute -top-28 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#e11438]/25 rounded-full blur-[90px] pointer-events-none" />
+        <div className={`absolute -top-28 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#e11438]/25 rounded-full blur-[90px] pointer-events-none transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
 
         {/* Close Button ('X') */}
         <button
@@ -682,8 +686,8 @@ export default function AuthModal({
                   <p className="text-xs text-gray-300">
                     Enter the 6-digit verification code sent to <strong className="text-white">{email}</strong>
                   </p>
-                  <p className="text-[11px] text-gray-400 mt-0.5">
-                    Please check your email inbox and spam folder.
+                  <p className="text-[11.5px] text-gray-400 mt-1">
+                    ইনবক্সে না পেলে অনুগ্রহ করে আপনার Gmail-এর <strong>Spam / Junk</strong> ফোল্ডারটি চেক করুন।
                   </p>
                 </div>
                 {/* 6 OTP Input Boxes */}

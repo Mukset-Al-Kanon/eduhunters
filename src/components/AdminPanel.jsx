@@ -5218,7 +5218,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           </div>
 
                           {/* Body Content */}
-                          <div className="p-4 sm:p-5 flex-1 flex flex-col space-y-3">
+                          <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                             <div>
                               <h3 className="text-sm sm:text-base font-extrabold text-slate-900 group-hover:text-[#5d5bf6] transition-colors line-clamp-1">
                                 {bundle.title}
@@ -5228,34 +5228,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                   {bundle.subtitle}
                                 </p>
                               )}
-                            </div>
-
-                            {bundle.description && (
-                              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-                                {bundle.description}
-                              </p>
-                            )}
-
-                            {/* Included Courses Preview Chip List */}
-                            <div className="pt-2 border-t border-slate-100">
-                              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                                Included in this Pack ({includedCourses.length})
-                              </p>
-                              <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto pr-1">
-                                {includedCourses.map((c, cIdx) => (
-                                  <div 
-                                    key={c.id || cIdx}
-                                    className="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-50 border border-slate-200/80 text-[11px] text-slate-700 font-medium max-w-full"
-                                    title={c.title}
-                                  >
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#5d5bf6] shrink-0" />
-                                    <span className="truncate max-w-[140px]">{c.title}</span>
-                                    {c.salePrice !== undefined && Number(c.salePrice) > 0 && (
-                                      <span className="text-[10px] text-slate-400 font-semibold shrink-0">৳{c.salePrice}</span>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
                             </div>
 
                             {/* Price Breakdown Footer */}

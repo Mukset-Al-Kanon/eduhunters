@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   ArrowLeft, Clock, HelpCircle, BookOpen, Zap, CheckCircle2, 
   Send, RefreshCw, Trophy, Award, Check, X, AlertTriangle, 
   ChevronDown, ChevronUp, ChevronRight, Eye, ShieldAlert,
   Search, Filter, Sparkles, Flame, Bookmark, History,
   BarChart3, CheckSquare, XCircle, Grid, ListFilter, ArrowRight, User, FileText,
-  Lock, Play, SlidersHorizontal
+  Lock, Play, SlidersHorizontal, Minus, Plus
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useTheme } from '../context/ThemeContext';
@@ -64,6 +65,7 @@ const SUBJECT_FILTERS = [
 ];
 
 const BENGALI_LETTERS = ['ক', 'খ', 'গ', 'ঘ', 'ঙ'];
+const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
 const calcDiscount = (orig, curr) => {
   if (!orig || !curr) return 400;
@@ -104,6 +106,29 @@ export default function SureShotExamSystem({
       const urlParams = new URLSearchParams(window.location.search);
       const urlStep = urlParams.get('step');
       const urlCat = urlParams.get('category');
+      const urlExam = urlParams.get('exam');
+
+      // Check if user has an active or saved result for this exam
+      const savedResultRaw = sessionStorage.getItem('eduhunters_active_exam_result') ||
+                             (urlExam ? localStorage.getItem(`eduhunters_result_${urlExam}`) : null) ||
+                             localStorage.getItem('eduhunters_latest_result');
+
+      if (urlStep === 'exam_result') {
+        return 'exam_result';
+      }
+
+      // If URL step was left on exam_live or not set, but an active result exists for this exam, STAY on result!
+      if (savedResultRaw) {
+        try {
+          const parsed = JSON.parse(savedResultRaw);
+          if (!urlExam || parsed.examId === urlExam) {
+            if (urlStep === 'exam_live' || !urlStep) {
+              return 'exam_result';
+            }
+          }
+        } catch (e) {}
+      }
+
       if (urlStep) return urlStep;
       if (urlCat && urlCat !== 'all') return 'category_detail';
       if (initialCategory && initialCategory !== 'all') return initialStep || 'category_detail';
@@ -186,8 +211,58 @@ export default function SureShotExamSystem({
     return isItemEnrolled(catKey, currentUser);
   };
 
+  // Manifest data state
+  const [manifestData, setManifestData] = useState(null);
+  const [allExams, setAllExams] = useState(INITIAL_SURE_SHOT);
+  const [isLoadingManifest, setIsLoadingManifest] = useState(true);
+
   // Sync state if initialCategory or initialStep changes
   React.useEffect(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlStep = urlParams.get('step');
+      const urlExam = urlParams.get('exam');
+      const savedResultRaw = sessionStorage.getItem('eduhunters_active_exam_result') ||
+                             (urlExam ? localStorage.getItem(`eduhunters_result_${urlExam}`) : null) ||
+                             localStorage.getItem('eduhunters_latest_result');
+
+      // Preserve exam result if URL has it or active exam has finished
+      if (urlStep === 'exam_result' || (savedResultRaw && (urlStep === 'exam_live' || !urlStep))) {
+        let isMatching = false;
+        if (savedResultRaw) {
+          try {
+            const parsed = JSON.parse(savedResultRaw);
+            if (!urlExam || parsed.examId === urlExam) isMatching = true;
+          } catch (e) {}
+        }
+        if (urlStep === 'exam_result' || isMatching) {
+          setStep('exam_result');
+          const urlCat = urlParams.get('category') || initialCategory;
+          if (urlCat && urlCat !== 'all') {
+            const cat = categoriesMetadata.find(c => c.key === urlCat);
+            if (cat) {
+              setSelectedCategoryDetail(cat);
+              setSelectedCategory(urlCat);
+            }
+          }
+          return;
+        }
+      }
+
+      if (urlStep) {
+        setStep(urlStep);
+        const urlCat = urlParams.get('category') || initialCategory;
+        if (urlCat && urlCat !== 'all') {
+          const cat = categoriesMetadata.find(c => c.key === urlCat);
+          if (cat) {
+            setSelectedCategoryDetail(cat);
+            setSelectedCategory(urlCat);
+          }
+        }
+        return;
+      }
+    } catch (e) {}
+
     if (initialCategory && initialCategory !== 'all') {
       const cat = categoriesMetadata.find(c => c.key === initialCategory);
       if (cat) {
@@ -209,12 +284,17 @@ export default function SureShotExamSystem({
         const urlParams = new URLSearchParams(window.location.search);
         const urlStep = urlParams.get('step');
         const urlCat = urlParams.get('category');
+        const urlExam = urlParams.get('exam');
         if (urlCat && urlCat !== 'all') {
           const cat = categoriesMetadata.find(c => c.key === urlCat);
           if (cat) {
             setSelectedCategoryDetail(cat);
             setSelectedCategory(urlCat);
           }
+        }
+        if (urlExam && allExams && allExams.length > 0) {
+          const found = allExams.find(e => e.id === urlExam);
+          if (found) setSelectedExamMeta(found);
         }
         if (urlStep) {
           setStep(urlStep);
@@ -227,12 +307,7 @@ export default function SureShotExamSystem({
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
-  }, []);
-
-  // Manifest data state
-  const [manifestData, setManifestData] = useState(null);
-  const [allExams, setAllExams] = useState(INITIAL_SURE_SHOT);
-  const [isLoadingManifest, setIsLoadingManifest] = useState(true);
+  }, [allExams, categoriesMetadata]);
 
   // View states for streamlined Category Exam List (matching user screenshot)
   const [isExpanded, setIsExpanded] = useState(false);
@@ -269,20 +344,45 @@ export default function SureShotExamSystem({
   const [visibleCount, setVisibleCount] = useState(24);
 
   // Helper to change step and keep URL in sync for perfect refresh retention
-  const updateExamStep = (newStep, catKey = null) => {
-    setStep(newStep);
-    setIsExpanded(false);
-    try {
-      const currentCat = catKey || selectedCategory || (selectedCategoryDetail?.key);
-      const params = new URLSearchParams();
-      if (currentCat && currentCat !== 'all') params.set('category', currentCat);
-      if (newStep && newStep !== 'category_detail' && newStep !== 'category_cards') {
-        params.set('step', newStep);
+  const updateExamStep = (newStep, catKey = null, activeExamId = null) => {
+    const doUpdate = () => {
+      setStep(newStep);
+      setIsExpanded(false);
+      try {
+        const currentCat = catKey || selectedCategory || (selectedCategoryDetail?.key);
+        const params = new URLSearchParams();
+        if (currentCat && currentCat !== 'all') params.set('category', currentCat);
+        if (newStep && newStep !== 'category_detail' && newStep !== 'category_cards') {
+          params.set('step', newStep);
+        }
+        const examIdToSet = activeExamId || selectedExamMeta?.id || examData?.exam_id || examResult?.examId;
+        if (examIdToSet && (newStep === 'exam_intro' || newStep === 'exam_live' || newStep === 'exam_result')) {
+          params.set('exam', examIdToSet);
+        }
+        const qs = params.toString() ? `?${params.toString()}` : '';
+        window.history.pushState(null, '', `/exams${qs}`);
+      } catch (e) {}
+      try {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      } catch (e) {}
+    };
+
+    if (typeof document !== 'undefined' && 'startViewTransition' in document) {
+      document.documentElement.classList.add('page-navigating');
+      try {
+        const transition = document.startViewTransition(() => {
+          doUpdate();
+        });
+        transition.finished.finally(() => {
+          document.documentElement.classList.remove('page-navigating');
+        });
+      } catch (e) {
+        document.documentElement.classList.remove('page-navigating');
+        doUpdate();
       }
-      const qs = params.toString() ? `?${params.toString()}` : '';
-      window.history.pushState(null, '', `/exams${qs}`);
-    } catch (e) {}
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      doUpdate();
+    }
   };
 
   // Handler to enter specific exam category from card
@@ -295,22 +395,117 @@ export default function SureShotExamSystem({
   };
 
   // Active Exam Selection states
-  const [selectedExamMeta, setSelectedExamMeta] = useState(INITIAL_SURE_SHOT[0]);
-  const [examData, setExamData] = useState(null);
+  const [selectedExamMeta, setSelectedExamMeta] = useState(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlExamId = urlParams.get('exam');
+      const saved = sessionStorage.getItem('eduhunters_active_exam_meta');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (!urlExamId || parsed.id === urlExamId) {
+          return parsed;
+        }
+      }
+      if (urlExamId) {
+        const found = INITIAL_SURE_SHOT.find(e => e.id === urlExamId);
+        if (found) return found;
+      }
+    } catch (e) {}
+    return INITIAL_SURE_SHOT[0];
+  });
+  const [examData, setExamData] = useState(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlExamId = urlParams.get('exam');
+      const saved = sessionStorage.getItem('eduhunters_active_exam_data');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (!urlExamId || parsed.exam_id === urlExamId || parsed.id === urlExamId) {
+          return parsed;
+        }
+      }
+      // Check active exam result questions if examData not separately saved
+      const savedResult = sessionStorage.getItem('eduhunters_active_exam_result') ||
+                          (urlExamId ? localStorage.getItem(`eduhunters_result_${urlExamId}`) : null) ||
+                          localStorage.getItem('eduhunters_latest_result');
+      if (savedResult) {
+        const parsed = JSON.parse(savedResult);
+        if (parsed.questions && parsed.questions.length > 0) {
+          return {
+            exam_id: parsed.examId || urlExamId,
+            id: parsed.examId || urlExamId,
+            title: parsed.title,
+            category: parsed.category,
+            questions: parsed.questions,
+            total_questions: parsed.totalQuestions,
+            negative_mark: parsed.negPerWrong || 0.25
+          };
+        }
+      }
+    } catch (e) {}
+    return null;
+  });
   const [isLoadingExam, setIsLoadingExam] = useState(false);
   const [examMode, setExamMode] = useState('real'); // 'real' | 'practice'
 
   // Live Exam States
-  const [userAnswers, setUserAnswers] = useState({});
+  const [userAnswers, setUserAnswers] = useState(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlExam = urlParams.get('exam');
+      const saved = sessionStorage.getItem('eduhunters_active_user_answers');
+      if (saved) return JSON.parse(saved);
+      const savedResult = sessionStorage.getItem('eduhunters_active_exam_result') ||
+                          (urlExam ? localStorage.getItem(`eduhunters_result_${urlExam}`) : null) ||
+                          localStorage.getItem('eduhunters_latest_result');
+      if (savedResult) {
+        const parsed = JSON.parse(savedResult);
+        if (parsed.userAnswers) return parsed.userAnswers;
+      }
+    } catch (e) {}
+    return {};
+  });
   const [flaggedQuestions, setFlaggedQuestions] = useState({});
   const [practiceRevealed, setPracticeRevealed] = useState({});
   const [timeLeft, setTimeLeft] = useState(40 * 60);
   const [customDurationMins, setCustomDurationMins] = useState(null);
   const [showCustomDurationPicker, setShowCustomDurationPicker] = useState(false);
   const [showSeconds, setShowSeconds] = useState(true);
-  const [isSecondTimer, setIsSecondTimer] = useState(true);
+  const [isSecondTimer, setIsSecondTimer] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [examResult, setExamResult] = useState(null);
+  const [examResult, setExamResult] = useState(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlExam = urlParams.get('exam');
+      const saved = sessionStorage.getItem('eduhunters_active_exam_result');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (!urlExam || parsed.examId === urlExam) return parsed;
+      }
+      if (urlExam) {
+        const byId = localStorage.getItem(`eduhunters_result_${urlExam}`);
+        if (byId) return JSON.parse(byId);
+      }
+      const latest = localStorage.getItem('eduhunters_latest_result');
+      if (latest) {
+        const parsed = JSON.parse(latest);
+        if (!urlExam || parsed.examId === urlExam) return parsed;
+      }
+      const hist = localStorage.getItem('eduhunters_exam_history');
+      if (hist) {
+        const parsed = JSON.parse(hist);
+        if (parsed.length > 0) {
+          if (urlExam) {
+            const found = parsed.find(item => item.examId === urlExam);
+            if (found) return found;
+          }
+          return parsed[0];
+        }
+      }
+      if (saved) return JSON.parse(saved);
+    } catch (e) {}
+    return null;
+  });
   const [submitWarningModal, setSubmitWarningModal] = useState(false);
   const [questionPaletteOpen, setQuestionPaletteOpen] = useState(false);
 
@@ -342,11 +537,39 @@ export default function SureShotExamSystem({
             ...e,
             title: stripEmoji(e.title)
           }));
-          setManifestData({ ...data, exams: cleanedExams });
-          setAllExams(cleanedExams);
-          // Set initial meta to first item if default
-          if (!selectedExamMeta || selectedExamMeta.id === 'sureshot-1') {
-            setSelectedExamMeta(cleanedExams[0]);
+          const combinedExams = [
+            ...INITIAL_SURE_SHOT,
+            ...cleanedExams.filter(ce => !INITIAL_SURE_SHOT.some(ise => ise.id === ce.id))
+          ];
+          setManifestData({ ...data, exams: combinedExams });
+          setAllExams(combinedExams);
+          
+          // Check if active exam is specified in URL or already selected
+          const urlParams = new URLSearchParams(window.location.search);
+          const urlExamId = urlParams.get('exam');
+          const targetExamId = urlExamId || selectedExamMeta?.id;
+          
+          if (targetExamId) {
+            const found = combinedExams.find(e => e.id === targetExamId);
+            if (found) {
+              setSelectedExamMeta(found);
+              try {
+                sessionStorage.setItem('eduhunters_active_exam_meta', JSON.stringify(found));
+              } catch (e) {}
+              // Preload question content if not yet loaded
+              if (!examData || !examData.questions || examData.questions.length === 0) {
+                loadExamQuestions(found).then(qData => {
+                  if (isMounted && qData) {
+                    setExamData(qData);
+                    try {
+                      sessionStorage.setItem('eduhunters_active_exam_data', JSON.stringify(qData));
+                    } catch (e) {}
+                  }
+                }).catch(e => console.warn(e));
+              }
+            }
+          } else if (!selectedExamMeta || selectedExamMeta.id === 'sureshot-1') {
+            setSelectedExamMeta(combinedExams[0]);
           }
         }
       } catch (err) {
@@ -358,6 +581,31 @@ export default function SureShotExamSystem({
     loadManifest();
     return () => { isMounted = false; };
   }, []);
+
+  // 1b. Ensure URL and storage stay synchronized when in exam_result
+  useEffect(() => {
+    if (step === 'exam_result') {
+      try {
+        const cat = selectedCategory || selectedExamMeta?.category || 'sureshot';
+        const examId = selectedExamMeta?.id || examResult?.examId || examData?.exam_id;
+        const params = new URLSearchParams(window.location.search);
+        params.set('step', 'exam_result');
+        if (cat && cat !== 'all') params.set('category', cat);
+        if (examId) params.set('exam', examId);
+        const targetSearch = `?${params.toString()}`;
+        if (window.location.search !== targetSearch) {
+          window.history.replaceState(null, '', `/exams${targetSearch}`);
+        }
+      } catch (e) {}
+    }
+  }, [step, selectedCategory, selectedExamMeta, examResult, examData]);
+
+  // Ensure 'All' filter is selected by default when entering exam result
+  useEffect(() => {
+    if (step === 'exam_result') {
+      setSolutionFilter('all');
+    }
+  }, [step, examResult?.examId]);
 
   // 2. Countdown timer for Live Exam
   useEffect(() => {
@@ -418,8 +666,8 @@ export default function SureShotExamSystem({
     });
   }, [allExams, selectedCategory, selectedSubject, selectedSubCat, searchQuery]);
 
-  // Load Exam JSON when clicked
-  const handleSelectExam = async (examMeta) => {
+  // Load Exam JSON and smoothly navigate to next page immediately
+  const handleSelectExam = (examMeta) => {
     const catKey = examMeta.category || selectedCategory;
     const isCurrentCatEnrolled = isBatchEnrolled(catKey);
     const examIndex = filteredExams.findIndex(e => e.id === examMeta.id);
@@ -435,72 +683,148 @@ export default function SureShotExamSystem({
     }
 
     setSelectedExamMeta(examMeta);
-    setIsLoadingExam(true);
+    if (catKey) setSelectedCategory(catKey);
     try {
-      const data = await loadExamQuestions(examMeta);
-      const normalized = data.questions || [];
+      sessionStorage.setItem('eduhunters_active_exam_meta', JSON.stringify(examMeta));
+    } catch (e) {}
 
-      const totalQs = normalized.length || examMeta.totalQuestions || 100;
-      const durationMins = data.duration_minutes || examMeta.durationMinutes || (totalQs <= 25 ? 15 : (totalQs <= 50 ? 30 : 40));
+    const totalQs = examMeta.totalQuestions || 100;
+    const durationMins = examMeta.durationMinutes || (totalQs <= 25 ? 15 : (totalQs <= 50 ? 30 : 40));
 
-      setExamData({
-        ...data,
-        title: data.title || examMeta.title,
-        category: examMeta.category,
-        categoryName: examMeta.categoryName,
-        subCategory: examMeta.subCategory,
-        subject: examMeta.subject,
-        duration_minutes: durationMins,
-        total_questions: totalQs,
-        negative_mark: data.negative_mark !== undefined ? (data.negative_mark > 1 ? data.negative_mark / 100 : data.negative_mark) : (examMeta.negativeMark || 0.25),
-        questions: normalized
+    const rawNegVal = examMeta.negativeMark !== undefined ? examMeta.negativeMark : 0.25;
+    let parsedNeg = typeof rawNegVal === 'string' 
+      ? parseFloat(rawNegVal.replace(/[০-৯]/g, d => ({ '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' })[d]))
+      : Number(rawNegVal);
+    if (isNaN(parsedNeg) || parsedNeg <= 0) parsedNeg = 0.25;
+    if (parsedNeg >= 1) parsedNeg = parsedNeg / 100; // e.g. 25 becomes 0.25
+
+    // Immediately prepare intro state so the transition happens with zero lag
+    const initialExamData = {
+      exam_id: examMeta.id,
+      title: examMeta.title,
+      category: examMeta.category,
+      categoryName: examMeta.categoryName,
+      subCategory: examMeta.subCategory,
+      subject: examMeta.subject,
+      duration_minutes: durationMins,
+      total_questions: totalQs,
+      negative_mark: parsedNeg,
+      questions: []
+    };
+    setExamData(initialExamData);
+    try {
+      sessionStorage.setItem('eduhunters_active_exam_data', JSON.stringify(initialExamData));
+    } catch (e) {}
+
+    setIsSecondTimer(false);
+
+    setCustomDurationMins(null);
+    setShowCustomDurationPicker(false);
+    setTimeLeft(durationMins * 60);
+
+    // Instantly & smoothly transition to the exam intro screen
+    updateExamStep('exam_intro', catKey, examMeta.id);
+
+    // Preload questions non-blockingly in the background
+    setIsLoadingExam(true);
+    loadExamQuestions(examMeta)
+      .then(data => {
+        const normalized = data?.questions || [];
+        if (normalized.length > 0) {
+          const rawDataNeg = data?.negative_mark !== undefined ? data.negative_mark : parsedNeg;
+          let safeDataNeg = typeof rawDataNeg === 'string' 
+            ? parseFloat(rawDataNeg.replace(/[০-৯]/g, d => ({ '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' })[d]))
+            : Number(rawDataNeg);
+          if (isNaN(safeDataNeg) || safeDataNeg <= 0) safeDataNeg = 0.25;
+          if (safeDataNeg >= 1) safeDataNeg = safeDataNeg / 100;
+
+          const freshData = {
+            ...initialExamData,
+            ...data,
+            title: data.title || examMeta.title,
+            duration_minutes: data.duration_minutes || durationMins,
+            total_questions: normalized.length,
+            negative_mark: safeDataNeg,
+            questions: normalized
+          };
+          setExamData(freshData);
+          try {
+            sessionStorage.setItem('eduhunters_active_exam_data', JSON.stringify(freshData));
+          } catch (e) {}
+        }
+      })
+      .catch(err => {
+        console.warn("Background exam question fetch warning:", err);
+      })
+      .finally(() => {
+        setIsLoadingExam(false);
       });
-
-      const isSec = Boolean(
-        (examMeta.categoryName && examMeta.categoryName.includes('সেকেন্ড টাইমার')) ||
-        (examMeta.title && examMeta.title.includes('সেকেন্ড টাইমার')) ||
-        (examMeta.subCategory && examMeta.subCategory.includes('সেকেন্ড টাইমার')) ||
-        (examMeta.category === 'sureshot')
-      );
-      setIsSecondTimer(isSec);
-
-      setCustomDurationMins(null);
-      setShowCustomDurationPicker(false);
-      setTimeLeft(durationMins * 60);
-      setStep('exam_intro');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } catch (err) {
-      console.error("Error loading exam:", err);
-      alert("এক্সাম ডাটা লোড হতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।");
-    } finally {
-      setIsLoadingExam(false);
-    }
   };
 
   // Start Exam
-  const handleStartExam = (mode = 'real') => {
+  const handleStartExam = async (mode = 'real') => {
+    let questions = examData?.questions || [];
+    if (questions.length === 0 && selectedExamMeta) {
+      setIsLoadingExam(true);
+      try {
+        const data = await loadExamQuestions(selectedExamMeta);
+        questions = data?.questions || [];
+        if (questions.length > 0) {
+          const freshData = { ...examData, ...data, questions };
+          setExamData(freshData);
+          try {
+            sessionStorage.setItem('eduhunters_active_exam_data', JSON.stringify(freshData));
+          } catch (e) {}
+        }
+      } catch (err) {
+        console.error("Emergency question reload failed:", err);
+      } finally {
+        setIsLoadingExam(false);
+      }
+    }
+
+    if (questions.length === 0) {
+      alert("দুঃখিত, এই পরীক্ষার প্রশ্নপত্র লোড করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।");
+      return;
+    }
+
     setExamMode(mode);
     setUserAnswers({});
+    try {
+      sessionStorage.removeItem('eduhunters_active_user_answers');
+      sessionStorage.removeItem('eduhunters_active_exam_result');
+    } catch (e) {}
     setFlaggedQuestions({});
     setPracticeRevealed({});
     setIsSubmitted(false);
     setExamResult(null);
     const activeDur = customDurationMins || examData?.duration_minutes || selectedExamMeta?.durationMinutes || 40;
     setTimeLeft(activeDur * 60);
-    setStep('exam_live');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateExamStep('exam_live', selectedCategory, selectedExamMeta?.id);
   };
 
   // Select Option during Exam
   const handleSelectOption = (questionId, optionIdx) => {
     if (isSubmitted) return;
 
+    const examIdKey = selectedExamMeta?.id || examData?.exam_id;
+
     if (examMode === 'practice') {
       // In practice mode, lock in answer and reveal explanation
-      setUserAnswers(prev => ({
-        ...prev,
-        [questionId]: optionIdx
-      }));
+      setUserAnswers(prev => {
+        const next = {
+          ...prev,
+          [questionId]: optionIdx
+        };
+        try {
+          sessionStorage.setItem('eduhunters_active_user_answers', JSON.stringify(next));
+          if (examIdKey) {
+            sessionStorage.setItem(`eduhunters_answers_${examIdKey}`, JSON.stringify(next));
+            localStorage.setItem(`eduhunters_answers_${examIdKey}`, JSON.stringify(next));
+          }
+        } catch (e) {}
+        return next;
+      });
       setPracticeRevealed(prev => ({
         ...prev,
         [questionId]: true
@@ -510,15 +834,24 @@ export default function SureShotExamSystem({
 
     // In real exam mode: allow toggling or changing
     setUserAnswers(prev => {
+      let next;
       if (prev[questionId] === optionIdx) {
-        const copy = { ...prev };
-        delete copy[questionId];
-        return copy;
+        next = { ...prev };
+        delete next[questionId];
+      } else {
+        next = {
+          ...prev,
+          [questionId]: optionIdx
+        };
       }
-      return {
-        ...prev,
-        [questionId]: optionIdx
-      };
+      try {
+        sessionStorage.setItem('eduhunters_active_user_answers', JSON.stringify(next));
+        if (examIdKey) {
+          sessionStorage.setItem(`eduhunters_answers_${examIdKey}`, JSON.stringify(next));
+          localStorage.setItem(`eduhunters_answers_${examIdKey}`, JSON.stringify(next));
+        }
+      } catch (e) {}
+      return next;
     });
   };
 
@@ -559,19 +892,26 @@ export default function SureShotExamSystem({
       }
     });
 
-    const negPerWrong = examData.negative_mark !== undefined ? examData.negative_mark : 0.25;
+    const rawNegVal = examData.negative_mark !== undefined ? examData.negative_mark : 0.25;
+    let parsedNeg = typeof rawNegVal === 'string' 
+      ? parseFloat(rawNegVal.replace(/[০-৯]/g, d => ({ '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' })[d]))
+      : Number(rawNegVal);
+    if (isNaN(parsedNeg) || parsedNeg <= 0) parsedNeg = 0.25;
+    if (parsedNeg >= 1) parsedNeg = parsedNeg / 100; // e.g. 25 becomes 0.25
+
+    const negPerWrong = parsedNeg;
     const wrongPenalty = +(wrong * negPerWrong).toFixed(2);
-    const secondTimerPenalty = isSecondTimer ? 3.0 : 0;
-    const totalPenalty = +(wrongPenalty + secondTimerPenalty).toFixed(2);
-    const score = Math.max(0, +(correct - totalPenalty).toFixed(2));
+    const secondTimerPenalty = 0;
+    const totalPenalty = wrongPenalty;
+    const score = +(correct - totalPenalty).toFixed(2);
     const passMarks = Math.round(examData.questions.length * 0.4);
-    const percentage = Math.round((score / examData.questions.length) * 100);
+    const percentage = Math.max(0, Math.round((score / examData.questions.length) * 100));
     const isPassed = score >= passMarks;
 
     const resultObj = {
-      examId: selectedExamMeta?.id || Date.now().toString(),
+      examId: selectedExamMeta?.id || examData?.exam_id || Date.now().toString(),
       title: examData.title,
-      category: examData.category,
+      category: examData.category || selectedCategory,
       categoryName: examData.categoryName,
       subject: examData.subject,
       date: new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
@@ -586,10 +926,22 @@ export default function SureShotExamSystem({
       totalPenalty,
       finalScore: score,
       percentage,
-      isPassed
+      isPassed,
+      userAnswers: { ...userAnswers },
+      questions: examData.questions
     };
 
     setExamResult(resultObj);
+    try {
+      sessionStorage.setItem('eduhunters_active_exam_result', JSON.stringify(resultObj));
+      sessionStorage.setItem('eduhunters_active_user_answers', JSON.stringify(userAnswers));
+      sessionStorage.setItem('eduhunters_active_exam_data', JSON.stringify(examData));
+      if (selectedExamMeta) {
+        sessionStorage.setItem('eduhunters_active_exam_meta', JSON.stringify(selectedExamMeta));
+      }
+      localStorage.setItem(`eduhunters_result_${resultObj.examId}`, JSON.stringify(resultObj));
+      localStorage.setItem('eduhunters_latest_result', JSON.stringify(resultObj));
+    } catch (e) {}
 
     // Save to Exam History in localStorage
     try {
@@ -600,8 +952,13 @@ export default function SureShotExamSystem({
       console.warn("Failed to save history:", e);
     }
 
-    setStep('exam_result');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const catToUse = selectedCategory || examData?.category || 'sureshot';
+    const examIdToUse = selectedExamMeta?.id || resultObj.examId;
+    setSolutionFilter('all');
+    updateExamStep('exam_result', catToUse, examIdToUse);
+    try {
+      window.history.replaceState(null, '', `/exams?category=${catToUse}&step=exam_result&exam=${examIdToUse}`);
+    } catch (e) {}
 
     if (isPassed) {
       try {
@@ -643,6 +1000,7 @@ export default function SureShotExamSystem({
       siteSettings={siteSettings}
     />
   ) : null;
+
 
   // -------------------------------------------------------------
   // -------------------------------------------------------------
@@ -750,7 +1108,7 @@ export default function SureShotExamSystem({
                 }}
                 className={`group rounded-3xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between cursor-pointer ${
                   isDark 
-                    ? 'bg-[#111317] border-white/[0.08] hover:border-white/20' 
+                    ? 'bg-[#140306] border-[#e11438]/20 hover:border-[#e11438]/45 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)]' 
                     : 'bg-white border-gray-200 hover:border-red-300'
                 }`}
               >
@@ -816,22 +1174,34 @@ export default function SureShotExamSystem({
                   <div className={`flex items-end justify-between gap-2 pt-3 border-t ${
                     isDark ? 'border-white/[0.08]' : 'border-gray-100'
                   }`}>
-                    {/* Left: Pricing */}
-                    <div>
-                      <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mb-0.5">
-                        কোর্সের মূল্য
-                      </p>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
-                          ৳ {cat.price || '৩৯৯'}
+                    {/* Left: Pricing or Enrolled Status */}
+                    {isBatchEnrolled(cat.key) ? (
+                      <div className="inline-flex items-center py-1">
+                        <span className={`inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold tracking-wide text-white shadow-xs transition-all select-none ${
+                          isDark 
+                            ? 'bg-[#e11438] shadow-[0_2px_10px_rgba(225,20,56,0.35)]' 
+                            : 'bg-[#6f0113] shadow-[0_2px_8px_rgba(111,1,19,0.25)]'
+                        }`}>
+                          Enrolled
                         </span>
-                        {cat.originalPrice && (
-                          <span className="text-xs sm:text-sm text-gray-400 line-through font-medium">
-                            ৳{cat.originalPrice || '৭৯৯'}
-                          </span>
-                        )}
                       </div>
-                    </div>
+                    ) : (
+                      <div>
+                        <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mb-0.5">
+                          কোর্সের মূল্য
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
+                            ৳ {cat.price || '৩৯৯'}
+                          </span>
+                          {cat.originalPrice && (
+                            <span className="text-xs sm:text-sm text-gray-400 line-through font-medium">
+                              ৳{cat.originalPrice || '৭৯৯'}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Right: Details Link */}
                     <button
@@ -840,12 +1210,12 @@ export default function SureShotExamSystem({
                         setSelectedCategoryDetail(cat);
                         updateExamStep('category_detail', cat.key);
                       }}
-                      className={`text-xs sm:text-sm font-bold flex items-center gap-1 bg-transparent border-none cursor-pointer py-1 px-1 transition-colors shrink-0 mb-0.5 ${
-                        isDark ? 'text-white hover:text-gray-300' : 'text-[#dc2626] hover:text-red-700'
-                      }`}
+                      className={`text-sm font-bold flex items-center gap-1 ${
+                        isDark ? 'text-white hover:text-gray-300' : 'text-[#dc2626] hover:text-[#b91c1c]'
+                      } bg-transparent border-none cursor-pointer py-1 px-1 transition-colors shrink-0 mb-0.5 group`}
                     >
                       <span>বিস্তারিত</span>
-                      <ChevronRight size={16} />
+                      <ChevronRight size={18} strokeWidth={2.8} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                     </button>
                   </div>
                 </div>
@@ -1090,8 +1460,12 @@ export default function SureShotExamSystem({
                 {currentCategoryDetail?.title?.split('|')[0]?.trim() || 'Sure Shot Carnival'}
               </span>
               {isCurrentCatEnrolled && (
-                <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  ✓ এনরোল্ড
+                <span className={`inline-flex items-center text-[11px] font-bold px-3 py-0.5 rounded-full text-white shadow-xs select-none ${
+                  isDark
+                    ? 'bg-[#e11438] shadow-[0_2px_8px_rgba(225,20,56,0.3)]'
+                    : 'bg-[#6f0113] shadow-[0_2px_6px_rgba(111,1,19,0.2)]'
+                }`}>
+                  Enrolled
                 </span>
               )}
             </div>
@@ -1408,9 +1782,13 @@ export default function SureShotExamSystem({
                     >
                       <span className="line-clamp-2 text-left flex-1 font-semibold sm:font-bold">{stripEmoji(exam.title)}</span>
                       {!isCurrentCatEnrolled ? (
-                        <Lock size={15} strokeWidth={1.8} className="shrink-0 text-gray-400 dark:text-gray-400 group-hover:text-red-500 transition-colors" />
+                        <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors bg-gray-100 dark:bg-white/[0.05] text-gray-400 dark:text-gray-500 group-hover:text-red-500">
+                          <Lock size={15} strokeWidth={1.8} />
+                        </div>
                       ) : (
-                        <Play size={14} className="shrink-0 text-emerald-500 fill-current opacity-80" />
+                        <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 bg-gray-100 dark:bg-white/[0.08] text-gray-500 dark:text-gray-300 group-hover:bg-[#6f0113] group-hover:text-white dark:group-hover:bg-[#e11438] dark:group-hover:text-white shadow-2xs">
+                          <FileText size={16} strokeWidth={2} />
+                        </div>
                       )}
                     </button>
                   ))}
@@ -1433,9 +1811,13 @@ export default function SureShotExamSystem({
                           >
                             <span className="line-clamp-2 text-left flex-1 font-semibold sm:font-bold">{stripEmoji(exam.title)}</span>
                             {!isCurrentCatEnrolled ? (
-                              <Lock size={15} strokeWidth={1.8} className="shrink-0 text-gray-400 dark:text-gray-400 group-hover:text-red-500 transition-colors" />
+                              <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors bg-gray-100 dark:bg-white/[0.05] text-gray-400 dark:text-gray-500 group-hover:text-red-500">
+                                <Lock size={15} strokeWidth={1.8} />
+                              </div>
                             ) : (
-                              <Play size={14} className="shrink-0 text-emerald-500 fill-current opacity-80" />
+                              <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 bg-gray-100 dark:bg-white/[0.08] text-gray-500 dark:text-gray-300 group-hover:bg-[#6f0113] group-hover:text-white dark:group-hover:bg-[#e11438] dark:group-hover:text-white shadow-2xs">
+                                <FileText size={16} strokeWidth={2} />
+                              </div>
                             )}
                           </button>
                         ))}
@@ -1497,19 +1879,8 @@ export default function SureShotExamSystem({
           </div>
         )}
 
-        <div className="relative z-10 w-full max-w-lg space-y-3 sm:space-y-3.5">
+        <div className="relative z-10 w-full max-w-lg space-y-3 sm:space-y-3.5 animate-exam-intro">
           
-          {/* Top Center Pill Badge (Brand Color) */}
-          <div className="flex justify-center">
-            <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border transition-colors ${
-              isDark 
-                ? 'bg-[#e11438]/15 border-[#e11438]/30 text-[#ff4d6d]' 
-                : 'bg-red-50 border-red-200 text-[#dc2626]'
-            }`}>
-              <BookOpen size={13} />
-              <span>{examData?.categoryName || 'মেডিকেল বিগত বছরের প্রশ্ন (MAT)'}</span>
-            </div>
-          </div>
 
           {/* Exam Title */}
           <h1 className={`text-xl sm:text-2xl font-black text-center tracking-tight leading-snug ${
@@ -1528,135 +1899,115 @@ export default function SureShotExamSystem({
 
           {/* 2 Metric Cards: Questions & Duration */}
           <div className="grid grid-cols-2 gap-3">
-            <div className={`border rounded-2xl p-3 sm:p-3.5 flex flex-col items-center text-center transition-all ${
+            <div className={`border rounded-2xl p-3.5 sm:p-4 min-h-[120px] flex flex-col items-center justify-between text-center transition-all ${
               isDark 
                 ? 'bg-[#140306]/90 border-[#e11438]/25 shadow-[0_8px_25px_rgba(0,0,0,0.5)]' 
                 : 'bg-white border-gray-200 shadow-sm'
             }`}>
-              <HelpCircle size={20} className="text-[#e11438] dark:text-[#ff4d6d] mb-0.5" />
-              <p className={`text-[11px] font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>মোট প্রশ্ন</p>
-              <p className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>{qCount}</p>
+              <div className="flex items-center justify-center h-6">
+                <HelpCircle size={22} className="text-[#e11438] dark:text-[#ff4d6d]" />
+              </div>
+              <div className="my-1">
+                <span className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-[#111827]'}`}>
+                  {qCount}
+                </span>
+              </div>
+              <div className="h-5 flex items-center justify-center">
+                <span className={`text-xs font-semibold ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                  Total Questions
+                </span>
+              </div>
             </div>
 
-            <div className={`border rounded-2xl p-3 sm:p-3.5 flex flex-col items-center text-center transition-all relative ${
+            <div className={`border rounded-2xl p-3.5 sm:p-4 min-h-[120px] flex flex-col items-center justify-between text-center transition-all relative ${
               isDark 
                 ? 'bg-[#140306]/90 border-[#e11438]/25 shadow-[0_8px_25px_rgba(0,0,0,0.5)]' 
                 : 'bg-white border-gray-200 shadow-sm'
             }`}>
-              <Clock size={20} className="text-emerald-500 dark:text-emerald-400 mb-0.5" />
-              <p className={`text-[11px] font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>সময়</p>
-              <p className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                {durMins} <span className="text-xs font-normal">মি.</span>
-              </p>
-              <button
-                type="button"
-                onClick={() => setShowCustomDurationPicker(prev => !prev)}
-                className="mt-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
-                title="ক্লিক করে এই পরীক্ষার সময় কাস্টমাইজ করুন"
-              >
-                <span>{customDurationMins ? '⏱️ কাস্টম সময়' : '⏱️ সময় কাস্টমাইজ'}</span>
-                <ChevronDown size={11} className={`transition-transform ${showCustomDurationPicker ? 'rotate-180' : ''}`} />
-              </button>
+              <div className="flex items-center justify-center h-6">
+                <Clock size={22} className="text-[#e11438] dark:text-[#ff4d6d]" />
+              </div>
+              <div className="my-1">
+                <span className={`text-2xl sm:text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-[#111827]'}`}>
+                  {durMins} <span className="text-xs sm:text-sm font-semibold opacity-75">min</span>
+                </span>
+              </div>
+              <div className="h-5 flex items-center justify-center">
+                <button
+                  type="button"
+                  onClick={() => setShowCustomDurationPicker(prev => !prev)}
+                  className="text-xs font-semibold text-[#dc2626] dark:text-[#ff4d6d] hover:underline flex items-center justify-center gap-1 cursor-pointer bg-transparent border-none p-0 transition-colors"
+                  title="Customize exam duration"
+                >
+                  <span>{customDurationMins ? 'Custom Time' : 'Customize Time'}</span>
+                  <ChevronDown size={12} className={`transition-transform duration-200 ${showCustomDurationPicker ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Custom Duration Selector Dropdown */}
-          {showCustomDurationPicker && (
-            <div className={`p-3.5 rounded-2xl border animate-in fade-in zoom-in-95 space-y-2.5 ${
-              isDark 
-                ? 'bg-[#140306]/95 border-[#e11438]/30 shadow-lg' 
-                : 'bg-emerald-50/70 border-emerald-200 shadow-sm'
-            }`}>
-              <div className="flex items-center justify-between text-[11px] font-bold">
-                <span className={isDark ? 'text-gray-300' : 'text-slate-700'}>
-                  ⏱️ পরীক্ষার সময়কাল নির্বাচন করুন:
-                </span>
-                {customDurationMins && (
-                  <button
-                    type="button"
-                    onClick={() => setCustomDurationMins(null)}
-                    className="text-[10px] text-amber-500 font-bold hover:underline bg-transparent border-none cursor-pointer p-0"
-                  >
-                    ডিফল্টে ফিরুন ({defaultDurMins}মি.)
-                  </button>
-                )}
-              </div>
-
-              {/* Quick Preset Buttons */}
-              <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5">
-                {[10, 15, 20, 25, 30, 40, 50, 60].map((m) => {
-                  const isSel = (durMins === m);
-                  return (
-                    <button
-                      key={m}
-                      type="button"
-                      onClick={() => setCustomDurationMins(m)}
-                      className={`py-1.5 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-                        isSel
-                          ? (isDark ? 'bg-[#dc2626] text-white border-[#dc2626] shadow-sm font-black' : 'bg-emerald-600 text-white border-emerald-600 shadow-sm font-black')
-                          : (isDark ? 'bg-white/5 hover:bg-white/10 text-gray-300 border-white/10' : 'bg-white hover:bg-emerald-100/60 text-slate-700 border-emerald-200')
-                      }`}
-                    >
-                      {m} মি.
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Stepper with custom input */}
-              <div className="flex items-center justify-center gap-2 pt-0.5">
+          {/* Custom Duration Selector (Smooth Animated Accordion In/Out - Clean Floating Stepper) */}
+          <div className={`grid transition-all duration-300 ease-out overflow-hidden ${
+            showCustomDurationPicker 
+              ? 'grid-rows-[1fr] opacity-100 mt-2' 
+              : 'grid-rows-[0fr] opacity-0 pointer-events-none mt-0'
+          }`}>
+            <div className="min-h-0 overflow-hidden flex justify-center py-1">
+              <div className={`inline-flex items-center gap-3 transition-all duration-300 transform ${
+                showCustomDurationPicker ? 'scale-100 translate-y-0' : 'scale-95 -translate-y-2'
+              }`}>
+                {/* Decrement Button */}
                 <button
                   type="button"
                   onClick={() => setCustomDurationMins(Math.max(1, durMins - 5))}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold border cursor-pointer ${
-                    isDark ? 'bg-white/10 text-white border-white/20' : 'bg-white text-slate-700 border-gray-300'
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer border ${
+                    isDark 
+                      ? 'bg-white/5 border-white/10 hover:bg-white/15 text-gray-200 active:scale-90' 
+                      : 'bg-gray-100 border-gray-200 hover:bg-gray-200 text-gray-700 active:scale-90'
                   }`}
+                  title="Decrease 5 min"
+                  aria-label="Decrease 5 minutes"
                 >
-                  -5m
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCustomDurationMins(Math.max(1, durMins - 1))}
-                  className={`px-2 py-1 rounded-lg text-xs font-bold border cursor-pointer ${
-                    isDark ? 'bg-white/10 text-white border-white/20' : 'bg-white text-slate-700 border-gray-300'
-                  }`}
-                >
-                  -1m
+                  <Minus size={14} strokeWidth={2.5} />
                 </button>
 
-                <div className="flex items-center gap-1 px-3 py-1 rounded-xl bg-white dark:bg-black/40 border border-gray-300 dark:border-white/20">
+                {/* Clean Center Display with Natural Tight Spacing */}
+                <div className="flex items-center justify-center font-mono select-none">
                   <input
                     type="number"
                     min="1"
                     max="300"
                     value={durMins}
                     onChange={(e) => setCustomDurationMins(Math.max(1, parseInt(e.target.value, 10) || 1))}
-                    className="w-12 text-center text-xs font-black bg-transparent outline-none text-emerald-600 dark:text-emerald-400 font-mono"
+                    style={{ width: `${Math.max(2, String(durMins).length)}ch` }}
+                    className={`text-right text-sm font-black bg-transparent outline-none tracking-tight p-0 m-0 border-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
+                      isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]'
+                    }`}
                   />
-                  <span className="text-[10px] font-bold text-gray-400">মি.</span>
+                  <span className={`text-xs font-semibold ml-1 font-sans ${
+                    isDark ? 'text-gray-400' : 'text-gray-500'
+                  }`}>
+                    min
+                  </span>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => setCustomDurationMins(durMins + 1)}
-                  className={`px-2 py-1 rounded-lg text-xs font-bold border cursor-pointer ${
-                    isDark ? 'bg-white/10 text-white border-white/20' : 'bg-white text-slate-700 border-gray-300'
-                  }`}
-                >
-                  +1m
-                </button>
+                {/* Increment Button */}
                 <button
                   type="button"
                   onClick={() => setCustomDurationMins(durMins + 5)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold border cursor-pointer ${
-                    isDark ? 'bg-white/10 text-white border-white/20' : 'bg-white text-slate-700 border-gray-300'
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer border ${
+                    isDark 
+                      ? 'bg-white/5 border-white/10 hover:bg-white/15 text-gray-200 active:scale-90' 
+                      : 'bg-gray-100 border-gray-200 hover:bg-gray-200 text-gray-700 active:scale-90'
                   }`}
+                  title="Increase 5 min"
+                  aria-label="Increase 5 minutes"
                 >
-                  +5m
+                  <Plus size={14} strokeWidth={2.5} />
                 </button>
               </div>
             </div>
-          )}
+          </div>
 
           {/* Negative Marking Toggle Card: Second Timer (-3 Marks) */}
           <div className={`border rounded-2xl p-3 sm:p-3.5 flex items-center justify-between gap-3.5 transition-all ${
@@ -1674,14 +2025,14 @@ export default function SureShotExamSystem({
               </div>
               <div className="min-w-0">
                 <h4 className={`text-xs sm:text-sm font-bold leading-tight ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                  সেকেন্ড টাইমার অপশন
+                  Second Timer Penalty
                 </h4>
                 <p className={`text-[11px] sm:text-xs mt-0.5 font-semibold transition-colors ${
                   isSecondTimer 
                     ? (isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]') 
                     : (isDark ? 'text-gray-400' : 'text-gray-500')
                 }`}>
-                  {isSecondTimer ? 'এক্সট্রা ৩ মার্ক কাটা যাবে' : 'ফার্স্ট টাইমার (কোনো এক্সট্রা মার্ক কাটা যাবে না)'}
+                  {isSecondTimer ? 'Extra -3 marks penalty applied' : 'First Timer (No extra penalty)'}
                 </p>
               </div>
             </div>
@@ -1689,7 +2040,7 @@ export default function SureShotExamSystem({
             {/* Toggle Switch */}
             <button
               onClick={() => setIsSecondTimer(!isSecondTimer)}
-              aria-label="সেকেন্ড টাইমার টগল"
+              aria-label="Second timer toggle"
               className={`w-11 h-6 flex items-center rounded-full p-0.5 cursor-pointer transition-colors border-none shrink-0 ${
                 isSecondTimer ? 'bg-[#dc2626]' : (isDark ? 'bg-white/15' : 'bg-gray-300')
               }`}
@@ -1705,20 +2056,25 @@ export default function SureShotExamSystem({
           {/* Action Button: Start Exam */}
           <button
             onClick={() => handleStartExam(examMode)}
-            className="w-full py-3 px-6 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-[#b91c1c] hover:to-[#991b1b] text-white font-bold text-sm sm:text-base rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-red-950/40 hover:shadow-red-900/50 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border-none"
+            disabled={isLoadingExam}
+            className="w-full py-3 px-6 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-[#b91c1c] hover:to-[#991b1b] text-white font-bold text-sm sm:text-base rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-red-950/40 hover:shadow-red-900/50 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border-none disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            <span>🚀 পরীক্ষা শুরু করি</span>
+            {isLoadingExam ? (
+              <span>⏳ প্রশ্ন লোড হচ্ছে...</span>
+            ) : (
+              <span>🚀 Start Exam</span>
+            )}
           </button>
 
           {/* Back button */}
           <div className="text-center pt-0.5">
             <button 
-              onClick={() => setStep('exam_list')}
+              onClick={() => updateExamStep('exam_list', selectedCategory)}
               className={`text-xs font-semibold bg-transparent border-none cursor-pointer transition-colors ${
                 isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'
               }`}
             >
-              ← এক্সাম তালিকায় ফিরে যান
+              ← Back to Exam List
             </button>
           </div>
         </div>
@@ -1738,7 +2094,7 @@ export default function SureShotExamSystem({
       }`}>
         
         {/* Sticky Top Header Bar */}
-        <header className={`sticky top-0 z-40 backdrop-blur-md border-b px-4 sm:px-8 py-3.5 shadow-lg transition-colors ${
+        <header className={`sticky top-16 z-40 backdrop-blur-md border-b px-4 sm:px-8 py-3.5 shadow-md transition-all duration-200 ${
           isDark 
             ? 'bg-[#120306]/95 border-[#e11438]/20 shadow-[0_4px_20px_rgba(0,0,0,0.5)]' 
             : 'bg-white/95 border-gray-200 shadow-sm'
@@ -1754,7 +2110,7 @@ export default function SureShotExamSystem({
                     ? 'bg-[#1b050d] hover:bg-[#260712] border-[#e11438]/25 text-gray-200' 
                     : 'bg-gray-100 hover:bg-gray-200 border-gray-200 text-gray-700'
                 }`}
-                title="প্রশ্ন প্যালেট দেখুন"
+                title="View Question Navigator"
               >
                 <Grid size={15} className={isDark ? "text-gray-400" : "text-gray-500"} />
                 <span>{answeredCount}/{questions.length}</span>
@@ -1765,7 +2121,7 @@ export default function SureShotExamSystem({
                   ? (isDark ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30' : 'bg-emerald-50 text-emerald-700 border-emerald-200')
                   : (isDark ? 'bg-[#e11438]/15 text-[#ff4d6d] border-[#e11438]/30' : 'bg-red-50 text-red-700 border-red-200')
               }`}>
-                {examMode === 'practice' ? '⚡ প্র্যাকটিস মোড' : '⏱️ রিয়েল মোড'}
+                {examMode === 'practice' ? '⚡ Practice Mode' : '⏱️ Real Mode'}
               </span>
             </div>
 
@@ -1790,7 +2146,7 @@ export default function SureShotExamSystem({
                   >
                     <div className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform ${showSeconds ? 'translate-x-4' : 'translate-x-0'}`} />
                   </button>
-                  <span className="text-[11px]">সেকেন্ড</span>
+                  <span className="text-[11px]">sec</span>
                 </div>
               </div>
             ) : (
@@ -1798,171 +2154,209 @@ export default function SureShotExamSystem({
                 isDark ? 'text-emerald-400 bg-emerald-950/40 border-emerald-800/40' : 'text-emerald-700 bg-emerald-50 border-emerald-200'
               }`}>
                 <CheckCircle2 size={14} />
-                <span>অনুশীলন চলছে • সঠিক উত্তর ও ব্যাখ্যা তাৎক্ষণিক দেখুন</span>
+                <span>Practice Mode • Instant answers & explanations available</span>
               </div>
             )}
 
             {/* Right: Submit Button */}
             <button
               onClick={() => setSubmitWarningModal(true)}
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-[#10b981] to-[#059669] hover:from-[#059669] hover:to-[#047857] text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-900/30 transition-all cursor-pointer border-none"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-[#10b981] to-[#059669] hover:from-[#059669] hover:to-[#047857] text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-900/30 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-none select-none"
             >
               <Send size={15} />
-              <span>জমা দিন</span>
+              <span>Submit</span>
             </button>
           </div>
         </header>
 
         {/* Questions Body */}
-        <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 space-y-6">
-          {questions.map((q, idx) => {
-            const selectedOpt = userAnswers[q.id];
-            const isFlagged = flaggedQuestions[q.id];
-            const isRevealed = practiceRevealed[q.id] || examMode === 'practice' && selectedOpt !== undefined;
-            const isCorrect = selectedOpt === q.correct_index;
-
-            return (
-              <div 
-                key={q.id || idx}
-                ref={el => questionRefs.current[idx] = el}
-                className={`border rounded-2xl p-5 sm:p-6 shadow-md transition-all ${
-                  isDark ? 'bg-[#140306]/90 shadow-[0_8px_25px_rgba(0,0,0,0.5)]' : 'bg-white shadow-sm'
-                } ${
-                  isFlagged 
-                    ? (isDark ? 'border-amber-500/60 shadow-amber-950/20' : 'border-amber-400 ring-2 ring-amber-100') 
-                    : (isDark ? 'border-[#e11438]/20 hover:border-[#e11438]/40' : 'border-gray-200 hover:border-gray-300')
-                }`}
-              >
-                {/* Question Header: Number + Question Text + Flag Button */}
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="flex items-start gap-3.5 flex-1">
-                    <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#dc2626] to-[#b91c1c] text-white font-bold flex items-center justify-center text-sm shrink-0 shadow-sm">
-                      {idx + 1}
-                    </span>
-                    <h3 className={`text-base sm:text-lg font-bold leading-relaxed pt-0.5 ${
-                      isDark ? 'text-white' : 'text-[#111827]'
-                    }`}>
-                      {q.question}
-                    </h3>
-                  </div>
-
-                  <button
-                    onClick={() => handleToggleFlag(q.id)}
-                    className={`p-2 rounded-lg border transition-all cursor-pointer ${
-                      isFlagged 
-                        ? 'bg-amber-500/20 text-amber-400 border-amber-500/50' 
-                        : (isDark ? 'bg-transparent text-gray-500 border-transparent hover:text-gray-300' : 'bg-transparent text-gray-400 border-transparent hover:text-gray-600')
-                    }`}
-                    title={isFlagged ? "চিহ্নিত প্রশ্ন" : "রিভিউয়ের জন্য চিহ্নিত করুন"}
-                  >
-                    <Bookmark size={18} fill={isFlagged ? "currentColor" : "none"} />
-                  </button>
-                </div>
-
-                <div className={`h-px my-4 ${isDark ? 'bg-[#e11438]/15' : 'bg-gray-100'}`} />
-
-                {/* Options List */}
-                <div className="space-y-3">
-                  {q.options.map((optText, oIdx) => {
-                    const isSelected = selectedOpt === oIdx;
-                    const isOptionCorrect = oIdx === q.correct_index;
-
-                    // Option styling based on Mode & Status
-                    let optionStyle = isDark 
-                      ? 'bg-[#1a050c] border-[#e11438]/15 text-gray-200 hover:bg-[#240712] hover:border-[#e11438]/35' 
-                      : 'bg-gray-50 border-gray-200 text-gray-800 hover:bg-red-50/40 hover:border-red-200';
-                    let bubbleStyle = isDark 
-                      ? 'bg-[#120306] text-gray-300 border-[#e11438]/20' 
-                      : 'bg-white text-gray-700 border-gray-300';
-
-                    if (examMode === 'practice' && isRevealed) {
-                      if (isOptionCorrect) {
-                        optionStyle = isDark 
-                          ? 'bg-emerald-950/60 border-emerald-500 text-emerald-200 shadow-md' 
-                          : 'bg-emerald-50 border-emerald-500 text-emerald-900 shadow-sm';
-                        bubbleStyle = 'bg-emerald-500 text-white border-emerald-500';
-                      } else if (isSelected && !isOptionCorrect) {
-                        optionStyle = isDark 
-                          ? 'bg-red-950/60 border-red-500 text-red-200 shadow-md' 
-                          : 'bg-red-50 border-red-500 text-red-900 shadow-sm';
-                        bubbleStyle = 'bg-red-500 text-white border-red-500';
-                      }
-                    } else if (isSelected) {
-                      optionStyle = isDark 
-                        ? 'bg-[#2a0610] border-[#e11438] text-white shadow-md shadow-red-950/40' 
-                        : 'bg-red-50 border-red-500 text-red-900 shadow-sm';
-                      bubbleStyle = 'bg-[#dc2626] text-white border-[#dc2626]';
-                    }
-
-                    return (
-                      <button
-                        key={oIdx}
-                        onClick={() => handleSelectOption(q.id, oIdx)}
-                        className={`w-full text-left p-3 sm:p-3.5 rounded-xl border flex items-center gap-3.5 transition-all cursor-pointer ${optionStyle}`}
-                      >
-                        {/* Bengali Letter Bubble: ক, খ, গ, ঘ */}
-                        <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-colors border ${bubbleStyle}`}>
-                          {BENGALI_LETTERS[oIdx] || oIdx + 1}
-                        </span>
-
-                        <span className="text-sm sm:text-base leading-normal font-medium flex-1">
-                          {optText}
-                        </span>
-
-                        {/* Status Icon in Practice Mode */}
-                        {examMode === 'practice' && isRevealed && (
-                          <span>
-                            {isOptionCorrect && <Check size={18} className="text-emerald-400" />}
-                            {isSelected && !isOptionCorrect && <X size={18} className="text-red-400" />}
-                          </span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Instant Explanation Box in Practice Mode */}
-                {examMode === 'practice' && isRevealed && q.explanation && (
-                  <div className={`mt-4 p-4 rounded-xl border text-xs sm:text-sm space-y-1.5 animate-fadeIn ${
-                    isDark 
-                      ? 'bg-[#1b050d] border-[#e11438]/25 text-gray-300' 
-                      : 'bg-red-50/50 border-red-200 text-gray-700'
-                  }`}>
-                    <p className={`font-bold flex items-center gap-1.5 ${isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]'}`}>
-                      <Sparkles size={14} /> ব্যাখ্যা (Explanation):
-                    </p>
-                    <p className="leading-relaxed whitespace-pre-line">
-                      {q.explanation}
-                    </p>
-                  </div>
-                )}
+        <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 space-y-6 animate-exam-intro">
+          {questions.length === 0 ? (
+            <div className={`border rounded-2xl p-8 sm:p-12 text-center space-y-4 my-8 ${
+              isDark ? 'bg-[#140306]/90 border-[#e11438]/25 shadow-lg' : 'bg-white border-gray-200 shadow-sm'
+            }`}>
+              <AlertTriangle size={48} className="mx-auto text-amber-500 mb-2" />
+              <h3 className={`text-lg sm:text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                Unable to Load Questions
+              </h3>
+              <p className={`text-sm max-w-md mx-auto ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                Could not load exam questions from the server. Please click below to try again.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+                <button
+                  onClick={() => {
+                    if (selectedExamMeta) handleSelectExam(selectedExamMeta);
+                  }}
+                  className="px-6 py-2.5 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] text-white font-bold text-sm rounded-xl cursor-pointer border-none shadow-md transition-transform hover:scale-105 active:scale-95"
+                >
+                  🔄 Reload Questions
+                </button>
+                <button
+                  onClick={() => setStep('category_detail')}
+                  className={`px-6 py-2.5 font-bold text-sm rounded-xl cursor-pointer border transition-colors ${
+                    isDark ? 'bg-white/10 hover:bg-white/20 text-white border-white/20' : 'bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300'
+                  }`}
+                >
+                  ← Back to Exam List
+                </button>
               </div>
-            );
-          })}
+            </div>
+          ) : (
+            questions.map((q, idx) => {
+              const selectedOpt = userAnswers[q.id];
+              const isFlagged = flaggedQuestions[q.id];
+              const isRevealed = practiceRevealed[q.id] || (examMode === 'practice' && selectedOpt !== undefined);
+              const isCorrect = selectedOpt === q.correct_index;
+
+              return (
+                <div 
+                  key={q.id || idx}
+                  ref={el => questionRefs.current[idx] = el}
+                  className={`border rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 ease-out ${
+                    isDark ? 'bg-[#140306]/90 shadow-[0_8px_25px_rgba(0,0,0,0.5)]' : 'bg-white'
+                  } ${
+                    isFlagged 
+                      ? (isDark ? 'border-amber-500/60 shadow-amber-950/20' : 'border-amber-400 ring-2 ring-amber-100') 
+                      : (isDark ? 'border-[#e11438]/20 hover:border-[#e11438]/40' : 'border-gray-200 hover:border-gray-300')
+                  }`}
+                >
+                  {/* Question Header: Number + Question Text + Flag Button */}
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="flex items-start gap-3.5 flex-1">
+                      <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#dc2626] to-[#b91c1c] text-white font-bold flex items-center justify-center text-sm shrink-0 shadow-sm transition-transform duration-200">
+                        {idx + 1}
+                      </span>
+                      <h3 className={`text-base sm:text-lg font-bold leading-relaxed pt-0.5 ${
+                        isDark ? 'text-white' : 'text-[#111827]'
+                      }`}>
+                        {q.question}
+                      </h3>
+                    </div>
+
+                    <button
+                      onClick={() => handleToggleFlag(q.id)}
+                      className={`p-2 rounded-lg border transition-all duration-200 ease-out hover:scale-105 active:scale-90 cursor-pointer ${
+                        isFlagged 
+                          ? 'bg-amber-500/20 text-amber-400 border-amber-500/50' 
+                          : (isDark ? 'bg-transparent text-gray-500 border-transparent hover:text-gray-300' : 'bg-transparent text-gray-400 border-transparent hover:text-gray-600')
+                      }`}
+                      title={isFlagged ? "Flagged question" : "Flag for review"}
+                    >
+                      <Bookmark size={18} fill={isFlagged ? "currentColor" : "none"} />
+                    </button>
+                  </div>
+
+                  <div className={`h-px my-4 ${isDark ? 'bg-[#e11438]/15' : 'bg-gray-100'}`} />
+
+                  {/* Options List */}
+                  <div className="space-y-3">
+                    {q.options.map((optText, oIdx) => {
+                      const isSelected = selectedOpt === oIdx;
+                      const isOptionCorrect = oIdx === q.correct_index;
+
+                      // Option styling based on Mode & Status
+                      let optionStyle = isDark 
+                        ? 'bg-[#1a050c] border-[#e11438]/15 text-gray-200 hover:bg-[#240712] hover:border-[#e11438]/35' 
+                        : 'bg-gray-50 border-gray-200 text-gray-800 hover:bg-red-50/40 hover:border-red-200';
+                      let bubbleStyle = isDark 
+                        ? 'bg-[#120306] text-gray-300 border-[#e11438]/20' 
+                        : 'bg-white text-gray-700 border-gray-300';
+
+                      if (examMode === 'practice' && isRevealed) {
+                        if (isOptionCorrect) {
+                          optionStyle = isDark 
+                            ? 'bg-emerald-950/60 border-emerald-500 text-emerald-200 shadow-md' 
+                            : 'bg-emerald-50 border-emerald-500 text-emerald-900 shadow-sm';
+                          bubbleStyle = 'bg-emerald-500 text-white border-emerald-500';
+                        } else if (isSelected && !isOptionCorrect) {
+                          optionStyle = isDark 
+                            ? 'bg-red-950/60 border-red-500 text-red-200 shadow-md' 
+                            : 'bg-red-50 border-red-500 text-red-900 shadow-sm';
+                          bubbleStyle = 'bg-red-500 text-white border-red-500';
+                        }
+                      } else if (isSelected) {
+                        optionStyle = isDark 
+                          ? 'bg-[#2a0610] border-[#e11438] text-white shadow-md shadow-red-950/40' 
+                          : 'bg-red-50 border-red-500 text-red-900 shadow-sm';
+                        bubbleStyle = 'bg-[#dc2626] text-white border-[#dc2626]';
+                      }
+
+                      return (
+                        <button
+                          key={oIdx}
+                          onClick={() => handleSelectOption(q.id, oIdx)}
+                          className={`w-full text-left p-3 sm:p-3.5 rounded-xl border flex items-center gap-3.5 transition-all duration-200 ease-out active:scale-[0.985] cursor-pointer select-none group ${optionStyle} ${
+                            isSelected ? 'animate-option-pulse ring-1 ring-red-500/25' : ''
+                          }`}
+                        >
+                          {/* Option Bubble: A, B, C, D */}
+                          <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-all duration-200 ease-out border ${bubbleStyle} ${
+                            isSelected ? 'scale-105 shadow-sm' : 'group-hover:scale-105'
+                          }`}>
+                            {OPTION_LETTERS[oIdx] || oIdx + 1}
+                          </span>
+
+                          <span className="text-sm sm:text-base leading-normal font-medium flex-1">
+                            {optText}
+                          </span>
+
+                          {/* Status Icon in Practice Mode */}
+                          {examMode === 'practice' && isRevealed && (
+                            <span>
+                              {isOptionCorrect && <Check size={18} className="text-emerald-400" />}
+                              {isSelected && !isOptionCorrect && <X size={18} className="text-red-400" />}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Instant Explanation Box in Practice Mode */}
+                  {examMode === 'practice' && isRevealed && q.explanation && (
+                    <div className={`mt-4 p-4 rounded-xl border text-xs sm:text-sm space-y-1.5 animate-fadeIn ${
+                      isDark 
+                        ? 'bg-[#1b050d] border-[#e11438]/25 text-gray-300' 
+                        : 'bg-red-50/50 border-red-200 text-gray-700'
+                    }`}>
+                      <p className={`font-bold ${isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]'}`}>
+                        Explanation:
+                      </p>
+                      <p className="leading-relaxed whitespace-pre-line">
+                        {q.explanation}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })
+          )}
 
           {/* Bottom Submit Banner */}
-          <div className="pt-6 pb-12 flex justify-center">
-            <button
-              onClick={() => setSubmitWarningModal(true)}
-              className="py-4 px-10 bg-gradient-to-r from-[#10b981] to-[#059669] hover:from-[#059669] hover:to-[#047857] text-white font-bold text-base rounded-2xl flex items-center gap-2.5 shadow-xl shadow-emerald-950/40 cursor-pointer border-none"
-            >
-              <Send size={18} />
-              <span>পরীক্ষা জমা দিন ({answeredCount}/{questions.length})</span>
-            </button>
-          </div>
+          {questions.length > 0 && (
+            <div className="pt-6 pb-12 flex justify-center">
+              <button
+                onClick={() => setSubmitWarningModal(true)}
+                className="py-4 px-10 bg-gradient-to-r from-[#10b981] to-[#059669] hover:from-[#059669] hover:to-[#047857] text-white font-bold text-base rounded-2xl flex items-center gap-2.5 shadow-xl shadow-emerald-950/40 cursor-pointer border-none transition-all duration-200 hover:scale-105 active:scale-95 select-none"
+              >
+                <Send size={18} />
+                <span>Submit Exam ({answeredCount}/{questions.length})</span>
+              </button>
+            </div>
+          )}
         </main>
 
         {/* Question Navigator Drawer / Modal */}
-        {questionPaletteOpen && (
-          <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className={`border rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl transition-all ${
+        {questionPaletteOpen && typeof document !== 'undefined' && createPortal(
+          <div className="fixed inset-0 z-[99999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className={`border rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl transition-all animate-exam-intro ${
               isDark ? 'bg-[#140306] border-[#e11438]/30 shadow-[0_20px_60px_rgba(0,0,0,0.8)]' : 'bg-white border-gray-200 shadow-2xl'
             }`}>
               <div className={`flex items-center justify-between pb-3 border-b ${
                 isDark ? 'border-[#e11438]/20' : 'border-gray-200'
               }`}>
                 <h3 className={`text-base font-bold flex items-center gap-2 ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                  <Grid size={18} className="text-[#dc2626]" /> প্রশ্ন প্যালেট (Question Navigator)
+                  <Grid size={18} className="text-[#dc2626]" /> Question Navigator
                 </h3>
                 <button 
                   onClick={() => setQuestionPaletteOpen(false)}
@@ -1977,15 +2371,15 @@ export default function SureShotExamSystem({
               {/* Legend */}
               <div className={`flex items-center gap-4 text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-3.5 h-3.5 rounded bg-emerald-500 inline-block" /> উত্তর দেওয়া ({answeredCount})
+                  <span className="w-3.5 h-3.5 rounded bg-emerald-500 inline-block" /> Answered ({answeredCount})
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-3.5 h-3.5 rounded bg-amber-500 inline-block" /> বুকমার্ক ({Object.keys(flaggedQuestions).filter(k => flaggedQuestions[k]).length})
+                  <span className="w-3.5 h-3.5 rounded bg-amber-500 inline-block" /> Flagged ({Object.keys(flaggedQuestions).filter(k => flaggedQuestions[k]).length})
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className={`w-3.5 h-3.5 rounded border inline-block ${
                     isDark ? 'bg-[#1b050d] border-[#e11438]/20' : 'bg-gray-100 border-gray-300'
-                  }`} /> বাকি ({questions.length - answeredCount})
+                  }`} /> Unanswered ({questions.length - answeredCount})
                 </span>
               </div>
 
@@ -2020,28 +2414,29 @@ export default function SureShotExamSystem({
                     isDark ? 'bg-white/10 hover:bg-white/20 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
                   }`}
                 >
-                  বন্ধ করুন
+                  Close
                 </button>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
 
         {/* Submit Confirmation Modal */}
-        {submitWarningModal && (
-          <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className={`border rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl transition-all ${
+        {submitWarningModal && typeof document !== 'undefined' && createPortal(
+          <div className="fixed inset-0 z-[99999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className={`border rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl transition-all animate-exam-intro ${
               isDark ? 'bg-[#140306] border-[#e11438]/25 shadow-[0_20px_60px_rgba(0,0,0,0.8)]' : 'bg-white border-gray-200 shadow-2xl'
             }`}>
               <div className="flex items-center gap-3 text-amber-400">
                 <AlertTriangle size={26} />
-                <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>পরীক্ষা জমা দিতে চান?</h3>
+                <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>Submit Exam?</h3>
               </div>
               <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                আপনি <strong>{questions.length}</strong> টির মধ্যে <strong>{answeredCount}</strong> টি প্রশ্নের উত্তর দিয়েছেন। 
+                You have answered <strong>{answeredCount}</strong> out of <strong>{questions.length}</strong> questions.
                 {questions.length - answeredCount > 0 && (
                   <span className="text-red-500 block mt-1 font-semibold">
-                    (এখনও {questions.length - answeredCount}টি প্রশ্ন অনুত্তরিত রয়েছে)
+                    ({questions.length - answeredCount} questions are still unanswered)
                   </span>
                 )}
               </p>
@@ -2052,20 +2447,21 @@ export default function SureShotExamSystem({
                     isDark ? 'bg-transparent border-white/15 text-gray-300 hover:bg-white/5' : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
-                  ফিরে যাই
+                  Cancel
                 </button>
                 <button
                   onClick={() => {
                     setSubmitWarningModal(false);
                     calculateAndFinishExam();
                   }}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#10b981] to-[#059669] hover:from-[#059669] hover:to-[#047857] text-white text-sm font-bold cursor-pointer border-none shadow-lg shadow-emerald-950/40"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#10b981] to-[#059669] hover:from-[#059669] hover:to-[#047857] text-white text-sm font-bold cursor-pointer border-none shadow-lg shadow-emerald-950/40 transition-all duration-200 hover:scale-105 active:scale-95"
                 >
-                  হ্যাঁ, জমা দিন
+                  Yes, Submit
                 </button>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
     );
@@ -2074,18 +2470,107 @@ export default function SureShotExamSystem({
   // -------------------------------------------------------------
   // VIEW 5: RESULTS & COMPREHENSIVE SOLUTION REVIEW
   // -------------------------------------------------------------
-  if (step === 'exam_result' && examResult) {
-    const questions = examData?.questions || [];
+  if (step === 'exam_result') {
+    if (!examResult) {
+      return (
+        <div className={`min-h-screen p-6 font-sans flex items-center justify-center ${
+          isDark ? 'bg-[#0d0205] text-white' : 'bg-[#f8f9fa] text-[#111827]'
+        }`}>
+          <div className={`max-w-md w-full text-center space-y-4 p-8 rounded-3xl border ${
+            isDark ? 'bg-[#140306] border-[#e11438]/20' : 'bg-white border-gray-200'
+          }`}>
+            <h2 className="text-xl font-bold">Exam Results</h2>
+            <p className="text-sm text-gray-500">No active result found for this exam session.</p>
+            <div className="flex gap-3 justify-center pt-2">
+              <button 
+                onClick={() => handleStartExam('real')}
+                className="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm cursor-pointer border-none transition-all"
+              >
+                Start Exam
+              </button>
+              <button 
+                onClick={() => updateExamStep('exam_list', selectedCategory)}
+                className={`px-5 py-2.5 rounded-xl border text-sm font-bold cursor-pointer transition-all ${
+                  isDark ? 'border-white/20 text-white hover:bg-white/5' : 'border-gray-300 text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                Back to Hub
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    const questions = (examResult?.questions && examResult.questions.length > 0)
+      ? examResult.questions
+      : ((examData && examData.questions && examData.questions.length > 0) ? examData.questions : []);
+
+    const activeUserAnswers = (examResult?.userAnswers && Object.keys(examResult.userAnswers).length > 0)
+      ? examResult.userAnswers
+      : (userAnswers && Object.keys(userAnswers).length > 0
+          ? userAnswers
+          : (() => {
+              try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlExam = urlParams.get('exam') || examResult?.examId;
+                if (urlExam) {
+                  const byKey = sessionStorage.getItem(`eduhunters_answers_${urlExam}`) ||
+                                localStorage.getItem(`eduhunters_answers_${urlExam}`);
+                  if (byKey) return JSON.parse(byKey);
+                }
+                const saved = sessionStorage.getItem('eduhunters_active_user_answers');
+                if (saved) return JSON.parse(saved);
+                const hist = localStorage.getItem('eduhunters_exam_history');
+                if (hist) {
+                  const parsed = JSON.parse(hist);
+                  for (const h of parsed) {
+                    if (h.examId === urlExam && h.userAnswers && Object.keys(h.userAnswers).length > 0) {
+                      return h.userAnswers;
+                    }
+                  }
+                  if (parsed.length > 0 && parsed[0].userAnswers && Object.keys(parsed[0].userAnswers).length > 0) {
+                    return parsed[0].userAnswers;
+                  }
+                }
+              } catch (e) {}
+              return {};
+            })());
+
+    // Robust answer extractor to handle any ID type / index type
+    const getAnswerForQuestion = (q, idx) => {
+      if (!activeUserAnswers) return undefined;
+      if (q.id !== undefined && activeUserAnswers[q.id] !== undefined) return activeUserAnswers[q.id];
+      if (q.id !== undefined && activeUserAnswers[String(q.id)] !== undefined) return activeUserAnswers[String(q.id)];
+      if (q.id !== undefined && !isNaN(Number(q.id)) && activeUserAnswers[Number(q.id)] !== undefined) return activeUserAnswers[Number(q.id)];
+      if (q.question_no !== undefined && activeUserAnswers[q.question_no] !== undefined) return activeUserAnswers[q.question_no];
+      if (q.question_no !== undefined && activeUserAnswers[String(q.question_no)] !== undefined) return activeUserAnswers[String(q.question_no)];
+      if (q.question_no !== undefined && activeUserAnswers[`q-${q.question_no}`] !== undefined) return activeUserAnswers[`q-${q.question_no}`];
+      if (activeUserAnswers[`q-${idx + 1}`] !== undefined) return activeUserAnswers[`q-${idx + 1}`];
+      if (activeUserAnswers[idx] !== undefined) return activeUserAnswers[idx];
+      return undefined;
+    };
 
     // Filtered questions based on solutionFilter: 'all' | 'wrong' | 'correct' | 'skipped'
-    const reviewQuestions = questions.filter(q => {
-      const selected = userAnswers[q.id];
-      const isCorrect = selected === q.correct_index;
-      if (solutionFilter === 'wrong') return selected !== undefined && !isCorrect;
+    const reviewQuestions = questions.filter((q, idx) => {
+      const selected = getAnswerForQuestion(q, idx);
+      const isAnswered = selected !== undefined && selected !== null;
+      const isCorrect = isAnswered && Number(selected) === Number(q.correct_index);
+      const isWrong = isAnswered && Number(selected) !== Number(q.correct_index);
+      const isSkipped = !isAnswered;
+
+      if (solutionFilter === 'wrong') return isWrong;
       if (solutionFilter === 'correct') return isCorrect;
-      if (solutionFilter === 'skipped') return selected === undefined;
+      if (solutionFilter === 'skipped') return isSkipped;
       return true;
     });
+
+    const penaltyAmount = Number(examResult.wrongPenalty !== undefined ? examResult.wrongPenalty : (examResult.wrong * (examResult.negPerWrong || 0.25))) + Number(examResult.secondTimerPenalty || 0);
+    const computedScore = +(Number(examResult.correct || 0) - penaltyAmount).toFixed(2);
+    const displayedFinalScore = (computedScore < 0)
+      ? computedScore
+      : (examResult.finalScore !== undefined ? examResult.finalScore : computedScore);
+    const displayedPercentage = Math.max(0, Math.round((Number(displayedFinalScore) / Number(examResult.totalQuestions || 1)) * 100));
 
     return (
       <div className={`min-h-screen p-4 sm:p-6 md:p-8 font-sans transition-colors duration-300 ${
@@ -2094,27 +2579,14 @@ export default function SureShotExamSystem({
         <div className="max-w-4xl mx-auto space-y-6">
           
           {/* Result Summary Card */}
-          <div className={`border rounded-3xl p-6 sm:p-8 text-center space-y-6 shadow-2xl relative overflow-hidden transition-all ${
+          <div className={`border rounded-3xl p-6 sm:p-8 text-center space-y-6 relative overflow-hidden transition-all shadow-none ${
             isDark 
-              ? 'bg-[#140306]/90 border-[#e11438]/25 shadow-[0_16px_50px_rgba(0,0,0,0.7)]' 
-              : 'bg-white border-gray-200 shadow-xl'
+              ? 'bg-[#140306]/90 border-[#e11438]/25' 
+              : 'bg-white border-gray-200'
           }`}>
-            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center ${
-              isDark ? 'bg-amber-500/10 border border-amber-500/30 text-amber-400' : 'bg-amber-50 border border-amber-200 text-amber-600'
-            }`}>
-              <Trophy size={32} />
-            </div>
-
             <div>
-              <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-2 border ${
-                examResult.isPassed 
-                  ? (isDark ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' : 'bg-emerald-50 text-emerald-700 border-emerald-200')
-                  : (isDark ? 'bg-red-500/20 text-red-300 border-red-500/40' : 'bg-red-50 text-red-700 border-red-200')
-              }`}>
-                {examResult.isPassed ? '🎉 আপনি পরীক্ষায় উত্তীর্ণ হয়েছেন!' : '⚠️ আরও অনুশীলন প্রয়োজন'}
-              </span>
               <h2 className={`text-2xl sm:text-3xl font-black ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                পরীক্ষার ফলাফল
+                Exam Results
               </h2>
               <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
                 {examResult.title}
@@ -2124,34 +2596,34 @@ export default function SureShotExamSystem({
             {/* Score Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className={`border p-4 rounded-2xl ${isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-200'}`}>
-                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>প্রাপ্ত স্কোর</p>
+                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Final Score</p>
                 <p className="text-2xl font-black text-[#dc2626] dark:text-[#ff4d6d]">
-                  {examResult.finalScore} / {examResult.totalQuestions}
+                  {displayedFinalScore} / {examResult.totalQuestions}
                 </p>
-                <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>{examResult.percentage}% নির্ভুলতা</p>
+                <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>{displayedPercentage}% Accuracy</p>
               </div>
               <div className={`border p-4 rounded-2xl ${isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-200'}`}>
-                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>সঠিক উত্তর</p>
+                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Correct Answers</p>
                 <p className="text-2xl font-black text-emerald-600 dark:text-emerald-400">
                   {examResult.correct}
                 </p>
-                <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>+{examResult.correct} নম্বর</p>
+                <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>+{examResult.correct} Marks</p>
               </div>
               <div className={`border p-4 rounded-2xl ${isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-200'}`}>
-                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>ভুল উত্তর</p>
+                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Wrong Answers</p>
                 <p className="text-2xl font-black text-red-600 dark:text-red-400">
                   {examResult.wrong}
                 </p>
                 <p className="text-[11px] text-red-500 dark:text-red-400/80 mt-0.5">
-                  -{examResult.wrongPenalty !== undefined ? examResult.wrongPenalty : (examResult.wrong * 0.25).toFixed(2)} নেগেটিভ
+                  -{Number(examResult.wrongPenalty !== undefined ? examResult.wrongPenalty : (examResult.wrong * 0.25)).toFixed(2)} Negative
                 </p>
               </div>
               <div className={`border p-4 rounded-2xl ${isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-200'}`}>
-                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>অনুত্তরিত (Skipped)</p>
+                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Unanswered (Skipped)</p>
                 <p className={`text-2xl font-black ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                   {examResult.skipped}
                 </p>
-                <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>কোনো নম্বর কাটা হয়নি</p>
+                <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>0 marks deducted</p>
               </div>
             </div>
 
@@ -2164,7 +2636,7 @@ export default function SureShotExamSystem({
               }`}>
                 <Zap size={15} className="text-amber-500 shrink-0" />
                 <span>
-                  সেকেন্ড টাইমার পেনাল্টি: মোট প্রাপ্ত স্কোর থেকে অতিরিক্ত <strong>-৩.০০ নম্বর</strong> কর্তন করা হয়েছে।
+                  Second Timer Penalty: <strong>-3.00 marks</strong> deducted from your total score.
                 </span>
               </div>
             )}
@@ -2172,20 +2644,26 @@ export default function SureShotExamSystem({
             {/* Action Buttons Row */}
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <button
-                onClick={() => handleStartExam(examMode)}
-                className="py-3 px-6 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-[#b91c1c] hover:to-[#991b1b] text-white font-bold text-xs sm:text-sm rounded-xl flex items-center gap-2 cursor-pointer border-none shadow-md shadow-red-950/40 transition-all"
+                onClick={() => {
+                  sessionStorage.removeItem('eduhunters_active_exam_result');
+                  handleStartExam(examMode);
+                }}
+                className="py-3 px-6 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-[#b91c1c] hover:to-[#991b1b] text-white font-bold text-xs sm:text-sm rounded-xl flex items-center gap-2 cursor-pointer border-none transition-all"
               >
                 <RefreshCw size={15} />
-                <span>আবার পরীক্ষা দিন</span>
+                <span>Retake Exam</span>
               </button>
               <button
-                onClick={() => setStep('exam_list')}
+                onClick={() => {
+                  sessionStorage.removeItem('eduhunters_active_exam_result');
+                  updateExamStep('exam_list', selectedCategory);
+                }}
                 className={`py-3 px-6 border text-xs sm:text-sm font-bold rounded-xl flex items-center gap-2 cursor-pointer transition-all ${
                   isDark ? 'bg-[#1b050d] hover:bg-[#250712] border-[#e11438]/25 text-white' : 'bg-white hover:bg-gray-100 border-gray-300 text-gray-800'
                 }`}
               >
                 <ArrowLeft size={15} />
-                <span>এক্সাম হাবে ফিরে যান</span>
+                <span>Back to Exam Hub</span>
               </button>
             </div>
           </div>
@@ -2195,68 +2673,50 @@ export default function SureShotExamSystem({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <h3 className={`text-lg font-bold flex items-center gap-2 ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                  <CheckSquare size={20} className="text-emerald-500" /> সম্পূর্ণ উত্তরপত্র ও ব্যাখ্যা (Solution Review)
+                  <CheckSquare size={20} className="text-emerald-500" /> Complete Solution & Explanations
                 </h3>
-                <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>প্রতিটি প্রশ্নের সঠিক উত্তর এবং বিস্তারিত ব্যাখ্যা নিচে দেওয়া হলো</p>
               </div>
 
               {/* Solution Filter Pills */}
-              <div className={`flex items-center gap-1.5 p-1 rounded-xl border ${
-                isDark ? 'bg-[#140306] border-[#e11438]/20' : 'bg-gray-100 border-gray-200'
+              <div className={`inline-flex items-center gap-1 p-1 rounded-2xl border transition-all duration-300 ${
+                isDark ? 'bg-[#140306]/90 border-[#e11438]/20 backdrop-blur-sm' : 'bg-gray-100 border-gray-200'
               }`}>
-                <button
-                  onClick={() => setSolutionFilter('all')}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all border-none cursor-pointer ${
-                    solutionFilter === 'all' 
-                      ? 'bg-[#dc2626] text-white shadow-sm' 
-                      : (isDark ? 'text-gray-400 hover:text-white bg-transparent' : 'text-gray-600 hover:text-gray-900 bg-transparent')
-                  }`}
-                >
-                  সব ({questions.length})
-                </button>
-                <button
-                  onClick={() => setSolutionFilter('wrong')}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all border-none cursor-pointer ${
-                    solutionFilter === 'wrong' 
-                      ? 'bg-red-600 text-white shadow-sm' 
-                      : (isDark ? 'text-gray-400 hover:text-white bg-transparent' : 'text-gray-600 hover:text-gray-900 bg-transparent')
-                  }`}
-                >
-                  ভুল ({examResult.wrong})
-                </button>
-                <button
-                  onClick={() => setSolutionFilter('correct')}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all border-none cursor-pointer ${
-                    solutionFilter === 'correct' 
-                      ? 'bg-emerald-600 text-white shadow-sm' 
-                      : (isDark ? 'text-gray-400 hover:text-white bg-transparent' : 'text-gray-600 hover:text-gray-900 bg-transparent')
-                  }`}
-                >
-                  সঠিক ({examResult.correct})
-                </button>
-                <button
-                  onClick={() => setSolutionFilter('skipped')}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all border-none cursor-pointer ${
-                    solutionFilter === 'skipped' 
-                      ? (isDark ? 'bg-white/20 text-white' : 'bg-gray-600 text-white shadow-sm') 
-                      : (isDark ? 'text-gray-400 hover:text-white bg-transparent' : 'text-gray-600 hover:text-gray-900 bg-transparent')
-                  }`}
-                >
-                  অনুত্তরিত ({examResult.skipped})
-                </button>
+                {[
+                  { key: 'all', label: 'All', count: questions.length, activeBg: 'bg-[#dc2626] text-white shadow-sm' },
+                  { key: 'wrong', label: 'Wrong', count: examResult.wrong, activeBg: 'bg-red-600 text-white shadow-sm' },
+                  { key: 'correct', label: 'Correct', count: examResult.correct, activeBg: 'bg-emerald-600 text-white shadow-sm' },
+                  { key: 'skipped', label: 'Skipped', count: examResult.skipped, activeBg: isDark ? 'bg-white/20 text-white shadow-sm' : 'bg-gray-600 text-white shadow-sm' }
+                ].map(tab => {
+                  const isActive = solutionFilter === tab.key;
+                  return (
+                    <button
+                      key={tab.key}
+                      onClick={() => setSolutionFilter(tab.key)}
+                      className={`relative px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-bold border-none cursor-pointer transition-all duration-200 ease-out transform active:scale-95 ${
+                        isActive
+                          ? `${tab.activeBg} scale-[1.02]`
+                          : (isDark ? 'text-gray-400 hover:text-white hover:bg-white/[0.04] bg-transparent' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/60 bg-transparent')
+                      }`}
+                    >
+                      <span>{tab.label} ({tab.count})</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Questions List */}
+            {/* Filtered Questions List with smooth transition */}
+            <div key={solutionFilter} className="space-y-4 animate-filter-switch">
             {reviewQuestions.map((q, idx) => {
-              const selectedOpt = userAnswers[q.id];
-              const isCorrect = selectedOpt === q.correct_index;
-              const isSkipped = selectedOpt === undefined;
+              const selectedOpt = getAnswerForQuestion(q, idx);
+              const isAnswered = selectedOpt !== undefined && selectedOpt !== null;
+              const isCorrect = isAnswered && Number(selectedOpt) === Number(q.correct_index);
+              const isSkipped = !isAnswered;
 
               return (
                 <div 
                   key={q.id || idx}
-                  className={`border rounded-2xl p-5 sm:p-6 shadow-md space-y-4 transition-all ${
+                  className={`border rounded-2xl p-5 sm:p-6 space-y-4 transition-all ${
                     isDark ? 'bg-[#140306]/90' : 'bg-white'
                   } ${
                     isSkipped 
@@ -2267,30 +2727,18 @@ export default function SureShotExamSystem({
                   }`}
                 >
                   {/* Status Banner */}
-                  <div className="flex items-center justify-between text-xs font-bold">
-                    <span className="flex items-center gap-2">
-                      <span className="w-7 h-7 rounded-lg bg-[#dc2626] text-white flex items-center justify-center text-xs font-bold shrink-0">
-                        {q.question_no || idx + 1}
-                      </span>
-                      <span className={`text-sm sm:text-base font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>{q.question}</span>
+                  <div className="flex items-start gap-3">
+                    <span className="w-7 h-7 rounded-lg bg-[#dc2626] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                      {q.question_no || idx + 1}
                     </span>
-
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold shrink-0 ${
-                      isSkipped 
-                        ? (isDark ? 'bg-white/10 text-gray-300' : 'bg-gray-100 text-gray-600') 
-                        : isCorrect 
-                        ? (isDark ? 'bg-emerald-500/20 text-emerald-400' : 'bg-emerald-100 text-emerald-700') 
-                        : (isDark ? 'bg-red-500/20 text-red-400' : 'bg-red-100 text-red-700')
-                    }`}>
-                      {isSkipped ? 'অনুত্তরিত' : isCorrect ? 'সঠিক (+১)' : 'ভুল (-০.২৫)'}
-                    </span>
+                    <span className={`text-sm sm:text-base font-bold flex-1 ${isDark ? 'text-white' : 'text-[#111827]'}`}>{q.question}</span>
                   </div>
 
                   {/* Options List */}
                   <div className="space-y-2 pt-1">
                     {q.options.map((optText, oIdx) => {
-                      const isOptionCorrect = oIdx === q.correct_index;
-                      const isUserSelected = selectedOpt === oIdx;
+                      const isOptionCorrect = Number(oIdx) === Number(q.correct_index);
+                      const isUserSelected = isAnswered && Number(selectedOpt) === Number(oIdx);
 
                       let optClass = isDark ? 'bg-[#1a050c] border-[#e11438]/15 text-gray-300' : 'bg-gray-50 border-gray-200 text-gray-700';
                       let bubbleClass = isDark ? 'bg-[#120306] text-gray-400 border-[#e11438]/20' : 'bg-white text-gray-600 border-gray-300';
@@ -2314,19 +2762,19 @@ export default function SureShotExamSystem({
                         >
                           <div className="flex items-center gap-3">
                             <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold border ${bubbleClass}`}>
-                              {BENGALI_LETTERS[oIdx] || oIdx + 1}
+                              {OPTION_LETTERS[oIdx] || oIdx + 1}
                             </span>
                             <span>{optText}</span>
                           </div>
 
                           {isOptionCorrect && (
                             <span className="text-xs text-emerald-500 dark:text-emerald-400 font-bold flex items-center gap-1 shrink-0">
-                              <Check size={14} /> সঠিক উত্তর
+                              <Check size={14} /> Correct Answer
                             </span>
                           )}
                           {isUserSelected && !isCorrect && (
                             <span className="text-xs text-red-500 dark:text-red-400 font-bold flex items-center gap-1 shrink-0">
-                              <X size={14} /> আপনার উত্তর
+                              <X size={14} /> Your Answer
                             </span>
                           )}
                         </div>
@@ -2339,8 +2787,8 @@ export default function SureShotExamSystem({
                     <div className={`p-3.5 rounded-xl border text-xs sm:text-sm space-y-1 ${
                       isDark ? 'bg-[#1b050d] border-[#e11438]/20 text-gray-300' : 'bg-red-50/50 border-red-100 text-gray-700'
                     }`}>
-                      <p className={`font-bold flex items-center gap-1 ${isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]'}`}>
-                        <Sparkles size={14} /> বিস্তারিত ব্যাখ্যা:
+                      <p className={`font-bold ${isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]'}`}>
+                        Explanation:
                       </p>
                       <p className="leading-relaxed whitespace-pre-line">
                         {q.explanation}
@@ -2350,6 +2798,20 @@ export default function SureShotExamSystem({
                 </div>
               );
             })}
+
+            {reviewQuestions.length === 0 && (
+              <div className={`p-8 text-center rounded-2xl border ${
+                isDark ? 'bg-[#140306]/90 border-[#e11438]/20 text-gray-400' : 'bg-white border-gray-200 text-gray-500'
+              }`}>
+                <p className="text-sm font-semibold">
+                  {solutionFilter === 'wrong' ? 'No wrong answers found for this exam.' :
+                   solutionFilter === 'correct' ? 'No correct answers found for this exam.' :
+                   solutionFilter === 'skipped' ? 'No skipped questions found for this exam.' :
+                   'No questions found.'}
+                </p>
+              </div>
+            )}
+            </div>
           </div>
         </div>
       </div>
@@ -2379,7 +2841,7 @@ export default function SureShotExamSystem({
               }}
               className={`group rounded-3xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between cursor-pointer ${
                 isDark 
-                  ? 'bg-[#111317] border-white/[0.08] hover:border-white/20 shadow-[0_12px_32px_rgba(0,0,0,0.5)]' 
+                  ? 'bg-[#140306] border-[#e11438]/20 hover:border-[#e11438]/45 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)]' 
                   : 'bg-white border-gray-200 hover:border-red-300'
               }`}
             >

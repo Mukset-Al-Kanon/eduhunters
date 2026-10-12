@@ -115,10 +115,9 @@ export default function Navbar({
       {/* Sticky Main Top Navigation Bar */}
       <nav 
         id="main-navbar"
-        style={{ viewTransitionName: 'main-navbar' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-250 select-none ${
           isDark 
-            ? 'bg-[#0d0205]/92 backdrop-blur-md border-b border-[#e11438]/20 shadow-[0_4px_30px_rgba(0,0,0,0.7)]' 
+            ? 'bg-[#0a0a0c]/85 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]' 
             : 'bg-white/95 backdrop-blur-md border-b border-[#e5e7eb] shadow-sm'
         }`}
       >
@@ -144,13 +143,13 @@ export default function Navbar({
 
               <button 
                 onClick={() => handleNav(onNavigateHome)} 
-                className="w-8 h-8 rounded-full overflow-hidden shrink-0 hidden xs:flex items-center justify-center border-none bg-transparent cursor-pointer p-0 group"
-                title="Edu Hunters Home"
+                className="h-7 w-7 sm:h-[30px] sm:w-[30px] shrink-0 hidden xs:flex items-center justify-center border-none bg-transparent cursor-pointer p-0 group"
+                title="EduHunters Home"
               >
                 <img 
-                  src={siteSettings.logoUrl || "/logo.png"} 
-                  alt={siteSettings.siteName || "Edu Hunters"} 
-                  className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform"
+                  src={isDark ? (siteSettings?.logoUrl && siteSettings.logoUrl !== '/logo.png' ? siteSettings.logoUrl : "/logo-crimson.png") : (siteSettings?.logoLightUrl || "/logo-light.png")} 
+                  alt={siteSettings?.siteName || "EduHunters"} 
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform"
                 />
               </button>
 
@@ -169,29 +168,47 @@ export default function Navbar({
             <div className="flex items-center gap-6 lg:gap-8 min-w-0">
               <button 
                 onClick={() => handleNav(onNavigateHome)} 
-                className="flex items-center gap-2 shrink-0 group border-none bg-transparent cursor-pointer p-0"
-                title="Home"
+                className="flex items-center gap-2 sm:gap-2.5 shrink-0 group border-none bg-transparent cursor-pointer p-0 select-none focus:outline-none"
+                title="EduHunters Home"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-[1.05] border-none outline-none">
+                <div className="h-7 w-7 sm:h-[30px] sm:w-[30px] shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
                   <img 
-                    src={siteSettings.logoUrl || "/logo.png"} 
-                    alt={siteSettings.siteName || "Edu Hunters"} 
-                    className="w-full h-full object-cover rounded-full border-none outline-none"
+                    src={isDark ? (siteSettings?.logoUrl && siteSettings.logoUrl !== '/logo.png' ? siteSettings.logoUrl : "/logo-crimson.png") : (siteSettings?.logoLightUrl || "/logo-light.png")} 
+                    alt={siteSettings?.siteName || "EduHunters"} 
+                    className="w-full h-full object-contain"
                   />
                 </div>
-                <span className={`text-lg sm:text-2xl font-black tracking-tight whitespace-nowrap ${
-                  isDark ? 'text-[#ff2e55]' : 'text-[#dc2626]'
-                }`}>
-                  {siteSettings.siteName ? (
-                    <>
-                      {siteSettings.siteName.split(' ')[0]}{' '}
-                      <span className={isDark ? 'text-white' : 'text-[#111827]'}>
-                        {siteSettings.siteName.split(' ').slice(1).join(' ') || ''}
-                      </span>
-                    </>
-                  ) : (
-                    <>EDU <span className={isDark ? 'text-white' : 'text-[#111827]'}>HUNTERS</span></>
-                  )}
+                <span 
+                  className="text-xl sm:text-[22px] font-black tracking-[-0.02em] whitespace-nowrap leading-none flex items-center select-none"
+                  style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+                >
+                  {(() => {
+                    const rawName = (siteSettings?.siteName || '').trim();
+                    const isEduHunters = !rawName || rawName.toLowerCase() === 'eduhunters' || rawName.toLowerCase() === 'edu hunters';
+                    if (isEduHunters) {
+                      return (
+                        <>
+                          <span className={isDark ? 'text-[#e11438]' : 'text-[#880826]'}>Edu</span>
+                          <span className={isDark ? 'text-white' : 'text-[#111827]'}>Hunters</span>
+                        </>
+                      );
+                    }
+                    const parts = rawName.split(' ');
+                    if (parts.length > 1) {
+                      return (
+                        <>
+                          <span className={isDark ? 'text-[#e11438]' : 'text-[#880826]'}>{parts[0]}</span>
+                          <span className={isDark ? 'text-white' : 'text-[#111827]'}>{parts.slice(1).join('')}</span>
+                        </>
+                      );
+                    }
+                    return (
+                      <>
+                        <span className={isDark ? 'text-[#e11438]' : 'text-[#880826]'}>{rawName.slice(0, 3)}</span>
+                        <span className={isDark ? 'text-white' : 'text-[#111827]'}>{rawName.slice(3)}</span>
+                      </>
+                    );
+                  })()}
                 </span>
               </button>
 
@@ -206,7 +223,7 @@ export default function Navbar({
                         className={`relative inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-full text-white transition-all duration-300 ease-out ${
                           isDark 
                             ? 'bg-[#e11438] shadow-[0_6px_20px_rgba(225,20,56,0.45)]' 
-                            : 'bg-[#dc2626] shadow-[0_6px_16px_rgba(220,38,38,0.32)]'
+                            : 'bg-[#6f0113] shadow-[0_6px_16px_rgba(111,1,19,0.28)]'
                         }`}
                       >
                         <span className="w-4 h-4 flex items-center justify-center text-white">
@@ -239,29 +256,13 @@ export default function Navbar({
 
           {/* Right Action buttons */}
           <div className="flex items-center gap-2 sm:gap-2.5">
-            {/* Desktop Quick Exam / Login or User Badge */}
-            {currentUser ? (
-              <div className="hidden sm:flex items-center gap-2">
-                <button 
-                  onClick={() => setIsDrawerOpen(true)}
-                  className={`inline-flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all border cursor-pointer ${
-                    isDark 
-                      ? 'bg-white/5 hover:bg-white/10 text-white border-white/15' 
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-900 border-gray-200'
-                  }`}
-                  title="My Account"
-                >
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span className="max-w-[120px] truncate">{currentUser.displayName || currentUser.email.split('@')[0]}</span>
-                </button>
-              </div>
-            ) : (
+            {!currentUser && (
               <button 
                 onClick={onLoginClick || onNavigateExams}
                 className={`hidden sm:inline-flex items-center gap-1.5 px-5 py-2 text-sm font-semibold text-white rounded-full transition-all hover:scale-[1.03] active:scale-[0.97] border-none cursor-pointer ${
                   isDark 
                     ? 'bg-[#e11438] hover:bg-[#ff1744] shadow-[0_4px_16px_rgba(225,20,56,0.35)]' 
-                    : 'bg-[#dc2626] hover:bg-[#b91c1c] shadow-sm'
+                    : 'bg-[#6f0113] hover:bg-[#85041a] shadow-[0_4px_12px_rgba(111,1,19,0.25)]'
                 }`}
               >
                 <span>Sign In</span>
@@ -313,6 +314,16 @@ export default function Navbar({
             </button>
           </div>
         </div>
+
+        {/* AdobeWala Exact Signature Thin Crimson Gradient Bottom Line */}
+        <div 
+          className={`h-[1px] w-full transition-opacity duration-300 pointer-events-none ${
+            isDark ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            background: 'linear-gradient(90deg, rgba(255,20,50,0) 0%, rgba(200,10,35,0.25) 15%, rgba(230,25,55,0.7) 50%, rgba(200,10,35,0.25) 85%, rgba(255,20,50,0) 100%)'
+          }}
+        />
       </nav>
 
       {/* RIGHT SIDE MENU DRAWER & BACKDROP */}
@@ -665,27 +676,6 @@ export default function Navbar({
                 </div>
               </button>
 
-              {/* 10. Admin Dashboard (if provided) */}
-              {onOpenAdmin && (
-                <button
-                  onClick={() => handleNav(onOpenAdmin)}
-                  className={`flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors pt-1 ${
-                    isDark ? 'text-gray-400 font-normal hover:text-white' : 'text-gray-500 font-normal hover:text-black hover:bg-gray-50'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-5 h-5 flex items-center justify-center transition-colors ${isDark ? 'text-gray-400 group-hover:text-white' : 'text-gray-500 group-hover:text-black'}`}>
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="3" width="7" height="7" />
-                        <rect x="14" y="3" width="7" height="7" />
-                        <rect x="14" y="14" width="7" height="7" />
-                        <rect x="3" y="14" width="7" height="7" />
-                      </svg>
-                    </div>
-                    <span className="text-[15px] tracking-wide">এডমিন প্যানেল</span>
-                  </div>
-                </button>
-              )}
             </div>
           </div>
 

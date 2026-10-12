@@ -336,7 +336,7 @@ export default function BundleDetailPage({
             <div className="order-1 lg:order-2 lg:col-span-5 lg:sticky lg:top-24">
               <div className={`rounded-3xl border overflow-hidden shadow-2xl transition-all ${
                 isDark 
-                  ? 'bg-[#111317] border-white/[0.1] shadow-black/80' 
+                  ? 'bg-[#140306] border-[#e11438]/25 shadow-black/80' 
                   : 'bg-white border-slate-200/90 shadow-slate-200/60'
               }`}>
                 {/* Banner Thumbnail */}
@@ -510,7 +510,7 @@ export default function BundleDetailPage({
                   }}
                   className={`group rounded-3xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between cursor-pointer ${
                     isDark 
-                      ? 'bg-[#111317] border-white/[0.08] hover:border-white/20' 
+                      ? 'bg-[#140306] border-[#e11438]/20 hover:border-[#e11438]/45 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)]' 
                       : 'bg-white border-gray-200 hover:border-red-300 shadow-xs'
                   }`}
                 >
@@ -594,12 +594,12 @@ export default function BundleDetailPage({
                           e.stopPropagation();
                           if (onNavigateCourse) onNavigateCourse(c.id || c.key || c.slug, { fromBundle: true, bundleId: bundle?.id });
                         }}
-                        className={`text-xs sm:text-sm font-bold flex items-center gap-1 bg-transparent border-none cursor-pointer py-1 px-1 transition-colors shrink-0 mb-0.5 ${
-                          isDark ? 'text-white hover:text-gray-300' : 'text-[#dc2626] hover:text-red-700'
-                        }`}
+                        className={`text-sm font-bold flex items-center gap-1 ${
+                          isDark ? 'text-white hover:text-gray-300' : 'text-[#dc2626] hover:text-[#b91c1c]'
+                        } bg-transparent border-none cursor-pointer py-1 px-1 transition-colors shrink-0 mb-0.5 group`}
                       >
                         <span>বিস্তারিত</span>
-                        <ChevronRight size={16} />
+                        <ChevronRight size={18} strokeWidth={2.8} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                       </button>
                     </div>
                   </div>
@@ -633,7 +633,7 @@ export default function BundleDetailPage({
                   key={idx}
                   className={`rounded-2xl border transition-all overflow-hidden ${
                     isDark 
-                      ? 'bg-[#111317] border-white/[0.08]' 
+                      ? 'bg-[#140306] border-[#e11438]/20' 
                       : 'bg-white border-slate-200'
                   }`}
                 >

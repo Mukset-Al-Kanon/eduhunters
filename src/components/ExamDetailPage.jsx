@@ -270,7 +270,7 @@ export default function ExamDetailPage({
     : 400;
 
   return (
-    <div className={`min-h-screen ${isFromBundleResolved ? 'pb-8 sm:pb-24' : 'pb-24'} font-sans antialiased transition-colors duration-300 selection:bg-[#e11438] selection:text-white ${
+    <div className={`min-h-screen ${isFromBundleResolved || isEnrolled ? 'pb-8 sm:pb-24' : 'pb-24'} font-sans antialiased transition-colors duration-300 selection:bg-[#e11438] selection:text-white ${
       isDark ? 'bg-transparent text-gray-100' : 'bg-[#f8f9fa] text-[#111827]'
     }`}>
       
@@ -303,7 +303,7 @@ export default function ExamDetailPage({
           <div className="order-1 lg:order-2 lg:col-span-5 xl:col-span-5 space-y-4 lg:sticky lg:top-24">
             <div className={`rounded-3xl overflow-hidden border transition-all ${
               isDark 
-                ? 'bg-[#111317] border-white/[0.08] backdrop-blur-md' 
+                ? 'bg-[#140306] border-[#e11438]/20 backdrop-blur-md' 
                 : 'bg-white border-gray-200'
             }`}>
               {/* Poster Preview */}
@@ -347,58 +347,42 @@ export default function ExamDetailPage({
                   </span>
                 </div>
 
-                {/* Desktop Price & Action */}
-                <div className="hidden sm:block pt-4 border-t border-gray-100 dark:border-white/[0.08] space-y-4">
-                  <div className="flex items-baseline justify-between">
-                    <div>
-                      <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-300 uppercase tracking-wider mb-1">
-                        Course Fee
-                      </p>
-                      <div className="flex items-center gap-2.5">
-                        {/* Price in Dark Theme is WHITE */}
-                        <span className={`text-2xl sm:text-3xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
-                          ৳ {category.price || '399'}
-                        </span>
-                        {category.originalPrice && (
-                          <span className="text-sm text-gray-400 line-through font-medium">
-                            ৳ {category.originalPrice || '799'}
+                {/* Desktop Price & Action - Only shown for unenrolled users */}
+                {!isEnrolled && (
+                  <div className="hidden sm:block pt-4 border-t border-gray-100 dark:border-white/[0.08] space-y-4">
+                    <div className="flex items-baseline justify-between">
+                      <div>
+                        <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-300 uppercase tracking-wider mb-1">
+                          Course Fee
+                        </p>
+                        <div className="flex items-center gap-2.5">
+                          {/* Price in Dark Theme is WHITE */}
+                          <span className={`text-2xl sm:text-3xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
+                            ৳ {category.price || '399'}
                           </span>
-                        )}
-                        <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#dc2626] text-white shadow-xs">
-                          ৳ {discountAmount > 0 ? discountAmount : 400} OFF
-                        </span>
+                          {category.originalPrice && (
+                            <span className="text-sm text-gray-400 line-through font-medium">
+                              ৳ {category.originalPrice || '799'}
+                            </span>
+                          )}
+                          <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#dc2626] text-white shadow-xs">
+                            ৳ {discountAmount > 0 ? discountAmount : 400} OFF
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <button
-                    onClick={() => {
-                      if (isEnrolled) {
-                        onStartExamCategory(category.key);
-                      } else {
+                    <button
+                      onClick={() => {
                         onOpenEnrollModal ? onOpenEnrollModal(category) : onStartExamCategory(category.key);
-                      }
-                    }}
-                    className={`w-full py-3.5 text-white text-base font-bold rounded-2xl shadow-lg transition-all duration-300 cursor-pointer border-none flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] ${
-                      isEnrolled
-                        ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:shadow-emerald-600/30'
-                        : 'bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:shadow-red-600/30'
-                    }`}
-                  >
-                    {isEnrolled ? (
-                      <>
-                        <Play size={16} className="fill-current" />
-                        <span>Take Exam</span>
-                        <ChevronRight size={18} />
-                      </>
-                    ) : (
-                      <>
-                        <span>Enroll Now</span>
-                        <ChevronRight size={18} />
-                      </>
-                    )}
-                  </button>
-                </div>
+                      }}
+                      className="w-full py-3.5 text-white text-base font-bold rounded-2xl shadow-lg transition-all duration-300 cursor-pointer border-none flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:shadow-red-600/30"
+                    >
+                      <span>Enroll Now</span>
+                      <ChevronRight size={18} />
+                    </button>
+                  </div>
+                )}
 
                 {/* Key Exam Specs (2x2 Grid) */}
                 <div className="pt-3 border-t border-gray-100 dark:border-white/[0.08] grid grid-cols-2 gap-2 text-xs">
@@ -686,7 +670,7 @@ export default function ExamDetailPage({
                 {/* Main Card Container (Flat border, no shadow as requested) */}
                 <div className={`p-5 sm:p-7 rounded-3xl border transition-all ${
                   isDark 
-                    ? 'bg-[#111317] border-white/[0.08] backdrop-blur-md' 
+                    ? 'bg-[#140306] border-[#e11438]/20 backdrop-blur-md' 
                     : 'bg-white border-gray-200'
                 }`}>
                   {/* Header */}
@@ -743,17 +727,21 @@ export default function ExamDetailPage({
                             onStartExamCategory(category.key);
                           }
                         }}
-                        className={`w-full py-4 px-4 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm md:text-base text-left transition-all duration-200 cursor-pointer shadow-xs hover:scale-[1.01] active:scale-[0.99] flex items-center justify-between gap-3 min-h-[56px] border group ${
+                        className={`w-full py-4 px-4 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm md:text-base text-left transition-all duration-150 cursor-pointer shadow-xs hover:scale-[1.01] active:scale-[0.98] active:brightness-95 select-none flex items-center justify-between gap-3 min-h-[56px] border group ${
                           isDark
-                            ? 'bg-[#141926] hover:bg-[#1a2233] border-[#222b3d] hover:border-red-500/50 text-white'
-                            : 'bg-gray-50 hover:bg-red-50/40 border-gray-200 hover:border-red-300 text-gray-800'
+                            ? 'bg-[#141926] hover:bg-[#1a2233] border-[#222b3d] hover:border-red-500/50 text-white hover:shadow-md hover:shadow-red-950/20'
+                            : 'bg-gray-50 hover:bg-red-50/40 border-gray-200 hover:border-red-300 text-gray-800 hover:shadow-xs'
                         }`}
                       >
                         <span className="line-clamp-2 text-left flex-1 font-semibold sm:font-bold">{stripEmoji(exam.title)}</span>
                         {!isEnrolled ? (
-                          <Lock size={15} strokeWidth={1.8} className="shrink-0 text-gray-400 dark:text-gray-400 group-hover:text-red-500 transition-colors" />
+                          <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors bg-gray-100 dark:bg-white/[0.05] text-gray-400 dark:text-gray-500 group-hover:text-red-500">
+                            <Lock size={15} strokeWidth={1.8} />
+                          </div>
                         ) : (
-                          <Play size={14} className="shrink-0 text-emerald-500 fill-current opacity-80" />
+                          <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 bg-gray-100 dark:bg-white/[0.08] text-gray-500 dark:text-gray-300 group-hover:bg-[#dc2626] group-hover:text-white dark:group-hover:bg-[#e11438] dark:group-hover:text-white shadow-2xs">
+                            <FileText size={16} strokeWidth={2} />
+                          </div>
                         )}
                       </button>
                     ))}
@@ -774,17 +762,21 @@ export default function ExamDetailPage({
                                   onStartExamCategory(category.key);
                                 }
                               }}
-                              className={`w-full py-4 px-4 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm md:text-base text-left transition-all duration-200 cursor-pointer shadow-xs hover:scale-[1.01] active:scale-[0.99] flex items-center justify-between gap-3 min-h-[56px] border group ${
+                              className={`w-full py-4 px-4 sm:px-5 rounded-2xl font-bold text-xs sm:text-sm md:text-base text-left transition-all duration-150 cursor-pointer shadow-xs hover:scale-[1.01] active:scale-[0.98] active:brightness-95 select-none flex items-center justify-between gap-3 min-h-[56px] border group ${
                                 isDark
-                                  ? 'bg-[#141926] hover:bg-[#1a2233] border-[#222b3d] hover:border-red-500/50 text-white'
-                                  : 'bg-gray-50 hover:bg-red-50/40 border-gray-200 hover:border-red-300 text-gray-800'
+                                  ? 'bg-[#141926] hover:bg-[#1a2233] border-[#222b3d] hover:border-red-500/50 text-white hover:shadow-md hover:shadow-red-950/20'
+                                  : 'bg-gray-50 hover:bg-red-50/40 border-gray-200 hover:border-red-300 text-gray-800 hover:shadow-xs'
                               }`}
                             >
                               <span className="line-clamp-2 text-left flex-1 font-semibold sm:font-bold">{stripEmoji(exam.title)}</span>
                               {!isEnrolled ? (
-                                <Lock size={15} strokeWidth={1.8} className="shrink-0 text-gray-400 dark:text-gray-400 group-hover:text-red-500 transition-colors" />
+                                <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors bg-gray-100 dark:bg-white/[0.05] text-gray-400 dark:text-gray-500 group-hover:text-red-500">
+                                  <Lock size={15} strokeWidth={1.8} />
+                                </div>
                               ) : (
-                                <Play size={14} className="shrink-0 text-emerald-500 fill-current opacity-80" />
+                                <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 bg-gray-100 dark:bg-white/[0.08] text-gray-500 dark:text-gray-300 group-hover:bg-[#dc2626] group-hover:text-white dark:group-hover:bg-[#e11438] dark:group-hover:text-white shadow-2xs">
+                                  <FileText size={16} strokeWidth={2} />
+                                </div>
                               )}
                             </button>
                           ))}
@@ -822,7 +814,7 @@ export default function ExamDetailPage({
             {category.details?.about && (
               <div className={`p-6 sm:p-7 rounded-3xl border transition-all ${
                 isDark 
-                  ? 'bg-[#111317] border-white/[0.08] backdrop-blur-md' 
+                  ? 'bg-[#140306] border-[#e11438]/20 backdrop-blur-md' 
                   : 'bg-white border-gray-200'
               }`}>
                 <h2 className={`text-lg sm:text-xl font-black tracking-tight mb-3 ${isDark ? 'text-white' : 'text-[#111827]'}`}>
@@ -838,7 +830,7 @@ export default function ExamDetailPage({
             {category.details?.subjects && (
               <div className={`p-6 sm:p-7 rounded-3xl border transition-all ${
                 isDark 
-                  ? 'bg-[#111317] border-white/[0.08] backdrop-blur-md' 
+                  ? 'bg-[#140306] border-[#e11438]/20 backdrop-blur-md' 
                   : 'bg-white border-gray-200'
               }`}>
                 <div className="mb-4">
@@ -872,8 +864,8 @@ export default function ExamDetailPage({
 
       </div>
 
-      {/* MOBILE STICKY BOTTOM ACTION BAR - Suppressed when viewing from a bundle context */}
-      {!isFromBundleResolved && (
+      {/* MOBILE STICKY BOTTOM ACTION BAR - Suppressed when viewing from a bundle context OR when already enrolled */}
+      {!isFromBundleResolved && !isEnrolled && (
         <div className={`sm:hidden fixed bottom-0 left-0 right-0 z-40 p-3 border-t backdrop-blur-md flex items-center justify-between gap-3 ${
           isDark ? 'bg-[#0d0205]/95 border-white/10' : 'bg-white/95 border-gray-200 shadow-lg'
         }`}>
@@ -897,29 +889,12 @@ export default function ExamDetailPage({
 
           <button
             onClick={() => {
-              if (isEnrolled) {
-                onStartExamCategory(category.key);
-              } else {
-                onOpenEnrollModal ? onOpenEnrollModal(category) : onStartExamCategory(category.key);
-              }
+              onOpenEnrollModal ? onOpenEnrollModal(category) : onStartExamCategory(category.key);
             }}
-            className={`px-5 py-2.5 text-white text-xs font-bold rounded-xl shadow-md cursor-pointer border-none flex items-center gap-1.5 shrink-0 transition-all active:scale-95 ${
-              isEnrolled
-                ? 'bg-gradient-to-r from-emerald-600 to-teal-600'
-                : 'bg-gradient-to-r from-[#dc2626] to-[#b91c1c]'
-            }`}
+            className="px-5 py-2.5 text-white text-xs font-bold rounded-xl shadow-md cursor-pointer border-none flex items-center gap-1.5 shrink-0 transition-all active:scale-95 bg-gradient-to-r from-[#dc2626] to-[#b91c1c]"
           >
-            {isEnrolled ? (
-              <>
-                <Play size={13} className="fill-current" />
-                <span>Take Exam</span>
-              </>
-            ) : (
-              <>
-                <span>Enroll Now</span>
-                <ChevronRight size={14} />
-              </>
-            )}
+            <span>Enroll Now</span>
+            <ChevronRight size={14} />
           </button>
         </div>
       )}

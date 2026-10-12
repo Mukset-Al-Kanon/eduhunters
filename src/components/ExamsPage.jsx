@@ -60,8 +60,20 @@ export default function ExamsPage({
         {examMode === 'sureshot' ? (
           <SureShotExamSystem 
             onBackToCourses={onNavigateCourse} 
-            initialStep={selectedCategory ? 'category_detail' : 'category_cards'} 
-            initialCategory={selectedCategory || null}
+            initialStep={(() => {
+              try {
+                const s = new URLSearchParams(window.location.search).get('step');
+                if (s) return s;
+              } catch (e) {}
+              return selectedCategory ? 'category_detail' : 'category_cards';
+            })()} 
+            initialCategory={selectedCategory || (() => {
+              try {
+                return new URLSearchParams(window.location.search).get('category') || null;
+              } catch (e) {
+                return null;
+              }
+            })()}
             siteSettings={siteSettings}
             customExamBatches={data?.examBatches}
             isFromBundle={isFromBundle}
@@ -263,10 +275,10 @@ export default function ExamsPage({
                           <img 
                             src="/logo.png" 
                             alt="Edu Hunters" 
-                            className="h-8 w-auto object-contain"
+                            className="h-8 w-8 rounded-full object-cover"
                           />
-                          <span className="ml-2 font-black text-xl text-[#dc2626]">
-                            EDU <span className="text-[#111827]">HUNTERS</span>
+                          <span className="ml-2 font-black text-xl">
+                            <span className="text-[#6f0113]">Edu</span><span className="text-[#111827]">Hunters</span>
                           </span>
                         </span>
                       </a>
@@ -278,33 +290,33 @@ export default function ExamsPage({
 
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 mb-5">দ্রুত লিঙ্ক</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-5">দ্রুত লিঙ্ক</p>
                       <ul className="space-y-3 list-none p-0 m-0">
-                        <li><a href="#courses" onClick={(e) => { e.preventDefault(); onNavigateCourse(); }} className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">All Courses</a></li>
-                        <li><a href="#orders" onClick={(e) => { e.preventDefault(); onNavigateOrders && onNavigateOrders(); }} className="text-sm text-white/70 hover:text-white transition-colors text-decoration-none">Order History</a></li>
-                        <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="text-sm text-white/70 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">Terms & Conditions</button></li>
-                        <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="text-sm text-white/70 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">Refund Policy</button></li>
+                        <li><a href="#courses" onClick={(e) => { e.preventDefault(); onNavigateCourse(); }} className="text-sm text-white/90 hover:text-white transition-colors text-decoration-none">All Courses</a></li>
+                        <li><a href="#orders" onClick={(e) => { e.preventDefault(); onNavigateOrders && onNavigateOrders(); }} className="text-sm text-white/90 hover:text-white transition-colors text-decoration-none">Order History</a></li>
+                        <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="text-sm text-white/90 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">Terms & Conditions</button></li>
+                        <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="text-sm text-white/90 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">Refund Policy</button></li>
                       </ul>
                     </div>
 
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 mb-5">আমাদের ব্যাচ সমূহ</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-5">আমাদের ব্যাচ সমূহ</p>
                       <ul className="space-y-3 list-none p-0 m-0">
                         <li><span className="text-sm text-white font-semibold">Mastering Text Book Biology</span></li>
-                        <li><span className="text-sm text-white/70">Mastering Text Book Chemistry</span></li>
-                        <li><span className="text-sm text-white/70">Mastering Text Book Physics</span></li>
-                        <li><span className="text-sm text-white/70">GK English Batch</span></li>
+                        <li><span className="text-sm text-white/90">Mastering Text Book Chemistry</span></li>
+                        <li><span className="text-sm text-white/90">Mastering Text Book Physics</span></li>
+                        <li><span className="text-sm text-white/90">GK English Batch</span></li>
                       </ul>
                     </div>
                   </div>
                 </div>
 
-                <div className="border-t border-white/[0.1] pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-3">
-                  <p className="text-xs text-white/60">© 2026 Edu Hunters. All rights reserved.</p>
+                <div className="border-t border-white/[0.15] pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+                  <p className="text-xs text-white/85">© 2026 Edu Hunters. All rights reserved.</p>
                   <div className="flex items-center gap-6">
-                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Privacy Policy</button>
-                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Terms of Use</button>
-                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="text-xs text-white/60 hover:text-white bg-transparent border-none p-0 cursor-pointer">Refund Policy</button>
+                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="text-xs text-white/85 hover:text-white bg-transparent border-none p-0 cursor-pointer">Privacy Policy</button>
+                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="text-xs text-white/85 hover:text-white bg-transparent border-none p-0 cursor-pointer">Terms of Use</button>
+                    <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="text-xs text-white/85 hover:text-white bg-transparent border-none p-0 cursor-pointer">Refund Policy</button>
                   </div>
                 </div>
               </div>

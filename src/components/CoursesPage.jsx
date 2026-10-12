@@ -264,7 +264,7 @@ export default function CoursesPage({
                     }}
                     className={`rounded-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 flex flex-col group cursor-pointer border ${
                       isDark 
-                        ? 'bg-[#111317] border-[#e11438]/25 hover:border-[#e11438]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' 
+                        ? 'bg-[#140306] border-[#e11438]/25 hover:border-[#e11438]/50 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)] text-white' 
                         : 'bg-white shadow-md hover:shadow-2xl border-red-200 hover:border-red-400 ring-2 ring-red-500/10'
                     }`}
                   >
@@ -295,43 +295,16 @@ export default function CoursesPage({
 
                     {/* Details */}
                     <div className="p-4 flex flex-col flex-1">
-                      <h3 className={`font-bold mb-1 line-clamp-1 transition-colors text-base ${
+                      <h3 className={`font-bold mb-1.5 line-clamp-1 transition-colors text-base ${
                         isDark ? 'text-white group-hover:text-red-300' : 'text-[#111827] group-hover:text-[#dc2626]'
                       }`}>
                         {bundle.title}
                       </h3>
                       {bundle.subtitle && (
-                        <p className={`text-xs mb-2 line-clamp-1 font-semibold ${isDark ? 'text-[#ff6b8b]' : 'text-red-600'}`}>
+                        <p className={`text-xs mb-4 line-clamp-1 font-semibold ${isDark ? 'text-[#ff6b8b]' : 'text-red-600'}`}>
                           {bundle.subtitle}
                         </p>
                       )}
-                      <p className={`text-xs mb-3 line-clamp-2 leading-relaxed ${
-                        isDark ? 'text-gray-400' : 'text-gray-600'
-                      }`}>
-                        {bundle.description}
-                      </p>
-
-                      {/* Included Courses Chip List */}
-                      <div className="mb-3 pt-2 border-t border-gray-100 dark:border-white/10">
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
-                          এই বান্ডিলে যা যা থাকছে:
-                        </p>
-                        <div className="flex flex-wrap gap-1">
-                          {(bundle.courseIds || []).map((cId, idx) => {
-                            const cObj = courses.find(item => item.id === cId || item.slug === cId || item.key === cId);
-                            return (
-                              <span 
-                                key={idx}
-                                className={`text-[10px] font-semibold px-2 py-0.5 rounded-md truncate max-w-[150px] ${
-                                  isDark ? 'bg-white/10 text-gray-200' : 'bg-red-50 text-red-700 border border-red-100'
-                                }`}
-                              >
-                                ✓ {cObj?.title || cId}
-                              </span>
-                            );
-                          })}
-                        </div>
-                      </div>
 
                       {/* Price Breakdown Footer */}
                       <div className={`mt-auto flex items-end justify-between gap-2 pt-3 border-t ${
@@ -364,24 +337,23 @@ export default function CoursesPage({
                             if (onNavigateBundle) onNavigateBundle(bundle.id);
                             else if (onNavigateCourse) onNavigateCourse(bundle.id);
                           }}
-                          className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
+                          className={`text-sm sm:text-base font-bold ${
                             isDark 
-                              ? 'text-white hover:text-[#ff4d6d]' 
-                              : 'text-[#dc2626] hover:text-red-700'
-                          }`}
+                              ? 'text-white hover:text-gray-300' 
+                              : 'text-[#dc2626] hover:text-[#b91c1c]'
+                          } bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 leading-none group/btn`}
                         >
                           <span className="leading-none">বিস্তারিত</span>
                           <svg 
-                            className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                            className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-current transition-transform duration-200 group-hover/btn:translate-x-0.5 shrink-0" 
                             viewBox="0 0 24 24" 
                             fill="none" 
-                            stroke="#e11438" 
-                            strokeWidth="3.8" 
+                            stroke="currentColor" 
+                            strokeWidth="2.8" 
                             strokeLinecap="round" 
                             strokeLinejoin="round"
                           >
-                            <path d="M5 12h14" />
-                            <path d="m12 5 7 7-7 7" />
+                            <path d="m9 18 6-6-6-6" />
                           </svg>
                         </button>
                       </div>
@@ -400,7 +372,7 @@ export default function CoursesPage({
                   onClick={() => onNavigateExams && onNavigateExams(cat.key)}
                   className={`rounded-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 flex flex-col group cursor-pointer border ${
                     isDark 
-                      ? 'bg-[#111317] border-white/[0.08] hover:border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.7)]' 
+                      ? 'bg-[#140306] border-[#e11438]/20 hover:border-[#e11438]/45 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)] text-white' 
                       : 'bg-white shadow-sm hover:shadow-xl border-gray-200 hover:border-red-300'
                   }`}
                 >
@@ -476,24 +448,23 @@ export default function CoursesPage({
                           e.stopPropagation();
                           onNavigateExams && onNavigateExams(cat.key);
                         }}
-                        className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
+                        className={`text-sm sm:text-base font-bold ${
                           isDark 
-                            ? 'text-white hover:text-[#ff4d6d]' 
-                            : 'text-[#dc2626] hover:text-red-700'
-                        }`}
+                            ? 'text-white hover:text-gray-300' 
+                            : 'text-[#dc2626] hover:text-[#b91c1c]'
+                        } bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 leading-none group/btn`}
                       >
                         <span className="leading-none">বিস্তারিত</span>
                         <svg 
-                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-current transition-transform duration-200 group-hover/btn:translate-x-0.5 shrink-0" 
                           viewBox="0 0 24 24" 
                           fill="none" 
-                          stroke="#e11438" 
-                          strokeWidth="3.8" 
+                          stroke="currentColor" 
+                          strokeWidth="2.8" 
                           strokeLinecap="round" 
                           strokeLinejoin="round"
                         >
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
+                          <path d="m9 18 6-6-6-6" />
                         </svg>
                       </button>
                     </div>
@@ -507,7 +478,7 @@ export default function CoursesPage({
                   onClick={() => handleCourseClick(c.id || c.slug)}
                   className={`rounded-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 flex flex-col group cursor-pointer border ${
                     isDark 
-                      ? 'bg-[#111317] border-white/[0.08] hover:border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.7)]' 
+                      ? 'bg-[#140306] border-[#e11438]/20 hover:border-[#e11438]/45 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)] text-white' 
                       : `bg-white shadow-sm hover:shadow-xl ${c.isBundle ? 'border-red-400 ring-2 ring-red-400/20' : 'border-gray-200 hover:border-red-300'}`
                   }`}
                 >
@@ -553,7 +524,7 @@ export default function CoursesPage({
                               এক্সেস সক্রিয় ✓
                             </span>
                           ) : c.isFree ? (
-                            <span className="text-xl sm:text-2xl font-black text-emerald-400">FREE</span>
+                            <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-emerald-600'}`}>FREE</span>
                           ) : (
                             <>
                               <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
@@ -574,24 +545,23 @@ export default function CoursesPage({
                       
                       <button 
                         onClick={(e) => handleEnrollClick(c, e)}
-                        className={`text-sm sm:text-base font-black tracking-tight bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-2 transition-colors shrink-0 leading-none group/btn ${
+                        className={`text-sm sm:text-base font-bold ${
                           isDark 
-                            ? 'text-white hover:text-[#ff4d6d]' 
-                            : 'text-[#dc2626] hover:text-red-700'
-                        }`}
+                            ? 'text-white hover:text-gray-300' 
+                            : 'text-[#dc2626] hover:text-[#b91c1c]'
+                        } bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 leading-none group/btn`}
                       >
                         <span className="leading-none">{isItemEnrolled(c, currentUser, data) ? 'কোর্সে প্রবেশ' : 'বিস্তারিত'}</span>
                         <svg 
-                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#e11438] transition-transform duration-200 group-hover/btn:translate-x-1 shrink-0 relative top-[0.5px]" 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-current transition-transform duration-200 group-hover/btn:translate-x-0.5 shrink-0" 
                           viewBox="0 0 24 24" 
                           fill="none" 
-                          stroke="#e11438" 
-                          strokeWidth="3.8" 
+                          stroke="currentColor" 
+                          strokeWidth="2.8" 
                           strokeLinecap="round" 
                           strokeLinejoin="round"
                         >
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
+                          <path d="m9 18 6-6-6-6" />
                         </svg>
                       </button>
                     </div>
@@ -635,35 +605,27 @@ export default function CoursesPage({
 
       {/* Footer (Hidden on mobile) */}
       <div className="hidden sm:block">
-        {isDark ? (
-          <footer className="mt-20 border-t border-[#e11438]/20 bg-gradient-to-b from-[#140307] to-[#070102] py-8 text-center text-xs text-gray-400">
-            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
-              <div>
-                <p className="font-medium text-[#ff3b61] mb-1">EDU HUNTERS · Premier Edtech Learning Platform</p>
-                <p>© 2026 Edu Hunters. All rights reserved.</p>
+        <footer className={`mt-20 border-t py-8 text-center text-xs transition-colors ${
+          isDark 
+            ? 'border-white/10 bg-[#0b0c10] text-gray-400' 
+            : 'border-slate-800 bg-[#111827] text-gray-300'
+        }`}>
+          <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 flex items-center justify-center">
+                <img src="/logo.png" alt="Edu Hunters" className="w-full h-full object-cover" />
               </div>
-              <div className="flex items-center gap-4">
-                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
-                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
-                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
-              </div>
+              <span className="font-bold text-xs tracking-wide text-white">EDU HUNTERS</span>
+              <span className="text-gray-500">•</span>
+              <p className="text-gray-400">© 2026 Edu Hunters. All rights reserved.</p>
             </div>
-          </footer>
-        ) : (
-          <footer className="mt-20 bg-[#dc2626] eh-dots-light text-white py-8 text-center text-xs">
-            <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
-              <div className="inline-flex items-center gap-2 bg-white rounded-xl px-3 py-1.5 shadow-sm">
-                <img src="/logo.png" alt="Edu Hunters" className="h-6 w-auto" />
-                <span className="font-black text-sm text-[#dc2626]">EDU <span className="text-[#111827]">HUNTERS</span></span>
-              </div>
-              <div className="flex items-center gap-4 text-white/80">
-                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
-                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
-                <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
-              </div>
+            <div className="flex items-center gap-4 text-gray-400">
+              <button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:underline hover:text-white bg-transparent border-none p-0 text-inherit cursor-pointer">Privacy Policy</button>
+              <button onClick={() => onNavigatePolicies ? onNavigatePolicies('terms') : (window.location.href = '/terms')} className="hover:underline hover:text-white bg-transparent border-none p-0 text-inherit cursor-pointer">Terms of Use</button>
+              <button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:underline hover:text-white bg-transparent border-none p-0 text-inherit cursor-pointer">Refund Policy</button>
             </div>
-          </footer>
-        )}
+          </div>
+        </footer>
       </div>
 
       {/* Bundle Detail Modal */}

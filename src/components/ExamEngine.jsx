@@ -61,8 +61,8 @@ export default function ExamEngine({ exam, onClose }) {
 
     const negPenalty = wrongCount * (exam.negativeMarking || 0.25);
     const rawScore = correctCount - negPenalty;
-    const finalScore = Math.max(0, parseFloat(rawScore.toFixed(2)));
-    const percentage = Math.round((finalScore / exam.questions.length) * 100);
+    const finalScore = parseFloat(rawScore.toFixed(2));
+    const percentage = Math.max(0, Math.round((finalScore / exam.questions.length) * 100));
 
     setResult({
       totalQuestions: exam.questions.length,

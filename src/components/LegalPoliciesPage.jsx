@@ -304,12 +304,12 @@ export default function LegalPoliciesPage({
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img 
-                  src={siteSettings.logoUrl || "/logo.png"} 
-                  alt={siteSettings.siteName || "Edu Hunters"} 
-                  className="h-7 w-auto object-contain bg-white rounded p-1" 
+                  src={siteSettings.logoUrl || "/logo-crimson.png"} 
+                  alt={siteSettings.siteName || "EduHunters"} 
+                  className="h-8 w-8 object-contain" 
                 />
                 <span className="text-base font-bold tracking-tight text-white">
-                  {siteSettings.siteName || "EDU HUNTERS"}
+                  {siteSettings.siteName || "EduHunters"}
                 </span>
               </div>
               <p className="text-xs text-white/80 leading-relaxed max-w-sm">

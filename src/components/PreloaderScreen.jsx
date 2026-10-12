@@ -76,75 +76,89 @@ export default function PreloaderScreen({ onFinish, siteSettings = {} }) {
   return (
     <div
       id="minimal-preloader"
-      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-between bg-black text-white select-none transition-opacity duration-500 ease-out ${
+      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-between select-none overflow-hidden transition-opacity duration-500 ease-out ${
         isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
       style={{
-        backgroundColor: '#000000'
+        backgroundColor: '#070102'
       }}
     >
-      {/* Center Deep Dark Red Radial Vignette Haze (Matches exact reference image) */}
+      {/* Exact Website Dark Theme Background Images */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Desktop / Tablet Background */}
+        <img
+          src="/dark-bg-desktop.png"
+          alt=""
+          className="hidden md:block w-full h-full object-cover object-center"
+        />
+        {/* Mobile Background */}
+        <img
+          src="/dark-bg-mobile.png"
+          alt=""
+          className="block md:hidden w-full h-full object-cover object-center"
+        />
+        {/* Subtle cinematic overlay to blend seamlessly */}
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+      </div>
+
+      {/* Center Atmospheric Red Glow */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[220px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[340px] rounded-full pointer-events-none z-[1]"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(185, 18, 43, 0.42) 0%, rgba(120, 8, 26, 0.18) 50%, transparent 75%)',
-          filter: 'blur(45px)'
+          background: 'radial-gradient(ellipse at center, rgba(225, 20, 56, 0.45) 0%, rgba(180, 15, 40, 0.22) 40%, transparent 75%)',
+          filter: 'blur(50px)'
         }}
       />
 
       {/* Top Spacer */}
-      <div className="w-full flex-1" />
+      <div className="w-full flex-1 relative z-10" />
 
-      {/* Center Cluster: Exact Match to AdobeWala */}
+      {/* Center Cluster */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-sm sm:max-w-md w-full">
         
-        {/* Brand Lockup: Clean horizontal layout with subtle diffuse glow */}
-        <div className="flex items-center justify-center gap-3 mb-7 sm:mb-8">
+        {/* Brand Lockup: Logo Mark + Brand Name with soft aura */}
+        <div className="flex items-center justify-center gap-3.5 mb-8">
           <img 
             src="/eduhunters-mark-white.png" 
             alt="Edu Hunters Mark"
-            className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
-            style={{
-              filter: 'drop-shadow(0 0 16px rgba(225, 20, 56, 0.7))'
-            }}
+            className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_0_18px_rgba(225,20,56,0.85)]"
           />
           <span 
-            className="text-2xl sm:text-[27px] font-black tracking-normal text-white lowercase"
+            className="text-2xl sm:text-[28px] font-black tracking-tight text-white lowercase"
             style={{
-              letterSpacing: '-0.02em',
-              textShadow: '0 0 25px rgba(225, 20, 56, 0.5), 0 0 10px rgba(255, 255, 255, 0.3)'
+              textShadow: '0 0 30px rgba(225, 20, 56, 0.65), 0 0 12px rgba(255, 255, 255, 0.4)'
             }}
           >
             edu hunters
           </span>
         </div>
 
-        {/* Ultra-Slim Progress Line */}
-        <div className="w-[240px] sm:w-[270px] h-[2px] bg-[#1a1a1a] rounded-full overflow-hidden relative mb-4">
+        {/* Razor-Sharp Progress Line */}
+        <div className="w-[260px] sm:w-[290px] h-[2.5px] bg-[#222226] rounded-full overflow-hidden relative mb-4">
           <div 
             className="h-full rounded-full transition-all duration-75 ease-out"
             style={{
               width: `${progress}%`,
-              background: 'linear-gradient(90deg, #dc2626 0%, #ef4444 65%, #fca5a5 100%)',
-              boxShadow: '0 0 10px #ef4444'
+              background: 'linear-gradient(90deg, #dc2626 0%, #ef4444 70%, #ffffff 100%)',
+              boxShadow: '0 0 12px rgba(239, 68, 68, 0.9)'
             }}
           />
         </div>
 
-        {/* Monospace Wide Percentage (Exact match: "84 %") */}
-        <div className="text-[11px] sm:text-xs font-mono tracking-[0.35em] text-[#cccccc] mb-2 tabular-nums">
+        {/* Monospace Spaced Percentage (e.g. 69 %) */}
+        <div className="text-xs font-mono font-medium tracking-[0.38em] text-[#e2e8f0] mb-2 tabular-nums">
           {progress} %
         </div>
 
-        {/* Subtitle (Exact letter-spacing & uppercase tone) */}
-        <p className="text-[9px] sm:text-[10px] tracking-[0.28em] uppercase font-semibold text-[#666666]">
+        {/* Subtitle */}
+        <p className="text-[10px] tracking-[0.28em] uppercase font-semibold text-[#8b92a0]">
           PREPARING YOUR PREMIUM EXPERIENCE
         </p>
       </div>
 
-      {/* Bottom Footer (Exact match: "LUXURY DIGITAL SUBSCRIPTIONS" style) */}
+      {/* Bottom Footer */}
       <div className="w-full flex-1 flex items-end justify-center pb-8 sm:pb-10">
-        <p className="text-[9px] sm:text-[10px] tracking-[0.32em] uppercase font-medium text-[#444444]">
+        <p className="text-[10px] tracking-[0.32em] uppercase font-medium text-[#555a66]">
           PREMIUM EDTECH LEARNING PLATFORM
         </p>
       </div>
