@@ -220,7 +220,7 @@ export default function AuthModal({
       setTimeout(() => {
         if (onSuccess) onSuccess(authUser);
         handleClose();
-      }, 700);
+      }, 200);
     } catch (err) {
       setStatusMsg({ type: 'error', text: formatAuthError(err) });
     } finally {
@@ -320,7 +320,7 @@ export default function AuthModal({
       setTimeout(() => {
         if (onSuccess) onSuccess(authUser);
         handleClose();
-      }, 700);
+      }, 200);
     } catch (err) {
       setStatusMsg({ type: 'error', text: formatAuthError(err) });
     } finally {
@@ -414,7 +414,7 @@ export default function AuthModal({
       setTimeout(() => {
         if (onSuccess) onSuccess(authUser);
         handleClose();
-      }, 700);
+      }, 200);
     } catch (err) {
       setStatusMsg({ type: 'error', text: formatAuthError(err) });
     } finally {
@@ -476,7 +476,7 @@ export default function AuthModal({
       setTimeout(() => {
         if (onSuccess) onSuccess(authUser);
         handleClose();
-      }, 700);
+      }, 200);
     } catch (err) {
       setStatusMsg({ type: 'error', text: formatAuthError(err) });
     } finally {

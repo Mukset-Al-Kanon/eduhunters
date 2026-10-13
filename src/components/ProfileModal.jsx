@@ -177,7 +177,7 @@ export default function ProfileModal({
         if (onSaveSuccess) {
           onSaveSuccess(updates);
         }
-      }, 550);
+      }, 150);
     } catch (err) {
       setStatusMsg({ type: 'error', text: err.message || 'Failed to update profile.' });
     } finally {

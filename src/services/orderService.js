@@ -193,7 +193,27 @@ export async function saveNewOrder({
 
     // Note: Course is NOT unlocked yet. It unlocks only when Admin clicks "Approve".
 
-    // 6. Persist order in Cloud Firestore if configured
+    // 6. Dispatch real-time events across windows & listeners immediately
+    if (typeof window !== 'undefined') {
+      try {
+        window.dispatchEvent(new CustomEvent('eh:orders_updated', { detail: newOrder }));
+        window.dispatchEvent(new CustomEvent('eh:new_enrollment', {
+          detail: { order: newOrder, transaction: newTx, student: newStudent }
+        }));
+        window.dispatchEvent(new Event('storage'));
+
+        if (typeof BroadcastChannel !== 'undefined') {
+          const bc = new BroadcastChannel('eduhunters_sync_channel');
+          bc.postMessage({
+            type: 'NEW_ENROLLMENT_ORDER',
+            payload: { order: newOrder, transaction: newTx, student: newStudent }
+          });
+          bc.close();
+        }
+      } catch (e) {}
+    }
+
+    // 7. Persist order in Cloud Firestore asynchronously (non-blocking for instant UI response)
     if (isFirebaseConfigured && db) {
       try {
         const docRef = doc(db, 'orders', orderId);
@@ -203,51 +223,12 @@ export async function saveNewOrder({
           student: newStudent,
           _savedAt: new Date().toISOString()
         });
-        await setDoc(docRef, cloudOrderData);
+        // Background fire-and-forget: AdminPanel onSnapshot(collection(db, 'orders')) receives it in real-time
+        setDoc(docRef, cloudOrderData).catch((cloudErr) => {
+          console.warn('[orderService] Cloud order background save note:', cloudErr);
+        });
       } catch (e) {
-        console.warn('[orderService] Cloud order save error:', e);
-      }
-
-      // Also directly update eduhunters_site/main_data so all admin sessions see the transaction immediately
-      try {
-        const siteDocRef = doc(db, 'eduhunters_site', 'main_data');
-        const siteSnap = await getDoc(siteDocRef);
-        if (siteSnap.exists()) {
-          const siteData = siteSnap.data();
-          const prevAcc = siteData.accounting || { totalRevenue: 0, totalExpenses: 0, netProfit: 0, totalOrders: 0, transactions: [] };
-          const prevTxs = Array.isArray(prevAcc.transactions) ? prevAcc.transactions : [];
-          const nextTxs = [sanitizeForFirestore(newTx), ...prevTxs.filter(t => t.id !== newTx.id)];
-          await setDoc(siteDocRef, {
-            accounting: {
-              ...prevAcc,
-              totalOrders: (Number(prevAcc.totalOrders) || prevTxs.length) + 1,
-              transactions: nextTxs
-            },
-            _lastUpdated: new Date().toISOString()
-          }, { merge: true });
-        }
-      } catch (siteErr) {
-        console.warn('[orderService] Site accounting cloud sync note:', siteErr);
-      }
-    }
-
-    // 7. Dispatch real-time events across windows & listeners
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('eh:orders_updated', { detail: newOrder }));
-      window.dispatchEvent(new CustomEvent('eh:new_enrollment', {
-        detail: { order: newOrder, transaction: newTx, student: newStudent }
-      }));
-      window.dispatchEvent(new Event('storage'));
-
-      if (typeof BroadcastChannel !== 'undefined') {
-        try {
-          const bc = new BroadcastChannel('eduhunters_sync_channel');
-          bc.postMessage({
-            type: 'NEW_ENROLLMENT_ORDER',
-            payload: { order: newOrder, transaction: newTx, student: newStudent }
-          });
-          bc.close();
-        } catch (e) {}
+        console.warn('[orderService] Background task setup note:', e);
       }
     }
   } catch (err) {

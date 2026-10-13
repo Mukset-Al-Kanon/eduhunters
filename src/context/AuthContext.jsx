@@ -216,11 +216,12 @@ export function AuthProvider({ children }) {
     if (isFirebaseConfigured && auth) {
       try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
-        await updateProfile(res.user, {
+        updateProfile(res.user, {
           displayName: displayName || cleanEmail.split('@')[0],
           photoURL: defaultAvatar
-        });
-        await syncUserToFirestore(res.user, { displayName, photoURL: defaultAvatar });
+        }).catch(() => {});
+        syncUserToFirestore(res.user, { displayName, photoURL: defaultAvatar }).catch(() => {});
+
         const createdUser = {
           uid: res.user.uid,
           id: res.user.uid,
@@ -328,7 +329,7 @@ export function AuthProvider({ children }) {
     if (isFirebaseConfigured && auth) {
       try {
         const res = await signInWithEmailAndPassword(auth, email, password);
-        await syncUserToFirestore(res.user);
+        syncUserToFirestore(res.user).catch(() => {});
         return res.user;
       } catch (err) {
         // Fallback: Check if user exists in local registered store (e.g. after OTP password reset)
@@ -418,7 +419,6 @@ export function AuthProvider({ children }) {
     if (isFirebaseConfigured && auth && googleProvider) {
       try {
         const res = await signInWithPopup(auth, googleProvider);
-        await syncUserToFirestore(res.user);
         const mappedGoogleUser = {
           uid: res.user.uid,
           id: res.user.uid,
@@ -428,7 +428,17 @@ export function AuthProvider({ children }) {
           photoURL: res.user.photoURL || '/avatar.png',
           role: res.user.email === 'admin@eduhunters.com' ? 'admin' : 'student'
         };
+        try {
+          localStorage.setItem('eh_current_user', JSON.stringify(mappedGoogleUser));
+        } catch (e) {}
+        setCurrentUser(mappedGoogleUser);
         broadcastUserSync('REGISTER', mappedGoogleUser);
+
+        // Non-blocking background sync to Firestore
+        syncUserToFirestore(res.user).catch((e) => {
+          console.warn('[AuthContext] Background sync user note:', e);
+        });
+
         return res.user;
       } catch (err) {
         if (err.code === 'auth/unauthorized-domain') {
@@ -507,35 +517,7 @@ export function AuthProvider({ children }) {
         ...profileUpdates
       };
 
-      // 1. Firebase Auth Profile Update (displayName & photoURL)
-      if (isFirebaseConfigured && auth && auth.currentUser) {
-        const authUpdates = {};
-        if (profileUpdates.displayName !== undefined) authUpdates.displayName = profileUpdates.displayName;
-        if (profileUpdates.photoURL !== undefined) authUpdates.photoURL = profileUpdates.photoURL;
-
-        if (Object.keys(authUpdates).length > 0) {
-          try {
-            await updateProfile(auth.currentUser, authUpdates);
-          } catch (e) {
-            console.warn('[AuthContext] Firebase auth updateProfile notice:', e);
-          }
-        }
-      }
-
-      // Firestore sync for extra fields: phone, whatsapp, college, hscBatch, displayName, etc.
-      if (isFirebaseConfigured && db && currentUser?.uid) {
-        try {
-          const userRef = doc(db, 'users', currentUser.uid);
-          await setDoc(userRef, {
-            ...profileUpdates,
-            updatedAt: serverTimestamp()
-          }, { merge: true });
-        } catch (e) {
-          console.warn('[AuthContext] Firestore sync notice:', e);
-        }
-      }
-
-      // 2. Persist locally to eh_current_user
+      // 1. Immediately persist locally to eh_current_user and update state (OPTIMISTIC: 0ms lag)
       try {
         localStorage.setItem('eh_current_user', JSON.stringify(mergedUser));
         
@@ -554,11 +536,44 @@ export function AuthProvider({ children }) {
         }
       } catch (e) {}
 
-      // 3. Update React state
+      // Update React state and broadcast immediately
       setCurrentUser(mergedUser);
-      
-      // 4. Trigger storage, broadcast channel & global event for other components & AdminPanel
       broadcastUserSync('UPDATE', mergedUser);
+
+      // 2. Perform remote updates asynchronously in the background so UI is never blocked
+      (async () => {
+        // Firebase Auth Profile Update (displayName & photoURL only if not heavy base64)
+        if (isFirebaseConfigured && auth && auth.currentUser) {
+          const authUpdates = {};
+          if (profileUpdates.displayName !== undefined) authUpdates.displayName = profileUpdates.displayName;
+          // Only pass photoURL to auth.updateProfile if not a base64 data URI (to avoid Firebase server timeouts)
+          if (profileUpdates.photoURL && !profileUpdates.photoURL.startsWith('data:')) {
+            authUpdates.photoURL = profileUpdates.photoURL;
+          }
+
+          if (Object.keys(authUpdates).length > 0) {
+            try {
+              await updateProfile(auth.currentUser, authUpdates);
+            } catch (e) {
+              console.warn('[AuthContext] Firebase auth updateProfile notice:', e);
+            }
+          }
+        }
+
+        // Firestore sync for extra fields: phone, whatsapp, college, hscBatch, displayName, photoURL, etc.
+        const targetUid = currentUser?.uid || mergedUser?.uid;
+        if (isFirebaseConfigured && db && targetUid) {
+          try {
+            const userRef = doc(db, 'users', targetUid);
+            await setDoc(userRef, {
+              ...profileUpdates,
+              updatedAt: serverTimestamp()
+            }, { merge: true });
+          } catch (e) {
+            console.warn('[AuthContext] Firestore sync notice:', e);
+          }
+        }
+      })().catch(() => {});
 
       return mergedUser;
     } catch (err) {

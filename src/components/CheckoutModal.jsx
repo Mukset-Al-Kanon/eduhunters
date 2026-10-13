@@ -121,6 +121,9 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
         });
         setCreatedOrder(newOrder);
 
+        // Slick micro-delay (120ms) for polished button interaction feedback
+        await new Promise((r) => setTimeout(r, 120));
+
         setIsProcessing(false);
         setIsSuccess(true);
 
