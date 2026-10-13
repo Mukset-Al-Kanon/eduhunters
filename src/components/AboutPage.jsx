@@ -17,7 +17,7 @@ export default function AboutPage({
   onLoginClick 
 }) {
   const { isDark } = useTheme();
-  const instructors = Array.isArray(data.instructors) && data.instructors.length > 0 ? data.instructors : instructorsData;
+  const instructors = Array.isArray(data.instructors) ? data.instructors : [];
   const siteSettings = data.siteSettings || {};
   const sectionTexts = data.sectionTexts || {};
 

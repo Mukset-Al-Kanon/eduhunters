@@ -230,7 +230,7 @@ export const initialData = {
   examBatches: EXAM_CATEGORIES_METADATA,
 
   // Faculty & Teachers
-  instructors: instructorsData,
+  instructors: [],
 
   // Free YouTube video lectures
   freeVideos: freeVideosData,

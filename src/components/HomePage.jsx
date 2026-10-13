@@ -215,9 +215,7 @@ export default function HomePage({
     return raw;
   }, [data.homeStats]);
   const homeCourses = Array.isArray(data.courses) ? data.courses : homeCoursesData;
-  const instructors = Array.isArray(data.instructors) && data.instructors.length > 0 
-    ? data.instructors 
-    : instructorsData;
+  const instructors = Array.isArray(data.instructors) ? data.instructors : [];
   const rawFreeVideos = Array.isArray(data.freeVideos) ? data.freeVideos : freeVideosData;
   const whyChooseUs = Array.isArray(data.whyChooseUs) ? data.whyChooseUs : whyChooseUsData;
   const REMOVED_CATEGORIES = ["HSC 25", "Engineering", "HSC 27", "HSC 28", "HSC 26", "Free", "free"];
@@ -1069,98 +1067,101 @@ export default function HomePage({
         </section>
 
         {/* INSTRUCTOR / FACULTY SECTION */}
-        <section id="instructor-section" className={`py-16 overflow-hidden transition-colors duration-300 ${
-          isDark ? 'bg-[#0a0a0a]' : 'bg-white'
-        }`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            {/* Header Banner */}
-            <div className="eh-band relative overflow-hidden rounded-2xl mb-10">
-              <div className="px-6 py-7 md:px-8 md:py-9 relative z-10 flex flex-wrap items-center justify-between gap-3">
-                <div className="min-w-0">
-                  {st.facultyBadge && st.facultyBadge !== "আমার পরিচয়" && st.facultyBadge !== "আমার পরিচয়" && (
-                    <span className="block text-[11px] font-bold uppercase tracking-[0.22em] text-white opacity-80 mb-1">
-                      {st.facultyBadge}
-                    </span>
-                  )}
-                  <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight leading-none">
-                    {st.facultyTitle === "Meet Our Expert Faculty" ? "Meet Our Team" : (st.facultyTitle || "Meet Our Team")}
-                  </h2>
-                </div>
-                <div className="shrink-0">
-                  <button 
-                    onClick={onNavigateAbout}
-                    className="eh-btn-inverse text-sm inline-flex items-center gap-1.5 border-none cursor-pointer"
-                  >
-                    {st.facultyBtnText || "View all"}
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                  </button>
+        {/* INSTRUCTOR / FACULTY SECTION */}
+        {instructors && instructors.length > 0 && (
+          <section id="instructor-section" className={`py-16 overflow-hidden transition-colors duration-300 ${
+            isDark ? 'bg-[#0a0a0a]' : 'bg-white'
+          }`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              {/* Header Banner */}
+              <div className="eh-band relative overflow-hidden rounded-2xl mb-10">
+                <div className="px-6 py-7 md:px-8 md:py-9 relative z-10 flex flex-wrap items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    {st.facultyBadge && st.facultyBadge !== "আমার পরিচয়" && st.facultyBadge !== "আমার পরিচয়" && (
+                      <span className="block text-[11px] font-bold uppercase tracking-[0.22em] text-white opacity-80 mb-1">
+                        {st.facultyBadge}
+                      </span>
+                    )}
+                    <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight leading-none">
+                      {st.facultyTitle === "Meet Our Expert Faculty" ? "Meet Our Team" : (st.facultyTitle || "Meet Our Team")}
+                    </h2>
+                  </div>
+                  <div className="shrink-0">
+                    <button 
+                      onClick={onNavigateAbout}
+                      className="eh-btn-inverse text-sm inline-flex items-center gap-1.5 border-none cursor-pointer"
+                    >
+                      {st.facultyBtnText || "View all"}
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Horizontal Track Cards */}
-            <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide">
-              {instructors.map((inst, idx) => (
-                <div 
-                  key={inst.id || `${inst.name}-${idx}`}
-                  className={`flex-shrink-0 w-60 sm:w-64 rounded-2xl overflow-hidden transition-all duration-300 group cursor-pointer ${
-                    isDark 
-                      ? 'bg-[#140307]/90 border border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]' 
-                      : 'bg-white border border-[#e5e7eb] hover:shadow-xl shadow-sm'
-                  }`}
-                >
-                  <div className={`relative aspect-[3/4] overflow-hidden ${isDark ? 'bg-[#0c0205]' : 'bg-gray-100'}`}>
-                    <img 
-                      src={inst.image} 
-                      alt={inst.name} 
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-[#140307] via-transparent to-transparent' : 'from-black/40 via-transparent to-transparent'}`}></div>
-                    <div className="absolute top-4 left-3 flex flex-col items-center">
-                      <span className={`font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none ${
-                        isDark ? 'text-[#ff6b8b]' : 'text-white'
+              {/* Horizontal Track Cards */}
+              <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide">
+                {instructors.map((inst, idx) => (
+                  <div 
+                    key={inst.id || `${inst.name}-${idx}`}
+                    className={`flex-shrink-0 w-60 sm:w-64 rounded-2xl overflow-hidden transition-all duration-300 group cursor-pointer ${
+                      isDark 
+                        ? 'bg-[#140307]/90 border border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]' 
+                        : 'bg-white border border-[#e5e7eb] hover:shadow-xl shadow-sm'
+                    }`}
+                  >
+                    <div className={`relative aspect-[3/4] overflow-hidden ${isDark ? 'bg-[#0c0205]' : 'bg-gray-100'}`}>
+                      <img 
+                        src={inst.image} 
+                        alt={inst.name} 
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-[#140307] via-transparent to-transparent' : 'from-black/40 via-transparent to-transparent'}`}></div>
+                      <div className="absolute top-4 left-3 flex flex-col items-center">
+                        <span className={`font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none ${
+                          isDark ? 'text-[#ff6b8b]' : 'text-white'
+                        }`}>
+                          {inst.badge}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <div className="mb-1.5">
+                        <span className={`text-[10px] font-bold uppercase tracking-[0.15em] truncate block ${
+                          isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
+                        }`}>
+                          {inst.designation}
+                        </span>
+                      </div>
+                      <h3 className={`text-base font-black leading-tight mb-1 ${isDark ? 'text-white' : 'text-[#111827]'}`}>
+                        {inst.name}
+                      </h3>
+                      <p className={`text-xs line-clamp-2 leading-relaxed whitespace-pre-line ${
+                        isDark ? 'text-gray-300' : 'text-[#4b5563]'
                       }`}>
-                        {inst.badge}
-                      </span>
+                        {inst.bio}
+                      </p>
+                      {inst.yt && (
+                        <a 
+                          href={inst.yt} 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className={`mt-3 inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
+                            isDark ? 'text-[#ff6b8b] hover:text-white' : 'text-[#dc2626] hover:text-red-700'
+                          }`}
+                        >
+                          <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
+                          YouTube
+                        </a>
+                      )}
                     </div>
                   </div>
-                  <div className="p-4">
-                    <div className="mb-1.5">
-                      <span className={`text-[10px] font-bold uppercase tracking-[0.15em] truncate block ${
-                        isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
-                      }`}>
-                        {inst.designation}
-                      </span>
-                    </div>
-                    <h3 className={`text-base font-black leading-tight mb-1 ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                      {inst.name}
-                    </h3>
-                    <p className={`text-xs line-clamp-2 leading-relaxed whitespace-pre-line ${
-                      isDark ? 'text-gray-300' : 'text-[#4b5563]'
-                    }`}>
-                      {inst.bio}
-                    </p>
-                    {inst.yt && (
-                      <a 
-                        href={inst.yt} 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className={`mt-3 inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
-                          isDark ? 'text-[#ff6b8b] hover:text-white' : 'text-[#dc2626] hover:text-red-700'
-                        }`}
-                      >
-                        <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
-                        YouTube
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-          </div>
-        </section>
+            </div>
+          </section>
+        )}
 
         {/* FREE YOUTUBE VIDEO LESSONS */}
         <section id="free-resource-section" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

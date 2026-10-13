@@ -172,9 +172,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
 
   const [instructors, setInstructors] = useState(() => 
-    Array.isArray(data?.instructors) && data.instructors.length > 0
+    Array.isArray(data?.instructors)
       ? data.instructors 
-      : initialData.instructors
+      : []
   );
 
   const [freeVideos, setFreeVideos] = useState(() => 
@@ -693,7 +693,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     if (data.refundPolicy) setRefundPolicy(data.refundPolicy);
     if (data.privacyPolicy) setPrivacyPolicy(data.privacyPolicy);
     if (Array.isArray(data.users)) setUsersList(data.users);
-    if (Array.isArray(data.instructors) && data.instructors.length > 0) setInstructors(data.instructors);
+    if (Array.isArray(data.instructors)) setInstructors(data.instructors);
   }, [data]);
 
   // Edu Hunters Real Enrolled Students State
@@ -6405,17 +6405,54 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     Manage instructor profiles, designations, photos, and academic qualifications.
                   </p>
                 </div>
-                <button
-                  onClick={() => setShowAddTeacherModal(true)}
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-md shadow-purple-500/20"
-                >
-                  <Plus className="w-4 h-4" />
-                  Add New Instructor
-                </button>
+                <div className="flex items-center gap-2">
+                  {instructors.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (confirm(`Are you sure you want to delete all ${instructors.length} instructors? This action will immediately clear the faculty list.`)) {
+                          setInstructors([]);
+                          persistAll({ instructors: [] });
+                          triggerToast('All instructors removed!');
+                        }
+                      }}
+                      className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs border border-rose-200 transition-all cursor-pointer"
+                      title="Clear all instructors"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      Remove All
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setShowAddTeacherModal(true)}
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-md shadow-purple-500/20"
+                  >
+                    <Plus className="w-4 h-4" />
+                    Add New Instructor
+                  </button>
+                </div>
               </div>
 
-              {/* Instructors Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {/* Instructors Directory */}
+              {instructors.length === 0 ? (
+                <div className="py-16 px-6 text-center border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50/60 max-w-xl mx-auto space-y-3">
+                  <div className="w-14 h-14 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mx-auto border border-purple-100">
+                    <GraduationCap className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-800">কোনো ইন্সট্রাক্টর প্রোফাইল নেই</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed max-w-sm mx-auto">
+                    বর্তমানে কোনো ইন্সট্রাক্টর তালিকাভুক্ত নেই। আপনার প্ল্যাটফর্মের নতুন শিক্ষক বা মেন্টর যুক্ত করতে নিচের বাটনে ক্লিক করুন।
+                  </p>
+                  <button
+                    onClick={() => setShowAddTeacherModal(true)}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-sm"
+                  >
+                    <Plus className="w-4 h-4" />
+                    Add New Instructor
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {instructors.map((inst, idx) => (
                   <div 
                     key={inst.id || idx} 
@@ -6582,8 +6619,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   </div>
                 ))}
               </div>
-            </div>
-          )}
+            )}
+          </div>
+        )}
 
           {/* ========================================================= */}
           {/* TAB 7: FREE YOUTUBE VIDEOS */}

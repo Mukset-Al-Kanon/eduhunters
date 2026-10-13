@@ -357,7 +357,7 @@ export default function App() {
           examBatches: Array.isArray(parsed.examBatches)
             ? parsed.examBatches
             : (initialData.examBatches || EXAM_CATEGORIES_METADATA),
-          instructors: (Array.isArray(parsed.instructors) && parsed.instructors.length > 0) ? parsed.instructors : initialData.instructors,
+          instructors: Array.isArray(parsed.instructors) ? parsed.instructors : [],
           freeVideos: Array.isArray(parsed.freeVideos)
             ? parsed.freeVideos 
             : initialData.freeVideos,
@@ -410,8 +410,20 @@ export default function App() {
             modified = true;
           }
         }
-        if (!Array.isArray(parsed.instructors) || parsed.instructors.length === 0) {
-          parsed.instructors = initialData.instructors;
+        if (Array.isArray(parsed.instructors)) {
+          const ZENITH_INSTRUCTOR_NAMES = [
+            "as sami", "tahmid", "sanjid", "tofayel", "nazmuddin", "jaidul", "sk tasnim", "tasnim ferdaus"
+          ];
+          const purgedInst = parsed.instructors.filter(inst => {
+            const lowName = (inst.name || '').toLowerCase();
+            return !ZENITH_INSTRUCTOR_NAMES.some(zn => lowName.includes(zn));
+          });
+          if (purgedInst.length !== parsed.instructors.length) {
+            parsed.instructors = purgedInst;
+            modified = true;
+          }
+        } else {
+          parsed.instructors = [];
           modified = true;
         }
         if (Array.isArray(parsed.storeProducts) && parsed.storeProducts.some(p => [1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info'))) {
@@ -472,7 +484,7 @@ export default function App() {
             storeProducts: parsed.storeProducts || prev.storeProducts,
             homeStats: parsed.homeStats || prev.homeStats,
             siteSettings: parsed.siteSettings || prev.siteSettings,
-            instructors: (Array.isArray(parsed.instructors) && parsed.instructors.length > 0) ? parsed.instructors : initialData.instructors
+            instructors: Array.isArray(parsed.instructors) ? parsed.instructors : []
           }));
         }
       }
@@ -532,13 +544,20 @@ export default function App() {
         saveCloudData({ homeStats: initialData.homeStats });
       }
 
-      // Safe instructors resolution:
-      // 1. If cloud has valid, non-empty instructors, use it
-      // 2. Otherwise keep whatever local currently has
-      // 3. Only fall back to initialData if both are empty
-      const resolvedInstructors = (Array.isArray(sanitized.instructors) && sanitized.instructors.length > 0)
-        ? sanitized.instructors
-        : ((Array.isArray(prev.instructors) && prev.instructors.length > 0) ? prev.instructors : initialData.instructors);
+      // Clean instructors resolution: filter Zenith legacy faculty and respect user edits
+      const ZENITH_INSTRUCTOR_NAMES = [
+        "as sami", "tahmid", "sanjid", "tofayel", "nazmuddin", "jaidul", "sk tasnim", "tasnim ferdaus"
+      ];
+      const cleanCloudInstructors = Array.isArray(sanitized.instructors)
+        ? sanitized.instructors.filter(inst => !ZENITH_INSTRUCTOR_NAMES.some(zn => (inst.name || '').toLowerCase().includes(zn)))
+        : null;
+      const cleanPrevInstructors = Array.isArray(prev.instructors)
+        ? prev.instructors.filter(inst => !ZENITH_INSTRUCTOR_NAMES.some(zn => (inst.name || '').toLowerCase().includes(zn)))
+        : [];
+
+      const resolvedInstructors = cleanCloudInstructors !== null
+        ? cleanCloudInstructors
+        : cleanPrevInstructors;
 
       const merged = {
         ...prev,
