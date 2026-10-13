@@ -175,8 +175,6 @@ export async function sendVerificationOTP(email, userName = 'Student') {
         const errText = await response.text();
         console.warn('[OTP Service] EmailJS dispatch issue:', response.status, errText);
         throw new Error('Unable to deliver verification email at this moment. Please check your email or try again shortly.');
-      } else {
-        console.info('[OTP Service] EmailJS OTP email sent successfully to', normalizedEmail);
       }
     } catch (error) {
       console.warn('[OTP Service] EmailJS dispatch encountered an issue:', error);

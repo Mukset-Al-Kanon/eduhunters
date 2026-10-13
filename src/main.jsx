@@ -4,6 +4,10 @@ import './index.css'
 import App from './App.jsx'
 import { ThemeProvider } from './context/ThemeContext'
 import { AuthProvider } from './context/AuthContext'
+import { initSecurityShield } from './utils/securityShield'
+
+// Activate Global Security & Anti-Inspection Shield
+initSecurityShield();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

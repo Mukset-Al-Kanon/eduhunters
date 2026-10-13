@@ -1070,7 +1070,6 @@ export default function App() {
           setPendingAuthAction(null);
         }}
         onSuccess={(user) => {
-          console.log('User authenticated:', user);
           setIsAuthModalOpen(false);
           if (pendingAuthAction) {
             const action = pendingAuthAction;
