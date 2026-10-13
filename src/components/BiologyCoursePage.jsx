@@ -135,7 +135,7 @@ export default function BiologyCoursePage({
         aboutText: foundCourse?.aboutText || foundCourse?.description || masterEnglishCourseData.aboutText,
         totalClasses: foundCourse?.totalClasses || masterEnglishCourseData.totalClasses,
         features: (foundCourse?.features && foundCourse.features.length > 0) ? foundCourse.features : masterEnglishCourseData.features,
-        supportPhone: foundCourse?.supportPhone || siteSettings.contactPhone || "01353828863",
+        supportPhone: foundCourse?.supportPhone || siteSettings.contactPhone || "01342227935",
         curriculum: (foundCourse?.curriculum && foundCourse.curriculum.length > 0) ? foundCourse.curriculum : masterEnglishCourseData.curriculum,
         salePrice: foundCourse?.salePrice !== undefined ? foundCourse.salePrice : masterEnglishCourseData.salePrice,
         regularPrice: foundCourse?.regularPrice !== undefined ? foundCourse.regularPrice : masterEnglishCourseData.regularPrice,
@@ -166,7 +166,7 @@ export default function BiologyCoursePage({
       totalClasses: fc.totalClasses || (Array.isArray(fc.curriculum) ? `${fc.curriculum.length}টি মডিউল` : 'চলমান ব্যাচ'),
       studentsCount: fc.studentsCount || '১২৫০+',
       features: (Array.isArray(fc.features) && fc.features.length > 0) ? fc.features : defaultFeatures,
-      supportPhone: fc.supportPhone || siteSettings.contactPhone || "01353828863",
+      supportPhone: fc.supportPhone || siteSettings.contactPhone || "01342227935",
       curriculum: Array.isArray(fc.curriculum) ? fc.curriculum : [],
       salePrice: fc.salePrice !== undefined ? fc.salePrice : (fc.price !== undefined ? fc.price : 499),
       regularPrice: fc.regularPrice !== undefined ? fc.regularPrice : (fc.originalPrice !== undefined ? fc.originalPrice : null),
@@ -262,7 +262,7 @@ export default function BiologyCoursePage({
           if (!isStudentProfileComplete(targetUser)) {
             if (onOpenProfile) {
               onOpenProfile({
-                hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।',
+                hintNotice: 'Please complete your profile with your name, college, and WhatsApp number to finish enrolling.',
                 requireCompletion: true,
                 onComplete: () => {
                   setShowCheckout(true);
@@ -283,7 +283,7 @@ export default function BiologyCoursePage({
     if (!isStudentProfileComplete(currentUser)) {
       if (onOpenProfile) {
         onOpenProfile({
-          hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।',
+          hintNotice: 'Please complete your profile with your name, college, and WhatsApp number to finish enrolling.',
           requireCompletion: true,
           onComplete: () => {
             setShowCheckout(true);
@@ -560,8 +560,8 @@ export default function BiologyCoursePage({
 
               <div className="pt-1">
                 {(() => {
-                  const activeWa = siteSettings?.whatsappNumber || ((course.supportPhone && !course.supportPhone.includes('1700') && !course.supportPhone.includes('1321228612')) ? course.supportPhone : ((siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700')) ? siteSettings.contactPhone : '01353828863'));
-                  const cleanWa = activeWa.replace(/[^0-9]/g, '').replace(/^88/, '') || '01353828863';
+                  const activeWa = siteSettings?.whatsappNumber || ((course.supportPhone && !course.supportPhone.includes('1700') && !course.supportPhone.includes('1321228612')) ? course.supportPhone : ((siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700')) ? siteSettings.contactPhone : '01342227935'));
+                  const cleanWa = activeWa.replace(/[^0-9]/g, '').replace(/^88/, '') || '01342227935';
                   return (
                     <a 
                       href={`https://wa.me/88${cleanWa}`} 

@@ -205,6 +205,14 @@ export function AuthProvider({ children }) {
     const defaultAvatar = '/avatar.png';
     const cleanEmail = (email || '').trim().toLowerCase();
 
+    // Ensure fresh user starts with a completely clean enrollment state
+    try {
+      localStorage.removeItem('eduhunters_enrolled_courses');
+      localStorage.removeItem('eduhunters_enrolled_batches');
+      localStorage.removeItem('enrolled_courses');
+      localStorage.removeItem('enrolled_exam_batches');
+    } catch (e) {}
+
     if (isFirebaseConfigured && auth) {
       try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -478,6 +486,10 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
       localStorage.removeItem('eh_current_user');
+      localStorage.removeItem('eduhunters_enrolled_courses');
+      localStorage.removeItem('eduhunters_enrolled_batches');
+      localStorage.removeItem('enrolled_courses');
+      localStorage.removeItem('enrolled_exam_batches');
     } catch (e) {}
     if (isFirebaseConfigured && auth) {
       try {

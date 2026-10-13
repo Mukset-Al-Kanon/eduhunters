@@ -316,8 +316,8 @@ export default function App() {
               : 'eduhuntersbd@gmail.com',
             contactPhone: (parsed.siteSettings?.contactPhone && !parsed.siteSettings.contactPhone.includes('1700'))
               ? parsed.siteSettings.contactPhone
-              : '01353828863',
-            whatsappNumber: parsed.siteSettings?.whatsappNumber || parsed.siteSettings?.contactPhone || initialData.siteSettings.whatsappNumber || '01353828863',
+              : '01342227935',
+            whatsappNumber: parsed.siteSettings?.whatsappNumber || parsed.siteSettings?.contactPhone || initialData.siteSettings.whatsappNumber || '01342227935',
             bkashNumber: parsed.siteSettings?.bkashNumber || initialData.siteSettings.bkashNumber,
             nagadNumber: parsed.siteSettings?.nagadNumber || initialData.siteSettings.nagadNumber,
             facebookPage: (parsed.siteSettings?.facebookPage && parsed.siteSettings.facebookPage !== 'https://facebook.com')
@@ -399,6 +399,23 @@ export default function App() {
   // Permanently purge any Zenith Crew / Codervai copied courses and invalid items from browser localStorage on load
   useEffect(() => {
     try {
+      // Clean unverified legacy default batch keys from localStorage if no paid order exists
+      try {
+        const rawBatches = localStorage.getItem('eduhunters_enrolled_batches');
+        const legacyBatches = localStorage.getItem('enrolled_exam_batches');
+        if (rawBatches || legacyBatches) {
+          const orders = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+          const hasPaidSureshot = orders.some(o => 
+            (o.status === 'PAID' || o.isApproved) && 
+            (o.course?.categoryKey === 'sureshot' || o.course?.slug === 'sureshot' || o.categoryKey === 'sureshot')
+          );
+          if (!hasPaidSureshot) {
+            localStorage.removeItem('eduhunters_enrolled_batches');
+            localStorage.removeItem('enrolled_exam_batches');
+          }
+        }
+      } catch (e) {}
+
       const raw = localStorage.getItem('eduhunters_data');
       if (raw) {
         const parsed = JSON.parse(raw);
@@ -438,12 +455,12 @@ export default function App() {
           parsed.siteSettings.contactEmail = 'eduhuntersbd@gmail.com';
           modified = true;
         }
-        if (parsed.siteSettings && (!parsed.siteSettings.contactPhone || parsed.siteSettings.contactPhone.includes('1700'))) {
-          parsed.siteSettings.contactPhone = '01353828863';
+        if (parsed.siteSettings && (!parsed.siteSettings.contactPhone || parsed.siteSettings.contactPhone.includes('1700') || parsed.siteSettings.contactPhone === '01353828863')) {
+          parsed.siteSettings.contactPhone = '01342227935';
           modified = true;
         }
-        if (parsed.siteSettings && !parsed.siteSettings.whatsappNumber) {
-          parsed.siteSettings.whatsappNumber = parsed.siteSettings.contactPhone || '01353828863';
+        if (parsed.siteSettings && (!parsed.siteSettings.whatsappNumber || parsed.siteSettings.whatsappNumber === '01353828863')) {
+          parsed.siteSettings.whatsappNumber = parsed.siteSettings.contactPhone || '01342227935';
           modified = true;
         }
         if (parsed.accounting && (parsed.accounting.totalRevenue === 284500 || (Array.isArray(parsed.accounting.transactions) && parsed.accounting.transactions.some(t => t.id === 'TRX-94825')))) {
@@ -461,9 +478,12 @@ export default function App() {
                     changed = true;
                     return pt.replace(/support@eduhunters\.com/g, 'eduhuntersbd@gmail.com').replace(/eduhuntersbd@gmial\.com/g, 'eduhuntersbd@gmail.com');
                   }
-                  if (pt.includes('1700-000000')) {
+                  if (pt.includes('1700-000000') || pt.includes('1353-828863') || pt.includes('01353828863')) {
                     changed = true;
-                    return pt.replace('+880 1700-000000', '+880 1353-828863').replace('01700-000000', '01353828863');
+                    return pt.replace('+880 1700-000000', '+880 1342-227935')
+                      .replace('01700-000000', '01342227935')
+                      .replace('+880 1353-828863', '+880 1342-227935')
+                      .replace('01353828863', '01342227935');
                   }
                 }
                 return pt;
@@ -805,7 +825,7 @@ export default function App() {
   const handleOpenProfile = (optionsOrAction = null) => {
     if (typeof optionsOrAction === 'function') {
       setPendingProfileAction(() => optionsOrAction);
-      setProfileHintNotice('কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।');
+      setProfileHintNotice('Please complete your profile with your name, college, and WhatsApp number to finish enrolling.');
       setProfileRequireCompletion(true);
     } else if (optionsOrAction && typeof optionsOrAction === 'object') {
       setPendingProfileAction(typeof optionsOrAction.onComplete === 'function' ? () => optionsOrAction.onComplete : null);

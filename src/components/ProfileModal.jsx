@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 
 
 
-const POPULAR_BATCHES = ['HSC 26', 'HSC 27', 'HSC 28', 'HSC 29'];
+const POPULAR_BATCHES = ['HSC 25', 'HSC 26', 'HSC 27', 'HSC 28'];
 
 export default function ProfileModal({ 
   isOpen, 
@@ -41,7 +41,7 @@ export default function ProfileModal({
         setWhatsapp(currentUser.whatsapp || currentUser.phone || currentUser.phoneNumber || '');
         setCollege(currentUser.college || currentUser.institution || '');
         const existingBatch = currentUser.hscBatch || currentUser.batch;
-        setHscBatch(existingBatch && ['HSC 26', 'HSC 27', 'HSC 28', 'HSC 29'].includes(existingBatch) ? existingBatch : (existingBatch || 'HSC 26'));
+        setHscBatch(existingBatch && ['HSC 25', 'HSC 26', 'HSC 27', 'HSC 28'].includes(existingBatch) ? existingBatch : (existingBatch || 'HSC 26'));
       } else {
         setHscBatch('HSC 26');
       }
@@ -123,7 +123,7 @@ export default function ProfileModal({
 
         const dataUrl = canvas.toDataURL('image/jpeg', 0.88);
         setPhotoURL(dataUrl);
-        setStatusMsg({ type: 'success', text: 'নতুন ছবি নির্বাচন করা হয়েছে! সংরক্ষণে চাপুন।' });
+        setStatusMsg({ type: 'success', text: 'New photo selected! Click Save Changes.' });
       };
       img.src = event.target.result;
     };
@@ -134,17 +134,17 @@ export default function ProfileModal({
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!displayName.trim()) {
-      setStatusMsg({ type: 'error', text: 'অনুগ্রহ করে আপনার পুরো নাম লিখুন।' });
+      setStatusMsg({ type: 'error', text: 'Please enter your full name.' });
       return;
     }
 
     if (requireCompletion) {
       if (!whatsapp.trim()) {
-        setStatusMsg({ type: 'error', text: 'কোর্সে এনরোল করতে অনুগ্রহ করে আপনার সক্রিয় হোয়াটসঅ্যাপ নম্বরটি লিখুন।' });
+        setStatusMsg({ type: 'error', text: 'Please enter your active WhatsApp or mobile number to enroll.' });
         return;
       }
       if (!college.trim()) {
-        setStatusMsg({ type: 'error', text: 'কোর্সে এনরোল করতে অনুগ্রহ করে আপনার কলেজ বা শিক্ষাপ্রতিষ্ঠানের নাম লিখুন।' });
+        setStatusMsg({ type: 'error', text: 'Please enter your college or institution name to enroll.' });
         return;
       }
     }
@@ -170,7 +170,7 @@ export default function ProfileModal({
         await updateUserProfile(updates);
       }
 
-      setStatusMsg({ type: 'success', text: 'প্রোফাইল সফলভাবে আপডেট করা হয়েছে!' });
+      setStatusMsg({ type: 'success', text: 'Profile updated successfully!' });
       
       setTimeout(() => {
         handleClose();
@@ -179,7 +179,7 @@ export default function ProfileModal({
         }
       }, 550);
     } catch (err) {
-      setStatusMsg({ type: 'error', text: err.message || 'প্রোফাইল আপডেট করা সম্ভব হয়নি।' });
+      setStatusMsg({ type: 'error', text: err.message || 'Failed to update profile.' });
     } finally {
       setLoading(false);
     }
@@ -231,11 +231,11 @@ export default function ProfileModal({
         {/* Header Title */}
         <div className="text-center pt-1 mb-4">
           <h2 className="text-2xl font-black tracking-tight text-white">
-            {requireCompletion ? 'প্রোফাইল তথ্য সম্পন্ন করুন' : 'Edit Profile'}
+            {requireCompletion ? 'Complete Your Profile' : 'Edit Profile'}
           </h2>
           <p className="text-xs text-gray-400 mt-1 max-w-[340px] mx-auto leading-relaxed">
             {requireCompletion 
-              ? 'কোর্সে সফলভাবে এনরোল করার জন্য নিচের তথ্যগুলো পূরণ করুন।' 
+              ? 'Please fill in your details below to successfully enroll in the course.' 
               : 'Customize your avatar, contact, and academic details for EduHunters.'}
           </p>
         </div>
@@ -386,7 +386,7 @@ export default function ProfileModal({
                 type="tel"
                 value={whatsapp}
                 onChange={(e) => setWhatsapp(e.target.value)}
-                placeholder="e.g. 01353828863"
+                placeholder="e.g. 01342227935"
                 required={requireCompletion}
                 className="w-full pl-10 pr-4 py-3 rounded-2xl bg-[#140609] border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#e11438] transition-colors"
               />

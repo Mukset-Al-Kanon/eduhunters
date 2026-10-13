@@ -2069,7 +2069,7 @@ export default function ExamBatchStudio({
                 <label className="text-xs font-bold text-slate-700">Hotline / Support Phone Number</label>
                 <input
                   type="text"
-                  value={course.supportPhone || '01353828863'}
+                  value={course.supportPhone || '01342227935'}
                   onChange={(e) => handleUpdateField('supportPhone', e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
                 />

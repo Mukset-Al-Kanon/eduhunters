@@ -44,7 +44,7 @@ export default function LegalPoliciesPage({
     : 'eduhuntersbd@gmail.com';
   const supportPhone = (siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700')) 
     ? siteSettings.contactPhone 
-    : '01353828863';
+    : '01342227935';
   const waContact = siteSettings.whatsappNumber || supportPhone;
   const rawDigits = waContact.replace(/[^0-9]/g, '');
   const whatsappNumber = rawDigits.startsWith('88') ? rawDigits : `88${rawDigits}`;

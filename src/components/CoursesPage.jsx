@@ -183,7 +183,7 @@ export default function CoursesPage({
           if (!isStudentProfileComplete(targetUser)) {
             if (onOpenProfile) {
               onOpenProfile({
-                hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।',
+                hintNotice: 'Please complete your profile with your name, college, and WhatsApp number to finish enrolling.',
                 requireCompletion: true,
                 onComplete: () => {
                   setSelectedCourseForCheckout(course);
@@ -207,7 +207,7 @@ export default function CoursesPage({
     if (!isStudentProfileComplete(currentUser)) {
       if (onOpenProfile) {
         onOpenProfile({
-          hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।',
+          hintNotice: 'Please complete your profile with your name, college, and WhatsApp number to finish enrolling.',
           requireCompletion: true,
           onComplete: () => {
             setSelectedCourseForCheckout(course);

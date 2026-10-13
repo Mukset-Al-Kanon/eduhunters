@@ -238,9 +238,9 @@ export default function HomePage({
   const siteSettings = { ...initialData.siteSettings, ...(data.siteSettings || {}) };
   const rawContactPhone = (siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700'))
     ? siteSettings.contactPhone
-    : '01353828863';
+    : '01342227935';
   const rawWaNumber = siteSettings.whatsappNumber || rawContactPhone;
-  const cleanWaNumber = rawWaNumber.replace(/[^0-9]/g, '').replace(/^88/, '') || '01353828863';
+  const cleanWaNumber = rawWaNumber.replace(/[^0-9]/g, '').replace(/^88/, '') || '01342227935';
   const whatsappUrl = `https://wa.me/88${cleanWaNumber}`;
 
   const st = { ...initialData.sectionTexts, ...(data.sectionTexts || {}) };
@@ -444,7 +444,7 @@ export default function HomePage({
           if (!isStudentProfileComplete(targetUser)) {
             if (onOpenProfile) {
               onOpenProfile({
-                hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পন্ন করুন।',
+                hintNotice: 'Please complete your profile with your name, college, and WhatsApp number to finish enrolling.',
                 requireCompletion: true,
                 onComplete: () => {
                   setSelectedCourseForCheckout(course);
@@ -468,7 +468,7 @@ export default function HomePage({
     if (!isStudentProfileComplete(currentUser)) {
       if (onOpenProfile) {
         onOpenProfile({
-          hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পন্ন করুন।',
+          hintNotice: 'Please complete your profile with your name, college, and WhatsApp number to finish enrolling.',
           requireCompletion: true,
           onComplete: () => {
             setSelectedCourseForCheckout(course);
@@ -1254,41 +1254,7 @@ export default function HomePage({
           </div>
         </section>
 
-        {/* STUDENT REVIEWS / TESTIMONIALS */}
-        <section className={`py-24 transition-colors duration-300 ${isDark ? '' : 'bg-white'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
-            <div className="eh-band relative overflow-hidden rounded-2xl">
-              <div className="px-6 py-7 md:px-8 md:py-9 flex-col text-center justify-center relative z-10 flex flex-wrap items-center gap-3">
-                <div className="min-w-0">
-                  <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-                    {st.reviewsTitle || "শিক্ষার্থীদের রিভিউ"}
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="ti-outer-mask">
-            <div className="testimonial-img-track flex gap-5 py-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="flex-shrink-0 w-52 sm:w-60">
-                  <div className={`rounded-2xl overflow-hidden ti-card-tilt ${
-                    isDark 
-                      ? 'shadow-[0_6px_24px_rgba(0,0,0,0.5)] border border-[#e11438]/25 bg-[#120407]' 
-                      : 'shadow-md border border-[#e5e7eb] bg-white'
-                  }`}>
-                    <img 
-                      src="https://assets.codervai.com/testimonial-images/1781465623292-cropped-image.webp" 
-                      alt="Student Review" 
-                      className="w-full h-auto object-cover" 
-                      loading="lazy" 
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+
 
 
 
@@ -1500,7 +1466,7 @@ export default function HomePage({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 gap-8">
               <div>
                 <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-4 ${isDark ? 'text-gray-200' : 'text-white'}`}>
                   QUICK LINKS
@@ -1521,17 +1487,6 @@ export default function HomePage({
                   <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('refund') : (window.location.href = '/refund-policy')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">Refund Policy</button></li>
                   <li><button onClick={() => onNavigatePolicies ? onNavigatePolicies('privacy') : (window.location.href = '/privacy-policy')} className="hover:text-white bg-transparent border-none p-0 cursor-pointer text-inherit transition-colors">Privacy Policy</button></li>
                 </ul>
-              </div>
-              <div>
-                <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-4 ${isDark ? 'text-gray-200' : 'text-white'}`}>
-                  FEATURED BATCHES
-                </p>
-                <div className={`space-y-2.5 text-xs ${isDark ? 'text-gray-300' : 'text-white/90'}`}>
-                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate transition-colors">Mastering Text Book Biology</div>
-                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate transition-colors">Mastering Text Book Chemistry</div>
-                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate transition-colors">Medical Exam Batch</div>
-                  <div onClick={onNavigateCourse} className="hover:text-white cursor-pointer truncate transition-colors">Ketab Sir MCQ Solve Course</div>
-                </div>
               </div>
             </div>
           </div>

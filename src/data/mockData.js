@@ -81,8 +81,8 @@ export const initialData = {
     siteTagline: "The Premier EdTech Learning & Exam Platform",
     logoUrl: "/logo-crimson.png",
     logoLightUrl: "/logo-light.png",
-    contactPhone: "01353828863",
-    whatsappNumber: "01353828863",
+    contactPhone: "01342227935",
+    whatsappNumber: "01342227935",
     bkashNumber: "01342227935",
     nagadNumber: "01731127231",
     contactEmail: "eduhuntersbd@gmail.com",
@@ -462,7 +462,7 @@ export const initialData = {
         title: "যোগাযোগ",
         points: [
           "Email: eduhuntersbd@gmail.com",
-          "WhatsApp: +880 1353-828863",
+          "WhatsApp: +880 1342-227935",
           "Support Time: সকাল ১০:০০ টা - রাত ১০:০০ টা (প্রতিদিন)"
         ]
       }
@@ -518,7 +518,7 @@ export const initialData = {
         title: "যোগাযোগ ও হেল্পডেস্ক",
         points: [
           "Email: eduhuntersbd@gmail.com",
-          "WhatsApp: +880 1353-828863",
+          "WhatsApp: +880 1342-227935",
           "Support Time: সকাল ১০:০০ টা - রাত ১০:০০ টা (প্রতিদিন)"
         ]
       }

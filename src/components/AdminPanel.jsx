@@ -258,8 +258,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         id: 'admin_master',
         name: 'EduHunters Admin',
         email: 'admin@eduhunters.com',
-        phone: '01353828863',
-        whatsapp: '01353828863',
+        phone: '01342227935',
+        whatsapp: '01342227935',
         college: 'EduHunters HQ',
         institution: 'EduHunters HQ',
         role: 'Admin',
@@ -2228,7 +2228,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         aboutText: c.aboutText || (c.id === 'master-english-30-days' ? masterEnglishCourseData.aboutText : ''),
         totalClasses: c.totalClasses || (c.id === 'master-english-30-days' ? masterEnglishCourseData.totalClasses : ''),
         features: (c.features && c.features.length > 0) ? c.features : (c.id === 'master-english-30-days' ? masterEnglishCourseData.features : []),
-        supportPhone: c.supportPhone || '01353828863',
+        supportPhone: c.supportPhone || '01342227935',
         previewVideoUrl: c.previewVideoUrl || (c.id === 'master-english-30-days' ? masterEnglishCourseData.previewVideoUrl : '')
       } : c);
       setCourses(updated);
@@ -4808,10 +4808,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       className="w-full sm:w-auto bg-slate-50 border border-slate-200/80 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-700 outline-none cursor-pointer hover:bg-white"
                     >
                       <option value="ALL">All Batches</option>
+                      <option value="HSC 25">HSC 25</option>
                       <option value="HSC 26">HSC 26</option>
                       <option value="HSC 27">HSC 27</option>
                       <option value="HSC 28">HSC 28</option>
-                      <option value="HSC 29">HSC 29</option>
                     </select>
                   </div>
 
@@ -7191,7 +7191,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         <span>WhatsApp Number</span>
                       </label>
                       <a
-                        href={`https://wa.me/88${(siteSettings.whatsappNumber || '01353828863').replace(/[^0-9]/g, '').replace(/^88/, '')}`}
+                        href={`https://wa.me/88${(siteSettings.whatsappNumber || '01342227935').replace(/[^0-9]/g, '').replace(/^88/, '')}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-[11px] text-emerald-600 hover:text-emerald-700 font-bold flex items-center gap-1 no-underline"
@@ -7202,7 +7202,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     </div>
                     <input
                       type="text"
-                      placeholder="01353828863"
+                      placeholder="01342227935"
                       value={siteSettings.whatsappNumber || ''}
                       onChange={(e) => handleUpdateSiteSetting('whatsappNumber', e.target.value)}
                       className="w-full bg-white border border-emerald-200/90 rounded-xl px-3.5 py-2.5 text-sm font-mono font-bold text-slate-900 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 transition-all shadow-2xs"
@@ -7225,7 +7225,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     </div>
                     <input
                       type="text"
-                      placeholder="01353828863"
+                      placeholder="01342227935"
                       value={siteSettings.contactPhone || ''}
                       onChange={(e) => handleUpdateSiteSetting('contactPhone', e.target.value)}
                       className="w-full bg-white border border-blue-200/90 rounded-xl px-3.5 py-2.5 text-sm font-mono font-bold text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 transition-all shadow-2xs"
@@ -7280,11 +7280,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   </div>
                   <div className="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60">
                     <span className="text-[10px] text-emerald-400 font-bold block uppercase mb-1">WhatsApp</span>
-                    <span className="font-mono font-black text-white">{siteSettings.whatsappNumber || '01353828863'}</span>
+                    <span className="font-mono font-black text-white">{siteSettings.whatsappNumber || '01342227935'}</span>
                   </div>
                   <div className="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60">
                     <span className="text-[10px] text-blue-400 font-bold block uppercase mb-1">Hotline Phone</span>
-                    <span className="font-mono font-black text-white">{siteSettings.contactPhone || '01353828863'}</span>
+                    <span className="font-mono font-black text-white">{siteSettings.contactPhone || '01342227935'}</span>
                   </div>
                   <div className="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60 col-span-2 sm:col-span-1">
                     <span className="text-[10px] text-purple-400 font-bold block uppercase mb-1">Official Email</span>
@@ -7614,7 +7614,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   { id: 'videos', label: '📺 Free Video Classes' },
                   { id: 'ai', label: '🤖 AI Study Partner' },
                   { id: 'contact', label: '📞 Contact & Footer' },
-                  { id: 'reviews', label: '🌟 Headers & Reviews' },
+                  { id: 'reviews', label: '🌟 Why Choose Us' },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -7750,9 +7750,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   </div>
                 )}
 
-                {/* 4. WHY CHOOSE US & REVIEWS HEADERS */}
+                {/* 4. WHY CHOOSE US HEADERS */}
                 {textSubTab === 'reviews' && (
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4 max-w-2xl">
                     <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
                       <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
                         <HelpCircle className="w-4 h-4 text-blue-600" />
@@ -7774,33 +7774,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             type="text"
                             value={sectionTexts.whyChooseTitle || ''}
                             onChange={(e) => handleUpdateSectionText('whyChooseTitle', e.target.value)}
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
-                      <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
-                        <Sparkles className="w-4 h-4 text-amber-500" />
-                        <h3 className="text-sm font-bold text-slate-900">5. Student Reviews Section Header</h3>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                          <label className="text-xs font-semibold text-slate-500 block mb-1">Badge Text</label>
-                          <input
-                            type="text"
-                            value={sectionTexts.reviewsBadge || ''}
-                            onChange={(e) => handleUpdateSectionText('reviewsBadge', e.target.value)}
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                          />
-                        </div>
-                        <div>
-                          <label className="text-xs font-semibold text-slate-500 block mb-1">Main Title</label>
-                          <input
-                            type="text"
-                            value={sectionTexts.reviewsTitle || ''}
-                            onChange={(e) => handleUpdateSectionText('reviewsTitle', e.target.value)}
                             className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
                           />
                         </div>
@@ -10525,7 +10498,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   <label className="block text-xs font-bold text-slate-700 mb-1">HSC Batch</label>
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-1">
-                      {['HSC 26', 'HSC 27', 'HSC 28', 'HSC 29'].map((b) => (
+                      {['HSC 25', 'HSC 26', 'HSC 27', 'HSC 28'].map((b) => (
                         <button
                           key={b}
                           type="button"

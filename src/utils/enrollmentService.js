@@ -220,14 +220,38 @@ export function grantCourseAccess(itemOrTitle, data = {}) {
 }
 
 /**
+ * Cleans up unverified legacy 'sureshot' from localStorage if not backed by a paid order
+ */
+export function cleanUnverifiedLegacyBatches() {
+  try {
+    const rawBatches = localStorage.getItem(ENROLLED_BATCHES_KEY);
+    const legacyBatches = localStorage.getItem('enrolled_exam_batches');
+    if (rawBatches || legacyBatches) {
+      const orders = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+      const hasPaidSureshot = orders.some(o => 
+        (o.status === 'PAID' || o.isApproved) && 
+        (o.course?.categoryKey === 'sureshot' || o.course?.slug === 'sureshot' || o.categoryKey === 'sureshot')
+      );
+      if (!hasPaidSureshot) {
+        localStorage.removeItem(ENROLLED_BATCHES_KEY);
+        localStorage.removeItem('enrolled_exam_batches');
+      }
+    }
+  } catch (e) {}
+}
+
+// Automatically clean unverified batches on module initialization
+cleanUnverifiedLegacyBatches();
+
+/**
  * Comprehensive check whether a course, exam batch, or bundle is unlocked/enrolled for the user.
  * 100% accurate: only returns true if the user has actually enrolled or purchased it.
  */
-export function isItemEnrolled(itemOrId, currentUser = null, data = null) {
+export function isItemEnrolled(itemOrId, currentUser = null, data = null, options = {}) {
   if (!itemOrId) return false;
 
-  // 1. Admin Role has master pass to everything
-  if (currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com') {
+  // 1. Admin Role has master pass to everything (except when viewing personal dashboard where only genuine enrollments are shown)
+  if (!options?.forDashboard && (currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com')) {
     return true;
   }
 
@@ -301,7 +325,7 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null) {
 
   // 3. Check Current User explicit enrolledCourses / enrolledBatches
   if (currentUser?.enrolledCourses) {
-    if (currentUser.enrolledCourses.includes('All Courses (Super Admin Pass)')) return true;
+    if (!options?.forDashboard && currentUser.enrolledCourses.includes('All Courses (Super Admin Pass)')) return true;
     if (matchesList(currentUser.enrolledCourses)) return true;
   }
   if (currentUser?.enrolledBatches && matchesList(currentUser.enrolledBatches)) {
@@ -309,18 +333,45 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null) {
   }
 
   // 4. Check localStorage enrolled courses & batches
-  const storedCourses = getStoredEnrolledCourses();
-  if (matchesList(storedCourses)) return true;
+  const storedCourses = options?.forDashboard ? [] : getStoredEnrolledCourses();
+  const storedBatches = options?.forDashboard ? [] : getStoredEnrolledBatches();
 
-  const storedBatches = getStoredEnrolledBatches();
-  if (matchesList(storedBatches)) return true;
+  // On personal dashboard, unverified global localStorage entries are not applied unless user-scoped
+  if (!options?.forDashboard) {
+    if (matchesList(storedCourses)) return true;
+    if (matchesList(storedBatches)) return true;
+  } else if (currentUser?.uid) {
+    try {
+      const userSpecificBatches = JSON.parse(localStorage.getItem(`eduhunters_enrolled_batches_${currentUser.uid}`) || '[]');
+      if (matchesList(userSpecificBatches)) return true;
+      const userSpecificCourses = JSON.parse(localStorage.getItem(`eduhunters_enrolled_courses_${currentUser.uid}`) || '[]');
+      if (matchesList(userSpecificCourses)) return true;
+    } catch (e) {}
+  }
 
-  // 5. Check User Orders in orderService (only completed / approved / paid orders)
+  // 5. Check User Orders in orderService (only completed / approved / paid orders belonging to this user)
   try {
     const orders = getUserOrders();
+    const userEmail = (currentUser?.email || '').toLowerCase().trim();
+    const userPhone = (currentUser?.phoneNumber || currentUser?.phone || currentUser?.whatsapp || '').replace(/[^0-9]/g, '');
+    const userUid = currentUser?.uid || currentUser?.id;
+
     for (const ord of orders) {
       const isPaid = ord.status === 'PAID' || ord.status === 'Completed' || ord.isApproved === true;
       if (!isPaid) continue;
+
+      // Strict user ownership check: The order must belong to this user
+      if (currentUser) {
+        const orderEmail = (ord.customer?.email || '').toLowerCase().trim();
+        const orderPhone = (ord.customer?.phone || '').replace(/[^0-9]/g, '');
+        const orderUid = ord.userId || ord.customer?.uid;
+
+        const isOwner = (userEmail && orderEmail && orderEmail === userEmail) ||
+                        (userPhone && orderPhone && (orderPhone === userPhone || orderPhone.endsWith(userPhone) || userPhone.endsWith(orderPhone))) ||
+                        (userUid && orderUid && orderUid === userUid);
+
+        if (!isOwner) continue;
+      }
 
       const orderKeys = [
         ord.course?.id,

@@ -40,7 +40,7 @@ export default function DashboardPage({
                      EXAM_BATCH_KEYS.has(course.slug) ||
                      EXAM_BATCH_KEYS.has(course.key);
       if (isExam) return false;
-      return isItemEnrolled(course, currentUser, data);
+      return isItemEnrolled(course, currentUser, data, { forDashboard: true });
     });
     const seen = new Set();
     return filtered.filter(c => {
@@ -57,7 +57,7 @@ export default function DashboardPage({
       ? data.examBatches
       : EXAM_CATEGORIES_METADATA;
 
-    const filtered = rawBatches.filter(batch => isItemEnrolled(batch, currentUser, data));
+    const filtered = rawBatches.filter(batch => isItemEnrolled(batch, currentUser, data, { forDashboard: true }));
     const seen = new Set();
     return filtered.filter(b => {
       const key = b.key || b.id || b.title;

@@ -706,7 +706,7 @@ export default function Navbar({
               <button
                 onClick={() => {
                   setIsDrawerOpen(false);
-                  const rawPhone = siteSettings?.whatsappNumber || ((siteSettings?.contactPhone && !siteSettings.contactPhone.includes('1700')) ? siteSettings.contactPhone : '01353828863');
+                  const rawPhone = siteSettings?.whatsappNumber || ((siteSettings?.contactPhone && !siteSettings.contactPhone.includes('1700')) ? siteSettings.contactPhone : '01342227935');
                   const raw = rawPhone.replace(/[^0-9]/g, '');
                   const cleanPhone = raw.startsWith('88') ? raw : `88${raw}`;
                   window.open(`https://wa.me/${cleanPhone}`, '_blank');
