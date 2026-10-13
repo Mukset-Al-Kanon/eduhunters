@@ -1,14 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, AlertCircle, CheckCircle, ArrowLeft, RefreshCw, Award } from 'lucide-react';
+import { Clock, AlertCircle, CheckCircle, ArrowLeft, RefreshCw, Award, ShieldAlert, ShieldCheck } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { stripEmoji } from '../utils/textUtils';
+import { useAuth } from '../context/AuthContext';
 
 export default function ExamEngine({ exam, onClose }) {
+  const { currentUser } = useAuth();
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [timeLeft, setTimeLeft] = useState(exam.durationMinutes * 60);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [result, setResult] = useState(null);
+  const [tabSwitchWarnings, setTabSwitchWarnings] = useState(0);
+
+  // Anti-cheating & Content Security listeners
+  useEffect(() => {
+    if (isSubmitted) return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setTabSwitchWarnings(prev => prev + 1);
+      }
+    };
+
+    const handleKeyDown = (e) => {
+      // Block F12 DevTools
+      if (e.key === 'F12') {
+        e.preventDefault();
+        return;
+      }
+      // Block Ctrl+C (Copy), Ctrl+U (View Source), Ctrl+P (Print), Ctrl+S (Save)
+      if ((e.ctrlKey || e.metaKey) && ['c', 'u', 'p', 's'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+        return;
+      }
+      // Block Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Inspect Element)
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i', 'j', 'c'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+        return;
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isSubmitted]);
 
   // Timer countdown
   useEffect(() => {
@@ -112,9 +152,22 @@ export default function ExamEngine({ exam, onClose }) {
           )}
         </div>
 
-        {/* Exam Content */}
+        {/* Exam Content with Anti-Cheating Shield */}
         {!isSubmitted ? (
-          <div className="exam-body no-select">
+          <div 
+            className="exam-body no-select relative"
+            onContextMenu={(e) => e.preventDefault()}
+            onCopy={(e) => e.preventDefault()}
+            onCut={(e) => e.preventDefault()}
+          >
+            {/* Tab switch anti-cheating warning */}
+            {tabSwitchWarnings > 0 && (
+              <div className="mb-4 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs flex items-center gap-2">
+                <ShieldAlert size={16} className="shrink-0" />
+                <span>সতর্কতা: পরীক্ষা চলাকালীন অন্য ট্যাব বা ব্রাউজার উইন্ডোতে যাওয়া যাবে না (সতর্কবার্তা: {tabSwitchWarnings} বার)।</span>
+              </div>
+            )}
+
             {/* Question Progress Tracker */}
             <div className="question-tracker">
               <span className="tracker-text">
@@ -136,8 +189,11 @@ export default function ExamEngine({ exam, onClose }) {
               </div>
             </div>
 
-            {/* Current Question Card */}
-            <div className="question-card">
+            {/* Current Question Card with Anti-Piracy Watermark */}
+            <div className="question-card relative overflow-hidden">
+              <div className="absolute top-2 right-3 pointer-events-none select-none text-[9px] text-gray-400/30 font-mono tracking-wider">
+                EDU HUNTERS • {currentUser?.phone || currentUser?.email || 'STUDENT'}
+              </div>
               <h3 className="question-text">
                 <span className="q-number">{currentIdx + 1}.</span> {currentQ.question}
               </h3>

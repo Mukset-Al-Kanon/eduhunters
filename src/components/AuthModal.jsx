@@ -302,7 +302,7 @@ export default function AuthModal({
     }
 
     // Verify OTP against the service
-    const verifyResult = verifyEnteredOTP(email, fullCode);
+    const verifyResult = await verifyEnteredOTP(email, fullCode);
     if (!verifyResult.valid) {
       setStatusMsg({ type: 'error', text: verifyResult.error });
       return;
@@ -384,7 +384,7 @@ export default function AuthModal({
     }
 
     // Verify OTP against the service
-    const verifyResult = verifyEnteredOTP(email, fullCode);
+    const verifyResult = await verifyEnteredOTP(email, fullCode);
     if (!verifyResult.valid) {
       setStatusMsg({ type: 'error', text: verifyResult.error });
       return;

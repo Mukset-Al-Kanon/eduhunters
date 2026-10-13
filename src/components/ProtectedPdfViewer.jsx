@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ShieldCheck, 
   Lock, 
@@ -9,22 +9,53 @@ import {
   ChevronRight,
   AlertTriangle 
 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
-export default function ProtectedPdfViewer({ bundle, userPhone = '01712-345678', onClose }) {
+export default function ProtectedPdfViewer({ 
+  bundle, 
+  pdfTitle,
+  userPhone,
+  studentPhone,
+  onClose 
+}) {
+  const { currentUser } = useAuth();
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = bundle.pdfPageCount || 10;
+  const totalPages = bundle?.pdfPageCount || 10;
+  const docTitle = bundle?.title || pdfTitle || 'Edu Hunters Protected Document';
   const [zoomLevel, setZoomLevel] = useState(100);
 
-  // Prevent right click / inspect
+  // Dynamic user identity for anti-piracy watermarking
+  const studentIdentity = currentUser?.phone || currentUser?.email || studentPhone || userPhone || '01700-000000';
+
+  // Prevent right click / inspect / printing
   const handleContextMenu = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Block Ctrl+P (Print), Ctrl+S (Save), Ctrl+U (View Source)
+      if ((e.ctrlKey || e.metaKey) && ['p', 's', 'u', 'c'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+      if (e.key === 'PrintScreen') {
+        e.preventDefault();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <div 
       className="protected-pdf-modal no-select"
       onContextMenu={handleContextMenu}
+      onCopy={(e) => e.preventDefault()}
+      onCut={(e) => e.preventDefault()}
     >
+      {/* Hide on print */}
+      <style>{`@media print { body * { display: none !important; } }`}</style>
+
       {/* Top Security Header */}
       <div className="pdf-viewer-header">
         <div className="pdf-header-left">
@@ -32,7 +63,7 @@ export default function ProtectedPdfViewer({ bundle, userPhone = '01712-345678',
             <ArrowLeft size={20} />
           </button>
           <div>
-            <h3 className="pdf-doc-title">{bundle.title}</h3>
+            <h3 className="pdf-doc-title">{docTitle}</h3>
             <span className="pdf-security-tag">
               <ShieldCheck size={13} className="text-emerald" /> ১০০% সুরক্ষিত অ্যান্টি-পাইরেসি ভিউয়ার
             </span>
@@ -75,7 +106,7 @@ export default function ProtectedPdfViewer({ bundle, userPhone = '01712-345678',
             {[...Array(6)].map((_, i) => (
               <div key={i} className="watermark-item">
                 <span className="wm-brand">EDU HUNTERS OFFICIAL</span>
-                <span className="wm-user">LICENSED TO: {userPhone}</span>
+                <span className="wm-user">LICENSED TO: {studentIdentity}</span>
                 <span className="wm-warn">UNAUTHORIZED SHARING IS STRICTLY PROHIBITED</span>
               </div>
             ))}

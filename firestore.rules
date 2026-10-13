@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Core Security Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.email == 'admin@eduhunters.com' ||
+        request.auth.token.role == 'admin' ||
+        request.auth.token.admin == true
+      );
+    }
+
+    // 1. EduHunters Site Cloud Sync Data (Courses, Carousel, Exam Batches)
+    match /eduhunters_site/{document=**} {
+      // Students and visitors can read courses and exam public listings
+      allow read: if true;
+      // Strictly restrict writing/updating to authorized EduHunters Admin
+      allow write: if isAdmin() || (isAuthenticated() && request.auth.token.email == 'admin@eduhunters.com');
+    }
+
+    // 2. Student Profiles & Registered Devices (Anti-Account Sharing)
+    match /users/{userId} {
+      // Prevent IDOR: students can ONLY read and modify their own account
+      allow read: if isOwner(userId) || isAdmin();
+      allow create, update: if isOwner(userId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // 3. Orders & Invoices
+    match /orders/{orderId} {
+      // IDOR Protection: Students can only read their own invoices
+      allow read: if isAdmin() || (isAuthenticated() && resource.data.customer.email == request.auth.token.email);
+      allow create: if true;
+      allow update, delete: if isAdmin();
+    }
+
+    // 4. Default deny-all for any unmapped paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

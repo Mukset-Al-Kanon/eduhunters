@@ -38,7 +38,28 @@ export function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-// In-memory OTP storage: Map<email, { otp, expiresAt, attempts }>
+/**
+ * Generates a SHA-256 hash for secure storage of OTP tokens
+ */
+async function hashOTPToken(code, email) {
+  try {
+    if (typeof window !== 'undefined' && window.crypto && window.crypto.subtle) {
+      const msgUint8 = new TextEncoder().encode(`${code}_${email}_eh_otp_salt_2026`);
+      const hashBuffer = await window.crypto.subtle.digest('SHA-256', msgUint8);
+      return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+  } catch (e) {}
+  // Deterministic fallback
+  let hash = 0;
+  const str = `${code}_${email}_eh_otp_salt_2026`;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return 'eh_otp_h_' + Math.abs(hash);
+}
+
+// In-memory OTP storage: Map<email, { otpHash, expiresAt, attempts, requestedCount, firstRequestTime }>
 const activeOTPStore = new Map();
 
 const SESSION_PREFIX = 'eh_otp_';
@@ -61,6 +82,7 @@ function getStoredRecord(normalizedEmail) {
 function saveStoredRecord(normalizedEmail, record) {
   activeOTPStore.set(normalizedEmail, record);
   try {
+    // Note: Record never stores plain OTP, only cryptographic otpHash
     sessionStorage.setItem(`${SESSION_PREFIX}${normalizedEmail}`, JSON.stringify(record));
   } catch (e) {}
 }
@@ -86,14 +108,36 @@ export async function sendVerificationOTP(email, userName = 'Student') {
     throw new Error('Disposable or temporary email addresses are not allowed. Please use your authentic personal email.');
   }
 
+  // Rate Limiting Check: Max 4 requests in 10 minutes
+  const existingRecord = getStoredRecord(normalizedEmail);
+  const now = Date.now();
+  const TEN_MINUTES = 10 * 60 * 1000;
+
+  let requestCount = 1;
+  let firstRequestTime = now;
+
+  if (existingRecord) {
+    if (existingRecord.firstRequestTime && now - existingRecord.firstRequestTime < TEN_MINUTES) {
+      requestCount = (existingRecord.requestedCount || 1) + 1;
+      firstRequestTime = existingRecord.firstRequestTime;
+      if (requestCount > 4) {
+        const waitMinutes = Math.ceil((TEN_MINUTES - (now - firstRequestTime)) / 60000);
+        throw new Error(`Too many verification code requests. Please wait ${waitMinutes} minute(s) before requesting again.`);
+      }
+    }
+  }
+
   const otp = generateOTP();
   const validityMinutes = 5;
   const expiresAt = Date.now() + validityMinutes * 60 * 1000;
+  const otpHash = await hashOTPToken(otp, normalizedEmail);
 
   const record = {
-    otp,
+    otpHash,
     expiresAt,
-    attempts: 0
+    attempts: 0,
+    requestedCount: requestCount,
+    firstRequestTime
   };
 
   saveStoredRecord(normalizedEmail, record);
@@ -142,11 +186,9 @@ export async function sendVerificationOTP(email, userName = 'Student') {
     }
   }
 
-  console.info(`[Edu Hunters Security] Verification code dispatched to ${normalizedEmail} (Expires in ${validityMinutes}m)`);
-
+  // Security: Never return plain OTP in API response
   return {
     success: true,
-    otp,
     expiresAt,
     expiresInSeconds: validityMinutes * 60
   };
@@ -155,7 +197,7 @@ export async function sendVerificationOTP(email, userName = 'Student') {
 /**
  * Verifies the 6-digit OTP entered by the user
  */
-export function verifyEnteredOTP(email, inputOTP) {
+export async function verifyEnteredOTP(email, inputOTP) {
   const normalizedEmail = email.toLowerCase().trim();
   const record = getStoredRecord(normalizedEmail);
 
@@ -182,12 +224,18 @@ export function verifyEnteredOTP(email, inputOTP) {
     };
   }
 
-  if (record.otp !== String(inputOTP).trim()) {
-    record.attempts += 1;
+  const cleanInput = String(inputOTP || '').trim();
+  const inputHash = await hashOTPToken(cleanInput, normalizedEmail);
+
+  // Compare hashes securely
+  const isMatch = record.otpHash ? (record.otpHash === inputHash) : (record.otp === cleanInput);
+
+  if (!isMatch) {
+    record.attempts = (record.attempts || 0) + 1;
     saveStoredRecord(normalizedEmail, record);
     return {
       valid: false,
-      error: 'Invalid verification code. Please check your inbox and try again.'
+      error: `Invalid verification code. (${5 - record.attempts} attempt(s) remaining)`
     };
   }
 

@@ -51,21 +51,73 @@ export default function AdminAuthModal({
     setMode(newMode);
   };
 
-  // Handle Login Submit
+  const [lockoutRemaining, setLockoutRemaining] = useState(0);
+
+  // Check lockout on mount and interval
+  useEffect(() => {
+    const checkLockout = () => {
+      try {
+        const raw = sessionStorage.getItem('eh_admin_lockout_until');
+        if (raw) {
+          const until = parseInt(raw, 10);
+          const remaining = Math.max(0, Math.ceil((until - Date.now()) / 1000));
+          setLockoutRemaining(remaining);
+        }
+      } catch (e) {}
+    };
+    checkLockout();
+    const timer = setInterval(checkLockout, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Handle Login Submit with Brute-Force Rate Limiting
   const handleLoginSubmit = async (e) => {
     if (e) e.preventDefault();
     setErrorMsg(null);
     setSuccessMsg(null);
+
+    // Check if locked out
+    try {
+      const lockUntil = parseInt(sessionStorage.getItem('eh_admin_lockout_until') || '0', 10);
+      if (Date.now() < lockUntil) {
+        const remainingSecs = Math.ceil((lockUntil - Date.now()) / 1000);
+        setErrorMsg(`Too many failed attempts. Security cooldown active for ${remainingSecs}s.`);
+        return;
+      }
+    } catch (e) {}
+
     setLoading(true);
 
     try {
       const session = await authenticateAdmin(loginEmail, loginPassword, rememberMe);
+      // Reset failed attempts on success
+      try {
+        sessionStorage.removeItem('eh_admin_failed_attempts');
+        sessionStorage.removeItem('eh_admin_lockout_until');
+      } catch (e) {}
+
       setSuccessMsg(`Welcome, ${session.name}! Access granted.`);
       setTimeout(() => {
         if (onSuccess) onSuccess(session);
       }, 400);
     } catch (err) {
-      setErrorMsg(err.message || 'Authorization failed. Please check credentials.');
+      // Increment failed attempts
+      let attempts = 1;
+      try {
+        attempts = parseInt(sessionStorage.getItem('eh_admin_failed_attempts') || '0', 10) + 1;
+        sessionStorage.setItem('eh_admin_failed_attempts', String(attempts));
+        if (attempts >= 5) {
+          const lockUntil = Date.now() + 3 * 60 * 1000; // 3 minute lock
+          sessionStorage.setItem('eh_admin_lockout_until', String(lockUntil));
+          setLockoutRemaining(180);
+          setErrorMsg('Too many failed attempts. Security lockout active for 3 minutes.');
+          setLoading(false);
+          return;
+        }
+      } catch (e) {}
+
+      const remainingAttempts = 5 - attempts;
+      setErrorMsg(`${err.message || 'Authorization failed.'} (${remainingAttempts} attempt(s) remaining before security lockout)`);
     } finally {
       setLoading(false);
     }

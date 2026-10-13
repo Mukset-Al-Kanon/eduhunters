@@ -7,13 +7,13 @@
 const STORAGE_KEY = 'eduhunters_bunny_credentials';
 
 const DEFAULT_BUNNY_CONFIG = {
-  streamLibraryId: '777670',
-  streamApiKey: 'c99c17d7-42de-42fb-9b9356122cbd-1fe9-4fc2',
-  streamCdnHost: 'vz-d60c940a-08c.b-cdn.net',
-  storageZoneName: 'eduhunters-storage',
-  storagePassword: 'f51a13d2-c1ee-4f43-9011843e8f64-e39b-40b1',
-  storageHostname: 'storage.bunnycdn.com',
-  pullZoneHostname: 'eduhuntersbd.b-cdn.net'
+  streamLibraryId: import.meta.env.VITE_BUNNY_STREAM_LIBRARY_ID || '777670',
+  streamApiKey: import.meta.env.VITE_BUNNY_STREAM_API_KEY || '',
+  streamCdnHost: import.meta.env.VITE_BUNNY_STREAM_CDN_HOST || 'vz-d60c940a-08c.b-cdn.net',
+  storageZoneName: import.meta.env.VITE_BUNNY_STORAGE_ZONE_NAME || 'eduhunters-storage',
+  storagePassword: import.meta.env.VITE_BUNNY_STORAGE_PASSWORD || '',
+  storageHostname: import.meta.env.VITE_BUNNY_STORAGE_HOSTNAME || 'storage.bunnycdn.com',
+  pullZoneHostname: import.meta.env.VITE_BUNNY_PULL_ZONE_HOSTNAME || 'eduhuntersbd.b-cdn.net'
 };
 
 export function getBunnyConfig() {

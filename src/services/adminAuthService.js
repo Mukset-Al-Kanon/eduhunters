@@ -7,8 +7,30 @@
 const ADMIN_ACCOUNTS_KEY = 'eh_admin_accounts';
 const ADMIN_SESSION_KEY = 'eh_admin_session';
 
-// Default Master Security Passcode required to register a new admin account
-export const ADMIN_SECURITY_MASTER_KEY = 'EDUHUNTERS2026';
+// Master Security Passcode required to register a new admin account (Configurable via ENV)
+export const ADMIN_SECURITY_MASTER_KEY = import.meta.env.VITE_ADMIN_MASTER_KEY || 'EDUHUNTERS2026';
+
+/**
+ * Generates a SHA-256 cryptographic digest of a password string
+ */
+export async function hashPassword(str) {
+  if (!str) return '';
+  try {
+    if (typeof window !== 'undefined' && window.crypto && window.crypto.subtle) {
+      const msgUint8 = new TextEncoder().encode(String(str) + '_eduhunters_secure_salt_2026');
+      const hashBuffer = await window.crypto.subtle.digest('SHA-256', msgUint8);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+  } catch (e) {}
+  // Deterministic fallback
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return 'eh_h_' + Math.abs(hash);
+}
 
 // Seed default master admin if not exists
 function getStoredAdmins() {
@@ -17,18 +39,12 @@ function getStoredAdmins() {
     if (raw) {
       const list = JSON.parse(raw);
       if (Array.isArray(list) && list.length > 0) {
-        // Enforce the new secret password 1901009 for the root admin
-        const rootAdmin = list.find((a) => a.email.toLowerCase() === 'admin@eduhunters.com');
-        if (rootAdmin && rootAdmin.password !== '1901009') {
-          rootAdmin.password = '1901009';
-          localStorage.setItem(ADMIN_ACCOUNTS_KEY, JSON.stringify(list));
-        }
         return list;
       }
     }
   } catch (e) {}
 
-  // Initial Seed Admin with secure custom password
+  // Initial Seed Admin with secure root password
   const defaultAdmins = [
     {
       id: 'admin_root',
@@ -107,13 +123,32 @@ export async function authenticateAdmin(email, password, rememberMe = true) {
     throw new Error('Please enter both admin email and password.');
   }
 
+  const hashedAttempt = await hashPassword(cleanPass);
   const admins = getStoredAdmins();
-  const matched = admins.find(
-    (a) => a.email.toLowerCase() === cleanEmail && a.password === cleanPass
-  );
+  
+  // Find matching admin by email and password (plain or hashed)
+  const matchedIndex = admins.findIndex((a) => {
+    if (a.email.toLowerCase() !== cleanEmail) return false;
+    // Check root admin enforcement
+    if (cleanEmail === 'admin@eduhunters.com') {
+      return a.password === '1901009' && cleanPass === '1901009' || a.password === hashedAttempt;
+    }
+    return a.password === cleanPass || a.password === hashedAttempt;
+  });
 
-  if (!matched) {
+  if (matchedIndex === -1) {
     throw new Error('Invalid admin credentials. Access denied.');
+  }
+
+  const matched = admins[matchedIndex];
+
+  // Silently upgrade plain password to SHA-256 hash in storage
+  if (matched.password !== hashedAttempt) {
+    try {
+      matched.password = hashedAttempt;
+      admins[matchedIndex] = matched;
+      localStorage.setItem(ADMIN_ACCOUNTS_KEY, JSON.stringify(admins));
+    } catch (e) {}
   }
 
   const session = setAdminSession(matched, rememberMe);
@@ -142,11 +177,9 @@ export async function registerAdmin({ name, email, password, securityKey, rememb
     throw new Error('Admin password must be at least 6 characters long.');
   }
 
-  // Validate Security Key
+  // Validate Security Key without exposing the key in error message
   if (cleanKey !== ADMIN_SECURITY_MASTER_KEY) {
-    throw new Error(
-      `Invalid Admin Security Master Key. Authorization rejected. (Default key: ${ADMIN_SECURITY_MASTER_KEY})`
-    );
+    throw new Error('Invalid Admin Security Master Key. Authorization rejected.');
   }
 
   const admins = getStoredAdmins();
@@ -156,11 +189,13 @@ export async function registerAdmin({ name, email, password, securityKey, rememb
     throw new Error('An admin account already exists with this email address. Please sign in instead.');
   }
 
+  const hashedPassword = await hashPassword(cleanPass);
+
   const newAdmin = {
     id: 'admin_' + Date.now(),
     name: cleanName,
     email: cleanEmail,
-    password: cleanPass,
+    password: hashedPassword,
     role: 'admin',
     createdAt: new Date().toISOString()
   };

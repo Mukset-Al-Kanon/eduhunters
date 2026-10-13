@@ -273,8 +273,8 @@ export function AuthProvider({ children }) {
           return safeUser;
         }
 
-        // Fallback for master administrator demo login if Firebase admin account isn't seeded yet
-        if (cleanEmail === 'admin@eduhunters.com' && (cleanPass === 'admin123' || cleanPass === '123456' || cleanPass === '1901009')) {
+        // Fallback for master administrator login if Firebase admin account isn't seeded yet
+        if (cleanEmail === 'admin@eduhunters.com' && cleanPass === '1901009') {
           const adminUser = {
             uid: 'admin_master',
             email: 'admin@eduhunters.com',
@@ -307,8 +307,8 @@ export function AuthProvider({ children }) {
         throw err;
       }
     } else {
-      // Offline / Local Demo Mode Login
-      if (cleanEmail === 'admin@eduhunters.com' && (cleanPass === 'admin123' || cleanPass === '123456' || cleanPass === '1901009')) {
+      // Offline / Local Mode Admin Login
+      if (cleanEmail === 'admin@eduhunters.com' && cleanPass === '1901009') {
         const adminUser = {
           uid: 'admin_master',
           email: 'admin@eduhunters.com',
