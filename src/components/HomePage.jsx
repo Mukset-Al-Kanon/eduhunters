@@ -30,6 +30,8 @@ import {
   Tv, 
   Maximize2, 
   Info, 
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 const calcDiscount = (orig, curr) => {
@@ -185,7 +187,6 @@ export default function HomePage({
 }) {
   const { isDark } = useTheme();
   const { currentUser } = useAuth();
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("সকল");
   const [showCheckout, setShowCheckout] = useState(false);
   const [selectedCourseForCheckout, setSelectedCourseForCheckout] = useState(null);
@@ -193,6 +194,19 @@ export default function HomePage({
   const [activePlayingId, setActivePlayingId] = useState(null);
 
   const heroSlides = Array.isArray(data.heroSlides) ? data.heroSlides : heroSlidesData;
+  const slideCount = heroSlides.length;
+
+  // Seamless circular carousel clones: [LastSlide, ...heroSlides, FirstSlide]
+  const extendedSlides = React.useMemo(() => {
+    if (slideCount <= 1) return heroSlides;
+    return [heroSlides[slideCount - 1], ...heroSlides, heroSlides[0]];
+  }, [heroSlides, slideCount]);
+
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(slideCount > 1 ? 1 : 0);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const touchStartX = React.useRef(null);
+  const touchEndX = React.useRef(null);
   const homeStats = React.useMemo(() => {
     const raw = Array.isArray(data.homeStats) && data.homeStats.length > 0 ? data.homeStats : homeStatsData;
     if (raw.some(s => s.value === '3000+' || s.value === '70000+' || s.value === '15+' || s.label?.toLowerCase().includes('students') || s.label?.toLowerCase().includes('community') || s.label?.toLowerCase().includes('paid batch'))) {
@@ -260,24 +274,87 @@ export default function HomePage({
     }
   }, [categoriesWithBundles, selectedCategory]);
 
-  // Auto slide
+  // Sync state if slideCount changes
   useEffect(() => {
-    if (!heroSlides.length) return;
+    setCurrentSlideIndex(slideCount > 1 ? 1 : 0);
+    setIsTransitionEnabled(true);
+  }, [slideCount]);
+
+  // Handle transition end for seamless infinite loop wrapping
+  const handleSlideTransitionEnd = () => {
+    if (slideCount <= 1) return;
+    if (currentSlideIndex >= slideCount + 1) {
+      // Reached cloned first slide at the end -> jump instantly to real first slide
+      setIsTransitionEnabled(false);
+      setCurrentSlideIndex(1);
+    } else if (currentSlideIndex <= 0) {
+      // Reached cloned last slide at the start -> jump instantly to real last slide
+      setIsTransitionEnabled(false);
+      setCurrentSlideIndex(slideCount);
+    }
+  };
+
+  // Re-enable smooth transition after an instant wrap jump
+  useEffect(() => {
+    if (!isTransitionEnabled) {
+      const timer = setTimeout(() => {
+        setIsTransitionEnabled(true);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitionEnabled]);
+
+  // Continuous auto-sliding in forward circular loop (pauses on hover)
+  useEffect(() => {
+    if (slideCount <= 1 || isHovered) return;
     const timer = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % heroSlides.length);
+      setIsTransitionEnabled(true);
+      setCurrentSlideIndex(prev => prev + 1);
     }, 4500);
     return () => clearInterval(timer);
-  }, [heroSlides.length]);
+  }, [slideCount, isHovered]);
 
   const nextSlide = () => {
-    if (!heroSlides.length) return;
-    setCurrentSlide(prev => (prev + 1) % heroSlides.length);
+    if (slideCount <= 1) return;
+    setIsTransitionEnabled(true);
+    setCurrentSlideIndex(prev => prev + 1);
   };
 
   const prevSlide = () => {
-    if (!heroSlides.length) return;
-    setCurrentSlide(prev => (prev - 1 + heroSlides.length) % heroSlides.length);
+    if (slideCount <= 1) return;
+    setIsTransitionEnabled(true);
+    setCurrentSlideIndex(prev => prev - 1);
   };
+
+  const goToSlide = (realIdx) => {
+    if (slideCount <= 1) return;
+    setIsTransitionEnabled(true);
+    setCurrentSlideIndex(realIdx + 1);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > 45) {
+      nextSlide();
+    } else if (distance < -45) {
+      prevSlide();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  const activeDot = slideCount > 0 
+    ? (slideCount > 1 
+        ? ((currentSlideIndex - 1 + slideCount) % slideCount) 
+        : 0) 
+    : 0;
 
   const isExamBatch = selectedCategory === "EXAM BATCH" || selectedCategory.toLowerCase() === "exam batch";
 
@@ -439,20 +516,32 @@ export default function HomePage({
         {/* HERO CAROUSEL SECTION */}
         <section className="relative z-10 max-w-5xl mx-auto px-3 sm:px-6 pt-3 md:pt-6 mb-8 md:mb-12">
           {/* Banner Carousel Container */}
-          <div className={`relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[16/9] transition-all duration-300 ${
-            isDark 
-              ? 'shadow-[0_12px_40px_rgba(0,0,0,0.6)] border border-[#e11438]/20 bg-[#0c0205]' 
-              : 'shadow-md border border-gray-200 bg-white'
-          }`}>
+          <div 
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className={`relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[16/9] group transition-all duration-300 ${
+              isDark 
+                ? 'shadow-[0_12px_40px_rgba(0,0,0,0.6)] border border-[#e11438]/20 bg-[#0c0205]' 
+                : 'shadow-md border border-gray-200 bg-white'
+            }`}
+          >
             <div 
-              className="flex h-full transition-transform duration-700 ease-in-out"
+              onTransitionEnd={handleSlideTransitionEnd}
+              className={`flex h-full ${
+                isTransitionEnabled 
+                  ? 'transition-transform duration-700 ease-in-out' 
+                  : ''
+              }`}
               style={{
-                transform: `translateX(-${currentSlide * 100}%)`
+                transform: `translateX(-${slideCount > 1 ? currentSlideIndex * 100 : 0}%)`
               }}
             >
-              {heroSlides.map((slide, idx) => (
+              {extendedSlides.map((slide, idx) => (
                 <div 
-                  key={slide.id || idx}
+                  key={`${slide.id || idx}-${idx}`}
                   onClick={() => {
                     if (slide.link?.includes('biology')) onNavigateCourse();
                     else if (slide.link?.includes('exam')) onNavigateExams();
@@ -460,15 +549,15 @@ export default function HomePage({
                     else if (slide.link?.includes('about')) onNavigateAbout();
                     else onNavigateCourse();
                   }}
-                  className="w-full h-full shrink-0 relative cursor-pointer group"
+                  className="w-full h-full shrink-0 relative cursor-pointer"
                 >
                   <img 
                     src={slide.image} 
                     alt={slide.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] block"
-                    loading="eager"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.01] block"
+                    loading={idx <= 2 ? 'eager' : 'lazy'}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-6">
                     <span className="text-white font-bold text-sm sm:text-base drop-shadow-md">
                       {slide.title}
                     </span>
@@ -476,23 +565,53 @@ export default function HomePage({
                 </div>
               ))}
             </div>
+
+            {/* Navigation Arrows for Easy Manual Cycling */}
+            {slideCount > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevSlide();
+                  }}
+                  aria-label="Previous Slide"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/75 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all backdrop-blur-xs border border-white/20 cursor-pointer shadow-lg z-20"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextSlide();
+                  }}
+                  aria-label="Next Slide"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/75 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all backdrop-blur-xs border border-white/20 cursor-pointer shadow-lg z-20"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </>
+            )}
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center items-center gap-2 mt-4">
-            {heroSlides.map((_, idx) => (
-              <button 
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 border-none cursor-pointer ${
-                  idx === currentSlide 
-                    ? (isDark ? 'w-7 bg-[#e11438] shadow-[0_0_12px_rgba(225,20,56,0.6)]' : 'w-7 bg-[#dc2626]') 
-                    : (isDark ? 'w-2 bg-white/20 hover:bg-white/40' : 'w-2 bg-gray-300 hover:bg-gray-400')
-                }`}
-              />
-            ))}
-          </div>
+          {slideCount > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-4">
+              {heroSlides.map((_, idx) => (
+                <button 
+                  key={idx}
+                  onClick={() => goToSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 border-none cursor-pointer ${
+                    idx === activeDot 
+                      ? (isDark ? 'w-7 bg-[#e11438] shadow-[0_0_12px_rgba(225,20,56,0.6)]' : 'w-7 bg-[#dc2626]') 
+                      : (isDark ? 'w-2 bg-white/20 hover:bg-white/40' : 'w-2 bg-gray-300 hover:bg-gray-400')
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </section>
 
         {/* STATS COUNTER STRIP - Ultra Dark Premium Red Wine Aesthetic */}

@@ -593,7 +593,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setGalleryModalOpen(true);
   };
 
-  // Direct File Upload from Device Gallery (converts & compresses via canvas to optimized data URL)
+  // Direct File Upload from Device Gallery (converts & compresses via canvas to high definition optimized data URL)
   const handleDeviceFileUpload = (file, onSelect) => {
     if (!file) return;
     if (!file.type.startsWith('image/')) {
@@ -605,7 +605,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const img = new Image();
       img.onload = () => {
         const canvas = document.createElement('canvas');
-        const maxDim = 800;
+        // Full HD 1080p/Retina standard (1920px width) for ultra-sharp banners & text clarity
+        const maxDim = 1920;
         let width = img.width;
         let height = img.height;
         if (width > maxDim || height > maxDim) {
@@ -620,10 +621,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         canvas.width = width;
         canvas.height = height;
         const ctx = canvas.getContext('2d');
+        // High quality bicubic resampling for sharp text and details
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
         ctx.drawImage(img, 0, 0, width, height);
-        const optimized = canvas.toDataURL('image/jpeg', 0.85);
+
+        // High quality WebP (0.92) with fallback to high quality JPEG
+        let optimized = '';
+        try {
+          optimized = canvas.toDataURL('image/webp', 0.92);
+          if (!optimized.startsWith('data:image/webp')) {
+            optimized = canvas.toDataURL('image/jpeg', 0.90);
+          }
+        } catch (err) {
+          optimized = canvas.toDataURL('image/jpeg', 0.90);
+        }
+
         if (onSelect) onSelect(optimized);
-        triggerToast('Photo updated from gallery successfully!');
+        triggerToast('✅ High Definition photo updated from gallery successfully!');
       };
       img.src = e.target.result;
     };
