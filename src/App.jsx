@@ -1132,6 +1132,19 @@ export default function App() {
           data={data}
           selectedCourseId={selectedCourseId || 'master-english-30-days'}
           onOpenLesson={navHandlers.onNavigateCoursePlayer}
+          onUpdateCourse={(updatedCourse) => {
+            setData(prev => {
+              const updatedCourses = (prev.courses || []).map(c => 
+                (c.id === updatedCourse.id || c.slug === updatedCourse.slug) ? updatedCourse : c
+              );
+              const nextData = { ...prev, courses: updatedCourses };
+              try {
+                localStorage.setItem('eduhunters_data', JSON.stringify(nextData));
+              } catch (e) {}
+              saveCloudData({ courses: updatedCourses });
+              return nextData;
+            });
+          }}
           {...navHandlers}
         />
       );

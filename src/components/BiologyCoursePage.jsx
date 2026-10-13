@@ -19,7 +19,10 @@ import {
   RefreshCw,
   Video,
   Key,
-  Clock
+  Clock,
+  Edit2,
+  Plus,
+  Trash2
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import { homeCoursesData } from '../data/homeData';
@@ -59,7 +62,8 @@ export default function BiologyCoursePage({
   onLoginClick,
   onOpenProfile,
   onOpenLesson,
-  onEnrollSuccess
+  onEnrollSuccess,
+  onUpdateCourse
 }) {
   const { isDark } = useTheme();
   const siteSettings = data.siteSettings || {};
@@ -142,7 +146,8 @@ export default function BiologyCoursePage({
         previewVideoUrl: foundCourse?.previewVideoUrl || masterEnglishCourseData.previewVideoUrl,
         category: foundCourse?.category || masterEnglishCourseData.category,
         isFree: Boolean(foundCourse?.isFree ?? masterEnglishCourseData.isFree),
-        playlistId: foundCourse?.playlistId || masterEnglishCourseData.playlistId || null
+        playlistId: foundCourse?.playlistId || masterEnglishCourseData.playlistId || null,
+        isActive: foundCourse?.isActive !== false
       };
     }
 
@@ -252,7 +257,144 @@ export default function BiologyCoursePage({
   const [showPdfViewer, setShowPdfViewer] = useState(false);
   const [showExamEngine, setShowExamEngine] = useState(false);
 
+  // Admin Lecture & Curriculum Editing States
+  const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com';
+  const [editingLesson, setEditingLesson] = useState(null);
+  const [editingSection, setEditingSection] = useState(null);
+  const [toastMsg, setToastMsg] = useState('');
+
+  const triggerToast = (msg) => {
+    setToastMsg(msg);
+    setTimeout(() => setToastMsg(''), 4000);
+  };
+
+  const handleSaveLessonEdit = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (!editingLesson) return;
+
+    const { secIndex, lessonIndex, title, videoUrl, pdfUrl, duration, isFree } = editingLesson;
+    const nextCurriculum = JSON.parse(JSON.stringify(course.curriculum || []));
+    if (!nextCurriculum[secIndex]) return;
+
+    const targetSection = nextCurriculum[secIndex];
+
+    const lessonObj = {
+      title: (title || '').trim(),
+      videoUrl: (videoUrl || '').trim(),
+      pdfUrl: (pdfUrl || '').trim(),
+      duration: (duration || '45 min').trim(),
+      isFree: Boolean(isFree)
+    };
+
+    if (lessonIndex === -1) {
+      // Adding a brand new lesson
+      if (Array.isArray(targetSection.lessons)) {
+        targetSection.lessons.push(lessonObj);
+      } else if (Array.isArray(targetSection.chapters) && targetSection.chapters.length > 0) {
+        if (!Array.isArray(targetSection.chapters[0].lessons)) {
+          targetSection.chapters[0].lessons = [];
+        }
+        targetSection.chapters[0].lessons.push(lessonObj);
+      } else {
+        targetSection.lessons = [lessonObj];
+      }
+    } else {
+      // Editing an existing lesson
+      if (Array.isArray(targetSection.lessons) && targetSection.lessons.length > lessonIndex) {
+        const prev = typeof targetSection.lessons[lessonIndex] === 'object' && targetSection.lessons[lessonIndex] !== null ? targetSection.lessons[lessonIndex] : {};
+        targetSection.lessons[lessonIndex] = { ...prev, ...lessonObj };
+      } else if (Array.isArray(targetSection.chapters)) {
+        let counter = 0;
+        let done = false;
+        for (const ch of targetSection.chapters) {
+          if (Array.isArray(ch.lessons)) {
+            for (let i = 0; i < ch.lessons.length; i++) {
+              if (counter === lessonIndex) {
+                const prev = typeof ch.lessons[i] === 'object' && ch.lessons[i] !== null ? ch.lessons[i] : {};
+                ch.lessons[i] = { ...prev, ...lessonObj };
+                done = true;
+                break;
+              }
+              counter++;
+            }
+          }
+          if (done) break;
+        }
+      }
+    }
+
+    const updatedCourse = {
+      ...course,
+      curriculum: nextCurriculum
+    };
+
+    setCourse(updatedCourse);
+
+    if (onUpdateCourse) {
+      onUpdateCourse(updatedCourse);
+    } else {
+      try {
+        const raw = localStorage.getItem('eduhunters_data');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed.courses)) {
+            parsed.courses = parsed.courses.map(c => 
+              (c.id === updatedCourse.id || c.slug === updatedCourse.slug) ? updatedCourse : c
+            );
+            localStorage.setItem('eduhunters_data', JSON.stringify(parsed));
+          }
+        }
+      } catch (err) {}
+    }
+
+    setEditingLesson(null);
+    triggerToast('✅ লেকচারের নাম ও তথ্য সফলভাবে সংরক্ষণ করা হয়েছে!');
+  };
+
+  const handleSaveSectionEdit = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (!editingSection) return;
+
+    const { secIndex, name, summary } = editingSection;
+    const nextCurriculum = JSON.parse(JSON.stringify(course.curriculum || []));
+    if (!nextCurriculum[secIndex]) return;
+
+    nextCurriculum[secIndex].name = (name || '').trim();
+    if (summary !== undefined) nextCurriculum[secIndex].summary = (summary || '').trim();
+
+    const updatedCourse = {
+      ...course,
+      curriculum: nextCurriculum
+    };
+
+    setCourse(updatedCourse);
+
+    if (onUpdateCourse) {
+      onUpdateCourse(updatedCourse);
+    } else {
+      try {
+        const raw = localStorage.getItem('eduhunters_data');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed.courses)) {
+            parsed.courses = parsed.courses.map(c => 
+              (c.id === updatedCourse.id || c.slug === updatedCourse.slug) ? updatedCourse : c
+            );
+            localStorage.setItem('eduhunters_data', JSON.stringify(parsed));
+          }
+        }
+      } catch (err) {}
+    }
+
+    setEditingSection(null);
+    triggerToast('✅ মডিউলের শিরোনাম সফলভাবে আপডেট করা হয়েছে!');
+  };
+
   const handleOpenCheckout = () => {
+    if (course.isActive === false && !isAdmin) {
+      alert('দুঃখিত, এই কোর্সটি বর্তমানে সাময়িকভাবে বন্ধ রাখা হয়েছে। নতুন ভর্তি কার্যক্রম স্থগিত রয়েছে।');
+      return;
+    }
     // 1. If not authenticated: must log in or sign up first
     if (!currentUser) {
       if (onLoginClick) {
@@ -341,6 +483,26 @@ export default function BiologyCoursePage({
           {/* Left Main Details Column */}
           <div className="lg:col-span-2 space-y-6 order-2 lg:order-1">
             
+            {/* Inactive Notice Banner for Students */}
+            {course.isActive === false && !isAdmin && (
+              <div className="rounded-2xl p-4 bg-amber-500/10 border border-amber-500/30 text-amber-500 flex items-center justify-between gap-3 mb-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xl">⚠️</span>
+                  <span className="text-xs sm:text-sm font-bold">
+                    এই কোর্সটি বর্তমানে অ্যাডমিন প্যানেল থেকে ইনঅ্যাক্টিভ (স্থগিত) রাখা হয়েছে। নতুন ভর্তি কার্যক্রম সাময়িকভাবে বন্ধ আছে।
+                  </span>
+                </div>
+                {onNavigateHome && (
+                  <button
+                    onClick={onNavigateHome}
+                    className="px-3.5 py-1.5 rounded-xl bg-amber-500 text-white font-bold text-xs shrink-0 cursor-pointer border-none hover:bg-amber-600 transition-colors"
+                  >
+                    সকল কোর্স দেখুন
+                  </button>
+                )}
+              </div>
+            )}
+
             {/* Hero Banner */}
             <div className={`eh-course-hero relative overflow-hidden rounded-2xl p-6 md:p-10 text-white shadow-lg transition-colors duration-300 ${
               isDark 
@@ -396,17 +558,39 @@ export default function BiologyCoursePage({
                 ? 'bg-[#120407]/90 shadow-[0_8px_30px_rgba(0,0,0,0.5)] border-[#e11438]/20' 
                 : 'bg-white shadow-sm border-gray-200'
             }`}>
-              <div className="mb-6">
-                <h2 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>রেকর্ডেড ক্লাস</h2>
-                <p className={`text-sm mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{course.totalClasses}</p>
+              <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <h2 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>রেকর্ডেড ক্লাস</h2>
+                  <p className={`text-sm mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{course.totalClasses}</p>
+                </div>
+                {isAdmin && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-bold">
+                      👑 অ্যাডমিন মোড
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setEditingSection({
+                        secIndex: Array.isArray(course.curriculum) ? course.curriculum.length : 0,
+                        isNew: true,
+                        name: '',
+                        summary: ''
+                      })}
+                      className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all cursor-pointer border-none shadow-xs flex items-center gap-1 active:scale-95"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>নতুন মডিউল যোগ</span>
+                    </button>
+                  </div>
+                )}
               </div>
 
               {Array.isArray(course.curriculum) && course.curriculum.length > 0 ? (
                 <div className="space-y-4">
-                  {course.curriculum.map((section) => {
-                    const isOpen = expandedSections[section.id];
+                  {course.curriculum.map((section, sIdx) => {
+                    const isOpen = expandedSections[section.id] !== undefined ? expandedSections[section.id] : (sIdx === 0);
                     return (
-                      <div key={section.id} className={`rounded-xl overflow-hidden border ${
+                      <div key={section.id || sIdx} className={`rounded-xl overflow-hidden border ${
                         isDark ? 'border-[#e11438]/20 bg-[#160408]' : 'border-gray-200 bg-white'
                       }`}>
                         <button 
@@ -415,22 +599,65 @@ export default function BiologyCoursePage({
                           }`}
                           onClick={() => toggleSection(section.id)}
                         >
-                          <div className="flex items-center gap-3 min-w-0">
-                            <span className={`flex items-center justify-center w-8 h-8 rounded-lg font-semibold text-sm shrink-0 border ${
+                          <div className="flex items-center gap-3 min-w-0 flex-1">
+                            {/* Clean 2-digit Sequence Badge (Replaces long raw IDs like c-91887600016) */}
+                            <span className={`flex items-center justify-center w-8 h-8 rounded-lg font-bold text-xs shrink-0 border select-none ${
                               isDark ? 'bg-[#28060f] border-[#e11438]/30 text-[#ff6b8b]' : 'bg-red-50 border-red-100 text-[#dc2626]'
                             }`}>
-                              {section.id}
+                              {sIdx + 1 < 10 ? `0${sIdx + 1}` : sIdx + 1}
                             </span>
-                            <div className="text-left min-w-0">
-                              <h3 className={`font-semibold text-sm sm:text-base truncate ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                                {section.name}
-                              </h3>
+                            <div className="text-left min-w-0 flex-1">
+                              <div className="flex items-center gap-2">
+                                <h3 className={`font-semibold text-sm sm:text-base truncate ${isDark ? 'text-white' : 'text-[#111827]'}`}>
+                                  {section.name || `Module ${sIdx + 1}`}
+                                </h3>
+                                {isAdmin && (
+                                  <span
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setEditingSection({
+                                        secIndex: sIdx,
+                                        name: section.name || '',
+                                        summary: section.summary || ''
+                                      });
+                                    }}
+                                    className="p-1 rounded-md text-gray-400 hover:text-white hover:bg-white/10 transition-colors border-none cursor-pointer inline-flex items-center"
+                                    title="মডিউলের নাম পরিবর্তন করুন"
+                                  >
+                                    <Edit2 className="w-3 h-3" />
+                                  </span>
+                                )}
+                              </div>
                               <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{section.summary}</p>
                             </div>
                           </div>
-                          <svg className={`w-5 h-5 transition-transform duration-300 ease-in-out shrink-0 ${isDark ? 'text-gray-400' : 'text-gray-500'} ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                          </svg>
+
+                          <div className="flex items-center gap-2 shrink-0">
+                            {isAdmin && (
+                              <span
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setEditingLesson({
+                                    secIndex: sIdx,
+                                    lessonIndex: -1,
+                                    title: '',
+                                    videoUrl: '',
+                                    pdfUrl: '',
+                                    duration: '45 min',
+                                    isFree: false
+                                  });
+                                }}
+                                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/30 transition-all cursor-pointer"
+                                title="এই মডিউলে নতুন ক্লাস যোগ করুন"
+                              >
+                                <Plus className="w-3 h-3" />
+                                <span>+ ক্লাস</span>
+                              </span>
+                            )}
+                            <svg className={`w-5 h-5 transition-transform duration-300 ease-in-out shrink-0 ${isDark ? 'text-gray-400' : 'text-gray-500'} ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                          </div>
                         </button>
 
                         <div className={`smooth-accordion-grid border-t transition-colors ${isDark ? 'border-[#e11438]/20' : 'border-gray-200'} ${isOpen ? 'is-open' : ''}`}>
@@ -440,11 +667,15 @@ export default function BiologyCoursePage({
                               : (section.chapters?.flatMap(c => c.lessons || []) || [])
                             ).map((lesson, lIdx) => {
                               const isObj = typeof lesson === 'object' && lesson !== null;
-                              const title = isObj ? lesson.title : lesson;
+                              const rawTitle = isObj ? lesson.title : lesson;
+                              const isUrlTitle = typeof rawTitle === 'string' && (rawTitle.startsWith('http://') || rawTitle.startsWith('https://') || rawTitle.includes('youtu.be') || rawTitle.includes('youtube.com'));
+                              const displayTitle = isUrlTitle 
+                                ? `লেকচার ${lIdx + 1}: ক্লাস ভিডিও` 
+                                : (rawTitle || `লেকচার ${lIdx + 1}`);
                               const duration = isObj ? lesson.duration : null;
                               const isFree = isObj ? Boolean(lesson.isFree) : false;
-                              const isUnlocked = isFree || isCourseEnrolled;
-                              const videoUrl = isObj ? lesson.videoUrl : null;
+                              const isUnlocked = isFree || isCourseEnrolled || isAdmin;
+                              const videoUrl = isObj ? (lesson.videoUrl || (isUrlTitle ? rawTitle : null)) : (isUrlTitle ? rawTitle : null);
                               const pdfUrl = isObj ? lesson.pdfUrl : null;
 
                               return (
@@ -459,7 +690,7 @@ export default function BiologyCoursePage({
                                     if (isUnlocked) {
                                       if (onOpenLesson) {
                                         onOpenLesson(course.id || course.slug || selectedCourseId, {
-                                          title,
+                                          title: displayTitle,
                                           videoUrl: videoUrl || course.previewVideoUrl,
                                           pdfUrl,
                                           duration,
@@ -483,8 +714,15 @@ export default function BiologyCoursePage({
                                         <Lock className="w-3.5 h-3.5" />
                                       )}
                                     </div>
-                                    <div className="min-w-0">
-                                      <p className={`text-sm font-semibold truncate transition-colors ${isDark ? 'text-gray-100 group-hover:text-red-400' : 'text-[#111827] group-hover:text-[#dc2626]'}`}>{title}</p>
+                                    <div className="min-w-0 flex-1">
+                                      <p className={`text-sm font-semibold truncate transition-colors ${isDark ? 'text-gray-100 group-hover:text-red-400' : 'text-[#111827] group-hover:text-[#dc2626]'}`}>
+                                        {displayTitle}
+                                      </p>
+                                      {isUrlTitle && (
+                                        <p className="text-[11px] text-gray-400 truncate font-mono mt-0.5">
+                                          {rawTitle}
+                                        </p>
+                                      )}
                                       {pdfUrl && (
                                         <div className="flex items-center gap-2 mt-0.5">
                                           <span className="text-[10px] text-blue-500 font-semibold bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">📄 PDF নোট</span>
@@ -492,7 +730,32 @@ export default function BiologyCoursePage({
                                       )}
                                     </div>
                                   </div>
+
                                   <div className="shrink-0 ml-3 flex items-center gap-2">
+                                    {/* Admin Direct Lesson Edit Button */}
+                                    {isAdmin && (
+                                      <button
+                                        type="button"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setEditingLesson({
+                                            secIndex: sIdx,
+                                            lessonIndex: lIdx,
+                                            title: isUrlTitle ? '' : (rawTitle || ''),
+                                            videoUrl: videoUrl || (isUrlTitle ? rawTitle : ''),
+                                            pdfUrl: pdfUrl || '',
+                                            duration: duration || '45 min',
+                                            isFree: Boolean(isFree)
+                                          });
+                                        }}
+                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#e11438]/15 hover:bg-[#e11438] text-[#ff4d6d] hover:text-white border border-[#e11438]/30 transition-all cursor-pointer shrink-0 shadow-xs active:scale-95"
+                                        title="এই লেকচারের নাম ও ভিডিও লিংক এডিট করুন"
+                                      >
+                                        <Edit2 className="w-3 h-3" />
+                                        <span>নাম এডিট করুন</span>
+                                      </button>
+                                    )}
+
                                     {duration && (
                                       <div className={`flex items-center gap-1.5 text-xs font-mono font-medium ${
                                         isDark ? 'text-gray-400' : 'text-gray-500'
@@ -587,7 +850,7 @@ export default function BiologyCoursePage({
             </div>
 
             {/* Bottom Enrollment Action Card */}
-            {!isCourseEnrolled && !(course.isFree || Number(course.salePrice) === 0) && (
+            {!isCourseEnrolled && !(course.isFree || Number(course.salePrice) === 0) && course.isActive !== false && (
               <div className={`p-6 sm:p-8 rounded-3xl border transition-all shadow-xl relative overflow-hidden ${
                 isDark 
                   ? 'bg-gradient-to-br from-[#24060d] via-[#140306] to-[#0c0205] border-[#e11438]/30 shadow-[0_15px_40px_rgba(225,20,56,0.18)]' 
@@ -1030,6 +1293,245 @@ export default function BiologyCoursePage({
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Admin Edit Lecture Modal */}
+      {editingLesson && (
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+          <div className={`relative w-full max-w-lg rounded-3xl border p-6 sm:p-7 shadow-2xl transition-all ${
+            isDark ? 'bg-[#140307] border-[#e11438]/40 text-white' : 'bg-white border-gray-200 text-gray-900'
+          }`}>
+            {/* Header */}
+            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-[#e11438]/15 border border-[#e11438]/30 flex items-center justify-center text-[#ff4d6d]">
+                  <Edit2 className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold">
+                    {editingLesson.lessonIndex === -1 ? 'নতুন ক্লাস যোগ করুন' : 'ক্লাস ও লেকচারের নাম এডিট করুন'}
+                  </h3>
+                  <p className="text-xs text-gray-400">লেকচারের নাম, ইউটিউব লিংক ও নোট আপডেট করুন</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditingLesson(null)}
+                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer border-none bg-transparent"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveLessonEdit} className="space-y-4">
+              {/* Lecture Name (Title) */}
+              <div>
+                <label className="block text-xs font-bold text-gray-300 mb-1.5">
+                  লেকচারের নাম <span className="text-[#e11438]">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={editingLesson.title}
+                  onChange={(e) => setEditingLesson(prev => ({ ...prev, title: e.target.value }))}
+                  placeholder="যেমন: ভেক্টর লেকচার ০১ - বেসিক থিওরি ও ডট গুণন"
+                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
+                    isDark 
+                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white placeholder-gray-500' 
+                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900 placeholder-gray-400'
+                  }`}
+                />
+                <p className="text-[11px] text-gray-400 mt-1">
+                  এখানে আপনার লেকচারের আসল শিরোনাম দিন (লিংক দেওয়ার দরকার নেই, লিংক নিচে দিন)।
+                </p>
+              </div>
+
+              {/* Video URL */}
+              <div>
+                <label className="block text-xs font-bold text-gray-300 mb-1.5">
+                  ইউটিউব ভিডিও লিংক (YouTube URL)
+                </label>
+                <input
+                  type="text"
+                  value={editingLesson.videoUrl}
+                  onChange={(e) => setEditingLesson(prev => ({ ...prev, videoUrl: e.target.value }))}
+                  placeholder="যেমন: https://youtu.be/vnHUmQqTFJQ অথবা https://www.youtube.com/watch?v=..."
+                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
+                    isDark 
+                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white placeholder-gray-500' 
+                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900 placeholder-gray-400'
+                  }`}
+                />
+              </div>
+
+              {/* Duration & Free Toggle Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-bold text-gray-300 mb-1.5">
+                    ক্লাসের ব্যাপ্তি (Duration)
+                  </label>
+                  <input
+                    type="text"
+                    value={editingLesson.duration}
+                    onChange={(e) => setEditingLesson(prev => ({ ...prev, duration: e.target.value }))}
+                    placeholder="যেমন: 45 min"
+                    className={`w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold border outline-none transition-colors ${
+                      isDark 
+                        ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white' 
+                        : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900'
+                    }`}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-300 mb-1.5">
+                    লেকচার অ্যাক্সেস
+                  </label>
+                  <label className={`flex items-center gap-2.5 p-2 rounded-xl border cursor-pointer select-none transition-colors ${
+                    editingLesson.isFree ? 'border-emerald-500/50 bg-emerald-500/10' : 'border-white/10 bg-white/[0.02]'
+                  }`}>
+                    <input
+                      type="checkbox"
+                      checked={editingLesson.isFree}
+                      onChange={(e) => setEditingLesson(prev => ({ ...prev, isFree: e.target.checked }))}
+                      className="w-4 h-4 text-[#e11438] rounded cursor-pointer"
+                    />
+                    <span className="text-xs font-bold">
+                      {editingLesson.isFree ? 'ফ্রি ট্রায়াল ক্লাস (আনলক)' : 'পেইড স্টুডেন্ট (লকড)'}
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              {/* PDF Link */}
+              <div>
+                <label className="block text-xs font-bold text-gray-300 mb-1.5">
+                  লেকচার শিট বা PDF লিংক (ঐচ্ছিক)
+                </label>
+                <input
+                  type="text"
+                  value={editingLesson.pdfUrl}
+                  onChange={(e) => setEditingLesson(prev => ({ ...prev, pdfUrl: e.target.value }))}
+                  placeholder="Google Drive বা সরাসরি PDF লিংক"
+                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
+                    isDark 
+                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white placeholder-gray-500' 
+                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900 placeholder-gray-400'
+                  }`}
+                />
+              </div>
+
+              {/* Buttons */}
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
+                <button
+                  type="button"
+                  onClick={() => setEditingLesson(null)}
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-colors cursor-pointer border-none bg-transparent"
+                >
+                  বাতিল
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#e11438] to-[#ff2a55] hover:opacity-95 text-white font-bold text-xs shadow-md transition-all cursor-pointer border-none flex items-center gap-1.5 active:scale-95"
+                >
+                  <Check className="w-3.5 h-3.5" />
+                  <span>সংরক্ষণ করুন</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Admin Edit Section Modal */}
+      {editingSection && (
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+          <div className={`relative w-full max-w-md rounded-3xl border p-6 sm:p-7 shadow-2xl transition-all ${
+            isDark ? 'bg-[#140307] border-[#e11438]/40 text-white' : 'bg-white border-gray-200 text-gray-900'
+          }`}>
+            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-[#e11438]/15 border border-[#e11438]/30 flex items-center justify-center text-[#ff4d6d]">
+                  <Edit2 className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold">
+                    {editingSection.isNew ? 'নতুন মডিউল যোগ করুন' : 'মডিউলের নাম এডিট করুন'}
+                  </h3>
+                  <p className="text-xs text-gray-400">মডিউল বা অধ্যায়ের শিরোনাম পরিবর্তন</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditingSection(null)}
+                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer border-none bg-transparent"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveSectionEdit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-gray-300 mb-1.5">
+                  মডিউল বা অধ্যায়ের নাম <span className="text-[#e11438]">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={editingSection.name}
+                  onChange={(e) => setEditingSection(prev => ({ ...prev, name: e.target.value }))}
+                  placeholder="যেমন: Physics 1st paper Finishing Touch Series"
+                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
+                    isDark 
+                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white' 
+                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900'
+                  }`}
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-300 mb-1.5">
+                  সংক্ষিপ্ত বিবরণ (Summary)
+                </label>
+                <input
+                  type="text"
+                  value={editingSection.summary}
+                  onChange={(e) => setEditingSection(prev => ({ ...prev, summary: e.target.value }))}
+                  placeholder="যেমন: ১০টি লাইভ ও রেকর্ডেড ক্লাস"
+                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
+                    isDark 
+                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white' 
+                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900'
+                  }`}
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
+                <button
+                  type="button"
+                  onClick={() => setEditingSection(null)}
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-colors cursor-pointer border-none bg-transparent"
+                >
+                  বাতিল
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#e11438] to-[#ff2a55] hover:opacity-95 text-white font-bold text-xs shadow-md transition-all cursor-pointer border-none flex items-center gap-1.5 active:scale-95"
+                >
+                  <Check className="w-3.5 h-3.5" />
+                  <span>সংরক্ষণ করুন</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Success Toast */}
+      {toastMsg && (
+        <div className="fixed bottom-6 right-6 z-[10001] px-5 py-3 rounded-2xl bg-[#140307] text-white border border-[#e11438] shadow-2xl text-xs sm:text-sm font-bold flex items-center gap-2 animate-bounce">
+          <span>{toastMsg}</span>
         </div>
       )}
 
