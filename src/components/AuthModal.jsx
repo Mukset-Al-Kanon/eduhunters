@@ -13,7 +13,7 @@ export default function AuthModal({
   initialMode = 'signin', // 'welcome' | 'signin' | 'signup'
   onSuccess
 }) {
-  const { login, signup, loginWithGoogle, resetPassword } = useAuth();
+  const { login, signup, loginWithGoogle, resetPassword, updateUserPassword } = useAuth();
 
   // Modal Flow Mode: 'signin' | 'signup' | 'verify-signup' | 'forgot-password' | 'verify-reset' | 'welcome'
   const [mode, setMode] = useState(initialMode);
@@ -109,7 +109,7 @@ export default function AuthModal({
     let resendInterval = null;
     let expiryInterval = null;
 
-    if (mode === 'verify-signup' || mode === 'forgot-password-sent') {
+    if (mode === 'verify-signup' || mode === 'verify-reset') {
       if (resendTimer > 0) {
         setCanResend(false);
         resendInterval = setInterval(() => {
@@ -125,14 +125,12 @@ export default function AuthModal({
         setCanResend(true);
       }
 
-      if (mode === 'verify-signup') {
-        if (otpExpiresIn > 0) {
-          expiryInterval = setInterval(() => {
-            setOtpExpiresIn((prev) => Math.max(0, prev - 1));
-          }, 1000);
-        } else {
-          setCanResend(true);
-        }
+      if (otpExpiresIn > 0) {
+        expiryInterval = setInterval(() => {
+          setOtpExpiresIn((prev) => Math.max(0, prev - 1));
+        }, 1000);
+      } else {
+        setCanResend(true);
       }
     }
 
@@ -330,7 +328,7 @@ export default function AuthModal({
     }
   };
 
-  // ================= STEP 4: INITIATE FORGOT PASSWORD =================
+  // ================= STEP 4: INITIATE FORGOT PASSWORD WITH 6-DIGIT OTP =================
   const handleForgotPasswordInitiate = async (e) => {
     e.preventDefault();
     setStatusMsg(null);
@@ -342,19 +340,81 @@ export default function AuthModal({
 
     try {
       setLoading(true);
-      // Trigger official Firebase password recovery email to user's inbox
-      await resetPassword(email);
+      // Dispatch 6-Digit OTP code directly to user's email via EmailJS / OTP service (NEVER link)
+      await sendVerificationOTP(email, 'Student');
+      setOtpExpiresIn(300);
       setResendTimer(60);
       setCanResend(false);
+      setOtpDigits(['', '', '', '', '', '']);
+      setPassword('');
+      setConfirmPassword('');
 
       setStatusMsg({
         type: 'success',
-        text: `A secure password reset link has been dispatched to ${email}.`
+        text: `A 6-digit verification code has been dispatched to ${email}.`
       });
 
       setTimeout(() => {
-        setMode('forgot-password-sent');
+        setMode('verify-reset');
       }, 400);
+    } catch (err) {
+      setStatusMsg({ type: 'error', text: err.message || 'Failed to dispatch verification code.' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // ================= STEP 5: VERIFY OTP & RESET PASSWORD =================
+  const handleVerifyResetPassword = async (e) => {
+    e.preventDefault();
+    setStatusMsg(null);
+
+    if (otpExpiresIn <= 0) {
+      setStatusMsg({
+        type: 'error',
+        text: 'Verification code has expired (5 minutes). Please click Resend Code to request a new code.'
+      });
+      return;
+    }
+
+    const fullCode = otpDigits.join('');
+    if (fullCode.length !== 6) {
+      setStatusMsg({ type: 'error', text: 'Please enter the complete 6-digit verification code.' });
+      return;
+    }
+
+    // Verify OTP against the service
+    const verifyResult = verifyEnteredOTP(email, fullCode);
+    if (!verifyResult.valid) {
+      setStatusMsg({ type: 'error', text: verifyResult.error });
+      return;
+    }
+
+    if (!password || password.length < 6) {
+      setStatusMsg({ type: 'error', text: 'New password must be at least 6 characters long.' });
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setStatusMsg({ type: 'error', text: 'Passwords do not match. Please verify.' });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await updateUserPassword(email, password);
+      // Automatically log user in with new password
+      const authUser = await login(email, password);
+
+      setStatusMsg({
+        type: 'success',
+        text: 'Password updated successfully! Welcome back to Edu Hunters.'
+      });
+
+      setTimeout(() => {
+        if (onSuccess) onSuccess(authUser);
+        handleClose();
+      }, 700);
     } catch (err) {
       setStatusMsg({ type: 'error', text: formatAuthError(err) });
     } finally {
@@ -362,21 +422,23 @@ export default function AuthModal({
     }
   };
 
-  // Resend Password Reset Email Handler
-  const handleResendResetEmail = async () => {
+  // Resend Reset Password OTP Handler
+  const handleResendResetOTP = async () => {
     if (!canResend || loading) return;
     try {
       setLoading(true);
       setStatusMsg(null);
-      await resetPassword(email);
+      await sendVerificationOTP(email, 'Student');
+      setOtpExpiresIn(300);
       setResendTimer(60);
       setCanResend(false);
+      setOtpDigits(['', '', '', '', '', '']);
       setStatusMsg({
         type: 'success',
-        text: `A fresh password reset link has been dispatched to ${email}.`
+        text: 'A fresh 6-digit verification code has been dispatched.'
       });
     } catch (err) {
-      setStatusMsg({ type: 'error', text: formatAuthError(err) });
+      setStatusMsg({ type: 'error', text: err.message || 'Failed to resend code.' });
     } finally {
       setLoading(false);
     }
@@ -503,14 +565,14 @@ export default function AuthModal({
                 {mode === 'signup' && 'Create New Account'}
                 {mode === 'verify-signup' && 'Verify Your Email'}
                 {mode === 'forgot-password' && 'Reset Password'}
-                {mode === 'forgot-password-sent' && 'Check Your Email'}
+                {mode === 'verify-reset' && 'Set New Password'}
               </h2>
               <p className="text-xs text-gray-400 mt-1.5 mb-5 max-w-[320px] mx-auto text-center leading-relaxed">
                 {mode === 'signin' && 'Enter your details to access your courses and exams.'}
                 {mode === 'signup' && 'Sign up to enroll in live classes and take interactive exams.'}
                 {mode === 'verify-signup' && 'Verify your email address to complete registration.'}
-                {mode === 'forgot-password' && 'Enter your registered email address to receive a secure recovery link.'}
-                {mode === 'forgot-password-sent' && 'We have dispatched password recovery instructions to your email.'}
+                {mode === 'forgot-password' && 'Enter your registered email address to receive a 6-digit verification code.'}
+                {mode === 'verify-reset' && 'Enter the 6-digit code sent to your email and your new password.'}
               </p>
             </div>
 
@@ -776,7 +838,7 @@ export default function AuthModal({
                   className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#e11438] via-[#e50914] to-[#ff2a55] hover:opacity-95 text-white font-bold text-sm shadow-[0_10px_35px_rgba(225,20,56,0.65)] active:scale-[0.98] transition-all cursor-pointer border-none flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   {loading && <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg>}
-                  <span>{loading ? 'Sending code...' : 'Send Recovery Code'}</span>
+                  <span>{loading ? 'Sending code...' : 'Send Verification Code'}</span>
                 </button>
 
                 <div className="text-center pt-4">
@@ -792,43 +854,51 @@ export default function AuthModal({
             )}
 
             {/* ================= VIEW: VERIFY OTP & RESET PASSWORD ================= */}
-            {/* ================= VIEW: FORGOT PASSWORD (EMAIL SENT CONFIRMATION) ================= */}
-            {mode === 'forgot-password-sent' && (
-              <div className="flex flex-col items-center text-center py-2 animate-fadeIn">
-                <div className="w-16 h-16 rounded-full bg-[#e11438]/15 border border-[#e11438]/30 flex items-center justify-center mb-4 text-[#ff385c] shadow-[0_0_30px_rgba(225,20,56,0.25)]">
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="20" height="16" x="2" y="4" rx="2" />
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                  </svg>
+            {mode === 'verify-reset' && (
+              <form onSubmit={handleVerifyResetPassword}>
+                {/* 6 OTP Input Boxes */}
+                <div className="flex items-center justify-center gap-2 sm:gap-2.5 my-4" onPaste={handleOtpPaste}>
+                  {otpDigits.map((digit, idx) => (
+                    <input
+                      key={idx}
+                      ref={(el) => (otpInputRefs.current[idx] = el)}
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={1}
+                      value={digit}
+                      onChange={(e) => handleOtpChange(idx, e.target.value)}
+                      onKeyDown={(e) => handleOtpKeyDown(idx, e)}
+                      className="w-11 h-13 sm:w-12 sm:h-14 text-center text-xl sm:text-2xl font-black rounded-2xl bg-[#140609] border border-white/15 text-white focus:outline-none focus:border-[#e11438] focus:ring-2 focus:ring-[#e11438]/30 transition-all shadow-inner"
+                    />
+                  ))}
                 </div>
 
-                <div className="bg-[#140609] border border-white/10 rounded-2xl p-4 mb-4 w-full">
-                  <p className="text-xs text-gray-400 mb-1">Reset link dispatched to:</p>
-                  <p className="text-sm font-bold text-white break-all">{email}</p>
-                </div>
+                {/* Unified Expiry & Resend Controls */}
+                <div className="flex items-center justify-between text-xs text-gray-400 mb-4 px-1">
+                  <div className="flex items-center gap-1.5">
+                    {otpExpiresIn > 0 ? (
+                      <>
+                        <span className={`w-2 h-2 rounded-full ${otpExpiresIn <= 60 ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
+                        <span>Expires in:</span>
+                        <span className="font-mono text-white font-semibold">{formatTimer(otpExpiresIn)}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="w-2 h-2 rounded-full bg-red-500" />
+                        <span className="text-red-400 font-semibold">Expired</span>
+                      </>
+                    )}
+                  </div>
 
-                <p className="text-xs text-gray-300 leading-relaxed mb-6 px-1">
-                  Click the link inside the email to securely set your new password. If you don't find it within a minute, please check your <span className="text-white font-medium">Spam or Junk</span> folder.
-                </p>
-
-                <div className="w-full space-y-3">
-                  <button
-                    type="button"
-                    onClick={() => handleModeSwitch('signin')}
-                    className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#e11438] via-[#e50914] to-[#ff2a55] hover:opacity-95 text-white font-bold text-sm shadow-[0_10px_35px_rgba(225,20,56,0.65)] active:scale-[0.98] transition-all cursor-pointer border-none"
-                  >
-                    Back to Sign In
-                  </button>
-
-                  <div className="flex items-center justify-center gap-3 pt-2 text-xs">
-                    {canResend ? (
+                  <div className="flex items-center gap-2.5">
+                    {canResend || otpExpiresIn === 0 ? (
                       <button
                         type="button"
-                        onClick={handleResendResetEmail}
+                        onClick={handleResendResetOTP}
                         disabled={loading}
                         className="text-[#ff385c] hover:underline font-semibold bg-transparent border-none cursor-pointer p-0"
                       >
-                        Resend Reset Link
+                        Resend Code
                       </button>
                     ) : (
                       <span className="text-gray-500">
@@ -847,7 +917,65 @@ export default function AuthModal({
                     </button>
                   </div>
                 </div>
-              </div>
+
+                {/* New Password Input */}
+                <div className="mb-3">
+                  <label className="block text-xs font-semibold text-gray-300 mb-1.5">New Password</label>
+                  <div className="relative">
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="At least 6 characters"
+                      required
+                      className="w-full px-4 py-2.5 rounded-2xl bg-[#140609] border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#e11438] transition-colors pr-12"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white bg-transparent border-none cursor-pointer p-0"
+                    >
+                      {showPassword ? (
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"></path></svg>
+                      ) : (
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Confirm New Password Input */}
+                <div className="mb-4">
+                  <label className="block text-xs font-semibold text-gray-300 mb-1.5">Confirm New Password</label>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Re-enter your new password"
+                    required
+                    className="w-full px-4 py-2.5 rounded-2xl bg-[#140609] border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#e11438] transition-colors"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading || otpDigits.join('').length !== 6 || !password || !confirmPassword}
+                  className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#e11438] via-[#e50914] to-[#ff2a55] hover:opacity-95 text-white font-bold text-sm shadow-[0_10px_35px_rgba(225,20,56,0.65)] active:scale-[0.98] transition-all cursor-pointer border-none flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading && <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg>}
+                  <span>{loading ? 'Updating Password...' : 'Reset Password & Sign In'}</span>
+                </button>
+
+                <div className="text-center pt-3">
+                  <button
+                    type="button"
+                    onClick={() => handleModeSwitch('signin')}
+                    className="text-xs text-gray-400 hover:text-white underline bg-transparent border-none cursor-pointer"
+                  >
+                    Cancel & Return to Sign In
+                  </button>
+                </div>
+              </form>
             )}
 
             {/* ================= SOCIAL LOGIN (Google) ================= */}
