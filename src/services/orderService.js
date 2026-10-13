@@ -72,7 +72,8 @@ export function saveNewOrder({
     type: type === 'exam' ? 'course' : type, // Keep consistent for router checks
     targetType: type === 'exam' ? 'exam' : undefined,
     badge,
-    status: 'PAID',
+    status: 'PENDING',
+    isApproved: false,
     course: {
       name: title,
       slug: item?.slug || 'program',
@@ -134,7 +135,7 @@ export function saveNewOrder({
     notes: `Enrollment Form Submitted (${paymentMethod.toUpperCase()})`
   };
 
-  // 2. Student record for enrolled students directory
+  // 2. Student record for enrolled students directory (Pending verification)
   const newStudent = {
     id: `st-${Date.now()}`,
     name: newOrder.customer.name,
@@ -142,7 +143,7 @@ export function saveNewOrder({
     email: newOrder.customer.email,
     batch: 'HSC 26',
     courseName: title,
-    status: 'Active',
+    status: 'Pending',
     joinedDate: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
     amount: finalAmount,
     trxId: newOrder.transactionId,
@@ -163,14 +164,10 @@ export function saveNewOrder({
         const prevAcc = parsedSite.accounting || { totalRevenue: 0, totalExpenses: 0, netProfit: 0, totalOrders: 0, transactions: [] };
         const prevTxs = Array.isArray(prevAcc.transactions) ? prevAcc.transactions : [];
         const nextTxs = [newTx, ...prevTxs.filter(t => t.id !== newTx.id)];
-        const nextRev = (Number(prevAcc.totalRevenue) || 0) + finalAmount;
         const nextOrdersCount = (Number(prevAcc.totalOrders) || prevTxs.length) + 1;
-        const nextProfit = nextRev - (Number(prevAcc.totalExpenses) || 0);
 
         parsedSite.accounting = {
           ...prevAcc,
-          totalRevenue: nextRev,
-          netProfit: nextProfit,
           totalOrders: nextOrdersCount,
           transactions: nextTxs
         };
@@ -179,7 +176,7 @@ export function saveNewOrder({
       } catch (e) {}
     }
 
-    // 5. Update eh_enrolled_students
+    // 5. Update eh_enrolled_students with Pending status
     try {
       const rawStudents = localStorage.getItem('eh_enrolled_students');
       const prevStudents = rawStudents ? JSON.parse(rawStudents) : [];
@@ -187,40 +184,9 @@ export function saveNewOrder({
       localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
     } catch (e) {}
 
-    // 6. Update user's enrolledCourses in eh_current_user and eh_registered_users
-    try {
-      const rawCur = localStorage.getItem('eh_current_user');
-      if (rawCur) {
-        const cur = JSON.parse(rawCur);
-        const enrolled = Array.isArray(cur.enrolledCourses) ? cur.enrolledCourses : [];
-        if (!enrolled.includes(title)) {
-          cur.enrolledCourses = [title, ...enrolled];
-          cur.totalSpent = (Number(cur.totalSpent) || 0) + finalAmount;
-          localStorage.setItem('eh_current_user', JSON.stringify(cur));
-        }
-      }
+    // Note: Course is NOT unlocked yet. It unlocks only when Admin clicks "Approve".
 
-      const rawReg = localStorage.getItem('eh_registered_users');
-      if (rawReg) {
-        const regList = JSON.parse(rawReg);
-        if (Array.isArray(regList)) {
-          const updatedReg = regList.map(u => {
-            if ((u.email && u.email.toLowerCase() === (studentEmail || '').toLowerCase()) || (u.phone && u.phone === studentPhone)) {
-              const uEnrolled = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
-              return {
-                ...u,
-                enrolledCourses: uEnrolled.includes(title) ? uEnrolled : [title, ...uEnrolled],
-                totalSpent: (Number(u.totalSpent) || 0) + finalAmount
-              };
-            }
-            return u;
-          });
-          localStorage.setItem('eh_registered_users', JSON.stringify(updatedReg));
-        }
-      }
-    } catch (e) {}
-
-    // 7. Persist order in Cloud Firestore if configured
+    // 6. Persist order in Cloud Firestore if configured
     if (isFirebaseConfigured && db) {
       try {
         const docRef = doc(db, 'orders', orderId);
@@ -233,7 +199,7 @@ export function saveNewOrder({
       } catch (e) {}
     }
 
-    // 8. Dispatch real-time events across windows & listeners
+    // 7. Dispatch real-time events across windows & listeners
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('eh:orders_updated', { detail: newOrder }));
       window.dispatchEvent(new CustomEvent('eh:new_enrollment', {
@@ -257,4 +223,150 @@ export function saveNewOrder({
   }
 
   return newOrder;
+}
+
+/**
+ * Approves a pending enrollment order, unlocks the course, and broadcasts real-time activation
+ */
+export function approveOrder(identifier, { courseTitle, studentPhone, studentEmail, studentName, amount } = {}) {
+  try {
+    const orders = getUserOrders();
+    const cleanPhone = (studentPhone || '').replace(/[^0-9]/g, '');
+    const cleanEmail = (studentEmail || '').toLowerCase().trim();
+    let approvedOrder = null;
+
+    const nextOrders = orders.map(ord => {
+      const ordPhone = (ord.customer?.phone || '').replace(/[^0-9]/g, '');
+      const ordEmail = (ord.customer?.email || '').toLowerCase().trim();
+      const ordTitle = ord.course?.name || ord.items?.[0]?.title || '';
+      const matchId = identifier && (ord.id === identifier || ord.invoiceNumber === identifier || ord.transactionId === identifier);
+      const matchDetails = (courseTitle && ordTitle === courseTitle) && ((cleanPhone && ordPhone === cleanPhone) || (cleanEmail && ordEmail === cleanEmail));
+
+      if (matchId || matchDetails) {
+        approvedOrder = {
+          ...ord,
+          status: 'PAID',
+          isApproved: true,
+          approvedAt: new Date().toISOString()
+        };
+        return approvedOrder;
+      }
+      return ord;
+    });
+
+    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(nextOrders));
+
+    const finalTitle = courseTitle || approvedOrder?.course?.name || approvedOrder?.items?.[0]?.title || 'Course Enrollment';
+    const finalAmount = Number(amount) || Number(approvedOrder?.totalPaid) || 0;
+
+    // 1. Unlock course in local user storage (eh_current_user)
+    try {
+      const rawCur = localStorage.getItem('eh_current_user');
+      if (rawCur) {
+        const cur = JSON.parse(rawCur);
+        const curPhone = (cur.whatsapp || cur.phone || '').replace(/[^0-9]/g, '');
+        const curEmail = (cur.email || '').toLowerCase().trim();
+        const isCurrentTarget = (cleanPhone && curPhone === cleanPhone) || (cleanEmail && curEmail === cleanEmail) || (!cleanPhone && !cleanEmail);
+
+        if (isCurrentTarget) {
+          const enrolled = Array.isArray(cur.enrolledCourses) ? cur.enrolledCourses : [];
+          if (!enrolled.includes(finalTitle)) {
+            cur.enrolledCourses = [finalTitle, ...enrolled];
+            cur.totalSpent = (Number(cur.totalSpent) || 0) + finalAmount;
+            localStorage.setItem('eh_current_user', JSON.stringify(cur));
+          }
+        }
+      }
+
+      // 2. Unlock in eh_registered_users
+      const rawReg = localStorage.getItem('eh_registered_users');
+      if (rawReg) {
+        const regList = JSON.parse(rawReg);
+        if (Array.isArray(regList)) {
+          const updatedReg = regList.map(u => {
+            const uPhone = (u.whatsapp || u.phone || '').replace(/[^0-9]/g, '');
+            const uEmail = (u.email || '').toLowerCase().trim();
+            if ((cleanEmail && uEmail === cleanEmail) || (cleanPhone && uPhone === cleanPhone)) {
+              const uEnrolled = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
+              return {
+                ...u,
+                status: 'Active',
+                enrolledCourses: uEnrolled.includes(finalTitle) ? uEnrolled : [finalTitle, ...uEnrolled],
+                totalSpent: (Number(u.totalSpent) || 0) + finalAmount
+              };
+            }
+            return u;
+          });
+          localStorage.setItem('eh_registered_users', JSON.stringify(updatedReg));
+        }
+      }
+    } catch (e) {}
+
+    // 3. Update eh_enrolled_students to Active
+    try {
+      const rawStudents = localStorage.getItem('eh_enrolled_students');
+      if (rawStudents) {
+        const stList = JSON.parse(rawStudents);
+        if (Array.isArray(stList)) {
+          const nextStudents = stList.map(st => {
+            const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
+            const stEmail = (st.email || '').toLowerCase().trim();
+            if ((cleanPhone && stPhone === cleanPhone) || (cleanEmail && stEmail === cleanEmail) || (st.courseName === finalTitle && cleanPhone && stPhone.includes(cleanPhone))) {
+              return { ...st, status: 'Active' };
+            }
+            return st;
+          });
+          localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+        }
+      }
+    } catch (e) {}
+
+    // 4. Update Cloud Firestore if configured
+    if (isFirebaseConfigured && db && approvedOrder?.id) {
+      try {
+        setDoc(doc(db, 'orders', approvedOrder.id), {
+          status: 'PAID',
+          isApproved: true,
+          approvedAt: new Date().toISOString()
+        }, { merge: true }).catch(() => {});
+      } catch (e) {}
+    }
+
+    // 5. Dispatch real-time unlock broadcast across tabs and windows
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('eh:enrollment_approved', {
+        detail: {
+          orderId: approvedOrder?.id || identifier,
+          courseTitle: finalTitle,
+          studentPhone: cleanPhone,
+          studentEmail: cleanEmail,
+          studentName: studentName || approvedOrder?.customer?.name
+        }
+      }));
+      window.dispatchEvent(new CustomEvent('eh:orders_updated'));
+      window.dispatchEvent(new Event('storage'));
+
+      if (typeof BroadcastChannel !== 'undefined') {
+        try {
+          const bc = new BroadcastChannel('eduhunters_sync_channel');
+          bc.postMessage({
+            type: 'ENROLLMENT_APPROVED',
+            payload: {
+              orderId: approvedOrder?.id || identifier,
+              courseTitle: finalTitle,
+              studentPhone: cleanPhone,
+              studentEmail: cleanEmail,
+              studentName: studentName || approvedOrder?.customer?.name
+            }
+          });
+          bc.close();
+        } catch (e) {}
+      }
+    }
+
+    return approvedOrder;
+  } catch (err) {
+    console.error('[orderService] Failed to approve order:', err);
+    return null;
+  }
 }

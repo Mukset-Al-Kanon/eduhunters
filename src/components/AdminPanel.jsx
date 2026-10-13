@@ -68,6 +68,7 @@ import CourseStudioPage from './CourseStudioPage';
 import BundleStudioPage from './BundleStudioPage';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { grantCourseAccess } from '../utils/enrollmentService';
+import { approveOrder } from '../services/orderService';
 import { 
   getBunnyConfig, 
   saveBunnyConfig, 
@@ -449,12 +450,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       email: tx.studentEmail,
       batch: 'HSC 26',
       courseName: tx.itemTitle,
-      status: 'Active',
+      status: tx.status === 'Completed' ? 'Active' : 'Pending',
       joinedDate: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
       amount: tx.amount,
       trxId: tx.trxId,
       paymentMethod: tx.method
     };
+
+    const isAlreadyCompleted = tx.status === 'Completed';
 
     // 1. Update accounting transactions state
     setAccounting(prev => {
@@ -463,7 +466,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         return prev;
       }
       const nextTxs = [tx, ...prevTxs];
-      const nextRev = (Number(prev?.totalRevenue) || 0) + Number(tx.amount || 0);
+      const nextRev = isAlreadyCompleted ? ((Number(prev?.totalRevenue) || 0) + Number(tx.amount || 0)) : (Number(prev?.totalRevenue) || 0);
       const nextOrders = (Number(prev?.totalOrders) || prevTxs.length) + 1;
       const nextProfit = nextRev - (Number(prev?.totalExpenses) || 0);
       const updatedAccounting = {
@@ -477,7 +480,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       return updatedAccounting;
     });
 
-    // 2. Update enrolled students state
+    // 2. Update enrolled students state (Pending status until verified)
     setEnrolledStudents(prev => {
       if (prev.some(s => s.phone === st.phone && s.courseName === st.courseName)) return prev;
       const nextStudents = [st, ...prev];
@@ -487,8 +490,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       return nextStudents;
     });
 
-    // 3. Update user in usersList with newly enrolled course
-    if (tx.studentEmail || tx.studentPhone) {
+    // 3. If already approved/completed, unlock for user
+    if (isAlreadyCompleted && (tx.studentEmail || tx.studentPhone)) {
       setUsersList(prev => {
         const idx = prev.findIndex(u => 
           (tx.studentEmail && u.email && u.email.toLowerCase() === tx.studentEmail.toLowerCase()) ||
@@ -500,7 +503,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           const nextCourses = prevCourses.includes(tx.itemTitle) ? prevCourses : [tx.itemTitle, ...prevCourses];
           const nextSpent = (Number(existing.totalSpent) || 0) + Number(tx.amount || 0);
           const updated = [...prev];
-          updated[idx] = { ...existing, enrolledCourses: nextCourses, totalSpent: nextSpent };
+          updated[idx] = { ...existing, enrolledCourses: nextCourses, totalSpent: nextSpent, status: 'Active' };
           persistAll({ users: updated });
           return updated;
         }
@@ -510,7 +513,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
     // 4. Play audio chime and trigger notification toast
     playNotificationChime();
-    triggerToast(`🔔 নতুন কোর্স এনরোলমেন্ট! ${tx.studentName} — "${tx.itemTitle}" (৳${tx.amount})`);
+    triggerToast(`🔔 নতুন কোর্স এনরোলমেন্ট রিকোয়েস্ট! ${tx.studentName} — "${tx.itemTitle}" (৳${tx.amount})`);
   }, []);
 
   // Multi-tier Real-time Synchronizer: Firestore Live + BroadcastChannel + Window Events + LocalStorage
@@ -1754,6 +1757,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         });
         setUsersList(extraUserUpdates);
       }
+
+      // Unlock order in orderService & Cloud Firestore and broadcast real-time unlock
+      approveOrder(targetTx.orderId || targetTx.id || targetTx.trxId, {
+        courseTitle: itemTitle,
+        studentPhone: targetTx.studentPhone,
+        studentEmail: targetTx.studentEmail,
+        studentName: targetTx.studentName,
+        amount: targetTx.amount
+      });
     }
 
     persistAll({ 
@@ -2043,6 +2055,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           return u;
         });
       }
+      approveOrder(tx.orderId || tx.id || tx.trxId, {
+        courseTitle,
+        studentPhone: cleanPhone,
+        studentEmail: tx.studentEmail || tx.email,
+        studentName,
+        amount: tx.amount
+      });
     });
 
     const updatedAccounting = {
@@ -2141,6 +2160,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       return u;
     });
     setUsersList(updatedUsers);
+
+    // 5. Unlock order in orderService & Cloud Firestore and broadcast real-time activation
+    approveOrder(tx.orderId || tx.id || tx.trxId, {
+      courseTitle,
+      studentPhone: cleanPhone,
+      studentEmail: tx.studentEmail || tx.email,
+      studentName,
+      amount: tx.amount
+    });
 
     persistAll({ 
       accounting: updatedAccounting, 

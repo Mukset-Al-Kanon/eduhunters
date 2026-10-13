@@ -25,6 +25,8 @@ import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/
 // Performance Optimization: Lazy load heavy AdminPanel
 const AdminPanel = lazy(() => import('./components/AdminPanel'));
 import { useTheme } from './context/ThemeContext';
+import { useAuth } from './context/AuthContext';
+import { grantCourseAccess } from './utils/enrollmentService';
 import './App.css';
 
 class ErrorBoundary extends React.Component {
@@ -80,6 +82,7 @@ class ErrorBoundary extends React.Component {
 
 export default function App() {
   const { isDark } = useTheme();
+  const { currentUser } = useAuth();
   const [adminSessionState, setAdminSessionState] = useState(() => getAdminSession());
   const [selectedCourseId, setSelectedCourseId] = useState(() => {
     try {
@@ -643,13 +646,11 @@ export default function App() {
     const currentAccounting = data.accounting || initialData.accounting;
     const updatedAccounting = {
       ...currentAccounting,
-      totalRevenue: (currentAccounting.totalRevenue || 0) + amt,
-      netProfit: ((currentAccounting.totalRevenue || 0) + amt) - (currentAccounting.totalExpenses || 0),
       totalOrders: (currentAccounting.totalOrders || 0) + 1,
       transactions: [newTrx, ...(currentAccounting.transactions || [])]
     };
 
-    // Also update enrolled student in eh_enrolled_students
+    // Save pending student record in eh_enrolled_students
     const newStudent = {
       id: `st-${Date.now()}`,
       name: finalStudent,
@@ -657,7 +658,7 @@ export default function App() {
       email: studentEmail || '',
       batch: 'HSC 26',
       courseName: finalCourseTitle,
-      status: 'Active',
+      status: 'Pending',
       joinedDate: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
       amount: amt,
       trxId: finalTrx,
@@ -671,26 +672,9 @@ export default function App() {
       localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
     } catch (e) {}
 
-    // Update users array in data
-    let updatedUsers = Array.isArray(data.users) ? [...data.users] : [];
-    if (finalPhone !== 'N/A' || studentEmail) {
-      updatedUsers = updatedUsers.map(u => {
-        if ((studentEmail && u.email && u.email.toLowerCase() === studentEmail.toLowerCase()) || (u.phone && u.phone === finalPhone)) {
-          const uEnrolled = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
-          return {
-            ...u,
-            enrolledCourses: uEnrolled.includes(finalCourseTitle) ? uEnrolled : [finalCourseTitle, ...uEnrolled],
-            totalSpent: (Number(u.totalSpent) || 0) + amt
-          };
-        }
-        return u;
-      });
-    }
-
     const updatedData = {
       ...data,
       accounting: updatedAccounting,
-      users: updatedUsers,
       _lastUpdated: new Date().toISOString()
     };
     handleUpdateData(updatedData);
@@ -712,6 +696,84 @@ export default function App() {
       }
     }
   };
+
+  // Real-time listener for Admin Approval of Enrollment Requests
+  useEffect(() => {
+    const handleApproval = (payload) => {
+      if (!payload?.courseTitle) return;
+      const approvedCourse = payload.courseTitle;
+      const cleanPhone = (payload.studentPhone || '').replace(/[^0-9]/g, '');
+      const cleanEmail = (payload.studentEmail || '').toLowerCase().trim();
+
+      // 1. Unlock course globally in localStorage keys
+      grantCourseAccess(approvedCourse, { bundles: data.bundles, courses: data.courses });
+
+      // 2. Unlock in currentUser if this session is the student
+      const curPhone = (currentUser?.whatsapp || currentUser?.phone || '').replace(/[^0-9]/g, '');
+      const curEmail = (currentUser?.email || '').toLowerCase().trim();
+      const isTargetStudent = (cleanEmail && curEmail === cleanEmail) || (cleanPhone && curPhone === cleanPhone);
+
+      if (isTargetStudent || !cleanEmail) {
+        try {
+          const rawCur = localStorage.getItem('eh_current_user');
+          if (rawCur) {
+            const cur = JSON.parse(rawCur);
+            const prev = Array.isArray(cur.enrolledCourses) ? cur.enrolledCourses : [];
+            if (!prev.includes(approvedCourse)) {
+              cur.enrolledCourses = [approvedCourse, ...prev];
+              localStorage.setItem('eh_current_user', JSON.stringify(cur));
+            }
+          }
+        } catch (e) {}
+      }
+
+      // 3. Update data.users if matching user found
+      if (Array.isArray(data.users)) {
+        let changed = false;
+        const nextUsers = data.users.map(u => {
+          const uPhone = (u.whatsapp || u.phone || '').replace(/[^0-9]/g, '');
+          const uEmail = (u.email || '').toLowerCase().trim();
+          if ((cleanEmail && uEmail === cleanEmail) || (cleanPhone && uPhone === cleanPhone)) {
+            changed = true;
+            const prev = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
+            return {
+              ...u,
+              status: 'Active',
+              enrolledCourses: prev.includes(approvedCourse) ? prev : [approvedCourse, ...prev]
+            };
+          }
+          return u;
+        });
+
+        if (changed) {
+          handleUpdateData({ ...data, users: nextUsers, _lastUpdated: new Date().toISOString() });
+        }
+      }
+    };
+
+    let bc = null;
+    if (typeof BroadcastChannel !== 'undefined') {
+      try {
+        bc = new BroadcastChannel('eduhunters_sync_channel');
+        bc.onmessage = (e) => {
+          if (e.data?.type === 'ENROLLMENT_APPROVED' && e.data?.payload) {
+            handleApproval(e.data.payload);
+          }
+        };
+      } catch (e) {}
+    }
+
+    const onCustomApproval = (e) => {
+      if (e.detail) handleApproval(e.detail);
+    };
+
+    window.addEventListener('eh:enrollment_approved', onCustomApproval);
+
+    return () => {
+      if (bc) bc.close();
+      window.removeEventListener('eh:enrollment_approved', onCustomApproval);
+    };
+  }, [currentUser, data]);
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
