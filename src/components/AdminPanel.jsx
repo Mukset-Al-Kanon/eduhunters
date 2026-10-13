@@ -77,6 +77,7 @@ import {
   testBunnyStreamConnection,
   testBunnyStorageConnection
 } from '../services/bunnyService';
+import { saveCloudData } from '../services/firestoreSyncService';
 
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
@@ -1970,6 +1971,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     });
 
     persistAll({ courses: updated, examBatches: updatedBatches });
+    // Targeted lightweight cloud save to guarantee instant Firestore persistence
+    saveCloudData({ courses: updated, examBatches: updatedBatches });
     triggerToast(nextActive ? `🟢 "${targetCourse.title}" Activated` : `⚪ "${targetCourse.title}" Deactivated`);
   };
 
@@ -2943,6 +2946,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             const next = courses.map((c, i) => i === curriculumCourseIndex ? updatedCourse : c);
             setCourses(next);
             persistAll({ courses: next });
+            saveCloudData({ courses: next });
           }}
           onBack={() => {
             setCurriculumCourseIndex(null);

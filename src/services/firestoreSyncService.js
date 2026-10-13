@@ -37,11 +37,40 @@ export async function saveCloudData(newData) {
     }));
 
     const docRef = doc(db, COLLECTION_NAME, DOC_ID);
-    await setDoc(docRef, {
-      ...sanitized,
-      _lastUpdated: new Date().toISOString()
-    }, { merge: true });
-    return true;
+    const now = new Date().toISOString();
+
+    // Prevent Firestore 1MB document quota crash if base64 images exist in slides/bundles
+    const jsonStr = JSON.stringify(sanitized);
+    if (jsonStr.length > 750000 && sanitized.heroSlides) {
+      // Strip base64 images if they exceed safe size
+      sanitized.heroSlides = sanitized.heroSlides.map(s => {
+        if (s.image && s.image.startsWith('data:image/') && s.image.length > 100000) {
+          return { ...s, image: '/slides/slide-extra-info.jpg' };
+        }
+        return s;
+      });
+    }
+
+    try {
+      await setDoc(docRef, {
+        ...sanitized,
+        _lastUpdated: now
+      }, { merge: true });
+      return true;
+    } catch (writeErr) {
+      // Fallback: If full document was rejected due to size, persist critical fields (courses & batches)
+      console.warn('[FirestoreSync] Full doc write failed, attempting critical fields fallback:', writeErr);
+      if (sanitized.courses || sanitized.examBatches) {
+        await setDoc(docRef, {
+          ...(sanitized.courses ? { courses: sanitized.courses } : {}),
+          ...(sanitized.examBatches ? { examBatches: sanitized.examBatches } : {}),
+          ...(sanitized.siteSettings ? { siteSettings: sanitized.siteSettings } : {}),
+          _lastUpdated: now
+        }, { merge: true });
+        return true;
+      }
+      throw writeErr;
+    }
   } catch (error) {
     console.warn('[FirestoreSync] Failed to save cloud data:', error);
     return false;

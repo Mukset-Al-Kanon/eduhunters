@@ -387,7 +387,8 @@ export default function App() {
           })(),
           termsAndConditions: parsed.termsAndConditions || initialData.termsAndConditions,
           refundPolicy: parsed.refundPolicy || initialData.refundPolicy,
-          privacyPolicy: parsed.privacyPolicy || initialData.privacyPolicy
+          privacyPolicy: parsed.privacyPolicy || initialData.privacyPolicy,
+          _lastUpdated: parsed._lastUpdated || null
         };
       }
     } catch (e) {
