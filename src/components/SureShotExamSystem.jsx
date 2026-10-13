@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { 
   ArrowLeft, Clock, HelpCircle, BookOpen, Zap, CheckCircle2, 
@@ -95,6 +95,7 @@ export default function SureShotExamSystem({
   onSwitchToBoard, 
   siteSettings, 
   customExamBatches = null,
+  courses = null,
   isFromBundle = false,
   onBackToBundle = null,
   onLoginClick = null
@@ -103,6 +104,23 @@ export default function SureShotExamSystem({
   const categoriesMetadata = (customExamBatches && customExamBatches.length > 0)
     ? customExamBatches
     : EXAM_CATEGORIES_METADATA;
+
+  const isCategoryActive = useCallback((cat) => {
+    if (!cat) return false;
+    if (cat.isHidden) return false;
+    if (cat.isActive === false) return false;
+    if (Array.isArray(courses) && courses.length > 0) {
+      const match = courses.find(c =>
+        (c.key && cat.key && c.key === cat.key) ||
+        (c.id && cat.key && c.id === cat.key) ||
+        (c.slug && cat.key && c.slug === cat.key) ||
+        (c.id && cat.id && c.id === cat.id) ||
+        (c.title && cat.title && c.title.trim().toLowerCase() === cat.title.trim().toLowerCase())
+      );
+      if (match && match.isActive === false) return false;
+    }
+    return true;
+  }, [courses]);
 
   const isCourseQuiz = Boolean(
     isCourseQuizProp ||
@@ -1073,6 +1091,25 @@ export default function SureShotExamSystem({
     const detailToUse = selectedCategoryDetail || 
       categoriesMetadata.find(c => c.key === selectedCategory) || 
       categoriesMetadata[0];
+
+    if (detailToUse && !isCategoryActive(detailToUse)) {
+      return (
+        <div className={`min-h-screen py-16 px-4 text-center ${isDark ? 'text-white' : 'text-slate-800'}`}>
+          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center">
+            <span className="text-3xl">⚠️</span>
+          </div>
+          <h2 className="text-xl font-bold mb-2">এই এক্সাম ব্যাচটি বর্তমানে নিষ্ক্রিয়</h2>
+          <p className="text-sm text-gray-400 mb-6">এডমিন কর্তৃক এই এক্সাম ব্যাচটি সাময়িকভাবে বন্ধ রাখা হয়েছে।</p>
+          <button
+            onClick={() => updateExamStep('category_cards')}
+            className="px-6 py-2.5 rounded-full bg-[#dc2626] text-white text-sm font-bold shadow-md hover:bg-red-700 transition-colors border-none cursor-pointer"
+          >
+            ← এক্সাম তালিকায় ফিরে যান
+          </button>
+        </div>
+      );
+    }
+
     const isEnrolled = isBatchEnrolled(detailToUse?.key);
     const categoryExams = allExams.filter(c => c.category === detailToUse?.key);
     let examsForDetail = categoryExams.length > 0 
@@ -1143,7 +1180,7 @@ export default function SureShotExamSystem({
   // VIEW 1: CATEGORY CARDS VIEW (Exact Match to User Reference Mockup)
   // -------------------------------------------------------------
   if (step === 'category_cards' || step === 'course_card') {
-    const filteredCategories = categoriesMetadata.filter(c => !c.isHidden && c.isActive !== false);
+    const filteredCategories = categoriesMetadata.filter(c => isCategoryActive(c));
 
     return (
       <div className={`min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans transition-colors duration-300 ${
@@ -1162,7 +1199,8 @@ export default function SureShotExamSystem({
 
           {/* Cards Grid: 3 Column Responsive Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCategories.map((cat) => (
+            {filteredCategories.length > 0 ? (
+              filteredCategories.map((cat) => (
               <div 
                 key={cat.key}
                 onClick={() => {
@@ -1283,7 +1321,20 @@ export default function SureShotExamSystem({
                   </div>
                 </div>
               </div>
-            ))}
+            ))
+          ) : (
+            <div className="col-span-full py-16 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center">
+                <span className="text-3xl">📝</span>
+              </div>
+              <p className={`text-base font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+                বর্তমানে কোনো সক্রিয় এক্সাম ব্যাচ নেই
+              </p>
+              <p className="text-xs text-gray-400 mt-1">
+                শীঘ্রই নতুন আকর্ষণীয় এক্সাম ব্যাচ উন্মুক্ত করা হবে।
+              </p>
+            </div>
+          )}
           </div>
         </div>
 

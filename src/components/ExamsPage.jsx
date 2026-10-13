@@ -78,6 +78,7 @@ export default function ExamsPage({
             })()}
             siteSettings={siteSettings}
             customExamBatches={data?.examBatches}
+            courses={data?.courses}
             isFromBundle={isFromBundle}
             onBackToBundle={onBackToBundle}
             onLoginClick={onLoginClick}

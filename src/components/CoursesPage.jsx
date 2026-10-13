@@ -73,6 +73,18 @@ export default function CoursesPage({
 
   const displayedExamBatches = allExamBatches.filter(cat => {
     if (cat.isHidden) return false;
+    if (cat.isActive === false) return false;
+    // Cross check with courses
+    const matchingCourse = courses.find(c =>
+      (c.key && cat.key && c.key === cat.key) ||
+      (c.id && cat.key && c.id === cat.key) ||
+      (c.slug && cat.key && c.slug === cat.key) ||
+      (c.id && cat.id && c.id === cat.id) ||
+      (c.title && cat.title && c.title.trim().toLowerCase() === cat.title.trim().toLowerCase())
+    );
+    if (matchingCourse && matchingCourse.isActive === false) {
+      return false;
+    }
     if (!searchQuery.trim()) return true;
     const q = searchQuery.toLowerCase().trim();
     return (cat.title || '').toLowerCase().includes(q) ||
@@ -104,6 +116,17 @@ export default function CoursesPage({
   // Filter courses by search query and category
   const filteredCourses = courses.filter(c => {
     if (c.isActive === false) return false;
+    if (c.isExamBatch || c.category === 'EXAM BATCH') {
+      const matchingBatch = allExamBatches.find(b => 
+        (b.key && c.key && b.key === c.key) ||
+        (b.key && c.id && b.key === c.id) ||
+        (b.id && c.id && b.id === c.id) ||
+        (b.title && c.title && b.title.trim().toLowerCase() === c.title.trim().toLowerCase())
+      );
+      if (matchingBatch && (matchingBatch.isActive === false || matchingBatch.isHidden)) {
+        return false;
+      }
+    }
     const isFreeFilter = selectedCategory === 'Free' || selectedCategory?.toLowerCase() === 'free';
     const isMedicalFilter = selectedCategory === 'Medical' || selectedCategory?.toLowerCase() === 'medical';
     const isExamFilter = selectedCategory === 'EXAM BATCH' || selectedCategory?.toLowerCase() === 'exam batch';
@@ -375,7 +398,8 @@ export default function CoursesPage({
                 </div>
               )
             ) : isExamBatch ? (
-              displayedExamBatches.map((cat) => (
+              displayedExamBatches.length > 0 ? (
+                displayedExamBatches.map((cat) => (
                 <div 
                   key={cat.key}
                   onClick={() => onNavigateExams && onNavigateExams(cat.key)}
@@ -480,7 +504,20 @@ export default function CoursesPage({
                   </div>
                 </div>
               ))
-            ) : filteredCourses.length > 0 ? (
+            ) : (
+              <div className="col-span-full py-16 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center">
+                  <span className="text-3xl">📝</span>
+                </div>
+                <p className={`text-base font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+                  {searchQuery.trim() ? 'কোনো এক্সাম ব্যাচ খুঁজে পাওয়া যায়নি' : 'বর্তমানে কোনো সক্রিয় এক্সাম ব্যাচ নেই'}
+                </p>
+                <p className="text-xs text-gray-400 mt-1">
+                  {searchQuery.trim() ? 'ভিন্ন শব্দ দিয়ে অনুসন্ধান করার চেষ্টা করুন।' : 'শীঘ্রই নতুন আকর্ষণীয় এক্সাম ব্যাচ উন্মুক্ত করা হবে।'}
+                </p>
+              </div>
+            )
+          ) : filteredCourses.length > 0 ? (
               filteredCourses.map((c) => (
                 <div 
                   key={c.id}

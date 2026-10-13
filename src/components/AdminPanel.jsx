@@ -895,7 +895,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const currentCourses = overrides.courses !== undefined ? overrides.courses : courses;
     const currentBatches = overrides.examBatches !== undefined ? overrides.examBatches : (data?.examBatches || initialData.examBatches || []);
     const syncedBatches = currentBatches.map(b => {
-      const match = currentCourses.find(c => (c.key === b.key || c.id === b.key || c.slug === b.key));
+      const match = currentCourses.find(c => 
+        (c.key && b.key && c.key === b.key) ||
+        (c.id && b.key && c.id === b.key) ||
+        (c.slug && b.key && c.slug === b.key) ||
+        (c.id && b.id && c.id === b.id) ||
+        (c.title && b.title && c.title.trim().toLowerCase() === b.title.trim().toLowerCase())
+      );
       if (match) {
         return {
           ...b,
@@ -1556,11 +1562,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const updated = courses.map((c, i) => {
       const isMatch = (targetCourse.id && c.id && targetCourse.id === c.id) ||
                       (targetCourse.slug && c.slug && targetCourse.slug === c.slug) ||
+                      (targetCourse.key && c.key && targetCourse.key === c.key) ||
+                      (targetCourse.title && c.title && targetCourse.title.trim().toLowerCase() === c.title.trim().toLowerCase()) ||
                       (i === targetIdx);
       return isMatch ? { ...c, isActive: nextActive } : c;
     });
     setCourses(updated);
-    persistAll({ courses: updated });
+
+    const currentBatches = (data?.examBatches && data.examBatches.length > 0) ? data.examBatches : (initialData.examBatches || EXAM_CATEGORIES_METADATA);
+    const updatedBatches = currentBatches.map(b => {
+      const isMatch = (targetCourse.key && b.key && targetCourse.key === b.key) ||
+                      (targetCourse.id && b.key && targetCourse.id === b.key) ||
+                      (targetCourse.id && b.id && targetCourse.id === b.id) ||
+                      (targetCourse.slug && b.key && targetCourse.slug === b.key) ||
+                      (targetCourse.title && b.title && targetCourse.title.trim().toLowerCase() === b.title.trim().toLowerCase());
+      return isMatch ? { ...b, isActive: nextActive } : b;
+    });
+
+    persistAll({ courses: updated, examBatches: updatedBatches });
     triggerToast(nextActive ? `🟢 "${targetCourse.title}" Activated` : `⚪ "${targetCourse.title}" Deactivated`);
   };
 

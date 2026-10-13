@@ -280,9 +280,46 @@ export default function HomePage({
 
   const isExamBatch = selectedCategory === "EXAM BATCH" || selectedCategory.toLowerCase() === "exam batch";
 
+  const activeExamBatches = React.useMemo(() => {
+    const rawBatches = Array.isArray(data?.examBatches) && data.examBatches.length > 0
+      ? data.examBatches
+      : EXAM_CATEGORIES_METADATA;
+
+    return rawBatches.filter(batch => {
+      if (batch.isHidden) return false;
+      if (batch.isActive === false) return false;
+      // Cross check with homeCourses
+      const matchingCourse = homeCourses.find(c => 
+        (c.key && batch.key && c.key === batch.key) ||
+        (c.id && batch.key && c.id === batch.key) ||
+        (c.slug && batch.key && c.slug === batch.key) ||
+        (c.id && batch.id && c.id === batch.id) ||
+        (c.title && batch.title && c.title.trim().toLowerCase() === batch.title.trim().toLowerCase())
+      );
+      if (matchingCourse && matchingCourse.isActive === false) {
+        return false;
+      }
+      return true;
+    });
+  }, [data?.examBatches, homeCourses]);
+
   const filteredCourses = homeCourses
     .filter(course => !isZenithCopiedCourse(course))
-    .filter(course => course.isActive !== false)
+    .filter(course => {
+      if (course.isActive === false) return false;
+      if (course.isExamBatch || course.category === 'EXAM BATCH') {
+        const matchingBatch = (data?.examBatches || []).find(b => 
+          (b.key && course.key && b.key === course.key) ||
+          (b.key && course.id && b.key === course.id) ||
+          (b.id && course.id && b.id === course.id) ||
+          (b.title && course.title && b.title.trim().toLowerCase() === course.title.trim().toLowerCase())
+        );
+        if (matchingBatch && (matchingBatch.isActive === false || matchingBatch.isHidden)) {
+          return false;
+        }
+      }
+      return true;
+    })
     .filter(course => {
       if (selectedCategory === "সকল") return true;
       if (selectedCategory.toLowerCase() === "free") {
@@ -630,109 +667,123 @@ export default function HomePage({
                 </div>
               )
             ) : isExamBatch ? (
-              ((data?.examBatches && data.examBatches.length > 0 ? data.examBatches : EXAM_CATEGORIES_METADATA).filter(b => !b.isHidden)).map((cat) => (
-                <div 
-                  key={cat.key}
-                  onClick={() => onNavigateExams && onNavigateExams(cat.key)}
-                  className={`rounded-2xl overflow-hidden flex flex-col group cursor-pointer transition-all ${
-                    isDark 
-                      ? 'bg-[#140306] shadow-[0_12px_35px_rgba(0,0,0,0.7)] border border-[#e11438]/20 hover:border-[#e11438]/45 hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)] text-white' 
-                      : 'bg-white shadow-sm border border-[#e5e7eb] hover:shadow-xl hover:border-red-200 text-[#111827]'
-                  }`}
-                >
-                  {/* Thumbnail */}
-                  <div className={`aspect-video overflow-hidden relative ${isDark ? 'bg-black/60' : 'bg-gray-100'}`}>
-                    <img 
-                      src={cat.image} 
-                      alt={cat.title} 
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "/sureshot_banner.jpg";
-                      }}
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
-                    />
-                    <span className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wide px-2.5 py-0.5 rounded-full ${
-                      isDark ? 'bg-black/75 text-white/90 border border-white/15 backdrop-blur-xs' : 'bg-[#dc2626] text-white shadow-sm'
-                    }`}>
-                      EXAM BATCH
-                    </span>
-                    {cat.ribbonText && (
-                      <span className="absolute top-3 right-3 text-[10px] font-bold tracking-wide px-2 py-0.5 rounded-full bg-black/75 text-white/95 backdrop-blur-xs">
-                        {cat.ribbonText}
+              activeExamBatches.length > 0 ? (
+                activeExamBatches.map((cat) => (
+                  <div 
+                    key={cat.key}
+                    onClick={() => onNavigateExams && onNavigateExams(cat.key)}
+                    className={`rounded-2xl overflow-hidden flex flex-col group cursor-pointer transition-all ${
+                      isDark 
+                        ? 'bg-[#140306] shadow-[0_12px_35px_rgba(0,0,0,0.7)] border border-[#e11438]/20 hover:border-[#e11438]/45 hover:shadow-[0_16px_40px_rgba(225,20,56,0.12)] text-white' 
+                        : 'bg-white shadow-sm border border-[#e5e7eb] hover:shadow-xl hover:border-red-200 text-[#111827]'
+                    }`}
+                  >
+                    {/* Thumbnail */}
+                    <div className={`aspect-video overflow-hidden relative ${isDark ? 'bg-black/60' : 'bg-gray-100'}`}>
+                      <img 
+                        src={cat.image} 
+                        alt={cat.title} 
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "/sureshot_banner.jpg";
+                        }}
+                        className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+                      />
+                      <span className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wide px-2.5 py-0.5 rounded-full ${
+                        isDark ? 'bg-black/75 text-white/90 border border-white/15 backdrop-blur-xs' : 'bg-[#dc2626] text-white shadow-sm'
+                      }`}>
+                        EXAM BATCH
                       </span>
-                    )}
-                  </div>
-
-                  {/* Details */}
-                  <div className="p-4 flex flex-col flex-1">
-                    <div className="flex items-center gap-2 mb-1.5 text-xs text-gray-400">
-                      <span className="font-semibold text-gray-300 dark:text-gray-300">{cat.examCountText || `${cat.examCount}টি এক্সাম`}</span>
-                      <span>•</span>
-                      <span>{cat.questionCount}</span>
-                      {cat.enrolledCount && (
-                        <>
-                          <span>•</span>
-                          <span>{cat.enrolledCount} এনরোল্ড</span>
-                        </>
+                      {cat.ribbonText && (
+                        <span className="absolute top-3 right-3 text-[10px] font-bold tracking-wide px-2 py-0.5 rounded-full bg-black/75 text-white/95 backdrop-blur-xs">
+                          {cat.ribbonText}
+                        </span>
                       )}
                     </div>
 
-                    <h3 className={`font-bold mb-1.5 line-clamp-2 transition-colors text-base leading-snug ${
-                      isDark ? 'text-white group-hover:text-gray-200' : 'text-[#111827] group-hover:text-[#dc2626]'
-                    }`}>
-                      {cat.title}
-                    </h3>
-                    <p className={`text-xs mb-3 line-clamp-2 leading-relaxed ${isDark ? 'text-gray-400' : 'text-[#4b5563]'}`}>
-                      {cat.subtitle || cat.badge}
-                    </p>
-
-                    <div className={`mt-auto flex items-end justify-between gap-2 pt-3 border-t ${
-                      isDark ? 'border-white/[0.08]' : 'border-gray-100'
-                    }`}>
-                      <div>
-                        <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mb-0.5">
-                          কোর্সের মূল্য
-                        </p>
-                        <div className="flex items-center gap-2">
-                          <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
-                            ৳ {cat.price || '৩৯৯'}
-                          </span>
-                          {cat.originalPrice && (
-                            <span className="text-xs sm:text-sm text-gray-400 line-through font-medium">
-                              ৳{cat.originalPrice}
-                            </span>
-                          )}
-                        </div>
+                    {/* Details */}
+                    <div className="p-4 flex flex-col flex-1">
+                      <div className="flex items-center gap-2 mb-1.5 text-xs text-gray-400">
+                        <span className="font-semibold text-gray-300 dark:text-gray-300">{cat.examCountText || `${cat.examCount}টি এক্সাম`}</span>
+                        <span>•</span>
+                        <span>{cat.questionCount}</span>
+                        {cat.enrolledCount && (
+                          <>
+                            <span>•</span>
+                            <span>{cat.enrolledCount} এনরোল্ড</span>
+                          </>
+                        )}
                       </div>
-                      
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onNavigateExams && onNavigateExams(cat.key);
-                        }}
-                        className={`text-sm sm:text-base font-bold ${
-                          isDark 
-                            ? 'text-white hover:text-gray-300' 
-                            : 'text-[#dc2626] hover:text-[#b91c1c]'
-                        } bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 leading-none group/btn`}
-                      >
-                        <span className="leading-none">বিস্তারিত</span>
-                        <svg 
-                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-current transition-transform duration-200 group-hover/btn:translate-x-0.5 shrink-0" 
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="2.8" 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round"
+
+                      <h3 className={`font-bold mb-1.5 line-clamp-2 transition-colors text-base leading-snug ${
+                        isDark ? 'text-white group-hover:text-gray-200' : 'text-[#111827] group-hover:text-[#dc2626]'
+                      }`}>
+                        {cat.title}
+                      </h3>
+                      <p className={`text-xs mb-3 line-clamp-2 leading-relaxed ${isDark ? 'text-gray-400' : 'text-[#4b5563]'}`}>
+                        {cat.subtitle || cat.badge}
+                      </p>
+
+                      <div className={`mt-auto flex items-end justify-between gap-2 pt-3 border-t ${
+                        isDark ? 'border-white/[0.08]' : 'border-gray-100'
+                      }`}>
+                        <div>
+                          <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mb-0.5">
+                            কোর্সের মূল্য
+                          </p>
+                          <div className="flex items-center gap-2">
+                            <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#dc2626]'}`}>
+                              ৳ {cat.price || '৩৯৯'}
+                            </span>
+                            {cat.originalPrice && (
+                              <span className="text-xs sm:text-sm text-gray-400 line-through font-medium">
+                                ৳{cat.originalPrice}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onNavigateExams && onNavigateExams(cat.key);
+                          }}
+                          className={`text-sm sm:text-base font-bold ${
+                            isDark 
+                              ? 'text-white hover:text-gray-300' 
+                              : 'text-[#dc2626] hover:text-[#b91c1c]'
+                          } bg-transparent border-none p-0 cursor-pointer inline-flex items-center gap-1 transition-colors shrink-0 leading-none group/btn`}
                         >
-                          <path d="m9 18 6-6-6-6" />
-                        </svg>
-                      </button>
+                          <span className="leading-none">বিস্তারিত</span>
+                          <svg 
+                            className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-current transition-transform duration-200 group-hover/btn:translate-x-0.5 shrink-0" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2.8" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                          >
+                            <path d="m9 18 6-6-6-6" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
+                ))
+              ) : (
+                <div className="col-span-full py-16 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center">
+                    <span className="text-3xl">📝</span>
+                  </div>
+                  <p className={`text-base font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+                    বর্তমানে কোনো সক্রিয় এক্সাম ব্যাচ নেই
+                  </p>
+                  <p className="text-xs text-gray-400 mt-1">
+                    শীঘ্রই নতুন আকর্ষণীয় এক্সাম ব্যাচ উন্মুক্ত করা হবে।
+                  </p>
                 </div>
-              ))
+              )
             ) : filteredCourses.length > 0 ? (
               filteredCourses.map((c) => (
                 <div 
