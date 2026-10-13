@@ -30,9 +30,15 @@ export async function fetchCloudData() {
 export async function saveCloudData(newData) {
   if (!isFirebaseConfigured || !db || !newData) return false;
   try {
+    // Sanitize to clean JSON to prevent Firestore throwing on undefined fields
+    const sanitized = JSON.parse(JSON.stringify(newData, (key, value) => {
+      if (value === undefined) return null;
+      return value;
+    }));
+
     const docRef = doc(db, COLLECTION_NAME, DOC_ID);
     await setDoc(docRef, {
-      ...newData,
+      ...sanitized,
       _lastUpdated: new Date().toISOString()
     }, { merge: true });
     return true;

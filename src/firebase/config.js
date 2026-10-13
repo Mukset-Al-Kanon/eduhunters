@@ -4,12 +4,13 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyBOA7g2QOdCrYqEtmfEiPGdWluHMfNecdk',
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'edu-hunters-a240d.firebaseapp.com',
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || 'edu-hunters-a240d',
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'edu-hunters-a240d.firebasestorage.app',
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '1000542546647',
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || '1:1000542546647:web:6e59db5334dd57dc649e92',
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || 'G-4QGTGM7PY4'
 };
 
 // Check if valid Firebase configuration is provided in .env

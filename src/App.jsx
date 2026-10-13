@@ -507,6 +507,19 @@ export default function App() {
 
   // Real-time synchronization listener: Local tabs + Cloud Firestore
   useEffect(() => {
+    // 0. Immediately fetch cloud data on cold start
+    fetchCloudData().then((cloudData) => {
+      if (cloudData) {
+        setData(prev => {
+          const merged = { ...prev, ...cloudData };
+          try {
+            localStorage.setItem('eduhunters_data', JSON.stringify(merged));
+          } catch (e) {}
+          return merged;
+        });
+      }
+    }).catch(() => {});
+
     // 1. Listen for real-time Cloud Firestore updates (across all devices & live vs local)
     const unsubscribeCloud = subscribeToCloudData((cloudData) => {
       if (cloudData) {

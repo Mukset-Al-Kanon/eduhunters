@@ -99,9 +99,9 @@ export async function sendVerificationOTP(email, userName = 'Student') {
   saveStoredRecord(normalizedEmail, record);
 
   // Check if EmailJS or custom email provider is configured in environment
-  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_lkisy77';
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_8vss8gb';
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'fKOJab5Prj6YcYXoO';
 
   if (serviceId && templateId && publicKey) {
     try {
