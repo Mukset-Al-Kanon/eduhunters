@@ -441,12 +441,12 @@ export default function BundleDetailPage({
                   }`}>
                     <span className="text-gray-400">হেল্প ও সাপোর্ট (WhatsApp):</span>
                     <a 
-                      href={`https://wa.me/88${(siteSettings.contactPhone || siteSettings.phone || '01353828863').replace(/[^0-9]/g, '').replace(/^88/, '')}`}
+                      href={`https://wa.me/88${(siteSettings.whatsappNumber || siteSettings.contactPhone || siteSettings.phone || '01353828863').replace(/[^0-9]/g, '').replace(/^88/, '')}`}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-1.5 font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
                     >
-                      <span>{siteSettings.contactPhone || siteSettings.phone || '01353828863'}</span>
+                      <span>{siteSettings.whatsappNumber || siteSettings.contactPhone || siteSettings.phone || '01353828863'}</span>
                     </a>
                   </div>
 

@@ -34,10 +34,9 @@ import { useEnrollmentStatus, grantCourseAccess } from '../utils/enrollmentServi
 
 function getEmbedUrl(url) {
   if (!url) return '';
-  if (url.includes('youtube.com/embed/') || url.includes('youtube-nocookie.com/embed/')) return url;
   const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
   if (match && match[1]) {
-    return `https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1&rel=0`;
+    return `https://www.youtube.com/embed/${match[1]}?rel=0&playsinline=1&enablejsapi=1`;
   }
   return url;
 }
@@ -411,24 +410,30 @@ export default function BiologyCoursePage({
               </div>
 
               <div className="pt-1">
-                <a 
-                  href={`https://wa.me/88${((course.supportPhone && !course.supportPhone.includes('1700') && !course.supportPhone.includes('1321228612')) ? course.supportPhone : ((siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700')) ? siteSettings.contactPhone : '01353828863')).replace(/[^0-9]/g, '').replace(/^88/, '') || '01353828863'}`} 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className={`flex items-center justify-center sm:justify-start gap-3 rounded-2xl px-4 py-3 transition-all text-decoration-none group cursor-pointer border ${
-                    isDark 
-                      ? 'border-emerald-500/30 bg-[#06180f] hover:bg-[#0b2417]' 
-                      : 'border-emerald-200/80 bg-emerald-50/60 hover:bg-emerald-100/80'
-                  }`}
-                >
-                  <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <MessageCircle className="w-4 h-4 text-emerald-600" />
-                  </div>
-                  <div className="text-left">
-                    <span className="block text-sm font-black text-emerald-600 leading-tight">WhatsApp এ মেসেজ করুন</span>
-                    <span className="block text-[11px] text-gray-500 font-medium">01353828863 (দ্রুত উত্তর পাবেন)</span>
-                  </div>
-                </a>
+                {(() => {
+                  const activeWa = siteSettings?.whatsappNumber || ((course.supportPhone && !course.supportPhone.includes('1700') && !course.supportPhone.includes('1321228612')) ? course.supportPhone : ((siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700')) ? siteSettings.contactPhone : '01353828863'));
+                  const cleanWa = activeWa.replace(/[^0-9]/g, '').replace(/^88/, '') || '01353828863';
+                  return (
+                    <a 
+                      href={`https://wa.me/88${cleanWa}`} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className={`flex items-center justify-center sm:justify-start gap-3 rounded-2xl px-4 py-3 transition-all text-decoration-none group cursor-pointer border ${
+                        isDark 
+                          ? 'border-emerald-500/30 bg-[#06180f] hover:bg-[#0b2417]' 
+                          : 'border-emerald-200/80 bg-emerald-50/60 hover:bg-emerald-100/80'
+                      }`}
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <MessageCircle className="w-4 h-4 text-emerald-600" />
+                      </div>
+                      <div className="text-left">
+                        <span className="block text-sm font-black text-emerald-600 leading-tight">WhatsApp এ মেসেজ করুন</span>
+                        <span className="block text-[11px] text-gray-500 font-medium">{activeWa} (দ্রুত উত্তর পাবেন)</span>
+                      </div>
+                    </a>
+                  );
+                })()}
               </div>
             </div>
 
@@ -642,6 +647,18 @@ export default function BiologyCoursePage({
                         <Play className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
                         ফ্রি ক্লাস শুরু করুন
                       </button>
+                    ) : course.isActive === false ? (
+                      <div className="space-y-2">
+                        <button 
+                          disabled
+                          className="flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-bold text-base rounded-xl border border-slate-300 dark:border-slate-700 cursor-not-allowed select-none"
+                        >
+                          ভর্তি সাময়িকভাবে বন্ধ আছে
+                        </button>
+                        <p className="text-[11px] text-center text-slate-400">
+                          এই কোর্সটিতে বর্তমানে নতুন ভর্তি কার্যক্রম স্থগিত রয়েছে।
+                        </p>
+                      </div>
                     ) : (
                       <button 
                         onClick={handleOpenCheckout}

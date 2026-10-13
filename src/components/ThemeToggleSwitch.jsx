@@ -10,8 +10,8 @@ export default function ThemeToggleSwitch({ className = '', id = 'theme-toggle-s
       type="button"
       role="switch"
       aria-checked={isDark}
-      aria-label={isDark ? "লাইট মোডে পরিবর্তন করুন" : "ডার্ক মোডে পরিবর্তন করুন"}
-      title={isDark ? "লাইট মোডে পরিবর্তন করুন" : "ডার্ক মোডে পরিবর্তন করুন"}
+      aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
       onClick={toggleTheme}
       className={`group relative inline-flex items-center w-[56px] h-[28px] p-[3px] rounded-full transition-all duration-500 cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-[#e11438]/80 hover:scale-[1.05] active:scale-[0.95] shrink-0 ${
         isDark

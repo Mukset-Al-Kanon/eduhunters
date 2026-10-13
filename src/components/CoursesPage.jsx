@@ -103,6 +103,7 @@ export default function CoursesPage({
 
   // Filter courses by search query and category
   const filteredCourses = courses.filter(c => {
+    if (c.isActive === false) return false;
     const isFreeFilter = selectedCategory === 'Free' || selectedCategory?.toLowerCase() === 'free';
     const isMedicalFilter = selectedCategory === 'Medical' || selectedCategory?.toLowerCase() === 'medical';
     const isExamFilter = selectedCategory === 'EXAM BATCH' || selectedCategory?.toLowerCase() === 'exam batch';

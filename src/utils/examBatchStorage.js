@@ -350,20 +350,28 @@ function parseSingleBlock(blockLines, questionNo) {
   let correctIndex = 0;
   let explanation = '';
 
-  const optRegex = /^([a-dA-Dকখগঘ1-4])[).:-]\s*(.*)$|^[([]([a-dA-Dকখগঘ1-4])[)\]]\s*(.*)$/;
+  const optRegex = /^(?:Option\s*([a-dA-D1-4])[:.\s]|([a-dA-Dকখগঘ1-4])[).:-]|[([]([a-dA-Dকখগঘ1-4])[)\]])\s*(.*)$/i;
   const ansRegex = /^(?:Ans|Answer|উত্তর|সঠিক|Correct)[\s:-]+([a-dA-Dকখগঘ1-4])/i;
   const expRegex = /^(?:Explanation|Expl|ব্যাখ্যা|রেফারেন্স)[\s:-]+(.*)$/i;
 
-  let inQuestion = true;
+  let hasQuestion = false;
 
-  for (const rawLine of blockLines) {
+  for (let idx = 0; idx < blockLines.length; idx++) {
+    const rawLine = blockLines[idx];
     const line = rawLine.trim();
     if (!line) continue;
+
+    // First non-empty line of the block is ALWAYS the question
+    if (!hasQuestion) {
+      const cleanQ = line.replace(/^(\d+|[০-৯]+)[.)]\s+|^[Qq]\d+[:.]\s+|^প্রশ্ন\s*(\d+|[০-৯]+)[:.]\s+/, '').trim();
+      questionText = cleanQ || line;
+      hasQuestion = true;
+      continue;
+    }
 
     // Check Answer line
     const ansMatch = line.match(ansRegex);
     if (ansMatch) {
-      inQuestion = false;
       const ansChar = ansMatch[1].trim().toUpperCase();
       if (['A', '1', 'ক'].includes(ansChar)) correctIndex = 0;
       else if (['B', '2', 'খ'].includes(ansChar)) correctIndex = 1;
@@ -375,7 +383,6 @@ function parseSingleBlock(blockLines, questionNo) {
     // Check Explanation line
     const expMatch = line.match(expRegex);
     if (expMatch) {
-      inQuestion = false;
       explanation = expMatch[1].trim();
       continue;
     }
@@ -383,25 +390,22 @@ function parseSingleBlock(blockLines, questionNo) {
     // Check Option line
     const optMatch = line.match(optRegex);
     if (optMatch && options.length < 4) {
-      inQuestion = false;
-      const optVal = (optMatch[2] || optMatch[4] || '').trim();
-      options.push(optVal || 'অপশন');
+      const optVal = (optMatch[4] || optMatch[2] || '').trim();
+      options.push(optVal || 'Option');
       continue;
     }
 
-    // If still in question text, or multi-line question
-    if (inQuestion) {
-      // Clean leading number if present
-      const cleanQ = line.replace(/^(\d+|[০-৯]+)[.)]\s+|^[Qq]\d+[:.]\s+|^প্রশ্ন\s*(\d+|[০-৯]+)[:.]\s+/, '');
-      questionText = questionText ? `${questionText} ${cleanQ}` : cleanQ;
+    // If options are still not started, append to question (multi-line question)
+    if (options.length === 0) {
+      questionText = `${questionText} ${line}`;
     } else if (explanation) {
-      explanation += ` ${line}`;
+      explanation = `${explanation} ${line}`;
     }
   }
 
   // Ensure 4 options
   while (options.length < 4) {
-    const labels = ['অপশন ক', 'অপশন খ', 'অপশন গ', 'অপশন ঘ'];
+    const labels = ['Option A', 'Option B', 'Option C', 'Option D'];
     options.push(labels[options.length]);
   }
 
@@ -415,6 +419,7 @@ function parseSingleBlock(blockLines, questionNo) {
     question: questionText.trim(),
     options: options.slice(0, 4),
     correct_index: correctIndex,
+    correctAnswer: correctIndex,
     correct_answer: letterLabels[correctIndex] || 'A',
     explanation: explanation.trim(),
     images: []

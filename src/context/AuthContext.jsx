@@ -40,14 +40,26 @@ export function formatAuthError(error) {
     case 'auth/weak-password':
       return 'Password is too weak. Please enter at least 6 characters.';
     case 'auth/user-not-found':
-      return 'No account found with this email. Please sign up first.';
+      return 'No account found with this email. Please check your email or sign up.';
     case 'auth/wrong-password':
     case 'auth/invalid-credential':
       return 'Incorrect email or password. Please verify and try again.';
     case 'auth/popup-closed-by-user':
       return 'Google sign-in window was closed.';
     case 'auth/popup-blocked':
-      return 'Browser blocked the popup window. Please allow popups.';
+      return 'Browser blocked the popup window. Please allow popups for this site.';
+    case 'auth/cancelled-popup-request':
+      return 'Only one sign-in window can be open at a time.';
+    case 'auth/unauthorized-domain':
+      return 'This website domain is not authorized yet in Firebase Console. Please add this domain under Firebase Authentication > Settings > Authorized domains.';
+    case 'auth/operation-not-allowed':
+      return 'This sign-in method is currently not enabled in Firebase Console. Please enable it in Authentication settings.';
+    case 'auth/account-exists-with-different-credential':
+      return 'An account already exists with this email using a different sign-in method.';
+    case 'auth/expired-action-code':
+      return 'This password reset link has expired. Please request a new one.';
+    case 'auth/invalid-action-code':
+      return 'This password reset link is invalid or has already been used.';
     case 'auth/too-many-requests':
       return 'Too many failed attempts. Please try again in a few moments.';
     case 'auth/network-request-failed':
@@ -208,43 +220,42 @@ export function AuthProvider({ children }) {
     const cleanEmail = (email || '').trim().toLowerCase();
     const cleanPass = (password || '').trim();
 
-    // 1. Built-in Demo Student credentials
-    if (
-      (cleanEmail === 'demo@eduhunters.com' || cleanEmail === 'student@eduhunters.com') && 
-      (cleanPass === '123456' || cleanPass === 'demo123')
-    ) {
-      const demoUser = {
-        uid: 'demo_student_01',
-        email: cleanEmail,
-        displayName: 'Demo Student',
-        photoURL: '/avatar.png',
-        role: 'student'
-      };
-      localStorage.setItem('eh_current_user', JSON.stringify(demoUser));
-      setCurrentUser(demoUser);
-      return demoUser;
-    }
-
-    // 2. Built-in Demo Admin credentials
-    if (cleanEmail === 'admin@eduhunters.com' && (cleanPass === 'admin123' || cleanPass === '123456')) {
-      const adminUser = {
-        uid: 'admin_master',
-        email: 'admin@eduhunters.com',
-        displayName: 'Edu Hunters Admin',
-        photoURL: '/avatar.png',
-        role: 'admin'
-      };
-      localStorage.setItem('eh_current_user', JSON.stringify(adminUser));
-      setCurrentUser(adminUser);
-      return adminUser;
-    }
-
     if (isFirebaseConfigured && auth) {
-      const res = await signInWithEmailAndPassword(auth, email, password);
-      await syncUserToFirestore(res.user);
-      return res.user;
+      try {
+        const res = await signInWithEmailAndPassword(auth, email, password);
+        await syncUserToFirestore(res.user);
+        return res.user;
+      } catch (err) {
+        // Fallback for master administrator demo login if Firebase admin account isn't seeded yet
+        if (cleanEmail === 'admin@eduhunters.com' && (cleanPass === 'admin123' || cleanPass === '123456')) {
+          const adminUser = {
+            uid: 'admin_master',
+            email: 'admin@eduhunters.com',
+            displayName: 'Edu Hunters Admin',
+            photoURL: '/avatar.png',
+            role: 'admin'
+          };
+          localStorage.setItem('eh_current_user', JSON.stringify(adminUser));
+          setCurrentUser(adminUser);
+          return adminUser;
+        }
+        throw err;
+      }
     } else {
-      // Demo Mode Login
+      // Offline / Local Demo Mode Login
+      if (cleanEmail === 'admin@eduhunters.com' && (cleanPass === 'admin123' || cleanPass === '123456')) {
+        const adminUser = {
+          uid: 'admin_master',
+          email: 'admin@eduhunters.com',
+          displayName: 'Edu Hunters Admin',
+          photoURL: '/avatar.png',
+          role: 'admin'
+        };
+        localStorage.setItem('eh_current_user', JSON.stringify(adminUser));
+        setCurrentUser(adminUser);
+        return adminUser;
+      }
+
       const mockUsers = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
       const found = mockUsers.find(
         u => u.email.toLowerCase() === cleanEmail && u.password === cleanPass

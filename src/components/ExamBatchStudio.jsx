@@ -910,6 +910,35 @@ export default function ExamBatchStudio({
                     {course.badge}
                   </span>
                 )}
+
+                {/* Minimal Active/Inactive Toggle Switch */}
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={course.isActive !== false}
+                  onClick={() => {
+                    const nextActive = course.isActive === false ? true : false;
+                    handleUpdateField('isActive', nextActive);
+                    if (triggerToast) {
+                      triggerToast(nextActive ? `🟢 "${course.title}" Activated` : `⚪ "${course.title}" Deactivated`);
+                    }
+                  }}
+                  className="inline-flex items-center gap-1.5 cursor-pointer border border-slate-200/80 bg-slate-50 hover:bg-slate-100 px-2.5 py-0.5 rounded-lg select-none transition-colors"
+                  title={course.isActive !== false ? 'Active (Click to deactivate)' : 'Inactive (Click to activate)'}
+                >
+                  <span className={`text-[11px] font-bold ${course.isActive !== false ? 'text-emerald-600' : 'text-slate-400'}`}>
+                    {course.isActive !== false ? 'Active' : 'Inactive'}
+                  </span>
+                  <span className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors duration-200 ease-in-out ${
+                    course.isActive !== false ? 'bg-emerald-500' : 'bg-slate-300'
+                  }`}>
+                    <span
+                      className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-sm transition duration-200 ease-in-out ${
+                        course.isActive !== false ? 'translate-x-4' : 'translate-x-0'
+                      }`}
+                    />
+                  </span>
+                </button>
               </div>
               <h2 className="text-base sm:text-lg font-black text-slate-900 leading-snug line-clamp-1">
                 {course.title}

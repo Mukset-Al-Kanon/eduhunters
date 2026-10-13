@@ -17,6 +17,18 @@ export default defineConfig({
         '**/exams_data/**',
       ],
     },
+    proxy: {
+      '/api-bunny-stream': {
+        target: 'https://video.bunnycdn.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api-bunny-stream/, '')
+      },
+      '/api-bunny-storage': {
+        target: 'https://storage.bunnycdn.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api-bunny-storage/, '')
+      }
+    },
   },
   build: {
     chunkSizeWarningLimit: 800,

@@ -88,6 +88,10 @@ export default function SureShotExamSystem({
   onBackToCourses, 
   initialStep = 'category_cards', 
   initialCategory = null, 
+  initialExam = null,
+  isCourseQuiz: isCourseQuizProp = false,
+  onBackToLesson = null,
+  onExamComplete = null,
   onSwitchToBoard, 
   siteSettings, 
   customExamBatches = null,
@@ -100,8 +104,29 @@ export default function SureShotExamSystem({
     ? customExamBatches
     : EXAM_CATEGORIES_METADATA;
 
+  const isCourseQuiz = Boolean(
+    isCourseQuizProp ||
+    onBackToLesson ||
+    initialExam
+  );
+
+  const handleBackToClass = () => {
+    if (onBackToLesson) {
+      onBackToLesson();
+    } else if (onBackToCourses) {
+      onBackToCourses();
+    } else if (typeof window !== 'undefined' && window.history.length > 1) {
+      window.history.back();
+    } else {
+      try {
+        window.location.href = '/courses/master-english-30-days/watch';
+      } catch (e) {}
+    }
+  };
+
   // Navigation states: 'category_cards' | 'category_detail' | 'course_card' | 'exam_list' | 'exam_intro' | 'exam_live' | 'exam_result'
   const [step, setStep] = useState(() => {
+    if (initialExam) return initialStep || 'exam_intro';
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const urlStep = urlParams.get('step');
@@ -348,6 +373,12 @@ export default function SureShotExamSystem({
     const doUpdate = () => {
       setStep(newStep);
       setIsExpanded(false);
+      if (isCourseQuiz || initialExam || onBackToLesson) {
+        try {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        } catch (e) {}
+        return;
+      }
       try {
         const currentCat = catKey || selectedCategory || (selectedCategoryDetail?.key);
         const params = new URLSearchParams();
@@ -396,6 +427,7 @@ export default function SureShotExamSystem({
 
   // Active Exam Selection states
   const [selectedExamMeta, setSelectedExamMeta] = useState(() => {
+    if (initialExam) return initialExam;
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const urlExamId = urlParams.get('exam');
@@ -414,6 +446,13 @@ export default function SureShotExamSystem({
     return INITIAL_SURE_SHOT[0];
   });
   const [examData, setExamData] = useState(() => {
+    if (initialExam) {
+      return {
+        ...initialExam,
+        exam_id: initialExam.id,
+        questions: initialExam.questions || []
+      };
+    }
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const urlExamId = urlParams.get('exam');
@@ -445,6 +484,7 @@ export default function SureShotExamSystem({
     } catch (e) {}
     return null;
   });
+
   const [isLoadingExam, setIsLoadingExam] = useState(false);
   const [examMode, setExamMode] = useState('real'); // 'real' | 'practice'
 
@@ -524,6 +564,22 @@ export default function SureShotExamSystem({
 
   const timerRef = useRef(null);
   const questionRefs = useRef({});
+
+  // Keep state synchronized whenever initialExam is passed or changes
+  useEffect(() => {
+    if (initialExam) {
+      setSelectedExamMeta(initialExam);
+      setExamData({
+        ...initialExam,
+        exam_id: initialExam.id,
+        questions: initialExam.questions || []
+      });
+      setStep(initialStep || 'exam_intro');
+      setUserAnswers({});
+      setIsSubmitted(false);
+      setExamResult(null);
+    }
+  }, [initialExam, initialStep]);
 
   // 1. Fetch Master Manifest on mount (with overrides)
   useEffect(() => {
@@ -901,9 +957,9 @@ export default function SureShotExamSystem({
 
     const negPerWrong = parsedNeg;
     const wrongPenalty = +(wrong * negPerWrong).toFixed(2);
-    const secondTimerPenalty = 0;
-    const totalPenalty = wrongPenalty;
-    const score = +(correct - totalPenalty).toFixed(2);
+    const secondTimerPenalty = isSecondTimer ? 3 : 0;
+    const totalPenalty = +(wrongPenalty + secondTimerPenalty).toFixed(2);
+    const score = Math.max(0, +(correct - totalPenalty).toFixed(2));
     const passMarks = Math.round(examData.questions.length * 0.4);
     const percentage = Math.max(0, Math.round((score / examData.questions.length) * 100));
     const isPassed = score >= passMarks;
@@ -932,6 +988,13 @@ export default function SureShotExamSystem({
     };
 
     setExamResult(resultObj);
+    if (onExamComplete) {
+      try {
+        onExamComplete(resultObj);
+      } catch (err) {
+        console.error("onExamComplete callback error:", err);
+      }
+    }
     try {
       sessionStorage.setItem('eduhunters_active_exam_result', JSON.stringify(resultObj));
       sessionStorage.setItem('eduhunters_active_user_answers', JSON.stringify(userAnswers));
@@ -1080,7 +1143,7 @@ export default function SureShotExamSystem({
   // VIEW 1: CATEGORY CARDS VIEW (Exact Match to User Reference Mockup)
   // -------------------------------------------------------------
   if (step === 'category_cards' || step === 'course_card') {
-    const filteredCategories = categoriesMetadata.filter(c => !c.isHidden);
+    const filteredCategories = categoriesMetadata.filter(c => !c.isHidden && c.isActive !== false);
 
     return (
       <div className={`min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans transition-colors duration-300 ${
@@ -1886,10 +1949,10 @@ export default function SureShotExamSystem({
           <h1 className={`text-xl sm:text-2xl font-black text-center tracking-tight leading-snug ${
             isDark ? 'text-white' : 'text-[#111827]'
           }`}>
-            {examData?.title || selectedExamMeta?.title}
+            {(examData?.title || selectedExamMeta?.title || '').replace(/practice\s*quiz/gi, 'Quiz')}
           </h1>
 
-          {examData?.subCategory && examData.subCategory !== 'General' && (
+          {examData?.subCategory && examData.subCategory !== 'General' && !onBackToLesson && (
             <p className={`text-center text-xs -mt-1 font-medium ${
               isDark ? 'text-gray-400' : 'text-gray-500'
             }`}>
@@ -2069,12 +2132,16 @@ export default function SureShotExamSystem({
           {/* Back button */}
           <div className="text-center pt-0.5">
             <button 
-              onClick={() => updateExamStep('exam_list', selectedCategory)}
+              onClick={() => {
+                if (isCourseQuiz) handleBackToClass();
+                else if (onBackToCourses) onBackToCourses();
+                else updateExamStep('exam_list', selectedCategory);
+              }}
               className={`text-xs font-semibold bg-transparent border-none cursor-pointer transition-colors ${
                 isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'
               }`}
             >
-              ← Back to Exam List
+              {isCourseQuiz ? '← Back to Class' : '← Back to Exam List'}
             </button>
           </div>
         </div>
@@ -2192,12 +2259,15 @@ export default function SureShotExamSystem({
                   🔄 Reload Questions
                 </button>
                 <button
-                  onClick={() => setStep('category_detail')}
+                  onClick={() => {
+                    if (isCourseQuiz) handleBackToClass();
+                    else setStep('category_detail');
+                  }}
                   className={`px-6 py-2.5 font-bold text-sm rounded-xl cursor-pointer border transition-colors ${
                     isDark ? 'bg-white/10 hover:bg-white/20 text-white border-white/20' : 'bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300'
                   }`}
                 >
-                  ← Back to Exam List
+                  {isCourseQuiz ? '← Back to Class' : '← Back to Exam List'}
                 </button>
               </div>
             </div>
@@ -2656,14 +2726,16 @@ export default function SureShotExamSystem({
               <button
                 onClick={() => {
                   sessionStorage.removeItem('eduhunters_active_exam_result');
-                  updateExamStep('exam_list', selectedCategory);
+                  if (isCourseQuiz) handleBackToClass();
+                  else if (onBackToCourses) onBackToCourses();
+                  else updateExamStep('exam_list', selectedCategory);
                 }}
                 className={`py-3 px-6 border text-xs sm:text-sm font-bold rounded-xl flex items-center gap-2 cursor-pointer transition-all ${
                   isDark ? 'bg-[#1b050d] hover:bg-[#250712] border-[#e11438]/25 text-white' : 'bg-white hover:bg-gray-100 border-gray-300 text-gray-800'
                 }`}
               >
                 <ArrowLeft size={15} />
-                <span>Back to Exam Hub</span>
+                <span>{isCourseQuiz ? 'Back to Class' : 'Back to Exam Hub'}</span>
               </button>
             </div>
           </div>
@@ -2832,7 +2904,7 @@ export default function SureShotExamSystem({
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categoriesMetadata.filter(c => !c.isHidden).map((cat) => (
+          {categoriesMetadata.filter(c => !c.isHidden && c.isActive !== false).map((cat) => (
             <div 
               key={cat.key}
               onClick={() => {

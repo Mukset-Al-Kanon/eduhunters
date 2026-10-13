@@ -17,6 +17,8 @@ import LegalPoliciesPage from './components/LegalPoliciesPage';
 import AuthModal from './components/AuthModal';
 import ProfileModal from './components/ProfileModal';
 import PreloaderScreen from './components/PreloaderScreen';
+import AdminAuthModal from './components/AdminAuthModal';
+import { getAdminSession, clearAdminSession } from './services/adminAuthService';
 import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/firestoreSyncService';
 
 // Performance Optimization: Lazy load heavy AdminPanel
@@ -77,6 +79,7 @@ class ErrorBoundary extends React.Component {
 
 export default function App() {
   const { isDark } = useTheme();
+  const [adminSessionState, setAdminSessionState] = useState(() => getAdminSession());
   const [selectedCourseId, setSelectedCourseId] = useState(() => {
     try {
       const path = (window.location.pathname || '').toLowerCase();
@@ -310,6 +313,7 @@ export default function App() {
             contactPhone: (parsed.siteSettings?.contactPhone && !parsed.siteSettings.contactPhone.includes('1700'))
               ? parsed.siteSettings.contactPhone
               : '01353828863',
+            whatsappNumber: parsed.siteSettings?.whatsappNumber || parsed.siteSettings?.contactPhone || initialData.siteSettings.whatsappNumber || '01353828863',
             bkashNumber: parsed.siteSettings?.bkashNumber || initialData.siteSettings.bkashNumber,
             nagadNumber: parsed.siteSettings?.nagadNumber || initialData.siteSettings.nagadNumber,
             facebookPage: (parsed.siteSettings?.facebookPage && parsed.siteSettings.facebookPage !== 'https://facebook.com')
@@ -420,6 +424,10 @@ export default function App() {
         }
         if (parsed.siteSettings && (!parsed.siteSettings.contactPhone || parsed.siteSettings.contactPhone.includes('1700'))) {
           parsed.siteSettings.contactPhone = '01353828863';
+          modified = true;
+        }
+        if (parsed.siteSettings && !parsed.siteSettings.whatsappNumber) {
+          parsed.siteSettings.whatsappNumber = parsed.siteSettings.contactPhone || '01353828863';
           modified = true;
         }
         if (parsed.accounting && (parsed.accounting.totalRevenue === 284500 || (Array.isArray(parsed.accounting.transactions) && parsed.accounting.transactions.some(t => t.id === 'TRX-94825')))) {
@@ -767,6 +775,34 @@ export default function App() {
 
   const renderContent = () => {
     if (viewMode === 'admin') {
+      if (!adminSessionState) {
+        return (
+          <div className="min-h-screen bg-[#07090e] flex items-center justify-center relative overflow-hidden select-none">
+            {/* Ambient Security Background Glow */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <div 
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] rounded-full opacity-30 blur-[100px]"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(99, 102, 241, 0.45) 0%, rgba(225, 20, 56, 0.25) 50%, transparent 80%)'
+                }}
+              />
+            </div>
+
+            <AdminAuthModal 
+              isOpen={true}
+              onSuccess={(session) => {
+                setAdminSessionState(session);
+              }}
+              onClose={() => {
+                navigateWithSmoothTransition(() => {
+                  setViewMode('home');
+                }, '/');
+              }}
+            />
+          </div>
+        );
+      }
+
       return (
         <Suspense fallback={
           <div className="min-h-screen bg-[#f4f6fa] flex items-center justify-center">
@@ -778,12 +814,17 @@ export default function App() {
         }>
           <AdminPanel 
             data={data}
+            adminUser={adminSessionState}
             onUpdateData={handleUpdateData}
             onResetData={handleResetData}
             onExitAdmin={() => {
               navigateWithSmoothTransition(() => {
                 setViewMode('home');
               }, '/');
+            }}
+            onLogoutAdmin={() => {
+              clearAdminSession();
+              setAdminSessionState(null);
             }}
           />
         </Suspense>

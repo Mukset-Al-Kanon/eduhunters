@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { 
   Play, 
   FileText, 
@@ -6,19 +6,22 @@ import {
   ExternalLink, 
   Clock, 
   ChevronDown, 
-  BookOpen, 
-  Layers, 
-  Lock,
   ListVideo,
-  Sparkles
+  CheckSquare,
+  RotateCcw,
+  X,
+  Zap,
+  Check
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import { freeCoursesData } from '../data/freeCoursesData';
 import { initialData } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
+import { loadExamQuestions } from '../utils/examBatchStorage';
 import { useEnrollmentStatus } from '../utils/enrollmentService';
 import Navbar from './Navbar';
+import SureShotExamSystem from './SureShotExamSystem';
 
 function getEmbedUrl(url) {
   if (!url) return '';
@@ -26,29 +29,49 @@ function getEmbedUrl(url) {
     const trimmed = String(url).trim();
     if (!trimmed) return '';
 
-    const params = 'autoplay=1&rel=0&modestbranding=1&enablejsapi=1&iv_load_policy=3&showinfo=0&fs=1&playsinline=1';
-
-    // If it's a raw 11-char YouTube ID (e.g. "JJwW2McsARM" or "bmq8JoV-IlQ")
-    if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
-      return `https://www.youtube-nocookie.com/embed/${trimmed}?${params}`;
-    }
-
-    if (trimmed.includes('youtube.com/watch')) {
-      const v = new URL(trimmed).searchParams.get('v');
-      if (v) return `https://www.youtube-nocookie.com/embed/${v}?${params}`;
-    }
-    if (trimmed.includes('youtu.be/')) {
-      const v = trimmed.split('youtu.be/')[1].split('?')[0].split('&')[0];
-      if (v) return `https://www.youtube-nocookie.com/embed/${v}?${params}`;
-    }
-    if (trimmed.includes('youtube.com/embed/')) {
+    // 1. Bunny Stream Direct Iframe Embed URL
+    // e.g. https://iframe.mediadelivery.net/embed/777670/9f4309a1-xxxx-xxxx
+    if (trimmed.includes('iframe.mediadelivery.net/embed/')) {
       const glue = trimmed.includes('?') ? '&' : '?';
-      return `${trimmed}${glue}${params}`;
+      return `${trimmed}${glue}autoplay=true&preload=true`;
     }
-    if (trimmed.includes('youtube.com/shorts/')) {
-      const v = trimmed.split('youtube.com/shorts/')[1].split('?')[0];
-      if (v) return `https://www.youtube-nocookie.com/embed/${v}?${params}`;
+
+    // 2. Bunny Stream Play URL
+    // e.g. https://video.bunnycdn.com/play/777670/9f4309a1-xxxx-xxxx
+    if (trimmed.includes('video.bunnycdn.com/play/')) {
+      const parts = trimmed.split('video.bunnycdn.com/play/')[1].split('?')[0].split('/');
+      if (parts.length >= 2) {
+        return `https://iframe.mediadelivery.net/embed/${parts[0]}/${parts[1]}?autoplay=true&preload=true`;
+      }
     }
+
+    // 3. Bunny shorthand: "bunny:777670/videoId"
+    if (trimmed.startsWith('bunny:')) {
+      const rest = trimmed.replace('bunny:', '');
+      return `https://iframe.mediadelivery.net/embed/${rest}?autoplay=true&preload=true`;
+    }
+
+    // Extract YouTube ID
+    let ytId = '';
+    if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
+      ytId = trimmed;
+    } else if (trimmed.includes('youtube.com/watch')) {
+      try {
+        const parsed = new URL(trimmed);
+        ytId = parsed.searchParams.get('v') || '';
+      } catch (e) {}
+    } else if (trimmed.includes('youtu.be/')) {
+      ytId = trimmed.split('youtu.be/')[1].split('?')[0].split('&')[0];
+    } else if (trimmed.includes('youtube.com/embed/')) {
+      ytId = trimmed.split('youtube.com/embed/')[1].split('?')[0].split('&')[0];
+    } else if (trimmed.includes('youtube.com/shorts/')) {
+      ytId = trimmed.split('youtube.com/shorts/')[1].split('?')[0].split('&')[0];
+    }
+
+    if (ytId) {
+      return `https://www.youtube.com/embed/${ytId}?rel=0&playsinline=1&enablejsapi=1`;
+    }
+
     return trimmed;
   } catch {}
   return url;
@@ -76,21 +99,25 @@ export default function CoursePlayerPage({
   // Find course object
   const course = useMemo(() => {
     const cid = courseId || 'master-english-30-days';
+
+    // 1. Check dynamic courses in state / storage first (so admin edits are live)
+    const coursesList = data?.courses || initialData.courses || [];
+    const foundDynamic = coursesList.find(c => c.id === cid || c.slug === cid);
+    if (foundDynamic) return foundDynamic;
+
+    // 2. Check free courses
     const foundFree = freeCoursesData.find(c => c.id === cid || c.slug === cid);
     if (foundFree) return foundFree;
 
+    // 3. Fallback to master English course
     if (cid === 'master-english-30-days' || cid === masterEnglishCourseData.id) {
       return masterEnglishCourseData;
     }
 
-    const coursesList = data?.courses || initialData.courses;
-    const found = coursesList.find(c => c.id === cid || c.slug === cid);
-    if (found) return found;
-
     return masterEnglishCourseData;
   }, [courseId, data]);
 
-  const isCourseEnrolled = useEnrollmentStatus(course, currentUser, data);
+  const _isCourseEnrolled = useEnrollmentStatus(course, currentUser, data);
 
   // Flatten curriculum into ordered array of lessons with metadata
   const allLessons = useMemo(() => {
@@ -110,6 +137,8 @@ export default function CoursePlayerPage({
             duration: isObj ? les.duration : null,
             videoUrl: lesVideo,
             pdfUrl: isObj ? les.pdfUrl : null,
+            quiz: isObj ? (les.quiz || les.exam) : null,
+            examId: isObj ? les.examId : null,
             isFree: isObj ? Boolean(les.isFree) : false,
             sectionTitle: secTitle,
             chapterTitle: secTitle,
@@ -123,12 +152,35 @@ export default function CoursePlayerPage({
             const isObj = typeof les === 'object' && les !== null;
             const lesId = isObj ? String(les.id !== undefined ? les.id : `s${secIdx}-c${chapIdx}-l${lesIdx}`) : `s${secIdx}-c${chapIdx}-l${lesIdx}`;
             const lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null) || course.previewVideoUrl || course.videoUrl) : (course.previewVideoUrl || course.videoUrl);
+
+            let resolvedPdf = null;
+            let resolvedQuiz = null;
+            let resolvedExamId = isObj ? les.examId : null;
+
+            if (isObj && 'quiz' in les) {
+              resolvedQuiz = les.quiz;
+            } else if (isObj && 'exam' in les) {
+              resolvedQuiz = les.exam;
+            } else if (course.id === 'master-english-30-days' || course.slug === 'master-english-30-days') {
+              const defaultLes = masterEnglishCourseData.curriculum?.[secIdx]?.chapters?.[chapIdx]?.lessons?.[lesIdx];
+              if (defaultLes?.quiz) resolvedQuiz = defaultLes.quiz;
+            }
+
+            if (isObj && 'pdfUrl' in les && les.pdfUrl !== undefined) {
+              resolvedPdf = les.pdfUrl;
+            } else if (course.id === 'master-english-30-days' || course.slug === 'master-english-30-days') {
+              const defaultLes = masterEnglishCourseData.curriculum?.[secIdx]?.chapters?.[chapIdx]?.lessons?.[lesIdx];
+              if (defaultLes?.pdfUrl) resolvedPdf = defaultLes.pdfUrl;
+            }
+
             list.push({
               id: lesId,
               title: isObj ? les.title : les,
               duration: isObj ? les.duration : null,
               videoUrl: lesVideo,
-              pdfUrl: isObj ? les.pdfUrl : null,
+              pdfUrl: resolvedPdf,
+              quiz: resolvedQuiz,
+              examId: resolvedExamId,
               isFree: isObj ? Boolean(les.isFree) : false,
               sectionTitle: secTitle,
               chapterTitle: chapTitle,
@@ -146,6 +198,8 @@ export default function CoursePlayerPage({
         duration: course.duration || 'Lecture',
         videoUrl: course.previewVideoUrl || course.videoUrl,
         pdfUrl: null,
+        quiz: null,
+        examId: null,
         isFree: true,
         sectionTitle: 'Course Lectures',
         chapterTitle: 'Overview',
@@ -181,11 +235,125 @@ export default function CoursePlayerPage({
     title: course.name,
     videoUrl: course.previewVideoUrl,
     duration: null,
-    pdfUrl: null
+    pdfUrl: null,
+    quiz: null
   };
 
   const [isPdfDropdownOpen, setIsPdfDropdownOpen] = useState(false);
   const activeLessonRef = useRef(null);
+
+  // Subtle Anti-Piracy Floating Watermark (Alternates Top-Left 5s -> Hidden 12s -> Bottom-Right 5s -> Hidden 12s)
+  const [watermarkPos, setWatermarkPos] = useState('top-left'); // 'top-left' | 'bottom-right'
+  const [watermarkVisible, setWatermarkVisible] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+    let timerId = null;
+
+    const runCycle = () => {
+      setWatermarkVisible(true);
+      timerId = setTimeout(() => {
+        if (!isMounted) return;
+        setWatermarkVisible(false);
+        timerId = setTimeout(() => {
+          if (!isMounted) return;
+          setWatermarkPos(prev => (prev === 'top-left' ? 'bottom-right' : 'top-left'));
+          runCycle();
+        }, 12000);
+      }, 5000);
+    };
+
+    runCycle();
+    return () => {
+      isMounted = false;
+      if (timerId) clearTimeout(timerId);
+    };
+  }, []);
+
+  // Practice Quiz & Exam state
+  const [isQuizDropdownOpen, setIsQuizDropdownOpen] = useState(false);
+  const [activeLessonExam, setActiveLessonExam] = useState(null);
+  const [savedLessonScores, setSavedLessonScores] = useState(() => {
+    try {
+      const saved = localStorage.getItem('eduhunters_lesson_quiz_scores');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Handle browser popstate to return to lesson video when activeLessonExam is open
+  useEffect(() => {
+    const handlePopState = () => {
+      if (activeLessonExam) {
+        setActiveLessonExam(null);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [activeLessonExam]);
+
+  const handleStartQuiz = async () => {
+    let qList = [];
+    let durMins = Number(currentLesson.quiz?.durationMinutes) || 10;
+    let negMark = currentLesson.quiz?.negativeMark !== undefined ? Number(currentLesson.quiz.negativeMark) : 0.25;
+    let rawTitle = currentLesson.quiz?.title || `${currentLesson.title} - Quiz`;
+    let examTitle = rawTitle.replace(/practice\s*quiz/gi, 'Quiz').trim();
+
+    if (currentLesson.quiz?.questions && Array.isArray(currentLesson.quiz.questions) && currentLesson.quiz.questions.length > 0) {
+      qList = currentLesson.quiz.questions;
+    } else if (currentLesson.examId) {
+      try {
+        const res = await loadExamQuestions({ id: currentLesson.examId });
+        if (res?.questions && res.questions.length > 0) {
+          qList = res.questions;
+          if (res.title) examTitle = res.title.replace(/practice\s*quiz/gi, 'Quiz').trim();
+          if (res.duration_minutes) durMins = Number(res.duration_minutes);
+          if (res.negative_mark !== undefined) negMark = Number(res.negative_mark);
+        }
+      } catch (err) {
+        console.warn('Failed to load exam questions:', err);
+      }
+    }
+
+    if (!qList || qList.length === 0) return;
+
+    // Normalize questions to match SureShotExamSystem schema
+    const normalizedQuestions = qList.map((q, idx) => ({
+      id: q.id !== undefined ? q.id : (idx + 1),
+      question_no: idx + 1,
+      question: q.question || q.title || `Question ${idx + 1}`,
+      options: Array.isArray(q.options) ? q.options : [],
+      correct_index: q.correct_index !== undefined 
+        ? Number(q.correct_index) 
+        : (q.correctAnswer !== undefined ? Number(q.correctAnswer) : 0),
+      explanation: q.explanation || q.hint || ''
+    }));
+
+    const examPayload = {
+      id: currentLesson.quiz?.id || currentLesson.examId || `lesson-exam-${currentLesson.id}`,
+      exam_id: currentLesson.quiz?.id || currentLesson.examId || `lesson-exam-${currentLesson.id}`,
+      title: examTitle,
+      category: 'course_lesson',
+      categoryName: course.title || course.name || 'Master English',
+      subCategory: null,
+      subject: 'English',
+      durationMinutes: durMins,
+      duration_minutes: durMins,
+      totalQuestions: normalizedQuestions.length,
+      total_questions: normalizedQuestions.length,
+      negativeMark: negMark,
+      negative_mark: negMark,
+      hasExplanations: true,
+      questions: normalizedQuestions
+    };
+
+    try {
+      window.history.pushState({ isLessonExam: true }, '', window.location.href);
+    } catch (e) {}
+
+    setActiveLessonExam(examPayload);
+  };
 
   // Scroll to top on active lesson change and scroll active lesson into playlist view smoothly
   useEffect(() => {
@@ -194,6 +362,69 @@ export default function CoursePlayerPage({
       activeLessonRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }, [activeIndex]);
+
+  // When an exam is launched, render the full-featured SureShotExamSystem screen
+  // matching View 3 ("Ready to Start" with Total Questions, Duration, Second Timer, Start Exam button)
+  // and upon clicking Start Exam runs the live exam engine.
+  if (activeLessonExam) {
+    return (
+      <div className={`min-h-screen transition-colors duration-200 selection:bg-[#e11438] selection:text-white ${
+        isDark ? 'bg-[#0d0205] text-white' : 'bg-[#f8f9fa] text-slate-900'
+      }`}>
+        <Navbar 
+          activePage="exams"
+          courseTitle={course?.name || course?.title}
+          onBackCourse={() => setActiveLessonExam(null)}
+          siteSettings={data?.siteSettings || {}}
+          onNavigateHome={() => { setActiveLessonExam(null); onNavigateHome?.(); }}
+          onNavigateDashboard={() => { setActiveLessonExam(null); onNavigateDashboard?.(); }}
+          onNavigateCourse={(cId) => { setActiveLessonExam(null); onNavigateCourse?.(cId); }}
+          onNavigateExams={(cat) => { setActiveLessonExam(null); onNavigateExams?.(cat); }}
+          onNavigateStore={() => { setActiveLessonExam(null); onNavigateStore?.(); }}
+          onNavigateAbout={() => { setActiveLessonExam(null); onNavigateAbout?.(); }}
+          onNavigateDevices={() => { setActiveLessonExam(null); onNavigateDevices?.(); }}
+          onNavigateOrders={() => { setActiveLessonExam(null); onNavigateOrders?.(); }}
+          onNavigatePolicies={(tab) => { setActiveLessonExam(null); onNavigatePolicies?.(tab); }}
+          onOpenAdmin={() => { setActiveLessonExam(null); onOpenAdmin?.(); }}
+          onLoginClick={onLoginClick}
+        />
+        <main className="pt-16">
+          <SureShotExamSystem 
+            initialStep="exam_intro"
+            initialExam={activeLessonExam}
+            isCourseQuiz={true}
+            onBackToLesson={() => setActiveLessonExam(null)}
+            onBackToCourses={() => setActiveLessonExam(null)}
+            onExamComplete={(result) => {
+              const totalPossible = activeLessonExam.totalMarks || activeLessonExam.totalQuestions || result.totalQuestions;
+              const resultObj = {
+                score: result.finalScore,
+                totalPossible: totalPossible,
+                correctCount: result.correct,
+                wrongCount: result.wrong,
+                skippedCount: result.skipped,
+                totalQuestions: result.totalQuestions,
+                percentage: result.percentage
+              };
+              setSavedLessonScores(prev => {
+                const updated = {
+                  ...prev,
+                  [currentLesson.id]: resultObj
+                };
+                try {
+                  localStorage.setItem('eduhunters_lesson_quiz_scores', JSON.stringify(updated));
+                } catch {}
+                return updated;
+              });
+            }}
+            siteSettings={data?.siteSettings || {}}
+            customExamBatches={data?.examBatches}
+            onLoginClick={onLoginClick}
+          />
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen transition-colors duration-200 ${
@@ -245,31 +476,28 @@ export default function CoursePlayerPage({
               {currentLesson.videoUrl ? (
                 <>
                   <iframe
+                    key={currentLesson.id || currentLesson.videoUrl}
                     src={getEmbedUrl(currentLesson.videoUrl)}
                     title={currentLesson.title}
                     className="w-full h-full border-0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   ></iframe>
 
-                  {/* Anti-Piracy Security Guard: Disables YouTube Top Bar (Share, Copy Link, Watch Later & Title Link) */}
+                  {/* Subtle Anti-Piracy Floating Watermark (Alternating Top-Left / Bottom-Right) */}
                   <div 
-                    className="absolute top-0 left-0 right-0 h-14 sm:h-16 z-20 pointer-events-auto bg-gradient-to-b from-black/80 via-black/35 to-transparent flex items-center justify-between px-3 sm:px-4 py-2 cursor-default select-none transition-opacity duration-300"
-                    onContextMenu={(e) => e.preventDefault()}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }}
+                    className={`absolute pointer-events-none select-none z-30 transition-all duration-700 ease-in-out ${
+                      watermarkPos === 'top-left' ? 'top-3 left-3 sm:top-4 sm:left-4' : 'bottom-12 right-3 sm:bottom-14 sm:right-4'
+                    } ${
+                      watermarkVisible ? 'opacity-30 scale-100' : 'opacity-0 scale-95'
+                    }`}
                   >
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                      <span className="text-xs sm:text-sm font-bold text-white/95 tracking-wide drop-shadow-md truncate max-w-[200px] sm:max-w-md">
-                        {course?.name || course?.title || 'EduHunters Private Class'}
-                      </span>
+                    <div className="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-xs border border-white/15 text-[10px] sm:text-xs font-mono font-medium text-white/90 tracking-wider shadow-sm flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      <span>{currentUser?.phone || currentUser?.email || 'EH-STUDENT'}</span>
+                      <span className="opacity-60">• ID: {currentUser?.id?.slice(0, 8) || 'VERIFIED'}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs font-mono px-2.5 py-0.5 rounded-full bg-black/60 border border-white/15 text-white/80 backdrop-blur-xs flex items-center gap-1.5 shadow-xs">
-                      🔒 Secure Stream
-                    </span>
                   </div>
                 </>
               ) : (
@@ -317,11 +545,6 @@ export default function CoursePlayerPage({
                     <div className="text-left">
                       <span className="text-sm sm:text-base font-bold flex items-center gap-2">
                         Lecture Sheet & PDF
-                        {currentLesson.pdfUrl ? (
-                          <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
-                            PDF Available ✓
-                          </span>
-                        ) : null}
                       </span>
                       <p className={`text-[11px] sm:text-xs mt-0.5 ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
                         {isPdfDropdownOpen ? 'Click to collapse' : 'Click to view PDF & lecture notes'}
@@ -394,34 +617,6 @@ export default function CoursePlayerPage({
                               </a>
                             </div>
                           </div>
-
-                          {/* Embedded PDF / Viewer Box */}
-                          <div className={`w-full rounded-2xl overflow-hidden border ${
-                            isDark ? 'border-[#e11438]/20 bg-[#0d0205]' : 'border-slate-200 bg-slate-50'
-                          }`}>
-                            <div className="p-3 bg-gray-500/10 flex items-center justify-between text-xs px-4">
-                              <span className="font-bold flex items-center gap-1.5">
-                                <FileText className="w-3.5 h-3.5 text-red-500" />
-                                PDF Preview Window
-                              </span>
-                              <span className={`text-[11px] ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
-                                Scroll to read document
-                              </span>
-                            </div>
-                            <div className="w-full h-[520px] bg-slate-900/5">
-                              <iframe
-                                src={
-                                  currentLesson.pdfUrl.includes('drive.google.com')
-                                    ? currentLesson.pdfUrl.replace('/view', '/preview')
-                                    : currentLesson.pdfUrl.endsWith('.pdf')
-                                      ? `https://docs.google.com/viewer?url=${encodeURIComponent(currentLesson.pdfUrl)}&embedded=true`
-                                      : currentLesson.pdfUrl
-                                }
-                                title="Lecture Sheet Preview"
-                                className="w-full h-full border-0"
-                              ></iframe>
-                            </div>
-                          </div>
                         </div>
                       ) : (
                         /* Clean empty state when admin hasn't added PDF yet */
@@ -437,6 +632,99 @@ export default function CoursePlayerPage({
                             </h4>
                             <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
                               As soon as lecture sheets or PDF notes are added in the admin panel, students will be able to view and download them directly from here.
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 'Practice Quiz & Exam' Dropdown Box */}
+              <div className="mt-3 pt-3 border-t border-gray-500/15">
+                <button
+                  type="button"
+                  onClick={() => setIsQuizDropdownOpen(prev => !prev)}
+                  className={`w-full flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 cursor-pointer shadow-xs group ${
+                    isQuizDropdownOpen
+                      ? (isDark 
+                          ? 'bg-[#1e050d] border-red-500/40 text-white' 
+                          : 'bg-red-50/80 border-red-300 text-slate-900')
+                      : (isDark 
+                          ? 'bg-[#150409]/90 hover:bg-[#1f060e] border-[#e11438]/25 text-gray-200 hover:text-white hover:border-[#e11438]/40' 
+                          : 'bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-800 hover:border-slate-300')
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-colors ${
+                      isDark 
+                        ? 'bg-red-500/15 text-red-400 group-hover:bg-red-500/25' 
+                        : 'bg-red-100 text-red-600 group-hover:bg-red-200'
+                    }`}>
+                      <Zap className="w-5 h-5" />
+                    </div>
+                    <div className="text-left">
+                      <span className="text-sm sm:text-base font-bold flex items-center gap-2">
+                        Quiz
+                      </span>
+                      <p className={`text-[11px] sm:text-xs mt-0.5 ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
+                        {isQuizDropdownOpen ? 'Click to collapse' : 'Test your understanding with class MCQs'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                    isDark ? 'bg-white/5 text-gray-300 group-hover:text-white' : 'bg-black/5 text-slate-600 group-hover:text-slate-900'
+                  }`}>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isQuizDropdownOpen ? 'rotate-180' : ''}`} />
+                  </div>
+                </button>
+
+                {/* Dropdown Content Area */}
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isQuizDropdownOpen
+                      ? 'grid-rows-[1fr] opacity-100 mt-3.5'
+                      : 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="pt-1 space-y-4">
+                      {(currentLesson.quiz || currentLesson.examId) ? (
+                        <div
+                          onClick={handleStartQuiz}
+                          className={`w-full p-4 sm:px-5 sm:py-4 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 group active:scale-[0.99] select-none ${
+                            isDark 
+                              ? 'bg-[#1a040a] hover:bg-[#250711] border-[#e11438]/30 hover:border-red-500/50 text-white shadow-sm' 
+                              : 'bg-white hover:bg-red-50/40 border-slate-200 hover:border-red-200 text-slate-900 shadow-2xs'
+                          }`}
+                        >
+                          <span className="text-sm font-bold truncate">
+                            {(currentLesson.quiz?.title || `${currentLesson.title} - Quiz`).replace(/practice\s*quiz/gi, 'Quiz')}
+                          </span>
+
+                          <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 ${
+                            isDark 
+                              ? 'bg-red-500/15 border border-red-500/30 text-red-400 group-hover:bg-red-500/25' 
+                              : 'bg-red-50 border border-red-200 text-red-600 group-hover:bg-red-100'
+                          }`}>
+                            <FileText className="w-4 h-4" />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className={`p-8 rounded-2xl border text-center flex flex-col items-center justify-center space-y-3 ${
+                          isDark ? 'border-red-500/20 bg-[#16040a]/60' : 'border-slate-200 bg-slate-50/70'
+                        }`}>
+                          <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400">
+                            <CheckSquare className="w-6 h-6" />
+                          </div>
+                          <div className="max-w-md">
+                            <h4 className="text-sm font-bold">
+                              No Quiz Available Yet
+                            </h4>
+                            <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
+                              The instructor has not attached an exam for this lesson yet. Practice questions will be published soon.
                             </p>
                           </div>
                         </div>
@@ -518,18 +806,6 @@ export default function CoursePlayerPage({
                             }`}>
                               <Clock className="w-3 h-3" />
                               {les.duration}
-                            </span>
-                          )}
-
-                          {les.pdfUrl && (
-                            <span className="text-[10px] text-blue-500 font-bold bg-blue-500/10 px-1.5 py-0.2 rounded border border-blue-500/20">
-                              📄 PDF
-                            </span>
-                          )}
-
-                          {isActive && (
-                            <span className="text-[10px] text-red-500 font-bold px-1.5 py-0.2 rounded bg-red-500/10 animate-pulse">
-                              Playing
                             </span>
                           )}
                         </div>

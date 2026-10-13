@@ -73,10 +73,11 @@ export const initialData = {
   // Brand & Site Settings
   siteSettings: {
     siteName: "EduHunters",
-    siteTagline: "সেরা এডটেক লার্নিং ও এক্সাম প্ল্যাটফর্ম",
+    siteTagline: "The Premier EdTech Learning & Exam Platform",
     logoUrl: "/logo-crimson.png",
     logoLightUrl: "/logo-light.png",
     contactPhone: "01353828863",
+    whatsappNumber: "01353828863",
     bkashNumber: "01342227935",
     nagadNumber: "01731127231",
     contactEmail: "eduhuntersbd@gmail.com",

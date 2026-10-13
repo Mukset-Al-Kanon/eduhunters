@@ -55,7 +55,10 @@ import {
   ShieldCheck,
   Copy,
   Phone,
-  MessageCircle
+  MessageCircle,
+  Mail,
+  Zap,
+  LogOut
 } from 'lucide-react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db, isFirebaseConfigured } from '../firebase/config';
@@ -65,10 +68,19 @@ import CourseStudioPage from './CourseStudioPage';
 import BundleStudioPage from './BundleStudioPage';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { grantCourseAccess } from '../utils/enrollmentService';
+import { 
+  getBunnyConfig, 
+  saveBunnyConfig, 
+  isBunnyStreamConfigured, 
+  isBunnyStorageConfigured,
+  testBunnyStreamConnection,
+  testBunnyStorageConnection
+} from '../services/bunnyService';
 
-export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin }) {
+export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
   const [activeTab, setActiveTab] = useState('overview');
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   // Bulletproof state initialization - NEVER empty or undefined
   const [siteSettings, setSiteSettings] = useState(() => ({
@@ -656,18 +668,44 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     reader.readAsDataURL(file);
   };
 
-  // Feedback Toasts
+  // Feedback Toasts & Unsaved Changes Tracking
   const [saveToast, setSaveToast] = useState(false);
   const [toastMsg, setToastMsg] = useState('✅ All changes saved successfully!');
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [originalSnapshot, setOriginalSnapshot] = useState(() => ({
+    siteSettings: { ...initialData.siteSettings, ...(data?.siteSettings || {}) },
+    sectionTexts: { ...initialData.sectionTexts, ...(data?.sectionTexts || {}) }
+  }));
 
-  // Helper function for updating section texts live
+  const handleUpdateSiteSetting = (field, value) => {
+    setSiteSettings(prev => ({ ...prev, [field]: value }));
+    setHasUnsavedChanges(true);
+  };
+
   const handleUpdateSectionText = (key, value) => {
-    const updated = {
-      ...sectionTexts,
-      [key]: value
-    };
-    setSectionTexts(updated);
-    persistAll({ sectionTexts: updated });
+    setSectionTexts(prev => ({ ...prev, [key]: value }));
+    setHasUnsavedChanges(true);
+  };
+
+  const handleConfirmSaveAllChanges = () => {
+    persistAll({ siteSettings, sectionTexts });
+    setOriginalSnapshot({
+      siteSettings: { ...siteSettings },
+      sectionTexts: { ...sectionTexts }
+    });
+    setHasUnsavedChanges(false);
+    triggerToast('✅ Changes saved successfully!');
+  };
+
+  const handleCancelAllChanges = () => {
+    if (originalSnapshot.siteSettings) {
+      setSiteSettings({ ...originalSnapshot.siteSettings });
+    }
+    if (originalSnapshot.sectionTexts) {
+      setSectionTexts({ ...originalSnapshot.sectionTexts });
+    }
+    setHasUnsavedChanges(false);
+    triggerToast('Changes discarded');
   };
 
   // Helper functions for Why Choose Us cards
@@ -770,17 +808,86 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Curriculum & Course Studio Modal State
   const [showCurriculumModal, setShowCurriculumModal] = useState(false);
-  const [curriculumCourseIndex, setCurriculumCourseIndex] = useState(null);
-  const [curriculumStudioTab, setCurriculumStudioTab] = useState('curriculum'); // 'curriculum' | 'details'
+  const [curriculumCourseIndex, setCurriculumCourseIndex] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const c = params.get('course');
+      if (c !== null && !isNaN(Number(c))) {
+        return Number(c);
+      }
+    } catch (e) {}
+    return null;
+  });
+  const [curriculumStudioTab, setCurriculumStudioTab] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const t = params.get('tab');
+      if (t) return t;
+    } catch (e) {}
+    return 'curriculum';
+  });
   const [curriculumExpandedSections, setCurriculumExpandedSections] = useState({ 0: true });
   const [newLessonDrafts, setNewLessonDrafts] = useState({});
   const [newFeatureInput, setNewFeatureInput] = useState('');
+
+  // Handle browser back / forward buttons for studio navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const c = params.get('course');
+        if (c !== null && !isNaN(Number(c))) {
+          setCurriculumCourseIndex(Number(c));
+          const t = params.get('tab');
+          if (t) setCurriculumStudioTab(t);
+        } else {
+          setCurriculumCourseIndex(null);
+        }
+      } catch (e) {}
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Trigger Save Notification
   const triggerToast = (msg = '✅ All changes saved and updated live!') => {
     setToastMsg(msg);
     setSaveToast(true);
     setTimeout(() => setSaveToast(false), 3000);
+  };
+
+  // Bunny.net Cloud Integration State & Handlers
+  const [bunnyConfig, setBunnyConfig] = useState(() => getBunnyConfig());
+  const [bunnyTestResults, setBunnyTestResults] = useState({ stream: null, storage: null, testingStream: false, testingStorage: false });
+
+  const handleUpdateBunnyConfig = (field, value) => {
+    setBunnyConfig(prev => {
+      const updated = { ...prev, [field]: value };
+      saveBunnyConfig(updated);
+      return updated;
+    });
+  };
+
+  const handleTestBunnyStream = async () => {
+    setBunnyTestResults(prev => ({ ...prev, testingStream: true, stream: null }));
+    const res = await testBunnyStreamConnection(bunnyConfig);
+    setBunnyTestResults(prev => ({ ...prev, testingStream: false, stream: res }));
+    if (res.success) {
+      triggerToast('🟢 Bunny Stream connected successfully!');
+    } else {
+      triggerToast(`❌ Stream connection: ${res.message}`);
+    }
+  };
+
+  const handleTestBunnyStorage = async () => {
+    setBunnyTestResults(prev => ({ ...prev, testingStorage: true, storage: null }));
+    const res = await testBunnyStorageConnection(bunnyConfig);
+    setBunnyTestResults(prev => ({ ...prev, testingStorage: false, storage: res }));
+    if (res.success) {
+      triggerToast('🟢 Bunny Storage connected successfully!');
+    } else {
+      triggerToast(`❌ Storage connection: ${res.message}`);
+    }
   };
 
   // Central Save & Persist
@@ -796,7 +903,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           subtitle: match.subtitle || match.description || b.subtitle,
           price: String(match.salePrice || b.price),
           originalPrice: String(match.regularPrice || b.originalPrice),
-          image: match.image || b.image
+          image: match.image || b.image,
+          isActive: match.isActive !== undefined ? match.isActive : b.isActive
         };
       }
       return b;
@@ -1300,6 +1408,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       id: `course-${Date.now()}`,
       slug: newCourse.title.toLowerCase().replace(/\s+/g, '-'),
       ...newCourse,
+      isActive: true,
       category: newCourse.category || categories.find(c => !isAllCat(c)) || 'Medical',
       salePrice: Number(newCourse.salePrice) || 0,
       regularPrice: Number(newCourse.regularPrice) || (Number(newCourse.salePrice) * 2)
@@ -1440,6 +1549,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setCourses(updated);
     persistAll({ categories, courses: updated });
     triggerToast(`✅ Course category changed to: ${newCat}`);
+  };
+
+  const handleToggleCourseActive = (targetCourse, targetIdx) => {
+    const nextActive = targetCourse.isActive === false ? true : false;
+    const updated = courses.map((c, i) => {
+      const isMatch = (targetCourse.id && c.id && targetCourse.id === c.id) ||
+                      (targetCourse.slug && c.slug && targetCourse.slug === c.slug) ||
+                      (i === targetIdx);
+      return isMatch ? { ...c, isActive: nextActive } : c;
+    });
+    setCourses(updated);
+    persistAll({ courses: updated });
+    triggerToast(nextActive ? `🟢 "${targetCourse.title}" Activated` : `⚪ "${targetCourse.title}" Deactivated`);
   };
 
   // ==========================================
@@ -1631,10 +1753,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     triggerToast(`🎉 TrxID Verified! ${studentName} successfully enrolled in "${courseTitle}"`);
   };
 
-  const handleRejectTrx = (txId) => {
-    if (!confirm('Are you sure you want to reject this transaction / TrxID?')) return;
+  const handleUpdateTrxStatus = (tx, newStatus) => {
+    if (!tx || !newStatus) return;
+
+    if (newStatus === 'Completed') {
+      handleApproveAndEnrollStudent(tx);
+      return;
+    }
+
     const updatedTxs = (accounting.transactions || []).map(t => 
-      t.id === txId ? { ...t, status: 'Rejected' } : t
+      t.id === tx.id ? { ...t, status: newStatus } : t
     );
     const updatedAccounting = {
       ...accounting,
@@ -1642,7 +1770,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     };
     setAccounting(updatedAccounting);
     persistAll({ accounting: updatedAccounting });
-    triggerToast('⚠️ Transaction marked as Rejected');
+    triggerToast(
+      newStatus === 'Rejected' 
+        ? '⚠️ Transaction marked as Rejected' 
+        : `🔄 Transaction status changed to ${newStatus}`
+    );
+  };
+
+  const handleRejectTrx = (txId) => {
+    if (!confirm('Are you sure you want to reject this transaction / TrxID?')) return;
+    const targetTx = (accounting.transactions || []).find(t => t.id === txId);
+    if (targetTx) {
+      handleUpdateTrxStatus(targetTx, 'Rejected');
+    }
   };
 
   // ==========================================
@@ -1674,7 +1814,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setCurriculumStudioTab(tab);
     setCurriculumExpandedSections({ 0: true, 1: true });
     try {
-      window.history.pushState(null, '', `/admin?course=${courseIdx}`);
+      window.history.pushState(null, '', `/admin?course=${courseIdx}&tab=${tab}`);
     } catch (e) {}
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -2369,6 +2509,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         )}
 
         <CourseStudioPage
+          key={`course-studio-${curriculumCourseIndex}-${curriculumStudioTab}`}
           course={courses[curriculumCourseIndex]}
           courseIndex={curriculumCourseIndex}
           initialTab={curriculumStudioTab}
@@ -2455,6 +2596,269 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     );
   }
 
+  // Shared navigation renderer for both Desktop aside and Mobile slide-over drawer
+  const renderSidebarNav = (isMobileDrawer = false) => {
+    const handleNavClick = (tabKey) => {
+      setActiveTab(tabKey);
+      if (isMobileDrawer) setMobileSidebarOpen(false);
+    };
+
+    return (
+      <div className="flex flex-col gap-1 w-full">
+        {/* GROUP 1: DASHBOARD */}
+        <div className="px-2.5 py-1 mb-0.5">
+          <span className="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">
+            MAIN MENU
+          </span>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('overview')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'overview'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <LayoutDashboard className={`w-4 h-4 shrink-0 ${activeTab === 'overview' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Dashboard</span>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('accounting')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'accounting'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <DollarSign className={`w-4 h-4 shrink-0 ${activeTab === 'accounting' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Enrollments & Ledger</span>
+          </div>
+          {pendingCount > 0 && (
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+              {pendingCount}
+            </span>
+          )}
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('users')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'users'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <Users className={`w-4 h-4 shrink-0 ${activeTab === 'users' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Users Management</span>
+          </div>
+          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+            activeTab === 'users' ? 'bg-white/20 text-white' : 'bg-[#5d5bf6]/10 text-[#5d5bf6]'
+          }`}>
+            {usersList.length}
+          </span>
+        </button>
+
+        {/* GROUP 2: ACADEMIC */}
+        <div className="px-2.5 pt-3.5 pb-1">
+          <span className="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">
+            ACADEMIC
+          </span>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('courses')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'courses'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <BookOpen className={`w-4 h-4 shrink-0 ${activeTab === 'courses' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Courses</span>
+          </div>
+          <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{courses.length}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('bundles')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'bundles'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <Layers className={`w-4 h-4 shrink-0 ${activeTab === 'bundles' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Bundles</span>
+          </div>
+          <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{bundles.length}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('instructors')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'instructors'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <GraduationCap className={`w-4 h-4 shrink-0 ${activeTab === 'instructors' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Faculty & Mentors</span>
+          </div>
+          <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{instructors.length}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('store')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'store'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <FileText className={`w-4 h-4 shrink-0 ${activeTab === 'store' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Book & PDF Store</span>
+          </div>
+          <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{storeProducts.length}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('videos')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'videos'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <Video className={`w-4 h-4 shrink-0 ${activeTab === 'videos' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Free Video Classes</span>
+          </div>
+          <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{freeVideos.length}</span>
+        </button>
+
+        {/* GROUP 3: CUSTOMIZE */}
+        <div className="px-2.5 pt-3.5 pb-1">
+          <span className="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">
+            CUSTOMIZE
+          </span>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('slides')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'slides'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <Sliders className={`w-4 h-4 shrink-0 ${activeTab === 'slides' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Hero Slider</span>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('sectionTexts')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'sectionTexts'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <Type className={`w-4 h-4 shrink-0 ${activeTab === 'sectionTexts' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Section Texts</span>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('whyChoose')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'whyChoose'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <HelpCircle className={`w-4 h-4 shrink-0 ${activeTab === 'whyChoose' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Why Choose Us</span>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('stats')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'stats'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <PieChart className={`w-4 h-4 shrink-0 ${activeTab === 'stats' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Counters & Notice</span>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleNavClick('policies')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'policies'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <ShieldCheck className={`w-4 h-4 shrink-0 ${activeTab === 'policies' ? 'text-white' : 'text-slate-400'}`} />
+            <span>Legal & Policies</span>
+          </div>
+          <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">
+            {(termsAndConditions?.clauses?.length || 0) + (refundPolicy?.clauses?.length || 0) + (privacyPolicy?.clauses?.length || 0)}
+          </span>
+        </button>
+
+        <div className="mt-3 pt-3 border-t border-slate-100">
+          <button
+            type="button"
+            onClick={() => handleNavClick('settings')}
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+              activeTab === 'settings'
+                ? 'bg-[#eef4ff] text-[#2563eb] border-blue-200 font-bold shadow-xs'
+                : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-100 hover:text-slate-900'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <SettingsIcon className="w-4 h-4 shrink-0 text-slate-500" />
+              <span>Brand & Settings</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-[#f4f6fa] text-slate-800 font-sans antialiased flex flex-col selection:bg-blue-600 selection:text-white">
       
@@ -2466,25 +2870,71 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         </div>
       )}
 
-      {/* MATDASH HEADER BAR */}
-      <header className="sticky top-0 z-40 bg-white border-b border-slate-100 px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
-        <div className="flex items-center gap-4">
-          {/* Brand Logo - MatDash Style */}
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#5d5bf6] to-[#7c7afc] flex items-center justify-center font-black text-white text-xs shadow-md shadow-[#5d5bf6]/25">
-              <Sparkles className="w-4 h-4" />
+      {/* FLOATING UNSAVED CHANGES SAVE/CANCEL POPUP */}
+      {hasUnsavedChanges && (
+        <div className="fixed bottom-7 left-1/2 -translate-x-1/2 z-50 animate-in fade-in slide-in-from-bottom-5 duration-200">
+          <div className="bg-slate-900/95 backdrop-blur-md text-white px-5 py-3.5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.35)] border border-slate-700/80 flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-2.5">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+              </span>
+              <div>
+                <p className="text-xs font-bold text-white leading-tight">Unsaved changes detected</p>
+                <p className="text-[11px] text-slate-400 hidden sm:block mt-0.5">Save your changes or cancel to revert.</p>
+              </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-base font-black text-slate-900 tracking-tight">MatDash</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#5d5bf6]/10 text-[#5d5bf6] uppercase tracking-wider hidden sm:inline-block">
+              <button
+                type="button"
+                onClick={handleCancelAllChanges}
+                className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-600 transition-all cursor-pointer active:scale-95"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmSaveAllChanges}
+                className="px-4 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow-md shadow-blue-500/25 border-none transition-all cursor-pointer active:scale-95 flex items-center gap-1.5"
+              >
+                <Check className="w-3.5 h-3.5" />
+                <span>Save Changes</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MATDASH HEADER BAR */}
+      <header className="sticky top-0 z-40 bg-white border-b border-slate-100 px-3 sm:px-6 py-2.5 flex items-center justify-between shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+        <div className="flex items-center gap-2 sm:gap-4">
+          {/* Mobile Hamburger Menu Toggle */}
+          <button
+            type="button"
+            onClick={() => setMobileSidebarOpen(true)}
+            className="lg:hidden p-2 -ml-1 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer border-none bg-transparent flex items-center justify-center active:scale-95"
+            aria-label="Open Navigation Menu"
+            title="Open Menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+
+          {/* Brand Logo - MatDash Style */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#5d5bf6] to-[#7c7afc] flex items-center justify-center font-black text-white text-xs shadow-md shadow-[#5d5bf6]/25 shrink-0">
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-sm sm:text-base font-black text-slate-900 tracking-tight">MatDash</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#5d5bf6]/10 text-[#5d5bf6] uppercase tracking-wider hidden xs:inline-block">
                 EduHunters
               </span>
             </div>
           </div>
         </div>
 
-        {/* Center Search Bar with Shortcut */}
-        <div className="hidden md:flex items-center flex-1 max-w-md mx-6">
+        {/* Center Search Bar with Shortcut (Desktop & Tablet) */}
+        <div className="hidden md:flex items-center flex-1 max-w-md mx-4 lg:mx-6">
           <div className="relative w-full">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input 
@@ -2499,53 +2949,42 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         </div>
 
         {/* Right Action Icons & Profile Chip */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* Exit Admin Button */}
+          {onExitAdmin && (
+            <button
+              type="button"
+              onClick={onExitAdmin}
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs border border-slate-200/80 transition-all cursor-pointer"
+              title="Return to website"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Exit Admin</span>
+            </button>
+          )}
+
+          {/* Admin Logout Button */}
+          {onLogoutAdmin && (
+            <button
+              type="button"
+              onClick={onLogoutAdmin}
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs border border-rose-200/80 transition-all cursor-pointer"
+              title="Sign out of Admin Session"
+            >
+              <LogOut className="w-3.5 h-3.5 text-rose-600" />
+              <span className="hidden sm:inline">Logout</span>
+            </button>
+          )}
+
           {/* Quick Actions */}
           <button
+            type="button"
             onClick={() => setShowAddCourseModal(true)}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#5d5bf6]/10 hover:bg-[#5d5bf6]/20 text-[#5d5bf6] font-bold text-xs border border-[#5d5bf6]/20 cursor-pointer transition-all"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add Course</span>
           </button>
-
-          <button
-            onClick={handleExportData}
-            title="Download database JSON backup"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold border border-slate-200 cursor-pointer transition-all"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Backup</span>
-          </button>
-
-          <button
-            onClick={handleSaveAll}
-            className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white font-bold text-xs shadow-md shadow-[#5d5bf6]/25 transition-all cursor-pointer border-none"
-          >
-            <Save className="w-3.5 h-3.5" />
-            <span>Save Changes</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              persistAll();
-              if (onExitAdmin) onExitAdmin();
-            }}
-            title="Go to Live User Website"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition-all cursor-pointer border-none"
-          >
-            <Globe className="w-3.5 h-3.5 text-blue-400" />
-            <span className="hidden sm:inline">Live Site</span>
-          </button>
-
-          <div className="h-5 w-px bg-slate-200 mx-1 hidden sm:block" />
-
-          {/* Language Flag Badge */}
-          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-bold text-slate-700 cursor-pointer hover:bg-slate-100 transition-colors">
-            <span className="text-sm">🇬🇧</span>
-            <span className="text-[11px] font-extrabold text-slate-700">EN</span>
-          </div>
 
           {/* Notification Bell */}
           <div 
@@ -2560,8 +2999,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           </div>
 
           {/* MatDash User Profile Chip */}
-          <div className="flex items-center gap-2 pl-1.5 cursor-pointer group">
-            <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-[#5d5bf6]/20">
+          <div className="flex items-center gap-1.5 sm:gap-2 pl-1 cursor-pointer group">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden ring-2 ring-[#5d5bf6]/20 shrink-0">
               <img 
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
                 alt="Mathew Anderson" 
@@ -2572,323 +3011,95 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               <div className="text-xs font-bold text-slate-800 leading-tight">Mathew Anderson</div>
               <div className="text-[10px] text-slate-400 font-semibold leading-tight">Super Admin</div>
             </div>
-            <ChevronDown className="w-3 h-3 text-slate-400 hidden xl:block group-hover:text-slate-700 transition-colors" />
           </div>
         </div>
       </header>
 
-      {/* DASHBOARD BODY - FIXED 2 COLUMN SIDE-BY-SIDE LAYOUT */}
-      <div 
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flex: 1,
-          width: '100%',
-          minHeight: 'calc(100vh - 61px)',
-          background: '#f4f6fa',
-          alignItems: 'stretch'
-        }}
-      >
-        
-        {/* SIDEBAR NAVIGATION TABS (LEFT COLUMN) */}
-        <aside 
-          style={{
-            width: '240px',
-            minWidth: '240px',
-            maxWidth: '240px',
-            background: '#ffffff',
-            borderRight: '1px solid #e2e8f0',
-            padding: '20px 14px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '4px',
-            flexShrink: 0,
-            position: 'sticky',
-            top: '61px',
-            height: 'calc(100vh - 61px)',
-            overflowY: 'auto'
-          }}
-        >
-          {/* View Live Site Shortcut in Sidebar */}
-          <button
-            type="button"
-            onClick={() => {
-              persistAll();
-              if (onExitAdmin) onExitAdmin();
-            }}
-            className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all border cursor-pointer bg-slate-900 text-white hover:bg-slate-800 border-slate-900 shadow-sm mb-3"
-          >
-            <div className="flex items-center gap-2.5">
-              <Globe className="w-4 h-4 text-blue-400 shrink-0" />
-              <span>Visit User Website</span>
-            </div>
-            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
-          </button>
-
-          {/* GROUP 1: DASHBOARD */}
-          <div style={{ padding: '4px 10px', marginBottom: '2px' }}>
-            <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800, color: '#94a3b8' }}>
-              MAIN MENU
-            </span>
-          </div>
-
-          <button
-            onClick={() => setActiveTab('overview')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'overview' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <LayoutDashboard className={`w-4 h-4 shrink-0 ${activeTab === 'overview' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Dashboard</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('accounting')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'accounting' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <DollarSign className={`w-4 h-4 shrink-0 ${activeTab === 'accounting' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Enrollments & Ledger</span>
-            </div>
-            {pendingCount > 0 && (
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
-                {pendingCount}
-              </span>
-            )}
-          </button>
-
-          <button
-            onClick={() => setActiveTab('users')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'users' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <Users className={`w-4 h-4 shrink-0 ${activeTab === 'users' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Users Management</span>
-            </div>
-            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-              activeTab === 'users' ? 'bg-white/20 text-white' : 'bg-[#5d5bf6]/10 text-[#5d5bf6]'
-            }`}>
-              {usersList.length}
-            </span>
-          </button>
-
-
-          {/* GROUP 2: ACADEMICS */}
-          <div style={{ padding: '14px 10px 4px 10px' }}>
-            <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800, color: '#94a3b8' }}>
-              ACADEMIC
-            </span>
-          </div>
-
-          <button
-            onClick={() => setActiveTab('courses')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'courses' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <BookOpen className={`w-4 h-4 shrink-0 ${activeTab === 'courses' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Courses</span>
-            </div>
-            <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{courses.length}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('bundles')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'bundles' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <Layers className={`w-4 h-4 shrink-0 ${activeTab === 'bundles' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Bundles</span>
-            </div>
-            <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{bundles.length}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('instructors')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'instructors' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <GraduationCap className={`w-4 h-4 shrink-0 ${activeTab === 'instructors' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Faculty & Mentors</span>
-            </div>
-            <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{instructors.length}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('store')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'store' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <FileText className={`w-4 h-4 shrink-0 ${activeTab === 'store' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Book & PDF Store</span>
-            </div>
-            <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{storeProducts.length}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('videos')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'videos' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <Video className={`w-4 h-4 shrink-0 ${activeTab === 'videos' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Free Video Classes</span>
-            </div>
-            <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{freeVideos.length}</span>
-          </button>
-
-          {/* GROUP 3: CUSTOMIZATION */}
-          <div style={{ padding: '14px 10px 4px 10px' }}>
-            <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800, color: '#94a3b8' }}>
-              CUSTOMIZE
-            </span>
-          </div>
-
-          <button
-            onClick={() => setActiveTab('slides')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'slides' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <Sliders className={`w-4 h-4 shrink-0 ${activeTab === 'slides' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Hero Slider</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('sectionTexts')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'sectionTexts' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <Type className={`w-4 h-4 shrink-0 ${activeTab === 'sectionTexts' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Section Texts</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('whyChoose')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'whyChoose' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <HelpCircle className={`w-4 h-4 shrink-0 ${activeTab === 'whyChoose' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Why Choose Us</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('stats')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'stats' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <PieChart className={`w-4 h-4 shrink-0 ${activeTab === 'stats' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Counters & Notice</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('policies')}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-              activeTab === 'policies' ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold rounded-xl border-[#5d5bf6]' : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 rounded-xl font-medium'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <ShieldCheck className={`w-4 h-4 shrink-0 ${activeTab === 'policies' ? 'text-white' : 'text-slate-400'}`} />
-              <span>Legal & Policies</span>
-            </div>
-            <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">
-              {(termsAndConditions?.clauses?.length || 0) + (refundPolicy?.clauses?.length || 0) + (privacyPolicy?.clauses?.length || 0)}
-            </span>
-          </button>
-
-          <div className="mt-auto pt-4">
-            <button
-              onClick={() => setActiveTab('settings')}
-              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all border cursor-pointer ${
-                activeTab === 'settings'
-                  ? 'bg-[#eef4ff] text-[#2563eb] border-blue-200 font-bold shadow-xs'
-                  : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-100 hover:text-slate-900'
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <SettingsIcon className="w-4 h-4 shrink-0 text-slate-500" />
-                <span>Brand & Settings</span>
+      {/* MOBILE SLIDE-OVER NAVIGATION DRAWER */}
+      {mobileSidebarOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex animate-in fade-in duration-200">
+          {/* Backdrop with smooth blur */}
+          <div 
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs transition-opacity"
+            onClick={() => setMobileSidebarOpen(false)}
+          />
+          
+          {/* Slide-in sidebar container */}
+          <div className="relative w-72 max-w-[85vw] bg-white h-full shadow-2xl flex flex-col z-10 animate-in slide-in-from-left duration-200">
+            {/* Drawer Header */}
+            <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0 z-10">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#5d5bf6] to-[#7c7afc] flex items-center justify-center font-black text-white text-xs shadow-md shadow-[#5d5bf6]/25">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-sm font-black text-slate-900 tracking-tight">MatDash</span>
+                  <span className="block text-[10px] font-bold text-[#5d5bf6] uppercase tracking-wider">
+                    EduHunters Admin
+                  </span>
+                </div>
               </div>
-            </button>
+              <button
+                type="button"
+                onClick={() => setMobileSidebarOpen(false)}
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center border-none cursor-pointer transition-colors"
+                title="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Drawer Nav Items */}
+            <div className="p-3.5 overflow-y-auto flex-1">
+              {renderSidebarNav(true)}
+            </div>
+
+            {/* Drawer Footer with Exit Admin & Logout */}
+            {(onExitAdmin || onLogoutAdmin) && (
+              <div className="p-3 border-t border-slate-100 bg-slate-50 space-y-2">
+                {onExitAdmin && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileSidebarOpen(false);
+                      onExitAdmin();
+                    }}
+                    className="w-full py-2 px-3 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200 shadow-2xs flex items-center justify-center gap-2 cursor-pointer transition-all"
+                  >
+                    <ArrowLeft className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Exit Admin Panel</span>
+                  </button>
+                )}
+                {onLogoutAdmin && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileSidebarOpen(false);
+                      onLogoutAdmin();
+                    }}
+                    className="w-full py-2 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs border border-rose-200 shadow-2xs flex items-center justify-center gap-2 cursor-pointer transition-all"
+                  >
+                    <LogOut className="w-3.5 h-3.5 text-rose-500" />
+                    <span>Admin Logout</span>
+                  </button>
+                )}
+              </div>
+            )}
           </div>
+        </div>
+      )}
+
+      {/* DASHBOARD BODY - RESPONSIVE LAYOUT */}
+      <div className="flex flex-col lg:flex-row flex-1 w-full min-h-[calc(100vh-61px)] bg-[#f4f6fa] items-stretch">
+        
+        {/* DESKTOP SIDEBAR NAVIGATION (LEFT COLUMN) */}
+        <aside className="hidden lg:flex w-60 min-w-[240px] max-w-[240px] bg-white border-r border-slate-200/80 p-5 flex-col gap-1 shrink-0 sticky top-[61px] h-[calc(100vh-61px)] overflow-y-auto">
+          {renderSidebarNav(false)}
         </aside>
 
         {/* MAIN PANEL VIEW (RIGHT COLUMN) */}
-        <main 
-          style={{
-            flex: 1,
-            minWidth: 0,
-            padding: '24px 28px',
-            background: '#f4f6fa',
-            overflowY: 'auto'
-          }}
-        >
-          {/* MatDash Page Title & Breadcrumb Header Card */}
-          {(() => {
-            const tabMeta = {
-              overview: { title: 'User Dashboard', sub: 'Comprehensive overview of enrolled students, revenue, and active course stats' },
-              accounting: { title: 'Enrollments & Financial Ledger', sub: 'Review pending payment verifications, student tuition, and accounting statements' },
-              users: { title: 'User Management & Directory', sub: 'Comprehensive directory of platform accounts, roles, access permissions, and student profiles' },
-              courses: { title: 'Courses Studio', sub: 'Create, edit, and organize academic video courses, pricing, and lecture syllabi' },
-              bundles: { title: 'Course Bundles Studio', sub: 'Package multiple academic courses together at a discounted combo price' },
-              instructors: { title: 'Faculty & Mentors Directory', sub: 'Manage instructor profiles, teaching subjects, bios, and avatar photos' },
-              store: { title: 'Book & PDF Resources Store', sub: 'Manage student physical publications, PDF study guides, and delivery logs' },
-              videos: { title: 'Free Video Classes Library', sub: 'Curate open YouTube classes and lecture playlists for free learning' },
-              slides: { title: 'Hero Carousel Slider', sub: 'Configure prominent homepage banner announcements, callouts, and campaign visuals' },
-              sectionTexts: { title: 'Homepage Section Typography', sub: 'Customize titles, descriptions, and action button labels across the portal' },
-              whyChoose: { title: 'Why Choose Us Features', sub: 'Manage core educational pillars and platform highlights on the landing page' },
-              stats: { title: 'Counters & Announcements', sub: 'Manage homepage achievement milestones, counter stats, and top notice bar' },
-              policies: { title: 'Legal & Policies Studio', sub: 'Customize Terms & Conditions, Refund Policy, and Privacy Policy for students' },
-              settings: { title: 'Brand & Platform Settings', sub: 'Configure site branding, logos, support contacts, API keys, and system parameters' }
-            };
-            const currentMeta = tabMeta[activeTab] || { title: activeTab.toUpperCase(), sub: 'Admin Management Panel' };
-            return (
-              <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <h1 className="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-                    {currentMeta.title}
-                  </h1>
-                  <p className="text-xs text-slate-400 font-medium mt-0.5">
-                    {currentMeta.sub}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-600">
-                    <LayoutDashboard className="w-3.5 h-3.5 text-[#5d5bf6]" />
-                    <span className="text-slate-300">/</span>
-                    <span className="text-slate-400 font-medium">Home</span>
-                    <span className="text-slate-300">/</span>
-                    <span className="text-[#5d5bf6] font-bold">{currentMeta.title.split(' ')[0]}</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })()}
+        <main className="flex-1 min-w-0 p-3.5 sm:p-5 lg:p-7 bg-[#f4f6fa] overflow-y-auto w-full">
+
           {/* ========================================================= */}
           {/* TAB 1: OVERVIEW */}
           {/* ========================================================= */}
@@ -2898,163 +3109,102 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               {/* TOP TITLE & THREE CANDY PASTEL CARDS */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
                     Dashboard
                   </h2>
-                  <div className="flex items-center gap-2">
-                    {pendingCount > 0 && (
-                      <button
-                        onClick={() => {
-                          setTrxFilter('PENDING');
-                          setActiveTab('accounting');
-                        }}
-                        className="px-3.5 py-1.5 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300/80 text-xs font-bold cursor-pointer transition-all flex items-center gap-1.5 shadow-2xs"
-                      >
-                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                        <span>{pendingCount} Pending Enrollments</span>
-                      </button>
-                    )}
-                  </div>
                 </div>
 
-                {/* CLEAN & COMPACT METRIC STAT CARDS */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                {/* ULTRA-MINIMAL METRIC STAT CARDS (NO ICONS, NO DUPLICATE LABELS) */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
                   
-                  {/* CARD 1: Total Enrolled Students */}
-                  <div className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:border-pink-300/80 hover:shadow-sm transition-all flex flex-col justify-between group">
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center shrink-0 border border-pink-100/80">
-                          <Users className="w-4 h-4" />
-                        </div>
-                        <span className="text-xs font-bold text-slate-700">Total Enrolled Students</span>
-                      </div>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/60">
-                        <TrendingUp className="w-2.5 h-2.5" />
+                  {/* CARD 1: Total Enrolled */}
+                  <div 
+                    onClick={() => setDashboardMainTab('students')}
+                    className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
+                  >
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Enrolled</span>
+                      <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shrink-0">
+                        <TrendingUp className="w-3 h-3" />
                         <span>+24%</span>
                       </span>
                     </div>
-
-                    <div className="my-2">
-                      <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none">
-                        {(3840 + enrolledStudents.length).toLocaleString()}
-                      </div>
-                    </div>
-
-                    <div className="text-[11px] text-slate-400 font-medium flex items-center justify-between pt-1 border-t border-slate-100">
-                      <span>HSC & Admission Batches</span>
-                      <span className="text-pink-600 font-semibold text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-                        Student Database →
-                      </span>
+                    <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mt-3">
+                      {(3840 + enrolledStudents.length).toLocaleString()}
                     </div>
                   </div>
 
                   {/* CARD 2: Pending Verification */}
                   <div 
                     onClick={() => setDashboardMainTab('verification')}
-                    className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:border-amber-300/80 hover:shadow-sm transition-all flex flex-col justify-between group cursor-pointer"
+                    className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
                   >
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-100/80">
-                          <ShieldCheck className="w-4 h-4" />
-                        </div>
-                        <span className="text-xs font-bold text-slate-700">Pending Verification</span>
-                      </div>
-                      {pendingCount > 0 ? (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200/80">
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                          <span>Needs Review</span>
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/60">
-                          <Check className="w-2.5 h-2.5" />
-                          <span>Verified</span>
-                        </span>
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Pending Verification</span>
+                      {pendingCount > 0 && (
+                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0" title="Needs review" />
                       )}
                     </div>
-
-                    <div className="my-2 flex items-baseline gap-2">
-                      <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none">
-                        {pendingCount}
-                      </div>
-                      <span className="text-xs font-semibold text-amber-700">
-                        {pendingCount > 0 ? 'Pending Verifications' : 'All Verified'}
-                      </span>
-                    </div>
-
-                    <div className="text-[11px] text-slate-400 font-medium flex items-center justify-between pt-1 border-t border-slate-100">
-                      <span>bKash & Nagad TrxID</span>
-                      <span className="text-amber-600 font-semibold text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-                        Review Now →
-                      </span>
+                    <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mt-3">
+                      {pendingCount}
                     </div>
                   </div>
 
-                  {/* CARD 3: Active Batches & Courses */}
+                  {/* CARD 3: Net Profit */}
                   <div 
-                    onClick={() => setActiveTab('courses')}
-                    className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:border-blue-300/80 hover:shadow-sm transition-all flex flex-col justify-between group cursor-pointer"
+                    onClick={() => setActiveTab('accounting')}
+                    className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
                   >
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100/80">
-                          <Layers className="w-4 h-4" />
-                        </div>
-                        <span className="text-xs font-bold text-slate-700">Active Batches & Courses</span>
-                      </div>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200/60">
-                        <CheckCircle2 className="w-2.5 h-2.5" />
-                        <span>Running</span>
-                      </span>
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Net Profit</span>
                     </div>
-
-                    <div className="my-2 flex items-baseline gap-2">
-                      <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none">
-                        {courses.length}
-                      </div>
-                      <span className="text-xs font-semibold text-blue-700">
-                        Batches & Live Programs
-                      </span>
+                    <div className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight leading-none mt-3">
+                      ৳{accountingTotals.netProfit.toLocaleString()}
                     </div>
+                  </div>
 
-                    <div className="text-[11px] text-slate-400 font-medium flex items-center justify-between pt-1 border-t border-slate-100">
-                      <span>HSC 25, 26, 27, 28 & Med</span>
-                      <span className="text-blue-600 font-semibold text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-                        Manage Courses →
-                      </span>
+                  {/* CARD 4: Total Spendings */}
+                  <div 
+                    onClick={() => {
+                      setTrxFilter('EXPENSE');
+                      setActiveTab('accounting');
+                    }}
+                    className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
+                  >
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Spendings</span>
+                    </div>
+                    <div className="text-2xl sm:text-3xl font-black text-rose-600 tracking-tight leading-none mt-3">
+                      ৳{accountingTotals.totalExpenses.toLocaleString()}
                     </div>
                   </div>
 
                 </div>
               </div>
 
-              {/* 2-COLUMN SPLIT DASHBOARD LAYOUT */}
-              <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
-                
-                {/* LEFT COLUMN: VERIFICATION HUB & STUDENT MANAGEMENT (8 Cols) */}
-                <div className="xl:col-span-8">
-                  {/* UNIFIED SaaS CARD CONTAINER (CLEAN, MINIMAL & PROFESSIONAL) */}
-                  <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden">
-                    
-                    {/* SLEEK SAAS HEADER */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-5 sm:px-6 py-4 border-b border-slate-100 bg-white">
-                      {/* Segmented Pill Tabs */}
-                      <div className="inline-flex items-center gap-1.5 bg-[#f4f6fa] p-1.5 rounded-2xl border border-slate-200/70">
+              {/* DASHBOARD CONTENT: VERIFICATION HUB & STUDENT MANAGEMENT */}
+              <div className="w-full">
+                {/* UNIFIED SaaS CARD CONTAINER (CLEAN, MINIMAL & PROFESSIONAL) */}
+                <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden">
+                  
+                  {/* SLEEK SAAS HEADER */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-3.5 sm:px-6 py-3 sm:py-4 border-b border-slate-100 bg-white">
+                    {/* Segmented Pill Tabs */}
+                    <div className="flex items-center gap-1 bg-[#f4f6fa] p-1 sm:p-1.5 rounded-2xl border border-slate-200/70 w-full sm:w-auto">
                         <button
                           type="button"
                           onClick={() => setDashboardMainTab('verification')}
-                          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer border-none ${
+                          className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer border-none ${
                             dashboardMainTab === 'verification'
                               ? 'bg-white text-slate-900 shadow-xs font-black'
                               : 'text-slate-500 hover:text-slate-800'
                           }`}
                         >
-                          <ShieldCheck className={`w-4 h-4 ${dashboardMainTab === 'verification' ? 'text-[#5d5bf6]' : 'text-slate-400'}`} />
-                          <span>Payment Verifications</span>
+                          <ShieldCheck className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${dashboardMainTab === 'verification' ? 'text-[#5d5bf6]' : 'text-slate-400'}`} />
+                          <span><span className="hidden sm:inline">Payment </span>Verifications</span>
                           {pendingCount > 0 ? (
-                            <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-amber-500 text-white shadow-2xs">
-                              {pendingCount} Pending
+                            <span className="px-1.5 sm:px-2 py-0.5 rounded-md text-[10px] font-black bg-amber-500 text-white shadow-2xs">
+                              {pendingCount}
                             </span>
                           ) : (
                             <span className="px-1.5 py-0.2 rounded-md text-[10px] font-bold bg-slate-200 text-slate-600">
@@ -3066,36 +3216,36 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         <button
                           type="button"
                           onClick={() => setDashboardMainTab('students')}
-                          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer border-none ${
+                          className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer border-none ${
                             dashboardMainTab === 'students'
                               ? 'bg-white text-slate-900 shadow-xs font-black'
                               : 'text-slate-500 hover:text-slate-800'
                           }`}
                         >
-                          <Users className={`w-4 h-4 ${dashboardMainTab === 'students' ? 'text-[#5d5bf6]' : 'text-slate-400'}`} />
-                          <span>Student Database</span>
-                          <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-200 text-slate-600">
+                          <Users className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${dashboardMainTab === 'students' ? 'text-[#5d5bf6]' : 'text-slate-400'}`} />
+                          <span>Student<span className="hidden sm:inline"> Database</span></span>
+                          <span className="px-1.5 sm:px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-200 text-slate-600">
                             {enrolledStudents.length}
                           </span>
                         </button>
                       </div>
 
                       {/* Header Right Action */}
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 w-full sm:w-auto">
                         {dashboardMainTab === 'verification' ? (
                           <>
                             {pendingCount > 0 ? (
                               <button
                                 type="button"
                                 onClick={handleVerifyAllPending}
-                                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs shadow-emerald-600/20 cursor-pointer border-none transition-all active:scale-95"
+                                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs shadow-emerald-600/20 cursor-pointer border-none transition-all active:scale-95"
                                 title="Approve and enroll all pending transactions"
                               >
                                 <Check className="w-3.5 h-3.5" />
-                                <span>Verify All Pending ({pendingCount})</span>
+                                <span>Approve All Pending ({pendingCount})</span>
                               </button>
                             ) : (
-                              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/70">
+                              <div className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/70">
                                 <Check className="w-3.5 h-3.5 text-emerald-600" />
                                 <span>All Caught Up</span>
                               </div>
@@ -3116,7 +3266,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               });
                               setShowAddStudentModal(true);
                             }}
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold shadow-md shadow-[#5d5bf6]/20 cursor-pointer border-none transition-all"
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold shadow-md shadow-[#5d5bf6]/20 cursor-pointer border-none transition-all"
                           >
                             <Plus className="w-3.5 h-3.5" />
                             <span>+ New Student</span>
@@ -3126,20 +3276,20 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     </div>
 
                     {/* CARD BODY */}
-                    <div className="p-5 space-y-4">
+                    <div className="p-3 sm:p-5 space-y-4">
                       
                       {/* TAB 1: PAYMENT & TRXID VERIFICATION HUB */}
                       {dashboardMainTab === 'verification' && (
                         <div className="space-y-4">
                           
                           {/* Search Bar & Filter Buttons */}
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
                             {/* Search Input */}
-                            <div className="relative flex-1 max-w-sm">
+                            <div className="relative flex-1 w-full max-w-sm">
                               <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                               <input 
                                 type="text"
-                                placeholder="Search by TrxID, student name, or phone..."
+                                placeholder="Search by TrxID, name, or phone..."
                                 value={verificationSearchQuery}
                                 onChange={(e) => setVerificationSearchQuery(e.target.value)}
                                 className="w-full bg-[#f4f6fa] border border-slate-200/80 rounded-xl pl-10 pr-9 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] focus:ring-2 focus:ring-[#5d5bf6]/15 transition-all font-medium placeholder:text-slate-400"
@@ -3156,8 +3306,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               )}
                             </div>
 
-                            {/* Status Filter Tabs (Segmented Controller) */}
-                            <div className="flex items-center gap-1 bg-[#f4f6fa] p-1 rounded-xl text-xs font-semibold text-slate-600 shrink-0 border border-slate-200/60">
+                            {/* Status Filter Tabs (Segmented Controller - Horizontally Scrollable on Mobile) */}
+                            <div className="flex items-center gap-1 bg-[#f4f6fa] p-1 rounded-xl text-xs font-semibold text-slate-600 border border-slate-200/60 overflow-x-auto no-scrollbar w-full sm:w-auto">
                               {[
                                 { key: 'PENDING', label: 'Pending', count: (accounting?.transactions || []).filter(t => t.type === 'INCOME' && t.status === 'Pending').length },
                                 { key: 'ALL', label: 'All', count: (accounting?.transactions || []).filter(t => t.type === 'INCOME').length },
@@ -3170,7 +3320,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     key={tab.key}
                                     type="button"
                                     onClick={() => setVerificationFilter(tab.key)}
-                                    className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer border-none flex items-center gap-1.5 text-xs select-none ${
+                                    className={`px-2.5 sm:px-3 py-1.5 rounded-lg transition-all cursor-pointer border-none flex items-center gap-1.5 text-xs whitespace-nowrap select-none ${
                                       isActive
                                         ? 'bg-white text-slate-900 shadow-2xs font-extrabold'
                                         : 'text-slate-500 hover:text-slate-800 bg-transparent'
@@ -3190,7 +3340,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             </div>
                           </div>
 
-                          {/* Transactions Verification Table */}
+                          {/* Transactions Verification List / Table */}
                           {verificationList.length === 0 ? (
                             <div className="py-12 text-center bg-[#f4f6fa]/60 rounded-2xl border border-dashed border-slate-200 p-8">
                               <div className="w-12 h-12 mx-auto rounded-2xl bg-white shadow-2xs text-slate-400 flex items-center justify-center mb-3">
@@ -3211,169 +3361,296 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               )}
                             </div>
                           ) : (
-                            <div className="overflow-x-auto rounded-2xl border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
-                              <table className="w-full text-left border-collapse">
-                                <thead>
-                                  <tr className="border-b border-slate-100 bg-slate-50/80 text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">
-                                    <th className="py-2.5 pl-3.5 pr-2">Student & Contact</th>
-                                    <th className="py-2.5 px-2">Course / Batch</th>
-                                    <th className="py-2.5 px-2">Payment & TrxID</th>
-                                    <th className="py-2.5 px-2">Amount</th>
-                                    <th className="py-2.5 px-2">Status</th>
-                                    <th className="py-2.5 pr-3.5 pl-2 text-right">Actions</th>
-                                  </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
-                                  {verificationList.map((tx) => {
-                                    const isPending = tx.status === 'Pending';
-                                    const isCompleted = tx.status === 'Completed';
-                                    const isRejected = tx.status === 'Rejected';
-                                    const methodLower = (tx.method || '').toLowerCase();
-                                    const initialChar = (tx.studentName || tx.customer || 'S').trim()[0] || 'S';
+                            <>
+                              {/* MOBILE VIEW (< md): Responsive clean touch-friendly card list */}
+                              <div className="md:hidden space-y-3">
+                                {verificationList.map((tx) => {
+                                  const isPending = tx.status === 'Pending';
+                                  const isCompleted = tx.status === 'Completed';
+                                  const methodLower = (tx.method || '').toLowerCase();
 
-                                    return (
-                                      <tr 
-                                        key={tx.id}
-                                        className={`hover:bg-slate-50/70 transition-colors ${
-                                          isPending ? 'bg-amber-50/20' : ''
-                                        }`}
-                                      >
-                                        {/* Col 1: Student Name & Contact */}
-                                        <td className="py-2.5 pl-3.5 pr-2">
-                                          <div className="flex items-center gap-2.5">
-                                            <div className="w-7 h-7 rounded-lg bg-[#5d5bf6]/10 border border-[#5d5bf6]/20 text-[#5d5bf6] font-black text-xs flex items-center justify-center shrink-0 select-none">
-                                              {initialChar}
-                                            </div>
-                                            <div className="min-w-0">
-                                              <div className="font-extrabold text-slate-900 text-xs leading-snug truncate max-w-[120px]">
-                                                {tx.studentName || tx.customer || 'New Student'}
-                                              </div>
-                                              <div className="flex items-center gap-1 text-slate-400 font-mono text-[10px] mt-0.5">
-                                                <span>{tx.studentPhone || tx.phone || 'N/A'}</span>
-                                                {(tx.studentPhone || tx.phone) && (
-                                                  <button
-                                                    type="button"
-                                                    onClick={() => handleCopyText(tx.studentPhone || tx.phone, 'phone')}
-                                                    className="text-slate-400 hover:text-slate-700 border-none bg-transparent cursor-pointer p-0.5"
-                                                    title="Copy phone number"
-                                                  >
-                                                    {copiedPhone === (tx.studentPhone || tx.phone) ? (
-                                                      <Check className="w-2.5 h-2.5 text-emerald-600" />
-                                                    ) : (
-                                                      <Copy className="w-2.5 h-2.5" />
-                                                    )}
-                                                  </button>
-                                                )}
-                                              </div>
-                                            </div>
+                                  return (
+                                    <div 
+                                      key={tx.id}
+                                      className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] space-y-2.5 transition-all"
+                                    >
+                                      {/* Row 1: Student Name, Course, Amount */}
+                                      <div className="flex items-start justify-between gap-3">
+                                        <div className="min-w-0 flex-1">
+                                          <div className="font-bold text-slate-900 text-sm truncate">
+                                            {tx.studentName || tx.customer || 'New Student'}
                                           </div>
-                                        </td>
-
-                                        {/* Col 2: Course / Batch & Date */}
-                                        <td className="py-2.5 px-2 max-w-[150px]">
-                                          <div className="font-bold text-slate-800 truncate text-[11px]" title={tx.itemTitle}>
+                                          <div className="text-xs text-slate-500 font-medium truncate mt-0.5">
                                             {tx.itemTitle || tx.category || 'Course Enrollment'}
                                           </div>
-                                          <div className="text-[10px] text-slate-400 font-medium mt-0.5">
-                                            {tx.date}
+                                        </div>
+                                        <div className="text-right shrink-0">
+                                          <div className="font-black text-slate-900 text-base leading-tight">
+                                            ৳{Number(tx.amount || 0).toLocaleString()}
                                           </div>
-                                        </td>
+                                          <div className="text-[10px] text-slate-400 mt-0.5">{tx.date}</div>
+                                        </div>
+                                      </div>
 
-                                        {/* Col 3: Payment Method & TrxID with 1-click Copy */}
-                                        <td className="py-2.5 px-2 whitespace-nowrap">
-                                          <div className="flex items-center gap-1.5">
-                                            <span className={`px-1.5 py-0.5 rounded font-black text-[9px] uppercase tracking-wider border select-none ${
-                                              methodLower.includes('bkash') ? 'bg-[#d12053]/10 text-[#d12053] border-[#d12053]/25' :
-                                              methodLower.includes('nagad') ? 'bg-[#ea580c]/10 text-[#ea580c] border-[#ea580c]/25' :
-                                              methodLower.includes('rocket') ? 'bg-[#7b1fa2]/10 text-[#7b1fa2] border-[#7b1fa2]/25' :
-                                              'bg-slate-100 text-slate-700 border-slate-200'
-                                            }`}>
-                                              {tx.method || 'Online'}
-                                            </span>
+                                      {/* Row 2: Clean Info Line (Phone · Method · TrxID) */}
+                                      <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-600 bg-slate-50 px-3 py-1.5 rounded-xl font-medium">
+                                        <span className="font-mono text-slate-700">{tx.studentPhone || tx.phone || 'N/A'}</span>
+                                        <span className="text-slate-300">·</span>
+                                        <span className={`font-bold ${
+                                          methodLower.includes('bkash') ? 'text-pink-600' :
+                                          methodLower.includes('nagad') ? 'text-amber-600' : 'text-slate-700'
+                                        }`}>
+                                          {tx.method || 'bKash'}
+                                        </span>
+                                        <button
+                                          type="button"
+                                          onClick={() => handleCopyText(tx.trxId, 'trxId')}
+                                          className="font-mono font-bold text-slate-800 hover:text-blue-600 border-none bg-transparent cursor-pointer p-0 text-xs inline-flex items-center gap-1"
+                                          title="Click to copy TrxID"
+                                        >
+                                          <span>{tx.trxId || 'N/A'}</span>
+                                          {copiedTrxId === tx.trxId ? (
+                                            <Check className="w-3 h-3 text-emerald-600" />
+                                          ) : (
+                                            <Copy className="w-3 h-3 text-slate-400" />
+                                          )}
+                                        </button>
+                                      </div>
 
-                                            <button
-                                              type="button"
-                                              onClick={() => handleCopyText(tx.trxId, 'trxId')}
-                                              className="font-mono font-bold text-[11px] text-slate-800 bg-[#f4f6fa] hover:bg-slate-200/90 px-2 py-0.5 rounded-lg border border-slate-200/80 flex items-center gap-1 cursor-pointer transition-all active:scale-95"
-                                              title="Click to copy TrxID"
-                                            >
-                                              <span>{tx.trxId || 'N/A'}</span>
-                                              {copiedTrxId === tx.trxId ? (
-                                                <span className="text-emerald-600 text-[9px] font-bold flex items-center">
-                                                  <Check className="w-2.5 h-2.5" />
-                                                </span>
-                                              ) : (
-                                                <Copy className="w-2.5 h-2.5 text-slate-400 hover:text-slate-700" />
-                                              )}
-                                            </button>
-                                          </div>
-                                        </td>
+                                      {/* Row 3: Status Badge & Minimal Actions */}
+                                      <div className="flex items-center justify-between gap-2 pt-0.5">
+                                        <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-xl border ${
+                                          isPending
+                                            ? 'bg-amber-50 text-amber-800 border-amber-200/60'
+                                            : isCompleted
+                                            ? 'bg-emerald-50 text-emerald-800 border-emerald-200/60'
+                                            : 'bg-rose-50 text-rose-800 border-rose-200/60'
+                                        }`}>
+                                          <span className={`w-1.5 h-1.5 rounded-full ${
+                                            isPending ? 'bg-amber-500 animate-pulse' : isCompleted ? 'bg-emerald-500' : 'bg-rose-500'
+                                          }`} />
+                                          <span>{isPending ? 'Pending' : isCompleted ? 'Approved' : 'Rejected'}</span>
+                                        </span>
 
-                                        {/* Col 4: Amount */}
-                                        <td className="py-2.5 px-2 font-black text-slate-900 text-xs whitespace-nowrap">
-                                          ৳{Number(tx.amount || 0).toLocaleString()}
-                                        </td>
+                                        <div className="flex items-center gap-1.5">
+                                          {isPending && (
+                                            <>
+                                              <button
+                                                type="button"
+                                                onClick={() => handleApproveAndEnrollStudent(tx)}
+                                                className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 cursor-pointer border-none active:scale-95"
+                                              >
+                                                <Check className="w-3.5 h-3.5" />
+                                                <span>Approve</span>
+                                              </button>
+                                              <button
+                                                type="button"
+                                                onClick={() => handleRejectTrx(tx.id)}
+                                                className="p-1.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors cursor-pointer bg-white"
+                                                title="Reject"
+                                              >
+                                                <X className="w-3.5 h-3.5" />
+                                              </button>
+                                            </>
+                                          )}
 
-                                        {/* Col 5: Status Badge */}
-                                        <td className="py-2.5 px-2 whitespace-nowrap">
-                                          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black border ${
-                                            isPending ? 'bg-amber-50 text-amber-700 border-amber-200' :
-                                            isCompleted ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
-                                            'bg-rose-50 text-rose-700 border-rose-200'
-                                          }`}>
-                                            <span className={`w-1.5 h-1.5 rounded-full ${isPending ? 'bg-amber-500 animate-pulse' : isCompleted ? 'bg-emerald-500' : 'bg-rose-500'}`} />
-                                            <span>{isPending ? 'Pending' : isCompleted ? 'Verified' : 'Rejected'}</span>
-                                          </span>
-                                        </td>
+                                          <button
+                                            type="button"
+                                            onClick={() => setSelectedTxDetails(tx)}
+                                            className="p-1.5 rounded-xl text-slate-400 hover:text-slate-800 hover:bg-slate-100 border border-slate-200 transition-colors cursor-pointer bg-white"
+                                            title="View Details"
+                                          >
+                                            <Eye className="w-3.5 h-3.5" />
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
 
-                                        {/* Col 6: Action Buttons */}
-                                        <td className="py-2.5 pr-3.5 pl-2 text-right whitespace-nowrap">
-                                          <div className="flex items-center justify-end gap-1">
-                                            {isPending ? (
-                                              <>
-                                                <button
-                                                  type="button"
-                                                  onClick={() => handleApproveAndEnrollStudent(tx)}
-                                                  className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold transition-all shadow-2xs shadow-emerald-600/20 flex items-center gap-1 cursor-pointer border-none active:scale-95"
-                                                  title="Verify TrxID & Enroll Student"
-                                                >
-                                                  <Check className="w-3 h-3" />
-                                                  <span>Verify</span>
-                                                </button>
+                              {/* DESKTOP VIEW (>= md): Full Table */}
+                              <div className="hidden md:block overflow-x-auto rounded-2xl border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                                <table className="w-full text-left border-collapse">
+                                  <thead>
+                                    <tr className="border-b border-slate-100 bg-slate-50/80 text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">
+                                      <th className="py-2.5 pl-3.5 pr-2">Student & Contact</th>
+                                      <th className="py-2.5 px-2">Course / Batch</th>
+                                      <th className="py-2.5 px-2">Payment & TrxID</th>
+                                      <th className="py-2.5 px-2">Amount</th>
+                                      <th className="py-2.5 px-2">Status</th>
+                                      <th className="py-2.5 pr-3.5 pl-2 text-right">Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
+                                    {verificationList.map((tx) => {
+                                      const isPending = tx.status === 'Pending';
+                                      const isCompleted = tx.status === 'Completed';
+                                      const methodLower = (tx.method || '').toLowerCase();
+                                      const initialChar = (tx.studentName || tx.customer || 'S').trim()[0] || 'S';
 
-                                                <button
-                                                  type="button"
-                                                  onClick={() => handleRejectTrx(tx.id)}
-                                                  className="p-1 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 transition-colors cursor-pointer bg-white"
-                                                  title="Reject Transaction"
-                                                >
-                                                  <X className="w-3 h-3" />
-                                                </button>
-                                              </>
-                                            ) : (
-                                              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${
-                                                isCompleted ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'
+                                      return (
+                                        <tr 
+                                          key={tx.id}
+                                          className={`hover:bg-slate-50/70 transition-colors ${
+                                            isPending ? 'bg-amber-50/20' : ''
+                                          }`}
+                                        >
+                                          {/* Col 1: Student Name & Contact */}
+                                          <td className="py-2.5 pl-3.5 pr-2">
+                                            <div className="flex items-center gap-2.5">
+                                              <div className="w-7 h-7 rounded-lg bg-[#5d5bf6]/10 border border-[#5d5bf6]/20 text-[#5d5bf6] font-black text-xs flex items-center justify-center shrink-0 select-none">
+                                                {initialChar}
+                                              </div>
+                                              <div className="min-w-0">
+                                                <div className="font-extrabold text-slate-900 text-xs leading-snug truncate max-w-[120px]">
+                                                  {tx.studentName || tx.customer || 'New Student'}
+                                                </div>
+                                                <div className="flex items-center gap-1 text-slate-400 font-mono text-[10px] mt-0.5">
+                                                  <span>{tx.studentPhone || tx.phone || 'N/A'}</span>
+                                                  {(tx.studentPhone || tx.phone) && (
+                                                    <button
+                                                      type="button"
+                                                      onClick={() => handleCopyText(tx.studentPhone || tx.phone, 'phone')}
+                                                      className="text-slate-400 hover:text-slate-700 border-none bg-transparent cursor-pointer p-0.5"
+                                                      title="Copy phone number"
+                                                    >
+                                                      {copiedPhone === (tx.studentPhone || tx.phone) ? (
+                                                        <Check className="w-2.5 h-2.5 text-emerald-600" />
+                                                      ) : (
+                                                        <Copy className="w-2.5 h-2.5" />
+                                                      )}
+                                                    </button>
+                                                  )}
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </td>
+
+                                          {/* Col 2: Course / Batch & Date */}
+                                          <td className="py-2.5 px-2 max-w-[150px]">
+                                            <div className="font-bold text-slate-800 truncate text-[11px]" title={tx.itemTitle}>
+                                              {tx.itemTitle || tx.category || 'Course Enrollment'}
+                                            </div>
+                                            <div className="text-[10px] text-slate-400 font-medium mt-0.5">
+                                              {tx.date}
+                                            </div>
+                                          </td>
+
+                                          {/* Col 3: Payment Method & TrxID with 1-click Copy */}
+                                          <td className="py-2.5 px-2 whitespace-nowrap">
+                                            <div className="flex items-center gap-1.5">
+                                              <span className={`px-1.5 py-0.5 rounded font-black text-[9px] uppercase tracking-wider border select-none ${
+                                                methodLower.includes('bkash') ? 'bg-[#d12053]/10 text-[#d12053] border-[#d12053]/25' :
+                                                methodLower.includes('nagad') ? 'bg-[#ea580c]/10 text-[#ea580c] border-[#ea580c]/25' :
+                                                methodLower.includes('rocket') ? 'bg-[#7b1fa2]/10 text-[#7b1fa2] border-[#7b1fa2]/25' :
+                                                'bg-slate-100 text-slate-700 border-slate-200'
                                               }`}>
-                                                {isCompleted ? 'Enrolled' : 'Rejected'}
+                                                {tx.method || 'Online'}
                                               </span>
-                                            )}
 
-                                            <button
-                                              type="button"
-                                              onClick={() => setSelectedTxDetails(tx)}
-                                              className="p-1 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 border border-slate-200 transition-colors cursor-pointer bg-white"
-                                              title="View Full Details & Receipt"
-                                            >
-                                              <Eye className="w-3 h-3" />
-                                            </button>
-                                          </div>
-                                        </td>
-                                      </tr>
-                                    );
-                                  })}
-                                </tbody>
-                              </table>
-                            </div>
+                                              <button
+                                                type="button"
+                                                onClick={() => handleCopyText(tx.trxId, 'trxId')}
+                                                className="font-mono font-bold text-[11px] text-slate-800 bg-[#f4f6fa] hover:bg-slate-200/90 px-2 py-0.5 rounded-lg border border-slate-200/80 flex items-center gap-1 cursor-pointer transition-all active:scale-95"
+                                                title="Click to copy TrxID"
+                                              >
+                                                <span>{tx.trxId || 'N/A'}</span>
+                                                {copiedTrxId === tx.trxId ? (
+                                                  <span className="text-emerald-600 text-[9px] font-bold flex items-center">
+                                                    <Check className="w-2.5 h-2.5" />
+                                                  </span>
+                                                ) : (
+                                                  <Copy className="w-2.5 h-2.5 text-slate-400 hover:text-slate-700" />
+                                                )}
+                                              </button>
+                                            </div>
+                                          </td>
+
+                                          {/* Col 4: Amount */}
+                                          <td className="py-2.5 px-2 font-black text-slate-900 text-xs whitespace-nowrap">
+                                            ৳{Number(tx.amount || 0).toLocaleString()}
+                                          </td>
+
+                                          {/* Col 5: Status Badge (Interactive Status Dropdown) */}
+                                          <td className="py-2.5 px-2 whitespace-nowrap">
+                                            <div className="relative inline-block">
+                                              <select
+                                                value={tx.status || 'Pending'}
+                                                onChange={(e) => handleUpdateTrxStatus(tx, e.target.value)}
+                                                className={`text-[11px] font-bold px-2.5 py-1 rounded-full border cursor-pointer outline-none transition-all appearance-none pr-6 ${
+                                                  isPending
+                                                    ? 'bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100'
+                                                    : isCompleted
+                                                    ? 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100'
+                                                    : 'bg-rose-50 text-rose-800 border-rose-200 hover:bg-rose-100'
+                                                }`}
+                                                title="Click to change status (Pending / Approved / Rejected)"
+                                              >
+                                                <option value="Pending">⏳ Pending</option>
+                                                <option value="Completed">✓ Approved</option>
+                                                <option value="Rejected">✕ Rejected</option>
+                                              </select>
+                                              <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                            </div>
+                                          </td>
+
+                                          {/* Col 6: Action Buttons */}
+                                          <td className="py-2.5 pr-3.5 pl-2 text-right whitespace-nowrap">
+                                            <div className="flex items-center justify-end gap-1.5">
+                                              {isPending ? (
+                                                <>
+                                                  <button
+                                                    type="button"
+                                                    onClick={() => handleApproveAndEnrollStudent(tx)}
+                                                    className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold transition-all shadow-2xs shadow-emerald-600/20 flex items-center gap-1 cursor-pointer border-none active:scale-95"
+                                                    title="Approve Transaction & Enroll Student"
+                                                  >
+                                                    <Check className="w-3 h-3" />
+                                                    <span>Approve</span>
+                                                  </button>
+
+                                                  <button
+                                                    type="button"
+                                                    onClick={() => handleRejectTrx(tx.id)}
+                                                    className="p-1 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 transition-colors cursor-pointer bg-white"
+                                                    title="Reject Transaction"
+                                                  >
+                                                    <X className="w-3 h-3" />
+                                                  </button>
+                                                </>
+                                              ) : (
+                                                <button
+                                                  type="button"
+                                                  onClick={() => handleUpdateTrxStatus(tx, isCompleted ? 'Pending' : 'Completed')}
+                                                  className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
+                                                    isCompleted 
+                                                      ? 'text-emerald-700 bg-emerald-50 border-emerald-200 hover:bg-emerald-100' 
+                                                      : 'text-rose-700 bg-rose-50 border-rose-200 hover:bg-rose-100'
+                                                  }`}
+                                                  title="Click to toggle status"
+                                                >
+                                                  {isCompleted ? '✓ Approved' : '✕ Rejected'}
+                                                </button>
+                                              )}
+
+                                              <button
+                                                type="button"
+                                                onClick={() => setSelectedTxDetails(tx)}
+                                                className="p-1 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 border border-slate-200 transition-colors cursor-pointer bg-white"
+                                                title="View Full Details & Receipt"
+                                              >
+                                                <Eye className="w-3 h-3" />
+                                              </button>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      );
+                                    })}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </>
                           )}
                         </div>
                       )}
@@ -3422,54 +3699,82 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         </div>
                       </div>
 
-                      <div className="overflow-x-auto rounded-xl border border-slate-200/80">
-                        <table className="w-full text-left border-collapse min-w-full">
-                          <thead>
-                            <tr className="border-b border-slate-200/80 text-[11px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50/50">
-                              <th className="py-2.5 px-3 rounded-l-xl">Student Name</th>
-                              <th className="py-2.5 px-3">Enrolled Course</th>
-                              <th className="py-2.5 px-3">Batch</th>
-                              <th className="py-2.5 px-3">Phone / Contact</th>
-                              <th className="py-2.5 px-3">Status</th>
-                              <th className="py-2.5 px-3 text-center rounded-r-xl">Action</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
+                      {filteredStudents.length === 0 ? (
+                        <div className="py-12 text-center bg-[#f4f6fa]/60 rounded-2xl border border-dashed border-slate-200 p-8">
+                          <div className="w-12 h-12 mx-auto rounded-2xl bg-white shadow-2xs text-slate-400 flex items-center justify-center mb-3">
+                            <Users className="w-5 h-5 text-slate-400" />
+                          </div>
+                          <p className="text-sm font-bold text-slate-800">No students found</p>
+                          <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
+                            {studentSearchQuery ? `No matching students for "${studentSearchQuery}".` : 'No enrolled students match the filter.'}
+                          </p>
+                          {studentSearchQuery && (
+                            <button
+                              type="button"
+                              onClick={() => setStudentSearchQuery('')}
+                              className="mt-3 text-xs font-bold text-slate-700 hover:text-slate-900 border-none bg-slate-100 hover:bg-slate-200 px-3.5 py-1.5 rounded-xl cursor-pointer transition-colors"
+                            >
+                              Reset Search
+                            </button>
+                          )}
+                        </div>
+                      ) : (
+                        <>
+                          {/* MOBILE VIEW (< md): Touch-Friendly Clean Student Cards */}
+                          <div className="md:hidden space-y-3">
                             {filteredStudents.map((st) => (
-                              <tr key={st.id} className="hover:bg-slate-50/70 transition-colors">
-                                <td className="py-3 px-3">
-                                  <div className="flex items-center gap-3">
+                              <div key={st.id} className="bg-white rounded-2xl p-3 sm:p-3.5 border border-slate-200/80 shadow-2xs space-y-3">
+                                {/* Top: Avatar, Name, Batch */}
+                                <div className="flex items-start justify-between gap-2">
+                                  <div className="flex items-center gap-2.5 min-w-0">
                                     <img 
                                       src={st.avatar} 
                                       alt={st.name} 
-                                      className="w-8 h-8 rounded-full object-cover border border-slate-200 shadow-2xs"
+                                      className="w-9 h-9 rounded-full object-cover border border-slate-200 shadow-2xs shrink-0"
                                     />
-                                    <div>
-                                      <div className="font-bold text-slate-900 leading-tight">{st.name}</div>
-                                      <div className="text-[11px] text-slate-400 font-mono">{st.studentId}</div>
+                                    <div className="min-w-0">
+                                      <div className="font-extrabold text-slate-900 text-xs truncate">{st.name}</div>
+                                      <div className="text-[10px] text-slate-400 font-mono mt-0.5">{st.studentId}</div>
                                     </div>
                                   </div>
-                                </td>
-                                <td className="py-3 px-3">
-                                  <div className="font-medium text-slate-800 line-clamp-1 max-w-[200px]" title={st.courseName}>
-                                    {st.courseName}
-                                  </div>
-                                  <div className="text-[10px] text-slate-400">{st.joinedDate}</div>
-                                </td>
-                                <td className="py-3 px-3">
-                                  <span className={`px-2.5 py-0.5 rounded-md text-[11px] font-bold border ${
+                                  <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold border shrink-0 ${
                                     st.batch.includes('Medical') ? 'bg-rose-50 text-rose-700 border-rose-200' :
                                     st.batch.includes('Engineering') ? 'bg-amber-50 text-amber-800 border-amber-200' :
                                     'bg-blue-50 text-blue-700 border-blue-200'
                                   }`}>
                                     {st.batch}
                                   </span>
-                                </td>
-                                <td className="py-3 px-3 text-slate-600 font-mono text-[11px]">
-                                  <div>{st.phone}</div>
-                                  <div className="text-[10px] text-slate-400">{st.email}</div>
-                                </td>
-                                <td className="py-3 px-3">
+                                </div>
+
+                                {/* Enrolled Course & Contact */}
+                                <div className="bg-[#f8fafc] rounded-xl p-2.5 border border-slate-100 flex flex-col gap-1.5">
+                                  <div className="text-[11px] font-bold text-slate-800 truncate" title={st.courseName}>
+                                    {st.courseName}
+                                  </div>
+                                  <div className="flex items-center justify-between text-[10px] text-slate-400">
+                                    <span>Joined: {st.joinedDate}</span>
+                                    <div className="flex items-center gap-1 font-mono text-slate-600 font-semibold">
+                                      <span>{st.phone}</span>
+                                      {st.phone && (
+                                        <button
+                                          type="button"
+                                          onClick={() => handleCopyText(st.phone, 'phone')}
+                                          className="text-slate-400 hover:text-slate-700 border-none bg-transparent cursor-pointer p-0.5"
+                                          title="Copy phone"
+                                        >
+                                          {copiedPhone === st.phone ? (
+                                            <Check className="w-2.5 h-2.5 text-emerald-600" />
+                                          ) : (
+                                            <Copy className="w-2.5 h-2.5" />
+                                          )}
+                                        </button>
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Bottom Row: Status Toggle & Action Buttons */}
+                                <div className="flex items-center justify-between gap-2 pt-0.5 flex-wrap">
                                   <button
                                     type="button"
                                     onClick={() => {
@@ -3477,7 +3782,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                       triggerToast(`Status updated for ${st.name}`);
                                     }}
                                     title="Click to toggle status"
-                                    className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold border cursor-pointer transition-all ${
+                                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold border cursor-pointer transition-all ${
                                       st.status === 'Active' 
                                         ? 'text-emerald-700 bg-emerald-50 border-emerald-200/80 hover:bg-emerald-100' 
                                         : 'text-amber-700 bg-amber-50 border-amber-200/80 hover:bg-amber-100'
@@ -3486,9 +3791,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     <span className={`w-1.5 h-1.5 rounded-full ${st.status === 'Active' ? 'bg-emerald-500' : 'bg-amber-500'}`} />
                                     <span>{st.status}</span>
                                   </button>
-                                </td>
-                                <td className="py-3 px-3 text-center">
-                                  <div className="flex items-center justify-center gap-1.5 text-slate-400">
+
+                                  <div className="flex items-center gap-1.5 shrink-0">
                                     <button 
                                       type="button" 
                                       onClick={() => {
@@ -3504,7 +3808,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                         setShowAddStudentModal(true);
                                       }}
                                       title="Edit Student Info"
-                                      className="p-1.5 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors cursor-pointer border-none bg-transparent"
+                                      className="p-1.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-xl border border-slate-200 transition-colors cursor-pointer bg-white"
                                     >
                                       <Edit2 className="w-3.5 h-3.5" />
                                     </button>
@@ -3517,189 +3821,130 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                         }
                                       }}
                                       title="Delete Student"
-                                      className="p-1.5 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer border-none bg-transparent"
+                                      className="p-1.5 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-xl border border-slate-200 transition-colors cursor-pointer bg-white"
                                     >
                                       <Trash2 className="w-3.5 h-3.5" />
                                     </button>
                                   </div>
-                                </td>
-                              </tr>
+                                </div>
+                              </div>
                             ))}
-                          </tbody>
-                        </table>
-                      </div>
+                          </div>
+
+                          {/* DESKTOP VIEW (>= md): Full Table */}
+                          <div className="hidden md:block overflow-x-auto rounded-xl border border-slate-200/80">
+                            <table className="w-full text-left border-collapse min-w-full">
+                              <thead>
+                                <tr className="border-b border-slate-200/80 text-[11px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50/50">
+                                  <th className="py-2.5 px-3 rounded-l-xl">Student Name</th>
+                                  <th className="py-2.5 px-3">Enrolled Course</th>
+                                  <th className="py-2.5 px-3">Batch</th>
+                                  <th className="py-2.5 px-3">Phone / Contact</th>
+                                  <th className="py-2.5 px-3">Status</th>
+                                  <th className="py-2.5 px-3 text-center rounded-r-xl">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
+                                {filteredStudents.map((st) => (
+                                  <tr key={st.id} className="hover:bg-slate-50/70 transition-colors">
+                                    <td className="py-3 px-3">
+                                      <div className="flex items-center gap-3">
+                                        <img 
+                                          src={st.avatar} 
+                                          alt={st.name} 
+                                          className="w-8 h-8 rounded-full object-cover border border-slate-200 shadow-2xs"
+                                        />
+                                        <div>
+                                          <div className="font-bold text-slate-900 leading-tight">{st.name}</div>
+                                          <div className="text-[11px] text-slate-400 font-mono">{st.studentId}</div>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td className="py-3 px-3">
+                                      <div className="font-medium text-slate-800 line-clamp-1 max-w-[200px]" title={st.courseName}>
+                                        {st.courseName}
+                                      </div>
+                                      <div className="text-[10px] text-slate-400">{st.joinedDate}</div>
+                                    </td>
+                                    <td className="py-3 px-3">
+                                      <span className={`px-2.5 py-0.5 rounded-md text-[11px] font-bold border ${
+                                        st.batch.includes('Medical') ? 'bg-rose-50 text-rose-700 border-rose-200' :
+                                        st.batch.includes('Engineering') ? 'bg-amber-50 text-amber-800 border-amber-200' :
+                                        'bg-blue-50 text-blue-700 border-blue-200'
+                                      }`}>
+                                        {st.batch}
+                                      </span>
+                                    </td>
+                                    <td className="py-3 px-3 text-slate-600 font-mono text-[11px]">
+                                      <div>{st.phone}</div>
+                                      <div className="text-[10px] text-slate-400">{st.email}</div>
+                                    </td>
+                                    <td className="py-3 px-3">
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          setEnrolledStudents(prev => prev.map(item => item.id === st.id ? { ...item, status: item.status === 'Active' ? 'Pending' : 'Active' } : item));
+                                          triggerToast(`Status updated for ${st.name}`);
+                                        }}
+                                        title="Click to toggle status"
+                                        className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold border cursor-pointer transition-all ${
+                                          st.status === 'Active' 
+                                            ? 'text-emerald-700 bg-emerald-50 border-emerald-200/80 hover:bg-emerald-100' 
+                                            : 'text-amber-700 bg-amber-50 border-amber-200/80 hover:bg-amber-100'
+                                        }`}
+                                      >
+                                        <span className={`w-1.5 h-1.5 rounded-full ${st.status === 'Active' ? 'bg-emerald-500' : 'bg-amber-500'}`} />
+                                        <span>{st.status}</span>
+                                      </button>
+                                    </td>
+                                    <td className="py-3 px-3 text-center">
+                                      <div className="flex items-center justify-center gap-1.5 text-slate-400">
+                                        <button 
+                                          type="button" 
+                                          onClick={() => {
+                                            setEditingStudentId(st.id);
+                                            setNewStudentData({
+                                              name: st.name,
+                                              phone: st.phone,
+                                              email: st.email || '',
+                                              batch: st.batch,
+                                              courseName: st.courseName,
+                                              status: st.status
+                                            });
+                                            setShowAddStudentModal(true);
+                                          }}
+                                          title="Edit Student Info"
+                                          className="p-1.5 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors cursor-pointer border-none bg-transparent"
+                                        >
+                                          <Edit2 className="w-3.5 h-3.5" />
+                                        </button>
+                                        <button 
+                                          type="button" 
+                                          onClick={() => {
+                                            if (confirm(`Are you sure you want to remove ${st.name} from the student database?`)) {
+                                              setEnrolledStudents(prev => prev.filter(item => item.id !== st.id));
+                                              triggerToast(`🗑️ ${st.name} removed from student list`);
+                                            }
+                                          }}
+                                          title="Delete Student"
+                                          className="p-1.5 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer border-none bg-transparent"
+                                        >
+                                          <Trash2 className="w-3.5 h-3.5" />
+                                        </button>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
                     </div>
                   )}
 
-                    </div>
                   </div>
                 </div>
-
-                {/* RIGHT COLUMN: ACTION BUTTONS, RECENT ACTIVITY, BATCH BREAKDOWN (4 Cols) */}
-                <div className="xl:col-span-4 space-y-6">
-                  
-                  {/* QUICK ACTION BUTTONS */}
-                  <div className="space-y-2.5">
-                    <div className="flex items-center gap-2.5">
-                      <button
-                        type="button"
-                        onClick={() => setShowAddStudentModal(true)}
-                        className="flex-1 py-2.5 px-3 rounded-xl bg-[#ffd5df] hover:bg-[#ffc2d1] text-pink-900 font-bold text-xs border border-pink-200 shadow-2xs cursor-pointer transition-all flex items-center justify-center gap-1.5"
-                      >
-                        <Plus className="w-3.5 h-3.5 text-pink-800" />
-                        <span>Add Student</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => setShowAddTeacherModal(true)}
-                        className="flex-1 py-2.5 px-3 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs border border-slate-200 shadow-2xs cursor-pointer transition-all flex items-center justify-center gap-1.5"
-                      >
-                        <Plus className="w-3.5 h-3.5 text-slate-500" />
-                        <span>Add Mentor/Faculty</span>
-                      </button>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => setShowNoticeModal(true)}
-                      className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs border border-slate-200 shadow-2xs cursor-pointer transition-all flex items-center justify-center gap-1.5"
-                    >
-                      <Bell className="w-3.5 h-3.5 text-blue-600" />
-                      <span>Send Batch Notice / SMS</span>
-                    </button>
-                  </div>
-
-
-                  {/* BATCH ENROLLMENT BREAKDOWN DONUT CHART CARD */}
-                  <div className="bg-white rounded-3xl border border-slate-200/80 p-5 sm:p-6 shadow-xs space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="text-sm font-bold text-slate-900">
-                          Batch Enrollment Breakdown
-                        </h3>
-                        <p className="text-[11px] text-slate-400">Student distribution by batch category</p>
-                      </div>
-                      <div className="flex items-center gap-1 text-[11px] font-semibold text-slate-500 bg-slate-50 px-2 py-0.5 rounded-full border border-slate-200">
-                        <span>All Batches</span>
-                      </div>
-                    </div>
-
-                    {/* SVG Multi-Segment Donut */}
-                    <div className="relative flex items-center justify-center py-2">
-                      <svg className="w-44 h-44 -rotate-90 transform" viewBox="0 0 160 160">
-                        {/* Medical Exam Batch - Rose/Pink */}
-                        <circle
-                          cx="80"
-                          cy="80"
-                          r="58"
-                          stroke="#f472b6"
-                          strokeWidth="16"
-                          fill="transparent"
-                          strokeDasharray="140 225"
-                          strokeDashoffset="0"
-                          strokeLinecap="round"
-                        />
-                        {/* HSC 25 & 26 Combo - Blue */}
-                        <circle
-                          cx="80"
-                          cy="80"
-                          r="58"
-                          stroke="#60a5fa"
-                          strokeWidth="16"
-                          fill="transparent"
-                          strokeDasharray="100 265"
-                          strokeDashoffset="-145"
-                          strokeLinecap="round"
-                        />
-                        {/* HSC 27 & 28 Series - Butter Amber */}
-                        <circle
-                          cx="80"
-                          cy="80"
-                          r="58"
-                          stroke="#fbbf24"
-                          strokeWidth="16"
-                          fill="transparent"
-                          strokeDasharray="70 295"
-                          strokeDashoffset="-250"
-                          strokeLinecap="round"
-                        />
-                        {/* Engineering & Math - Purple */}
-                        <circle
-                          cx="80"
-                          cy="80"
-                          r="58"
-                          stroke="#a855f7"
-                          strokeWidth="16"
-                          fill="transparent"
-                          strokeDasharray="50 315"
-                          strokeDashoffset="-325"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-
-                      {/* Donut Center Counter */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-                        <span className="text-2xl font-black text-slate-900 tracking-tight leading-none">
-                          3,845
-                        </span>
-                        <span className="text-[10px] text-slate-400 font-semibold mt-1">
-                          Total Active
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Legend */}
-                    <div className="space-y-2 pt-2 border-t border-slate-100">
-                      <div className="flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-sm bg-[#f472b6]" />
-                          <span className="font-medium text-slate-700">Medical Exam Batch</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span className="font-bold text-slate-800">1,538</span>
-                          <span className="text-[11px] font-semibold text-pink-600">40%</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-sm bg-[#60a5fa]" />
-                          <span className="font-medium text-slate-700">HSC 25 & 26 Combo</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span className="font-bold text-slate-800">1,153</span>
-                          <span className="text-[11px] font-semibold text-blue-600">30%</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-sm bg-[#fbbf24]" />
-                          <span className="font-medium text-slate-700">HSC 27 & 28 Series</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span className="font-bold text-slate-800">769</span>
-                          <span className="text-[11px] font-semibold text-amber-600">20%</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-sm bg-[#a855f7]" />
-                          <span className="font-medium text-slate-700">Engineering & Math</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span className="font-bold text-slate-800">385</span>
-                          <span className="text-[11px] font-semibold text-purple-600">10%</span>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
               </div>
 
             </div>
@@ -3710,87 +3955,92 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           {/* ========================================================= */}
           {activeTab === 'accounting' && (
             <div className="space-y-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
-                <div>
-                  <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
-                    <DollarSign className="w-6 h-6 text-blue-600" />
-                    Financial Register & Ledger
-                  </h2>
-                  <p className="text-xs text-slate-500">
-                    Real-time ledger for course fees, store purchases, and business operational expenses.
-                  </p>
-                </div>
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">
+                  Financial Register & Ledger
+                </h2>
                 <button
+                  type="button"
                   onClick={() => setShowAddTrxModal(true)}
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-md shadow-blue-500/20"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-xs active:scale-95 shrink-0"
                 >
-                  <Plus className="w-4 h-4" />
-                  Add Manual Entry
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Add Entry</span>
                 </button>
               </div>
 
-              {/* Summary Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-xs flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-bold text-slate-500">Total Income / Revenue</p>
-                    <p className="text-2xl sm:text-3xl font-black text-emerald-600 mt-1">৳{accountingTotals.totalRevenue.toLocaleString()}</p>
-                    <p className="text-[11px] text-slate-400 mt-0.5">{accounting?.totalOrders || 0} completed orders</p>
-                  </div>
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
-                    <TrendingUp className="w-6 h-6" />
-                  </div>
-                </div>
-
-                <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-xs flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-bold text-slate-500">Total Expenses</p>
-                    <p className="text-2xl sm:text-3xl font-black text-rose-600 mt-1">৳{accountingTotals.totalExpenses.toLocaleString()}</p>
-                    <p className="text-[11px] text-slate-400 mt-0.5">Servers, SMS, domain & operations</p>
-                  </div>
-                  <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center border border-rose-100">
-                    <TrendingDown className="w-6 h-6" />
+              {/* Summary Cards (Minimal, 2 Side-by-Side on Mobile) */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3.5">
+                <div 
+                  onClick={() => setTrxFilter('INCOME')}
+                  className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-all cursor-pointer flex flex-col justify-between"
+                >
+                  <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Income</span>
+                  <div className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight leading-none mt-3">
+                    ৳{accountingTotals.totalRevenue.toLocaleString()}
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-xs flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-bold text-slate-500">Net Profit / Balance</p>
-                    <p className="text-2xl sm:text-3xl font-black text-blue-600 mt-1">৳{accountingTotals.netProfit.toLocaleString()}</p>
-                    <p className="text-[11px] text-emerald-600 font-semibold mt-0.5">Healthy cashflow margin</p>
+                <div 
+                  onClick={() => setTrxFilter('EXPENSE')}
+                  className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-all cursor-pointer flex flex-col justify-between"
+                >
+                  <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Expenses</span>
+                  <div className="text-2xl sm:text-3xl font-black text-rose-600 tracking-tight leading-none mt-3">
+                    ৳{accountingTotals.totalExpenses.toLocaleString()}
                   </div>
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100">
-                    <DollarSign className="w-6 h-6" />
+                </div>
+
+                <div 
+                  onClick={() => setTrxFilter('ALL')}
+                  className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-all cursor-pointer flex flex-col justify-between col-span-2 sm:col-span-1"
+                >
+                  <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Net Profit</span>
+                  <div className="text-2xl sm:text-3xl font-black text-blue-600 tracking-tight leading-none mt-3">
+                    ৳{accountingTotals.netProfit.toLocaleString()}
                   </div>
                 </div>
               </div>
 
               {/* Filter & Search Bar */}
-              <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs">
-                <div className="flex items-center gap-2 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200 flex-1 max-w-sm">
-                  <Search className="w-4 h-4 text-slate-400" />
+              <div className="bg-white rounded-2xl p-3 sm:p-3.5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div className="relative flex-1 max-w-md">
+                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     value={searchTrx}
                     onChange={(e) => setSearchTrx(e.target.value)}
                     placeholder="Search student, phone, TrxID..."
-                    className="bg-transparent border-none outline-none text-xs text-slate-800 w-full placeholder:text-slate-400"
+                    className="w-full bg-[#f4f6fa] border border-slate-200/80 rounded-xl pl-9 pr-8 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-slate-400 transition-all font-medium placeholder:text-slate-400"
                   />
+                  {searchTrx && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchTrx('')}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs bg-transparent border-none cursor-pointer p-0.5"
+                    >
+                      ✕
+                    </button>
+                  )}
                 </div>
-                <div className="flex items-center gap-1.5 flex-wrap">
+
+                {/* Filter Pills Bar (Scrollable on mobile) */}
+                <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
                   <button
+                    type="button"
                     onClick={() => setTrxFilter('ALL')}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold border cursor-pointer transition-all ${
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold border cursor-pointer transition-all whitespace-nowrap ${
                       trxFilter === 'ALL' 
-                        ? 'bg-blue-600 text-white border-blue-600 shadow-2xs' 
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-2xs' 
                         : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                     }`}
                   >
                     All ({accounting.transactions?.length || 0})
                   </button>
                   <button
+                    type="button"
                     onClick={() => setTrxFilter('PENDING')}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold border cursor-pointer transition-all flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold border cursor-pointer transition-all flex items-center gap-1.5 whitespace-nowrap ${
                       trxFilter === 'PENDING' 
                         ? 'bg-amber-500 text-white border-amber-500 shadow-2xs' 
                         : 'bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100'
@@ -3798,14 +4048,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   >
                     <span>Pending</span>
                     {pendingCount > 0 && (
-                      <span className="px-1.5 py-0.2 rounded-full text-[10px] font-mono font-bold bg-amber-400 text-black">
+                      <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-mono font-bold ${trxFilter === 'PENDING' ? 'bg-white text-amber-800' : 'bg-amber-500 text-white'}`}>
                         {pendingCount}
                       </span>
                     )}
                   </button>
                   <button
+                    type="button"
                     onClick={() => setTrxFilter('INCOME')}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold border cursor-pointer transition-all ${
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold border cursor-pointer transition-all whitespace-nowrap ${
                       trxFilter === 'INCOME' 
                         ? 'bg-emerald-600 text-white border-emerald-600 shadow-2xs' 
                         : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
@@ -3814,8 +4065,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     Income
                   </button>
                   <button
+                    type="button"
                     onClick={() => setTrxFilter('EXPENSE')}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold border cursor-pointer transition-all ${
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold border cursor-pointer transition-all whitespace-nowrap ${
                       trxFilter === 'EXPENSE' 
                         ? 'bg-rose-600 text-white border-rose-600 shadow-2xs' 
                         : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
@@ -3826,96 +4078,227 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 </div>
               </div>
 
-              {/* Ledger Table */}
-              <div className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs border-collapse">
-                    <thead>
-                      <tr className="bg-slate-50/80 text-slate-500 border-b border-slate-200 uppercase font-bold text-[11px] tracking-wider">
-                        <th className="py-3 px-4">ID</th>
-                        <th className="py-3 px-4">Date</th>
-                        <th className="py-3 px-4">Student / Description</th>
-                        <th className="py-3 px-4">Course / Product</th>
-                        <th className="py-3 px-4">Method</th>
-                        <th className="py-3 px-4">TrxID</th>
-                        <th className="py-3 px-4 text-center">Status</th>
-                        <th className="py-3 px-4 text-right">Amount</th>
-                        <th className="py-3 px-4 text-center">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100 text-slate-700">
-                      {filteredTransactions.map((tx) => (
-                        <tr key={tx.id} className="hover:bg-slate-50/70 transition-colors">
-                          <td className="py-3 px-4 font-mono font-bold text-slate-400">{tx.id}</td>
-                          <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{tx.date}</td>
-                          <td className="py-3 px-4">
-                            <div className="font-bold text-slate-900">{tx.studentName}</div>
-                            <div className="text-[10px] text-slate-400">{tx.studentPhone}</div>
-                          </td>
-                          <td className="py-3 px-4 font-medium max-w-[200px] truncate text-slate-800" title={tx.itemTitle}>
-                            {tx.itemTitle}
-                          </td>
-                          <td className="py-3 px-4">
-                            <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
-                              {tx.method}
-                            </span>
-                          </td>
-                          <td className="py-3 px-4 font-mono text-[11px] text-slate-600">{tx.trxId}</td>
-                          <td className="py-3 px-4 text-center">
-                            <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-                              tx.status === 'Completed'
-                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                                : 'bg-amber-50 text-amber-700 border border-amber-200 animate-pulse'
-                            }`}>
-                              {tx.status === 'Completed' ? 'Approved' : 'Pending'}
-                            </span>
-                          </td>
-                          <td className={`py-3 px-4 text-right font-black text-sm whitespace-nowrap ${
-                            tx.type === 'INCOME' ? 'text-emerald-600' : 'text-rose-600'
-                          }`}>
-                            {tx.type === 'INCOME' ? `+৳${(tx.amount || 0).toLocaleString()}` : `-৳${(tx.amount || 0).toLocaleString()}`}
-                          </td>
-                          <td className="py-3 px-4 text-center">
-                            <div className="flex items-center justify-center gap-1.5">
-                              {tx.status !== 'Completed' && (
-                                <button
-                                  onClick={() => handleApproveTrx(tx.id)}
-                                  className="text-emerald-600 hover:text-emerald-700 p-1.5 rounded-lg hover:bg-emerald-50 border-none bg-transparent cursor-pointer transition-colors"
-                                  title="Approve Enrollment"
-                                >
-                                  <Check className="w-4 h-4" />
-                                </button>
-                              )}
-                              <button
-                                onClick={() => {
-                                  if (confirm(`Delete transaction (${tx.id})?`)) {
-                                    const updated = accounting.transactions.filter(t => t.id !== tx.id);
-                                    const diff = tx.type === 'INCOME' ? -(tx.amount || 0) : 0;
-                                    const expDiff = tx.type === 'EXPENSE' ? -(tx.amount || 0) : 0;
-                                    const newAcc = {
-                                      ...accounting,
-                                      totalRevenue: (accounting.totalRevenue || 0) + diff,
-                                      totalExpenses: (accounting.totalExpenses || 0) + expDiff,
-                                      netProfit: ((accounting.totalRevenue || 0) + diff) - ((accounting.totalExpenses || 0) + expDiff),
-                                      transactions: updated
-                                    };
-                                    setAccounting(newAcc);
-                                    persistAll({ accounting: newAcc });
-                                    triggerToast('Transaction deleted!');
-                                  }
-                                }}
-                                className="text-slate-400 hover:text-rose-600 p-1.5 rounded-lg hover:bg-rose-50 border-none bg-transparent cursor-pointer transition-colors"
-                                title="Delete"
-                              >
-                                <Trash2 className="w-3.5 h-3.5" />
-                              </button>
+              {/* Ledger Container */}
+              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] overflow-hidden">
+                {filteredTransactions.length === 0 ? (
+                  <div className="py-12 text-center text-slate-400 p-8">
+                    <DollarSign className="w-9 h-9 mx-auto text-slate-300 mb-2" />
+                    <p className="text-sm font-bold text-slate-700">No transactions found</p>
+                    <p className="text-xs text-slate-400 mt-1">
+                      {searchTrx ? `No results matching "${searchTrx}"` : 'No transactions match the selected filter.'}
+                    </p>
+                    {searchTrx && (
+                      <button
+                        type="button"
+                        onClick={() => setSearchTrx('')}
+                        className="mt-3 px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 border border-slate-200 cursor-pointer"
+                      >
+                        Reset Search
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <>
+                    {/* MOBILE VIEW (< md): Clean Touch-Friendly Cards */}
+                    <div className="md:hidden p-3 space-y-3">
+                      {filteredTransactions.map((tx) => {
+                        const isIncome = tx.type === 'INCOME';
+                        const isPending = tx.status === 'Pending';
+                        const isCompleted = tx.status === 'Completed';
+
+                        return (
+                          <div 
+                            key={tx.id} 
+                            className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-[0_1px_4px_rgba(0,0,0,0.02)] space-y-2.5 transition-all"
+                          >
+                            {/* Row 1: Student / Description, Type Badge, Amount */}
+                            <div className="flex items-start justify-between gap-2">
+                              <div className="min-w-0 flex-1">
+                                <div className="font-bold text-slate-900 text-sm truncate">
+                                  {tx.studentName || tx.customer || 'Direct Ledger Entry'}
+                                </div>
+                                <div className="text-[11px] text-slate-500 font-medium truncate mt-0.5">
+                                  {tx.itemTitle || tx.category || 'General Ledger Entry'}
+                                </div>
+                              </div>
+                              <div className="text-right shrink-0">
+                                <div className={`font-black text-base leading-tight ${isIncome ? 'text-emerald-600' : 'text-rose-600'}`}>
+                                  {isIncome ? `+৳${(tx.amount || 0).toLocaleString()}` : `-৳${(tx.amount || 0).toLocaleString()}`}
+                                </div>
+                                <div className="text-[10px] text-slate-400 mt-0.5 font-mono">{tx.date}</div>
+                              </div>
                             </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+
+                            {/* Row 2: Method · TrxID · Phone */}
+                            <div className="flex items-center justify-between text-[11px] text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-xl font-medium">
+                              <div className="flex items-center gap-1.5 truncate">
+                                <span className="font-semibold text-slate-700">{tx.method || 'Cash'}</span>
+                                {tx.trxId && (
+                                  <>
+                                    <span className="text-slate-300">·</span>
+                                    <span className="font-mono text-slate-600 truncate max-w-[120px]">{tx.trxId}</span>
+                                    <button
+                                      type="button"
+                                      onClick={() => handleCopyText(tx.trxId, 'trxId')}
+                                      className="p-0.5 text-slate-400 hover:text-slate-600 border-none bg-transparent cursor-pointer"
+                                      title="Copy TrxID"
+                                    >
+                                      <Copy className="w-3 h-3" />
+                                    </button>
+                                  </>
+                                )}
+                              </div>
+                              {tx.studentPhone && (
+                                <span className="font-mono text-slate-500 shrink-0">{tx.studentPhone}</span>
+                              )}
+                            </div>
+
+                            {/* Row 3: Status Badge & Minimal Actions */}
+                            <div className="flex items-center justify-between gap-2 pt-0.5">
+                              <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-xl border ${
+                                isPending
+                                  ? 'bg-amber-50 text-amber-800 border-amber-200/60'
+                                  : 'bg-emerald-50 text-emerald-800 border-emerald-200/60'
+                              }`}>
+                                <span className={`w-1.5 h-1.5 rounded-full ${
+                                  isPending ? 'bg-amber-500 animate-pulse' : 'bg-emerald-500'
+                                }`} />
+                                <span>{isCompleted ? 'Approved' : 'Pending'}</span>
+                              </span>
+
+                              <div className="flex items-center gap-1">
+                                {tx.status !== 'Completed' && (
+                                  <button
+                                    type="button"
+                                    onClick={() => handleApproveTrx(tx.id)}
+                                    className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 cursor-pointer border-none active:scale-95"
+                                  >
+                                    <Check className="w-3.5 h-3.5" />
+                                    <span>Approve</span>
+                                  </button>
+                                )}
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    if (confirm(`Delete transaction (${tx.id})?`)) {
+                                      const updated = accounting.transactions.filter(t => t.id !== tx.id);
+                                      const diff = tx.type === 'INCOME' ? -(tx.amount || 0) : 0;
+                                      const expDiff = tx.type === 'EXPENSE' ? -(tx.amount || 0) : 0;
+                                      const newAcc = {
+                                        ...accounting,
+                                        totalRevenue: (accounting.totalRevenue || 0) + diff,
+                                        totalExpenses: (accounting.totalExpenses || 0) + expDiff,
+                                        netProfit: ((accounting.totalRevenue || 0) + diff) - ((accounting.totalExpenses || 0) + expDiff),
+                                        transactions: updated
+                                      };
+                                      setAccounting(newAcc);
+                                      persistAll({ accounting: newAcc });
+                                      triggerToast('Transaction deleted!');
+                                    }
+                                  }}
+                                  className="p-1.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors cursor-pointer bg-white"
+                                  title="Delete"
+                                >
+                                  <Trash2 className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* DESKTOP VIEW (>= md): Full Table */}
+                    <div className="hidden md:block overflow-x-auto">
+                      <table className="w-full text-left text-xs border-collapse">
+                        <thead>
+                          <tr className="bg-slate-50/80 text-slate-500 border-b border-slate-200 uppercase font-bold text-[11px] tracking-wider">
+                            <th className="py-3 px-4">ID</th>
+                            <th className="py-3 px-4">Date</th>
+                            <th className="py-3 px-4">Student / Description</th>
+                            <th className="py-3 px-4">Course / Product</th>
+                            <th className="py-3 px-4">Method</th>
+                            <th className="py-3 px-4">TrxID</th>
+                            <th className="py-3 px-4 text-center">Status</th>
+                            <th className="py-3 px-4 text-right">Amount</th>
+                            <th className="py-3 px-4 text-center">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 text-slate-700">
+                          {filteredTransactions.map((tx) => (
+                            <tr key={tx.id} className="hover:bg-slate-50/70 transition-colors">
+                              <td className="py-3 px-4 font-mono font-bold text-slate-400">{tx.id}</td>
+                              <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{tx.date}</td>
+                              <td className="py-3 px-4">
+                                <div className="font-bold text-slate-900">{tx.studentName}</div>
+                                <div className="text-[10px] text-slate-400">{tx.studentPhone}</div>
+                              </td>
+                              <td className="py-3 px-4 font-medium max-w-[200px] truncate text-slate-800" title={tx.itemTitle}>
+                                {tx.itemTitle}
+                              </td>
+                              <td className="py-3 px-4">
+                                <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                                  {tx.method}
+                                </span>
+                              </td>
+                              <td className="py-3 px-4 font-mono text-[11px] text-slate-600">{tx.trxId}</td>
+                              <td className="py-3 px-4 text-center">
+                                <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
+                                  tx.status === 'Completed'
+                                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                    : 'bg-amber-50 text-amber-700 border border-amber-200 animate-pulse'
+                                }`}>
+                                  {tx.status === 'Completed' ? 'Approved' : 'Pending'}
+                                </span>
+                              </td>
+                              <td className={`py-3 px-4 text-right font-black text-sm whitespace-nowrap ${
+                                tx.type === 'INCOME' ? 'text-emerald-600' : 'text-rose-600'
+                              }`}>
+                                {tx.type === 'INCOME' ? `+৳${(tx.amount || 0).toLocaleString()}` : `-৳${(tx.amount || 0).toLocaleString()}`}
+                              </td>
+                              <td className="py-3 px-4 text-center">
+                                <div className="flex items-center justify-center gap-1.5">
+                                  {tx.status !== 'Completed' && (
+                                    <button
+                                      onClick={() => handleApproveTrx(tx.id)}
+                                      className="text-emerald-600 hover:text-emerald-700 p-1.5 rounded-lg hover:bg-emerald-50 border-none bg-transparent cursor-pointer transition-colors"
+                                      title="Approve Enrollment"
+                                    >
+                                      <Check className="w-4 h-4" />
+                                    </button>
+                                  )}
+                                  <button
+                                    onClick={() => {
+                                      if (confirm(`Delete transaction (${tx.id})?`)) {
+                                        const updated = accounting.transactions.filter(t => t.id !== tx.id);
+                                        const diff = tx.type === 'INCOME' ? -(tx.amount || 0) : 0;
+                                        const expDiff = tx.type === 'EXPENSE' ? -(tx.amount || 0) : 0;
+                                        const newAcc = {
+                                          ...accounting,
+                                          totalRevenue: (accounting.totalRevenue || 0) + diff,
+                                          totalExpenses: (accounting.totalExpenses || 0) + expDiff,
+                                          netProfit: ((accounting.totalRevenue || 0) + diff) - ((accounting.totalExpenses || 0) + expDiff),
+                                          transactions: updated
+                                        };
+                                        setAccounting(newAcc);
+                                        persistAll({ accounting: newAcc });
+                                        triggerToast('Transaction deleted!');
+                                      }
+                                    }}
+                                    className="text-slate-400 hover:text-rose-600 p-1.5 rounded-lg hover:bg-rose-50 border-none bg-transparent cursor-pointer transition-colors"
+                                    title="Delete"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           )}
@@ -3925,120 +4308,103 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           {/* TAB: USERS MANAGEMENT (MATDASH STYLE) */}
           {/* ========================================================= */}
           {activeTab === 'users' && (
-            <div className="space-y-6">
+            <div className="space-y-5">
               
-              {/* Top 4-Card MatDash KPI Stat Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* Top 4-Card KPI Stat Row (Minimal, 2 Side-by-Side on Mobile) */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
                 {/* Total Users */}
-                <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex items-center justify-between">
-                  <div>
-                    <div className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">Total Platform Users</div>
-                    <div className="text-2xl font-black text-slate-900 mt-1">{userMetrics.total}</div>
-                    <div className="text-[11px] font-bold text-[#5d5bf6] mt-1 flex items-center gap-1">
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                      <span>Live Registered Directory</span>
-                    </div>
-                  </div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#5d5bf6]/10 text-[#5d5bf6] flex items-center justify-center shadow-xs">
-                    <Users className="w-6 h-6" />
+                <div 
+                  onClick={() => {
+                    setUserRoleFilter('ALL');
+                    setUserStatusFilter('ALL');
+                    setUserBatchFilter('ALL');
+                  }}
+                  className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-all cursor-pointer flex flex-col justify-between"
+                >
+                  <div className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Users</div>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mt-3">
+                    {userMetrics.total}
                   </div>
                 </div>
 
                 {/* Active Students */}
-                <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex items-center justify-between">
-                  <div>
-                    <div className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">Active Students</div>
-                    <div className="text-2xl font-black text-slate-900 mt-1">{userMetrics.activeStudents}</div>
-                    <div className="text-[11px] font-bold text-emerald-600 mt-1 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>Enrolled & verified</span>
-                    </div>
-                  </div>
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shadow-xs">
-                    <GraduationCap className="w-6 h-6" />
+                <div 
+                  onClick={() => {
+                    setUserRoleFilter('Student');
+                    setUserStatusFilter('Active');
+                  }}
+                  className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-all cursor-pointer flex flex-col justify-between"
+                >
+                  <div className="text-xs sm:text-sm font-bold text-slate-500 truncate">Active Students</div>
+                  <div className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight leading-none mt-3">
+                    {userMetrics.activeStudents}
                   </div>
                 </div>
 
-                {/* Staff & Faculty */}
-                <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex items-center justify-between">
-                  <div>
-                    <div className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">Faculty & Staff</div>
-                    <div className="text-2xl font-black text-slate-900 mt-1">{userMetrics.staffCount}</div>
-                    <div className="text-[11px] font-bold text-violet-600 mt-1">
-                      <span>Admins, mentors, mods</span>
-                    </div>
-                  </div>
-                  <div className="w-12 h-12 rounded-2xl bg-violet-50 text-violet-600 flex items-center justify-center shadow-xs">
-                    <ShieldCheck className="w-6 h-6" />
+                {/* Faculty & Staff */}
+                <div 
+                  onClick={() => {
+                    setUserRoleFilter('Instructor');
+                    setUserStatusFilter('ALL');
+                  }}
+                  className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-all cursor-pointer flex flex-col justify-between"
+                >
+                  <div className="text-xs sm:text-sm font-bold text-slate-500 truncate">Faculty & Staff</div>
+                  <div className="text-2xl sm:text-3xl font-black text-blue-600 tracking-tight leading-none mt-3">
+                    {userMetrics.staffCount}
                   </div>
                 </div>
 
                 {/* Suspended Accounts */}
-                <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-all flex items-center justify-between">
-                  <div>
-                    <div className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">Suspended Accounts</div>
-                    <div className="text-2xl font-black text-rose-600 mt-1">{userMetrics.suspendedCount}</div>
-                    <div className="text-[11px] font-bold text-rose-500 mt-1">
-                      {userMetrics.suspendedCount > 0 ? 'Policy / Device flags' : 'No suspended accounts'}
-                    </div>
-                  </div>
-                  <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center shadow-xs">
-                    <AlertCircle className="w-6 h-6" />
+                <div 
+                  onClick={() => {
+                    setUserStatusFilter('Suspended');
+                  }}
+                  className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-all cursor-pointer flex flex-col justify-between"
+                >
+                  <div className="text-xs sm:text-sm font-bold text-slate-500 truncate">Suspended Accounts</div>
+                  <div className={`text-2xl sm:text-3xl font-black tracking-tight leading-none mt-3 ${userMetrics.suspendedCount > 0 ? 'text-rose-600' : 'text-slate-900'}`}>
+                    {userMetrics.suspendedCount}
                   </div>
                 </div>
               </div>
 
-              {/* Advanced Filter, Search, and Action Bar */}
-              <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] space-y-4">
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+              {/* Search, Action, and Filter Toolbar */}
+              <div className="bg-white rounded-2xl p-3 sm:p-4 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   {/* Search Input */}
-                  <div className="relative flex-1 max-w-md">
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <div className="relative flex-1">
+                    <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                     <input 
                       type="text"
-                      placeholder="Search by name, email, phone, ID, or batch..."
+                      placeholder="Search by student name, phone, email, ID, or batch..."
                       value={userSearchQuery}
                       onChange={(e) => setUserSearchQuery(e.target.value)}
-                      className="w-full bg-[#f4f6fa] border border-slate-200/80 rounded-xl pl-10 pr-10 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] focus:ring-2 focus:ring-[#5d5bf6]/15 transition-all font-medium placeholder:text-slate-400"
+                      className="w-full bg-[#f4f6fa] border border-slate-200/80 rounded-xl pl-9 pr-8 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-slate-400 transition-all font-medium placeholder:text-slate-400"
                     />
                     {userSearchQuery && (
                       <button 
+                        type="button"
                         onClick={() => setUserSearchQuery('')}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs bg-transparent border-none cursor-pointer"
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs bg-transparent border-none cursor-pointer p-1"
                       >
                         ✕
                       </button>
                     )}
                   </div>
 
-                  {/* Actions & Sorting */}
-                  <div className="flex items-center gap-2.5 flex-wrap">
-                    <select
-                      value={userSortBy}
-                      onChange={(e) => setUserSortBy(e.target.value)}
-                      className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 outline-none cursor-pointer focus:border-[#5d5bf6]"
-                    >
-                      <option value="newest">Sort: Newest First</option>
-                      <option value="name">Sort: Name (A-Z)</option>
-                      <option value="spend">Sort: Highest Spend</option>
-                      <option value="courses">Sort: Most Courses</option>
-                    </select>
-
+                  {/* Top Actions: Add User & Export */}
+                  <div className="flex items-center gap-2 shrink-0">
                     <button
-                      onClick={handleExportUsersCSV}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer transition-all"
-                    >
-                      <Download className="w-3.5 h-3.5" />
-                      <span>Export CSV</span>
-                    </button>
-
-                    <button
+                      type="button"
                       onClick={() => {
                         setEditingUserId(null);
                         setUserForm({
                           name: '',
                           email: '',
                           phone: '',
+                          whatsapp: '',
+                          college: '',
                           role: 'Student',
                           status: 'Active',
                           batch: 'HSC 26',
@@ -4046,321 +4412,427 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         });
                         setShowAddUserModal(true);
                       }}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold shadow-md shadow-[#5d5bf6]/25 cursor-pointer border-none transition-all"
+                      className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold shadow-xs cursor-pointer border-none transition-all active:scale-95"
                     >
-                      <Plus className="w-4 h-4" />
-                      <span>+ Add New User</span>
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>+ Add User</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleExportUsersCSV}
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200 cursor-pointer transition-all"
+                      title="Export CSV"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">Export</span>
                     </button>
                   </div>
                 </div>
 
-                {/* Filter Pills */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 text-xs">
-                  {/* Batch Filter Pills */}
-                  <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">Batch:</span>
-                    {['ALL', 'HSC 26', 'HSC 27', 'HSC 28', 'HSC 29'].map((batch) => (
-                      <button
-                        key={batch}
-                        onClick={() => setUserBatchFilter(batch)}
-                        className={`px-3 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-                          userBatchFilter === batch
-                            ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
-                            : 'bg-slate-50 text-slate-600 border-slate-200/80 hover:bg-slate-100'
-                        }`}
-                      >
-                        {batch === 'ALL' ? 'All Batches' : batch}
-                      </button>
-                    ))}
+                {/* Filter Controls (Clean Segmented / Compact Dropdowns on Mobile, Full on Desktop) */}
+                <div className="grid grid-cols-3 sm:flex sm:items-center sm:justify-between gap-2 pt-2 border-t border-slate-100 text-xs">
+                  {/* Batch Select */}
+                  <div className="relative">
+                    <select
+                      value={userBatchFilter}
+                      onChange={(e) => setUserBatchFilter(e.target.value)}
+                      className="w-full sm:w-auto bg-slate-50 border border-slate-200/80 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-700 outline-none cursor-pointer hover:bg-white"
+                    >
+                      <option value="ALL">All Batches</option>
+                      <option value="HSC 26">HSC 26</option>
+                      <option value="HSC 27">HSC 27</option>
+                      <option value="HSC 28">HSC 28</option>
+                      <option value="HSC 29">HSC 29</option>
+                    </select>
                   </div>
 
-                  {/* Role Filter Pills */}
-                  <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">Role:</span>
-                    {['ALL', 'Student', 'Instructor', 'Moderator', 'Admin'].map((role) => (
-                      <button
-                        key={role}
-                        onClick={() => setUserRoleFilter(role)}
-                        className={`px-3 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-                          userRoleFilter === role
-                            ? 'bg-[#5d5bf6] text-white border-[#5d5bf6] shadow-xs'
-                            : 'bg-slate-50 text-slate-600 border-slate-200/80 hover:bg-slate-100'
-                        }`}
-                      >
-                        {role === 'ALL' ? 'All Roles' : role}
-                      </button>
-                    ))}
+                  {/* Role Select */}
+                  <div className="relative">
+                    <select
+                      value={userRoleFilter}
+                      onChange={(e) => setUserRoleFilter(e.target.value)}
+                      className="w-full sm:w-auto bg-slate-50 border border-slate-200/80 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-700 outline-none cursor-pointer hover:bg-white"
+                    >
+                      <option value="ALL">All Roles</option>
+                      <option value="Student">Student</option>
+                      <option value="Instructor">Instructor</option>
+                      <option value="Moderator">Moderator</option>
+                      <option value="Admin">Admin</option>
+                    </select>
                   </div>
 
-                  {/* Status Filter Pills */}
-                  <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">Status:</span>
-                    {['ALL', 'Active', 'Pending', 'Suspended'].map((status) => (
-                      <button
-                        key={status}
-                        onClick={() => setUserStatusFilter(status)}
-                        className={`px-3 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-                          userStatusFilter === status
-                            ? 'bg-slate-800 text-white border-slate-800 shadow-xs'
-                            : 'bg-slate-50 text-slate-600 border-slate-200/80 hover:bg-slate-100'
-                        }`}
-                      >
-                        {status === 'ALL' ? 'All Status' : status}
-                      </button>
-                    ))}
+                  {/* Status Select */}
+                  <div className="relative">
+                    <select
+                      value={userStatusFilter}
+                      onChange={(e) => setUserStatusFilter(e.target.value)}
+                      className="w-full sm:w-auto bg-slate-50 border border-slate-200/80 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-700 outline-none cursor-pointer hover:bg-white"
+                    >
+                      <option value="ALL">All Status</option>
+                      <option value="Active">Active</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Suspended">Suspended</option>
+                    </select>
+                  </div>
+
+                  {/* Sort Order */}
+                  <div className="col-span-3 sm:col-auto sm:ml-auto">
+                    <select
+                      value={userSortBy}
+                      onChange={(e) => setUserSortBy(e.target.value)}
+                      className="w-full sm:w-auto bg-slate-50 border border-slate-200/80 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-700 outline-none cursor-pointer hover:bg-white"
+                    >
+                      <option value="newest">Sort: Newest First</option>
+                      <option value="name">Sort: Name (A-Z)</option>
+                      <option value="spend">Sort: Highest Spend</option>
+                      <option value="courses">Sort: Most Courses</option>
+                    </select>
                   </div>
                 </div>
               </div>
 
               {/* User Directory Table Card */}
-              <div className="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="bg-slate-50/80 border-b border-slate-100 text-[11px] font-extrabold text-slate-500 uppercase tracking-wider">
-                        <th className="py-3 px-4">Student & ID</th>
-                        <th className="py-3 px-4">WhatsApp / Contact</th>
-                        <th className="py-3 px-4">College / Institution</th>
-                        <th className="py-3 px-4">HSC Batch</th>
-                        <th className="py-3 px-4">Role</th>
-                        <th className="py-3 px-4">Enrollments & Spend</th>
-                        <th className="py-3 px-4">Status</th>
-                        <th className="py-3 px-4">Joined Date</th>
-                        <th className="py-3 px-4 text-right">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
-                      {filteredUsers.length === 0 ? (
-                        <tr>
-                          <td colSpan="9" className="py-12 text-center text-slate-400">
-                            <Users className="w-10 h-10 mx-auto text-slate-300 mb-2" />
-                            <p className="text-sm font-bold text-slate-700">No users found</p>
-                            <p className="text-xs text-slate-400 mt-1">
-                              {userSearchQuery ? `No results matching "${userSearchQuery}"` : 'No users match the selected filters.'}
-                            </p>
-                            {userSearchQuery && (
-                              <button
-                                onClick={() => setUserSearchQuery('')}
-                                className="mt-3 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 border border-slate-200 cursor-pointer"
-                              >
-                                Reset Search
-                              </button>
-                            )}
-                          </td>
-                        </tr>
-                      ) : (
-                        filteredUsers.map((user) => {
-                          const isSuspended = user.status === 'Suspended';
-                          const isPending = user.status === 'Pending';
-                          const isActive = user.status === 'Active';
-                          const contactNum = user.whatsapp || user.phone || '';
-                          const cleanDigits = contactNum.replace(/[^0-9]/g, '');
-                          const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
+              {/* User Directory Container */}
+              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] overflow-hidden">
+                {filteredUsers.length === 0 ? (
+                  <div className="py-12 text-center text-slate-400 p-8">
+                    <Users className="w-9 h-9 mx-auto text-slate-300 mb-2" />
+                    <p className="text-sm font-bold text-slate-700">No users found</p>
+                    <p className="text-xs text-slate-400 mt-1">
+                      {userSearchQuery ? `No results matching "${userSearchQuery}"` : 'No users match the selected filters.'}
+                    </p>
+                    {userSearchQuery && (
+                      <button
+                        type="button"
+                        onClick={() => setUserSearchQuery('')}
+                        className="mt-3 px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 border border-slate-200 cursor-pointer"
+                      >
+                        Reset Search
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <>
+                    {/* MOBILE VIEW (< md): Clean Touch-Friendly Cards */}
+                    <div className="md:hidden p-3 space-y-3">
+                      {filteredUsers.map((user) => {
+                        const isActive = user.status === 'Active';
+                        const isPending = user.status === 'Pending';
+                        const contactNum = user.whatsapp || user.phone || '';
+                        const cleanDigits = contactNum.replace(/[^0-9]/g, '');
+                        const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
+                        const displayId = user.id ? (user.id.startsWith('usr-') ? user.id.toUpperCase() : (user.id.length > 10 ? `STU-${user.id.slice(0, 6).toUpperCase()}` : user.id.toUpperCase())) : 'STU-001';
+                        const enrolledTitle = Array.isArray(user.enrolledCourses) && user.enrolledCourses.length > 0
+                          ? (user.enrolledCourses[0] + (user.enrolledCourses.length > 1 ? ` (+${user.enrolledCourses.length - 1})` : ''))
+                          : 'No enrolled courses';
 
-                          return (
-                            <tr key={user.id} className="hover:bg-slate-50/60 transition-colors">
-                              {/* Student & ID */}
-                              <td className="py-3 px-4">
-                                <div className="flex items-center gap-3">
-                                  <div className="relative">
-                                    <img 
-                                      src={user.avatar} 
-                                      alt={user.name} 
-                                      className="w-9 h-9 rounded-full object-cover ring-2 ring-slate-100 shadow-2xs"
-                                    />
-                                    <span className={`w-2.5 h-2.5 rounded-full absolute -bottom-0.5 -right-0.5 ring-2 ring-white ${
-                                      isActive ? 'bg-emerald-500' : isPending ? 'bg-amber-500' : 'bg-rose-500'
-                                    }`} />
-                                  </div>
-                                  <div>
-                                    <div className="font-extrabold text-slate-900 leading-tight hover:text-[#5d5bf6] cursor-pointer" onClick={() => setSelectedUserDetails(user)}>
+                        return (
+                          <div 
+                            key={user.id} 
+                            className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-[0_1px_4px_rgba(0,0,0,0.02)] space-y-2.5 transition-all"
+                          >
+                            {/* Row 1: Student Name, Course/Enrolled, Total Spent */}
+                            <div className="flex items-start justify-between gap-2">
+                              <div className="min-w-0 flex-1">
+                                <div 
+                                  className="font-bold text-slate-900 text-sm truncate cursor-pointer hover:text-blue-600"
+                                  onClick={() => setSelectedUserDetails(user)}
+                                >
+                                  {user.name}
+                                </div>
+                                <div className="text-[11px] text-slate-500 font-medium truncate mt-0.5">
+                                  {enrolledTitle}
+                                </div>
+                              </div>
+                              <div className="text-right shrink-0">
+                                <div className="font-extrabold text-emerald-600 text-sm leading-tight">
+                                  {user.totalSpent > 0 ? `৳${user.totalSpent.toLocaleString()}` : '৳0'}
+                                </div>
+                                <div className="text-[10px] text-slate-400 mt-0.5 font-mono">{displayId}</div>
+                              </div>
+                            </div>
+
+                            {/* Row 2: Info Line (Batch · Role/College · Contact) */}
+                            <div className="flex items-center justify-between text-[11px] text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-xl font-medium">
+                              <div className="flex items-center gap-1.5 truncate">
+                                <span className="font-semibold text-slate-700">{user.hscBatch || user.batch || 'HSC 26'}</span>
+                                <span className="text-slate-300">·</span>
+                                <span className="text-slate-500 truncate max-w-[120px]">{user.college || user.role || 'Student'}</span>
+                              </div>
+                              {contactNum && (
+                                <div className="flex items-center gap-1 shrink-0 font-mono text-slate-700">
+                                  <span>{contactNum}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleCopyText(contactNum, 'Phone')}
+                                    className="p-0.5 text-slate-400 hover:text-slate-600 border-none bg-transparent cursor-pointer"
+                                    title="Copy Phone"
+                                  >
+                                    <Copy className="w-3 h-3" />
+                                  </button>
+                                  <a
+                                    href={`https://wa.me/${waPhone}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="WhatsApp"
+                                    className="text-emerald-600 hover:text-emerald-700 p-0.5 inline-flex items-center"
+                                  >
+                                    <MessageCircle className="w-3 h-3" />
+                                  </a>
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Row 3: Status Toggle & Minimal Actions */}
+                            <div className="flex items-center justify-between gap-2 pt-0.5">
+                              <button
+                                type="button"
+                                onClick={() => handleToggleUserStatus(user.id)}
+                                className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-xl border cursor-pointer transition-all ${
+                                  isActive
+                                    ? 'bg-emerald-50 text-emerald-800 border-emerald-200/60 hover:bg-emerald-100'
+                                    : isPending
+                                    ? 'bg-amber-50 text-amber-800 border-amber-200/60 hover:bg-amber-100'
+                                    : 'bg-rose-50 text-rose-800 border-rose-200/60 hover:bg-rose-100'
+                                }`}
+                                title="Click to toggle status"
+                              >
+                                <span className={`w-1.5 h-1.5 rounded-full ${
+                                  isActive ? 'bg-emerald-500' : isPending ? 'bg-amber-500 animate-pulse' : 'bg-rose-500'
+                                }`} />
+                                <span>{user.status === 'Active' ? 'Active' : user.status}</span>
+                              </button>
+
+                              <div className="flex items-center gap-1">
+                                <button
+                                  type="button"
+                                  onClick={() => setSelectedUserDetails(user)}
+                                  className="p-1.5 rounded-xl text-slate-400 hover:text-slate-800 hover:bg-slate-100 border border-slate-200 transition-colors cursor-pointer bg-white"
+                                  title="View Profile"
+                                >
+                                  <Eye className="w-3.5 h-3.5" />
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setQuickEnrollUser(user);
+                                    setSelectedCourseToEnroll(courses[0]?.title || '');
+                                  }}
+                                  className="p-1.5 rounded-xl text-slate-400 hover:text-blue-600 hover:bg-blue-50 border border-slate-200 transition-colors cursor-pointer bg-white"
+                                  title="Assign Course"
+                                >
+                                  <BookOpen className="w-3.5 h-3.5" />
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleOpenEditUser(user)}
+                                  className="p-1.5 rounded-xl text-slate-400 hover:text-slate-800 hover:bg-slate-100 border border-slate-200 transition-colors cursor-pointer bg-white"
+                                  title="Edit User"
+                                >
+                                  <Edit2 className="w-3.5 h-3.5" />
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleDeleteUser(user.id, user.name)}
+                                  className="p-1.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors cursor-pointer bg-white"
+                                  title="Delete User"
+                                >
+                                  <Trash2 className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* DESKTOP VIEW (>= md): Full Table */}
+                    <div className="hidden md:block overflow-x-auto">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-[#f8fafc] border-b border-slate-200 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                            <th className="py-3 px-4">ID</th>
+                            <th className="py-3 px-4">Date</th>
+                            <th className="py-3 px-4">Student / Description</th>
+                            <th className="py-3 px-4">Course / Product</th>
+                            <th className="py-3 px-4">Batch</th>
+                            <th className="py-3 px-4">College / Institution</th>
+                            <th className="py-3 px-4">Contact</th>
+                            <th className="py-3 px-4">Status</th>
+                            <th className="py-3 px-4 text-right">Amount</th>
+                            <th className="py-3 px-4 text-right">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
+                          {filteredUsers.map((user) => {
+                            const isActive = user.status === 'Active';
+                            const isPending = user.status === 'Pending';
+                            const contactNum = user.whatsapp || user.phone || '';
+                            const cleanDigits = contactNum.replace(/[^0-9]/g, '');
+                            const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
+                            
+                            // Display ID in TRX/STU style
+                            const displayId = user.id ? (user.id.startsWith('usr-') ? user.id.toUpperCase() : (user.id.length > 10 ? `STU-${user.id.slice(0, 6).toUpperCase()}` : user.id.toUpperCase())) : 'STU-001';
+
+                            // Enrolled courses display
+                            const enrolledTitle = Array.isArray(user.enrolledCourses) && user.enrolledCourses.length > 0
+                              ? (user.enrolledCourses[0] + (user.enrolledCourses.length > 1 ? ` (+${user.enrolledCourses.length - 1})` : ''))
+                              : 'No enrolled courses';
+
+                            return (
+                              <tr key={user.id} className="hover:bg-slate-50/70 border-b border-slate-100 transition-colors">
+                                {/* ID */}
+                                <td className="py-3.5 px-4 text-xs font-mono text-slate-400 font-medium whitespace-nowrap">
+                                  {displayId}
+                                </td>
+
+                                {/* Date */}
+                                <td className="py-3.5 px-4 text-xs text-slate-500 font-medium whitespace-nowrap">
+                                  {user.joinedDate || '2026-10-09'}
+                                </td>
+
+                                {/* Student / Description */}
+                                <td className="py-3.5 px-4">
+                                  <div className="min-w-[150px]">
+                                    <div 
+                                      className="font-bold text-xs text-slate-900 hover:text-blue-600 transition-colors cursor-pointer"
+                                      onClick={() => setSelectedUserDetails(user)}
+                                    >
                                       {user.name}
                                     </div>
-                                    <div className="text-[11px] text-slate-400 flex items-center gap-1.5 mt-0.5 font-medium">
-                                      <span>{user.email}</span>
-                                      <button 
-                                        onClick={() => handleCopyText(user.email, 'Email')} 
-                                        title="Copy email"
-                                        className="text-slate-400 hover:text-slate-600 bg-transparent border-none p-0 cursor-pointer"
-                                      >
-                                        <Copy className="w-3 h-3" />
-                                      </button>
+                                    <div className="text-[11px] text-slate-400 mt-0.5 font-normal truncate max-w-[200px]">
+                                      {contactNum ? contactNum : user.email}
                                     </div>
-                                    <span className="inline-block mt-0.5 text-[9px] font-mono px-1.5 py-0.2 rounded bg-slate-100 text-slate-500 font-semibold">
-                                      {user.id}
-                                    </span>
                                   </div>
-                                </div>
-                              </td>
+                                </td>
 
-                              {/* WhatsApp / Contact */}
-                              <td className="py-3 px-4">
-                                <div className="font-semibold text-slate-800 flex items-center gap-1.5">
-                                  <span>{contactNum || 'N/A'}</span>
-                                  {contactNum && (
-                                    <>
-                                      <button 
-                                        onClick={() => handleCopyText(contactNum, 'Phone')} 
-                                        title="Copy number"
-                                        className="text-slate-400 hover:text-slate-600 bg-transparent border-none p-0 cursor-pointer"
-                                      >
-                                        <Copy className="w-3 h-3" />
-                                      </button>
-                                      <a
-                                        href={`https://wa.me/${waPhone}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title="Chat on WhatsApp"
-                                        className="inline-flex items-center text-emerald-600 hover:text-emerald-700 bg-emerald-50 p-1 rounded-md transition-colors"
-                                      >
-                                        <MessageCircle className="w-3.5 h-3.5" />
-                                      </a>
-                                    </>
-                                  )}
-                                </div>
-                                <div className="text-[10px] text-slate-400 font-medium truncate max-w-[140px]" title={user.device}>
-                                  {user.device || 'Web Session'}
-                                </div>
-                              </td>
+                                {/* Course / Product */}
+                                <td className="py-3.5 px-4">
+                                  <div className="text-xs font-medium text-slate-800 truncate max-w-[220px]" title={Array.isArray(user.enrolledCourses) ? user.enrolledCourses.join(', ') : ''}>
+                                    {Array.isArray(user.enrolledCourses) && user.enrolledCourses.length > 0 ? (
+                                      <span>{enrolledTitle}</span>
+                                    ) : (
+                                      <span className="text-slate-400 font-normal italic">None</span>
+                                    )}
+                                  </div>
+                                </td>
 
-                              {/* College / Institution */}
-                              <td className="py-3 px-4">
-                                <div className="flex items-center gap-1.5 font-semibold text-slate-800">
-                                  <GraduationCap className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
-                                  <span className="truncate max-w-[180px]" title={user.college || user.institution || 'Not specified'}>
+                                {/* Batch (Method Pill Style) */}
+                                <td className="py-3.5 px-4 whitespace-nowrap">
+                                  <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200/80">
+                                    {user.hscBatch || user.batch || 'HSC 26'}
+                                  </span>
+                                </td>
+
+                                {/* College / Institution */}
+                                <td className="py-3.5 px-4">
+                                  <div className="text-xs font-medium text-slate-700 truncate max-w-[170px]" title={user.college || user.institution}>
                                     {user.college || user.institution || (
                                       <span className="text-slate-400 font-normal italic">Not specified</span>
                                     )}
-                                  </span>
-                                </div>
-                              </td>
+                                  </div>
+                                </td>
 
-                              {/* HSC Batch */}
-                              <td className="py-3 px-4">
-                                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wide border shadow-2xs ${
-                                  (user.hscBatch || user.batch || '').includes('26')
-                                    ? 'bg-rose-50 text-rose-700 border-rose-200/80 ring-1 ring-rose-500/10'
-                                    : (user.hscBatch || user.batch || '').includes('27')
-                                    ? 'bg-blue-50 text-blue-700 border-blue-200/80 ring-1 ring-blue-500/10'
-                                    : (user.hscBatch || user.batch || '').includes('28')
-                                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200/80 ring-1 ring-emerald-500/10'
-                                    : (user.hscBatch || user.batch || '').includes('29')
-                                    ? 'bg-amber-50 text-amber-700 border-amber-200/80 ring-1 ring-amber-500/10'
-                                    : 'bg-slate-100 text-slate-700 border-slate-200'
-                                }`}>
-                                  {user.hscBatch || user.batch || 'HSC 26'}
-                                </span>
-                              </td>
+                                {/* Contact */}
+                                <td className="py-3.5 px-4 whitespace-nowrap">
+                                  <div className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
+                                    <span>{contactNum || 'N/A'}</span>
+                                    {contactNum && (
+                                      <>
+                                        <button 
+                                          onClick={() => handleCopyText(contactNum, 'Phone')} 
+                                          title="Copy number"
+                                          className="text-slate-400 hover:text-slate-600 p-0.5 cursor-pointer bg-transparent border-none"
+                                        >
+                                          <Copy className="w-3 h-3" />
+                                        </button>
+                                        <a
+                                          href={`https://wa.me/${waPhone}`}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          title="Chat on WhatsApp"
+                                          className="text-emerald-600 hover:text-emerald-700 p-0.5"
+                                        >
+                                          <MessageCircle className="w-3.5 h-3.5" />
+                                        </a>
+                                      </>
+                                    )}
+                                  </div>
+                                </td>
 
-                              {/* Role */}
-                              <td className="py-3 px-4">
-                                <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold ${
-                                  user.role === 'Admin'
-                                    ? 'bg-purple-50 text-purple-700 border border-purple-200/70'
-                                    : user.role === 'Instructor'
-                                    ? 'bg-sky-50 text-sky-700 border border-sky-200/70'
-                                    : user.role === 'Moderator'
-                                    ? 'bg-amber-50 text-amber-700 border border-amber-200/70'
-                                    : 'bg-slate-100 text-slate-700 border border-slate-200/80'
-                                }`}>
-                                  {user.role === 'Admin' && <ShieldCheck className="w-3 h-3 text-purple-600" />}
-                                  {user.role}
-                                </span>
-                              </td>
-
-                              {/* Enrollments & Spend */}
-                              <td className="py-3 px-4">
-                                <button
-                                  onClick={() => setSelectedUserDetails(user)}
-                                  className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5d5bf6] bg-[#5d5bf6]/10 px-2 py-0.5 rounded-md hover:bg-[#5d5bf6]/20 transition-colors border-none cursor-pointer"
-                                >
-                                  <BookOpen className="w-3 h-3" />
-                                  <span>{user.enrolledCourses?.length || 0} Courses</span>
-                                </button>
-                                <div className="text-[11px] font-extrabold text-slate-600 mt-0.5">
-                                  ৳{(user.totalSpent || 0).toLocaleString()}
-                                </div>
-                              </td>
-
-                              {/* Status */}
-                              <td className="py-3 px-4">
-                                <button
-                                  onClick={() => handleToggleUserStatus(user.id)}
-                                  title="Click to toggle status"
-                                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold cursor-pointer transition-all border ${
-                                    isActive
-                                      ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
-                                      : isPending
-                                      ? 'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100'
-                                      : 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100'
-                                  }`}
-                                >
-                                  <span className={`w-1.5 h-1.5 rounded-full ${
-                                    isActive ? 'bg-emerald-500' : isPending ? 'bg-amber-500' : 'bg-rose-500'
-                                  }`} />
-                                  <span>{user.status}</span>
-                                </button>
-                              </td>
-
-                              {/* Joined Date */}
-                              <td className="py-3 px-4">
-                                <div className="font-medium text-slate-700">{user.joinedDate}</div>
-                                <div className="text-[10px] text-slate-400 font-medium">{user.lastActive || 'Recently'}</div>
-                              </td>
-
-                              {/* Actions */}
-                              <td className="py-3 px-4 text-right">
-                                <div className="flex items-center justify-end gap-1">
-                                  {/* View Profile */}
+                                {/* Status (Exact Reference Image Pill Badge) */}
+                                <td className="py-3.5 px-4 whitespace-nowrap">
                                   <button
-                                    onClick={() => setSelectedUserDetails(user)}
-                                    title="View Full Profile & Enrollments"
-                                    className="p-1.5 rounded-lg text-slate-500 hover:text-[#5d5bf6] hover:bg-[#5d5bf6]/10 transition-colors cursor-pointer border-none bg-transparent"
+                                    onClick={() => handleToggleUserStatus(user.id)}
+                                    title="Click to toggle status"
+                                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium cursor-pointer border transition-colors ${
+                                      isActive
+                                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100/70'
+                                        : isPending
+                                        ? 'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100/70'
+                                        : 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100/70'
+                                    }`}
                                   >
-                                    <Eye className="w-4 h-4" />
+                                    {user.status === 'Active' ? 'Approved' : user.status}
                                   </button>
+                                </td>
 
-                                  {/* Quick Course Enroll */}
-                                  <button
-                                    onClick={() => {
-                                      setQuickEnrollUser(user);
-                                      setSelectedCourseToEnroll(courses[0]?.title || '');
-                                    }}
-                                    title="Assign Course Access"
-                                    className="p-1.5 rounded-lg text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 transition-colors cursor-pointer border-none bg-transparent"
-                                  >
-                                    <BookOpen className="w-4 h-4" />
-                                  </button>
+                                {/* Amount / Spent */}
+                                <td className="py-3.5 px-4 whitespace-nowrap text-right font-bold text-xs text-emerald-700">
+                                  {user.totalSpent > 0 ? `+৳${user.totalSpent.toLocaleString()}` : '৳0'}
+                                </td>
 
-                                  {/* Edit User */}
-                                  <button
-                                    onClick={() => handleOpenEditUser(user)}
-                                    title="Edit User Info"
-                                    className="p-1.5 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer border-none bg-transparent"
-                                  >
-                                    <Edit2 className="w-4 h-4" />
-                                  </button>
+                                {/* Actions */}
+                                <td className="py-3.5 px-4 text-right whitespace-nowrap">
+                                  <div className="flex items-center justify-end gap-1">
+                                    <button
+                                      onClick={() => setSelectedUserDetails(user)}
+                                      title="View Profile & Enrollments"
+                                      className="p-1 rounded text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors border-none bg-transparent cursor-pointer"
+                                    >
+                                      <Eye className="w-3.5 h-3.5" />
+                                    </button>
 
-                                  {/* Delete User */}
-                                  <button
-                                    onClick={() => handleDeleteUser(user.id, user.name)}
-                                    title="Delete User"
-                                    className="p-1.5 rounded-lg text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer border-none bg-transparent"
-                                  >
-                                    <Trash2 className="w-4 h-4" />
-                                  </button>
-                                </div>
-                              </td>
-                            </tr>
-                          );
-                        })
-                      )}
-                    </tbody>
-                  </table>
-                </div>
+                                    <button
+                                      onClick={() => {
+                                        setQuickEnrollUser(user);
+                                        setSelectedCourseToEnroll(courses[0]?.title || '');
+                                      }}
+                                      title="Assign Course Access"
+                                      className="p-1 rounded text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors border-none bg-transparent cursor-pointer"
+                                    >
+                                      <BookOpen className="w-3.5 h-3.5" />
+                                    </button>
+
+                                    <button
+                                      onClick={() => handleOpenEditUser(user)}
+                                      title="Edit User Info"
+                                      className="p-1 rounded text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors border-none bg-transparent cursor-pointer"
+                                    >
+                                      <Edit2 className="w-3.5 h-3.5" />
+                                    </button>
+
+                                    <button
+                                      onClick={() => handleDeleteUser(user.id, user.name)}
+                                      title="Delete User"
+                                      className="p-1 rounded text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors border-none bg-transparent cursor-pointer"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
+                )}
 
                 {/* Footer Count Bar */}
-                <div className="p-4 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                <div className="p-3.5 bg-[#f8fafc] border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
                   <span>Showing <strong className="text-slate-800">{filteredUsers.length}</strong> of <strong className="text-slate-800">{usersList.length}</strong> total registered accounts</span>
                   <span className="text-[11px] text-slate-400">All user roles & status changes update in real time.</span>
                 </div>
@@ -4711,7 +5183,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   {filteredCourses.map(({ course, originalIdx: idx }) => (
                     <div 
                       key={course.id || idx} 
-                      className="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group"
+                      className={`bg-white rounded-2xl border ${
+                        course.isActive === false ? 'border-dashed border-slate-300 opacity-90' : 'border-slate-100'
+                      } shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group`}
                     >
                       <div>
                         {/* Cover Image Thumbnail with Clean Overlays */}
@@ -4724,6 +5198,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           
                           {/* Top Badges */}
                           <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                            {course.isActive === false && (
+                              <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase bg-slate-900/85 text-amber-300 border border-amber-400/30 backdrop-blur-md shadow-xs">
+                                Inactive
+                              </span>
+                            )}
                             {course.isBundle && (
                               <span className="px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-amber-500 text-white shadow-xs">
                                 Bundle
@@ -4769,26 +5248,33 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             {course.title}
                           </h3>
 
-                          {/* Meta Stats Row */}
-                          <div className="flex items-center gap-3 text-xs text-slate-500 pt-1">
-                            <div className="flex items-center gap-1">
-                              <Layers className="w-3.5 h-3.5 text-[#5d5bf6]" />
-                              <span className="font-bold text-slate-700">{(course.curriculum || []).length}</span>
-                              <span className="text-[11px] text-slate-400">Modules</span>
-                            </div>
-                            <div className="h-3 w-px bg-slate-200" />
-                            <div className="flex items-center gap-1">
-                              <BookOpen className="w-3.5 h-3.5 text-blue-500" />
-                              <span className="font-bold text-slate-700">{course.features?.length || 0}</span>
-                              <span className="text-[11px] text-slate-400">Features</span>
-                            </div>
+                          {/* Minimal Meta Row */}
+                          <div className="flex items-center gap-2 text-xs text-slate-400 font-medium">
+                            {(() => {
+                              const lesCount = (course.curriculum || []).reduce((acc, s) => acc + (s.chapters || []).reduce((cAcc, c) => cAcc + (c.lessons || []).length, 0), 0);
+                              return (
+                                <>
+                                  <span className="flex items-center gap-1 text-slate-700 font-bold">
+                                    <Play className="w-3.5 h-3.5 text-[#5d5bf6]" />
+                                    {lesCount} Classes
+                                  </span>
+                                  <span>•</span>
+                                  <span className="flex items-center gap-1 text-slate-500 font-medium">
+                                    <Layers className="w-3.5 h-3.5 text-slate-400" />
+                                    {(course.curriculum || []).length} Modules
+                                  </span>
+                                  <span>•</span>
+                                  <span className="font-mono text-[10px] text-slate-400">ID #{idx + 1}</span>
+                                </>
+                              );
+                            })()}
                           </div>
 
-                          {/* Pricing Row */}
-                          <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+                          {/* Pricing & Fixed Minimal Toggle Switch Row */}
+                          <div className="flex items-center justify-between pt-2.5 border-t border-slate-100">
                             <div>
                               {Number(course.salePrice) === 0 ? (
-                                <span className="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">
+                                <span className="text-xs font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">
                                   Free Access
                                 </span>
                               ) : (
@@ -4800,45 +5286,79 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 </div>
                               )}
                             </div>
-                            <span className="text-[10px] text-slate-400 font-mono">ID: #{idx + 1}</span>
+
+                            {/* Pixel-Perfect Fixed iOS-Style Toggle Switch */}
+                            <button
+                              type="button"
+                              role="switch"
+                              aria-checked={course.isActive !== false}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleToggleCourseActive(course, idx);
+                              }}
+                              className="inline-flex items-center gap-2 cursor-pointer border-none bg-transparent p-0 select-none group/switch focus:outline-none"
+                              title={course.isActive !== false ? 'Active (Click to deactivate)' : 'Inactive (Click to activate)'}
+                            >
+                              <span className={`text-[11px] font-bold transition-colors ${
+                                course.isActive !== false ? 'text-emerald-600' : 'text-slate-400'
+                              }`}>
+                                {course.isActive !== false ? 'Active' : 'Inactive'}
+                              </span>
+                              <span className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors duration-200 ease-in-out ${
+                                course.isActive !== false ? 'bg-emerald-500' : 'bg-slate-300'
+                              }`}>
+                                <span
+                                  className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-sm transition duration-200 ease-in-out ${
+                                    course.isActive !== false ? 'translate-x-4' : 'translate-x-0'
+                                  }`}
+                                />
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
 
-                      {/* Clean Action Footer */}
-                      <div className="p-4 pt-0 space-y-2">
-                        <div className="grid grid-cols-2 gap-2">
-                          {/* Primary: Curriculum Studio */}
-                          <button
-                            type="button"
-                            onClick={() => openCurriculumStudio(idx, 'curriculum')}
-                            className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold shadow-xs hover:shadow transition-all cursor-pointer border-none"
-                          >
-                            <Layers className="w-3.5 h-3.5" />
-                            <span>{(course.isExamBatch || course.category === 'EXAM BATCH') ? 'Quizzes & Questions' : 'Curriculum'}</span>
-                          </button>
+                      {/* Clean Single-Row Action Footer */}
+                      <div className="p-4 pt-0">
+                        <div className="flex items-center gap-2">
+                          {/* Primary Action: Curriculum / Quizzes */}
+                          {(() => {
+                            const lesCount = (course.curriculum || []).reduce((acc, s) => acc + (s.chapters || []).reduce((cAcc, c) => cAcc + (c.lessons || []).length, 0), 0);
+                            return (
+                              <button
+                                type="button"
+                                onClick={() => openCurriculumStudio(idx, 'curriculum')}
+                                className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold transition-all shadow-2xs hover:shadow-xs cursor-pointer border-none"
+                                title={(course.isExamBatch || course.category === 'EXAM BATCH') ? "Quizzes & Questions Studio" : "Manage Classes, Video URLs, PDFs & Quizzes"}
+                              >
+                                <Play className="w-3.5 h-3.5" />
+                                <span>{(course.isExamBatch || course.category === 'EXAM BATCH') ? 'Quizzes & Exams' : `Classes & Lectures (${lesCount})`}</span>
+                              </button>
+                            );
+                          })()}
 
-                          {/* Secondary: Edit Course Details */}
+                          {/* Secondary Action: Edit Details */}
                           <button
                             type="button"
                             onClick={() => openCurriculumStudio(idx, "basic")}
-                            className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer border-none"
+                            className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer border-none"
+                            title="Edit Course Metadata & Pricing"
                           >
                             <Edit2 className="w-3.5 h-3.5 text-slate-500" />
-                            <span>Edit Details</span>
+                            <span>Edit</span>
                           </button>
-                        </div>
 
-                        {/* Quick Utility Links (Overview & Delete) */}
-                        <div className="flex items-center justify-between pt-1 text-[11px]">
+                          {/* Quick Landing Page Overview */}
                           <button
                             type="button"
                             onClick={() => openCurriculumStudio(idx, "overview")}
-                            className="text-slate-500 hover:text-[#5d5bf6] font-medium bg-transparent border-none cursor-pointer p-0 flex items-center gap-1"
+                            className="p-2 rounded-xl text-slate-400 hover:text-[#5d5bf6] hover:bg-slate-100 transition-colors cursor-pointer border-none bg-transparent"
+                            title="Landing Page & Features Overview"
                           >
-                            <span>Overview & Texts →</span>
+                            <FileText className="w-4 h-4" />
                           </button>
 
+                          {/* Delete Course */}
                           <button
                             type="button"
                             onClick={() => {
@@ -4849,10 +5369,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 triggerToast('🗑️ Course deleted');
                               }
                             }}
-                            className="text-slate-400 hover:text-rose-600 font-bold bg-transparent border-none cursor-pointer p-0 flex items-center gap-1 transition-colors"
+                            className="p-2 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer border-none bg-transparent"
+                            title="Delete Course"
                           >
-                            <Trash2 className="w-3 h-3" />
-                            <span>Delete</span>
+                            <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
                       </div>
@@ -4870,6 +5390,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           <th className="py-3 px-4">Category</th>
                           <th className="py-3 px-4">Curriculum Structure</th>
                           <th className="py-3 px-4">Price</th>
+                          <th className="py-3 px-4">Status</th>
                           <th className="py-3 px-4 text-right">Actions</th>
                         </tr>
                       </thead>
@@ -4920,16 +5441,49 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               )}
                             </td>
 
+                            {/* Status Column with Active/Inactive Toggle */}
+                            <td className="py-3 px-4">
+                              <button
+                                type="button"
+                                role="switch"
+                                aria-checked={course.isActive !== false}
+                                onClick={() => {
+                                  handleToggleCourseActive(course, idx);
+                                }}
+                                className="inline-flex items-center gap-2 cursor-pointer border-none bg-transparent p-0 select-none group/switch focus:outline-none"
+                                title={course.isActive !== false ? 'Active (Click to deactivate)' : 'Inactive (Click to activate)'}
+                              >
+                                <span className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors duration-200 ease-in-out ${
+                                  course.isActive !== false ? 'bg-emerald-500' : 'bg-slate-300'
+                                }`}>
+                                  <span
+                                    className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-sm transition duration-200 ease-in-out ${
+                                      course.isActive !== false ? 'translate-x-4' : 'translate-x-0'
+                                    }`}
+                                  />
+                                </span>
+                                <span className={`text-[11px] font-bold ${course.isActive !== false ? 'text-emerald-600' : 'text-slate-400'}`}>
+                                  {course.isActive !== false ? 'Active' : 'Inactive'}
+                                </span>
+                              </button>
+                            </td>
+
                             <td className="py-3 px-4 text-right">
                               <div className="flex items-center justify-end gap-1.5">
-                                <button
-                                  type="button"
-                                  onClick={() => openCurriculumStudio(idx, 'curriculum')}
-                                  title={(course.isExamBatch || course.category === 'EXAM BATCH') ? "Quizzes & Questions Studio" : "Curriculum Studio"}
-                                  className="px-2.5 py-1.5 rounded-lg bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold transition-all cursor-pointer border-none shadow-2xs"
-                                >
-                                  {(course.isExamBatch || course.category === 'EXAM BATCH') ? 'Quizzes & Questions' : 'Curriculum'}
-                                </button>
+                                {(() => {
+                                  const lesCount = (course.curriculum || []).reduce((acc, s) => acc + (s.chapters || []).reduce((cAcc, c) => cAcc + (c.lessons || []).length, 0), 0);
+                                  return (
+                                    <button
+                                      type="button"
+                                      onClick={() => openCurriculumStudio(idx, 'curriculum')}
+                                      title={(course.isExamBatch || course.category === 'EXAM BATCH') ? "Quizzes & Questions Studio" : "Manage Classes, Video URLs, PDFs & Quizzes"}
+                                      className="px-2.5 py-1.5 rounded-lg bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold transition-all cursor-pointer border-none shadow-2xs flex items-center gap-1.5"
+                                    >
+                                      <Play className="w-3 h-3" />
+                                      <span>{(course.isExamBatch || course.category === 'EXAM BATCH') ? 'Quizzes & Questions' : `Classes & Lectures (${lesCount})`}</span>
+                                    </button>
+                                  );
+                                })()}
                                 <button
                                   type="button"
                                   onClick={() => openCurriculumStudio(idx, "basic")}
@@ -6042,29 +6596,273 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           {/* ========================================================= */}
           {activeTab === 'settings' && (
             <div className="space-y-6">
-              <div className="border-b border-slate-200/80 pb-4">
-                <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
-                  <Sparkles className="w-6 h-6 text-amber-500" />
-                  Website Branding & Contact Info
-                </h2>
-                <p className="text-xs text-slate-500">
-                  Update platform logo, site title, tagline, support hotline, and contact email.
-                </p>
+              {/* Top Header with Live Save Button */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+                    <Sparkles className="w-6 h-6 text-amber-500" />
+                    <span>Payment & Support Channels</span>
+                  </h2>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Directly manage bKash, Nagad, WhatsApp, support hotline, and email. Changes sync live instantly across the website without redeployment.
+                  </p>
+                </div>
+                <div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-2xs">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Live Sync Active
+                  </span>
+                </div>
               </div>
 
-              <div className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/80 shadow-xs space-y-4 max-w-2xl">
-                <div>
-                  <label className="text-xs font-bold text-slate-700 block mb-1.5">Platform Title</label>
-                  <input
-                    type="text"
-                    value={siteSettings.siteName}
-                    onChange={(e) => {
-                      const updated = { ...siteSettings, siteName: e.target.value };
-                      setSiteSettings(updated);
-                      persistAll({ siteSettings: updated });
-                    }}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 font-black outline-none focus:bg-white focus:border-blue-500 transition-all"
-                  />
+              {/* SECTION 1: PAYMENT ACCOUNTS (bKash & Nagad) */}
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs space-y-5">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div>
+                    <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
+                      <span className="w-7 h-7 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center font-bold text-xs border border-pink-100">
+                        ৳
+                      </span>
+                      <span>Payment Accounts (Student Checkout)</span>
+                    </h3>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      Displayed on the checkout modal when students purchase courses or books, featuring instant 1-click copy.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {/* bKash Number */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-pink-50/40 via-white to-pink-50/20 border border-pink-100/80 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-black text-slate-800 flex items-center gap-2">
+                        <span className="px-2 py-0.5 rounded-md bg-[#d12053] text-white text-[10px] font-bold tracking-wide">
+                          bKash
+                        </span>
+                        <span>bKash Personal Number</span>
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard.writeText(siteSettings.bkashNumber || '01342227935');
+                          triggerToast('📋 bKash number copied to clipboard');
+                        }}
+                        className="text-[11px] text-pink-600 hover:text-pink-700 font-bold bg-transparent border-none cursor-pointer flex items-center gap-1"
+                      >
+                        <Copy className="w-3 h-3" />
+                        <span>Copy</span>
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder="01342227935"
+                        value={siteSettings.bkashNumber || ''}
+                        onChange={(e) => handleUpdateSiteSetting('bkashNumber', e.target.value)}
+                        className="w-full bg-white border border-pink-200/90 rounded-xl px-3.5 py-2.5 text-sm font-mono font-bold text-slate-900 outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/10 transition-all shadow-2xs"
+                      />
+                    </div>
+                    <p className="text-[11px] text-slate-500">
+                      💡 Displayed when students select bKash in the checkout modal.
+                    </p>
+                  </div>
+
+                  {/* Nagad Number */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-50/40 via-white to-amber-50/20 border border-amber-100/80 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-black text-slate-800 flex items-center gap-2">
+                        <span className="px-2 py-0.5 rounded-md bg-[#f7941d] text-white text-[10px] font-bold tracking-wide">
+                          Nagad
+                        </span>
+                        <span>Nagad Personal Number</span>
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard.writeText(siteSettings.nagadNumber || '01731127231');
+                          triggerToast('📋 Nagad number copied to clipboard');
+                        }}
+                        className="text-[11px] text-amber-600 hover:text-amber-700 font-bold bg-transparent border-none cursor-pointer flex items-center gap-1"
+                      >
+                        <Copy className="w-3 h-3" />
+                        <span>Copy</span>
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder="01731127231"
+                        value={siteSettings.nagadNumber || ''}
+                        onChange={(e) => handleUpdateSiteSetting('nagadNumber', e.target.value)}
+                        className="w-full bg-white border border-amber-200/90 rounded-xl px-3.5 py-2.5 text-sm font-mono font-bold text-slate-900 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 transition-all shadow-2xs"
+                      />
+                    </div>
+                    <p className="text-[11px] text-slate-500">
+                      💡 Displayed when students select Nagad in the checkout modal.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION 2: CONTACT & SUPPORT CHANNELS (WhatsApp, Phone, Email) */}
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs space-y-5">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div>
+                    <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
+                      <span className="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs border border-emerald-100">
+                        <MessageCircle className="w-4 h-4 text-emerald-600" />
+                      </span>
+                      <span>Communication & Support Channels</span>
+                    </h3>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      Integrated across the homepage cards, course pages, navbar helpline, and website footer.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  {/* WhatsApp Support Number */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50/40 via-white to-emerald-50/20 border border-emerald-100/80 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-black text-slate-800 flex items-center gap-1.5">
+                        <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>WhatsApp Number</span>
+                      </label>
+                      <a
+                        href={`https://wa.me/88${(siteSettings.whatsappNumber || '01353828863').replace(/[^0-9]/g, '').replace(/^88/, '')}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[11px] text-emerald-600 hover:text-emerald-700 font-bold flex items-center gap-1 no-underline"
+                      >
+                        <span>Test Chat</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="01353828863"
+                      value={siteSettings.whatsappNumber || ''}
+                      onChange={(e) => handleUpdateSiteSetting('whatsappNumber', e.target.value)}
+                      className="w-full bg-white border border-emerald-200/90 rounded-xl px-3.5 py-2.5 text-sm font-mono font-bold text-slate-900 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 transition-all shadow-2xs"
+                    />
+                    <p className="text-[11px] text-slate-500 leading-relaxed">
+                      💬 Connects to homepage WhatsApp support cards, course pages, and navbar drawer.
+                    </p>
+                  </div>
+
+                  {/* Hotline Phone */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-50/40 via-white to-blue-50/20 border border-blue-100/80 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-black text-slate-800 flex items-center gap-1.5">
+                        <Phone className="w-3.5 h-3.5 text-blue-600" />
+                        <span>Support Hotline (Phone)</span>
+                      </label>
+                      <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md">
+                        Direct Call
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="01353828863"
+                      value={siteSettings.contactPhone || ''}
+                      onChange={(e) => handleUpdateSiteSetting('contactPhone', e.target.value)}
+                      className="w-full bg-white border border-blue-200/90 rounded-xl px-3.5 py-2.5 text-sm font-mono font-bold text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 transition-all shadow-2xs"
+                    />
+                    <p className="text-[11px] text-slate-500 leading-relaxed">
+                      📞 Official helpline phone number displayed for direct support calls.
+                    </p>
+                  </div>
+
+                  {/* Official Email */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-50/40 via-white to-purple-50/20 border border-purple-100/80 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-black text-slate-800 flex items-center gap-1.5">
+                        <Mail className="w-3.5 h-3.5 text-purple-600" />
+                        <span>Official Support Email</span>
+                      </label>
+                      <span className="text-[10px] font-semibold text-purple-600 bg-purple-50 px-2 py-0.5 rounded-md">
+                        Official Mail
+                      </span>
+                    </div>
+                    <input
+                      type="email"
+                      placeholder="eduhuntersbd@gmail.com"
+                      value={siteSettings.contactEmail || ''}
+                      onChange={(e) => handleUpdateSiteSetting('contactEmail', e.target.value)}
+                      className="w-full bg-white border border-purple-200/90 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-900 outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/10 transition-all shadow-2xs"
+                    />
+                    <p className="text-[11px] text-slate-500 leading-relaxed">
+                      ✉️ Displayed in terms & policies, legal pages, and the website footer.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* LIVE CREDENTIALS SUMMARY STRIP */}
+              <div className="bg-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-800">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3 mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="text-xs font-black uppercase tracking-wider text-slate-200">Active Live Credentials (Real-Time Summary)</span>
+                  </div>
+                  <span className="text-[11px] text-slate-400">Currently visible to all live website visitors</span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs">
+                  <div className="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60">
+                    <span className="text-[10px] text-pink-400 font-bold block uppercase mb-1">bKash Account</span>
+                    <span className="font-mono font-black text-white">{siteSettings.bkashNumber || '01342227935'}</span>
+                  </div>
+                  <div className="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60">
+                    <span className="text-[10px] text-amber-400 font-bold block uppercase mb-1">Nagad Account</span>
+                    <span className="font-mono font-black text-white">{siteSettings.nagadNumber || '01731127231'}</span>
+                  </div>
+                  <div className="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60">
+                    <span className="text-[10px] text-emerald-400 font-bold block uppercase mb-1">WhatsApp</span>
+                    <span className="font-mono font-black text-white">{siteSettings.whatsappNumber || '01353828863'}</span>
+                  </div>
+                  <div className="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60">
+                    <span className="text-[10px] text-blue-400 font-bold block uppercase mb-1">Hotline Phone</span>
+                    <span className="font-mono font-black text-white">{siteSettings.contactPhone || '01353828863'}</span>
+                  </div>
+                  <div className="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60 col-span-2 sm:col-span-1">
+                    <span className="text-[10px] text-purple-400 font-bold block uppercase mb-1">Official Email</span>
+                    <span className="font-medium text-slate-200 truncate block">{siteSettings.contactEmail || 'eduhuntersbd@gmail.com'}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION 3: PLATFORM BRANDING & OTHER SETTINGS */}
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs space-y-4">
+                <div className="border-b border-slate-100 pb-3">
+                  <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
+                    <SettingsIcon className="w-4 h-4 text-slate-600" />
+                    <span>Platform Branding & Settings</span>
+                  </h3>
+                  <p className="text-[11px] text-slate-500 mt-0.5">
+                    Customize platform title, logo URL, and tagline slogan.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-bold text-slate-700 block mb-1.5">Platform Title</label>
+                    <input
+                      type="text"
+                      value={siteSettings.siteName || ''}
+                      onChange={(e) => handleUpdateSiteSetting('siteName', e.target.value)}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 font-bold outline-none focus:bg-white focus:border-blue-500 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-bold text-slate-700 block mb-1.5">Tagline / Slogan</label>
+                    <input
+                      type="text"
+                      value={siteSettings.siteTagline || ''}
+                      onChange={(e) => handleUpdateSiteSetting('siteTagline', e.target.value)}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -6073,126 +6871,257 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     <img src={siteSettings.logoUrl} alt="Logo" className="w-10 h-10 object-contain bg-slate-100 rounded-xl p-1 border border-slate-200" />
                     <input
                       type="text"
-                      value={siteSettings.logoUrl}
-                      onChange={(e) => {
-                        const updated = { ...siteSettings, logoUrl: e.target.value };
-                        setSiteSettings(updated);
-                        persistAll({ siteSettings: updated });
-                      }}
+                      value={siteSettings.logoUrl || ''}
+                      onChange={(e) => handleUpdateSiteSetting('logoUrl', e.target.value)}
                       className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs font-mono text-slate-700 outline-none focus:bg-white focus:border-blue-500 transition-all"
                     />
                   </div>
                 </div>
+              </div>
 
-                <div>
-                  <label className="text-xs font-bold text-slate-700 block mb-1.5">Tagline / Slogan</label>
-                  <input
-                    type="text"
-                    value={siteSettings.siteTagline}
-                    onChange={(e) => {
-                      const updated = { ...siteSettings, siteTagline: e.target.value };
-                      setSiteSettings(updated);
-                      persistAll({ siteSettings: updated });
-                    }}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* SECTION 4: BUNNY.NET CLOUD INTEGRATION (Direct Video Transcoding & PDF CDN Delivery) */}
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
                   <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1.5">Support Phone</label>
-                    <input
-                      type="text"
-                      value={siteSettings.contactPhone}
-                      onChange={(e) => {
-                        const updated = { ...siteSettings, contactPhone: e.target.value };
-                        setSiteSettings(updated);
-                        persistAll({ siteSettings: updated });
-                      }}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                    />
+                    <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
+                      <span className="w-7 h-7 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold text-sm border border-orange-100">
+                        🐰
+                      </span>
+                      <span>Bunny.net Cloud Stream & Storage Integration</span>
+                    </h3>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      Enables 1-click direct video upload with automatic transcoding, live preview, and fast global PDF lecture note distribution.
+                    </p>
                   </div>
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1.5">Support Email</label>
-                    <input
-                      type="text"
-                      value={siteSettings.contactEmail}
-                      onChange={(e) => {
-                        const updated = { ...siteSettings, contactEmail: e.target.value };
-                        setSiteSettings(updated);
-                        persistAll({ siteSettings: updated });
-                      }}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                    />
+                  <div className="flex items-center gap-2">
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border shadow-2xs ${
+                      isBunnyStreamConfigured(bunnyConfig) && isBunnyStorageConfigured(bunnyConfig)
+                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                        : 'bg-amber-50 text-amber-700 border-amber-200'
+                    }`}>
+                      <span className={`w-2 h-2 rounded-full ${
+                        isBunnyStreamConfigured(bunnyConfig) && isBunnyStorageConfigured(bunnyConfig)
+                          ? 'bg-emerald-500 animate-pulse'
+                          : 'bg-amber-500'
+                      }`} />
+                      {isBunnyStreamConfigured(bunnyConfig) && isBunnyStorageConfigured(bunnyConfig)
+                        ? 'Bunny Fully Connected'
+                        : 'Credentials Incomplete'}
+                    </span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1.5">বিকাশ (bKash) পার্সোনাল নম্বর</label>
-                    <input
-                      type="text"
-                      placeholder="01342227935"
-                      value={siteSettings.bkashNumber || '01342227935'}
-                      onChange={(e) => {
-                        const updated = { ...siteSettings, bkashNumber: e.target.value };
-                        setSiteSettings(updated);
-                        persistAll({ siteSettings: updated });
-                      }}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all font-mono font-bold"
-                    />
+                {/* Sub-section A: Bunny Stream (Video Delivery) */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-purple-50/40 via-white to-indigo-50/20 border border-purple-100/90 space-y-4">
+                  <div className="flex items-center justify-between border-b border-purple-100/80 pb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded-md bg-purple-600 text-white text-[10px] font-bold tracking-wide">
+                        STREAM
+                      </span>
+                      <h4 className="text-xs font-black text-slate-900">
+                        Bunny Stream (Video Uploads & Player Iframe)
+                      </h4>
+                    </div>
+                    <a
+                      href="https://dash.bunny.net/stream"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[11px] font-bold text-purple-600 hover:text-purple-700 flex items-center gap-1 hover:underline"
+                    >
+                      <span>Bunny Stream Console</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1.5">নগদ (Nagad) পার্সোনাল নম্বর</label>
-                    <input
-                      type="text"
-                      placeholder="01731127231"
-                      value={siteSettings.nagadNumber || '01731127231'}
-                      onChange={(e) => {
-                        const updated = { ...siteSettings, nagadNumber: e.target.value };
-                        setSiteSettings(updated);
-                        persistAll({ siteSettings: updated });
-                      }}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all font-mono font-bold"
-                    />
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-bold text-slate-700 block mb-1">
+                        Video Library ID <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. 312456"
+                        value={bunnyConfig.streamLibraryId || ''}
+                        onChange={(e) => handleUpdateBunnyConfig('streamLibraryId', e.target.value.trim())}
+                        className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-purple-600 transition-all shadow-2xs"
+                      />
+                      <span className="text-[10px] text-slate-400 mt-1 block">
+                        From Bunny Stream → Manage Library → API → Library ID
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-bold text-slate-700 block mb-1">
+                        Stream API Key (AccessKey) <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="password"
+                        placeholder="e.g. 7f8a9b1c-..."
+                        value={bunnyConfig.streamApiKey || ''}
+                        onChange={(e) => handleUpdateBunnyConfig('streamApiKey', e.target.value.trim())}
+                        className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-purple-600 transition-all shadow-2xs"
+                      />
+                      <span className="text-[10px] text-slate-400 mt-1 block">
+                        From Bunny Stream → API → API Key
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Test Stream Button */}
+                  <div className="flex items-center justify-between pt-1 flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={handleTestBunnyStream}
+                      disabled={bunnyTestResults.testingStream || !bunnyConfig.streamLibraryId || !bunnyConfig.streamApiKey}
+                      className="px-3.5 py-1.5 rounded-xl bg-purple-100 hover:bg-purple-200 disabled:opacity-50 text-purple-800 text-xs font-bold border-none cursor-pointer transition-all flex items-center gap-1.5"
+                    >
+                      <Zap className="w-3.5 h-3.5" />
+                      <span>{bunnyTestResults.testingStream ? 'Testing Bunny Stream...' : 'Test Stream API Connection'}</span>
+                    </button>
+
+                    {bunnyTestResults.stream && (
+                      <span className={`text-[11px] font-bold px-2.5 py-1 rounded-lg ${
+                        bunnyTestResults.stream.success ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
+                      }`}>
+                        {bunnyTestResults.stream.message}
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-red-50 to-rose-50/50 p-4 rounded-2xl border border-red-100">
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="text-xs font-bold text-red-950 flex items-center gap-1.5">
-                      <span>YouTube Data API v3 Key</span>
-                      <span className="text-[10px] font-semibold bg-red-100 text-red-700 px-2 py-0.5 rounded-full">Auto Playlist Sync</span>
-                    </label>
+                {/* Sub-section B: Bunny Storage (PDF Delivery) */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-50/40 via-white to-cyan-50/20 border border-blue-100/90 space-y-4">
+                  <div className="flex items-center justify-between border-b border-blue-100/80 pb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded-md bg-blue-600 text-white text-[10px] font-bold tracking-wide">
+                        STORAGE CDN
+                      </span>
+                      <h4 className="text-xs font-black text-slate-900">
+                        Bunny Storage Zone (Lecture Sheet PDFs & Files)
+                      </h4>
+                    </div>
+                    <a
+                      href="https://dash.bunny.net/storage"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[11px] font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 hover:underline"
+                    >
+                      <span>Bunny Storage Console</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
-                  <p className="text-[11px] text-slate-500 mb-2">
-                    Enter your Google Cloud Console YouTube Data API v3 key to automatically sync playlists into course lectures.
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-bold text-slate-700 block mb-1">
+                        Storage Zone Name <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. eduhunters-storage"
+                        value={bunnyConfig.storageZoneName || ''}
+                        onChange={(e) => handleUpdateBunnyConfig('storageZoneName', e.target.value.trim())}
+                        className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-blue-600 transition-all shadow-2xs"
+                      />
+                      <span className="text-[10px] text-slate-400 mt-1 block">
+                        Storage Zone name created in Bunny.net
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-bold text-slate-700 block mb-1">
+                        Storage Access Key / Password <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="password"
+                        placeholder="e.g. 8a9b2c3d-..."
+                        value={bunnyConfig.storagePassword || ''}
+                        onChange={(e) => handleUpdateBunnyConfig('storagePassword', e.target.value.trim())}
+                        className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-blue-600 transition-all shadow-2xs"
+                      />
+                      <span className="text-[10px] text-slate-400 mt-1 block">
+                        From Storage Zone → FTP & API Access → Password
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-bold text-slate-700 block mb-1">
+                        Storage Hostname
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="storage.bunnycdn.com"
+                        value={bunnyConfig.storageHostname || 'storage.bunnycdn.com'}
+                        onChange={(e) => handleUpdateBunnyConfig('storageHostname', e.target.value.trim())}
+                        className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono text-slate-900 outline-none focus:border-blue-600 transition-all shadow-2xs"
+                      />
+                      <span className="text-[10px] text-slate-400 mt-1 block">
+                        Default: storage.bunnycdn.com
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-bold text-slate-700 block mb-1">
+                        Connected Pull Zone (Public CDN Domain) <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. eduhunters-cdn.b-cdn.net"
+                        value={bunnyConfig.pullZoneHostname || ''}
+                        onChange={(e) => handleUpdateBunnyConfig('pullZoneHostname', e.target.value.trim())}
+                        className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-blue-600 transition-all shadow-2xs"
+                      />
+                      <span className="text-[10px] text-slate-400 mt-1 block">
+                        The public CDN domain connected to this storage zone
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* CORS Banner */}
+                  <div className="p-3 rounded-xl bg-amber-50 border border-amber-200/80 text-[11px] text-amber-900 flex items-start gap-2">
+                    <span className="font-bold shrink-0">⚠️ CORS Requirement:</span>
+                    <span>
+                      In your Bunny dashboard under <strong>Storage Zone → Security / CORS</strong>, make sure <strong>"Enable CORS Headers"</strong> is toggled <strong>ON</strong> so browsers can upload PDFs without being blocked.
+                    </span>
+                  </div>
+
+                  {/* Test Storage Button */}
+                  <div className="flex items-center justify-between pt-1 flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={handleTestBunnyStorage}
+                      disabled={bunnyTestResults.testingStorage || !bunnyConfig.storageZoneName || !bunnyConfig.storagePassword}
+                      className="px-3.5 py-1.5 rounded-xl bg-blue-100 hover:bg-blue-200 disabled:opacity-50 text-blue-800 text-xs font-bold border-none cursor-pointer transition-all flex items-center gap-1.5"
+                    >
+                      <Zap className="w-3.5 h-3.5" />
+                      <span>{bunnyTestResults.testingStorage ? 'Testing Bunny Storage...' : 'Test Storage API Connection'}</span>
+                    </button>
+
+                    {bunnyTestResults.storage && (
+                      <span className={`text-[11px] font-bold px-2.5 py-1 rounded-lg ${
+                        bunnyTestResults.storage.success ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
+                      }`}>
+                        {bunnyTestResults.storage.message}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Save All Bunny Credentials Button */}
+                <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+                  <p className="text-[11px] text-slate-500">
+                    Credentials are saved securely in browser local storage and sync with Course Studio.
                   </p>
-                  <input
-                    type="password"
-                    placeholder="AIzaSy..."
-                    value={siteSettings.youtubeApiKey || ''}
-                    onChange={(e) => {
-                      const val = e.target.value;
-                      const updated = { ...siteSettings, youtubeApiKey: val };
-                      setSiteSettings(updated);
-                      try {
-                        if (val) localStorage.setItem('eduhunters_yt_api_key', val);
-                        else localStorage.removeItem('eduhunters_yt_api_key');
-                      } catch {}
-                      persistAll({ siteSettings: updated });
-                    }}
-                    className="w-full bg-white border border-red-200 rounded-xl px-4 py-2 text-xs text-slate-800 font-mono outline-none focus:border-red-500 transition-all"
-                  />
-                </div>
-
-                <div className="pt-4 border-t border-slate-100 flex justify-between items-center">
-                  <span className="text-xs text-slate-500">Reset database to default?</span>
                   <button
-                    onClick={handleResetToDefault}
-                    className="px-4 py-2 rounded-full bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 text-xs font-bold cursor-pointer transition-all"
+                    type="button"
+                    onClick={() => {
+                      saveBunnyConfig(bunnyConfig);
+                      triggerToast('✅ Bunny.net credentials saved successfully!');
+                    }}
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs font-black border-none cursor-pointer transition-all shadow-sm flex items-center gap-1.5 active:scale-95"
                   >
-                    Factory Reset
+                    <Check className="w-3.5 h-3.5" />
+                    <span>Save Bunny Credentials</span>
                   </button>
                 </div>
               </div>
@@ -6213,13 +7142,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     Modify section headings, badges, and button text live across the homepage.
                   </p>
                 </div>
-                <button
-                  onClick={handleSaveAll}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold border-none cursor-pointer shadow-md shadow-blue-500/20"
-                >
-                  <Save className="w-3.5 h-3.5" />
-                  <span>Save Live</span>
-                </button>
               </div>
 
               {/* Sub-Navigation Pills Bar */}

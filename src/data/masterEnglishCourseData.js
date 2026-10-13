@@ -46,7 +46,52 @@ export const masterEnglishCourseData = {
               duration: "37:21",
               isFree: true,
               videoUrl: "https://www.youtube.com/watch?v=JJwW2McsARM",
-              videoId: "JJwW2McsARM"
+              videoId: "JJwW2McsARM",
+              pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+              quiz: {
+                id: "noun-classification-quiz",
+                title: "Noun Classification - Quiz",
+                durationMinutes: 10,
+                totalMarks: 5,
+                negativeMark: 0.25,
+                questions: [
+                  {
+                    id: 1,
+                    question: "Which of the following is an Abstract Noun?",
+                    options: ["Honesty", "Water", "Army", "Boy"],
+                    correctAnswer: 0,
+                    explanation: "Honesty represents a quality or state of mind, which cannot be touched physically. Hence it is an Abstract Noun."
+                  },
+                  {
+                    id: 2,
+                    question: "The word 'Flock' is an example of which noun?",
+                    options: ["Proper Noun", "Collective Noun", "Material Noun", "Common Noun"],
+                    correctAnswer: 1,
+                    explanation: "'Flock' refers to a collection or group of sheep or birds, making it a Collective Noun."
+                  },
+                  {
+                    id: 3,
+                    question: "'Gold is a precious metal.' Here 'Gold' is a —",
+                    options: ["Common Noun", "Proper Noun", "Material Noun", "Abstract Noun"],
+                    correctAnswer: 2,
+                    explanation: "'Gold' is an uncountable substance or matter from which other items are made."
+                  },
+                  {
+                    id: 4,
+                    question: "Which one is a Proper Noun?",
+                    options: ["City", "Dhaka", "Country", "River"],
+                    correctAnswer: 1,
+                    explanation: "'Dhaka' is the specific individual name of a city, so it is a Proper Noun."
+                  },
+                  {
+                    id: 5,
+                    question: "What kind of noun is 'Committee'?",
+                    options: ["Abstract Noun", "Collective Noun", "Proper Noun", "Material Noun"],
+                    correctAnswer: 1,
+                    explanation: "'Committee' denotes a body or group of persons appointed to perform a duty."
+                  }
+                ]
+              }
             },
             {
               id: 2,

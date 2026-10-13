@@ -224,7 +224,8 @@ export default function HomePage({
   const rawContactPhone = (siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700'))
     ? siteSettings.contactPhone
     : '01353828863';
-  const cleanWaNumber = rawContactPhone.replace(/[^0-9]/g, '').replace(/^88/, '') || '01353828863';
+  const rawWaNumber = siteSettings.whatsappNumber || rawContactPhone;
+  const cleanWaNumber = rawWaNumber.replace(/[^0-9]/g, '').replace(/^88/, '') || '01353828863';
   const whatsappUrl = `https://wa.me/88${cleanWaNumber}`;
 
   const st = { ...initialData.sectionTexts, ...(data.sectionTexts || {}) };
@@ -281,6 +282,7 @@ export default function HomePage({
 
   const filteredCourses = homeCourses
     .filter(course => !isZenithCopiedCourse(course))
+    .filter(course => course.isActive !== false)
     .filter(course => {
       if (selectedCategory === "সকল") return true;
       if (selectedCategory.toLowerCase() === "free") {
@@ -1193,7 +1195,7 @@ export default function HomePage({
                     </div>
                     <div>
                       <p className={`font-bold text-sm ${isDark ? 'text-white' : 'text-[#111827]'}`}>WhatsApp এ সরাসরি মেসেজ করো</p>
-                      <p className={`text-xs mt-0.5 ${isDark ? 'text-emerald-400/90' : 'text-emerald-700 font-medium'}`}>01353828863 (Instant Support)</p>
+                      <p className={`text-xs mt-0.5 ${isDark ? 'text-emerald-400/90' : 'text-emerald-700 font-medium'}`}>{rawWaNumber} (Instant Support)</p>
                     </div>
                   </div>
                   <svg className={`w-4 h-4 group-hover:translate-x-1 transition-all duration-200 shrink-0 ${

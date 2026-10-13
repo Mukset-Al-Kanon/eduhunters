@@ -45,7 +45,8 @@ export default function LegalPoliciesPage({
   const supportPhone = (siteSettings.contactPhone && !siteSettings.contactPhone.includes('1700')) 
     ? siteSettings.contactPhone 
     : '01353828863';
-  const rawDigits = supportPhone.replace(/[^0-9]/g, '');
+  const waContact = siteSettings.whatsappNumber || supportPhone;
+  const rawDigits = waContact.replace(/[^0-9]/g, '');
   const whatsappNumber = rawDigits.startsWith('88') ? rawDigits : `88${rawDigits}`;
   const formattedPhone = supportPhone.startsWith('0') ? `+880 ${supportPhone.slice(1, 5)}-${supportPhone.slice(5)}` : supportPhone;
 
