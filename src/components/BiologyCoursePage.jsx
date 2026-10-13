@@ -22,6 +22,9 @@ import {
   Clock
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
+import { homeCoursesData } from '../data/homeData';
+import { freeCoursesData } from '../data/freeCoursesData';
+import { isStudentProfileComplete } from '../utils/studentProfile';
 import { syncCourseWithYouTube, DEFAULT_YT_API_KEY } from '../utils/youtubeSync';
 import ProtectedPdfViewer from './ProtectedPdfViewer';
 import ExamEngine from './ExamEngine';
@@ -54,38 +57,138 @@ export default function BiologyCoursePage({
   onNavigatePolicies,
   onOpenAdmin,
   onLoginClick,
+  onOpenProfile,
   onOpenLesson,
   onEnrollSuccess
 }) {
   const { isDark } = useTheme();
   const siteSettings = data.siteSettings || {};
 
-  const baseDefault = masterEnglishCourseData;
+  // Build full list of all available courses across dynamic state and seeds
+  const allCoursesList = React.useMemo(() => {
+    return [
+      ...(Array.isArray(data?.courses) ? data.courses : []),
+      ...(Array.isArray(initialData?.courses) ? initialData.courses : []),
+      ...(Array.isArray(homeCoursesData) ? homeCoursesData : []),
+      ...(Array.isArray(freeCoursesData) ? freeCoursesData : [])
+    ];
+  }, [data?.courses]);
 
-  // Find course from data.courses matching selectedCourseId or fallback to masterEnglishCourseData
-  const foundCourse = (data.courses || []).find(c => 
-    c.id === selectedCourseId || c.slug === selectedCourseId
-  ) || masterEnglishCourseData;
+  // Clean target identifier
+  const targetId = React.useMemo(() => {
+    try {
+      return decodeURIComponent(String(selectedCourseId || '').trim()).toLowerCase();
+    } catch {
+      return String(selectedCourseId || '').trim().toLowerCase();
+    }
+  }, [selectedCourseId]);
 
-  const baseCourse = {
-    ...baseDefault,
-    ...(foundCourse || {}),
-    name: foundCourse?.title || foundCourse?.name || baseDefault.name,
-    tagline: foundCourse?.tagline || foundCourse?.description || baseDefault.tagline,
-    aboutText: foundCourse?.aboutText || foundCourse?.description || baseDefault.aboutText,
-    totalClasses: foundCourse?.totalClasses || baseDefault.totalClasses,
-    features: (foundCourse?.features && foundCourse.features.length > 0) ? foundCourse.features : baseDefault.features,
-    supportPhone: foundCourse?.supportPhone || siteSettings.contactPhone || "01353828863",
-    curriculum: (foundCourse?.curriculum && foundCourse.curriculum.length > 0) ? foundCourse.curriculum : baseDefault.curriculum,
-    salePrice: foundCourse?.salePrice !== undefined ? foundCourse.salePrice : baseDefault.salePrice,
-    regularPrice: foundCourse?.regularPrice !== undefined ? foundCourse.regularPrice : baseDefault.regularPrice,
-    previewVideoUrl: foundCourse?.previewVideoUrl || baseDefault.previewVideoUrl || "https://www.youtube-nocookie.com/embed/zskTywWaXEE",
-    category: foundCourse?.category || baseDefault.category,
-    isFree: Boolean(foundCourse?.isFree ?? baseDefault.isFree),
-    playlistId: foundCourse?.playlistId || baseDefault.playlistId || null
-  };
+  // Find course matching targetId
+  const foundCourse = React.useMemo(() => {
+    if (!targetId || targetId === 'master-english-30-days') {
+      return (
+        allCoursesList.find(c => {
+          const cid = String(c?.id || '').trim().toLowerCase();
+          const cslug = String(c?.slug || '').trim().toLowerCase();
+          return cid === 'master-english-30-days' || cslug === 'master-english-30-days';
+        }) || masterEnglishCourseData
+      );
+    }
 
-  const [course, setCourse] = useState(baseCourse);
+    // 1. Exact match on id, slug, key, title
+    const exact = allCoursesList.find(c => {
+      if (!c) return false;
+      const cid = String(c.id || '').trim().toLowerCase();
+      const cslug = String(c.slug || '').trim().toLowerCase();
+      const ckey = String(c.key || '').trim().toLowerCase();
+      const ctitle = String(c.title || c.name || '').trim().toLowerCase();
+      return cid === targetId || cslug === targetId || ckey === targetId || ctitle === targetId;
+    });
+    if (exact) return exact;
+
+    // 2. Substring match
+    const fuzzy = allCoursesList.find(c => {
+      if (!c) return false;
+      const ctitle = String(c.title || c.name || '').trim().toLowerCase();
+      const cslug = String(c.slug || '').trim().toLowerCase();
+      return (
+        (ctitle && (ctitle.includes(targetId) || targetId.includes(ctitle))) ||
+        (cslug && (cslug.includes(targetId) || targetId.includes(cslug)))
+      );
+    });
+    return fuzzy || null;
+  }, [allCoursesList, targetId]);
+
+  const isMasterEnglish = (
+    targetId === 'master-english-30-days' ||
+    foundCourse?.id === 'master-english-30-days' ||
+    foundCourse?.slug === 'master-english-30-days'
+  );
+
+  const baseCourse = React.useMemo(() => {
+    if (isMasterEnglish || (!foundCourse && (!targetId || targetId === 'master-english-30-days'))) {
+      return {
+        ...masterEnglishCourseData,
+        ...(foundCourse || {}),
+        name: foundCourse?.title || foundCourse?.name || masterEnglishCourseData.name,
+        tagline: foundCourse?.tagline || foundCourse?.description || masterEnglishCourseData.tagline,
+        aboutText: foundCourse?.aboutText || foundCourse?.description || masterEnglishCourseData.aboutText,
+        totalClasses: foundCourse?.totalClasses || masterEnglishCourseData.totalClasses,
+        features: (foundCourse?.features && foundCourse.features.length > 0) ? foundCourse.features : masterEnglishCourseData.features,
+        supportPhone: foundCourse?.supportPhone || siteSettings.contactPhone || "01353828863",
+        curriculum: (foundCourse?.curriculum && foundCourse.curriculum.length > 0) ? foundCourse.curriculum : masterEnglishCourseData.curriculum,
+        salePrice: foundCourse?.salePrice !== undefined ? foundCourse.salePrice : masterEnglishCourseData.salePrice,
+        regularPrice: foundCourse?.regularPrice !== undefined ? foundCourse.regularPrice : masterEnglishCourseData.regularPrice,
+        previewVideoUrl: foundCourse?.previewVideoUrl || masterEnglishCourseData.previewVideoUrl,
+        category: foundCourse?.category || masterEnglishCourseData.category,
+        isFree: Boolean(foundCourse?.isFree ?? masterEnglishCourseData.isFree),
+        playlistId: foundCourse?.playlistId || masterEnglishCourseData.playlistId || null
+      };
+    }
+
+    // Non-Master English (e.g. Physics Finishing Touch Series, or other custom courses)
+    const fc = foundCourse || {};
+    const defaultFeatures = [
+      'HD কোয়ালিটি লাইভ ও রেকর্ডেড ক্লাস',
+      'অধ্যায়ভিত্তিক লেকচার নোট ও প্র্যাকটিস শিট',
+      'এক্সক্লুসিভ এক্সাম ও সলভ ক্লাস',
+      '২৪/৭ টেলিগ্রাম ডাউট সলভিং সাপোর্ট'
+    ];
+
+    return {
+      id: fc.id || selectedCourseId,
+      slug: fc.slug || selectedCourseId,
+      key: fc.key || fc.id || selectedCourseId,
+      name: fc.title || fc.name || 'কোর্স বিস্তারিত',
+      title: fc.title || fc.name || 'কোর্স বিস্তারিত',
+      tagline: fc.tagline || fc.description || 'সেরা শিক্ষকমণ্ডলীর সাথে নিশ্চিত প্রস্তুতির যাত্রা',
+      aboutText: fc.aboutText || fc.description || 'এই কোর্সটিতে রয়েছে পূর্ণাঙ্গ সিলেবাস কভারেজ, স্ট্যান্ডার্ড প্র্যাকটিস ম্যাটেরিয়াল ও সার্বক্ষণিক মেন্টরিং সুবিধা।',
+      totalClasses: fc.totalClasses || (Array.isArray(fc.curriculum) ? `${fc.curriculum.length}টি মডিউল` : 'চলমান ব্যাচ'),
+      studentsCount: fc.studentsCount || '১২৫০+',
+      features: (Array.isArray(fc.features) && fc.features.length > 0) ? fc.features : defaultFeatures,
+      supportPhone: fc.supportPhone || siteSettings.contactPhone || "01353828863",
+      curriculum: Array.isArray(fc.curriculum) ? fc.curriculum : [],
+      salePrice: fc.salePrice !== undefined ? fc.salePrice : (fc.price !== undefined ? fc.price : 499),
+      regularPrice: fc.regularPrice !== undefined ? fc.regularPrice : (fc.originalPrice !== undefined ? fc.originalPrice : null),
+      previewVideoUrl: fc.previewVideoUrl || fc.videoUrl || null,
+      image: fc.image || fc.thumbnail || '/logo.png',
+      category: fc.category || 'Academic & Admission',
+      isFree: Boolean(fc.isFree || Number(fc.salePrice || fc.price) === 0),
+      playlistId: fc.playlistId || null,
+      isActive: fc.isActive !== false
+    };
+  }, [foundCourse, isMasterEnglish, selectedCourseId, siteSettings.contactPhone]);
+
+  const [courseOverride, setCourseOverride] = useState(null);
+
+  // Reset override when course id changes
+  useEffect(() => {
+    setCourseOverride(null);
+  }, [selectedCourseId]);
+
+  const course = courseOverride || baseCourse;
+  const setCourse = setCourseOverride;
+
   const { currentUser } = useAuth();
   const isCourseEnrolled = useEnrollmentStatus(course, currentUser, data);
   const [isSyncing, setIsSyncing] = useState(false);
@@ -95,17 +198,12 @@ export default function BiologyCoursePage({
   });
   const [syncStatusMsg, setSyncStatusMsg] = useState('');
 
-  // Update course when selectedCourseId changes
-  useEffect(() => {
-    setCourse(baseCourse);
-  }, [selectedCourseId]);
-
   // Background auto-sync on mount if course has playlistId, no curriculum yet, and API key is present
   useEffect(() => {
     const key = siteSettings.youtubeApiKey || localStorage.getItem('eduhunters_yt_api_key') || DEFAULT_YT_API_KEY;
-    const hasCurriculum = baseCourse.curriculum && baseCourse.curriculum.length > 0 && baseCourse.curriculum[0]?.chapters?.[0]?.lessons?.length > 0;
-    if (baseCourse.playlistId && key && !hasCurriculum) {
-      syncCourseWithYouTube(baseCourse, key, false)
+    const hasCurriculum = course.curriculum && course.curriculum.length > 0 && course.curriculum[0]?.chapters?.[0]?.lessons?.length > 0;
+    if (course.playlistId && key && !hasCurriculum) {
+      syncCourseWithYouTube(course, key, false)
         .then(updated => {
           if (updated && updated.curriculum) {
             setCourse(updated);
@@ -113,7 +211,7 @@ export default function BiologyCoursePage({
         })
         .catch(err => console.warn('YouTube auto-sync note:', err));
     }
-  }, [baseCourse.playlistId]);
+  }, [course.playlistId]);
 
   const handleManualSync = async () => {
     const key = siteSettings.youtubeApiKey || localStorage.getItem('eduhunters_yt_api_key') || apiKeyInput.trim() || DEFAULT_YT_API_KEY;
@@ -155,14 +253,49 @@ export default function BiologyCoursePage({
   const [showExamEngine, setShowExamEngine] = useState(false);
 
   const handleOpenCheckout = () => {
+    // 1. If not authenticated: must log in or sign up first
     if (!currentUser) {
       if (onLoginClick) {
-        onLoginClick(() => {
-          setShowCheckout(true);
+        onLoginClick((loggedInUser) => {
+          const targetUser = loggedInUser || currentUser;
+          // After auth, verify profile completeness (Name, WhatsApp, College)
+          if (!isStudentProfileComplete(targetUser)) {
+            if (onOpenProfile) {
+              onOpenProfile({
+                hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।',
+                requireCompletion: true,
+                onComplete: () => {
+                  setShowCheckout(true);
+                }
+              });
+            } else {
+              setShowCheckout(true);
+            }
+          } else {
+            setShowCheckout(true);
+          }
         });
       }
       return;
     }
+
+    // 2. If authenticated: verify profile completeness (Name, WhatsApp, College)
+    if (!isStudentProfileComplete(currentUser)) {
+      if (onOpenProfile) {
+        onOpenProfile({
+          hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।',
+          requireCompletion: true,
+          onComplete: () => {
+            setShowCheckout(true);
+          }
+        });
+      } else {
+        setShowCheckout(true);
+      }
+      return;
+    }
+
+    // 3. Authenticated and profile is complete -> proceed to payment/checkout
     setShowCheckout(true);
   };
 
@@ -268,123 +401,139 @@ export default function BiologyCoursePage({
                 <p className={`text-sm mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{course.totalClasses}</p>
               </div>
 
-              <div className="space-y-4">
-                {course.curriculum.map((section) => {
-                  const isOpen = expandedSections[section.id];
-                  return (
-                    <div key={section.id} className={`rounded-xl overflow-hidden border ${
-                      isDark ? 'border-[#e11438]/20 bg-[#160408]' : 'border-gray-200 bg-white'
-                    }`}>
-                      <button 
-                        className={`w-full flex items-center justify-between gap-2 p-4 transition-colors text-left border-none cursor-pointer ${
-                          isDark ? 'bg-[#1b050d] hover:bg-[#250713]' : 'bg-gray-50 hover:bg-gray-100'
-                        }`}
-                        onClick={() => toggleSection(section.id)}
-                      >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <span className={`flex items-center justify-center w-8 h-8 rounded-lg font-semibold text-sm shrink-0 border ${
-                            isDark ? 'bg-[#28060f] border-[#e11438]/30 text-[#ff6b8b]' : 'bg-red-50 border-red-100 text-[#dc2626]'
-                          }`}>
-                            {section.id}
-                          </span>
-                          <div className="text-left min-w-0">
-                            <h3 className={`font-semibold text-sm sm:text-base truncate ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                              {section.name}
-                            </h3>
-                            <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{section.summary}</p>
+              {Array.isArray(course.curriculum) && course.curriculum.length > 0 ? (
+                <div className="space-y-4">
+                  {course.curriculum.map((section) => {
+                    const isOpen = expandedSections[section.id];
+                    return (
+                      <div key={section.id} className={`rounded-xl overflow-hidden border ${
+                        isDark ? 'border-[#e11438]/20 bg-[#160408]' : 'border-gray-200 bg-white'
+                      }`}>
+                        <button 
+                          className={`w-full flex items-center justify-between gap-2 p-4 transition-colors text-left border-none cursor-pointer ${
+                            isDark ? 'bg-[#1b050d] hover:bg-[#250713]' : 'bg-gray-50 hover:bg-gray-100'
+                          }`}
+                          onClick={() => toggleSection(section.id)}
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <span className={`flex items-center justify-center w-8 h-8 rounded-lg font-semibold text-sm shrink-0 border ${
+                              isDark ? 'bg-[#28060f] border-[#e11438]/30 text-[#ff6b8b]' : 'bg-red-50 border-red-100 text-[#dc2626]'
+                            }`}>
+                              {section.id}
+                            </span>
+                            <div className="text-left min-w-0">
+                              <h3 className={`font-semibold text-sm sm:text-base truncate ${isDark ? 'text-white' : 'text-[#111827]'}`}>
+                                {section.name}
+                              </h3>
+                              <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{section.summary}</p>
+                            </div>
                           </div>
-                        </div>
-                        <svg className={`w-5 h-5 transition-transform duration-300 ease-in-out shrink-0 ${isDark ? 'text-gray-400' : 'text-gray-500'} ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                      </button>
+                          <svg className={`w-5 h-5 transition-transform duration-300 ease-in-out shrink-0 ${isDark ? 'text-gray-400' : 'text-gray-500'} ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                          </svg>
+                        </button>
 
-                      <div className={`smooth-accordion-grid border-t transition-colors ${isDark ? 'border-[#e11438]/20' : 'border-gray-200'} ${isOpen ? 'is-open' : ''}`}>
-                        <div className={`smooth-accordion-inner divide-y ${isDark ? 'divide-[#e11438]/10' : 'divide-gray-100'}`}>
-                          {((section.lessons && section.lessons.length > 0)
-                            ? section.lessons
-                            : (section.chapters?.flatMap(c => c.lessons || []) || [])
-                          ).map((lesson, lIdx) => {
-                            const isObj = typeof lesson === 'object' && lesson !== null;
-                            const title = isObj ? lesson.title : lesson;
-                            const duration = isObj ? lesson.duration : null;
-                            const isFree = isObj ? Boolean(lesson.isFree) : false;
-                            const isUnlocked = isFree || isCourseEnrolled;
-                            const videoUrl = isObj ? lesson.videoUrl : null;
-                            const pdfUrl = isObj ? lesson.pdfUrl : null;
+                        <div className={`smooth-accordion-grid border-t transition-colors ${isDark ? 'border-[#e11438]/20' : 'border-gray-200'} ${isOpen ? 'is-open' : ''}`}>
+                          <div className={`smooth-accordion-inner divide-y ${isDark ? 'divide-[#e11438]/10' : 'divide-gray-100'}`}>
+                            {((section.lessons && section.lessons.length > 0)
+                              ? section.lessons
+                              : (section.chapters?.flatMap(c => c.lessons || []) || [])
+                            ).map((lesson, lIdx) => {
+                              const isObj = typeof lesson === 'object' && lesson !== null;
+                              const title = isObj ? lesson.title : lesson;
+                              const duration = isObj ? lesson.duration : null;
+                              const isFree = isObj ? Boolean(lesson.isFree) : false;
+                              const isUnlocked = isFree || isCourseEnrolled;
+                              const videoUrl = isObj ? lesson.videoUrl : null;
+                              const pdfUrl = isObj ? lesson.pdfUrl : null;
 
-                            return (
-                              <div 
-                                key={lIdx} 
-                                className={`group flex items-center justify-between p-3.5 pl-6 sm:pl-8 transition-all cursor-pointer ${
-                                  isUnlocked 
-                                    ? (isDark ? 'bg-[#1c080e]/60 hover:bg-[#280a13]' : 'bg-white hover:bg-red-50/50') 
-                                    : (isDark ? 'hover:bg-[#1a0409]' : 'hover:bg-gray-100/60')
-                                }`}
-                                onClick={() => {
-                                  if (isUnlocked) {
-                                    if (onOpenLesson) {
-                                      onOpenLesson(course.id || course.slug || selectedCourseId, {
-                                        title,
-                                        videoUrl: videoUrl || course.previewVideoUrl,
-                                        pdfUrl,
-                                        duration,
-                                        lessonIdx: lIdx
-                                      });
-                                    }
-                                  } else {
-                                    handleOpenCheckout();
-                                  }
-                                }}
-                              >
-                                <div className="flex items-center gap-3 flex-1 min-w-0">
-                                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:scale-105 ${
+                              return (
+                                <div 
+                                  key={lIdx} 
+                                  className={`group flex items-center justify-between p-3.5 pl-6 sm:pl-8 transition-all cursor-pointer ${
                                     isUnlocked 
-                                      ? 'bg-red-100 text-red-600 shadow-2xs' 
-                                      : (isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-200 text-gray-500')
-                                  }`}>
-                                    {isUnlocked ? (
-                                      <Play className="w-3.5 h-3.5 fill-red-600 text-red-600 ml-0.5" />
-                                    ) : (
-                                      <Lock className="w-3.5 h-3.5" />
-                                    )}
+                                      ? (isDark ? 'bg-[#1c080e]/60 hover:bg-[#280a13]' : 'bg-white hover:bg-red-50/50') 
+                                      : (isDark ? 'hover:bg-[#1a0409]' : 'hover:bg-gray-100/60')
+                                  }`}
+                                  onClick={() => {
+                                    if (isUnlocked) {
+                                      if (onOpenLesson) {
+                                        onOpenLesson(course.id || course.slug || selectedCourseId, {
+                                          title,
+                                          videoUrl: videoUrl || course.previewVideoUrl,
+                                          pdfUrl,
+                                          duration,
+                                          lessonIdx: lIdx
+                                        });
+                                      }
+                                    } else {
+                                      handleOpenCheckout();
+                                    }
+                                  }}
+                                >
+                                  <div className="flex items-center gap-3 flex-1 min-w-0">
+                                    <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:scale-105 ${
+                                      isUnlocked 
+                                        ? 'bg-red-100 text-red-600 shadow-2xs' 
+                                        : (isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-200 text-gray-500')
+                                    }`}>
+                                      {isUnlocked ? (
+                                        <Play className="w-3.5 h-3.5 fill-red-600 text-red-600 ml-0.5" />
+                                      ) : (
+                                        <Lock className="w-3.5 h-3.5" />
+                                      )}
+                                    </div>
+                                    <div className="min-w-0">
+                                      <p className={`text-sm font-semibold truncate transition-colors ${isDark ? 'text-gray-100 group-hover:text-red-400' : 'text-[#111827] group-hover:text-[#dc2626]'}`}>{title}</p>
+                                      {pdfUrl && (
+                                        <div className="flex items-center gap-2 mt-0.5">
+                                          <span className="text-[10px] text-blue-500 font-semibold bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">📄 PDF নোট</span>
+                                        </div>
+                                      )}
+                                    </div>
                                   </div>
-                                  <div className="min-w-0">
-                                    <p className={`text-sm font-semibold truncate transition-colors ${isDark ? 'text-gray-100 group-hover:text-red-400' : 'text-[#111827] group-hover:text-[#dc2626]'}`}>{title}</p>
-                                    {pdfUrl && (
-                                      <div className="flex items-center gap-2 mt-0.5">
-                                        <span className="text-[10px] text-blue-500 font-semibold bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">📄 PDF নোট</span>
+                                  <div className="shrink-0 ml-3 flex items-center gap-2">
+                                    {duration && (
+                                      <div className={`flex items-center gap-1.5 text-xs font-mono font-medium ${
+                                        isDark ? 'text-gray-400' : 'text-gray-500'
+                                      }`}>
+                                        <Clock className="w-3.5 h-3.5 text-gray-400" />
+                                        <span>{duration}</span>
                                       </div>
                                     )}
+                                    {!isUnlocked && (
+                                      <span className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-full ${
+                                        isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-600'
+                                      }`}>
+                                        <Lock className="w-3.5 h-3.5" />
+                                        <span>লক</span>
+                                      </span>
+                                    )}
                                   </div>
                                 </div>
-                                <div className="shrink-0 ml-3 flex items-center gap-2">
-                                  {duration && (
-                                    <div className={`flex items-center gap-1.5 text-xs font-mono font-medium ${
-                                      isDark ? 'text-gray-400' : 'text-gray-500'
-                                    }`}>
-                                      <Clock className="w-3.5 h-3.5 text-gray-400" />
-                                      <span>{duration}</span>
-                                    </div>
-                                  )}
-                                  {!isUnlocked && (
-                                    <span className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-full ${
-                                      isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-600'
-                                    }`}>
-                                      <Lock className="w-3.5 h-3.5" />
-                                      <span>লক</span>
-                                    </span>
-                                  )}
-                                </div>
-                              </div>
-                            );
-                          })}
+                              );
+                            })}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className={`p-8 text-center rounded-2xl border ${
+                  isDark ? 'bg-white/[0.02] border-white/10 text-gray-300' : 'bg-gray-50 border-gray-200 text-gray-600'
+                }`}>
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center text-2xl">
+                    📚
+                  </div>
+                  <h4 className={`font-bold text-base mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                    ক্লাস কারিকুলাম ও শিডিউল আপডেট হচ্ছে
+                  </h4>
+                  <p className="text-xs max-w-sm mx-auto leading-relaxed text-gray-400">
+                    এই কোর্সের প্রতিটি অধ্যায়ের রেকর্ডেড ক্লাস, লাইভ ক্লাস রুটিন ও লেকচার নোট খুব শীঘ্রই আপলোড করা হবে।
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Support Box */}
@@ -505,37 +654,47 @@ export default function BiologyCoursePage({
                   : 'bg-white border-gray-200 shadow-sm'
               }`}>
                 
-                {/* YouTube Video Preview with Anti-Piracy Shield */}
+                {/* Media Preview: Video iframe if previewVideoUrl exists, otherwise course banner image */}
                 <div 
                   className="relative aspect-video bg-black border-b border-black/10 overflow-hidden select-none"
                   onContextMenu={(e) => e.preventDefault()}
                 >
-                  <iframe 
-                    src={getEmbedUrl(course.previewVideoUrl) || "https://www.youtube-nocookie.com/embed/zskTywWaXEE?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0"} 
-                    title="Course Preview" 
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                  {course.previewVideoUrl ? (
+                    <>
+                      <iframe 
+                        src={getEmbedUrl(course.previewVideoUrl)} 
+                        title="Course Preview" 
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
 
-                  {/* Security Guard: Disables YouTube Top Bar (Share, Copy Link, Watch Later & Title) */}
-                  <div 
-                    className="absolute top-0 left-0 right-0 h-14 z-20 pointer-events-auto bg-gradient-to-b from-black/80 via-black/30 to-transparent flex items-center justify-between px-3 py-2 cursor-default select-none"
-                    onContextMenu={(e) => e.preventDefault()}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }}
-                  >
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-white/95 truncate">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                      EduHunters Class Preview
-                    </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/60 border border-white/15 text-white/80">
-                      🔒 Secure Stream
-                    </span>
-                  </div>
+                      {/* Security Guard: Disables YouTube Top Bar */}
+                      <div 
+                        className="absolute top-0 left-0 right-0 h-14 z-20 pointer-events-auto bg-gradient-to-b from-black/80 via-black/30 to-transparent flex items-center justify-between px-3 py-2 cursor-default select-none"
+                        onContextMenu={(e) => e.preventDefault()}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                        }}
+                      >
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-white/95 truncate">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                          EduHunters Class Preview
+                        </div>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/60 border border-white/15 text-white/80">
+                          🔒 Secure Stream
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <img 
+                      src={course.image || '/logo.png'} 
+                      alt={course.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
 
                 <div className={`px-4 py-4 border-b ${isDark ? 'border-[#e11438]/15' : 'border-gray-100'}`}>
@@ -777,10 +936,15 @@ export default function BiologyCoursePage({
       {/* Checkout Modal */}
       {showCheckout && (
         <CheckoutModal 
+          course={course}
           bundle={{
-            title: course.name || course.title || "Mastering Text Book Biology",
-            price: Number(course.salePrice) || 1199,
-            originalPrice: Number(course.regularPrice) || (Number(course.salePrice) * 2)
+            id: course.id || course.slug || selectedCourseId,
+            title: course.name || course.title || "কোর্স এনরোল",
+            price: Number(course.salePrice) || Number(course.price) || 499,
+            salePrice: Number(course.salePrice) || Number(course.price) || 499,
+            regularPrice: Number(course.regularPrice) || (Number(course.salePrice || 499) * 2),
+            originalPrice: Number(course.regularPrice) || (Number(course.salePrice || 499) * 2),
+            image: course.image || '/logo.png'
           }}
           siteSettings={siteSettings}
           onSuccess={(trxData) => {

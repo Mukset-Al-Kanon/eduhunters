@@ -5,7 +5,13 @@ import { useAuth } from '../context/AuthContext';
 
 const POPULAR_BATCHES = ['HSC 26', 'HSC 27', 'HSC 28', 'HSC 29'];
 
-export default function ProfileModal({ isOpen, onClose }) {
+export default function ProfileModal({ 
+  isOpen, 
+  onClose,
+  onSaveSuccess,
+  hintNotice,
+  requireCompletion = false
+}) {
   const { currentUser, updateUserProfile } = useAuth();
 
   const [shouldRender, setShouldRender] = useState(isOpen);
@@ -32,7 +38,7 @@ export default function ProfileModal({ isOpen, onClose }) {
       if (currentUser) {
         setDisplayName(currentUser.displayName || currentUser.name || '');
         setPhotoURL(currentUser.photoURL || '/avatar.svg');
-        setWhatsapp(currentUser.whatsapp || currentUser.phone || '');
+        setWhatsapp(currentUser.whatsapp || currentUser.phone || currentUser.phoneNumber || '');
         setCollege(currentUser.college || currentUser.institution || '');
         const existingBatch = currentUser.hscBatch || currentUser.batch;
         setHscBatch(existingBatch && ['HSC 26', 'HSC 27', 'HSC 28', 'HSC 29'].includes(existingBatch) ? existingBatch : (existingBatch || 'HSC 26'));
@@ -117,7 +123,7 @@ export default function ProfileModal({ isOpen, onClose }) {
 
         const dataUrl = canvas.toDataURL('image/jpeg', 0.88);
         setPhotoURL(dataUrl);
-        setStatusMsg({ type: 'success', text: 'New photo selected! Click Save to apply.' });
+        setStatusMsg({ type: 'success', text: 'নতুন ছবি নির্বাচন করা হয়েছে! সংরক্ষণে চাপুন।' });
       };
       img.src = event.target.result;
     };
@@ -128,8 +134,19 @@ export default function ProfileModal({ isOpen, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!displayName.trim()) {
-      setStatusMsg({ type: 'error', text: 'Please enter your full name.' });
+      setStatusMsg({ type: 'error', text: 'অনুগ্রহ করে আপনার পুরো নাম লিখুন।' });
       return;
+    }
+
+    if (requireCompletion) {
+      if (!whatsapp.trim()) {
+        setStatusMsg({ type: 'error', text: 'কোর্সে এনরোল করতে অনুগ্রহ করে আপনার সক্রিয় হোয়াটসঅ্যাপ নম্বরটি লিখুন।' });
+        return;
+      }
+      if (!college.trim()) {
+        setStatusMsg({ type: 'error', text: 'কোর্সে এনরোল করতে অনুগ্রহ করে আপনার কলেজ বা শিক্ষাপ্রতিষ্ঠানের নাম লিখুন।' });
+        return;
+      }
     }
 
     try {
@@ -142,6 +159,7 @@ export default function ProfileModal({ isOpen, onClose }) {
         photoURL: photoURL.trim() || '/avatar.svg',
         whatsapp: whatsapp.trim(),
         phone: whatsapp.trim(),
+        phoneNumber: whatsapp.trim(),
         college: college.trim(),
         institution: college.trim(),
         hscBatch: hscBatch.trim() || 'HSC 26',
@@ -152,13 +170,16 @@ export default function ProfileModal({ isOpen, onClose }) {
         await updateUserProfile(updates);
       }
 
-      setStatusMsg({ type: 'success', text: 'Profile updated successfully!' });
+      setStatusMsg({ type: 'success', text: 'প্রোফাইল সফলভাবে আপডেট করা হয়েছে!' });
       
       setTimeout(() => {
         handleClose();
-      }, 700);
+        if (onSaveSuccess) {
+          onSaveSuccess(updates);
+        }
+      }, 550);
     } catch (err) {
-      setStatusMsg({ type: 'error', text: err.message || 'Failed to update profile.' });
+      setStatusMsg({ type: 'error', text: err.message || 'প্রোফাইল আপডেট করা সম্ভব হয়নি।' });
     } finally {
       setLoading(false);
     }
@@ -208,14 +229,24 @@ export default function ProfileModal({ isOpen, onClose }) {
         </button>
 
         {/* Header Title */}
-        <div className="text-center pt-1 mb-5">
+        <div className="text-center pt-1 mb-4">
           <h2 className="text-2xl font-black tracking-tight text-white">
-            Edit Profile
+            {requireCompletion ? 'প্রোফাইল তথ্য সম্পন্ন করুন' : 'Edit Profile'}
           </h2>
-          <p className="text-xs text-gray-400 mt-1 max-w-[320px] mx-auto leading-relaxed">
-            Customize your avatar, contact, and academic details for EduHunters.
+          <p className="text-xs text-gray-400 mt-1 max-w-[340px] mx-auto leading-relaxed">
+            {requireCompletion 
+              ? 'কোর্সে সফলভাবে এনরোল করার জন্য নিচের তথ্যগুলো পূরণ করুন।' 
+              : 'Customize your avatar, contact, and academic details for EduHunters.'}
           </p>
         </div>
+
+        {/* Action Hint Notice Banner */}
+        {hintNotice && (
+          <div className="mb-4 p-3.5 rounded-2xl bg-[#e11438]/15 border border-[#e11438]/35 text-red-200 text-xs flex items-start gap-2.5 shadow-sm animate-fadeIn">
+            <span className="text-base shrink-0">⚠️</span>
+            <span className="leading-relaxed font-medium">{hintNotice}</span>
+          </div>
+        )}
 
         {/* Notification Status Banner */}
         {statusMsg && (
@@ -231,7 +262,7 @@ export default function ProfileModal({ isOpen, onClose }) {
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
                 </svg>
               </span>
             ) : (
@@ -345,7 +376,9 @@ export default function ProfileModal({ isOpen, onClose }) {
           {/* WhatsApp Number Input */}
           <div>
             <label className="block text-xs font-semibold text-gray-300 mb-1.5 flex items-center justify-between">
-              <span>WhatsApp / Contact Number</span>
+              <span>
+                WhatsApp / Mobile Number {requireCompletion && <span className="text-[#ff4d6d]">*</span>}
+              </span>
               <span className="text-[11px] text-gray-400 font-normal">Active BD number</span>
             </label>
             <div className="relative">
@@ -354,6 +387,7 @@ export default function ProfileModal({ isOpen, onClose }) {
                 value={whatsapp}
                 onChange={(e) => setWhatsapp(e.target.value)}
                 placeholder="e.g. 01353828863"
+                required={requireCompletion}
                 className="w-full pl-10 pr-4 py-3 rounded-2xl bg-[#140609] border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#e11438] transition-colors"
               />
               <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-400 pointer-events-none">
@@ -367,7 +401,7 @@ export default function ProfileModal({ isOpen, onClose }) {
           {/* College / Institution Name Input */}
           <div>
             <label className="block text-xs font-semibold text-gray-300 mb-1.5">
-              College / Institution
+              College / Institution {requireCompletion && <span className="text-[#ff4d6d]">*</span>}
             </label>
             <div className="relative">
               <input
@@ -375,6 +409,7 @@ export default function ProfileModal({ isOpen, onClose }) {
                 value={college}
                 onChange={(e) => setCollege(e.target.value)}
                 placeholder="e.g. Dhaka College / Notre Dame College"
+                required={requireCompletion}
                 className="w-full pl-10 pr-4 py-3 rounded-2xl bg-[#140609] border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#e11438] transition-colors"
               />
               <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">

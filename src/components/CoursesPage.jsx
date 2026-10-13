@@ -7,6 +7,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
 import { isItemEnrolled, grantCourseAccess } from '../utils/enrollmentService';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
+import { isStudentProfileComplete } from '../utils/studentProfile';
 
 const calcDiscount = (orig, curr) => {
   if (!orig || !curr) return 400;
@@ -39,6 +40,7 @@ export default function CoursesPage({
   onNavigatePolicies,
   onOpenAdmin,
   onLoginClick,
+  onOpenProfile,
   onEnrollSuccess
 }) {
   const { isDark } = useTheme();
@@ -171,15 +173,55 @@ export default function CoursesPage({
       handleCourseClick(course.id || course.slug);
       return;
     }
+
+    // 1. If not authenticated: must log in or sign up first
     if (!currentUser) {
       if (onLoginClick) {
-        onLoginClick(() => {
-          setSelectedCourseForCheckout(course);
-          setShowCheckout(true);
+        onLoginClick((loggedInUser) => {
+          const targetUser = loggedInUser || currentUser;
+          // Check profile completeness after login
+          if (!isStudentProfileComplete(targetUser)) {
+            if (onOpenProfile) {
+              onOpenProfile({
+                hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।',
+                requireCompletion: true,
+                onComplete: () => {
+                  setSelectedCourseForCheckout(course);
+                  setShowCheckout(true);
+                }
+              });
+            } else {
+              setSelectedCourseForCheckout(course);
+              setShowCheckout(true);
+            }
+          } else {
+            setSelectedCourseForCheckout(course);
+            setShowCheckout(true);
+          }
         });
       }
       return;
     }
+
+    // 2. If authenticated: check if profile is complete
+    if (!isStudentProfileComplete(currentUser)) {
+      if (onOpenProfile) {
+        onOpenProfile({
+          hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।',
+          requireCompletion: true,
+          onComplete: () => {
+            setSelectedCourseForCheckout(course);
+            setShowCheckout(true);
+          }
+        });
+      } else {
+        setSelectedCourseForCheckout(course);
+        setShowCheckout(true);
+      }
+      return;
+    }
+
+    // 3. Profile is complete -> open checkout
     setSelectedCourseForCheckout(course);
     setShowCheckout(true);
   };

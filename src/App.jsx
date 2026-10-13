@@ -18,6 +18,7 @@ import AuthModal from './components/AuthModal';
 import ProfileModal from './components/ProfileModal';
 import PreloaderScreen from './components/PreloaderScreen';
 import AdminAuthModal from './components/AdminAuthModal';
+import { isStudentProfileComplete } from './utils/studentProfile';
 import { getAdminSession, clearAdminSession } from './services/adminAuthService';
 import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/firestoreSyncService';
 
@@ -613,11 +614,31 @@ export default function App() {
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [profileHintNotice, setProfileHintNotice] = useState(null);
+  const [profileRequireCompletion, setProfileRequireCompletion] = useState(false);
+  const [pendingProfileAction, setPendingProfileAction] = useState(null);
   const [authMode, setAuthMode] = useState('signin');
   const [pendingAuthAction, setPendingAuthAction] = useState(null);
 
+  const handleOpenProfile = (optionsOrAction = null) => {
+    if (typeof optionsOrAction === 'function') {
+      setPendingProfileAction(() => optionsOrAction);
+      setProfileHintNotice('কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পূর্ণ করুন।');
+      setProfileRequireCompletion(true);
+    } else if (optionsOrAction && typeof optionsOrAction === 'object') {
+      setPendingProfileAction(typeof optionsOrAction.onComplete === 'function' ? () => optionsOrAction.onComplete : null);
+      setProfileHintNotice(optionsOrAction.hintNotice || null);
+      setProfileRequireCompletion(Boolean(optionsOrAction.requireCompletion));
+    } else {
+      setPendingProfileAction(null);
+      setProfileHintNotice(null);
+      setProfileRequireCompletion(false);
+    }
+    setIsProfileModalOpen(true);
+  };
+
   useEffect(() => {
-    const handleOpenProfileEvent = () => setIsProfileModalOpen(true);
+    const handleOpenProfileEvent = (e) => handleOpenProfile(e?.detail || null);
     window.addEventListener('eh_open_profile_modal', handleOpenProfileEvent);
     return () => window.removeEventListener('eh_open_profile_modal', handleOpenProfileEvent);
   }, []);
@@ -629,7 +650,7 @@ export default function App() {
   };
 
   const navHandlers = {
-    onOpenProfile: () => setIsProfileModalOpen(true),
+    onOpenProfile: handleOpenProfile,
     onNavigateHome: () => {
       setExamFromBundle(false);
       try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
@@ -637,7 +658,7 @@ export default function App() {
         setViewMode('home');
       }, '/');
     },
-    onNavigateCourse: (courseId, options = {}) => {
+    onNavigateCourse: (courseId = null, options = {}) => {
       const isFromBundle = Boolean(options?.fromBundle);
       const bundleId = options?.bundleId || null;
       if (isFromBundle) {
@@ -649,8 +670,10 @@ export default function App() {
       }
 
       const examKeys = new Set(['sureshot', 'medical', 'rtds', 'english_master', 'gk_course', 'medilogy']);
-      if (typeof courseId === 'string' && examKeys.has(courseId.trim())) {
-        const cat = courseId.trim();
+      const cidStr = (courseId !== null && courseId !== undefined) ? String(courseId).trim() : '';
+
+      if (cidStr && examKeys.has(cidStr.toLowerCase())) {
+        const cat = cidStr.toLowerCase();
         const url = isFromBundle 
           ? `/exams?category=${cat}&from=bundle${bundleId ? `&bundleId=${bundleId}` : ''}`
           : `/exams?category=${cat}`;
@@ -660,12 +683,12 @@ export default function App() {
         }, url);
         return;
       }
-      if (typeof courseId === 'string' && courseId.trim().length > 0 && !courseId.includes('[object')) {
+      if (cidStr.length > 0 && !cidStr.includes('[object')) {
         const url = isFromBundle 
-          ? `/courses/${courseId}?from=bundle${bundleId ? `&bundleId=${bundleId}` : ''}`
-          : `/courses/${courseId}`;
+          ? `/courses/${cidStr}?from=bundle${bundleId ? `&bundleId=${bundleId}` : ''}`
+          : `/courses/${cidStr}`;
         navigateWithSmoothTransition(() => {
-          setSelectedCourseId(courseId);
+          setSelectedCourseId(cidStr);
           setViewMode('course_detail');
         }, url);
       } else {
@@ -1048,7 +1071,29 @@ export default function App() {
       {/* Global Student Profile Modal */}
       <ProfileModal
         isOpen={isProfileModalOpen}
-        onClose={() => setIsProfileModalOpen(false)}
+        hintNotice={profileHintNotice}
+        requireCompletion={profileRequireCompletion}
+        onClose={() => {
+          setIsProfileModalOpen(false);
+          setPendingProfileAction(null);
+          setProfileHintNotice(null);
+          setProfileRequireCompletion(false);
+        }}
+        onSaveSuccess={(updatedUser) => {
+          if (pendingProfileAction) {
+            const action = pendingProfileAction;
+            setPendingProfileAction(null);
+            setProfileHintNotice(null);
+            setProfileRequireCompletion(false);
+            setTimeout(() => {
+              try {
+                action(updatedUser);
+              } catch (err) {
+                console.error('Error executing post-profile action:', err);
+              }
+            }, 250);
+          }
+        }}
       />
     </>
   );

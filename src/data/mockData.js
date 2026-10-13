@@ -12,9 +12,22 @@ import { masterEnglishCourseData } from './masterEnglishCourseData';
 import { freeCoursesData } from './freeCoursesData';
 import { EXAM_CATEGORIES_METADATA } from './examCategoriesData';
 
-// Helper to reliably detect and purge any Zenith Crew / Codervai copied courses
+// Helper to reliably detect and purge only legacy Zenith Crew / Codervai copied dummy courses
 export const isZenithCopiedCourse = (course) => {
   if (!course) return false;
+
+  // Never purge any custom, locally created, or user-created course
+  if (course.isCustom || course.createdLocally || course.isUserCreated) return false;
+
+  const idStr = String(course.id || '').trim().toLowerCase();
+  const slugStr = String(course.slug || '').trim().toLowerCase();
+  const keyStr = String(course.key || '').trim().toLowerCase();
+
+  // If ID starts with course- or custom- or admin-, it is a genuine new course
+  if (idStr.startsWith('course-') || idStr.startsWith('custom-') || idStr.startsWith('admin-')) {
+    return false;
+  }
+
   const VALID_COURSE_IDS = new Set([
     'master-english-30-days',
     'chemistry-1st-dagano-line',
@@ -27,17 +40,19 @@ export const isZenithCopiedCourse = (course) => {
     'gk_course',
     'medilogy'
   ]);
+
   if (
     course.isExamBatch ||
-    VALID_COURSE_IDS.has(course.id) ||
-    VALID_COURSE_IDS.has(course.slug) ||
-    VALID_COURSE_IDS.has(course.key)
+    VALID_COURSE_IDS.has(idStr) ||
+    VALID_COURSE_IDS.has(slugStr) ||
+    VALID_COURSE_IDS.has(keyStr)
   ) {
     return false;
   }
+
   const str = (
-    (course.id || '') + ' ' + 
-    (course.slug || '') + ' ' + 
+    idStr + ' ' + 
+    slugStr + ' ' + 
     (course.title || '') + ' ' + 
     (course.name || '') + ' ' + 
     (course.image || '') + ' ' + 
@@ -45,28 +60,18 @@ export const isZenithCopiedCourse = (course) => {
     (course.tagline || '')
   ).toLowerCase();
 
+  // Only purge genuine legacy duplicate dummy items from the old Zenith dataset
   return (
-    str.includes('mastering') ||
-    str.includes('ketab') ||
-    str.includes('sanjid') ||
+    str.includes('zenith') ||
     str.includes('codervai') ||
-    str.includes('text book') ||
-    str.includes('textbook') ||
-    str.includes('text_book') ||
-    str.includes('hsc 25') ||
-    str.includes('hsc 28') ||
-    str.includes('hsc 27') ||
-    str.includes('hsc 26') ||
-    str.includes('master_all') ||
+    str.includes('ketab sir mcq') ||
+    str.includes('mastering text book biology') ||
+    str.includes('mastering text book chemistry') ||
     str.includes('area_combo') ||
-    str.includes('chem_28') ||
-    str.includes('bio_28') ||
-    str.includes('physics_28') ||
-    str.includes('physics all combined') ||
-    str.includes('biology_area') ||
-    str.includes('zenith')
+    str.includes('biology_area')
   );
 };
+
 
 // Initial state seed for Edu Hunters with full customizability & accounting
 export const initialData = {

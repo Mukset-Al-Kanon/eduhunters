@@ -577,55 +577,17 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Interactive Media Gallery Modal State
   const [galleryModalOpen, setGalleryModalOpen] = useState(false);
-  const [galleryTitle, setGalleryTitle] = useState('Choose Image from Gallery');
+  const [galleryTitle, setGalleryTitle] = useState('Choose Image');
   const [gallerySelectedUrl, setGallerySelectedUrl] = useState('');
   const [galleryCallback, setGalleryCallback] = useState(null);
-  const [galleryCategory, setGalleryCategory] = useState('Faculty');
 
-  const PRESET_GALLERY_IMAGES = [
-    {
-      category: 'Faculty',
-      title: 'Faculty & Mentors',
-      items: [
-        { label: 'Jaidul Islam Nahian (CMC)', url: 'https://assets.codervai.com/teachers/1781515586459-cropped-image.webp' },
-        { label: 'Sk Tasnim Ferdaus (DMC)', url: 'https://assets.codervai.com/teachers/1788702054420-cropped-image.webp' },
-        { label: 'Senior Faculty Female', url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80' },
-        { label: 'Science Educator', url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80' },
-        { label: 'Physics Specialist', url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80' },
-        { label: 'Doctor / Medical Mentor', url: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&auto=format&fit=crop&q=80' },
-        { label: 'Tech & Math Instructor', url: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80' },
-        { label: 'Academic Coordinator', url: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80' },
-        { label: 'Department Head', url: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80' }
-      ]
-    },
-    {
-      category: 'Courses',
-      title: 'Courses & Covers',
-      items: [
-        { label: 'Master English 30 Days', url: '/master_english_30_days.png' },
-        { label: 'SureShot Exam System', url: '/sureshot_banner.jpg' },
-        { label: 'Edu Hunters Hero', url: '/hero.png' }
-      ]
-    },
-    {
-      category: 'Books',
-      title: 'Books & Resources',
-      items: [
-        { label: 'Formula Sheet PDF', url: 'https://assets.codervai.com/courses/1781447985147-extra_info_batch.webp' },
-        { label: 'Biology Question Bank', url: 'https://assets.codervai.com/courses/1781448263566-bio_28.webp' },
-        { label: 'Physics Quick Notes', url: 'https://assets.codervai.com/courses/1781448163777-physics_28.webp' },
-        { label: 'Chemistry Handbook', url: 'https://assets.codervai.com/courses/1781448210475-chem_28.webp' }
-      ]
-    }
-  ];
-
-  // Open Gallery Picker Modal
+  // Open Image Picker Modal
   const openGalleryModal = (currentImage, title, defaultCategory = 'Faculty', onSelect) => {
+    const callback = typeof defaultCategory === 'function' ? defaultCategory : onSelect;
     setGallerySelectedUrl(currentImage || '');
-    setGalleryTitle(title || 'Choose Image from Gallery');
-    setGalleryCategory(defaultCategory);
+    setGalleryTitle(title || 'Choose Image');
     setGalleryCallback(() => (selected) => {
-      onSelect(selected);
+      if (callback) callback(selected);
       setGalleryModalOpen(false);
     });
     setGalleryModalOpen(true);
@@ -660,12 +622,152 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         const ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0, width, height);
         const optimized = canvas.toDataURL('image/jpeg', 0.85);
-        onSelect(optimized);
+        if (onSelect) onSelect(optimized);
         triggerToast('Photo updated from gallery successfully!');
       };
       img.src = e.target.result;
     };
     reader.readAsDataURL(file);
+  };
+
+  // Unified Image / Media Picker Modal (Curated Presets Library Removed)
+  const renderGalleryModal = () => {
+    if (!galleryModalOpen) return null;
+    return (
+      <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-150">
+        <div className="bg-white border border-slate-200/80 rounded-3xl max-w-lg w-full shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+          {/* Modal Header */}
+          <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <ImageIcon className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                  {galleryTitle || 'Choose Image'}
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Upload directly from your device or paste an image link.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setGalleryModalOpen(false)}
+              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center border-none cursor-pointer transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Modal Body */}
+          <div className="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1">
+            {/* Upload from Device */}
+            <div>
+              <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
+                Upload from Device / Gallery
+              </label>
+              <label className="border-2 border-dashed border-purple-200 hover:border-purple-400 bg-purple-50/40 hover:bg-purple-50 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-pointer transition-all text-center group">
+                <div className="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                  <Upload className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-sm font-bold text-slate-900 group-hover:text-purple-700 transition-colors block">
+                    Click to Browse Device Gallery or Drag & Drop
+                  </span>
+                  <span className="text-xs text-slate-500">
+                    Supports JPG, PNG, WebP (auto-optimized & instantly applied)
+                  </span>
+                </div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      handleDeviceFileUpload(file, (newUrl) => {
+                        setGallerySelectedUrl(newUrl);
+                      });
+                    }
+                  }}
+                />
+              </label>
+            </div>
+
+            {/* Direct URL Option */}
+            <div>
+              <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
+                Or Paste Image URL
+              </label>
+              <div className="flex items-center gap-2">
+                <input
+                  type="url"
+                  value={gallerySelectedUrl}
+                  onChange={(e) => setGallerySelectedUrl(e.target.value)}
+                  placeholder="https://example.com/photo.jpg"
+                  className="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 font-mono text-slate-700"
+                />
+                {gallerySelectedUrl && (
+                  <button
+                    type="button"
+                    onClick={() => setGallerySelectedUrl('')}
+                    className="px-3 py-2 text-xs text-slate-500 hover:text-slate-800 border border-slate-200 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Modal Footer with Live Preview & Apply */}
+          <div className="p-4 sm:p-5 border-t border-slate-100 bg-slate-50/80 flex items-center justify-between">
+            <div className="flex items-center gap-3 min-w-0">
+              {gallerySelectedUrl ? (
+                <>
+                  <img 
+                    src={gallerySelectedUrl} 
+                    alt="Selected" 
+                    className="w-10 h-10 rounded-xl object-cover border border-slate-200 shadow-2xs shrink-0" 
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+                  <div className="hidden sm:block min-w-0">
+                    <span className="text-xs font-bold text-slate-900 block truncate">Photo Selected</span>
+                    <span className="text-[10px] text-emerald-600 font-semibold block truncate">Ready to apply</span>
+                  </div>
+                </>
+              ) : (
+                <span className="text-xs text-slate-400 italic">No image chosen yet</span>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setGalleryModalOpen(false)}
+                className="px-5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold border-none cursor-pointer transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={!gallerySelectedUrl}
+                onClick={() => {
+                  if (gallerySelectedUrl && galleryCallback) {
+                    galleryCallback(gallerySelectedUrl);
+                  }
+                }}
+                className="px-6 py-2 rounded-full bg-purple-600 hover:bg-purple-700 disabled:bg-slate-200 disabled:text-slate-400 text-white text-xs font-bold border-none cursor-pointer flex items-center gap-1.5 transition-all shadow-md shadow-purple-500/20"
+              >
+                <Check className="w-3.5 h-3.5" />
+                <span>Apply Photo</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   // Feedback Toasts & Unsaved Changes Tracking
@@ -1396,7 +1498,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   // Add Slide
   const handleAddSlide = (e) => {
     e.preventDefault();
-    if (!newSlide.title || !newSlide.image) return;
+    if (!newSlide.title) {
+      triggerToast('Please enter a banner title');
+      return;
+    }
+    if (!newSlide.image) {
+      triggerToast('Please select a banner image from your device');
+      return;
+    }
     const item = { id: Date.now(), ...newSlide };
     const updated = [item, ...heroSlides];
     setHeroSlides(updated);
@@ -2553,64 +2662,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         />
 
         {/* Media Gallery Modal for Image Picking in Studio */}
-        {galleryModalOpen && (
-          <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-            <div className="bg-white border border-slate-200/80 rounded-3xl max-w-2xl w-full shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-              <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-[#5d5bf6]/10 text-[#5d5bf6] flex items-center justify-center shrink-0">
-                    <ImageIcon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                      {galleryTitle || 'Choose Image from Gallery'}
-                    </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Pick from curated presets or upload directly from your device gallery.
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setGalleryModalOpen(false)}
-                  className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center border-none cursor-pointer transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-
-              <div className="p-4 sm:p-5 overflow-y-auto space-y-5 flex-1">
-                <div>
-                  <label className="text-xs font-bold text-slate-700 block mb-2">Direct Local Image Upload</label>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleGalleryFileUpload}
-                    className="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#5d5bf6] file:text-white hover:file:bg-[#4e4be3] file:cursor-pointer"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold text-slate-700 block mb-2">Curated Image Presets</label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    {(PRESET_GALLERY[galleryCategory] || PRESET_GALLERY['General'] || []).map((preset, pIdx) => (
-                      <div
-                        key={pIdx}
-                        onClick={() => handleSelectPresetImage(preset.url)}
-                        className="group relative aspect-video rounded-xl overflow-hidden ring-1 ring-slate-200 hover:ring-2 hover:ring-[#5d5bf6] cursor-pointer transition-all shadow-2xs"
-                      >
-                        <img src={preset.url} alt={preset.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2">
-                          <span className="text-[10px] text-white font-bold truncate">{preset.name}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {renderGalleryModal()}
       </div>
     );
   }
@@ -4919,7 +4971,28 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       </div>
 
                       <div>
-                        <label className="text-[11px] text-slate-500 font-semibold block mb-1">Image URL</label>
+                        <div className="flex items-center justify-between mb-1">
+                          <label className="text-[11px] text-slate-500 font-semibold">Banner Image</label>
+                          <label className="text-[10px] text-rose-600 font-bold hover:underline cursor-pointer flex items-center gap-1">
+                            <Upload className="w-3 h-3" />
+                            Select from Device
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="hidden"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  handleDeviceFileUpload(file, (url) => {
+                                    const updated = heroSlides.map((s, i) => i === idx ? { ...s, image: url } : s);
+                                    setHeroSlides(updated);
+                                    persistAll({ heroSlides: updated });
+                                  });
+                                }
+                              }}
+                            />
+                          </label>
+                        </div>
                         <input
                           type="text"
                           value={slide.image}
@@ -6031,7 +6104,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               persistAll({ instructors: updated });
                             })}
                             className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-50 hover:bg-purple-100 text-purple-700 text-xs font-semibold border border-purple-200/60 cursor-pointer transition-all"
-                            title="Choose from photo gallery or presets"
+                            title="Choose or upload photo"
                           >
                             <ImageIcon className="w-3.5 h-3.5 text-purple-600" />
                             <span>Gallery</span>
@@ -8187,15 +8260,56 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-1">Image URL (WebP/JPG Link)</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="https://images.unsplash.com/..."
-                  value={newSlide.image}
-                  onChange={(e) => setNewSlide({ ...newSlide, image: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-mono text-slate-800 placeholder-slate-400 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                />
+                <label className="text-xs font-bold text-slate-700 block mb-1">Banner Image</label>
+                {newSlide.image ? (
+                  <div className="relative aspect-[3.2/1.4] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 group shadow-2xs">
+                    <img src={newSlide.image} alt="Preview" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                      <label className="px-3 py-1.5 rounded-full bg-white text-slate-800 text-xs font-bold cursor-pointer hover:bg-slate-100 transition-colors shadow-md">
+                        Change Photo
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) handleDeviceFileUpload(file, (url) => setNewSlide(prev => ({ ...prev, image: url })));
+                          }}
+                        />
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => setNewSlide(prev => ({ ...prev, image: '' }))}
+                        className="px-3 py-1.5 rounded-full bg-rose-600 text-white text-xs font-bold border-none cursor-pointer hover:bg-rose-700 transition-colors shadow-md"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <label className="border-2 border-dashed border-rose-200 hover:border-rose-400 bg-rose-50/40 hover:bg-rose-50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all text-center group">
+                    <div className="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                      <Upload className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition-colors block">
+                        Select Photo from Device
+                      </span>
+                      <span className="text-[10px] text-slate-500">
+                        Click to browse device gallery (JPG, PNG, WebP)
+                      </span>
+                    </div>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) handleDeviceFileUpload(file, (url) => setNewSlide(prev => ({ ...prev, image: url })));
+                      }}
+                    />
+                  </label>
+                )}
               </div>
 
               <div>
@@ -8432,7 +8546,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         />
                       </label>
                     </div>
-                    <span className="text-[10px] text-slate-500 block">Select from library presets or upload from device gallery</span>
+                    <span className="text-[10px] text-slate-500 block">Upload from device gallery or paste image URL</span>
                   </div>
                 </div>
               </div>
@@ -8895,176 +9009,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       {/* ========================================================= */}
       {/* MODAL: MEDIA GALLERY & PHOTO PICKER */}
       {/* ========================================================= */}
-      {galleryModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white border border-slate-200/80 rounded-3xl max-w-2xl w-full shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-            {/* Modal Header */}
-            <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                  <ImageIcon className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                    {galleryTitle || 'Choose Image from Gallery'}
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Pick from curated presets or upload directly from your device gallery.
-                  </p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setGalleryModalOpen(false)}
-                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center border-none cursor-pointer transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Modal Body */}
-            <div className="p-4 sm:p-5 overflow-y-auto space-y-5 flex-1">
-              {/* Option 1: Upload from Device Gallery */}
-              <div>
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
-                  Option 1: Choose from Device Gallery / File
-                </label>
-                <label className="border-2 border-dashed border-purple-200 hover:border-purple-400 bg-purple-50/40 hover:bg-purple-50 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-center gap-3.5 cursor-pointer transition-all text-center sm:text-left group">
-                  <div className="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
-                    <Upload className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <span className="text-sm font-bold text-slate-900 group-hover:text-purple-700 transition-colors block">
-                      Click to Browse Device Gallery or Drag & Drop
-                    </span>
-                    <span className="text-xs text-slate-500">
-                      Supports JPG, PNG, WebP (auto-optimized & instantly applied)
-                    </span>
-                  </div>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) {
-                        handleDeviceFileUpload(file, (newUrl) => {
-                          setGallerySelectedUrl(newUrl);
-                          if (galleryCallback) galleryCallback(newUrl);
-                        });
-                      }
-                    }}
-                  />
-                </label>
-              </div>
-
-              {/* Option 2: Curated Presets Library */}
-              <div>
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                    Option 2: Curated Presets Library
-                  </label>
-                  <div className="flex gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
-                    {PRESET_GALLERY_IMAGES.map((cat) => (
-                      <button
-                        key={cat.category}
-                        type="button"
-                        onClick={() => setGalleryCategory(cat.category)}
-                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all border-none cursor-pointer ${
-                          galleryCategory === cat.category
-                            ? 'bg-white text-slate-900 shadow-xs'
-                            : 'bg-transparent text-slate-500 hover:text-slate-900'
-                        }`}
-                      >
-                        {cat.title}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Thumbnails Grid */}
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5">
-                  {(PRESET_GALLERY_IMAGES.find(c => c.category === galleryCategory)?.items || []).map((item, idx) => {
-                    const isSelected = gallerySelectedUrl === item.url;
-                    return (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={() => setGallerySelectedUrl(item.url)}
-                        className={`relative aspect-[3/4] rounded-2xl overflow-hidden border-2 transition-all p-0 group bg-slate-100 cursor-pointer shadow-2xs ${
-                          isSelected 
-                            ? 'border-purple-600 ring-2 ring-purple-500/30 shadow-md scale-98' 
-                            : 'border-slate-200 hover:border-purple-300 hover:scale-102'
-                        }`}
-                      >
-                        <img 
-                          src={item.url} 
-                          alt={item.label} 
-                          className="w-full h-full object-cover object-top" 
-                        />
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-1.5 text-left">
-                          <span className="text-[10px] font-bold text-white leading-tight block truncate">
-                            {item.label}
-                          </span>
-                        </div>
-                        {isSelected && (
-                          <div className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-md">
-                            <Check className="w-3 h-3 stroke-[3]" />
-                          </div>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer with Live Preview & Apply */}
-            <div className="p-4 sm:p-5 border-t border-slate-100 bg-slate-50/80 flex items-center justify-between">
-              <div className="flex items-center gap-3 min-w-0">
-                {gallerySelectedUrl ? (
-                  <>
-                    <img 
-                      src={gallerySelectedUrl} 
-                      alt="Selected" 
-                      className="w-10 h-10 rounded-xl object-cover border border-slate-200 shadow-2xs shrink-0" 
-                    />
-                    <div className="hidden sm:block min-w-0">
-                      <span className="text-xs font-bold text-slate-900 block">Selected Photo</span>
-                      <span className="text-[10px] text-emerald-600 font-semibold block truncate">Ready to apply</span>
-                    </div>
-                  </>
-                ) : (
-                  <span className="text-xs text-slate-400 italic">No image selected</span>
-                )}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setGalleryModalOpen(false)}
-                  className="px-5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold border-none cursor-pointer transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  disabled={!gallerySelectedUrl}
-                  onClick={() => {
-                    if (gallerySelectedUrl && galleryCallback) {
-                      galleryCallback(gallerySelectedUrl);
-                    }
-                  }}
-                  className="px-6 py-2 rounded-full bg-purple-600 hover:bg-purple-700 disabled:bg-slate-200 disabled:text-slate-400 text-white text-xs font-bold border-none cursor-pointer flex items-center gap-1.5 transition-all shadow-md shadow-purple-500/20"
-                >
-                  <Check className="w-3.5 h-3.5" />
-                  <span>Apply Photo</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {renderGalleryModal()}
 
       {/* ========================================================= */}
       {/* MODAL: MINIMAL & USER-FRIENDLY STUDENT ENROLLMENT */}

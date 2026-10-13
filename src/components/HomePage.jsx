@@ -18,6 +18,7 @@ import Navbar from './Navbar';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { grantCourseAccess } from '../utils/enrollmentService';
+import { isStudentProfileComplete } from '../utils/studentProfile';
 import { 
   X, 
   Play, 
@@ -356,15 +357,55 @@ export default function HomePage({
       handleCourseClick(course.id || course.slug);
       return;
     }
+
+    // 1. If not authenticated: must log in or sign up first
     if (!currentUser) {
       if (onLoginClick) {
-        onLoginClick(() => {
-          setSelectedCourseForCheckout(course);
-          setShowCheckout(true);
+        onLoginClick((loggedInUser) => {
+          const targetUser = loggedInUser || currentUser;
+          // Check profile completeness after login
+          if (!isStudentProfileComplete(targetUser)) {
+            if (onOpenProfile) {
+              onOpenProfile({
+                hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পন্ন করুন।',
+                requireCompletion: true,
+                onComplete: () => {
+                  setSelectedCourseForCheckout(course);
+                  setShowCheckout(true);
+                }
+              });
+            } else {
+              setSelectedCourseForCheckout(course);
+              setShowCheckout(true);
+            }
+          } else {
+            setSelectedCourseForCheckout(course);
+            setShowCheckout(true);
+          }
         });
       }
       return;
     }
+
+    // 2. If authenticated: check if profile is complete
+    if (!isStudentProfileComplete(currentUser)) {
+      if (onOpenProfile) {
+        onOpenProfile({
+          hintNotice: 'কোর্সে এনরোল সম্পন্ন করতে অনুগ্রহ করে আপনার নাম, কলেজ ও হোয়াটসঅ্যাপ নম্বর দিয়ে প্রোফাইল সম্পন্ন করুন।',
+          requireCompletion: true,
+          onComplete: () => {
+            setSelectedCourseForCheckout(course);
+            setShowCheckout(true);
+          }
+        });
+      } else {
+        setSelectedCourseForCheckout(course);
+        setShowCheckout(true);
+      }
+      return;
+    }
+
+    // 3. Profile is complete -> open checkout
     setSelectedCourseForCheckout(course);
     setShowCheckout(true);
   };
