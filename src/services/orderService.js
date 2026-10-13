@@ -1,9 +1,16 @@
 import { db, isFirebaseConfigured } from '../firebase/config';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDocs, collection } from 'firebase/firestore';
 
 const ORDERS_STORAGE_KEY = 'eh_user_orders_v3';
 
 export const INITIAL_ORDERS = [];
+
+function sanitizeForFirestore(obj) {
+  return JSON.parse(JSON.stringify(obj, (key, value) => {
+    if (value === undefined) return null;
+    return value;
+  }));
+}
 
 /**
  * Retrieves all stored user orders, initializing clean for production.
@@ -70,7 +77,7 @@ export function saveNewOrder({
     id: orderId,
     invoiceNumber,
     type: type === 'exam' ? 'course' : type, // Keep consistent for router checks
-    targetType: type === 'exam' ? 'exam' : undefined,
+    targetType: type === 'exam' ? 'exam' : 'course',
     badge,
     status: 'PENDING',
     isApproved: false,
@@ -190,13 +197,16 @@ export function saveNewOrder({
     if (isFirebaseConfigured && db) {
       try {
         const docRef = doc(db, 'orders', orderId);
-        setDoc(docRef, {
+        const cloudOrderData = sanitizeForFirestore({
           ...newOrder,
           transaction: newTx,
           student: newStudent,
           _savedAt: new Date().toISOString()
-        }).catch(err => console.warn('[orderService] Cloud order save note:', err));
-      } catch (e) {}
+        });
+        setDoc(docRef, cloudOrderData).catch(err => console.warn('[orderService] Cloud order save note:', err));
+      } catch (e) {
+        console.warn('[orderService] Cloud order save error:', e);
+      }
     }
 
     // 7. Dispatch real-time events across windows & listeners
@@ -322,14 +332,38 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
     } catch (e) {}
 
     // 4. Update Cloud Firestore if configured
-    if (isFirebaseConfigured && db && approvedOrder?.id) {
-      try {
-        setDoc(doc(db, 'orders', approvedOrder.id), {
-          status: 'PAID',
-          isApproved: true,
-          approvedAt: new Date().toISOString()
-        }, { merge: true }).catch(() => {});
-      } catch (e) {}
+    if (isFirebaseConfigured && db) {
+      const targetOrderId = approvedOrder?.id || (typeof identifier === 'string' && identifier.startsWith('ord_') ? identifier : null);
+      if (targetOrderId) {
+        try {
+          setDoc(doc(db, 'orders', targetOrderId), {
+            status: 'PAID',
+            isApproved: true,
+            approvedAt: new Date().toISOString()
+          }, { merge: true }).catch(() => {});
+        } catch (e) {}
+      }
+
+      // Automatically unlock course for student in Firestore users collection
+      if (cleanEmail) {
+        try {
+          getDocs(collection(db, 'users')).then(snap => {
+            snap.docs.forEach(docSnap => {
+              const uData = docSnap.data();
+              if (uData.email && uData.email.toLowerCase() === cleanEmail) {
+                const enrolled = Array.isArray(uData.enrolledCourses) ? uData.enrolledCourses : [];
+                if (!enrolled.includes(finalTitle)) {
+                  setDoc(doc(db, 'users', docSnap.id), {
+                    enrolledCourses: [finalTitle, ...enrolled],
+                    status: 'Active',
+                    totalSpent: (Number(uData.totalSpent) || 0) + finalAmount
+                  }, { merge: true }).catch(() => {});
+                }
+              }
+            });
+          }).catch(() => {});
+        } catch (e) {}
+      }
     }
 
     // 5. Dispatch real-time unlock broadcast across tabs and windows

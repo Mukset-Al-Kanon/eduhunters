@@ -424,7 +424,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   }, []);
 
   // Central Handler for incoming course enrollments (Card filled out / checkout placed)
-  const handleIncomingEnrollment = useCallback(({ order, transaction, student }) => {
+  const handleIncomingEnrollment = useCallback(({ order, transaction, student }, { silent = false } = {}) => {
     if (!transaction && !order) return;
     const tx = transaction || {
       id: `TRX-${Date.now()}`,
@@ -458,7 +458,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       paymentMethod: tx.method
     };
 
-    const isAlreadyCompleted = tx.status === 'Completed';
+    const isAlreadyCompleted = tx.status === 'Completed' || order?.isApproved || order?.status === 'PAID';
 
     // 1. Update accounting transactions state
     setAccounting(prev => {
@@ -512,9 +512,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       });
     }
 
-    // 4. Play audio chime and trigger notification toast
-    playNotificationChime();
-    triggerToast(`🔔 নতুন কোর্স এনরোলমেন্ট রিকোয়েস্ট! ${tx.studentName} — "${tx.itemTitle}" (৳${tx.amount})`);
+    // 4. Play audio chime and trigger notification toast (unless silent initial sync)
+    if (!silent) {
+      playNotificationChime();
+      triggerToast(`🔔 নতুন কোর্স এনরোলমেন্ট রিকোয়েস্ট! ${tx.studentName} — "${tx.itemTitle}" (৳${tx.amount})`);
+    }
   }, []);
 
   // Multi-tier Real-time Synchronizer: Firestore Live + BroadcastChannel + Window Events + LocalStorage
@@ -522,59 +524,123 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     let unsubscribeUsers = null;
     let unsubscribeOrders = null;
 
+    // Helper: Map a Cloud Firestore document into standard User object
+    const mapFirestoreUserDoc = (docId, data) => ({
+      uid: docId,
+      id: docId,
+      name: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
+      displayName: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
+      email: data.email,
+      phone: data.whatsapp || data.phone || '01700-000000',
+      whatsapp: data.whatsapp || data.phone || '',
+      college: data.college || data.institution || '',
+      institution: data.college || data.institution || '',
+      role: data.role === 'admin' ? 'Admin' : (data.role ? (data.role.charAt(0).toUpperCase() + data.role.slice(1)) : 'Student'),
+      status: data.status || 'Active',
+      batch: data.hscBatch || data.batch || 'HSC 26',
+      hscBatch: data.hscBatch || data.batch || 'HSC 26',
+      enrolledCourses: Array.isArray(data.enrolledCourses) ? data.enrolledCourses : [],
+      totalSpent: Number(data.totalSpent) || 0,
+      joinedDate: data.createdAt?.toDate ? data.createdAt.toDate().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : (data.createdAt ? new Date(data.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently'),
+      lastActive: 'Active now',
+      device: (Array.isArray(data.registeredDevices) && data.registeredDevices[0]?.name) || 'Web Client',
+      avatar: data.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(data.email || 'user')}`
+    });
+
     // 1. Live Cloud Firestore Listeners
     if (isFirebaseConfigured && db) {
       try {
-        // Users collection real-time listener
-        unsubscribeUsers = onSnapshot(collection(db, 'users'), (snapshot) => {
-          snapshot.docChanges().forEach(change => {
-            const data = change.doc.data();
-            const mappedUser = {
-              uid: change.doc.id,
-              id: change.doc.id,
-              name: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
-              displayName: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
-              email: data.email,
-              phone: data.whatsapp || data.phone || '01700-000000',
-              whatsapp: data.whatsapp || data.phone || '',
-              college: data.college || data.institution || '',
-              institution: data.college || data.institution || '',
-              role: data.role === 'admin' ? 'Admin' : (data.role ? (data.role.charAt(0).toUpperCase() + data.role.slice(1)) : 'Student'),
-              status: data.status || 'Active',
-              batch: data.hscBatch || data.batch || 'HSC 26',
-              hscBatch: data.hscBatch || data.batch || 'HSC 26',
-              enrolledCourses: Array.isArray(data.enrolledCourses) ? data.enrolledCourses : [],
-              totalSpent: Number(data.totalSpent) || 0,
-              joinedDate: data.createdAt?.toDate ? data.createdAt.toDate().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently',
-              lastActive: 'Active now',
-              device: (Array.isArray(data.registeredDevices) && data.registeredDevices[0]?.name) || 'Web Client',
-              avatar: data.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(data.email || 'user')}`
-            };
+        let isInitialUsersSnapshot = true;
 
-            upsertUserInList(mappedUser, change.type === 'added');
-            if (change.type === 'added') {
-              triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${mappedUser.name}`);
-            }
+        // Users collection real-time listener (all registered & Google sign-in accounts)
+        unsubscribeUsers = onSnapshot(collection(db, 'users'), (snapshot) => {
+          const cloudUsers = snapshot.docs.map(docSnap => mapFirestoreUserDoc(docSnap.id, docSnap.data()));
+
+          setUsersList(prev => {
+            const emailMap = new Map();
+            prev.forEach(u => {
+              const key = (u.email || u.id || '').toLowerCase();
+              if (key) emailMap.set(key, u);
+            });
+            cloudUsers.forEach(u => {
+              const key = (u.email || u.id || '').toLowerCase();
+              if (key) {
+                const existing = emailMap.get(key);
+                emailMap.set(key, existing ? { ...existing, ...u } : u);
+              }
+            });
+            return Array.from(emailMap.values());
           });
+
+          // Trigger toast only for newly registered users after initial snapshot
+          if (!isInitialUsersSnapshot) {
+            snapshot.docChanges().forEach(change => {
+              if (change.type === 'added') {
+                const d = change.doc.data();
+                const userName = d.displayName || d.name || d.email?.split('@')[0] || 'Student';
+                triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${userName}`);
+              }
+            });
+          }
+          isInitialUsersSnapshot = false;
         }, (err) => {
           console.warn('[AdminPanel] Firestore users listener note:', err);
         });
 
-        // Orders collection real-time listener
+        let isInitialOrdersSnapshot = true;
+
+        // Orders collection real-time listener (immediate sync for pending & completed course orders)
         unsubscribeOrders = onSnapshot(collection(db, 'orders'), (snapshot) => {
           snapshot.docChanges().forEach(change => {
+            const orderData = change.doc.data();
+            const orderId = change.doc.id;
+
             if (change.type === 'added') {
-              const orderData = change.doc.data();
               handleIncomingEnrollment({
-                order: { id: change.doc.id, ...orderData },
+                order: { id: orderId, ...orderData },
                 transaction: orderData.transaction,
                 student: orderData.student
-              });
+              }, { silent: isInitialOrdersSnapshot });
+            } else if (change.type === 'modified') {
+              if (orderData.status === 'PAID' || orderData.isApproved) {
+                setAccounting(prev => {
+                  const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
+                  const updatedTxs = prevTxs.map(t => {
+                    if (t.orderId === orderId || (orderData.transactionId && t.trxId === orderData.transactionId)) {
+                      return { ...t, status: 'Completed' };
+                    }
+                    return t;
+                  });
+                  return { ...prev, transactions: updatedTxs };
+                });
+                setEnrolledStudents(prev => {
+                  return prev.map(s => {
+                    if (orderData.customer?.phone && s.phone && s.phone.includes(orderData.customer.phone.replace(/[^0-9]/g, '').slice(-8))) {
+                      return { ...s, status: 'Active' };
+                    }
+                    return s;
+                  });
+                });
+              }
             }
           });
+          isInitialOrdersSnapshot = false;
         }, (err) => {
           console.warn('[AdminPanel] Firestore orders listener note:', err);
         });
+
+        // Cold-start one-time fetch to guarantee immediate presence of all cloud orders
+        getDocs(collection(db, 'orders')).then(snapshot => {
+          snapshot.docs.forEach(docSnap => {
+            const orderData = docSnap.data();
+            handleIncomingEnrollment({
+              order: { id: docSnap.id, ...orderData },
+              transaction: orderData.transaction,
+              student: orderData.student
+            }, { silent: true });
+          });
+        }).catch(err => console.warn('[AdminPanel] Orders cold-start fetch note:', err));
+
       } catch (err) {
         console.warn('[AdminPanel] Real-time Firestore initialization note:', err);
       }
@@ -693,7 +759,23 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     if (data.termsAndConditions) setTermsAndConditions(data.termsAndConditions);
     if (data.refundPolicy) setRefundPolicy(data.refundPolicy);
     if (data.privacyPolicy) setPrivacyPolicy(data.privacyPolicy);
-    if (Array.isArray(data.users)) setUsersList(data.users);
+    if (Array.isArray(data.users) && data.users.length > 0) {
+      setUsersList(prev => {
+        const emailMap = new Map();
+        prev.forEach(u => {
+          const key = (u.email || u.id || '').toLowerCase();
+          if (key) emailMap.set(key, u);
+        });
+        data.users.forEach(u => {
+          const key = (u.email || u.id || '').toLowerCase();
+          if (key) {
+            const existing = emailMap.get(key);
+            emailMap.set(key, existing ? { ...existing, ...u } : u);
+          }
+        });
+        return Array.from(emailMap.values());
+      });
+    }
     if (Array.isArray(data.instructors)) setInstructors(data.instructors);
   }, [data]);
 
