@@ -847,12 +847,22 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Modal States
   const [showAddSlideModal, setShowAddSlideModal] = useState(false);
+  const [slideToDelete, setSlideToDelete] = useState(null);
   const [newSlide, setNewSlide] = useState({
     title: '',
     image: '',
     link: '/courses',
     type: 'course'
   });
+
+  const handleDeleteSlide = (indexToDelete) => {
+    const target = heroSlides[indexToDelete];
+    const updated = heroSlides.filter((_, i) => i !== indexToDelete);
+    setHeroSlides(updated);
+    persistAll({ heroSlides: updated });
+    setSlideToDelete(null);
+    triggerToast(`🗑️ "${target?.title || 'Slide'}" মুছে ফেলা হয়েছে!`);
+  };
 
   const [showAddCourseModal, setShowAddCourseModal] = useState(false);
   const [newCourse, setNewCourse] = useState({
@@ -4937,113 +4947,148 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               </div>
 
               {/* Slider Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {heroSlides.map((slide, idx) => (
-                  <div key={slide.id || idx} className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
-                    <div className="relative aspect-[3.6/1.5] bg-slate-100 overflow-hidden">
-                      <img 
-                        src={slide.image} 
-                        alt={slide.title} 
-                        className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-300"
-                        onError={(e) => {
-                          e.target.src = "https://assets.codervai.com/banners/1781465730213-cropped-image.webp";
-                        }}
-                      />
-                      <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-xs text-slate-800 shadow-2xs">
-                        Slide #{idx + 1}
-                      </span>
-                    </div>
-
-                    <div className="p-4 space-y-3">
-                      <div>
-                        <label className="text-[11px] text-slate-500 font-semibold block mb-1">Banner Title</label>
-                        <input
-                          type="text"
-                          value={slide.title}
-                          onChange={(e) => {
-                            const val = e.target.value;
-                            const updated = heroSlides.map((s, i) => i === idx ? { ...s, title: val } : s);
-                            setHeroSlides(updated);
-                            persistAll({ heroSlides: updated });
-                          }}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                        />
-                      </div>
-
-                      <div>
-                        <div className="flex items-center justify-between mb-1">
-                          <label className="text-[11px] text-slate-500 font-semibold">Banner Image</label>
-                          <label className="text-[10px] text-rose-600 font-bold hover:underline cursor-pointer flex items-center gap-1">
-                            <Upload className="w-3 h-3" />
-                            Select from Device
-                            <input
-                              type="file"
-                              accept="image/*"
-                              className="hidden"
-                              onChange={(e) => {
-                                const file = e.target.files?.[0];
-                                if (file) {
-                                  handleDeviceFileUpload(file, (url) => {
-                                    const updated = heroSlides.map((s, i) => i === idx ? { ...s, image: url } : s);
-                                    setHeroSlides(updated);
-                                    persistAll({ heroSlides: updated });
-                                  });
-                                }
-                              }}
-                            />
-                          </label>
-                        </div>
-                        <input
-                          type="text"
-                          value={slide.image}
-                          onChange={(e) => {
-                            const val = e.target.value;
-                            const updated = heroSlides.map((s, i) => i === idx ? { ...s, image: val } : s);
-                            setHeroSlides(updated);
-                            persistAll({ heroSlides: updated });
-                          }}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-mono text-slate-600 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="text-[11px] text-slate-500 font-semibold block mb-1">Action Link URL</label>
-                        <input
-                          type="text"
-                          value={slide.link}
-                          onChange={(e) => {
-                            const val = e.target.value;
-                            const updated = heroSlides.map((s, i) => i === idx ? { ...s, link: val } : s);
-                            setHeroSlides(updated);
-                            persistAll({ heroSlides: updated });
-                          }}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-mono text-slate-600 outline-none focus:bg-white focus:border-blue-500 transition-all"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="p-4 pt-0 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[10px] uppercase font-bold text-slate-400">
-                        Type: <span className="text-blue-600">{slide.type}</span>
-                      </span>
-                      <button
-                        onClick={() => {
-                          if (confirm(`Delete slide "${slide.title}"?`)) {
-                            const updated = heroSlides.filter((_, i) => i !== idx);
-                            setHeroSlides(updated);
-                            persistAll({ heroSlides: updated });
-                            triggerToast('Slide deleted!');
-                          }
-                        }}
-                        className="text-slate-400 hover:text-rose-600 text-xs font-bold flex items-center gap-1 bg-transparent border-none cursor-pointer p-0 transition-colors"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                        Delete
-                      </button>
-                    </div>
+              {heroSlides.length === 0 ? (
+                <div className="bg-white rounded-3xl border border-dashed border-slate-300 p-10 sm:p-12 text-center space-y-3">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto">
+                    <Sliders className="w-7 h-7" />
                   </div>
-                ))}
-              </div>
+                  <h3 className="text-base font-bold text-slate-800">কোনো স্লাইড যোগ করা নেই</h3>
+                  <p className="text-xs text-slate-500 max-w-sm mx-auto">
+                    হোমপেজের টপ স্লাইডার ব্যানারে নতুন স্লাইড যোগ করতে উপরের "Add New Slide" বাটনে ক্লিক করুন।
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setShowAddSlideModal(true)}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-md shadow-blue-500/20"
+                  >
+                    <Plus className="w-4 h-4" />
+                    নতুন স্লাইড যোগ করুন
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {heroSlides.map((slide, idx) => (
+                    <div key={slide.id || idx} className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+                      <div className="relative aspect-[3.6/1.5] bg-slate-100 overflow-hidden">
+                        <img 
+                          src={slide.image} 
+                          alt={slide.title} 
+                          className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-300"
+                          onError={(e) => {
+                            e.target.src = "https://assets.codervai.com/banners/1781465730213-cropped-image.webp";
+                          }}
+                        />
+                        <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-xs text-slate-800 shadow-2xs">
+                          Slide #{idx + 1}
+                        </span>
+                      </div>
+
+                      <div className="p-4 space-y-3">
+                        <div>
+                          <label className="text-[11px] text-slate-500 font-semibold block mb-1">Banner Title</label>
+                          <input
+                            type="text"
+                            value={slide.title}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              const updated = heroSlides.map((s, i) => i === idx ? { ...s, title: val } : s);
+                              setHeroSlides(updated);
+                              persistAll({ heroSlides: updated });
+                            }}
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-all"
+                          />
+                        </div>
+
+                        <div>
+                          <div className="flex items-center justify-between mb-1">
+                            <label className="text-[11px] text-slate-500 font-semibold">Banner Image</label>
+                            <label className="text-[10px] text-rose-600 font-bold hover:underline cursor-pointer flex items-center gap-1">
+                              <Upload className="w-3 h-3" />
+                              Select from Device
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={(e) => {
+                                  const file = e.target.files?.[0];
+                                  if (file) {
+                                    handleDeviceFileUpload(file, (url) => {
+                                      const updated = heroSlides.map((s, i) => i === idx ? { ...s, image: url } : s);
+                                      setHeroSlides(updated);
+                                      persistAll({ heroSlides: updated });
+                                    });
+                                  }
+                                }}
+                              />
+                            </label>
+                          </div>
+                          <input
+                            type="text"
+                            value={slide.image}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              const updated = heroSlides.map((s, i) => i === idx ? { ...s, image: val } : s);
+                              setHeroSlides(updated);
+                              persistAll({ heroSlides: updated });
+                            }}
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-mono text-slate-600 outline-none focus:bg-white focus:border-blue-500 transition-all"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="text-[11px] text-slate-500 font-semibold block mb-1">Action Link URL</label>
+                          <input
+                            type="text"
+                            value={slide.link}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              const updated = heroSlides.map((s, i) => i === idx ? { ...s, link: val } : s);
+                              setHeroSlides(updated);
+                              persistAll({ heroSlides: updated });
+                            }}
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-mono text-slate-600 outline-none focus:bg-white focus:border-blue-500 transition-all"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="p-4 pt-0 border-t border-slate-100 flex items-center justify-between">
+                        <span className="text-[10px] uppercase font-bold text-slate-400">
+                          Type: <span className="text-blue-600">{slide.type}</span>
+                        </span>
+                        {slideToDelete === idx ? (
+                          <div className="flex items-center gap-1.5 animate-in fade-in duration-150">
+                            <span className="text-[11px] text-rose-600 font-bold mr-0.5">মুছবেন?</span>
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteSlide(idx)}
+                              className="px-2.5 py-1 bg-rose-600 hover:bg-rose-700 text-white text-[11px] font-bold rounded-lg transition-colors border-none cursor-pointer flex items-center gap-1 shadow-xs"
+                            >
+                              <Trash2 className="w-3 h-3" />
+                              মুছুন
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setSlideToDelete(null)}
+                              className="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-[11px] font-semibold rounded-lg transition-colors border-none cursor-pointer"
+                            >
+                              বাতিল
+                            </button>
+                          </div>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => setSlideToDelete(idx)}
+                            className="text-slate-400 hover:text-rose-600 text-xs font-bold flex items-center gap-1 bg-transparent border-none cursor-pointer p-0 transition-colors"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                            Delete
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 

@@ -327,7 +327,7 @@ export default function App() {
           announcement: parsed.announcement || initialData.announcement,
           sectionTexts: { ...initialData.sectionTexts, ...(parsed.sectionTexts || {}) },
           whyChooseUs: Array.isArray(parsed.whyChooseUs) && parsed.whyChooseUs.length > 0 ? parsed.whyChooseUs : initialData.whyChooseUs,
-          heroSlides: (Array.isArray(parsed.heroSlides) && parsed.heroSlides.length > 0 && !parsed.heroSlides.some(s => s.image?.includes('sanjid_vaiyar_all_batch_2627'))) 
+          heroSlides: (Array.isArray(parsed.heroSlides) && !parsed.heroSlides.some(s => s.image?.includes('sanjid_vaiyar_all_batch_2627'))) 
             ? parsed.heroSlides 
             : initialData.heroSlides,
           homeStats: (Array.isArray(parsed.homeStats) && parsed.homeStats.length > 0 && !parsed.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) 
@@ -515,16 +515,16 @@ export default function App() {
           sanitized.homeStats = initialData.homeStats;
           saveCloudData({ homeStats: initialData.homeStats });
         }
-        setData(prev => ({
-          ...prev,
-          ...sanitized
-        }));
-        try {
-          localStorage.setItem('eduhunters_data', JSON.stringify({
-            ...data,
+        setData(prev => {
+          const merged = {
+            ...prev,
             ...sanitized
-          }));
-        } catch (e) {}
+          };
+          try {
+            localStorage.setItem('eduhunters_data', JSON.stringify(merged));
+          } catch (e) {}
+          return merged;
+        });
       }
     });
 
