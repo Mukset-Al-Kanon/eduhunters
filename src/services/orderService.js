@@ -1,5 +1,5 @@
 import { db, isFirebaseConfigured } from '../firebase/config';
-import { doc, setDoc, getDocs, collection } from 'firebase/firestore';
+import { doc, setDoc, getDoc, getDocs, collection } from 'firebase/firestore';
 
 const ORDERS_STORAGE_KEY = 'eh_user_orders_v3';
 
@@ -49,7 +49,7 @@ export function generateInvoiceNumber() {
  * Automatically creates and persists a new order and invoice upon purchase.
  * Also synchronizes in real time with AdminPanel ledger, enrolled students, and Cloud Firestore.
  */
-export function saveNewOrder({
+export async function saveNewOrder({
   item,
   studentName,
   studentPhone,
@@ -203,9 +203,31 @@ export function saveNewOrder({
           student: newStudent,
           _savedAt: new Date().toISOString()
         });
-        setDoc(docRef, cloudOrderData).catch(err => console.warn('[orderService] Cloud order save note:', err));
+        await setDoc(docRef, cloudOrderData);
       } catch (e) {
         console.warn('[orderService] Cloud order save error:', e);
+      }
+
+      // Also directly update eduhunters_site/main_data so all admin sessions see the transaction immediately
+      try {
+        const siteDocRef = doc(db, 'eduhunters_site', 'main_data');
+        const siteSnap = await getDoc(siteDocRef);
+        if (siteSnap.exists()) {
+          const siteData = siteSnap.data();
+          const prevAcc = siteData.accounting || { totalRevenue: 0, totalExpenses: 0, netProfit: 0, totalOrders: 0, transactions: [] };
+          const prevTxs = Array.isArray(prevAcc.transactions) ? prevAcc.transactions : [];
+          const nextTxs = [sanitizeForFirestore(newTx), ...prevTxs.filter(t => t.id !== newTx.id)];
+          await setDoc(siteDocRef, {
+            accounting: {
+              ...prevAcc,
+              totalOrders: (Number(prevAcc.totalOrders) || prevTxs.length) + 1,
+              transactions: nextTxs
+            },
+            _lastUpdated: new Date().toISOString()
+          }, { merge: true });
+        }
+      } catch (siteErr) {
+        console.warn('[orderService] Site accounting cloud sync note:', siteErr);
       }
     }
 

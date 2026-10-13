@@ -470,15 +470,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const nextRev = isAlreadyCompleted ? ((Number(prev?.totalRevenue) || 0) + Number(tx.amount || 0)) : (Number(prev?.totalRevenue) || 0);
       const nextOrders = (Number(prev?.totalOrders) || prevTxs.length) + 1;
       const nextProfit = nextRev - (Number(prev?.totalExpenses) || 0);
-      const updatedAccounting = {
+      return {
         ...prev,
         totalRevenue: nextRev,
         netProfit: nextProfit,
         totalOrders: nextOrders,
         transactions: nextTxs
       };
-      persistAll({ accounting: updatedAccounting });
-      return updatedAccounting;
     });
 
     // 2. Update enrolled students state (Pending status until verified)
@@ -589,57 +587,126 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
         let isInitialOrdersSnapshot = true;
 
-        // Orders collection real-time listener (immediate sync for pending & completed course orders)
-        unsubscribeOrders = onSnapshot(collection(db, 'orders'), (snapshot) => {
-          snapshot.docChanges().forEach(change => {
-            const orderData = change.doc.data();
-            const orderId = change.doc.id;
+        // Helpers to map cloud order documents into ledger transaction and student records
+        const mapOrderDocToTx = (docId, order) => {
+          const t = order.transaction || {};
+          const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
+          const isRejected = order.status === 'REJECTED' || (t.status || '').toLowerCase() === 'rejected';
+          const status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
 
-            if (change.type === 'added') {
-              handleIncomingEnrollment({
-                order: { id: orderId, ...orderData },
-                transaction: orderData.transaction,
-                student: orderData.student
-              }, { silent: isInitialOrdersSnapshot });
-            } else if (change.type === 'modified') {
-              if (orderData.status === 'PAID' || orderData.isApproved) {
-                setAccounting(prev => {
-                  const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
-                  const updatedTxs = prevTxs.map(t => {
-                    if (t.orderId === orderId || (orderData.transactionId && t.trxId === orderData.transactionId)) {
-                      return { ...t, status: 'Completed' };
-                    }
-                    return t;
-                  });
-                  return { ...prev, transactions: updatedTxs };
-                });
-                setEnrolledStudents(prev => {
-                  return prev.map(s => {
-                    if (orderData.customer?.phone && s.phone && s.phone.includes(orderData.customer.phone.replace(/[^0-9]/g, '').slice(-8))) {
-                      return { ...s, status: 'Active' };
-                    }
-                    return s;
-                  });
-                });
-              }
-            }
+          return {
+            id: t.id || `TRX-${docId}`,
+            orderId: docId,
+            invoiceNumber: order.invoiceNumber || t.invoiceNumber || 'INV-EH',
+            type: 'INCOME',
+            category: t.category || (order.type === 'store' ? 'Store Product' : 'Course Enrollment'),
+            itemTitle: t.itemTitle || order.course?.name || order.items?.[0]?.title || 'Course Access',
+            amount: Number(t.amount !== undefined ? t.amount : (order.totalPaid || 0)),
+            method: t.method || (order.paymentMethodName?.toLowerCase().includes('nagad') ? 'Nagad' : (order.paymentMethodName?.toLowerCase().includes('card') ? 'Card' : 'bKash')),
+            trxId: t.trxId || order.transactionId || 'PENDING',
+            studentName: t.studentName || order.customer?.name || 'Online Student',
+            studentPhone: t.studentPhone || order.customer?.phone || 'N/A',
+            studentEmail: t.studentEmail || order.customer?.email || '',
+            date: t.date || (order.createdAt ? order.createdAt.split('T')[0] : new Date().toISOString().split('T')[0]),
+            createdAt: t.createdAt || order.createdAt || new Date().toISOString(),
+            status: status,
+            notes: t.notes || (order.paymentMethodName ? `Paid via ${order.paymentMethodName}` : 'Submitted via Web Checkout')
+          };
+        };
+
+        const mapOrderDocToStudent = (docId, order) => {
+          const s = order.student || {};
+          const t = order.transaction || {};
+          const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
+          return {
+            id: s.id || `st-${docId}`,
+            orderId: docId,
+            name: s.name || order.customer?.name || t.studentName || 'Online Student',
+            phone: s.phone || order.customer?.phone || t.studentPhone || 'N/A',
+            email: s.email || order.customer?.email || t.studentEmail || '',
+            batch: s.batch || 'HSC 26',
+            courseName: s.courseName || order.course?.name || order.items?.[0]?.title || 'Course Access',
+            status: isPaid ? 'Active' : 'Pending',
+            joinedDate: s.joinedDate || (order.createdAt ? new Date(order.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently'),
+            amount: Number(s.amount !== undefined ? s.amount : (order.totalPaid || 0)),
+            trxId: s.trxId || order.transactionId || t.trxId || 'PENDING',
+            paymentMethod: s.paymentMethod || t.method || (order.paymentMethodName?.toLowerCase().includes('nagad') ? 'Nagad' : 'bKash')
+          };
+        };
+
+        // Orders collection real-time listener (all course purchases across all devices & live site)
+        unsubscribeOrders = onSnapshot(collection(db, 'orders'), (snapshot) => {
+          const cloudOrders = snapshot.docs.map(docSnap => ({
+            id: docSnap.id,
+            ...docSnap.data()
+          }));
+
+          const mappedTxs = cloudOrders.map(o => mapOrderDocToTx(o.id, o));
+          const mappedStudents = cloudOrders.map(o => mapOrderDocToStudent(o.id, o));
+
+          // Atomically update accounting.transactions
+          setAccounting(prev => {
+            const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
+            const txMap = new Map();
+            // Retain any manual/offline transactions
+            prevTxs.forEach(tx => {
+              const key = tx.orderId || tx.id || tx.trxId;
+              if (key) txMap.set(key, tx);
+            });
+            // Cloud orders take precedence and reflect live Firestore state
+            mappedTxs.forEach(tx => {
+              const key = tx.orderId || tx.id || tx.trxId;
+              if (key) txMap.set(key, tx);
+            });
+
+            const allTxs = Array.from(txMap.values());
+            const completedRev = allTxs
+              .filter(t => (t.status || '').toLowerCase() === 'completed')
+              .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+            const totalExpenses = Number(prev?.totalExpenses) || 0;
+
+            return {
+              ...prev,
+              totalRevenue: completedRev,
+              netProfit: completedRev - totalExpenses,
+              totalOrders: allTxs.filter(t => (t.type || '').toUpperCase() === 'INCOME' || !t.type).length,
+              transactions: allTxs
+            };
           });
+
+          // Atomically update enrolled students list
+          setEnrolledStudents(prev => {
+            const stMap = new Map();
+            prev.forEach(st => {
+              const key = `${st.phone}_${st.courseName}`;
+              stMap.set(key, st);
+            });
+            mappedStudents.forEach(st => {
+              const key = `${st.phone}_${st.courseName}`;
+              stMap.set(key, st);
+            });
+            const mergedSt = Array.from(stMap.values());
+            try {
+              localStorage.setItem('eh_enrolled_students', JSON.stringify(mergedSt));
+            } catch (e) {}
+            return mergedSt;
+          });
+
+          // Trigger audio chime and toast for live incoming orders after initial snapshot
+          if (!isInitialOrdersSnapshot) {
+            snapshot.docChanges().forEach(change => {
+              if (change.type === 'added') {
+                const d = change.doc.data();
+                const tx = mapOrderDocToTx(change.doc.id, d);
+                playNotificationChime();
+                triggerToast(`🔔 নতুন কোর্স এনরোলমেন্ট রিকোয়েস্ট! ${tx.studentName} — "${tx.itemTitle}" (৳${tx.amount})`);
+              }
+            });
+          }
           isInitialOrdersSnapshot = false;
         }, (err) => {
           console.warn('[AdminPanel] Firestore orders listener note:', err);
         });
-
-        // Cold-start one-time fetch to guarantee immediate presence of all cloud orders
-        getDocs(collection(db, 'orders')).then(snapshot => {
-          snapshot.docs.forEach(docSnap => {
-            const orderData = docSnap.data();
-            handleIncomingEnrollment({
-              order: { id: docSnap.id, ...orderData },
-              transaction: orderData.transaction,
-              student: orderData.student
-            }, { silent: true });
-          });
-        }).catch(err => console.warn('[AdminPanel] Orders cold-start fetch note:', err));
 
       } catch (err) {
         console.warn('[AdminPanel] Real-time Firestore initialization note:', err);
@@ -755,7 +822,30 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     if (data.siteSettings) setSiteSettings(data.siteSettings);
     if (data.announcement !== undefined) setAnnouncement(data.announcement);
     if (data.sectionTexts) setSectionTexts(data.sectionTexts);
-    if (data.accounting) setAccounting(data.accounting);
+    if (data.accounting) {
+      setAccounting(prev => {
+        const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
+        const dataTxs = Array.isArray(data.accounting?.transactions) ? data.accounting.transactions : [];
+        const txMap = new Map();
+        prevTxs.forEach(t => {
+          const k = t.orderId || t.id || t.trxId;
+          if (k) txMap.set(k, t);
+        });
+        dataTxs.forEach(t => {
+          const k = t.orderId || t.id || t.trxId;
+          if (k) {
+            const ex = txMap.get(k);
+            txMap.set(k, ex ? { ...ex, ...t } : t);
+          } else {
+            txMap.set(t.id, t);
+          }
+        });
+        return {
+          ...data.accounting,
+          transactions: Array.from(txMap.values())
+        };
+      });
+    }
     if (data.termsAndConditions) setTermsAndConditions(data.termsAndConditions);
     if (data.refundPolicy) setRefundPolicy(data.refundPolicy);
     if (data.privacyPolicy) setPrivacyPolicy(data.privacyPolicy);
@@ -2863,7 +2953,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Memoized Pending Count
   const pendingCount = useMemo(() => {
-    return (accounting?.transactions || []).filter(tx => tx.status !== 'Completed').length;
+    return (accounting?.transactions || []).filter(tx => {
+      const s = (tx.status || '').toLowerCase();
+      return s === 'pending' || (s !== 'completed' && s !== 'paid' && s !== 'rejected');
+    }).length;
   }, [accounting?.transactions]);
 
   // Memoized Filtered Transactions
@@ -2876,9 +2969,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         (tx.itemTitle || '').toLowerCase().includes(query) ||
         (tx.trxId || '').toLowerCase().includes(query) ||
         (tx.studentPhone || '').includes(query);
-      if (trxFilter === 'PENDING') return matchesSearch && tx.status !== 'Completed';
-      if (trxFilter === 'INCOME') return matchesSearch && tx.type === 'INCOME';
-      if (trxFilter === 'EXPENSE') return matchesSearch && tx.type === 'EXPENSE';
+      const st = (tx.status || '').toLowerCase();
+      if (trxFilter === 'PENDING') return matchesSearch && st !== 'completed' && st !== 'paid';
+      if (trxFilter === 'INCOME') return matchesSearch && (tx.type || '').toUpperCase() === 'INCOME';
+      if (trxFilter === 'EXPENSE') return matchesSearch && (tx.type || '').toUpperCase() === 'EXPENSE';
       return matchesSearch;
     });
   }, [accounting?.transactions, deferredSearchTrx, trxFilter]);
@@ -2890,11 +2984,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const qClean = q.replace(/[^a-zA-Z0-9]/g, '');
 
     return txs.filter(tx => {
-      if (tx.type === 'EXPENSE') return false;
+      if ((tx.type || '').toUpperCase() === 'EXPENSE') return false;
 
-      if (verificationFilter === 'PENDING' && tx.status !== 'Pending') return false;
-      if (verificationFilter === 'COMPLETED' && tx.status !== 'Completed') return false;
-      if (verificationFilter === 'REJECTED' && tx.status !== 'Rejected') return false;
+      const st = (tx.status || '').toLowerCase();
+      const isPending = st === 'pending' || (st !== 'completed' && st !== 'paid' && st !== 'rejected');
+      const isCompleted = st === 'completed' || st === 'paid' || Boolean(tx.isApproved);
+      const isRejected = st === 'rejected';
+
+      if (verificationFilter === 'PENDING' && !isPending) return false;
+      if (verificationFilter === 'COMPLETED' && !isCompleted) return false;
+      if (verificationFilter === 'REJECTED' && !isRejected) return false;
 
       if (!q) return true;
 
@@ -3763,10 +3862,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             {/* Status Filter Tabs (Segmented Controller - Horizontally Scrollable on Mobile) */}
                             <div className="flex items-center gap-1 bg-[#f4f6fa] p-1 rounded-xl text-xs font-semibold text-slate-600 border border-slate-200/60 overflow-x-auto no-scrollbar w-full sm:w-auto">
                               {[
-                                { key: 'PENDING', label: 'Pending', count: (accounting?.transactions || []).filter(t => t.type === 'INCOME' && t.status === 'Pending').length },
-                                { key: 'ALL', label: 'All', count: (accounting?.transactions || []).filter(t => t.type === 'INCOME').length },
-                                { key: 'COMPLETED', label: 'Verified', count: (accounting?.transactions || []).filter(t => t.type === 'INCOME' && t.status === 'Completed').length },
-                                { key: 'REJECTED', label: 'Rejected', count: (accounting?.transactions || []).filter(t => t.type === 'INCOME' && t.status === 'Rejected').length },
+                                { key: 'PENDING', label: 'Pending', count: (accounting?.transactions || []).filter(t => {
+                                  const s = (t.status || '').toLowerCase();
+                                  return s === 'pending' || (s !== 'completed' && s !== 'paid' && s !== 'rejected');
+                                }).length },
+                                { key: 'ALL', label: 'All', count: (accounting?.transactions || []).filter(t => (t.type || '').toUpperCase() === 'INCOME' || !t.type).length },
+                                { key: 'COMPLETED', label: 'Verified', count: (accounting?.transactions || []).filter(t => {
+                                  const s = (t.status || '').toLowerCase();
+                                  return s === 'completed' || s === 'paid' || Boolean(t.isApproved);
+                                }).length },
+                                { key: 'REJECTED', label: 'Rejected', count: (accounting?.transactions || []).filter(t => (t.status || '').toLowerCase() === 'rejected').length },
                               ].map((tab) => {
                                 const isActive = verificationFilter === tab.key;
                                 return (
@@ -3819,8 +3924,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               {/* MOBILE VIEW (< md): Responsive clean touch-friendly card list */}
                               <div className="md:hidden space-y-3">
                                 {verificationList.map((tx) => {
-                                  const isPending = tx.status === 'Pending';
-                                  const isCompleted = tx.status === 'Completed';
+                                  const st = (tx.status || '').toLowerCase();
+                                  const isPending = st === 'pending' || (st !== 'completed' && st !== 'paid' && st !== 'rejected');
+                                  const isCompleted = st === 'completed' || st === 'paid' || Boolean(tx.isApproved);
                                   const methodLower = (tx.method || '').toLowerCase();
 
                                   return (
@@ -3938,8 +4044,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                   </thead>
                                   <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
                                     {verificationList.map((tx) => {
-                                      const isPending = tx.status === 'Pending';
-                                      const isCompleted = tx.status === 'Completed';
+                                      const st = (tx.status || '').toLowerCase();
+                                      const isPending = st === 'pending' || (st !== 'completed' && st !== 'paid' && st !== 'rejected');
+                                      const isCompleted = st === 'completed' || st === 'paid' || Boolean(tx.isApproved);
                                       const methodLower = (tx.method || '').toLowerCase();
                                       const initialChar = (tx.studentName || tx.customer || 'S').trim()[0] || 'S';
 

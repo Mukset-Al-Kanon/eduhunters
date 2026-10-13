@@ -100,50 +100,57 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
     }
 
     setIsProcessing(true);
-    setTimeout(() => {
-      setIsProcessing(false);
-      setIsSuccess(true);
-
-      // Automatically persist order & invoice in Order History
-      const finalStudentName = studentName || currentUser?.displayName || currentUser?.name || 'Enrolled Student';
-      const finalPhone = phoneNumber || currentUser?.whatsapp || currentUser?.phone || 'N/A';
-      const finalEmail = currentUser?.email || 'student@eduhunters.com.bd';
-      const finalTrxId = trxId ? trxId.trim().toUpperCase() : 'PENDING_VERIFICATION';
-      
-      const newOrder = saveNewOrder({
-        item,
-        studentName: finalStudentName,
-        studentPhone: finalPhone,
-        studentEmail: finalEmail,
-        paymentMethod: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
-        trxId: finalTrxId,
-        amount: price,
-        originalPrice: originalPrice,
-        discount: Math.max(0, originalPrice - price)
-      });
-      setCreatedOrder(newOrder);
-
+    (async () => {
       try {
-        confetti({
-          particleCount: 80,
-          spread: 70,
-          origin: { y: 0.5 }
-        });
-      } catch (err) {}
-      if (onSuccess) {
-        onSuccess({
-          itemTitle: item.title,
-          amount: price,
+        // Automatically persist order & invoice in Order History & Cloud Firestore
+        const finalStudentName = studentName || currentUser?.displayName || currentUser?.name || 'Enrolled Student';
+        const finalPhone = phoneNumber || currentUser?.whatsapp || currentUser?.phone || 'N/A';
+        const finalEmail = currentUser?.email || 'student@eduhunters.com.bd';
+        const finalTrxId = trxId ? trxId.trim().toUpperCase() : 'PENDING_VERIFICATION';
+        
+        const newOrder = await saveNewOrder({
+          item,
           studentName: finalStudentName,
           studentPhone: finalPhone,
           studentEmail: finalEmail,
-          method: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
+          paymentMethod: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
           trxId: finalTrxId,
-          orderId: newOrder.id,
-          invoiceNumber: newOrder.invoiceNumber
+          amount: price,
+          originalPrice: originalPrice,
+          discount: Math.max(0, originalPrice - price)
         });
+        setCreatedOrder(newOrder);
+
+        setIsProcessing(false);
+        setIsSuccess(true);
+
+        try {
+          confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.5 }
+          });
+        } catch (err) {}
+
+        if (onSuccess) {
+          onSuccess({
+            itemTitle: item.title,
+            amount: price,
+            studentName: finalStudentName,
+            studentPhone: finalPhone,
+            studentEmail: finalEmail,
+            method: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
+            trxId: finalTrxId,
+            orderId: newOrder?.id,
+            invoiceNumber: newOrder?.invoiceNumber
+          });
+        }
+      } catch (err) {
+        console.error('[CheckoutModal] Payment submit error:', err);
+        setIsProcessing(false);
+        setIsSuccess(true);
       }
-    }, 1000);
+    })();
   };
 
   return (
