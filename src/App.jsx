@@ -354,7 +354,7 @@ export default function App() {
           examBatches: Array.isArray(parsed.examBatches)
             ? parsed.examBatches
             : (initialData.examBatches || EXAM_CATEGORIES_METADATA),
-          instructors: Array.isArray(parsed.instructors) ? parsed.instructors : [],
+          instructors: (Array.isArray(parsed.instructors) && parsed.instructors.length > 0) ? parsed.instructors : initialData.instructors,
           freeVideos: Array.isArray(parsed.freeVideos)
             ? parsed.freeVideos 
             : initialData.freeVideos,
@@ -407,8 +407,8 @@ export default function App() {
             modified = true;
           }
         }
-        if (Array.isArray(parsed.instructors) && parsed.instructors.length > 0) {
-          parsed.instructors = [];
+        if (!Array.isArray(parsed.instructors) || parsed.instructors.length === 0) {
+          parsed.instructors = initialData.instructors;
           modified = true;
         }
         if (Array.isArray(parsed.storeProducts) && parsed.storeProducts.some(p => [1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info'))) {
@@ -468,7 +468,8 @@ export default function App() {
             courses: parsed.courses || prev.courses,
             storeProducts: parsed.storeProducts || prev.storeProducts,
             homeStats: parsed.homeStats || prev.homeStats,
-            siteSettings: parsed.siteSettings || prev.siteSettings
+            siteSettings: parsed.siteSettings || prev.siteSettings,
+            instructors: (Array.isArray(parsed.instructors) && parsed.instructors.length > 0) ? parsed.instructors : initialData.instructors
           }));
         }
       }
@@ -494,50 +495,71 @@ export default function App() {
   };
 
   const handleUpdateData = (newData) => {
-    setData(newData);
+    const dataWithTimestamp = {
+      ...newData,
+      _lastUpdated: new Date().toISOString()
+    };
+    setData(dataWithTimestamp);
     try {
-      localStorage.setItem('eduhunters_data', JSON.stringify(newData));
+      localStorage.setItem('eduhunters_data', JSON.stringify(dataWithTimestamp));
     } catch (e) {
       console.error('Error saving data to localStorage:', e);
     }
-    broadcastSync(newData);
+    broadcastSync(dataWithTimestamp);
     // Cloud Firestore synchronization: Save permanently in cloud so git pushes never erase admin edits
-    saveCloudData(newData);
+    saveCloudData(dataWithTimestamp);
   };
 
   // Real-time synchronization listener: Local tabs + Cloud Firestore
   useEffect(() => {
+    const mergeCloudWithLocal = (prev, cloudData) => {
+      if (!cloudData) return prev;
+      const localTime = prev._lastUpdated ? new Date(prev._lastUpdated).getTime() : 0;
+      const cloudTime = cloudData._lastUpdated ? new Date(cloudData._lastUpdated).getTime() : 0;
+
+      // If local state has newer edits than cloudData, do not overwrite local with stale cloud!
+      if (localTime > cloudTime && localTime > 0) {
+        saveCloudData(prev);
+        return prev;
+      }
+
+      const sanitized = { ...cloudData };
+      if (Array.isArray(sanitized.homeStats) && sanitized.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) {
+        sanitized.homeStats = initialData.homeStats;
+        saveCloudData({ homeStats: initialData.homeStats });
+      }
+
+      // Safe instructors resolution:
+      // 1. If cloud has valid, non-empty instructors, use it
+      // 2. Otherwise keep whatever local currently has
+      // 3. Only fall back to initialData if both are empty
+      const resolvedInstructors = (Array.isArray(sanitized.instructors) && sanitized.instructors.length > 0)
+        ? sanitized.instructors
+        : ((Array.isArray(prev.instructors) && prev.instructors.length > 0) ? prev.instructors : initialData.instructors);
+
+      const merged = {
+        ...prev,
+        ...sanitized,
+        instructors: resolvedInstructors
+      };
+
+      try {
+        localStorage.setItem('eduhunters_data', JSON.stringify(merged));
+      } catch (e) {}
+      return merged;
+    };
+
     // 0. Immediately fetch cloud data on cold start
     fetchCloudData().then((cloudData) => {
       if (cloudData) {
-        setData(prev => {
-          const merged = { ...prev, ...cloudData };
-          try {
-            localStorage.setItem('eduhunters_data', JSON.stringify(merged));
-          } catch (e) {}
-          return merged;
-        });
+        setData(prev => mergeCloudWithLocal(prev, cloudData));
       }
     }).catch(() => {});
 
     // 1. Listen for real-time Cloud Firestore updates (across all devices & live vs local)
     const unsubscribeCloud = subscribeToCloudData((cloudData) => {
       if (cloudData) {
-        const sanitized = { ...cloudData };
-        if (Array.isArray(sanitized.homeStats) && sanitized.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) {
-          sanitized.homeStats = initialData.homeStats;
-          saveCloudData({ homeStats: initialData.homeStats });
-        }
-        setData(prev => {
-          const merged = {
-            ...prev,
-            ...sanitized
-          };
-          try {
-            localStorage.setItem('eduhunters_data', JSON.stringify(merged));
-          } catch (e) {}
-          return merged;
-        });
+        setData(prev => mergeCloudWithLocal(prev, cloudData));
       }
     });
 
@@ -594,18 +616,27 @@ export default function App() {
     broadcastSync(initialData);
   };
 
-  const handleEnrollSuccess = ({ itemTitle, amount, studentName, studentPhone, method, trxId }) => {
+  const handleEnrollSuccess = ({ itemTitle, amount, studentName, studentPhone, method, trxId, studentEmail }) => {
     const amt = Number(amount) || 0;
+    const finalCourseTitle = itemTitle || 'কোর্স এনরোলমেন্ট';
+    const finalStudent = studentName || 'অনলাইন শিক্ষার্থী';
+    const finalPhone = studentPhone || 'N/A';
+    const finalMethod = method || 'bKash';
+    const finalTrx = trxId || `TXN${Date.now().toString().slice(-6)}`;
+
     const newTrx = {
       id: `TRX-${Date.now().toString().slice(-5)}`,
-      studentName: studentName || 'অনলাইন শিক্ষার্থী',
-      studentPhone: studentPhone || 'N/A',
-      itemTitle: itemTitle || 'কোর্স এনরোলমেন্ট',
+      studentName: finalStudent,
+      studentPhone: finalPhone,
+      studentEmail: studentEmail || '',
+      itemTitle: finalCourseTitle,
       type: 'INCOME',
+      category: 'Course Enrollment',
       amount: amt,
-      method: method || 'bKash',
-      trxId: trxId || `TXN${Date.now().toString().slice(-6)}`,
+      method: finalMethod,
+      trxId: finalTrx,
       date: new Date().toISOString().split('T')[0],
+      createdAt: new Date().toISOString(),
       status: 'Pending'
     };
 
@@ -618,11 +649,68 @@ export default function App() {
       transactions: [newTrx, ...(currentAccounting.transactions || [])]
     };
 
+    // Also update enrolled student in eh_enrolled_students
+    const newStudent = {
+      id: `st-${Date.now()}`,
+      name: finalStudent,
+      phone: finalPhone,
+      email: studentEmail || '',
+      batch: 'HSC 26',
+      courseName: finalCourseTitle,
+      status: 'Active',
+      joinedDate: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
+      amount: amt,
+      trxId: finalTrx,
+      paymentMethod: finalMethod
+    };
+
+    try {
+      const rawStudents = localStorage.getItem('eh_enrolled_students');
+      const prevStudents = rawStudents ? JSON.parse(rawStudents) : [];
+      const nextStudents = [newStudent, ...prevStudents.filter(s => !(s.phone === newStudent.phone && s.courseName === newStudent.courseName))];
+      localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+    } catch (e) {}
+
+    // Update users array in data
+    let updatedUsers = Array.isArray(data.users) ? [...data.users] : [];
+    if (finalPhone !== 'N/A' || studentEmail) {
+      updatedUsers = updatedUsers.map(u => {
+        if ((studentEmail && u.email && u.email.toLowerCase() === studentEmail.toLowerCase()) || (u.phone && u.phone === finalPhone)) {
+          const uEnrolled = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
+          return {
+            ...u,
+            enrolledCourses: uEnrolled.includes(finalCourseTitle) ? uEnrolled : [finalCourseTitle, ...uEnrolled],
+            totalSpent: (Number(u.totalSpent) || 0) + amt
+          };
+        }
+        return u;
+      });
+    }
+
     const updatedData = {
       ...data,
-      accounting: updatedAccounting
+      accounting: updatedAccounting,
+      users: updatedUsers,
+      _lastUpdated: new Date().toISOString()
     };
     handleUpdateData(updatedData);
+
+    // Broadcast enrollment event across tabs & windows
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('eh:new_enrollment', {
+        detail: { transaction: newTrx, student: newStudent }
+      }));
+      if (typeof BroadcastChannel !== 'undefined') {
+        try {
+          const bc = new BroadcastChannel('eduhunters_sync_channel');
+          bc.postMessage({
+            type: 'NEW_ENROLLMENT_ORDER',
+            payload: { transaction: newTrx, student: newStudent }
+          });
+          bc.close();
+        } catch (e) {}
+      }
+    }
   };
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);

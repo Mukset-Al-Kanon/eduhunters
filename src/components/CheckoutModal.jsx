@@ -136,6 +136,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
           amount: price,
           studentName: finalStudentName,
           studentPhone: finalPhone,
+          studentEmail: finalEmail,
           method: paymentMethod === 'bkash' ? 'bKash' : 'Nagad',
           trxId: finalTrxId,
           orderId: newOrder.id,

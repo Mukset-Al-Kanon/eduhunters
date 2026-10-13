@@ -1,5 +1,5 @@
-// src/services/orderService.js
-// Order & Professional Invoice Management Service for Edu Hunters
+import { db, isFirebaseConfigured } from '../firebase/config';
+import { doc, setDoc } from 'firebase/firestore';
 
 const ORDERS_STORAGE_KEY = 'eh_user_orders_v3';
 
@@ -40,6 +40,7 @@ export function generateInvoiceNumber() {
 
 /**
  * Automatically creates and persists a new order and invoice upon purchase.
+ * Also synchronizes in real time with AdminPanel ledger, enrolled students, and Cloud Firestore.
  */
 export function saveNewOrder({
   item,
@@ -113,14 +114,143 @@ export function saveNewOrder({
     ]
   };
 
-  try {
-    const existingOrders = getUserOrders();
-    const updated = [newOrder, ...existingOrders];
-    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(updated));
+  // 1. Transaction representation for accounting ledger & admin verification hub
+  const newTx = {
+    id: `TRX-${Date.now()}-${Math.floor(100 + Math.random() * 900)}`,
+    orderId: newOrder.id,
+    invoiceNumber: newOrder.invoiceNumber,
+    type: 'INCOME',
+    category: type === 'store' ? 'Store Product' : 'Course Enrollment',
+    itemTitle: title,
+    amount: finalAmount,
+    method: newOrder.paymentMethodName.includes('Nagad') ? 'Nagad' : (newOrder.paymentMethodName.includes('Card') ? 'Card' : 'bKash'),
+    trxId: newOrder.transactionId,
+    studentName: newOrder.customer.name,
+    studentPhone: newOrder.customer.phone,
+    studentEmail: newOrder.customer.email,
+    date: new Date().toISOString().split('T')[0],
+    createdAt: new Date().toISOString(),
+    status: 'Pending',
+    notes: `Enrollment Form Submitted (${paymentMethod.toUpperCase()})`
+  };
 
-    // Dispatch system event so OrdersPage and other listeners update in real time
+  // 2. Student record for enrolled students directory
+  const newStudent = {
+    id: `st-${Date.now()}`,
+    name: newOrder.customer.name,
+    phone: newOrder.customer.phone,
+    email: newOrder.customer.email,
+    batch: 'HSC 26',
+    courseName: title,
+    status: 'Active',
+    joinedDate: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
+    amount: finalAmount,
+    trxId: newOrder.transactionId,
+    paymentMethod: paymentMethod
+  };
+
+  try {
+    // 3. Persist order in local user orders
+    const existingOrders = getUserOrders();
+    const updatedOrders = [newOrder, ...existingOrders];
+    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(updatedOrders));
+
+    // 4. Update accounting in eduhunters_data so AdminPanel immediately has the transaction
+    const rawSiteData = localStorage.getItem('eduhunters_data');
+    if (rawSiteData) {
+      try {
+        const parsedSite = JSON.parse(rawSiteData);
+        const prevAcc = parsedSite.accounting || { totalRevenue: 0, totalExpenses: 0, netProfit: 0, totalOrders: 0, transactions: [] };
+        const prevTxs = Array.isArray(prevAcc.transactions) ? prevAcc.transactions : [];
+        const nextTxs = [newTx, ...prevTxs.filter(t => t.id !== newTx.id)];
+        const nextRev = (Number(prevAcc.totalRevenue) || 0) + finalAmount;
+        const nextOrdersCount = (Number(prevAcc.totalOrders) || prevTxs.length) + 1;
+        const nextProfit = nextRev - (Number(prevAcc.totalExpenses) || 0);
+
+        parsedSite.accounting = {
+          ...prevAcc,
+          totalRevenue: nextRev,
+          netProfit: nextProfit,
+          totalOrders: nextOrdersCount,
+          transactions: nextTxs
+        };
+        parsedSite._lastUpdated = new Date().toISOString();
+        localStorage.setItem('eduhunters_data', JSON.stringify(parsedSite));
+      } catch (e) {}
+    }
+
+    // 5. Update eh_enrolled_students
+    try {
+      const rawStudents = localStorage.getItem('eh_enrolled_students');
+      const prevStudents = rawStudents ? JSON.parse(rawStudents) : [];
+      const nextStudents = [newStudent, ...prevStudents.filter(s => !(s.phone === newStudent.phone && s.courseName === newStudent.courseName))];
+      localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+    } catch (e) {}
+
+    // 6. Update user's enrolledCourses in eh_current_user and eh_registered_users
+    try {
+      const rawCur = localStorage.getItem('eh_current_user');
+      if (rawCur) {
+        const cur = JSON.parse(rawCur);
+        const enrolled = Array.isArray(cur.enrolledCourses) ? cur.enrolledCourses : [];
+        if (!enrolled.includes(title)) {
+          cur.enrolledCourses = [title, ...enrolled];
+          cur.totalSpent = (Number(cur.totalSpent) || 0) + finalAmount;
+          localStorage.setItem('eh_current_user', JSON.stringify(cur));
+        }
+      }
+
+      const rawReg = localStorage.getItem('eh_registered_users');
+      if (rawReg) {
+        const regList = JSON.parse(rawReg);
+        if (Array.isArray(regList)) {
+          const updatedReg = regList.map(u => {
+            if ((u.email && u.email.toLowerCase() === (studentEmail || '').toLowerCase()) || (u.phone && u.phone === studentPhone)) {
+              const uEnrolled = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
+              return {
+                ...u,
+                enrolledCourses: uEnrolled.includes(title) ? uEnrolled : [title, ...uEnrolled],
+                totalSpent: (Number(u.totalSpent) || 0) + finalAmount
+              };
+            }
+            return u;
+          });
+          localStorage.setItem('eh_registered_users', JSON.stringify(updatedReg));
+        }
+      }
+    } catch (e) {}
+
+    // 7. Persist order in Cloud Firestore if configured
+    if (isFirebaseConfigured && db) {
+      try {
+        const docRef = doc(db, 'orders', orderId);
+        setDoc(docRef, {
+          ...newOrder,
+          transaction: newTx,
+          student: newStudent,
+          _savedAt: new Date().toISOString()
+        }).catch(err => console.warn('[orderService] Cloud order save note:', err));
+      } catch (e) {}
+    }
+
+    // 8. Dispatch real-time events across windows & listeners
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('eh:orders_updated', { detail: newOrder }));
+      window.dispatchEvent(new CustomEvent('eh:new_enrollment', {
+        detail: { order: newOrder, transaction: newTx, student: newStudent }
+      }));
+      window.dispatchEvent(new Event('storage'));
+
+      if (typeof BroadcastChannel !== 'undefined') {
+        try {
+          const bc = new BroadcastChannel('eduhunters_sync_channel');
+          bc.postMessage({
+            type: 'NEW_ENROLLMENT_ORDER',
+            payload: { order: newOrder, transaction: newTx, student: newStudent }
+          });
+          bc.close();
+        } catch (e) {}
+      }
     }
   } catch (err) {
     console.error('[orderService] Failed to save new order:', err);

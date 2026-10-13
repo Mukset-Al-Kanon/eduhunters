@@ -100,8 +100,8 @@ export const initialData = {
     coursesBtnText: "View all",
     
     // Faculty Section
-    facultyBadge: "আমার পরিচয়",
-    facultyTitle: "Meet Our Expert Faculty",
+    facultyBadge: "",
+    facultyTitle: "Meet Our Team",
     facultyBtnText: "View all",
     
     // Free Videos Section

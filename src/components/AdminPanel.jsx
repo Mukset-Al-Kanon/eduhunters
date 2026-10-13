@@ -60,7 +60,7 @@ import {
   Zap,
   LogOut
 } from 'lucide-react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { db, isFirebaseConfigured } from '../firebase/config';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
@@ -171,7 +171,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
 
   const [instructors, setInstructors] = useState(() => 
-    Array.isArray(data?.instructors)
+    Array.isArray(data?.instructors) && data.instructors.length > 0
       ? data.instructors 
       : initialData.instructors
   );
@@ -344,47 +344,192 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const [selectedCourseToEnroll, setSelectedCourseToEnroll] = useState('');
   const [userTabInsideModal, setUserTabInsideModal] = useState('profile'); // 'profile' | 'courses' | 'transactions'
 
-  // Live real-time listener for profile changes made across tabs or in ProfileModal
-  useEffect(() => {
-    const handleProfileUpdate = (e) => {
-      const updatedUser = e.detail;
-      if (!updatedUser || !updatedUser.email) return;
-      setUsersList(prev => prev.map(u => {
-        if (u.email?.toLowerCase() === updatedUser.email?.toLowerCase() || u.id === updatedUser.uid) {
-          return {
-            ...u,
-            name: updatedUser.displayName || updatedUser.name || u.name,
-            phone: updatedUser.whatsapp || updatedUser.phone || u.phone,
-            whatsapp: updatedUser.whatsapp || updatedUser.phone || u.whatsapp,
-            college: updatedUser.college || updatedUser.institution || u.college,
-            institution: updatedUser.college || updatedUser.institution || u.institution,
-            batch: updatedUser.hscBatch || updatedUser.batch || u.batch,
-            hscBatch: updatedUser.hscBatch || updatedUser.batch || u.hscBatch,
-            avatar: updatedUser.photoURL || u.avatar
-          };
-        }
-        return u;
-      }));
-    };
+  // Audio Chime notification for instant feedback when an enrollment is submitted
+  const playNotificationChime = () => {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.35);
+    } catch (e) {}
+  };
 
-    window.addEventListener('eh_profile_updated', handleProfileUpdate);
-    return () => window.removeEventListener('eh_profile_updated', handleProfileUpdate);
+  // Central User Upsert Handler for User Management Tab
+  const upsertUserInList = useCallback((u, isNew = false) => {
+    if (!u) return;
+    const targetEmail = (u.email || '').toLowerCase().trim();
+    const targetId = u.uid || u.id;
+
+    setUsersList(prev => {
+      const existingIndex = prev.findIndex(item => 
+        (targetId && (item.id === targetId || item.uid === targetId)) ||
+        (targetEmail && item.email && item.email.toLowerCase() === targetEmail)
+      );
+
+      if (existingIndex !== -1) {
+        const existing = prev[existingIndex];
+        const updatedUser = {
+          ...existing,
+          name: u.displayName || u.name || existing.name,
+          email: u.email || existing.email,
+          phone: u.whatsapp || u.phone || u.phoneNumber || existing.phone,
+          whatsapp: u.whatsapp || u.phone || u.phoneNumber || existing.whatsapp,
+          college: u.college || u.institution || existing.college,
+          institution: u.college || u.institution || existing.institution,
+          batch: u.hscBatch || u.batch || existing.batch,
+          hscBatch: u.hscBatch || u.batch || existing.hscBatch,
+          avatar: u.photoURL || u.avatar || existing.avatar,
+          enrolledCourses: Array.isArray(u.enrolledCourses) ? Array.from(new Set([...(existing.enrolledCourses || []), ...u.enrolledCourses])) : existing.enrolledCourses,
+          totalSpent: u.totalSpent !== undefined ? Math.max(existing.totalSpent || 0, Number(u.totalSpent) || 0) : existing.totalSpent,
+          lastActive: 'Active now'
+        };
+        const nextList = [...prev];
+        nextList[existingIndex] = updatedUser;
+        return nextList;
+      } else {
+        const newUserRecord = {
+          id: targetId || `usr-${Date.now()}`,
+          name: u.displayName || u.name || (targetEmail ? targetEmail.split('@')[0] : 'New Student'),
+          email: u.email || 'student@eduhunters.com',
+          phone: u.whatsapp || u.phone || u.phoneNumber || '01700-000000',
+          whatsapp: u.whatsapp || u.phone || u.phoneNumber || '',
+          college: u.college || u.institution || 'College / School',
+          institution: u.college || u.institution || 'College / School',
+          role: u.role === 'admin' ? 'Admin' : 'Student',
+          status: 'Active',
+          batch: u.hscBatch || u.batch || 'HSC 26',
+          hscBatch: u.hscBatch || u.batch || 'HSC 26',
+          enrolledCourses: Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [],
+          totalSpent: Number(u.totalSpent) || 0,
+          joinedDate: 'Just now',
+          lastActive: 'Active now',
+          device: 'Web Client',
+          avatar: u.photoURL || u.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(targetEmail || 'student')}`
+        };
+        return [newUserRecord, ...prev];
+      }
+    });
   }, []);
 
-  // Fetch Firestore users when live Firebase is active
-  useEffect(() => {
-    if (!isFirebaseConfigured || !db) return;
-    let isMounted = true;
-    const fetchFirestoreUsers = async () => {
+  // Central Handler for incoming course enrollments (Card filled out / checkout placed)
+  const handleIncomingEnrollment = useCallback(({ order, transaction, student }) => {
+    if (!transaction && !order) return;
+    const tx = transaction || {
+      id: `TRX-${Date.now()}`,
+      orderId: order?.id,
+      invoiceNumber: order?.invoiceNumber,
+      type: 'INCOME',
+      category: 'Course Enrollment',
+      itemTitle: order?.course?.name || order?.items?.[0]?.title || 'Course Access',
+      amount: Number(order?.totalPaid) || 0,
+      method: order?.paymentMethodName || 'bKash',
+      trxId: order?.transactionId || 'PENDING',
+      studentName: order?.customer?.name || 'Online Student',
+      studentPhone: order?.customer?.phone || 'N/A',
+      studentEmail: order?.customer?.email || '',
+      date: new Date().toISOString().split('T')[0],
+      createdAt: new Date().toISOString(),
+      status: 'Pending'
+    };
+
+    const st = student || {
+      id: `st-${Date.now()}`,
+      name: tx.studentName,
+      phone: tx.studentPhone,
+      email: tx.studentEmail,
+      batch: 'HSC 26',
+      courseName: tx.itemTitle,
+      status: 'Active',
+      joinedDate: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
+      amount: tx.amount,
+      trxId: tx.trxId,
+      paymentMethod: tx.method
+    };
+
+    // 1. Update accounting transactions state
+    setAccounting(prev => {
+      const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
+      if (prevTxs.some(t => t.id === tx.id || (t.trxId && t.trxId === tx.trxId && t.trxId !== 'PENDING'))) {
+        return prev;
+      }
+      const nextTxs = [tx, ...prevTxs];
+      const nextRev = (Number(prev?.totalRevenue) || 0) + Number(tx.amount || 0);
+      const nextOrders = (Number(prev?.totalOrders) || prevTxs.length) + 1;
+      const nextProfit = nextRev - (Number(prev?.totalExpenses) || 0);
+      const updatedAccounting = {
+        ...prev,
+        totalRevenue: nextRev,
+        netProfit: nextProfit,
+        totalOrders: nextOrders,
+        transactions: nextTxs
+      };
+      persistAll({ accounting: updatedAccounting });
+      return updatedAccounting;
+    });
+
+    // 2. Update enrolled students state
+    setEnrolledStudents(prev => {
+      if (prev.some(s => s.phone === st.phone && s.courseName === st.courseName)) return prev;
+      const nextStudents = [st, ...prev];
       try {
-        const usersSnap = await getDocs(collection(db, 'users'));
-        if (!usersSnap.empty && isMounted) {
-          const firestoreUsers = [];
-          usersSnap.forEach(docSnap => {
-            const data = docSnap.data();
-            firestoreUsers.push({
-              id: docSnap.id,
+        localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+      } catch (e) {}
+      return nextStudents;
+    });
+
+    // 3. Update user in usersList with newly enrolled course
+    if (tx.studentEmail || tx.studentPhone) {
+      setUsersList(prev => {
+        const idx = prev.findIndex(u => 
+          (tx.studentEmail && u.email && u.email.toLowerCase() === tx.studentEmail.toLowerCase()) ||
+          (tx.studentPhone && u.phone && u.phone.includes(tx.studentPhone.slice(-8)))
+        );
+        if (idx !== -1) {
+          const existing = prev[idx];
+          const prevCourses = Array.isArray(existing.enrolledCourses) ? existing.enrolledCourses : [];
+          const nextCourses = prevCourses.includes(tx.itemTitle) ? prevCourses : [tx.itemTitle, ...prevCourses];
+          const nextSpent = (Number(existing.totalSpent) || 0) + Number(tx.amount || 0);
+          const updated = [...prev];
+          updated[idx] = { ...existing, enrolledCourses: nextCourses, totalSpent: nextSpent };
+          persistAll({ users: updated });
+          return updated;
+        }
+        return prev;
+      });
+    }
+
+    // 4. Play audio chime and trigger notification toast
+    playNotificationChime();
+    triggerToast(`🔔 নতুন কোর্স এনরোলমেন্ট! ${tx.studentName} — "${tx.itemTitle}" (৳${tx.amount})`);
+  }, []);
+
+  // Multi-tier Real-time Synchronizer: Firestore Live + BroadcastChannel + Window Events + LocalStorage
+  useEffect(() => {
+    let unsubscribeUsers = null;
+    let unsubscribeOrders = null;
+
+    // 1. Live Cloud Firestore Listeners
+    if (isFirebaseConfigured && db) {
+      try {
+        // Users collection real-time listener
+        unsubscribeUsers = onSnapshot(collection(db, 'users'), (snapshot) => {
+          snapshot.docChanges().forEach(change => {
+            const data = change.doc.data();
+            const mappedUser = {
+              uid: change.doc.id,
+              id: change.doc.id,
               name: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
+              displayName: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
               email: data.email,
               phone: data.whatsapp || data.phone || '01700-000000',
               whatsapp: data.whatsapp || data.phone || '',
@@ -395,34 +540,131 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               batch: data.hscBatch || data.batch || 'HSC 26',
               hscBatch: data.hscBatch || data.batch || 'HSC 26',
               enrolledCourses: Array.isArray(data.enrolledCourses) ? data.enrolledCourses : [],
-              totalSpent: data.totalSpent || 0,
+              totalSpent: Number(data.totalSpent) || 0,
               joinedDate: data.createdAt?.toDate ? data.createdAt.toDate().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently',
-              lastActive: data.lastLoginAt?.toDate ? 'Active recently' : 'Recently',
+              lastActive: 'Active now',
               device: (Array.isArray(data.registeredDevices) && data.registeredDevices[0]?.name) || 'Web Client',
               avatar: data.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(data.email || 'user')}`
-            });
-          });
+            };
 
-          if (firestoreUsers.length > 0) {
-            setUsersList(prev => {
-              const prevMap = new Map(prev.map(u => [u.email?.toLowerCase(), u]));
-              firestoreUsers.forEach(fu => {
-                if (fu.email) {
-                  const existing = prevMap.get(fu.email.toLowerCase());
-                  prevMap.set(fu.email.toLowerCase(), existing ? { ...existing, ...fu } : fu);
-                }
+            upsertUserInList(mappedUser, change.type === 'added');
+            if (change.type === 'added') {
+              triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${mappedUser.name}`);
+            }
+          });
+        }, (err) => {
+          console.warn('[AdminPanel] Firestore users listener note:', err);
+        });
+
+        // Orders collection real-time listener
+        unsubscribeOrders = onSnapshot(collection(db, 'orders'), (snapshot) => {
+          snapshot.docChanges().forEach(change => {
+            if (change.type === 'added') {
+              const orderData = change.doc.data();
+              handleIncomingEnrollment({
+                order: { id: change.doc.id, ...orderData },
+                transaction: orderData.transaction,
+                student: orderData.student
               });
-              return Array.from(prevMap.values());
-            });
-          }
-        }
+            }
+          });
+        }, (err) => {
+          console.warn('[AdminPanel] Firestore orders listener note:', err);
+        });
       } catch (err) {
-        console.warn('[AdminPanel] Could not load Firestore users:', err);
+        console.warn('[AdminPanel] Real-time Firestore initialization note:', err);
+      }
+    }
+
+    // 2. BroadcastChannel for Instant Cross-Tab & Multi-Window Sync
+    let bc = null;
+    if (typeof BroadcastChannel !== 'undefined') {
+      try {
+        bc = new BroadcastChannel('eduhunters_sync_channel');
+        bc.onmessage = (event) => {
+          const { type, action, payload } = event.data || {};
+          if (type === 'USER_SYNC' && payload) {
+            upsertUserInList(payload, action === 'REGISTER');
+            if (action === 'REGISTER') {
+              triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${payload.displayName || payload.name || payload.email}`);
+            } else {
+              triggerToast(`✏️ প্রোফাইল আপডেট হয়েছে: ${payload.displayName || payload.name || payload.email}`);
+            }
+          }
+          if (type === 'NEW_ENROLLMENT_ORDER' && payload) {
+            handleIncomingEnrollment(payload);
+          }
+        };
+      } catch (e) {}
+    }
+
+    // 3. Window Custom Event Listeners
+    const handleProfileUpdate = (e) => {
+      if (e.detail) {
+        upsertUserInList(e.detail, false);
+        triggerToast(`✏️ প্রোফাইল আপডেট হয়েছে: ${e.detail.displayName || e.detail.name || e.detail.email}`);
       }
     };
-    fetchFirestoreUsers();
-    return () => { isMounted = false; };
-  }, []);
+
+    const handleUserRegistered = (e) => {
+      if (e.detail) {
+        upsertUserInList(e.detail, true);
+        triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${e.detail.displayName || e.detail.name || e.detail.email}`);
+      }
+    };
+
+    const handleNewEnrollmentEvent = (e) => {
+      if (e.detail) {
+        handleIncomingEnrollment(e.detail);
+      }
+    };
+
+    // 4. LocalStorage Cross-Tab Storage Listener
+    const handleStorageChange = (e) => {
+      if (e.key === 'eh_registered_users' && e.newValue) {
+        try {
+          const list = JSON.parse(e.newValue);
+          if (Array.isArray(list)) {
+            list.forEach(u => upsertUserInList(u));
+          }
+        } catch (err) {}
+      }
+      if (e.key === 'eh_current_user' && e.newValue) {
+        try {
+          const cur = JSON.parse(e.newValue);
+          if (cur && cur.email) {
+            upsertUserInList(cur);
+          }
+        } catch (err) {}
+      }
+      if (e.key === 'eh_enrolled_students' && e.newValue) {
+        try {
+          const stList = JSON.parse(e.newValue);
+          if (Array.isArray(stList)) {
+            setEnrolledStudents(stList);
+          }
+        } catch (err) {}
+      }
+    };
+
+    window.addEventListener('eh_profile_updated', handleProfileUpdate);
+    window.addEventListener('eh_user_registered', handleUserRegistered);
+    window.addEventListener('eh_user_changed', (e) => {
+      if (e.detail?.user) upsertUserInList(e.detail.user, e.detail.action === 'REGISTER');
+    });
+    window.addEventListener('eh:new_enrollment', handleNewEnrollmentEvent);
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      if (typeof unsubscribeUsers === 'function') unsubscribeUsers();
+      if (typeof unsubscribeOrders === 'function') unsubscribeOrders();
+      if (bc) bc.close();
+      window.removeEventListener('eh_profile_updated', handleProfileUpdate);
+      window.removeEventListener('eh_user_registered', handleUserRegistered);
+      window.removeEventListener('eh:new_enrollment', handleNewEnrollmentEvent);
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [upsertUserInList, handleIncomingEnrollment]);
 
   // Synchronize AdminPanel state with live updates from App.jsx or cross-tab synchronization
   useEffect(() => {
@@ -448,6 +690,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     if (data.refundPolicy) setRefundPolicy(data.refundPolicy);
     if (data.privacyPolicy) setPrivacyPolicy(data.privacyPolicy);
     if (Array.isArray(data.users)) setUsersList(data.users);
+    if (Array.isArray(data.instructors) && data.instructors.length > 0) setInstructors(data.instructors);
   }, [data]);
 
   // Edu Hunters Real Enrolled Students State
@@ -1045,6 +1288,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
     const fullState = {
       ...data,
+      _lastUpdated: new Date().toISOString(),
       siteSettings: overrides.siteSettings !== undefined ? overrides.siteSettings : siteSettings,
       announcement: overrides.announcement !== undefined ? overrides.announcement : announcement,
       heroSlides: overrides.heroSlides !== undefined ? overrides.heroSlides : heroSlides,

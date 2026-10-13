@@ -173,6 +173,33 @@ export function AuthProvider({ children }) {
     }
   }, [isLiveFirebase]);
 
+  // Real-time broadcaster for User Registration and Profile Updates across windows & tabs
+  const broadcastUserSync = (action, user) => {
+    try {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('eh_user_changed', { detail: { action, user } }));
+        if (action === 'REGISTER') {
+          window.dispatchEvent(new CustomEvent('eh_user_registered', { detail: user }));
+        } else {
+          window.dispatchEvent(new CustomEvent('eh_profile_updated', { detail: user }));
+        }
+        window.dispatchEvent(new Event('storage'));
+
+        if (typeof BroadcastChannel !== 'undefined') {
+          try {
+            const bc = new BroadcastChannel('eduhunters_sync_channel');
+            bc.postMessage({
+              type: 'USER_SYNC',
+              action,
+              payload: user
+            });
+            bc.close();
+          } catch (e) {}
+        }
+      }
+    } catch (e) {}
+  };
+
   // Sign up with Email and Password
   const signup = async (email, password, displayName) => {
     const defaultAvatar = '/avatar.png';
@@ -188,12 +215,25 @@ export function AuthProvider({ children }) {
         await syncUserToFirestore(res.user, { displayName, photoURL: defaultAvatar });
         const createdUser = {
           uid: res.user.uid,
+          id: res.user.uid,
           email: res.user.email,
           displayName: displayName || res.user.displayName || cleanEmail.split('@')[0],
+          name: displayName || res.user.displayName || cleanEmail.split('@')[0],
           photoURL: defaultAvatar,
-          role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student'
+          role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student',
+          createdAt: new Date().toISOString()
         };
+        // Also save to eh_registered_users for instant local availability
+        try {
+          const mockUsers = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
+          if (!mockUsers.some(u => u.email.toLowerCase() === cleanEmail)) {
+            mockUsers.push(createdUser);
+            localStorage.setItem('eh_registered_users', JSON.stringify(mockUsers));
+          }
+        } catch (e) {}
+
         setCurrentUser(createdUser);
+        broadcastUserSync('REGISTER', createdUser);
         return res.user;
       } catch (err) {
         if (err.code === 'auth/unauthorized-domain') {
@@ -206,8 +246,10 @@ export function AuthProvider({ children }) {
           }
           const newUser = {
             uid: 'user_' + Date.now(),
+            id: 'user_' + Date.now(),
             email: cleanEmail,
             displayName: displayName || cleanEmail.split('@')[0],
+            name: displayName || cleanEmail.split('@')[0],
             photoURL: defaultAvatar,
             role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student',
             createdAt: new Date().toISOString()
@@ -216,6 +258,18 @@ export function AuthProvider({ children }) {
           localStorage.setItem('eh_registered_users', JSON.stringify(mockUsers));
           localStorage.setItem('eh_current_user', JSON.stringify(newUser));
           setCurrentUser(newUser);
+
+          if (isFirebaseConfigured && db) {
+            try {
+              setDoc(doc(db, 'users', newUser.uid), {
+                ...newUser,
+                createdAt: serverTimestamp(),
+                lastLoginAt: serverTimestamp()
+              }, { merge: true }).catch(() => {});
+            } catch (e) {}
+          }
+
+          broadcastUserSync('REGISTER', newUser);
           return newUser;
         }
         throw err;
@@ -230,8 +284,10 @@ export function AuthProvider({ children }) {
       }
       const newUser = {
         uid: 'user_' + Date.now(),
+        id: 'user_' + Date.now(),
         email: cleanEmail,
         displayName: displayName || cleanEmail.split('@')[0],
+        name: displayName || cleanEmail.split('@')[0],
         photoURL: defaultAvatar,
         role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student',
         createdAt: new Date().toISOString()
@@ -240,6 +296,18 @@ export function AuthProvider({ children }) {
       localStorage.setItem('eh_registered_users', JSON.stringify(mockUsers));
       localStorage.setItem('eh_current_user', JSON.stringify(newUser));
       setCurrentUser(newUser);
+
+      if (isFirebaseConfigured && db) {
+        try {
+          setDoc(doc(db, 'users', newUser.uid), {
+            ...newUser,
+            createdAt: serverTimestamp(),
+            lastLoginAt: serverTimestamp()
+          }, { merge: true }).catch(() => {});
+        } catch (e) {}
+      }
+
+      broadcastUserSync('REGISTER', newUser);
       return newUser;
     }
   };
@@ -343,19 +411,32 @@ export function AuthProvider({ children }) {
       try {
         const res = await signInWithPopup(auth, googleProvider);
         await syncUserToFirestore(res.user);
+        const mappedGoogleUser = {
+          uid: res.user.uid,
+          id: res.user.uid,
+          email: res.user.email,
+          displayName: res.user.displayName || res.user.email?.split('@')[0],
+          name: res.user.displayName || res.user.email?.split('@')[0],
+          photoURL: res.user.photoURL || '/avatar.png',
+          role: res.user.email === 'admin@eduhunters.com' ? 'admin' : 'student'
+        };
+        broadcastUserSync('REGISTER', mappedGoogleUser);
         return res.user;
       } catch (err) {
         if (err.code === 'auth/unauthorized-domain') {
           console.warn('[AuthContext] Domain not authorized in Firebase Console for Google sign-in yet.');
           const googleUser = {
             uid: 'g_' + Date.now(),
+            id: 'g_' + Date.now(),
             email: 'student@eduhunters.com',
             displayName: 'Edu Hunters Student',
+            name: 'Edu Hunters Student',
             photoURL: '/avatar.png',
             role: 'student'
           };
           localStorage.setItem('eh_current_user', JSON.stringify(googleUser));
           setCurrentUser(googleUser);
+          broadcastUserSync('REGISTER', googleUser);
           return googleUser;
         }
         throw err;
@@ -364,13 +445,16 @@ export function AuthProvider({ children }) {
       // Demo Google login
       const googleUser = {
         uid: 'g_' + Date.now(),
+        id: 'g_' + Date.now(),
         email: 'student@eduhunters.com',
         displayName: 'Edu Hunters Student',
+        name: 'Edu Hunters Student',
         photoURL: '/avatar.png',
         role: 'student'
       };
       localStorage.setItem('eh_current_user', JSON.stringify(googleUser));
       setCurrentUser(googleUser);
+      broadcastUserSync('REGISTER', googleUser);
       return googleUser;
     }
   };
@@ -424,18 +508,18 @@ export function AuthProvider({ children }) {
             console.warn('[AuthContext] Firebase auth updateProfile notice:', e);
           }
         }
+      }
 
-        // Firestore sync for extra fields: phone, whatsapp, college, hscBatch, etc.
-        if (db && currentUser?.uid) {
-          try {
-            const userRef = doc(db, 'users', currentUser.uid);
-            await setDoc(userRef, {
-              ...profileUpdates,
-              updatedAt: serverTimestamp()
-            }, { merge: true });
-          } catch (e) {
-            console.warn('[AuthContext] Firestore sync notice:', e);
-          }
+      // Firestore sync for extra fields: phone, whatsapp, college, hscBatch, displayName, etc.
+      if (isFirebaseConfigured && db && currentUser?.uid) {
+        try {
+          const userRef = doc(db, 'users', currentUser.uid);
+          await setDoc(userRef, {
+            ...profileUpdates,
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+        } catch (e) {
+          console.warn('[AuthContext] Firestore sync notice:', e);
         }
       }
 
@@ -461,10 +545,8 @@ export function AuthProvider({ children }) {
       // 3. Update React state
       setCurrentUser(mergedUser);
       
-      // 4. Trigger storage / global event for other components
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('eh_profile_updated', { detail: mergedUser }));
-      }
+      // 4. Trigger storage, broadcast channel & global event for other components & AdminPanel
+      broadcastUserSync('UPDATE', mergedUser);
 
       return mergedUser;
     } catch (err) {

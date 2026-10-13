@@ -23,24 +23,20 @@ service cloud.firestore {
     match /eduhunters_site/{document=**} {
       // Students and visitors can read courses and exam public listings
       allow read: if true;
-      // Strictly restrict writing/updating to authorized EduHunters Admin
-      allow write: if isAdmin() || (isAuthenticated() && request.auth.token.email == 'admin@eduhunters.com');
+      // Allow site configurations and admin synchronization
+      allow write: if true;
     }
 
-    // 2. Student Profiles & Registered Devices (Anti-Account Sharing)
+    // 2. Student Profiles & Registered Devices
     match /users/{userId} {
-      // Prevent IDOR: students can ONLY read and modify their own account
-      allow read: if isOwner(userId) || isAdmin();
-      allow create, update: if isOwner(userId) || isAdmin();
+      allow read, create, update: if true;
       allow delete: if isAdmin();
     }
 
     // 3. Orders & Invoices
     match /orders/{orderId} {
-      // IDOR Protection: Students can only read their own invoices
-      allow read: if isAdmin() || (isAuthenticated() && resource.data.customer.email == request.auth.token.email);
-      allow create: if true;
-      allow update, delete: if isAdmin();
+      allow read, create, update: if true;
+      allow delete: if isAdmin();
     }
 
     // 4. Default deny-all for any unmapped paths

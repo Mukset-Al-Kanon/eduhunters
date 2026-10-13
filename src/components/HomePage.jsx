@@ -215,7 +215,9 @@ export default function HomePage({
     return raw;
   }, [data.homeStats]);
   const homeCourses = Array.isArray(data.courses) ? data.courses : homeCoursesData;
-  const instructors = Array.isArray(data.instructors) ? data.instructors : instructorsData;
+  const instructors = Array.isArray(data.instructors) && data.instructors.length > 0 
+    ? data.instructors 
+    : instructorsData;
   const rawFreeVideos = Array.isArray(data.freeVideos) ? data.freeVideos : freeVideosData;
   const whyChooseUs = Array.isArray(data.whyChooseUs) ? data.whyChooseUs : whyChooseUsData;
   const REMOVED_CATEGORIES = ["HSC 25", "Engineering", "HSC 27", "HSC 28", "HSC 26", "Free", "free"];
@@ -1076,11 +1078,13 @@ export default function HomePage({
             <div className="eh-band relative overflow-hidden rounded-2xl mb-10">
               <div className="px-6 py-7 md:px-8 md:py-9 relative z-10 flex flex-wrap items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.22em] text-white opacity-80 mb-1">
-                    {st.facultyBadge || "আমার পরিচয়"}
-                  </span>
+                  {st.facultyBadge && st.facultyBadge !== "আমার পরিচয়" && st.facultyBadge !== "আমার পরিচয়" && (
+                    <span className="block text-[11px] font-bold uppercase tracking-[0.22em] text-white opacity-80 mb-1">
+                      {st.facultyBadge}
+                    </span>
+                  )}
                   <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight leading-none">
-                    {st.facultyTitle || "Meet Our Expert Faculty"}
+                    {st.facultyTitle === "Meet Our Expert Faculty" ? "Meet Our Team" : (st.facultyTitle || "Meet Our Team")}
                   </h2>
                 </div>
                 <div className="shrink-0">
@@ -1097,9 +1101,9 @@ export default function HomePage({
 
             {/* Horizontal Track Cards */}
             <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide">
-              {instructors.map((inst) => (
+              {instructors.map((inst, idx) => (
                 <div 
-                  key={inst.id}
+                  key={inst.id || `${inst.name}-${idx}`}
                   className={`flex-shrink-0 w-60 sm:w-64 rounded-2xl overflow-hidden transition-all duration-300 group cursor-pointer ${
                     isDark 
                       ? 'bg-[#140307]/90 border border-[#e11438]/20 hover:border-[#e11438]/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)]' 
@@ -1122,10 +1126,9 @@ export default function HomePage({
                     </div>
                   </div>
                   <div className="p-4">
-                    <div className="flex items-center gap-1.5 mb-2">
-                      <svg className="w-3 h-3 text-yellow-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 14.5a1 1 0 110-2 1 1 0 010 2zm1-5a1 1 0 11-2 0V7a1 1 0 112 0v4.5z"></path></svg>
-                      <span className={`text-[10px] font-bold uppercase tracking-[0.15em] truncate ${
-                        isDark ? 'text-[#ff6b8b]/80' : 'text-gray-500'
+                    <div className="mb-1.5">
+                      <span className={`text-[10px] font-bold uppercase tracking-[0.15em] truncate block ${
+                        isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
                       }`}>
                         {inst.designation}
                       </span>

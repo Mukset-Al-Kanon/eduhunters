@@ -17,7 +17,7 @@ export default function AboutPage({
   onLoginClick 
 }) {
   const { isDark } = useTheme();
-  const instructors = data.instructors || instructorsData;
+  const instructors = Array.isArray(data.instructors) && data.instructors.length > 0 ? data.instructors : instructorsData;
   const siteSettings = data.siteSettings || {};
   const sectionTexts = data.sectionTexts || {};
 
@@ -96,9 +96,9 @@ export default function AboutPage({
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                {instructors.map((t) => (
+                {instructors.map((t, idx) => (
                   <div 
-                    key={t.id}
+                    key={t.id || `${t.name}-${idx}`}
                     className={`group rounded-2xl overflow-hidden transition-all duration-300 border ${
                       isDark 
                         ? 'bg-[#120407]/90 border-[#e11438]/20 hover:border-[#e11438]/60 hover:shadow-[0_12px_40px_rgba(225,20,56,0.25)]' 
