@@ -330,7 +330,7 @@ export default function App() {
           announcement: parsed.announcement || initialData.announcement,
           sectionTexts: { ...initialData.sectionTexts, ...(parsed.sectionTexts || {}) },
           whyChooseUs: Array.isArray(parsed.whyChooseUs) && parsed.whyChooseUs.length > 0 ? parsed.whyChooseUs : initialData.whyChooseUs,
-          heroSlides: (Array.isArray(parsed.heroSlides) && !parsed.heroSlides.some(s => s.image?.includes('sanjid_vaiyar_all_batch_2627'))) 
+          heroSlides: (Array.isArray(parsed.heroSlides) && parsed.heroSlides.length > 0) 
             ? parsed.heroSlides 
             : initialData.heroSlides,
           homeStats: (Array.isArray(parsed.homeStats) && parsed.homeStats.length > 0 && !parsed.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) 
@@ -977,10 +977,11 @@ export default function App() {
         setViewMode('orders');
       }, '/orders');
     },
-    onOpenAdmin: () => {
+    onOpenAdmin: (tab = null) => {
+      const url = tab ? `/admin?tab=${tab}` : '/admin';
       navigateWithSmoothTransition(() => {
         setViewMode('admin');
-      }, '/admin');
+      }, url);
     },
     onNavigatePolicies: (policyTab = 'terms') => {
       const tab = ['terms', 'refund', 'privacy'].includes(policyTab) ? policyTab : 'terms';

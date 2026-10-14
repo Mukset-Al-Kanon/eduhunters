@@ -39,13 +39,12 @@ export async function saveCloudData(newData) {
     const docRef = doc(db, COLLECTION_NAME, DOC_ID);
     const now = new Date().toISOString();
 
-    // Prevent Firestore 1MB document quota crash if base64 images exist in slides/bundles
+    // Prevent Firestore 1MB document quota crash only if data strictly approaches 1MB limit
     const jsonStr = JSON.stringify(sanitized);
-    if (jsonStr.length > 750000 && sanitized.heroSlides) {
-      // Strip base64 images if they exceed safe size
+    if (jsonStr.length > 950000 && sanitized.heroSlides) {
       sanitized.heroSlides = sanitized.heroSlides.map(s => {
-        if (s.image && s.image.startsWith('data:image/') && s.image.length > 100000) {
-          return { ...s, image: '/slides/slide-extra-info.jpg' };
+        if (s.image && s.image.startsWith('data:image/') && s.image.length > 200000) {
+          return { ...s, image: s.image.slice(0, 1000) };
         }
         return s;
       });

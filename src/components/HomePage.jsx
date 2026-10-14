@@ -32,6 +32,8 @@ import {
   Info, 
   ChevronLeft,
   ChevronRight,
+  Sliders,
+  Edit2
 } from 'lucide-react';
 
 const calcDiscount = (orig, curr) => {
@@ -187,6 +189,7 @@ export default function HomePage({
 }) {
   const { isDark } = useTheme();
   const { currentUser } = useAuth();
+  const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com';
   const [selectedCategory, setSelectedCategory] = useState("সকল");
   const [showCheckout, setShowCheckout] = useState(false);
   const [selectedCourseForCheckout, setSelectedCourseForCheckout] = useState(null);
@@ -528,6 +531,22 @@ export default function HomePage({
                 : 'shadow-md border border-gray-200 bg-white'
             }`}
           >
+            {/* Quick Admin Slide Manager Button */}
+            {isAdmin && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (onOpenAdmin) onOpenAdmin('slides');
+                }}
+                className="absolute top-3.5 right-3.5 z-30 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/85 hover:bg-blue-600 text-white text-xs font-bold shadow-lg backdrop-blur-md border border-white/20 transition-all cursor-pointer hover:scale-105 active:scale-95"
+                title="হিরো স্লাইডার এডিট করুন"
+              >
+                <Sliders className="w-3.5 h-3.5 text-blue-400 group-hover:text-white" />
+                <span>স্লাইডার এডিট</span>
+              </button>
+            )}
+
             <div 
               onTransitionEnd={handleSlideTransitionEnd}
               className={`flex h-full ${

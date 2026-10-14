@@ -162,26 +162,9 @@ export default function CoursePlayerPage({
 
     curriculum.forEach((sec, secIdx) => {
       const secTitle = sec.name || sec.title || `Module ${secIdx + 1}`;
-      if (sec.lessons && sec.lessons.length > 0) {
-        sec.lessons.forEach((les, lesIdx) => {
-          const isObj = typeof les === 'object' && les !== null;
-          const lesId = isObj ? String(les.id !== undefined ? les.id : `s${secIdx}-l${lesIdx}`) : `s${secIdx}-l${lesIdx}`;
-          const lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null) || course.previewVideoUrl || course.videoUrl) : (course.previewVideoUrl || course.videoUrl);
-          list.push({
-            id: lesId,
-            title: isObj ? les.title : les,
-            duration: isObj ? les.duration : null,
-            videoUrl: lesVideo,
-            pdfUrl: isObj ? les.pdfUrl : null,
-            quiz: isObj ? (les.quiz || les.exam) : null,
-            examId: isObj ? les.examId : null,
-            isFree: isObj ? Boolean(les.isFree) : false,
-            sectionTitle: secTitle,
-            chapterTitle: secTitle,
-            globalIndex: list.length
-          });
-        });
-      } else if (sec.chapters && sec.chapters.length > 0) {
+      const hasChapterLessons = Array.isArray(sec.chapters) && sec.chapters.some(ch => (ch.lessons || []).length > 0);
+
+      if (hasChapterLessons) {
         sec.chapters.forEach((chap, chapIdx) => {
           const chapTitle = chap.name || chap.title || `Chapter ${chapIdx + 1}`;
           (chap.lessons || []).forEach((les, lesIdx) => {
@@ -222,6 +205,25 @@ export default function CoursePlayerPage({
               chapterTitle: chapTitle,
               globalIndex: list.length
             });
+          });
+        });
+      } else if (sec.lessons && sec.lessons.length > 0) {
+        sec.lessons.forEach((les, lesIdx) => {
+          const isObj = typeof les === 'object' && les !== null;
+          const lesId = isObj ? String(les.id !== undefined ? les.id : `s${secIdx}-l${lesIdx}`) : `s${secIdx}-l${lesIdx}`;
+          const lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null) || course.previewVideoUrl || course.videoUrl) : (course.previewVideoUrl || course.videoUrl);
+          list.push({
+            id: lesId,
+            title: isObj ? les.title : les,
+            duration: isObj ? les.duration : null,
+            videoUrl: lesVideo,
+            pdfUrl: isObj ? les.pdfUrl : null,
+            quiz: isObj ? (les.quiz || les.exam) : null,
+            examId: isObj ? les.examId : null,
+            isFree: isObj ? Boolean(les.isFree) : false,
+            sectionTitle: secTitle,
+            chapterTitle: secTitle,
+            globalIndex: list.length
           });
         });
       }

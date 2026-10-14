@@ -367,7 +367,20 @@ export default function CourseStudioPage({
   // Helper to trigger save with animation
   const notifySave = (updatedCourse) => {
     setSaveStatus('saving');
-    onUpdateCourse(updatedCourse);
+    // Ensure every section has lessons synchronized with chapters so no classes are ever omitted
+    let payload = updatedCourse;
+    if (Array.isArray(updatedCourse?.curriculum)) {
+      const syncedCurriculum = updatedCourse.curriculum.map(sec => {
+        const chapters = Array.isArray(sec.chapters) ? sec.chapters : [];
+        const flatLessons = chapters.flatMap(ch => ch.lessons || []);
+        return {
+          ...sec,
+          lessons: flatLessons.length > 0 ? flatLessons : (sec.lessons || [])
+        };
+      });
+      payload = { ...updatedCourse, curriculum: syncedCurriculum };
+    }
+    onUpdateCourse(payload);
     setTimeout(() => {
       setSaveStatus('saved');
     }, 350);

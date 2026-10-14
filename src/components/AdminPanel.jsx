@@ -79,10 +79,27 @@ import {
   testBunnyStorageConnection
 } from '../services/bunnyService';
 import { saveCloudData } from '../services/firestoreSyncService';
+import { uploadImageFile } from '../services/cloudStorageService';
 
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTabState] = useState(() => {
+    try {
+      const sp = new URLSearchParams(window.location.search);
+      const tabParam = sp.get('tab');
+      if (tabParam) return tabParam;
+    } catch {}
+    return 'overview';
+  });
+
+  const setActiveTab = (newTab) => {
+    setActiveTabState(newTab);
+    try {
+      const sp = new URLSearchParams(window.location.search);
+      sp.set('tab', newTab);
+      window.history.replaceState(null, '', `?${sp.toString()}`);
+    } catch {}
+  };
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   // Bulletproof state initialization - NEVER empty or undefined
@@ -1016,56 +1033,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setGalleryModalOpen(true);
   };
 
-  // Direct File Upload from Device Gallery (converts & compresses via canvas to high definition optimized data URL)
-  const handleDeviceFileUpload = (file, onSelect) => {
+  // Direct File Upload from Device Gallery (uploads directly to cloud storage)
+  const handleDeviceFileUpload = async (file, onSelect) => {
     if (!file) return;
     if (!file.type.startsWith('image/')) {
       triggerToast('Please select a valid image file');
       return;
     }
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        // Full HD 1080p/Retina standard (1920px width) for ultra-sharp banners & text clarity
-        const maxDim = 1920;
-        let width = img.width;
-        let height = img.height;
-        if (width > maxDim || height > maxDim) {
-          if (width > height) {
-            height = Math.round((height * maxDim) / width);
-            width = maxDim;
-          } else {
-            width = Math.round((width * maxDim) / height);
-            height = maxDim;
-          }
-        }
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        // High quality bicubic resampling for sharp text and details
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = 'high';
-        ctx.drawImage(img, 0, 0, width, height);
-
-        // High quality WebP (0.92) with fallback to high quality JPEG
-        let optimized = '';
-        try {
-          optimized = canvas.toDataURL('image/webp', 0.92);
-          if (!optimized.startsWith('data:image/webp')) {
-            optimized = canvas.toDataURL('image/jpeg', 0.90);
-          }
-        } catch (err) {
-          optimized = canvas.toDataURL('image/jpeg', 0.90);
-        }
-
-        if (onSelect) onSelect(optimized);
-        triggerToast('✅ High Definition photo updated from gallery successfully!');
-      };
-      img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
+    triggerToast('⏳ Uploading image to cloud...');
+    try {
+      const res = await uploadImageFile(file, 'banner');
+      if (res && res.url) {
+        if (onSelect) onSelect(res.url);
+        triggerToast('✅ High Definition photo updated successfully!');
+      }
+    } catch (err) {
+      console.warn('[AdminPanel] Image upload error:', err);
+      triggerToast('⚠️ Image upload error, please retry');
+    }
   };
 
   // Unified Image / Media Picker Modal (Curated Presets Library Removed)
@@ -5546,7 +5531,21 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {heroSlides.map((slide, idx) => (
                     <div key={slide.id || idx} className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
-                      <div className="relative aspect-[3.6/1.5] bg-slate-100 overflow-hidden">
+                      <div 
+                        onDragOver={(e) => e.preventDefault()}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          const file = e.dataTransfer?.files?.[0];
+                          if (file) {
+                            handleDeviceFileUpload(file, (url) => {
+                              const updated = heroSlides.map((s, i) => i === idx ? { ...s, image: url } : s);
+                              setHeroSlides(updated);
+                              persistAll({ heroSlides: updated });
+                            });
+                          }
+                        }}
+                        className="relative aspect-[3.6/1.5] bg-slate-100 overflow-hidden"
+                      >
                         <img 
                           src={slide.image} 
                           alt={slide.title} 
@@ -5555,9 +5554,49 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             e.target.src = "https://assets.codervai.com/banners/1781465730213-cropped-image.webp";
                           }}
                         />
-                        <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-xs text-slate-800 shadow-2xs">
-                          Slide #{idx + 1}
-                        </span>
+                        <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-xs text-slate-800 shadow-2xs">
+                            Slide #{idx + 1}
+                          </span>
+                        </div>
+
+                        {/* Reorder Buttons Overlay */}
+                        <div className="absolute top-2.5 right-2.5 flex items-center gap-1">
+                          <button
+                            type="button"
+                            disabled={idx === 0}
+                            onClick={() => {
+                              if (idx === 0) return;
+                              const copy = [...heroSlides];
+                              const temp = copy[idx];
+                              copy[idx] = copy[idx - 1];
+                              copy[idx - 1] = temp;
+                              setHeroSlides(copy);
+                              persistAll({ heroSlides: copy });
+                            }}
+                            className="w-7 h-7 rounded-full bg-white/90 hover:bg-white text-slate-700 disabled:opacity-40 flex items-center justify-center border-none shadow-xs cursor-pointer transition-transform hover:scale-105"
+                            title="Move Left / Earlier"
+                          >
+                            <ArrowUp className="w-3.5 h-3.5 -rotate-90" />
+                          </button>
+                          <button
+                            type="button"
+                            disabled={idx === heroSlides.length - 1}
+                            onClick={() => {
+                              if (idx === heroSlides.length - 1) return;
+                              const copy = [...heroSlides];
+                              const temp = copy[idx];
+                              copy[idx] = copy[idx + 1];
+                              copy[idx + 1] = temp;
+                              setHeroSlides(copy);
+                              persistAll({ heroSlides: copy });
+                            }}
+                            className="w-7 h-7 rounded-full bg-white/90 hover:bg-white text-slate-700 disabled:opacity-40 flex items-center justify-center border-none shadow-xs cursor-pointer transition-transform hover:scale-105"
+                            title="Move Right / Later"
+                          >
+                            <ArrowDown className="w-3.5 h-3.5 -rotate-90" />
+                          </button>
+                        </div>
                       </div>
 
                       <div className="p-4 space-y-3">
@@ -5578,10 +5617,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                         <div>
                           <div className="flex items-center justify-between mb-1">
-                            <label className="text-[11px] text-slate-500 font-semibold">Banner Image</label>
+                            <label className="text-[11px] text-slate-500 font-semibold">Banner Image (Drag & Drop or Pick)</label>
                             <label className="text-[10px] text-rose-600 font-bold hover:underline cursor-pointer flex items-center gap-1">
                               <Upload className="w-3 h-3" />
-                              Select from Device
+                              Select Photo
                               <input
                                 type="file"
                                 accept="image/*"
@@ -5625,12 +5664,30 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             }}
                             className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-mono text-slate-600 outline-none focus:bg-white focus:border-blue-500 transition-all"
                           />
+                          {/* Quick Link Presets */}
+                          <div className="flex items-center gap-1 flex-wrap mt-1.5">
+                            <span className="text-[10px] text-slate-400 font-semibold">Presets:</span>
+                            {['/courses', '/exams', '/exams?category=medical', '/exams?category=sureshot', '/store', '/bundles'].map((preset) => (
+                              <button
+                                key={preset}
+                                type="button"
+                                onClick={() => {
+                                  const updated = heroSlides.map((s, i) => i === idx ? { ...s, link: preset } : s);
+                                  setHeroSlides(updated);
+                                  persistAll({ heroSlides: updated });
+                                }}
+                                className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 hover:bg-slate-200 text-slate-600 font-mono transition-colors border-none cursor-pointer"
+                              >
+                                {preset}
+                              </button>
+                            ))}
+                          </div>
                         </div>
                       </div>
 
                       <div className="p-4 pt-0 border-t border-slate-100 flex items-center justify-between">
                         <span className="text-[10px] uppercase font-bold text-slate-400">
-                          Type: <span className="text-blue-600">{slide.type}</span>
+                          Type: <span className="text-blue-600">{slide.type || 'banner'}</span>
                         </span>
                         {slideToDelete === idx ? (
                           <div className="flex items-center gap-1.5 animate-in fade-in duration-150">
