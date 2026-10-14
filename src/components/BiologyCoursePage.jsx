@@ -40,10 +40,60 @@ import { useEnrollmentStatus, grantCourseAccess } from '../utils/enrollmentServi
 
 function getEmbedUrl(url) {
   if (!url) return '';
-  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
-  if (match && match[1]) {
-    return `https://www.youtube.com/embed/${match[1]}?rel=0&playsinline=1&enablejsapi=1`;
-  }
+  try {
+    const trimmed = String(url).trim();
+    if (!trimmed) return '';
+
+    // 1. Bunny Stream Direct Iframe Embed URL
+    if (trimmed.includes('iframe.mediadelivery.net/embed/')) {
+      const glue = trimmed.includes('?') ? '&' : '?';
+      return `${trimmed}${glue}autoplay=false&preload=true`;
+    }
+
+    // 2. Bunny Stream Play URL
+    if (trimmed.includes('video.bunnycdn.com/play/')) {
+      const parts = trimmed.split('video.bunnycdn.com/play/')[1].split('?')[0].split('/');
+      if (parts.length >= 2) {
+        return `https://iframe.mediadelivery.net/embed/${parts[0]}/${parts[1]}?autoplay=false&preload=true`;
+      }
+    }
+
+    // 3. Bunny shorthand: "bunny:777670/videoId"
+    if (trimmed.startsWith('bunny:')) {
+      const rest = trimmed.replace('bunny:', '');
+      return `https://iframe.mediadelivery.net/embed/${rest}?autoplay=false&preload=true`;
+    }
+
+    // 4. Extract YouTube ID
+    let ytId = '';
+    if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
+      ytId = trimmed;
+    } else if (trimmed.includes('youtube.com/watch')) {
+      try {
+        const parsed = new URL(trimmed);
+        ytId = parsed.searchParams.get('v') || '';
+      } catch (e) {}
+    } else if (trimmed.includes('youtu.be/')) {
+      ytId = trimmed.split('youtu.be/')[1].split('?')[0].split('&')[0];
+    } else if (trimmed.includes('youtube.com/embed/')) {
+      ytId = trimmed.split('youtube.com/embed/')[1].split('?')[0].split('&')[0];
+    } else if (trimmed.includes('youtube.com/shorts/')) {
+      ytId = trimmed.split('youtube.com/shorts/')[1].split('?')[0].split('&')[0];
+    } else if (trimmed.includes('youtube.com/live/')) {
+      ytId = trimmed.split('youtube.com/live/')[1].split('?')[0].split('&')[0];
+    } else if (trimmed.includes('vimeo.com/')) {
+      const vParts = trimmed.split('vimeo.com/')[1].split('?')[0].split('/');
+      if (vParts[0]) {
+        return `https://player.vimeo.com/video/${vParts[0]}?autoplay=0`;
+      }
+    }
+
+    if (ytId) {
+      return `https://www.youtube.com/embed/${ytId}?rel=0&playsinline=1&enablejsapi=1`;
+    }
+
+    return trimmed;
+  } catch {}
   return url;
 }
 

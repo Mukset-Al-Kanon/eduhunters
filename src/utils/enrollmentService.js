@@ -3,6 +3,8 @@
 import { getUserOrders } from '../services/orderService';
 import { initialData } from '../data/mockData';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
+import { db, isFirebaseConfigured } from '../firebase/config';
+import { doc, setDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import React, { useState, useEffect, useMemo } from 'react';
 
 export const ENROLLED_COURSES_KEY = 'eduhunters_enrolled_courses';
@@ -138,13 +140,21 @@ export function resolveAllAssociatedKeys(itemOrTitle, data = {}) {
 
 /**
  * Grants access to a course, bundle, or exam batch.
- * Updates localStorage, active user, orders, and broadcasts real-time update events.
+ * Can be called for current user OR an explicitly passed targetUser.
+ * Updates localStorage, user-scoped keys, eh_registered_users, orders, Firestore, and broadcasts real-time events.
  */
-export function grantCourseAccess(itemOrTitle, data = {}) {
+export function grantCourseAccess(itemOrTitle, data = {}, targetUser = null) {
   try {
     const { courses: resolvedCourses, batches: resolvedBatches } = resolveAllAssociatedKeys(itemOrTitle, data);
+    const titleToUse = typeof itemOrTitle === 'object' && itemOrTitle !== null
+      ? (itemOrTitle.title || itemOrTitle.name || itemOrTitle.id)
+      : String(itemOrTitle || '');
 
-    // 1. Update localStorage eduhunters_enrolled_courses
+    const targetUid = targetUser?.uid || targetUser?.id || null;
+    const targetEmail = (targetUser?.email || '').toLowerCase().trim();
+    const targetPhone = (targetUser?.phone || targetUser?.whatsapp || '').replace(/[^0-9]/g, '');
+
+    // 1. Update localStorage eduhunters_enrolled_courses (global / current browser)
     const currentCourses = getStoredEnrolledCourses();
     const nextCourses = Array.from(new Set([...currentCourses, ...resolvedCourses]));
     localStorage.setItem(ENROLLED_COURSES_KEY, JSON.stringify(nextCourses));
@@ -154,29 +164,80 @@ export function grantCourseAccess(itemOrTitle, data = {}) {
     const nextBatches = Array.from(new Set([...currentBatches, ...resolvedBatches]));
     localStorage.setItem(ENROLLED_BATCHES_KEY, JSON.stringify(nextBatches));
 
-    // 3. Update localStorage currentUser if available
+    // 3. Update target user specific scoped localStorage keys (for Dashboard & CoursePlayer)
+    if (targetUid) {
+      try {
+        const uScopedCourses = JSON.parse(localStorage.getItem(`eduhunters_enrolled_courses_${targetUid}`) || '[]');
+        const nextUAdminCourses = Array.from(new Set([...uScopedCourses, ...resolvedCourses]));
+        localStorage.setItem(`eduhunters_enrolled_courses_${targetUid}`, JSON.stringify(nextUAdminCourses));
+
+        const uScopedBatches = JSON.parse(localStorage.getItem(`eduhunters_enrolled_batches_${targetUid}`) || '[]');
+        const nextUAdminBatches = Array.from(new Set([...uScopedBatches, ...resolvedBatches]));
+        localStorage.setItem(`eduhunters_enrolled_batches_${targetUid}`, JSON.stringify(nextUAdminBatches));
+      } catch (e) {}
+    }
+
+    // 4. Update localStorage currentUser if matching or targetUser is null
     try {
       const rawUser = localStorage.getItem('eh_current_user');
       if (rawUser) {
         const parsedUser = JSON.parse(rawUser);
-        const userCourses = parsedUser.enrolledCourses || [];
-        parsedUser.enrolledCourses = Array.from(new Set([...userCourses, ...resolvedCourses]));
-        localStorage.setItem('eh_current_user', JSON.stringify(parsedUser));
+        const curEmail = (parsedUser.email || '').toLowerCase().trim();
+        const curUid = parsedUser.uid || parsedUser.id;
+        const isMatch = !targetUser || (curEmail && targetEmail && curEmail === targetEmail) || (curUid && targetUid && curUid === targetUid);
+
+        if (isMatch) {
+          const userCourses = parsedUser.enrolledCourses || [];
+          parsedUser.enrolledCourses = Array.from(new Set([...userCourses, ...resolvedCourses]));
+          localStorage.setItem('eh_current_user', JSON.stringify(parsedUser));
+        }
       }
     } catch (e) {}
 
-    // 4. Update matching orders in orderService storage
+    // 5. Update eh_registered_users list
+    try {
+      const rawReg = localStorage.getItem('eh_registered_users');
+      if (rawReg) {
+        const regList = JSON.parse(rawReg);
+        if (Array.isArray(regList)) {
+          const updatedReg = regList.map(u => {
+            const uEmail = (u.email || '').toLowerCase().trim();
+            const uUid = u.uid || u.id;
+            const uPhone = (u.whatsapp || u.phone || '').replace(/[^0-9]/g, '');
+
+            const isTarget = (targetEmail && uEmail === targetEmail) ||
+                             (targetUid && uUid === targetUid) ||
+                             (targetPhone && uPhone && targetPhone === uPhone);
+
+            if (isTarget) {
+              const prevCourses = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
+              return {
+                ...u,
+                enrolledCourses: Array.from(new Set([...prevCourses, ...resolvedCourses]))
+              };
+            }
+            return u;
+          });
+          localStorage.setItem('eh_registered_users', JSON.stringify(updatedReg));
+        }
+      }
+    } catch (e) {}
+
+    // 6. Update matching orders or generate an Admin Grant Paid Order in orderService storage
     try {
       const orders = getUserOrders();
       let updatedOrders = false;
-      const normRaw = normalizeStr(typeof itemOrTitle === 'object' ? (itemOrTitle.title || itemOrTitle.name || itemOrTitle.id) : itemOrTitle);
+      const normRaw = normalizeStr(titleToUse);
 
       const nextOrdersList = orders.map(ord => {
+        const ordEmail = (ord.customer?.email || '').toLowerCase().trim();
+        const ordUid = ord.userId || ord.customer?.uid;
         const ordTitle = normalizeStr(ord.course?.name || ord.items?.[0]?.title || '');
         const ordSlug = normalizeStr(ord.course?.slug || ord.course?.id || '');
-        const isMatch = normRaw.includes(ordTitle) || ordTitle.includes(normRaw) || normRaw.includes(ordSlug);
+        const isMatchCourse = normRaw.includes(ordTitle) || ordTitle.includes(normRaw) || normRaw.includes(ordSlug);
+        const isMatchUser = !targetUser || (targetEmail && ordEmail === targetEmail) || (targetUid && ordUid === targetUid);
 
-        if (isMatch && ord.status !== 'PAID') {
+        if (isMatchCourse && isMatchUser && ord.status !== 'PAID') {
           updatedOrders = true;
           return { ...ord, status: 'PAID', isApproved: true };
         }
@@ -185,13 +246,56 @@ export function grantCourseAccess(itemOrTitle, data = {}) {
 
       if (updatedOrders) {
         localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrdersList));
+      } else if (targetUser) {
+        // Create an instant approved Admin Grant order so isItemEnrolled 100% detects it
+        const adminOrder = {
+          id: `ORD-ADM-${Date.now()}`,
+          invoiceNumber: `INV-ADM-${Math.floor(1000 + Math.random() * 9000)}`,
+          status: 'PAID',
+          isApproved: true,
+          totalPaid: 0,
+          customer: {
+            name: targetUser.name || targetUser.displayName || 'Student',
+            email: targetUser.email || '',
+            phone: targetUser.phone || targetUser.whatsapp || '',
+            uid: targetUid
+          },
+          userId: targetUid,
+          course: {
+            id: itemOrTitle?.id || itemOrTitle?.slug || titleToUse,
+            name: titleToUse,
+            title: titleToUse,
+            slug: itemOrTitle?.slug || '',
+            categoryKey: resolvedBatches[0] || undefined
+          },
+          paymentMethodName: 'Admin Direct Grant',
+          transactionId: `GRANT-${Date.now()}`,
+          notes: 'Admin Panel User Management Direct Grant',
+          createdAt: new Date().toISOString()
+        };
+        nextOrdersList.unshift(adminOrder);
+        localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrdersList));
       }
     } catch (e) {}
 
-    // 5. Broadcast real-time events across windows & listeners
+    // 7. Update Cloud Firestore atomically if configured and user has a valid UID
+    if (isFirebaseConfigured && db && targetUid) {
+      try {
+        setDoc(doc(db, 'users', targetUid), {
+          enrolledCourses: arrayUnion(...resolvedCourses),
+          lastAccessGrantedAt: new Date().toISOString()
+        }, { merge: true }).catch(err => {
+          console.warn('[enrollmentService] Firestore setDoc note:', err);
+        });
+      } catch (err) {}
+    }
+
+    // 8. Broadcast real-time events across windows & listeners
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('eh:enrollment_updated', {
         detail: {
+          targetUserId: targetUid,
+          targetEmail: targetEmail,
           courses: resolvedCourses,
           batches: resolvedBatches,
           timestamp: Date.now()
@@ -205,7 +309,12 @@ export function grantCourseAccess(itemOrTitle, data = {}) {
           const bc = new BroadcastChannel('eduhunters_sync_channel');
           bc.postMessage({
             type: 'ENROLLMENT_UPDATED',
-            payload: { courses: resolvedCourses, batches: resolvedBatches }
+            payload: { 
+              targetUserId: targetUid,
+              targetEmail: targetEmail,
+              courses: resolvedCourses, 
+              batches: resolvedBatches 
+            }
           });
           bc.close();
         } catch (e) {}
@@ -216,6 +325,139 @@ export function grantCourseAccess(itemOrTitle, data = {}) {
   } catch (err) {
     console.error('[enrollmentService] Error granting access:', err);
     return { courses: [], batches: [] };
+  }
+}
+
+/**
+ * Revokes access to a course, bundle, or exam batch for a specific user.
+ */
+export function revokeCourseAccess(itemOrTitle, data = {}, targetUser = null) {
+  try {
+    const { courses: resolvedCourses, batches: resolvedBatches } = resolveAllAssociatedKeys(itemOrTitle, data);
+    const targetUid = targetUser?.uid || targetUser?.id || null;
+    const targetEmail = (targetUser?.email || '').toLowerCase().trim();
+    const resolvedSet = new Set(resolvedCourses.map(c => normalizeStr(c)));
+
+    // 1. Update user scoped localStorage keys
+    if (targetUid) {
+      try {
+        const uScopedCourses = JSON.parse(localStorage.getItem(`eduhunters_enrolled_courses_${targetUid}`) || '[]');
+        const nextUAdminCourses = uScopedCourses.filter(c => !resolvedSet.has(normalizeStr(c)));
+        localStorage.setItem(`eduhunters_enrolled_courses_${targetUid}`, JSON.stringify(nextUAdminCourses));
+
+        const uScopedBatches = JSON.parse(localStorage.getItem(`eduhunters_enrolled_batches_${targetUid}`) || '[]');
+        const nextUAdminBatches = uScopedBatches.filter(b => !resolvedBatches.includes(b));
+        localStorage.setItem(`eduhunters_enrolled_batches_${targetUid}`, JSON.stringify(nextUAdminBatches));
+      } catch (e) {}
+    }
+
+    // 2. Update eh_registered_users
+    try {
+      const rawReg = localStorage.getItem('eh_registered_users');
+      if (rawReg) {
+        const regList = JSON.parse(rawReg);
+        if (Array.isArray(regList)) {
+          const updatedReg = regList.map(u => {
+            const uEmail = (u.email || '').toLowerCase().trim();
+            const uUid = u.uid || u.id;
+            const isTarget = (targetEmail && uEmail === targetEmail) || (targetUid && uUid === targetUid);
+            if (isTarget) {
+              const prevCourses = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
+              return {
+                ...u,
+                enrolledCourses: prevCourses.filter(c => !resolvedSet.has(normalizeStr(c)))
+              };
+            }
+            return u;
+          });
+          localStorage.setItem('eh_registered_users', JSON.stringify(updatedReg));
+        }
+      }
+    } catch (e) {}
+
+    // 3. Update currentUser if matching
+    try {
+      const rawUser = localStorage.getItem('eh_current_user');
+      if (rawUser) {
+        const parsedUser = JSON.parse(rawUser);
+        const curEmail = (parsedUser.email || '').toLowerCase().trim();
+        const curUid = parsedUser.uid || parsedUser.id;
+        const isMatch = !targetUser || (curEmail && targetEmail && curEmail === targetEmail) || (curUid && targetUid && curUid === targetUid);
+
+        if (isMatch) {
+          const userCourses = parsedUser.enrolledCourses || [];
+          parsedUser.enrolledCourses = userCourses.filter(c => !resolvedSet.has(normalizeStr(c)));
+          localStorage.setItem('eh_current_user', JSON.stringify(parsedUser));
+
+          const curGlobalCourses = getStoredEnrolledCourses();
+          const nextGlobalCourses = curGlobalCourses.filter(c => !resolvedSet.has(normalizeStr(c)));
+          localStorage.setItem(ENROLLED_COURSES_KEY, JSON.stringify(nextGlobalCourses));
+        }
+      }
+    } catch (e) {}
+
+    // 4. Update orders in orderService storage
+    try {
+      const orders = getUserOrders();
+      const titleToUse = typeof itemOrTitle === 'object' && itemOrTitle !== null
+        ? (itemOrTitle.title || itemOrTitle.name || itemOrTitle.id)
+        : String(itemOrTitle || '');
+      const normRaw = normalizeStr(titleToUse);
+
+      const nextOrdersList = orders.map(ord => {
+        const ordEmail = (ord.customer?.email || '').toLowerCase().trim();
+        const ordUid = ord.userId || ord.customer?.uid;
+        const ordTitle = normalizeStr(ord.course?.name || ord.items?.[0]?.title || '');
+        const isMatchCourse = normRaw.includes(ordTitle) || ordTitle.includes(normRaw);
+        const isMatchUser = !targetUser || (targetEmail && ordEmail === targetEmail) || (targetUid && ordUid === targetUid);
+
+        if (isMatchCourse && isMatchUser) {
+          return { ...ord, status: 'CANCELLED', isApproved: false };
+        }
+        return ord;
+      });
+      localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrdersList));
+    } catch (e) {}
+
+    // 5. Update Firestore atomically if configured
+    if (isFirebaseConfigured && db && targetUid) {
+      try {
+        setDoc(doc(db, 'users', targetUid), {
+          enrolledCourses: arrayRemove(...resolvedCourses),
+          lastAccessRevokedAt: new Date().toISOString()
+        }, { merge: true }).catch(() => {});
+      } catch (e) {}
+    }
+
+    // 6. Broadcast real-time events
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('eh:enrollment_updated', {
+        detail: {
+          targetUserId: targetUid,
+          targetEmail: targetEmail,
+          revoked: resolvedCourses,
+          timestamp: Date.now()
+        }
+      }));
+      window.dispatchEvent(new CustomEvent('eh:orders_updated'));
+      window.dispatchEvent(new Event('storage'));
+
+      if (typeof BroadcastChannel !== 'undefined') {
+        try {
+          const bc = new BroadcastChannel('eduhunters_sync_channel');
+          bc.postMessage({
+            type: 'ENROLLMENT_UPDATED',
+            payload: { targetUserId: targetUid, revoked: resolvedCourses }
+          });
+          bc.close();
+        } catch (e) {}
+      }
+    }
+
+    return true;
+  } catch (err) {
+    console.error('[enrollmentService] Error revoking access:', err);
+    return false;
   }
 }
 
@@ -449,6 +691,7 @@ export function useEnrollmentStatus(itemOrId, currentUser = null, data = null) {
     };
 
     if (typeof window !== 'undefined') {
+      window.addEventListener('eh:enrollment_approved', handleUpdate);
       window.addEventListener('eh:enrollment_updated', handleUpdate);
       window.addEventListener('eh:orders_updated', handleUpdate);
       window.addEventListener('storage', handleUpdate);
@@ -460,7 +703,11 @@ export function useEnrollmentStatus(itemOrId, currentUser = null, data = null) {
       try {
         bc = new BroadcastChannel('eduhunters_sync_channel');
         bc.onmessage = (event) => {
-          if (event.data?.type === 'ENROLLMENT_UPDATED' || event.data?.type === 'DATA_SYNC') {
+          if (
+            event.data?.type === 'ENROLLMENT_APPROVED' || 
+            event.data?.type === 'ENROLLMENT_UPDATED' || 
+            event.data?.type === 'DATA_SYNC'
+          ) {
             setVersion(v => v + 1);
           }
         };
@@ -469,6 +716,7 @@ export function useEnrollmentStatus(itemOrId, currentUser = null, data = null) {
 
     return () => {
       if (typeof window !== 'undefined') {
+        window.removeEventListener('eh:enrollment_approved', handleUpdate);
         window.removeEventListener('eh:enrollment_updated', handleUpdate);
         window.removeEventListener('eh:orders_updated', handleUpdate);
         window.removeEventListener('storage', handleUpdate);

@@ -24,6 +24,49 @@ export default function DashboardPage({
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState('all'); // 'all' | 'courses' | 'exams'
   const [searchQuery, setSearchQuery] = useState('');
+  const [syncVersion, setSyncVersion] = useState(0);
+
+  // Live real-time listener for enrollment approval and order sync
+  useEffect(() => {
+    const handleSync = () => {
+      setSyncVersion(v => v + 1);
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('eh:enrollment_approved', handleSync);
+      window.addEventListener('eh:enrollment_updated', handleSync);
+      window.addEventListener('eh:orders_updated', handleSync);
+      window.addEventListener('storage', handleSync);
+      window.addEventListener('eduhunters_data_updated', handleSync);
+    }
+
+    let bc = null;
+    if (typeof BroadcastChannel !== 'undefined') {
+      try {
+        bc = new BroadcastChannel('eduhunters_sync_channel');
+        bc.onmessage = (e) => {
+          if (
+            e.data?.type === 'ENROLLMENT_APPROVED' || 
+            e.data?.type === 'ENROLLMENT_UPDATED' || 
+            e.data?.type === 'DATA_SYNC'
+          ) {
+            handleSync();
+          }
+        };
+      } catch (err) {}
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('eh:enrollment_approved', handleSync);
+        window.removeEventListener('eh:enrollment_updated', handleSync);
+        window.removeEventListener('eh:orders_updated', handleSync);
+        window.removeEventListener('storage', handleSync);
+        window.removeEventListener('eduhunters_data_updated', handleSync);
+      }
+      if (bc) bc.close();
+    };
+  }, []);
 
   const EXAM_BATCH_KEYS = useMemo(() => new Set(['sureshot', 'medical', 'rtds', 'english_master', 'gk_course', 'medilogy']), []);
 
@@ -49,7 +92,7 @@ export default function DashboardPage({
       seen.add(id);
       return true;
     });
-  }, [data?.courses, currentUser, data, EXAM_BATCH_KEYS]);
+  }, [data?.courses, currentUser, data, EXAM_BATCH_KEYS, syncVersion]);
 
   // 2. Resolve All Enrolled Exam Batches (Deduplicated)
   const enrolledBatches = useMemo(() => {
@@ -65,7 +108,7 @@ export default function DashboardPage({
       seen.add(key);
       return true;
     });
-  }, [data?.examBatches, currentUser, data]);
+  }, [data?.examBatches, currentUser, data, syncVersion]);
 
   // 3. Combined Filtered Items
   const displayedItems = useMemo(() => {

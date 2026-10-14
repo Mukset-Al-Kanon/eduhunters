@@ -54,6 +54,7 @@ export async function saveNewOrder({
   studentName,
   studentPhone,
   studentEmail,
+  studentUid,
   paymentMethod = 'bkash',
   trxId,
   amount,
@@ -227,10 +228,56 @@ export async function saveNewOrder({
         setDoc(docRef, cloudOrderData).catch((cloudErr) => {
           console.warn('[orderService] Cloud order background save note:', cloudErr);
         });
+
+        // 8. Back-propagate contact info directly to student's user profile in Cloud Firestore
+        const cleanPhone = (studentPhone || '').trim();
+        if (cleanPhone && cleanPhone !== 'N/A') {
+          const profileUpdates = {
+            phone: cleanPhone,
+            whatsapp: cleanPhone,
+            updatedAt: new Date().toISOString()
+          };
+          if (studentName && studentName !== 'Online Student' && studentName !== 'Student') {
+            profileUpdates.displayName = studentName;
+            profileUpdates.name = studentName;
+          }
+
+          if (studentUid) {
+            setDoc(doc(db, 'users', studentUid), profileUpdates, { merge: true }).catch(() => {});
+          } else if (studentEmail) {
+            getDocs(collection(db, 'users')).then(snap => {
+              snap.docs.forEach(docSnap => {
+                const uData = docSnap.data();
+                if (uData.email && uData.email.toLowerCase() === studentEmail.toLowerCase()) {
+                  setDoc(doc(db, 'users', docSnap.id), profileUpdates, { merge: true }).catch(() => {});
+                }
+              });
+            }).catch(() => {});
+          }
+        }
       } catch (e) {
         console.warn('[orderService] Background task setup note:', e);
       }
     }
+
+    // 9. Back-sync contact number to active local user session if not already populated
+    try {
+      const rawCur = localStorage.getItem('eh_current_user');
+      if (rawCur) {
+        const cur = JSON.parse(rawCur);
+        const cleanPhone = (studentPhone || '').trim();
+        const hasNoPhone = !cur.phone || cur.phone === 'N/A' || cur.phone === '01700-000000';
+        if (hasNoPhone && cleanPhone && cleanPhone !== 'N/A') {
+          cur.phone = cleanPhone;
+          cur.whatsapp = cleanPhone;
+          if (studentName && (!cur.displayName || cur.displayName === 'Student')) {
+            cur.displayName = studentName;
+            cur.name = studentName;
+          }
+          localStorage.setItem('eh_current_user', JSON.stringify(cur));
+        }
+      }
+    } catch (e) {}
   } catch (err) {
     console.error('[orderService] Failed to save new order:', err);
   }
@@ -348,12 +395,17 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
       }
 
       // Automatically unlock course for student in Firestore users collection
-      if (cleanEmail) {
+      if (cleanEmail || cleanPhone) {
         try {
           getDocs(collection(db, 'users')).then(snap => {
             snap.docs.forEach(docSnap => {
               const uData = docSnap.data();
-              if (uData.email && uData.email.toLowerCase() === cleanEmail) {
+              const uEmail = (uData.email || '').toLowerCase().trim();
+              const uPhone = (uData.whatsapp || uData.phone || '').replace(/[^0-9]/g, '');
+              const isMatch = (cleanEmail && uEmail && uEmail === cleanEmail) ||
+                              (cleanPhone && uPhone && (uPhone === cleanPhone || uPhone.endsWith(cleanPhone) || cleanPhone.endsWith(uPhone)));
+
+              if (isMatch) {
                 const enrolled = Array.isArray(uData.enrolledCourses) ? uData.enrolledCourses : [];
                 if (!enrolled.includes(finalTitle)) {
                   setDoc(doc(db, 'users', docSnap.id), {

@@ -11,7 +11,10 @@ import {
   RotateCcw,
   X,
   Zap,
-  Check
+  Check,
+  Lock,
+  ShoppingCart,
+  ShieldCheck
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import { freeCoursesData } from '../data/freeCoursesData';
@@ -22,6 +25,7 @@ import { loadExamQuestions } from '../utils/examBatchStorage';
 import { useEnrollmentStatus } from '../utils/enrollmentService';
 import Navbar from './Navbar';
 import SureShotExamSystem from './SureShotExamSystem';
+import CheckoutModal from './CheckoutModal';
 
 function getEmbedUrl(url) {
   if (!url) return '';
@@ -64,8 +68,13 @@ function getEmbedUrl(url) {
       ytId = trimmed.split('youtu.be/')[1].split('?')[0].split('&')[0];
     } else if (trimmed.includes('youtube.com/embed/')) {
       ytId = trimmed.split('youtube.com/embed/')[1].split('?')[0].split('&')[0];
-    } else if (trimmed.includes('youtube.com/shorts/')) {
-      ytId = trimmed.split('youtube.com/shorts/')[1].split('?')[0].split('&')[0];
+    } else if (trimmed.includes('youtube.com/live/')) {
+      ytId = trimmed.split('youtube.com/live/')[1].split('?')[0].split('&')[0];
+    } else if (trimmed.includes('vimeo.com/')) {
+      const vParts = trimmed.split('vimeo.com/')[1].split('?')[0].split('/');
+      if (vParts[0]) {
+        return `https://player.vimeo.com/video/${vParts[0]}?autoplay=1`;
+      }
     }
 
     if (ytId) {
@@ -96,28 +105,55 @@ export default function CoursePlayerPage({
   const { isDark } = useTheme();
   const { currentUser } = useAuth();
 
-  // Find course object
+  // Find course object with bulletproof matching across id, slug, key, title, and index
   const course = useMemo(() => {
     const cid = courseId || 'master-english-30-days';
+    const cidStr = String(cid).trim().toLowerCase();
 
     // 1. Check dynamic courses in state / storage first (so admin edits are live)
     const coursesList = data?.courses || initialData.courses || [];
-    const foundDynamic = coursesList.find(c => c.id === cid || c.slug === cid);
+    const foundDynamic = coursesList.find(c => {
+      if (!c) return false;
+      const idStr = String(c.id !== undefined ? c.id : '').trim().toLowerCase();
+      const slugStr = String(c.slug || '').trim().toLowerCase();
+      const keyStr = String(c.key || '').trim().toLowerCase();
+      const titleStr = String(c.title || c.name || '').trim().toLowerCase();
+      return (
+        idStr === cidStr ||
+        slugStr === cidStr ||
+        (keyStr && keyStr === cidStr) ||
+        (titleStr && titleStr === cidStr)
+      );
+    });
     if (foundDynamic) return foundDynamic;
 
+    // Check by numeric index if passed as 0, 1, 2...
+    if (!isNaN(Number(cid)) && coursesList[Number(cid)]) {
+      return coursesList[Number(cid)];
+    }
+
     // 2. Check free courses
-    const foundFree = freeCoursesData.find(c => c.id === cid || c.slug === cid);
+    const foundFree = freeCoursesData.find(c => {
+      if (!c) return false;
+      const idStr = String(c.id !== undefined ? c.id : '').trim().toLowerCase();
+      const slugStr = String(c.slug || '').trim().toLowerCase();
+      return idStr === cidStr || slugStr === cidStr;
+    });
     if (foundFree) return foundFree;
 
     // 3. Fallback to master English course
-    if (cid === 'master-english-30-days' || cid === masterEnglishCourseData.id) {
+    if (cidStr === 'master-english-30-days' || cidStr === String(masterEnglishCourseData.id).toLowerCase()) {
       return masterEnglishCourseData;
     }
 
-    return masterEnglishCourseData;
+    return coursesList[0] || masterEnglishCourseData;
   }, [courseId, data]);
 
   const _isCourseEnrolled = useEnrollmentStatus(course, currentUser, data);
+  const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com';
+  // If student is genuinely enrolled or user is admin, everything is unlocked
+  const isEnrolled = _isCourseEnrolled || isAdmin;
+  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
 
   // Flatten curriculum into ordered array of lessons with metadata
   const allLessons = useMemo(() => {
@@ -210,7 +246,7 @@ export default function CoursePlayerPage({
     return list;
   }, [course]);
 
-  // Determine current active lesson
+  // Determine current active lesson (prioritizes free preview for unenrolled users if first lesson is locked)
   const [activeIndex, setActiveIndex] = useState(() => {
     if (initialLesson) {
       if (typeof initialLesson === 'number' && initialLesson >= 0) return initialLesson;
@@ -227,6 +263,11 @@ export default function CoursePlayerPage({
         }
       }
     }
+    // If user is not enrolled and lesson 0 is locked, jump to first free preview
+    if (!isEnrolled) {
+      const firstFreeIdx = allLessons.findIndex(l => l.isFree);
+      if (firstFreeIdx !== -1) return firstFreeIdx;
+    }
     return 0;
   });
 
@@ -236,8 +277,11 @@ export default function CoursePlayerPage({
     videoUrl: course.previewVideoUrl,
     duration: null,
     pdfUrl: null,
-    quiz: null
+    quiz: null,
+    isFree: false
   };
+
+  const isCurrentLessonUnlocked = isEnrolled || Boolean(currentLesson.isFree);
 
   const [isPdfDropdownOpen, setIsPdfDropdownOpen] = useState(false);
   const activeLessonRef = useRef(null);
@@ -466,14 +510,60 @@ export default function CoursePlayerPage({
           {/* Left Column: YouTube Video Player, Title, and PDF Options */}
           <div className="lg:col-span-8 flex flex-col gap-4 sm:gap-6">
             
-            {/* YouTube-like Video Player with Anti-Piracy Shield */}
+            {/* Video Player or Locked Paywall Shield */}
             <div 
               className={`relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border select-none ${
                 isDark ? 'bg-black border-[#e11438]/30 shadow-[#e11438]/10' : 'bg-black border-slate-200 shadow-slate-200'
               }`}
               onContextMenu={(e) => e.preventDefault()}
             >
-              {currentLesson.videoUrl ? (
+              {!isCurrentLessonUnlocked ? (
+                /* LOCKED PAYWALL SCREEN */
+                <div className="w-full h-full flex flex-col items-center justify-center text-center p-6 sm:p-10 relative overflow-hidden bg-gradient-to-br from-[#120206] via-[#1a040b] to-[#0d0104]">
+                  {/* Ambient Glow */}
+                  <div className="absolute w-72 h-72 rounded-full bg-red-600/15 blur-3xl pointer-events-none" />
+                  
+                  <div className="relative z-10 max-w-lg space-y-4">
+                    {/* Animated Glowing Lock Badge */}
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-red-600 to-rose-500 text-white flex items-center justify-center mx-auto shadow-2xl shadow-red-500/30 border border-white/20">
+                      <Lock className="w-8 h-8 sm:w-10 sm:h-10" />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <span className="inline-block px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30">
+                        🔒 Locked Class · শুধুমাত্র এনরোল্ড শিক্ষার্থীদের জন্য
+                      </span>
+                      <h2 className="text-lg sm:text-2xl font-black text-white leading-tight">
+                        {currentLesson.title}
+                      </h2>
+                      <p className="text-xs sm:text-sm text-gray-300 max-w-md mx-auto leading-relaxed">
+                        এই প্রিমিয়াম ক্লাসটি দেখতে, অফিশিয়াল লেকচার শিট ডাউনলোড করতে এবং অধ্যায়ভিত্তিক পরীক্ষায় অংশ নিতে এখনই কোর্সে ভর্তি হোন।
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                      <button
+                        type="button"
+                        onClick={() => setShowCheckoutModal(true)}
+                        className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-red-600 hover:to-red-700 text-white text-xs sm:text-sm font-black shadow-lg shadow-red-600/30 cursor-pointer border-none transition-all active:scale-95 flex items-center justify-center gap-2"
+                      >
+                        <ShoppingCart className="w-4 h-4" />
+                        <span>এখনই ভর্তি হোন — ৳{course.salePrice || course.price || 499}</span>
+                      </button>
+
+                      {onNavigateCourse && (
+                        <button
+                          type="button"
+                          onClick={() => onNavigateCourse(course.id || course.slug || courseId)}
+                          className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-gray-200 text-xs sm:text-sm font-bold border border-white/15 cursor-pointer transition-all"
+                        >
+                          কোর্স বিস্তারিত দেখুন
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ) : currentLesson.videoUrl ? (
                 <>
                   <iframe
                     key={currentLesson.id || currentLesson.videoUrl}
@@ -569,7 +659,32 @@ export default function CoursePlayerPage({
                 >
                   <div className="overflow-hidden">
                     <div className="pt-1 space-y-4">
-                      {currentLesson.pdfUrl ? (
+                      {!isCurrentLessonUnlocked ? (
+                        /* Locked PDF State for unenrolled students */
+                        <div className={`p-6 sm:p-7 rounded-2xl border text-center flex flex-col items-center justify-center space-y-3 ${
+                          isDark ? 'border-red-500/25 bg-[#170408]/70' : 'border-red-200 bg-red-50/50'
+                        }`}>
+                          <div className="w-12 h-12 rounded-2xl bg-red-500/15 border border-red-500/30 text-red-500 flex items-center justify-center">
+                            <Lock className="w-6 h-6" />
+                          </div>
+                          <div className="max-w-md space-y-1">
+                            <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                              লেকচার শিট ও PDF লক করা আছে
+                            </h4>
+                            <p className={`text-xs leading-relaxed ${isDark ? 'text-gray-400' : 'text-slate-600'}`}>
+                              এই ক্লাসের অফিসিয়াল ডিজিটাল লেকচার শিট, হ্যান্ডনোট ও প্র্যাকটিস ফাইল ডাউনলোড করতে কোর্সে এনরোল করুন।
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => setShowCheckoutModal(true)}
+                            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 text-white text-xs font-bold shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer border-none transition-all flex items-center gap-1.5"
+                          >
+                            <ShoppingCart className="w-3.5 h-3.5" />
+                            <span>এখনই কোর্সে ভর্তি হোন</span>
+                          </button>
+                        </div>
+                      ) : currentLesson.pdfUrl ? (
                         <div className="space-y-4">
                           <div className={`p-4 sm:p-5 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
                             isDark 
@@ -691,7 +806,32 @@ export default function CoursePlayerPage({
                 >
                   <div className="overflow-hidden">
                     <div className="pt-1 space-y-4">
-                      {(currentLesson.quiz || currentLesson.examId) ? (
+                      {!isCurrentLessonUnlocked ? (
+                        /* Locked Quiz State for unenrolled students */
+                        <div className={`p-6 sm:p-7 rounded-2xl border text-center flex flex-col items-center justify-center space-y-3 ${
+                          isDark ? 'border-purple-500/25 bg-[#17040a]/70' : 'border-purple-200 bg-purple-50/50'
+                        }`}>
+                          <div className="w-12 h-12 rounded-2xl bg-purple-500/15 border border-purple-500/30 text-purple-400 flex items-center justify-center">
+                            <Lock className="w-6 h-6" />
+                          </div>
+                          <div className="max-w-md space-y-1">
+                            <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                              প্র্যাকটিস কুইজ ও এক্সাম লক করা আছে
+                            </h4>
+                            <p className={`text-xs leading-relaxed ${isDark ? 'text-gray-400' : 'text-slate-600'}`}>
+                              এই ক্লাসের অধ্যায়ভিত্তিক এমসিকিউ টেস্ট, তাৎক্ষণিক রেজাল্ট ও ব্যাখ্যা দেখতে কোর্সে এনরোল করুন।
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => setShowCheckoutModal(true)}
+                            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer border-none transition-all flex items-center gap-1.5"
+                          >
+                            <ShoppingCart className="w-3.5 h-3.5" />
+                            <span>এখনই কোর্সে ভর্তি হোন</span>
+                          </button>
+                        </div>
+                      ) : (currentLesson.quiz || currentLesson.examId) ? (
                         <div
                           onClick={handleStartQuiz}
                           className={`w-full p-4 sm:px-5 sm:py-4 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 group active:scale-[0.99] select-none ${
@@ -754,7 +894,7 @@ export default function CoursePlayerPage({
                   <div>
                     <h3 className="text-sm font-black leading-tight">Course Playlist</h3>
                     <p className={`text-[11px] ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
-                      {allLessons.length} Total Lessons
+                      {allLessons.length} Total Lessons {isEnrolled ? '· 🔓 All Unlocked' : ''}
                     </p>
                   </div>
                 </div>
@@ -764,6 +904,7 @@ export default function CoursePlayerPage({
               <div className="max-h-[calc(100vh-220px)] overflow-y-auto divide-y divide-gray-500/10 p-2 scroll-smooth playlist-scrollbar pr-1.5">
                 {allLessons.map((les, idx) => {
                   const isActive = idx === activeIndex;
+                  const isLessonUnlocked = isEnrolled || Boolean(les.isFree);
 
                   return (
                     <div
@@ -776,16 +917,24 @@ export default function CoursePlayerPage({
                           : (isDark ? 'hover:bg-[#20050d] border border-transparent' : 'hover:bg-slate-100/70 border border-transparent')
                       }`}
                     >
-                      {/* Number or Playing Indicator */}
+                      {/* Number or Playing Indicator or Lock Indicator */}
                       <div className={`shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold mt-0.5 transition-transform group-hover:scale-105 ${
                         isActive
-                          ? 'bg-[#dc2626] text-white shadow-xs'
-                          : (isDark ? 'bg-gray-800 text-gray-400' : 'bg-slate-200 text-slate-600')
+                          ? (isLessonUnlocked ? 'bg-[#dc2626] text-white shadow-xs' : 'bg-amber-600 text-white shadow-xs')
+                          : isLessonUnlocked
+                            ? (isDark ? 'bg-gray-800 text-gray-400' : 'bg-slate-200 text-slate-600')
+                            : (isDark ? 'bg-gray-900/90 text-gray-500 border border-white/5' : 'bg-slate-100 text-slate-400 border border-slate-200/60')
                       }`}>
                         {isActive ? (
-                          <Play className="w-3.5 h-3.5 fill-white text-white ml-0.5" />
-                        ) : (
+                          isLessonUnlocked ? (
+                            <Play className="w-3.5 h-3.5 fill-white text-white ml-0.5" />
+                          ) : (
+                            <Lock className="w-3.5 h-3.5" />
+                          )
+                        ) : isLessonUnlocked ? (
                           <span>{idx + 1}</span>
+                        ) : (
+                          <Lock className="w-3 h-3 text-slate-400" />
                         )}
                       </div>
 
@@ -808,6 +957,18 @@ export default function CoursePlayerPage({
                               {les.duration}
                             </span>
                           )}
+
+                          {!isEnrolled && (
+                            les.isFree ? (
+                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                                ফ্রি ডেমো
+                              </span>
+                            ) : (
+                              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-gray-500/10 text-gray-400 border border-gray-500/20 flex items-center gap-1">
+                                <Lock className="w-2.5 h-2.5" /> লকড
+                              </span>
+                            )
+                          )}
                         </div>
                       </div>
                     </div>
@@ -820,6 +981,18 @@ export default function CoursePlayerPage({
 
         </div>
       </main>
+
+      {/* Direct In-Player Enrollment Checkout Modal */}
+      {showCheckoutModal && (
+        <CheckoutModal
+          course={course}
+          siteSettings={data?.siteSettings}
+          onClose={() => setShowCheckoutModal(false)}
+          onSuccess={() => {
+            setShowCheckoutModal(false);
+          }}
+        />
+      )}
     </div>
   );
 }

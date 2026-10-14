@@ -10,13 +10,26 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut,
   sendPasswordResetEmail,
   updateProfile,
   updatePassword,
   onAuthStateChanged
 } from 'firebase/auth';
-import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
+import { 
+  doc, 
+  setDoc, 
+  getDoc, 
+  serverTimestamp, 
+  collection, 
+  query, 
+  where, 
+  getDocs, 
+  limit,
+  onSnapshot
+} from 'firebase/firestore';
 
 const AuthContext = createContext(null);
 
@@ -28,14 +41,39 @@ export function useAuth() {
   return context;
 }
 
-// Format Firebase errors into clean, professional messages
+/**
+ * Detects if the current user agent is inside an in-app browser (WebView),
+ * such as Facebook, Messenger, Instagram, or WhatsApp.
+ * Google OAuth blocks sign-in inside these WebViews with 'disallowed_useragent' (error 403).
+ */
+export function isInAppBrowser() {
+  if (typeof navigator === 'undefined') return false;
+  const ua = (navigator.userAgent || navigator.vendor || window.opera || '').toLowerCase();
+  return (
+    ua.includes('fban') ||
+    ua.includes('fbav') ||
+    ua.includes('instagram') ||
+    ua.includes('messenger') ||
+    ua.includes('whatsapp') ||
+    ua.includes('line') ||
+    ua.includes('twitter') ||
+    ua.includes('snapchat') ||
+    ua.includes('wv') || // Android WebView flag
+    (ua.includes('iphone') && !ua.includes('safari'))
+  );
+}
+
+// Format Firebase errors into clean, professional, bilingual messages
 export function formatAuthError(error) {
   if (!error) return 'An unexpected error occurred. Please try again.';
   const code = error.code || '';
-  
+  const currentDomain = typeof window !== 'undefined' ? window.location.hostname : 'current domain';
+
   switch (code) {
+    case 'auth/use-google-signin':
+      return error.message || 'This account was registered using Google. Please click "Sign in with Google" below.';
     case 'auth/email-already-in-use':
-      return 'An account already exists with this email address. Please sign in.';
+      return 'An account already exists with this email address. Please sign in or use "Sign in with Google" if you originally registered with Google.';
     case 'auth/invalid-email':
       return 'Please enter a valid email address.';
     case 'auth/weak-password':
@@ -44,19 +82,19 @@ export function formatAuthError(error) {
       return 'No account found with this email. Please check your email or sign up.';
     case 'auth/wrong-password':
     case 'auth/invalid-credential':
-      return 'Incorrect email or password. Please verify and try again.';
+      return 'Incorrect email or password. If you originally signed in with Google, please click "Sign in with Google" below.';
     case 'auth/popup-closed-by-user':
-      return 'Google sign-in window was closed.';
+      return 'Google sign-in popup window was closed before completion. Please try again.';
     case 'auth/popup-blocked':
-      return 'Browser blocked the popup window. Please allow popups for this site.';
+      return 'Browser blocked the popup window. Please allow popups for this site, or try clicking "Sign in with Google" again.';
     case 'auth/cancelled-popup-request':
-      return 'Only one sign-in window can be open at a time.';
+      return 'Another sign-in attempt is already in progress. Please wait a moment.';
     case 'auth/unauthorized-domain':
-      return 'This website domain is not authorized yet in Firebase Console. Please add this domain under Firebase Authentication > Settings > Authorized domains.';
+      return `This website domain (${currentDomain}) is not authorized yet in Firebase Console. Please add "${currentDomain}" under Firebase Authentication > Settings > Authorized domains.`;
     case 'auth/operation-not-allowed':
-      return 'This sign-in method is currently not enabled in Firebase Console. Please enable it in Authentication settings.';
+      return 'This sign-in method is currently disabled in Firebase Console. Please enable it under Firebase Authentication settings.';
     case 'auth/account-exists-with-different-credential':
-      return 'An account already exists with this email using a different sign-in method.';
+      return 'An account already exists with this email using a different sign-in method (e.g. Password). Please sign in using your email and password, or use Forgot Password.';
     case 'auth/expired-action-code':
       return 'This password reset link has expired. Please request a new one.';
     case 'auth/invalid-action-code':
@@ -75,7 +113,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [isLiveFirebase, setIsLiveFirebase] = useState(isFirebaseConfigured);
 
-  // Sync user profile data to Firestore (if configured)
+  // Sync user profile data to Firestore
   const syncUserToFirestore = async (user, additionalData = {}) => {
     if (!db || !user?.uid) return;
     try {
@@ -86,8 +124,9 @@ export function AuthProvider({ children }) {
         uid: user.uid,
         email: user.email,
         displayName: user.displayName || additionalData.displayName || user.email?.split('@')[0],
-        photoURL: user.photoURL || additionalData.photoURL || '/avatar.png',
+        photoURL: user.photoURL || additionalData.photoURL || '/avatar.svg',
         role: additionalData.role || (userSnap.exists() ? userSnap.data().role : 'student'),
+        authProvider: additionalData.authProvider || user.providerData?.[0]?.providerId || (userSnap.exists() ? userSnap.data().authProvider : 'password'),
         lastLoginAt: serverTimestamp(),
         ...additionalData
       };
@@ -98,9 +137,9 @@ export function AuthProvider({ children }) {
         baseUserData.registeredDevices = [
           {
             id: 'dev_' + Math.random().toString(36).substring(2, 9),
-            name: navigator.userAgent.includes('Windows') ? 'Windows • Browser' : 'Mobile / Device',
-            browser: navigator.userAgent.includes('Chrome') ? 'Chrome' : 'Browser',
-            deviceType: /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
+            name: typeof navigator !== 'undefined' && navigator.userAgent.includes('Windows') ? 'Windows • Browser' : 'Mobile / Device',
+            browser: typeof navigator !== 'undefined' && navigator.userAgent.includes('Chrome') ? 'Chrome' : 'Browser',
+            deviceType: typeof navigator !== 'undefined' && /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
             isCurrent: true,
             isActive: true,
             firstSeenAt: new Date().toISOString()
@@ -114,6 +153,46 @@ export function AuthProvider({ children }) {
     }
   };
 
+  // Handle redirect result on mount (for mobile Google Sign-In)
+  useEffect(() => {
+    if (isFirebaseConfigured && auth) {
+      getRedirectResult(auth)
+        .then((result) => {
+          if (result?.user) {
+            const rUser = result.user;
+            const mappedGoogleUser = {
+              uid: rUser.uid,
+              id: rUser.uid,
+              email: rUser.email,
+              displayName: rUser.displayName || rUser.email?.split('@')[0],
+              name: rUser.displayName || rUser.email?.split('@')[0],
+              photoURL: rUser.photoURL || '/avatar.svg',
+              role: rUser.email === 'admin@eduhunters.com' ? 'admin' : 'student',
+              authProvider: 'google.com'
+            };
+
+            try {
+              const googleEmails = JSON.parse(localStorage.getItem('eh_google_registered_emails') || '[]');
+              if (rUser.email && !googleEmails.includes(rUser.email.toLowerCase())) {
+                googleEmails.push(rUser.email.toLowerCase());
+                localStorage.setItem('eh_google_registered_emails', JSON.stringify(googleEmails));
+              }
+              localStorage.setItem('eh_last_auth_method', 'google');
+              localStorage.setItem('eh_last_auth_email', rUser.email.toLowerCase());
+              localStorage.setItem('eh_current_user', JSON.stringify(mappedGoogleUser));
+            } catch (e) {}
+
+            setCurrentUser(mappedGoogleUser);
+            broadcastUserSync('REGISTER', mappedGoogleUser);
+            syncUserToFirestore(rUser, { authProvider: 'google.com' }).catch(() => {});
+          }
+        })
+        .catch((err) => {
+          console.warn('[AuthContext] getRedirectResult notice:', err);
+        });
+    }
+  }, []);
+
   // Listen to Auth State
   useEffect(() => {
     if (isFirebaseConfigured && auth) {
@@ -124,29 +203,82 @@ export function AuthProvider({ children }) {
             uid: user.uid,
             email: user.email,
             displayName: user.displayName || user.email?.split('@')[0],
-            photoURL: user.photoURL || '/avatar.png',
-            role: user.email === 'admin@eduhunters.com' ? 'admin' : 'student'
+            photoURL: user.photoURL || '/avatar.svg',
+            role: user.email === 'admin@eduhunters.com' ? 'admin' : 'student',
+            authProvider: user.providerData?.[0]?.providerId || 'password'
           };
+
+          // Record auth provider & email
+          try {
+            const providerId = user.providerData?.[0]?.providerId || '';
+            if (providerId.includes('google')) {
+              localStorage.setItem('eh_last_auth_method', 'google');
+              const googleEmails = JSON.parse(localStorage.getItem('eh_google_registered_emails') || '[]');
+              if (user.email && !googleEmails.includes(user.email.toLowerCase())) {
+                googleEmails.push(user.email.toLowerCase());
+                localStorage.setItem('eh_google_registered_emails', JSON.stringify(googleEmails));
+              }
+            } else if (providerId.includes('password')) {
+              localStorage.setItem('eh_last_auth_method', 'password');
+            }
+            if (user.email) {
+              localStorage.setItem('eh_last_auth_email', user.email.toLowerCase());
+            }
+          } catch (e) {}
 
           if (db) {
             try {
               const snap = await getDoc(doc(db, 'users', user.uid));
               if (snap.exists()) {
-                enrichedUser = { ...enrichedUser, ...snap.data() };
+                const sData = snap.data();
+                enrichedUser = { ...enrichedUser, ...sData };
+
+                // Automatically merge courses and batches from Firestore into local storage and user-scoped keys
+                if (Array.isArray(sData.enrolledCourses) && sData.enrolledCourses.length > 0) {
+                  try {
+                    localStorage.setItem(`eduhunters_enrolled_courses_${user.uid}`, JSON.stringify(sData.enrolledCourses));
+                    const localC = JSON.parse(localStorage.getItem('eduhunters_enrolled_courses') || '[]');
+                    const merged = Array.from(new Set([...localC, ...sData.enrolledCourses]));
+                    localStorage.setItem('eduhunters_enrolled_courses', JSON.stringify(merged));
+                  } catch (e) {}
+                }
+                if (Array.isArray(sData.enrolledBatches) && sData.enrolledBatches.length > 0) {
+                  try {
+                    localStorage.setItem(`eduhunters_enrolled_batches_${user.uid}`, JSON.stringify(sData.enrolledBatches));
+                    const localB = JSON.parse(localStorage.getItem('eduhunters_enrolled_batches') || '[]');
+                    const mergedB = Array.from(new Set([...localB, ...sData.enrolledBatches]));
+                    localStorage.setItem('eduhunters_enrolled_batches', JSON.stringify(mergedB));
+                  } catch (e) {}
+                }
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('eh:enrollment_updated', {
+                    detail: { courses: sData.enrolledCourses, timestamp: Date.now() }
+                  }));
+                }
               }
             } catch (e) {
               // Ignore firestore permission error during initial auth
             }
           }
 
+          try {
+            localStorage.setItem('eh_current_user', JSON.stringify(enrichedUser));
+          } catch (e) {}
+
           setCurrentUser(enrichedUser);
         } else {
-          // Check if local demo user is stored
+          // Check if local demo / fallback user is stored
           try {
             const saved = localStorage.getItem('eh_current_user');
             if (saved) {
               const parsed = JSON.parse(saved);
-              if (parsed?.uid?.startsWith('demo_') || parsed?.uid === 'admin_master') {
+              // Preserve session for demo users, admin master, or fallback registered users
+              if (parsed?.uid && (
+                parsed.uid.startsWith('demo_') || 
+                parsed.uid === 'admin_master' || 
+                parsed.uid.startsWith('user_') || 
+                parsed.uid.startsWith('g_')
+              )) {
                 setCurrentUser(parsed);
                 setLoading(false);
                 return;
@@ -160,7 +292,7 @@ export function AuthProvider({ children }) {
 
       return unsubscribe;
     } else {
-      // Local/Demo Mode Fallback
+      // Local / Offline Mode Fallback
       try {
         const saved = localStorage.getItem('eh_current_user');
         if (saved) {
@@ -172,6 +304,105 @@ export function AuthProvider({ children }) {
       setLoading(false);
     }
   }, [isLiveFirebase]);
+
+  // Live Cloud Firestore Listener on Active User Document
+  useEffect(() => {
+    if (!isFirebaseConfigured || !db || !currentUser?.uid) return;
+
+    // Skip synthetic/demo users
+    if (currentUser.uid.startsWith('demo_') || currentUser.uid === 'admin_master') return;
+
+    let unsubscribe = null;
+    try {
+      const userDocRef = doc(db, 'users', currentUser.uid);
+      unsubscribe = onSnapshot(userDocRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const cloudData = docSnap.data();
+          setCurrentUser((prev) => {
+            if (!prev) return prev;
+            const prevCourses = JSON.stringify(prev.enrolledCourses || []);
+            const newCourses = JSON.stringify(cloudData.enrolledCourses || []);
+            const hasCourseChanges = prevCourses !== newCourses;
+            const hasStatusChanges = prev.status !== cloudData.status;
+            const hasPhoneChanges = (cloudData.phone && prev.phone !== cloudData.phone) || (cloudData.whatsapp && prev.whatsapp !== cloudData.whatsapp);
+
+            if (hasCourseChanges || hasStatusChanges || hasPhoneChanges) {
+              const updated = {
+                ...prev,
+                ...cloudData,
+                enrolledCourses: Array.isArray(cloudData.enrolledCourses) ? cloudData.enrolledCourses : (prev.enrolledCourses || [])
+              };
+              try {
+                localStorage.setItem('eh_current_user', JSON.stringify(updated));
+                if (Array.isArray(cloudData.enrolledCourses)) {
+                  localStorage.setItem(`eduhunters_enrolled_courses_${currentUser.uid}`, JSON.stringify(cloudData.enrolledCourses));
+                  const localC = JSON.parse(localStorage.getItem('eduhunters_enrolled_courses') || '[]');
+                  const merged = Array.from(new Set([...localC, ...cloudData.enrolledCourses]));
+                  localStorage.setItem('eduhunters_enrolled_courses', JSON.stringify(merged));
+                }
+              } catch (e) {}
+
+              // Fire instant real-time events to all components, hooks, and tabs
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('eh:enrollment_updated', {
+                  detail: { courses: cloudData.enrolledCourses, timestamp: Date.now() }
+                }));
+                window.dispatchEvent(new CustomEvent('eh:orders_updated'));
+                window.dispatchEvent(new Event('storage'));
+              }
+
+              return updated;
+            }
+            return prev;
+          });
+        }
+      }, (err) => {
+        console.warn('[AuthContext] Live user document sync note:', err);
+      });
+    } catch (e) {
+      console.warn('[AuthContext] Error setting up user doc listener:', e);
+    }
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+    };
+  }, [currentUser?.uid, isFirebaseConfigured]);
+
+  // Real-time Event Listener for Admin Enrollment Approval (unlocks course instantly across windows)
+  useEffect(() => {
+    const handleApprovalEvent = (e) => {
+      const payload = e?.detail;
+      if (!payload?.courseTitle) return;
+      const targetCourse = payload.courseTitle;
+      const studentEmail = (payload.studentEmail || '').toLowerCase().trim();
+      const studentPhone = (payload.studentPhone || '').replace(/[^0-9]/g, '');
+
+      setCurrentUser((prev) => {
+        if (!prev) return prev;
+        const curEmail = (prev.email || '').toLowerCase().trim();
+        const curPhone = (prev.phone || prev.whatsapp || '').replace(/[^0-9]/g, '');
+        const isMatch = (studentEmail && curEmail === studentEmail) || (studentPhone && curPhone && (curPhone === studentPhone || curPhone.endsWith(studentPhone) || studentPhone.endsWith(curPhone))) || (!studentEmail && !studentPhone);
+        
+        if (isMatch) {
+          const prevCourses = Array.isArray(prev.enrolledCourses) ? prev.enrolledCourses : [];
+          if (!prevCourses.includes(targetCourse)) {
+            const nextCourses = [targetCourse, ...prevCourses];
+            const updated = { ...prev, status: 'Active', enrolledCourses: nextCourses };
+            try {
+              localStorage.setItem('eh_current_user', JSON.stringify(updated));
+              const localC = JSON.parse(localStorage.getItem('eduhunters_enrolled_courses') || '[]');
+              localStorage.setItem('eduhunters_enrolled_courses', JSON.stringify(Array.from(new Set([...localC, targetCourse]))));
+            } catch (err) {}
+            return updated;
+          }
+        }
+        return prev;
+      });
+    };
+
+    window.addEventListener('eh:enrollment_approved', handleApprovalEvent);
+    return () => window.removeEventListener('eh:enrollment_approved', handleApprovalEvent);
+  }, []);
 
   // Real-time broadcaster for User Registration and Profile Updates across windows & tabs
   const broadcastUserSync = (action, user) => {
@@ -202,10 +433,24 @@ export function AuthProvider({ children }) {
 
   // Sign up with Email and Password
   const signup = async (email, password, displayName) => {
-    const defaultAvatar = '/avatar.png';
+    const defaultAvatar = '/avatar.svg';
     const cleanEmail = (email || '').trim().toLowerCase();
 
-    // Ensure fresh user starts with a completely clean enrollment state
+    // Check if this email was previously registered via Google
+    let isGoogleAccount = false;
+    try {
+      const googleEmails = JSON.parse(localStorage.getItem('eh_google_registered_emails') || '[]');
+      if (googleEmails.includes(cleanEmail)) isGoogleAccount = true;
+    } catch (e) {}
+
+    if (isGoogleAccount) {
+      const googleErr = new Error('An account already exists for this email via Google. Please click "Sign in with Google" below.');
+      googleErr.code = 'auth/use-google-signin';
+      googleErr.suggestGoogleSignIn = true;
+      throw googleErr;
+    }
+
+    // Ensure fresh user starts with clean enrollment state
     try {
       localStorage.removeItem('eduhunters_enrolled_courses');
       localStorage.removeItem('eduhunters_enrolled_batches');
@@ -220,7 +465,11 @@ export function AuthProvider({ children }) {
           displayName: displayName || cleanEmail.split('@')[0],
           photoURL: defaultAvatar
         }).catch(() => {});
-        syncUserToFirestore(res.user, { displayName, photoURL: defaultAvatar }).catch(() => {});
+        syncUserToFirestore(res.user, { 
+          displayName, 
+          photoURL: defaultAvatar, 
+          authProvider: 'password' 
+        }).catch(() => {});
 
         const createdUser = {
           uid: res.user.uid,
@@ -230,21 +479,45 @@ export function AuthProvider({ children }) {
           name: displayName || res.user.displayName || cleanEmail.split('@')[0],
           photoURL: defaultAvatar,
           role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student',
+          authProvider: 'password',
           createdAt: new Date().toISOString()
         };
-        // Also save to eh_registered_users for instant local availability
+
+        // Remember login method
         try {
+          localStorage.setItem('eh_last_auth_method', 'password');
+          localStorage.setItem('eh_last_auth_email', cleanEmail);
           const mockUsers = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
           if (!mockUsers.some(u => u.email.toLowerCase() === cleanEmail)) {
             mockUsers.push(createdUser);
             localStorage.setItem('eh_registered_users', JSON.stringify(mockUsers));
           }
+          localStorage.setItem('eh_current_user', JSON.stringify(createdUser));
         } catch (e) {}
 
         setCurrentUser(createdUser);
         broadcastUserSync('REGISTER', createdUser);
         return res.user;
       } catch (err) {
+        if (err.code === 'auth/email-already-in-use') {
+          // Double check if account exists via Google in Firestore
+          if (isFirebaseConfigured && db) {
+            try {
+              const uQ = query(collection(db, 'users'), where('email', '==', cleanEmail), limit(1));
+              const uSnap = await getDocs(uQ);
+              if (!uSnap.empty) {
+                const uData = uSnap.docs[0].data();
+                if (uData?.authProvider === 'google.com' || uData?.authProvider?.includes('google')) {
+                  const googleErr = new Error('An account already exists for this email via Google. Please click "Sign in with Google" below.');
+                  googleErr.code = 'auth/use-google-signin';
+                  googleErr.suggestGoogleSignIn = true;
+                  throw googleErr;
+                }
+              }
+            } catch (e) {}
+          }
+        }
+
         if (err.code === 'auth/unauthorized-domain') {
           console.warn('[AuthContext] Domain not authorized in Firebase Console yet. Running seamless local signup fallback.');
           const mockUsers = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
@@ -261,11 +534,14 @@ export function AuthProvider({ children }) {
             name: displayName || cleanEmail.split('@')[0],
             photoURL: defaultAvatar,
             role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student',
+            authProvider: 'password',
             createdAt: new Date().toISOString()
           };
           mockUsers.push({ ...newUser, password });
           localStorage.setItem('eh_registered_users', JSON.stringify(mockUsers));
           localStorage.setItem('eh_current_user', JSON.stringify(newUser));
+          localStorage.setItem('eh_last_auth_method', 'password');
+          localStorage.setItem('eh_last_auth_email', cleanEmail);
           setCurrentUser(newUser);
 
           if (isFirebaseConfigured && db) {
@@ -299,11 +575,14 @@ export function AuthProvider({ children }) {
         name: displayName || cleanEmail.split('@')[0],
         photoURL: defaultAvatar,
         role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student',
+        authProvider: 'password',
         createdAt: new Date().toISOString()
       };
       mockUsers.push({ ...newUser, password });
       localStorage.setItem('eh_registered_users', JSON.stringify(mockUsers));
       localStorage.setItem('eh_current_user', JSON.stringify(newUser));
+      localStorage.setItem('eh_last_auth_method', 'password');
+      localStorage.setItem('eh_last_auth_email', cleanEmail);
       setCurrentUser(newUser);
 
       if (isFirebaseConfigured && db) {
@@ -329,10 +608,45 @@ export function AuthProvider({ children }) {
     if (isFirebaseConfigured && auth) {
       try {
         const res = await signInWithEmailAndPassword(auth, email, password);
-        syncUserToFirestore(res.user).catch(() => {});
+        syncUserToFirestore(res.user, { authProvider: 'password' }).catch(() => {});
+        
+        try {
+          localStorage.setItem('eh_last_auth_method', 'password');
+          localStorage.setItem('eh_last_auth_email', cleanEmail);
+        } catch (e) {}
+
         return res.user;
       } catch (err) {
-        // Fallback: Check if user exists in local registered store (e.g. after OTP password reset)
+        // Smart Check: Check if user registered via Google
+        let isGoogleAccount = false;
+        try {
+          const googleEmails = JSON.parse(localStorage.getItem('eh_google_registered_emails') || '[]');
+          if (googleEmails.includes(cleanEmail)) {
+            isGoogleAccount = true;
+          }
+        } catch (e) {}
+
+        if (!isGoogleAccount && isFirebaseConfigured && db) {
+          try {
+            const userQ = query(collection(db, 'users'), where('email', '==', cleanEmail), limit(1));
+            const userSnap = await getDocs(userQ);
+            if (!userSnap.empty) {
+              const uData = userSnap.docs[0].data();
+              if (uData?.authProvider === 'google.com' || uData?.authProvider?.includes('google')) {
+                isGoogleAccount = true;
+              }
+            }
+          } catch (e) {}
+        }
+
+        if (isGoogleAccount) {
+          const googleErr = new Error('This account was created with Google. Please click "Sign in with Google" below.');
+          googleErr.code = 'auth/use-google-signin';
+          googleErr.suggestGoogleSignIn = true;
+          throw googleErr;
+        }
+
+        // Fallback: Check local registered store
         const mockUsers = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
         const found = mockUsers.find(
           (u) => u.email.toLowerCase() === cleanEmail && u.password === cleanPass
@@ -342,41 +656,49 @@ export function AuthProvider({ children }) {
             uid: found.uid || 'user_' + Date.now(),
             email: found.email,
             displayName: found.displayName || found.email.split('@')[0],
-            photoURL: found.photoURL || '/avatar.png',
-            role: found.role || 'student'
+            photoURL: found.photoURL || '/avatar.svg',
+            role: found.role || 'student',
+            authProvider: 'password'
           };
           localStorage.setItem('eh_current_user', JSON.stringify(safeUser));
+          localStorage.setItem('eh_last_auth_method', 'password');
+          localStorage.setItem('eh_last_auth_email', cleanEmail);
           setCurrentUser(safeUser);
           return safeUser;
         }
 
-        // Fallback for master administrator login if Firebase admin account isn't seeded yet
+        // Fallback for master administrator login
         if (cleanEmail === 'admin@eduhunters.com' && cleanPass === '1901009') {
           const adminUser = {
             uid: 'admin_master',
             email: 'admin@eduhunters.com',
             displayName: 'Edu Hunters Admin',
-            photoURL: '/avatar.png',
-            role: 'admin'
+            photoURL: '/avatar.svg',
+            role: 'admin',
+            authProvider: 'password'
           };
           localStorage.setItem('eh_current_user', JSON.stringify(adminUser));
+          localStorage.setItem('eh_last_auth_method', 'password');
+          localStorage.setItem('eh_last_auth_email', cleanEmail);
           setCurrentUser(adminUser);
           return adminUser;
         }
 
         if (err.code === 'auth/unauthorized-domain') {
           console.warn('[AuthContext] Domain not authorized in Firebase Console yet. Running seamless local login fallback.');
-          // Auto create or authenticate student account seamlessly so they are never blocked
           const autoUser = {
             uid: 'user_' + Date.now(),
             email: cleanEmail,
             displayName: cleanEmail.split('@')[0],
-            photoURL: '/avatar.png',
-            role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student'
+            photoURL: '/avatar.svg',
+            role: cleanEmail === 'admin@eduhunters.com' ? 'admin' : 'student',
+            authProvider: 'password'
           };
           mockUsers.push({ ...autoUser, password: cleanPass });
           localStorage.setItem('eh_registered_users', JSON.stringify(mockUsers));
           localStorage.setItem('eh_current_user', JSON.stringify(autoUser));
+          localStorage.setItem('eh_last_auth_method', 'password');
+          localStorage.setItem('eh_last_auth_email', cleanEmail);
           setCurrentUser(autoUser);
           return autoUser;
         }
@@ -390,10 +712,13 @@ export function AuthProvider({ children }) {
           uid: 'admin_master',
           email: 'admin@eduhunters.com',
           displayName: 'Edu Hunters Admin',
-          photoURL: '/avatar.png',
-          role: 'admin'
+          photoURL: '/avatar.svg',
+          role: 'admin',
+          authProvider: 'password'
         };
         localStorage.setItem('eh_current_user', JSON.stringify(adminUser));
+        localStorage.setItem('eh_last_auth_method', 'password');
+        localStorage.setItem('eh_last_auth_email', cleanEmail);
         setCurrentUser(adminUser);
         return adminUser;
       }
@@ -409,37 +734,71 @@ export function AuthProvider({ children }) {
       }
       const { password: _, ...safeUser } = found;
       localStorage.setItem('eh_current_user', JSON.stringify(safeUser));
+      localStorage.setItem('eh_last_auth_method', 'password');
+      localStorage.setItem('eh_last_auth_email', cleanEmail);
       setCurrentUser(safeUser);
       return safeUser;
     }
   };
 
-  // Sign in with Google
-  const loginWithGoogle = async () => {
+  // Sign in with Google (Supports popup & auto-fallback to redirect for mobile)
+  const loginWithGoogle = async (forceRedirect = false) => {
     if (isFirebaseConfigured && auth && googleProvider) {
       try {
-        const res = await signInWithPopup(auth, googleProvider);
-        const mappedGoogleUser = {
-          uid: res.user.uid,
-          id: res.user.uid,
-          email: res.user.email,
-          displayName: res.user.displayName || res.user.email?.split('@')[0],
-          name: res.user.displayName || res.user.email?.split('@')[0],
-          photoURL: res.user.photoURL || '/avatar.png',
-          role: res.user.email === 'admin@eduhunters.com' ? 'admin' : 'student'
-        };
+        let resUser = null;
+
+        if (forceRedirect) {
+          await signInWithRedirect(auth, googleProvider);
+          return null;
+        }
+
         try {
-          localStorage.setItem('eh_current_user', JSON.stringify(mappedGoogleUser));
-        } catch (e) {}
-        setCurrentUser(mappedGoogleUser);
-        broadcastUserSync('REGISTER', mappedGoogleUser);
+          const res = await signInWithPopup(auth, googleProvider);
+          resUser = res.user;
+        } catch (popupErr) {
+          // If popup is blocked by mobile browser, seamlessly attempt redirect
+          if (popupErr.code === 'auth/popup-blocked' || popupErr.code === 'auth/cancelled-popup-request') {
+            console.warn('[AuthContext] Popup blocked or cancelled. Attempting redirect sign-in...', popupErr);
+            await signInWithRedirect(auth, googleProvider);
+            return null;
+          }
+          throw popupErr;
+        }
 
-        // Non-blocking background sync to Firestore
-        syncUserToFirestore(res.user).catch((e) => {
-          console.warn('[AuthContext] Background sync user note:', e);
-        });
+        if (resUser) {
+          const mappedGoogleUser = {
+            uid: resUser.uid,
+            id: resUser.uid,
+            email: resUser.email,
+            displayName: resUser.displayName || resUser.email?.split('@')[0],
+            name: resUser.displayName || resUser.email?.split('@')[0],
+            photoURL: resUser.photoURL || '/avatar.svg',
+            role: resUser.email === 'admin@eduhunters.com' ? 'admin' : 'student',
+            authProvider: 'google.com'
+          };
 
-        return res.user;
+          // Record Google credentials in local storage
+          try {
+            const googleEmails = JSON.parse(localStorage.getItem('eh_google_registered_emails') || '[]');
+            if (resUser.email && !googleEmails.includes(resUser.email.toLowerCase())) {
+              googleEmails.push(resUser.email.toLowerCase());
+              localStorage.setItem('eh_google_registered_emails', JSON.stringify(googleEmails));
+            }
+            localStorage.setItem('eh_last_auth_method', 'google');
+            localStorage.setItem('eh_last_auth_email', resUser.email.toLowerCase());
+            localStorage.setItem('eh_current_user', JSON.stringify(mappedGoogleUser));
+          } catch (e) {}
+
+          setCurrentUser(mappedGoogleUser);
+          broadcastUserSync('REGISTER', mappedGoogleUser);
+
+          // Non-blocking background sync to Firestore
+          syncUserToFirestore(resUser, { authProvider: 'google.com' }).catch((e) => {
+            console.warn('[AuthContext] Background sync user note:', e);
+          });
+
+          return resUser;
+        }
       } catch (err) {
         if (err.code === 'auth/unauthorized-domain') {
           console.warn('[AuthContext] Domain not authorized in Firebase Console for Google sign-in yet.');
@@ -449,10 +808,13 @@ export function AuthProvider({ children }) {
             email: 'student@eduhunters.com',
             displayName: 'Edu Hunters Student',
             name: 'Edu Hunters Student',
-            photoURL: '/avatar.png',
-            role: 'student'
+            photoURL: '/avatar.svg',
+            role: 'student',
+            authProvider: 'google.com'
           };
           localStorage.setItem('eh_current_user', JSON.stringify(googleUser));
+          localStorage.setItem('eh_last_auth_method', 'google');
+          localStorage.setItem('eh_last_auth_email', 'student@eduhunters.com');
           setCurrentUser(googleUser);
           broadcastUserSync('REGISTER', googleUser);
           return googleUser;
@@ -467,28 +829,49 @@ export function AuthProvider({ children }) {
         email: 'student@eduhunters.com',
         displayName: 'Edu Hunters Student',
         name: 'Edu Hunters Student',
-        photoURL: '/avatar.png',
-        role: 'student'
+        photoURL: '/avatar.svg',
+        role: 'student',
+        authProvider: 'google.com'
       };
       localStorage.setItem('eh_current_user', JSON.stringify(googleUser));
+      localStorage.setItem('eh_last_auth_method', 'google');
+      localStorage.setItem('eh_last_auth_email', 'student@eduhunters.com');
       setCurrentUser(googleUser);
       broadcastUserSync('REGISTER', googleUser);
       return googleUser;
     }
   };
 
-  // Send Password Reset Email
+  // Send Official Firebase Password Reset Email
   const resetPassword = async (email) => {
-    if (!email) {
-      const err = new Error('Missing email');
+    const cleanEmail = (email || '').trim().toLowerCase();
+    if (!cleanEmail) {
+      const err = new Error('Please enter your email address.');
       err.code = 'auth/invalid-email';
       throw err;
     }
     if (isFirebaseConfigured && auth) {
-      return await sendPasswordResetEmail(auth, email);
+      try {
+        await sendPasswordResetEmail(auth, cleanEmail);
+        return { 
+          success: true, 
+          message: `A password reset link has been dispatched to ${cleanEmail}. Please check your Inbox and Spam folders.` 
+        };
+      } catch (err) {
+        if (err.code === 'auth/user-not-found') {
+          return { 
+            success: true, 
+            message: `If an account exists for ${cleanEmail}, a reset email has been dispatched.` 
+          };
+        }
+        throw err;
+      }
     } else {
       // Demo reset simulation
-      return true;
+      return { 
+        success: true, 
+        message: `Demo mode: Password reset email simulated for ${cleanEmail}.` 
+      };
     }
   };
 
@@ -517,11 +900,10 @@ export function AuthProvider({ children }) {
         ...profileUpdates
       };
 
-      // 1. Immediately persist locally to eh_current_user and update state (OPTIMISTIC: 0ms lag)
+      // 1. Immediately persist locally to eh_current_user
       try {
         localStorage.setItem('eh_current_user', JSON.stringify(mergedUser));
         
-        // Also update local registered user list if present
         const rawList = localStorage.getItem('eh_registered_users');
         if (rawList) {
           const list = JSON.parse(rawList);
@@ -540,13 +922,11 @@ export function AuthProvider({ children }) {
       setCurrentUser(mergedUser);
       broadcastUserSync('UPDATE', mergedUser);
 
-      // 2. Perform remote updates asynchronously in the background so UI is never blocked
+      // 2. Perform remote updates asynchronously
       (async () => {
-        // Firebase Auth Profile Update (displayName & photoURL only if not heavy base64)
         if (isFirebaseConfigured && auth && auth.currentUser) {
           const authUpdates = {};
           if (profileUpdates.displayName !== undefined) authUpdates.displayName = profileUpdates.displayName;
-          // Only pass photoURL to auth.updateProfile if not a base64 data URI (to avoid Firebase server timeouts)
           if (profileUpdates.photoURL && !profileUpdates.photoURL.startsWith('data:')) {
             authUpdates.photoURL = profileUpdates.photoURL;
           }
@@ -560,7 +940,6 @@ export function AuthProvider({ children }) {
           }
         }
 
-        // Firestore sync for extra fields: phone, whatsapp, college, hscBatch, displayName, photoURL, etc.
         const targetUid = currentUser?.uid || mergedUser?.uid;
         if (isFirebaseConfigured && db && targetUid) {
           try {
@@ -582,7 +961,7 @@ export function AuthProvider({ children }) {
     }
   };
 
-  // Update password via verified 6-digit OTP
+  // Update password via verified OTP
   const updateUserPassword = async (email, newPassword) => {
     const cleanEmail = (email || '').trim().toLowerCase();
     const cleanPass = (newPassword || '').trim();
@@ -603,7 +982,7 @@ export function AuthProvider({ children }) {
           uid: 'user_' + Date.now(),
           email: cleanEmail,
           displayName: cleanEmail.split('@')[0],
-          photoURL: '/avatar.png',
+          photoURL: '/avatar.svg',
           role: 'student',
           password: cleanPass
         });
@@ -611,12 +990,21 @@ export function AuthProvider({ children }) {
       }
     } catch (e) {}
 
-    // 2. If Firebase user is currently logged in with this email, update their password directly
+    // 2. If Firebase user is currently logged in, update password directly
     if (isFirebaseConfigured && auth?.currentUser && auth.currentUser.email?.toLowerCase() === cleanEmail) {
       try {
         await updatePassword(auth.currentUser, cleanPass);
       } catch (e) {
         console.warn('[AuthContext] Firebase auth password update notice:', e);
+      }
+    }
+
+    // 3. If Firebase user is NOT logged in, trigger sendPasswordResetEmail so Firebase Auth gets updated
+    if (isFirebaseConfigured && auth && (!auth.currentUser || auth.currentUser.email?.toLowerCase() !== cleanEmail)) {
+      try {
+        await sendPasswordResetEmail(auth, cleanEmail);
+      } catch (e) {
+        console.warn('[AuthContext] Firebase password reset email notice:', e);
       }
     }
 
@@ -633,7 +1021,8 @@ export function AuthProvider({ children }) {
     logout,
     resetPassword,
     updateUserProfile,
-    updateUserPassword
+    updateUserPassword,
+    isInAppBrowser
   };
 
   return (

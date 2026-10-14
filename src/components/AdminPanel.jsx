@@ -67,7 +67,8 @@ import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import CourseStudioPage from './CourseStudioPage';
 import BundleStudioPage from './BundleStudioPage';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
-import { grantCourseAccess } from '../utils/enrollmentService';
+import { grantCourseAccess, revokeCourseAccess } from '../utils/enrollmentService';
+import CourseSearchSelect from './CourseSearchSelect';
 import { approveOrder } from '../services/orderService';
 import { 
   getBunnyConfig, 
@@ -295,14 +296,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           id: u.uid || `usr-reg-${i}`,
           name: u.displayName || u.name || u.email?.split('@')[0] || 'Student',
           email: u.email,
-          phone: u.whatsapp || u.phone || '01700-000000',
+          phone: u.whatsapp || u.phone || '',
           whatsapp: u.whatsapp || u.phone || '',
           college: u.college || u.institution || '',
           institution: u.college || u.institution || '',
           role: u.role === 'admin' ? 'Admin' : (u.role ? (u.role.charAt(0).toUpperCase() + u.role.slice(1)) : 'Student'),
           status: u.status || 'Active',
-          batch: u.hscBatch || u.batch || 'HSC 26',
-          hscBatch: u.hscBatch || u.batch || 'HSC 26',
+          batch: u.hscBatch || u.batch || '',
+          hscBatch: u.hscBatch || u.batch || '',
+          authProvider: u.authProvider || (u.email?.endsWith('@gmail.com') ? 'google.com' : 'password'),
           enrolledCourses: Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [],
           totalSpent: u.totalSpent || 0,
           joinedDate: u.createdAt ? new Date(u.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently',
@@ -403,14 +405,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           id: targetId || `usr-${Date.now()}`,
           name: u.displayName || u.name || (targetEmail ? targetEmail.split('@')[0] : 'New Student'),
           email: u.email || 'student@eduhunters.com',
-          phone: u.whatsapp || u.phone || u.phoneNumber || '01700-000000',
+          phone: u.whatsapp || u.phone || u.phoneNumber || '',
           whatsapp: u.whatsapp || u.phone || u.phoneNumber || '',
-          college: u.college || u.institution || 'College / School',
-          institution: u.college || u.institution || 'College / School',
+          college: u.college || u.institution || '',
+          institution: u.college || u.institution || '',
           role: u.role === 'admin' ? 'Admin' : 'Student',
           status: 'Active',
-          batch: u.hscBatch || u.batch || 'HSC 26',
-          hscBatch: u.hscBatch || u.batch || 'HSC 26',
+          batch: u.hscBatch || u.batch || '',
+          hscBatch: u.hscBatch || u.batch || '',
+          authProvider: u.authProvider || (targetEmail?.endsWith('@gmail.com') ? 'google.com' : 'password'),
           enrolledCourses: Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [],
           totalSpent: Number(u.totalSpent) || 0,
           joinedDate: 'Just now',
@@ -529,14 +532,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       name: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
       displayName: data.displayName || data.name || data.email?.split('@')[0] || 'Student',
       email: data.email,
-      phone: data.whatsapp || data.phone || '01700-000000',
+      phone: data.whatsapp || data.phone || '',
       whatsapp: data.whatsapp || data.phone || '',
       college: data.college || data.institution || '',
       institution: data.college || data.institution || '',
       role: data.role === 'admin' ? 'Admin' : (data.role ? (data.role.charAt(0).toUpperCase() + data.role.slice(1)) : 'Student'),
       status: data.status || 'Active',
-      batch: data.hscBatch || data.batch || 'HSC 26',
-      hscBatch: data.hscBatch || data.batch || 'HSC 26',
+      batch: data.hscBatch || data.batch || '',
+      hscBatch: data.hscBatch || data.batch || '',
+      authProvider: data.authProvider || (data.email?.endsWith('@gmail.com') ? 'google.com' : 'password'),
       enrolledCourses: Array.isArray(data.enrolledCourses) ? data.enrolledCourses : [],
       totalSpent: Number(data.totalSpent) || 0,
       joinedDate: data.createdAt?.toDate ? data.createdAt.toDate().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : (data.createdAt ? new Date(data.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently'),
@@ -1567,7 +1571,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         id: `usr-${Date.now().toString().slice(-4)}`,
         name: userForm.name.trim(),
         email: userForm.email.trim(),
-        phone: userForm.phone.trim() || '01700-000000',
+        phone: userForm.phone.trim() || '',
         whatsapp: (userForm.whatsapp || userForm.phone || '').trim(),
         college: (userForm.college || '').trim(),
         institution: (userForm.college || '').trim(),
@@ -1628,8 +1632,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       toastLabel = `"${selection}"`;
     }
 
+    const targetUser = usersList.find(u => u.id === userId || u.uid === userId || u.email === userId);
+
     const updated = usersList.map(u => {
-      if (u.id === userId) {
+      if (u.id === userId || u.uid === userId || u.email === userId) {
         const current = u.enrolledCourses || [];
         const combined = Array.from(new Set([...current, ...coursesToAdd]));
         return { ...u, enrolledCourses: combined };
@@ -1639,9 +1645,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
     setUsersList(updated);
     persistAll({ users: updated });
-    grantCourseAccess(selection, { bundles, courses });
+    grantCourseAccess(selection, { bundles, courses }, targetUser || { id: userId, uid: userId });
 
-    if (selectedUserDetails?.id === userId) {
+    if (selectedUserDetails?.id === userId || selectedUserDetails?.uid === userId) {
       setSelectedUserDetails(prev => ({
         ...prev,
         enrolledCourses: Array.from(new Set([...(prev.enrolledCourses || []), ...coursesToAdd]))
@@ -1654,8 +1660,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   };
 
   const handleRevokeCourseFromUser = (userId, courseTitle) => {
+    const targetUser = usersList.find(u => u.id === userId || u.uid === userId || u.email === userId);
     const updated = usersList.map(u => {
-      if (u.id === userId) {
+      if (u.id === userId || u.uid === userId || u.email === userId) {
         return {
           ...u,
           enrolledCourses: (u.enrolledCourses || []).filter(c => c !== courseTitle)
@@ -1665,13 +1672,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     });
     setUsersList(updated);
     persistAll({ users: updated });
-    if (selectedUserDetails?.id === userId) {
+    revokeCourseAccess(courseTitle, { bundles, courses }, targetUser || { id: userId, uid: userId });
+    if (selectedUserDetails?.id === userId || selectedUserDetails?.uid === userId) {
       setSelectedUserDetails(prev => ({
         ...prev,
         enrolledCourses: (prev.enrolledCourses || []).filter(c => c !== courseTitle)
       }));
     }
-    triggerToast(`Revoked access to "${courseTitle}"`);
+    triggerToast(`🚫 "${courseTitle}" এর এক্সেস বাতিল করা হয়েছে`);
   };
 
   const handleExportUsersCSV = () => {
@@ -1863,8 +1871,21 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     let extraUserUpdates = null;
     let extraStudentUpdates = enrolledStudents;
     if (targetTx) {
+      const rawPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
+      const rawName = (targetTx.studentName || '').trim().toLowerCase();
+      const rawEmail = (targetTx.studentEmail || '').trim().toLowerCase();
+
+      const matchedTargetUser = usersList.find(u => {
+        const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+        const uEmail = (u.email || '').trim().toLowerCase();
+        const uName = (u.name || '').trim().toLowerCase();
+        return (rawPhone.length >= 6 && uPhone.includes(rawPhone)) ||
+               (rawEmail && uEmail === rawEmail) ||
+               (rawName && (uName === rawName || uName.includes(rawName)));
+      });
+
       const itemTitle = targetTx.itemTitle || '';
-      const { courses: grantedCourses } = grantCourseAccess(itemTitle, { bundles, courses });
+      const { courses: grantedCourses } = grantCourseAccess(itemTitle, { bundles, courses }, matchedTargetUser);
 
       const foundBundle = bundles.find(b => 
         b.title.toLowerCase() === itemTitle.toLowerCase() ||
@@ -1880,9 +1901,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         });
         coursesToGrant = Array.from(new Set([foundBundle.title, ...resolved, ...coursesToGrant]));
       }
-
-      const rawPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
-      const rawName = (targetTx.studentName || '').trim().toLowerCase();
 
       // Update enrolled students
       const foundSt = enrolledStudents.find(st => {
@@ -2186,11 +2204,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       totalAddedRev += (Number(tx.amount) || 0);
 
       const cleanPhone = (tx.studentPhone || tx.phone || '').trim();
-      const existing = updatedEnrolled.find(st => st.phone && cleanPhone && st.phone.replace(/[^0-9]/g, '') === cleanPhone.replace(/[^0-9]/g, ''));
+      const rawPhone = cleanPhone.replace(/[^0-9]/g, '');
       const studentName = tx.studentName || tx.customer || 'New Student';
+      const rawName = studentName.trim().toLowerCase();
+      const studentEmail = (tx.studentEmail || tx.email || '').trim().toLowerCase();
+
+      const matchedTargetUser = updatedUsers.find(u => {
+        const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+        const uEmail = (u.email || '').trim().toLowerCase();
+        const uName = (u.name || '').trim().toLowerCase();
+        return (rawPhone.length >= 6 && uPhone.includes(rawPhone)) ||
+               (studentEmail && uEmail === studentEmail) ||
+               (rawName && (uName === rawName || uName.includes(rawName)));
+      });
+
+      const existing = updatedEnrolled.find(st => st.phone && cleanPhone && st.phone.replace(/[^0-9]/g, '') === cleanPhone.replace(/[^0-9]/g, ''));
       const courseTitle = tx.itemTitle || tx.category || 'Course Enrollment';
 
-      const { courses: grantedCourses } = grantCourseAccess(courseTitle, { bundles, courses });
+      const { courses: grantedCourses } = grantCourseAccess(courseTitle, { bundles, courses }, matchedTargetUser);
 
       if (existing) {
         updatedEnrolled = updatedEnrolled.map(st => st.id === existing.id ? { ...st, status: 'Active', courseName: courseTitle, joinedDate: 'Today' } : st);
@@ -2201,7 +2232,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           studentId: `EH-2026-${Math.floor(100 + Math.random() * 900)}`,
           batch: courseTitle.includes('Medical') ? 'Medical 25' : courseTitle.includes('Engineering') ? 'Engineering' : 'HSC 26',
           courseName: courseTitle,
-          phone: cleanPhone || '01700-000000',
+          phone: cleanPhone || '',
           email: tx.email || `${studentName.toLowerCase().replace(/[^a-z0-9]/g, '') || 'student'}@gmail.com`,
           avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
           status: 'Active',
@@ -2210,8 +2241,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       }
 
       // Update usersList
-      const rawPhone = cleanPhone.replace(/[^0-9]/g, '');
-      const rawName = studentName.trim().toLowerCase();
       if (rawPhone.length >= 6 || rawName) {
         updatedUsers = updatedUsers.map(u => {
           const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
@@ -2271,17 +2300,30 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setAccounting(updatedAccounting);
 
     // 2. Grant access globally & locally via enrollmentService
+    const cleanPhone = (tx.studentPhone || tx.phone || '').trim();
+    const rawPhone = cleanPhone.replace(/[^0-9]/g, '');
+    const studentName = tx.studentName || tx.customer || 'New Student';
+    const rawName = studentName.trim().toLowerCase();
+    const studentEmail = (tx.studentEmail || tx.email || '').trim().toLowerCase();
+
+    const matchedTargetUser = usersList.find(u => {
+      const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+      const uEmail = (u.email || '').trim().toLowerCase();
+      const uName = (u.name || '').trim().toLowerCase();
+      return (rawPhone.length >= 6 && uPhone.includes(rawPhone)) ||
+             (studentEmail && uEmail === studentEmail) ||
+             (rawName && (uName === rawName || uName.includes(rawName)));
+    });
+
     const itemTitle = tx.itemTitle || tx.category || 'Course Enrollment';
-    const { courses: grantedCourses } = grantCourseAccess(itemTitle, { bundles, courses });
+    const { courses: grantedCourses } = grantCourseAccess(itemTitle, { bundles, courses }, matchedTargetUser);
 
     // 3. Check if student already in enrolledStudents or create new active student
-    const cleanPhone = (tx.studentPhone || tx.phone || '').trim();
     const existingStudent = enrolledStudents.find(st => 
       st.phone && cleanPhone && st.phone.replace(/[^0-9]/g, '') === cleanPhone.replace(/[^0-9]/g, '')
     );
 
     let updatedEnrolled = [...enrolledStudents];
-    const studentName = tx.studentName || tx.customer || 'New Student';
     const courseTitle = itemTitle;
 
     if (existingStudent) {
@@ -2305,7 +2347,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                courseTitle.includes('27') ? 'HSC 27' :
                courseTitle.includes('28') ? 'HSC 28' : 'HSC 26',
         courseName: courseTitle,
-        phone: cleanPhone || '01700-000000',
+        phone: cleanPhone || '',
         email: tx.email || `${studentName.toLowerCase().replace(/[^a-z0-9]/g, '') || 'student'}@gmail.com`,
         avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
         status: 'Active',
@@ -2316,8 +2358,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setEnrolledStudents(updatedEnrolled);
 
     // 4. Update usersList
-    const rawPhone = cleanPhone.replace(/[^0-9]/g, '');
-    const rawName = studentName.trim().toLowerCase();
     let updatedUsers = usersList.map(u => {
       const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
       const uName = (u.name || '').trim().toLowerCase();
@@ -3052,15 +3092,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   }, [courses, adminCourseCategoryFilter, deferredCourseQuery]);
 
 
-  // Memoized Financial Totals
+  // Memoized Financial Totals (Reflects verified, real transactions)
   const accountingTotals = useMemo(() => {
     const txs = accounting?.transactions || [];
     let rev = 0;
     let exp = 0;
     txs.forEach(t => {
       const amt = Number(t.amount) || 0;
-      if (t.type === 'INCOME') rev += amt;
-      else if (t.type === 'EXPENSE') exp += amt;
+      const isCompleted = (t.status || '').toLowerCase() === 'completed';
+      if (t.type === 'INCOME' && isCompleted) rev += amt;
+      else if (t.type === 'EXPENSE' && isCompleted) exp += amt;
     });
     return {
       totalRevenue: rev,
@@ -3679,11 +3720,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Enrolled</span>
                       <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shrink-0">
                         <TrendingUp className="w-3 h-3" />
-                        <span>+24%</span>
+                        <span>Live</span>
                       </span>
                     </div>
                     <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mt-3">
-                      {(3840 + enrolledStudents.length).toLocaleString()}
+                      {enrolledStudents.filter(s => s.status === 'Active').length.toLocaleString()}
                     </div>
                   </div>
 
@@ -4822,10 +4863,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                   {tx.status !== 'Completed' && (
                                     <button
                                       onClick={() => handleApproveTrx(tx.id)}
-                                      className="text-emerald-600 hover:text-emerald-700 p-1.5 rounded-lg hover:bg-emerald-50 border-none bg-transparent cursor-pointer transition-colors"
-                                      title="Approve Enrollment"
+                                      className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs inline-flex items-center gap-1 shadow-2xs border-none cursor-pointer transition-all active:scale-95"
+                                      title="Approve Enrollment & Unlock Course"
                                     >
-                                      <Check className="w-4 h-4" />
+                                      <Check className="w-3.5 h-3.5" />
+                                      <span>Approve</span>
                                     </button>
                                   )}
                                   <button
@@ -5117,11 +5159,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             {/* Row 2: Info Line (Batch · Role/College · Contact) */}
                             <div className="flex items-center justify-between text-[11px] text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-xl font-medium">
                               <div className="flex items-center gap-1.5 truncate">
-                                <span className="font-semibold text-slate-700">{user.hscBatch || user.batch || 'HSC 26'}</span>
+                                <span className="font-semibold text-slate-700">{user.hscBatch || user.batch || 'Not Set'}</span>
                                 <span className="text-slate-300">·</span>
                                 <span className="text-slate-500 truncate max-w-[120px]">{user.college || user.role || 'Student'}</span>
                               </div>
-                              {contactNum && (
+                              {contactNum ? (
                                 <div className="flex items-center gap-1 shrink-0 font-mono text-slate-700">
                                   <span>{contactNum}</span>
                                   <button
@@ -5142,6 +5184,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     <MessageCircle className="w-3 h-3" />
                                   </a>
                                 </div>
+                              ) : (
+                                <span className="text-amber-700 font-semibold bg-amber-50 px-2 py-0.5 rounded-md text-[10px] border border-amber-200/60">
+                                  Pending Contact
+                                </span>
                               )}
                             </div>
 
@@ -5180,10 +5226,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     setQuickEnrollUser(user);
                                     setSelectedCourseToEnroll(courses[0]?.title || '');
                                   }}
-                                  className="p-1.5 rounded-xl text-slate-400 hover:text-blue-600 hover:bg-blue-50 border border-slate-200 transition-colors cursor-pointer bg-white"
-                                  title="Assign Course"
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-[#5d5bf6] text-[#5d5bf6] hover:text-white border border-indigo-200/80 font-bold text-[11px] transition-colors cursor-pointer shadow-2xs"
+                                  title="কোর্স এক্সেস দিন"
                                 >
-                                  <BookOpen className="w-3.5 h-3.5" />
+                                  <GraduationCap className="w-3 h-3" />
+                                  <span>কোর্স দিন</span>
                                 </button>
                                 <button
                                   type="button"
@@ -5256,34 +5303,77 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 {/* Student / Description */}
                                 <td className="py-3.5 px-4">
                                   <div className="min-w-[150px]">
-                                    <div 
-                                      className="font-bold text-xs text-slate-900 hover:text-blue-600 transition-colors cursor-pointer"
-                                      onClick={() => setSelectedUserDetails(user)}
-                                    >
-                                      {user.name}
+                                    <div className="flex items-center gap-1.5 flex-wrap">
+                                      <div 
+                                        className="font-bold text-xs text-slate-900 hover:text-blue-600 transition-colors cursor-pointer truncate max-w-[140px]"
+                                        onClick={() => setSelectedUserDetails(user)}
+                                      >
+                                        {user.name}
+                                      </div>
+                                      {user.authProvider === 'google.com' ? (
+                                        <span className="inline-flex items-center gap-1 px-1.5 py-0.2 rounded text-[9px] font-bold bg-amber-50 text-amber-800 border border-amber-200/80 shrink-0" title="Signed up with Google OAuth">
+                                          <svg className="w-2.5 h-2.5 shrink-0" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.4l3.7 2.9C6.5 7.4 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.7c-.2-.7-.4-1.5-.4-2.7s.1-2 .4-2.7L1.9 6.4C.7 8.8 0 10.8 0 12s.7 3.2 1.9 5.6l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.3L1.9 16c1.8 3.8 5.6 7 10.1 7z"/></svg>
+                                          Google
+                                        </span>
+                                      ) : (
+                                        <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-medium bg-slate-100 text-slate-600 border border-slate-200 shrink-0" title="Email and Password Account">
+                                          Email
+                                        </span>
+                                      )}
                                     </div>
                                     <div className="text-[11px] text-slate-400 mt-0.5 font-normal truncate max-w-[200px]">
-                                      {contactNum ? contactNum : user.email}
+                                      {user.email}
                                     </div>
                                   </div>
                                 </td>
 
                                 {/* Course / Product */}
                                 <td className="py-3.5 px-4">
-                                  <div className="text-xs font-medium text-slate-800 truncate max-w-[220px]" title={Array.isArray(user.enrolledCourses) ? user.enrolledCourses.join(', ') : ''}>
+                                  <div className="flex items-center gap-1.5 flex-wrap">
                                     {Array.isArray(user.enrolledCourses) && user.enrolledCourses.length > 0 ? (
-                                      <span>{enrolledTitle}</span>
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          setSelectedUserDetails(user);
+                                          setUserTabInsideModal('courses');
+                                        }}
+                                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-50 text-[#5d5bf6] hover:bg-indigo-100 border border-indigo-200/80 transition-all cursor-pointer shadow-2xs"
+                                        title={user.enrolledCourses.join('\n')}
+                                      >
+                                        <GraduationCap className="w-3.5 h-3.5 shrink-0 text-[#5d5bf6]" />
+                                        <span className="truncate max-w-[170px]">{user.enrolledCourses[0]}</span>
+                                        {user.enrolledCourses.length > 1 && (
+                                          <span className="px-1.5 py-0.2 rounded-full text-[10px] font-extrabold bg-[#5d5bf6] text-white">
+                                            +{user.enrolledCourses.length - 1}
+                                          </span>
+                                        )}
+                                      </button>
                                     ) : (
-                                      <span className="text-slate-400 font-normal italic">None</span>
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          setQuickEnrollUser(user);
+                                          setSelectedCourseToEnroll(courses[0]?.title || '');
+                                        }}
+                                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold text-slate-500 hover:text-[#5d5bf6] hover:bg-indigo-50 border border-dashed border-slate-300 hover:border-indigo-300 transition-colors cursor-pointer bg-transparent"
+                                      >
+                                        <span>+ কোর্স যুক্ত করুন</span>
+                                      </button>
                                     )}
                                   </div>
                                 </td>
 
                                 {/* Batch (Method Pill Style) */}
                                 <td className="py-3.5 px-4 whitespace-nowrap">
-                                  <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200/80">
-                                    {user.hscBatch || user.batch || 'HSC 26'}
-                                  </span>
+                                  {(user.hscBatch || user.batch) ? (
+                                    <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200/80">
+                                      {user.hscBatch || user.batch}
+                                    </span>
+                                  ) : (
+                                    <span className="text-slate-400 font-normal italic text-[11px]">
+                                      Not set
+                                    </span>
+                                  )}
                                 </td>
 
                                 {/* College / Institution */}
@@ -5297,29 +5387,31 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                                 {/* Contact */}
                                 <td className="py-3.5 px-4 whitespace-nowrap">
-                                  <div className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
-                                    <span>{contactNum || 'N/A'}</span>
-                                    {contactNum && (
-                                      <>
-                                        <button 
-                                          onClick={() => handleCopyText(contactNum, 'Phone')} 
-                                          title="Copy number"
-                                          className="text-slate-400 hover:text-slate-600 p-0.5 cursor-pointer bg-transparent border-none"
-                                        >
-                                          <Copy className="w-3 h-3" />
-                                        </button>
-                                        <a
-                                          href={`https://wa.me/${waPhone}`}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          title="Chat on WhatsApp"
-                                          className="text-emerald-600 hover:text-emerald-700 p-0.5"
-                                        >
-                                          <MessageCircle className="w-3.5 h-3.5" />
-                                        </a>
-                                      </>
-                                    )}
-                                  </div>
+                                  {contactNum ? (
+                                    <div className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
+                                      <span className="font-mono">{contactNum}</span>
+                                      <button 
+                                        onClick={() => handleCopyText(contactNum, 'Phone')} 
+                                        title="Copy number"
+                                        className="text-slate-400 hover:text-slate-600 p-0.5 cursor-pointer bg-transparent border-none"
+                                      >
+                                        <Copy className="w-3 h-3" />
+                                      </button>
+                                      <a
+                                        href={`https://wa.me/${waPhone}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="Chat on WhatsApp"
+                                        className="text-emerald-600 hover:text-emerald-700 p-0.5"
+                                      >
+                                        <MessageCircle className="w-3.5 h-3.5" />
+                                      </a>
+                                    </div>
+                                  ) : (
+                                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200/80">
+                                      Pending Profile
+                                    </span>
+                                  )}
                                 </td>
 
                                 {/* Status (Exact Reference Image Pill Badge) */}
@@ -5346,38 +5438,43 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                                 {/* Actions */}
                                 <td className="py-3.5 px-4 text-right whitespace-nowrap">
-                                  <div className="flex items-center justify-end gap-1">
+                                  <div className="flex items-center justify-end gap-1.5">
                                     <button
+                                      type="button"
+                                      onClick={() => {
+                                        setQuickEnrollUser(user);
+                                        setSelectedCourseToEnroll(courses[0]?.title || '');
+                                      }}
+                                      title="কোর্স এক্সেস দিন (Grant Course Access)"
+                                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-[#5d5bf6] text-[#5d5bf6] hover:text-white border border-indigo-200/80 font-bold text-[11px] transition-all cursor-pointer shadow-2xs active:scale-95"
+                                    >
+                                      <GraduationCap className="w-3.5 h-3.5" />
+                                      <span>কোর্স দিন</span>
+                                    </button>
+
+                                    <button
+                                      type="button"
                                       onClick={() => setSelectedUserDetails(user)}
                                       title="View Profile & Enrollments"
-                                      className="p-1 rounded text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors border-none bg-transparent cursor-pointer"
+                                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors border-none bg-transparent cursor-pointer"
                                     >
                                       <Eye className="w-3.5 h-3.5" />
                                     </button>
 
                                     <button
-                                      onClick={() => {
-                                        setQuickEnrollUser(user);
-                                        setSelectedCourseToEnroll(courses[0]?.title || '');
-                                      }}
-                                      title="Assign Course Access"
-                                      className="p-1 rounded text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors border-none bg-transparent cursor-pointer"
-                                    >
-                                      <BookOpen className="w-3.5 h-3.5" />
-                                    </button>
-
-                                    <button
+                                      type="button"
                                       onClick={() => handleOpenEditUser(user)}
                                       title="Edit User Info"
-                                      className="p-1 rounded text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors border-none bg-transparent cursor-pointer"
+                                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors border-none bg-transparent cursor-pointer"
                                     >
                                       <Edit2 className="w-3.5 h-3.5" />
                                     </button>
 
                                     <button
+                                      type="button"
                                       onClick={() => handleDeleteUser(user.id, user.name)}
                                       title="Delete User"
-                                      className="p-1 rounded text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors border-none bg-transparent cursor-pointer"
+                                      className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors border-none bg-transparent cursor-pointer"
                                     >
                                       <Trash2 className="w-3.5 h-3.5" />
                                     </button>
@@ -10474,7 +10571,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">HSC Batch</div>
                       <div className="mt-1">
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black bg-rose-50 text-rose-700 border border-rose-200/80">
-                          {selectedUserDetails.hscBatch || selectedUserDetails.batch || 'HSC 26'}
+                          {selectedUserDetails.hscBatch || selectedUserDetails.batch || 'Not specified'}
                         </span>
                       </div>
                     </div>
@@ -10538,42 +10635,78 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               {userTabInsideModal === 'courses' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-800">Assigned Courses & Batches</span>
+                    <div>
+                      <span className="text-xs font-bold text-slate-800">অ্যাসাইন করা কোর্স ও এক্সাম ব্যাচসমূহ</span>
+                      <p className="text-[11px] text-slate-400">এই শিক্ষার্থী বর্তমানে যেসকল কোর্সের পূর্ণাঙ্গ এক্সেস উপভোগ করছেন</p>
+                    </div>
                     <button
+                      type="button"
                       onClick={() => {
                         setQuickEnrollUser(selectedUserDetails);
                         setSelectedCourseToEnroll(courses[0]?.title || '');
                       }}
-                      className="px-3 py-1.5 rounded-lg bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold cursor-pointer border-none shadow-xs"
+                      className="px-3 py-1.5 rounded-lg bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold cursor-pointer border-none shadow-xs flex items-center gap-1.5 transition-all"
                     >
-                      + Assign Course
+                      <GraduationCap className="w-3.5 h-3.5" />
+                      <span>+ কোর্স এক্সেস দিন</span>
+                    </button>
+                  </div>
+
+                  {/* Direct In-Tab Course Assign Form */}
+                  <div className="p-3 bg-indigo-50/60 rounded-2xl border border-indigo-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                    <div className="flex-1 min-w-0">
+                      <CourseSearchSelect
+                        value={selectedCourseToEnroll}
+                        onChange={setSelectedCourseToEnroll}
+                        bundles={bundles}
+                        courses={courses}
+                        examBatches={EXAM_CATEGORIES_METADATA}
+                        placeholder="কোর্স অথবা কম্বো বান্ডিল বেছে নিন..."
+                      />
+                    </div>
+
+                    <button
+                      type="button"
+                      disabled={!selectedCourseToEnroll}
+                      onClick={() => {
+                        handleAssignCourseToUser(selectedUserDetails.id, selectedCourseToEnroll);
+                        setSelectedCourseToEnroll('');
+                      }}
+                      className="px-5 py-2.5 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-50 text-white text-xs font-bold shrink-0 cursor-pointer border-none shadow-xs flex items-center justify-center gap-1.5 transition-all active:scale-95"
+                    >
+                      <Check className="w-4 h-4" />
+                      <span>এক্সেস যুক্ত করুন</span>
                     </button>
                   </div>
 
                   {(selectedUserDetails.enrolledCourses || []).length === 0 ? (
-                    <div className="text-center py-8 text-slate-400 bg-slate-50 rounded-xl border border-dashed border-slate-200">
+                    <div className="text-center py-8 text-slate-400 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
                       <BookOpen className="w-8 h-8 mx-auto text-slate-300 mb-1" />
-                      <p className="text-xs font-bold text-slate-600">No active course enrollments</p>
-                      <p className="text-[11px] text-slate-400">Click "+ Assign Course" to grant course access to this student.</p>
+                      <p className="text-xs font-bold text-slate-600">কোনো সক্রিয় কোর্স নেই</p>
+                      <p className="text-[11px] text-slate-400">উপরের ড্রপডাউন থেকে কোর্স সিলেক্ট করে এক্সেস যুক্ত করুন।</p>
                     </div>
                   ) : (
                     <div className="space-y-2.5">
                       {selectedUserDetails.enrolledCourses.map((cTitle, idx) => (
-                        <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                        <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-slate-100/60 transition-colors">
                           <div className="flex items-center gap-2.5">
                             <div className="w-7 h-7 rounded-lg bg-[#5d5bf6]/10 text-[#5d5bf6] flex items-center justify-center font-bold text-xs">
                               {idx + 1}
                             </div>
                             <div>
                               <div className="text-xs font-bold text-slate-800">{cTitle}</div>
-                              <div className="text-[10px] text-emerald-600 font-semibold">Active Access Pass</div>
+                              <div className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                <span>অ্যাক্সেস সক্রিয় (Active Access Pass)</span>
+                              </div>
                             </div>
                           </div>
                           <button
+                            type="button"
                             onClick={() => handleRevokeCourseFromUser(selectedUserDetails.id, cTitle)}
-                            className="text-xs text-rose-600 font-bold hover:underline bg-transparent border-none cursor-pointer p-0"
+                            className="text-xs text-rose-600 hover:text-rose-700 font-bold hover:underline bg-rose-50 hover:bg-rose-100 px-2.5 py-1 rounded-lg border border-rose-200 cursor-pointer transition-colors"
                           >
-                            Revoke
+                            এক্সেস বাতিল
                           </button>
                         </div>
                       ))}
@@ -10768,66 +10901,119 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       {/* ========================================================= */}
       {/* MODAL 3: QUICK COURSE ENROLL MODAL */}
       {/* ========================================================= */}
-      {quickEnrollUser && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
-          <div className="bg-white rounded-3xl w-full max-w-md border border-slate-100 shadow-2xl p-6 space-y-4">
-            <div>
-              <h3 className="text-base font-black text-slate-900 tracking-tight">Assign Course Access</h3>
-              <p className="text-xs text-slate-400 mt-0.5">
-                Grant course or batch access directly to <strong className="text-slate-800">{quickEnrollUser.name}</strong>
-              </p>
-            </div>
+      {quickEnrollUser && (() => {
+        const bundleId = selectedCourseToEnroll.startsWith('bundle:') ? selectedCourseToEnroll.replace('bundle:', '') : selectedCourseToEnroll;
+        const selectedBundle = bundles.find(b => b.id === bundleId || b.title === selectedCourseToEnroll || b.slug === bundleId);
+        const selectedCourse = courses.find(c => c.title === selectedCourseToEnroll || c.id === selectedCourseToEnroll || c.slug === selectedCourseToEnroll);
+        const selectedExamBatch = EXAM_CATEGORIES_METADATA.find(eb => eb.title === selectedCourseToEnroll || eb.key === selectedCourseToEnroll);
+        const activeCoursesList = Array.isArray(quickEnrollUser.enrolledCourses) ? quickEnrollUser.enrolledCourses : [];
 
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">Select Course or Combo Bundle from Catalog</label>
-              <select
-                value={selectedCourseToEnroll}
-                onChange={(e) => setSelectedCourseToEnroll(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
-              >
-                <option value="">-- কোর্স অথবা কম্বো বান্ডিল বেছে নিন --</option>
-                {bundles && bundles.length > 0 && (
-                  <optgroup label="🎁 Combo Bundles (এক ক্লিকে সকল কোর্স আনলক)">
-                    {bundles.map((b) => (
-                      <option key={b.id} value={`bundle:${b.id}`}>
-                        🎁 {b.title} ({b.courseIds?.length || 0}টি কোর্স অন্তর্ভুক্ত)
-                      </option>
+        return (
+          <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
+            <div className="bg-white rounded-3xl w-full max-w-lg border border-slate-100 shadow-2xl p-6 space-y-4">
+              {/* Header */}
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-[#5d5bf6]">
+                    <GraduationCap className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-slate-900 tracking-tight">কোর্স এক্সেস প্রদান করুন</h3>
+                    <p className="text-xs text-slate-500 font-medium">
+                      শিক্ষার্থী: <strong className="text-slate-800">{quickEnrollUser.name}</strong> • {quickEnrollUser.email || 'N/A'}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setQuickEnrollUser(null)}
+                  className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center cursor-pointer border-none"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Current Active Courses */}
+              <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">বর্তমানে সক্রিয় কোর্সসমূহ:</span>
+                  <span className="text-[11px] font-extrabold text-[#5d5bf6]">
+                    {activeCoursesList.length}টি কোর্স
+                  </span>
+                </div>
+                {activeCoursesList.length > 0 ? (
+                  <div className="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto">
+                    {activeCoursesList.map((c, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-white text-slate-800 border border-slate-200 shadow-2xs">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                        <span className="truncate max-w-[210px]">{c}</span>
+                        <button
+                          type="button"
+                          onClick={() => handleRevokeCourseFromUser(quickEnrollUser.id, c)}
+                          className="text-slate-400 hover:text-rose-600 p-0.5 ml-1 border-none bg-transparent cursor-pointer"
+                          title="এক্সেস বাতিল করুন"
+                        >
+                          ✕
+                        </button>
+                      </span>
                     ))}
-                  </optgroup>
+                  </div>
+                ) : (
+                  <p className="text-xs text-slate-400 italic">এই শিক্ষার্থীর কোনো সক্রিয় কোর্স নেই</p>
                 )}
-                <optgroup label="📚 Individual Courses & Batches">
-                  {courses.map((c, i) => (
-                    <option key={c.id || i} value={c.title}>
-                      {c.title} ({c.category || 'Course'})
-                    </option>
-                  ))}
-                </optgroup>
-              </select>
-              <p className="text-[11px] text-slate-400 mt-1">
-                💡 টিপ: কোনো কম্বো বান্ডিল সিলেক্ট করলে ঐ বান্ডিলের সকল ৩টি/৪টি কোর্স এক ক্লিকেই শিক্ষার্থীর একাউন্টে যুক্ত হয়ে যাবে।
-              </p>
-            </div>
+              </div>
 
-            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
-              <button
-                type="button"
-                onClick={() => setQuickEnrollUser(null)}
-                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer border-none"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                disabled={!selectedCourseToEnroll}
-                onClick={() => handleAssignCourseToUser(quickEnrollUser.id, selectedCourseToEnroll)}
-                className="px-5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-50 text-white text-xs font-bold shadow-md shadow-[#5d5bf6]/25 cursor-pointer border-none"
-              >
-                Assign Access
-              </button>
+              {/* Course Selector Dropdown */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  যে কোর্স বা ব্যাচের এক্সেস দিতে চান তা নির্বাচন করুন:
+                </label>
+                <CourseSearchSelect
+                  value={selectedCourseToEnroll}
+                  onChange={setSelectedCourseToEnroll}
+                  bundles={bundles}
+                  courses={courses}
+                  examBatches={EXAM_CATEGORIES_METADATA}
+                  placeholder="কোর্স অথবা কম্বো বান্ডিল বেছে নিন..."
+                />
+              </div>
+
+              {/* Live Preview Info Banner */}
+              {selectedCourseToEnroll && (
+                <div className="p-3 bg-emerald-50/70 border border-emerald-200 rounded-2xl space-y-1 animate-in fade-in">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-800">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>সিলেক্ট করা হয়েছে: {selectedBundle?.title || selectedCourse?.title || selectedExamBatch?.title || selectedCourseToEnroll}</span>
+                  </div>
+                  <p className="text-[11px] text-emerald-700 leading-relaxed pl-5">
+                    এক্সেস কনফার্ম করলে শিক্ষার্থীর ড্যাশবোর্ডে কোর্সটি সাথে সাথে যুক্ত হয়ে যাবে এবং কোর্স প্লেয়ারের সকল ক্লাস, রেকর্ডেড ভিডিও, পিডিএফ লেকচার নোটস ও কুইজ আনলক হয়ে যাবে।
+                  </p>
+                </div>
+              )}
+
+              {/* Footer Actions */}
+              <div className="flex items-center justify-end gap-2.5 pt-2 border-t border-slate-100">
+                <button
+                  type="button"
+                  onClick={() => setQuickEnrollUser(null)}
+                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer border-none transition-colors"
+                >
+                  বাতিল (Cancel)
+                </button>
+                <button
+                  type="button"
+                  disabled={!selectedCourseToEnroll}
+                  onClick={() => handleAssignCourseToUser(quickEnrollUser.id, selectedCourseToEnroll)}
+                  className="px-5 py-2.5 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-50 text-white text-xs font-bold shadow-md shadow-[#5d5bf6]/25 cursor-pointer border-none flex items-center gap-1.5 transition-all active:scale-95"
+                >
+                  <GraduationCap className="w-4 h-4" />
+                  <span>কোর্স এক্সেস নিশ্চিত করুন</span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
 
     </div>

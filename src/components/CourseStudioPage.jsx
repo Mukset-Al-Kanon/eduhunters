@@ -294,6 +294,7 @@ export default function CourseStudioPage({
   });
   const wizardCsvInputRef = useRef(null);
   const [showIntegrationGuide, setShowIntegrationGuide] = useState(false);
+  const [studioModalTab, setStudioModalTab] = useState('all'); // 'all' | 'video' | 'notes' | 'quiz'
 
   // Bunny.net Cloud Integration State
   const [bunnyConfig, setBunnyConfig] = useState(() => getBunnyConfig());
@@ -942,6 +943,8 @@ export default function CourseStudioPage({
       targetChap = 0;
     }
 
+    setStudioModalTab('all');
+    setVideoTabMode('url');
     setClassWizardModal({
       isOpen: true,
       mode: 'add',
@@ -968,6 +971,8 @@ export default function CourseStudioPage({
     const existingQuiz = isObj ? (lesson.quiz || lesson.exam) : null;
     const lessonTitle = isObj ? (lesson.title || `Lesson #${lesIdx + 1}`) : lesson;
 
+    setStudioModalTab('all');
+    setVideoTabMode('url');
     setClassWizardModal({
       isOpen: true,
       mode: 'edit',
@@ -991,8 +996,7 @@ export default function CourseStudioPage({
 
   const handleSaveClassWizard = () => {
     if (!classWizardModal.title.trim()) {
-      setClassWizardModal(prev => ({ ...prev, activeStep: 1 }));
-      alert('Please enter a Class Title in Step 1 before saving.');
+      triggerToast('⚠️ Please enter a Class Title before saving.');
       return;
     }
 
@@ -1887,14 +1891,14 @@ export default function CourseStudioPage({
                               </div>
                             )}
 
-                            {/* Clean Quick Add & Wizard Row (Replaces the ugly 5-input box!) */}
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-1">
-                              <div className="flex items-center gap-2 flex-1 max-w-lg">
-                                <div className="relative flex-1">
+                            {/* Streamlined Inline Quick-Add & Studio Row */}
+                            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5 pt-1.5">
+                              <div className="flex flex-wrap items-center gap-2 flex-1">
+                                <div className="relative flex-1 min-w-[220px]">
                                   <Plus className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                                   <input
                                     type="text"
-                                    placeholder="Quick add class title (press Enter ↵)..."
+                                    placeholder="Class title (e.g. Day 01 - Basics)..."
                                     value={draft.title || ''}
                                     onChange={(e) => setNewLessonDrafts(prev => ({
                                       ...prev,
@@ -1909,24 +1913,46 @@ export default function CourseStudioPage({
                                     className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-semibold text-slate-800 outline-none focus:border-[#5d5bf6] shadow-2xs transition-all"
                                   />
                                 </div>
-                                {draft.title?.trim() && (
-                                  <button
-                                    type="button"
-                                    onClick={() => handleAddLesson(secIdx, chapIdx)}
-                                    className="px-3.5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold border-none cursor-pointer transition-all shrink-0 shadow-2xs active:scale-95"
-                                  >
-                                    Add Class
-                                  </button>
-                                )}
+
+                                <div className="relative w-full sm:w-60">
+                                  <Play className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                                  <input
+                                    type="text"
+                                    placeholder="Paste Video URL (YouTube / Bunny)..."
+                                    value={draft.videoUrl || ''}
+                                    onChange={(e) => setNewLessonDrafts(prev => ({
+                                      ...prev,
+                                      [draftKey]: { ...draft, videoUrl: e.target.value }
+                                    }))}
+                                    onKeyDown={(e) => {
+                                      if (e.key === 'Enter') {
+                                        e.preventDefault();
+                                        handleAddLesson(secIdx, chapIdx);
+                                      }
+                                    }}
+                                    className="w-full bg-white border border-slate-200 rounded-xl pl-8 pr-3 py-2 text-xs font-mono text-slate-800 outline-none focus:border-[#5d5bf6] shadow-2xs transition-all"
+                                  />
+                                </div>
+
+                                <button
+                                  type="button"
+                                  onClick={() => handleAddLesson(secIdx, chapIdx)}
+                                  disabled={!draft.title?.trim()}
+                                  className="px-3.5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold border-none cursor-pointer transition-all shrink-0 shadow-2xs active:scale-95 flex items-center gap-1.5"
+                                >
+                                  <Plus className="w-3.5 h-3.5" />
+                                  <span>+ Quick Add</span>
+                                </button>
                               </div>
 
                               <button
                                 type="button"
                                 onClick={() => handleOpenAddClassWizard(secIdx, chapIdx, 1)}
                                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-[#5d5bf6] hover:to-purple-600 text-[#5d5bf6] hover:text-white text-xs font-bold border border-indigo-200/80 hover:border-transparent transition-all cursor-pointer shadow-2xs shrink-0 active:scale-95"
+                                title="Open Full Studio for Video Uploads, Notes, and Quizzes"
                               >
                                 <Sparkles className="w-3.5 h-3.5" />
-                                <span>+ Add with 4-Step Wizard</span>
+                                <span>+ Class Studio Modal</span>
                               </button>
                             </div>
                           </div>
@@ -3020,27 +3046,29 @@ Explanation: Flock refers to a group of birds or sheep.`}
       )}
 
       {/* ========================================================= */}
-      {/* 4-STEP CLASS INTEGRATION WIZARD MODAL */}
+      {/* UNIFIED CLASS STUDIO & CONTENT EDITOR MODAL */}
       {/* ========================================================= */}
       {classWizardModal.isOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-3xl w-full shadow-2xl border border-slate-100 flex flex-col max-h-[92vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+          <div className="bg-white rounded-3xl max-w-4xl w-full shadow-2xl border border-slate-100 flex flex-col max-h-[92vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
             
             {/* Modal Header */}
             <div className="p-4 sm:p-5 border-b border-slate-100 bg-gradient-to-r from-slate-50 via-indigo-50/20 to-purple-50/20 flex items-center justify-between gap-4 shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#5d5bf6] to-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#5d5bf6] to-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-sm shrink-0">
                   {classWizardModal.mode === 'add' ? '🚀' : '✏️'}
                 </div>
-                <div>
-                  <h3 className="text-base font-black text-slate-900 flex items-center gap-2">
-                    <span>{classWizardModal.mode === 'add' ? 'Add New Class (4-Step Integration)' : 'Edit Class (4-Step Integration)'}</span>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#5d5bf6]/10 text-[#5d5bf6]">
-                      Step {classWizardModal.activeStep} of 4
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-base font-black text-slate-900 truncate">
+                      {classWizardModal.mode === 'add' ? 'Class Studio — Add New Class' : 'Class Studio — Edit Class'}
+                    </h3>
+                    <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-[#5d5bf6]/10 text-[#5d5bf6]">
+                      {classWizardModal.mode === 'add' ? 'New Lecture' : 'Editing'}
                     </span>
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Follow the 4 steps: Name & Duration → Video Link → PDF Notes → Practice Quiz.
+                  </div>
+                  <p className="text-xs text-slate-500 mt-0.5 truncate">
+                    {curriculum[classWizardModal.secIdx]?.title || 'Module'} → {curriculum[classWizardModal.secIdx]?.chapters?.[classWizardModal.chapIdx]?.name || 'Chapter'}
                   </p>
                 </div>
               </div>
@@ -3048,64 +3076,73 @@ Explanation: Flock refers to a group of birds or sheep.`}
               <button
                 type="button"
                 onClick={() => setClassWizardModal(prev => ({ ...prev, isOpen: false }))}
-                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center border-none cursor-pointer transition-colors"
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center border-none cursor-pointer transition-colors shrink-0"
                 title="Close"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Stepper Tabs Bar */}
-            <div className="px-4 sm:px-6 pt-3 pb-2 bg-slate-50/60 border-b border-slate-100 shrink-0">
-              <div className="grid grid-cols-4 gap-2">
+            {/* Studio Navigation & Fast Focus Filter Tabs */}
+            <div className="px-4 sm:px-6 py-2.5 bg-slate-50/80 border-b border-slate-100 shrink-0 flex items-center justify-between gap-2 flex-wrap">
+              <div className="flex items-center gap-1.5 flex-wrap">
                 {[
-                  { step: 1, label: 'Class Info', isDone: Boolean(classWizardModal.title.trim()), icon: '1' },
-                  { step: 2, label: 'Video URL', isDone: Boolean(classWizardModal.videoUrl.trim()), icon: '2' },
-                  { step: 3, label: 'PDF Notes', isDone: Boolean(classWizardModal.pdfUrl.trim()), icon: '3' },
-                  { step: 4, label: 'Quiz & Exam', isDone: Boolean(classWizardModal.hasQuiz && (classWizardModal.questions.length > 0 || classWizardModal.examId)), icon: '4' },
-                ].map(({ step, label, isDone, icon }) => {
-                  const isActive = classWizardModal.activeStep === step;
+                  { id: 'all', label: 'All-in-One Studio', icon: Layers },
+                  { id: 'video', label: 'Video Lecture', icon: Video, badge: classWizardModal.videoUrl ? '🟢 Ready' : null },
+                  { id: 'notes', label: 'PDF Notes', icon: FileText, badge: classWizardModal.pdfUrl ? '✓ Attached' : null },
+                  { id: 'quiz', label: 'Practice Quiz', icon: Zap, badge: classWizardModal.hasQuiz ? `✓ (${classWizardModal.questions.length})` : null },
+                ].map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = studioModalTab === tab.id;
                   return (
                     <button
-                      key={step}
+                      key={tab.id}
                       type="button"
-                      onClick={() => setClassWizardModal(prev => ({ ...prev, activeStep: step }))}
-                      className={`flex items-center gap-2 p-2 rounded-xl text-left border cursor-pointer transition-all ${
+                      onClick={() => setStudioModalTab(tab.id)}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
                         isActive
-                          ? 'bg-white border-[#5d5bf6] shadow-xs'
-                          : 'bg-white/50 border-slate-200/80 hover:bg-white hover:border-slate-300'
+                          ? 'bg-white text-[#5d5bf6] border-[#5d5bf6] shadow-2xs font-extrabold'
+                          : 'bg-transparent text-slate-600 border-transparent hover:bg-white hover:text-slate-900 hover:border-slate-200'
                       }`}
                     >
-                      <span className={`w-5 h-5 rounded-full text-[10px] font-mono font-bold flex items-center justify-center shrink-0 ${
-                        isActive 
-                          ? 'bg-[#5d5bf6] text-white shadow-2xs' 
-                          : isDone 
-                            ? 'bg-emerald-500 text-white' 
-                            : 'bg-slate-200 text-slate-600'
-                      }`}>
-                        {isDone && !isActive ? '✓' : icon}
-                      </span>
-                      <div className="min-w-0 flex-1 hidden sm:block">
-                        <span className={`block text-xs font-bold truncate ${isActive ? 'text-[#5d5bf6]' : 'text-slate-700'}`}>
-                          {label}
+                      <Icon className="w-3.5 h-3.5" />
+                      <span>{tab.label}</span>
+                      {tab.badge && (
+                        <span className={`text-[10px] font-mono font-bold px-1.5 py-0.2 rounded-md ${
+                          isActive ? 'bg-[#5d5bf6]/10 text-[#5d5bf6]' : 'bg-emerald-100 text-emerald-700'
+                        }`}>
+                          {tab.badge}
                         </span>
-                        <span className="block text-[10px] text-slate-400">
-                          {isDone ? 'Completed' : 'Optional'}
-                        </span>
-                      </div>
+                      )}
                     </button>
                   );
                 })}
               </div>
+
+              <div className="text-[11px] text-slate-400 font-medium hidden sm:block">
+                ⚡ Title + Video is enough to publish
+              </div>
             </div>
 
-            {/* Stepper Body */}
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1 space-y-4">
-              
+            {/* Studio Body (Scrollable Container) */}
+            <div className="p-4 sm:p-6 overflow-y-auto flex-1 space-y-6">
+
               {/* ---------------------------------------------------- */}
-              {/* STEP 1: CLASS NAME & BASICS */}
+              {/* SECTION 1: CLASS ESSENTIALS (ALWAYS VISIBLE) */}
               {/* ---------------------------------------------------- */}
-              {classWizardModal.activeStep === 1 && (
+              <div className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-4 sm:p-5 space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-200/60 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-lg bg-[#5d5bf6] text-white flex items-center justify-center text-xs font-black">
+                      1
+                    </span>
+                    <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+                      Class Essentials (প্রাথমিক তথ্য ও অ্যাক্সেস)
+                    </h4>
+                  </div>
+                  <span className="text-[11px] text-slate-400">Required Title</span>
+                </div>
+
                 <div className="space-y-4">
                   {/* Chapter Selector */}
                   <div>
@@ -3118,7 +3155,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                         const [s, c] = e.target.value.split('-').map(Number);
                         setClassWizardModal(prev => ({ ...prev, secIdx: s, chapIdx: c }));
                       }}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] transition-all"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-800 outline-none focus:border-[#5d5bf6] transition-all"
                     >
                       {curriculum.map((sec, sIdx) => 
                         (sec.chapters || []).map((ch, cIdx) => (
@@ -3136,7 +3173,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                       <label className="text-xs font-bold text-slate-700">
                         Class / Lecture Title <span className="text-rose-500">*</span>
                       </label>
-                      <span className="text-[11px] text-slate-400">Appears in student syllabus roadmap</span>
+                      <span className="text-[11px] text-slate-400">Roadmap syllabus title</span>
                     </div>
                     <input
                       type="text"
@@ -3144,13 +3181,13 @@ Explanation: Flock refers to a group of birds or sheep.`}
                       value={classWizardModal.title}
                       onChange={(e) => setClassWizardModal(prev => ({ ...prev, title: e.target.value }))}
                       placeholder="e.g. Day 01 - Noun Classification & Common Errors"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 outline-none focus:bg-white focus:border-[#5d5bf6] transition-all"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 outline-none focus:border-[#5d5bf6] transition-all shadow-2xs"
                     />
 
-                    {/* Quick Title Chips */}
+                    {/* Quick Title Prefix Chips */}
                     <div className="flex items-center gap-1.5 flex-wrap mt-2">
                       <span className="text-[10px] text-slate-400 font-bold uppercase">Quick Prefix:</span>
-                      {['Day 01 - ', 'Lecture 01: ', 'Grammar: ', 'Vocabulary: ', 'Exam Solve: '].map((prefix) => (
+                      {['Day 01 - ', 'Lecture 01: ', 'Grammar: ', 'Vocabulary: ', 'Solve Class: '].map((prefix) => (
                         <button
                           key={prefix}
                           type="button"
@@ -3158,7 +3195,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                             ...prev, 
                             title: prev.title.startsWith(prefix) ? prev.title : `${prefix}${prev.title}` 
                           }))}
-                          className="px-2 py-0.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 text-[10px] font-bold cursor-pointer transition-colors border-none"
+                          className="px-2 py-0.5 rounded-lg bg-white hover:bg-slate-100 text-slate-600 text-[10px] font-bold cursor-pointer transition-colors border border-slate-200/80"
                         >
                           + {prefix}
                         </button>
@@ -3166,8 +3203,8 @@ Explanation: Flock refers to a group of birds or sheep.`}
                     </div>
                   </div>
 
-                  {/* Class Duration & Free Preview */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  {/* Duration & Free Preview */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                     <div>
                       <label className="text-xs font-bold text-slate-700 block mb-1">
                         Lecture Duration
@@ -3179,7 +3216,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                           value={classWizardModal.duration}
                           onChange={(e) => setClassWizardModal(prev => ({ ...prev, duration: e.target.value }))}
                           placeholder="45 min"
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-mono text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] transition-all"
+                          className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-mono text-slate-800 outline-none focus:border-[#5d5bf6] transition-all shadow-2xs"
                         />
                       </div>
                       <div className="flex items-center gap-1 mt-1.5 flex-wrap">
@@ -3191,7 +3228,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                             className={`px-2 py-0.5 rounded-md text-[10px] font-mono cursor-pointer transition-colors border ${
                               classWizardModal.duration === preset
                                 ? 'bg-indigo-50 border-indigo-300 text-[#5d5bf6] font-bold'
-                                : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                                : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                             }`}
                           >
                             {preset}
@@ -3206,24 +3243,24 @@ Explanation: Flock refers to a group of birds or sheep.`}
                       </label>
                       <div 
                         onClick={() => setClassWizardModal(prev => ({ ...prev, isFree: !prev.isFree }))}
-                        className={`p-3 rounded-xl border cursor-pointer transition-all flex items-center justify-between ${
+                        className={`p-2.5 rounded-xl border cursor-pointer transition-all flex items-center justify-between ${
                           classWizardModal.isFree
                             ? 'bg-emerald-50/70 border-emerald-300'
-                            : 'bg-slate-50 border-slate-200 hover:border-slate-300'
+                            : 'bg-white border-slate-200 hover:border-slate-300'
                         }`}
                       >
-                        <div className="flex items-center gap-2.5">
-                          <span className={`w-3 h-3 rounded-full ${classWizardModal.isFree ? 'bg-emerald-500' : 'bg-slate-400'}`} />
-                          <div>
-                            <span className="block text-xs font-bold text-slate-900">
-                              {classWizardModal.isFree ? 'Free Demo Preview' : 'Locked (Paid Students Only)'}
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <span className={`w-3 h-3 rounded-full shrink-0 ${classWizardModal.isFree ? 'bg-emerald-500' : 'bg-slate-400'}`} />
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-slate-900 truncate">
+                              {classWizardModal.isFree ? 'Free Demo Preview' : 'Locked (Paid Only)'}
                             </span>
-                            <span className="text-[10px] text-slate-500">
-                              {classWizardModal.isFree ? 'Any student can watch without purchasing' : 'Requires course enrollment'}
+                            <span className="text-[10px] text-slate-500 truncate block">
+                              {classWizardModal.isFree ? 'Any student can watch' : 'Requires enrollment'}
                             </span>
                           </div>
                         </div>
-                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${
                           classWizardModal.isFree ? 'bg-emerald-500 text-white' : 'bg-slate-200 text-slate-600'
                         }`}>
                           {classWizardModal.isFree ? 'Free ✓' : 'Locked'}
@@ -3232,13 +3269,62 @@ Explanation: Flock refers to a group of birds or sheep.`}
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
 
               {/* ---------------------------------------------------- */}
-              {/* STEP 2: VIDEO LECTURE (DIRECT BUNNY STREAM UPLOAD OR URL) */}
+              {/* SECTION 2: VIDEO LECTURE */}
               {/* ---------------------------------------------------- */}
-              {classWizardModal.activeStep === 2 && (
-                <div className="space-y-4">
+              {(studioModalTab === 'all' || studioModalTab === 'video') && (
+                <div className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-200/60 pb-2.5 flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-xs font-black">
+                        2
+                      </span>
+                      <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+                        Video Lecture (ভিডিও লেকচার - YouTube / Bunny Stream)
+                      </h4>
+                    </div>
+
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => setVideoTabMode('url')}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer border ${
+                          videoTabMode === 'url'
+                            ? 'bg-[#5d5bf6] text-white border-[#5d5bf6]'
+                            : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                        }`}
+                      >
+                        <Play className="w-3 h-3" />
+                        <span>Paste URL</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setVideoTabMode('upload')}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer border ${
+                          videoTabMode === 'upload'
+                            ? 'bg-gradient-to-r from-[#5d5bf6] to-purple-600 text-white border-transparent'
+                            : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                        }`}
+                      >
+                        <Upload className="w-3 h-3" />
+                        <span>Bunny Upload</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setShowBunnySettingsModal(true)}
+                        className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold text-slate-500 hover:text-[#5d5bf6] bg-white border border-slate-200 cursor-pointer"
+                        title="Configure Bunny Stream"
+                      >
+                        <Settings className="w-3 h-3" />
+                        {isBunnyStreamConfigured(bunnyConfig) && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />}
+                      </button>
+                    </div>
+                  </div>
+
                   {/* Hidden Video File Input */}
                   <input
                     ref={videoFileInputRef}
@@ -3252,185 +3338,74 @@ Explanation: Flock refers to a group of birds or sheep.`}
                     }}
                   />
 
-                  {/* Mode Selector Tabs */}
-                  <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2 flex-wrap">
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        type="button"
-                        onClick={() => setVideoTabMode('upload')}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                          videoTabMode === 'upload'
-                            ? 'bg-gradient-to-r from-[#5d5bf6] to-purple-600 text-white shadow-2xs'
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>Direct Video Upload (Bunny Stream)</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => setVideoTabMode('url')}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                          videoTabMode === 'url'
-                            ? 'bg-[#5d5bf6] text-white shadow-2xs'
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                      >
-                        <Play className="w-3.5 h-3.5" />
-                        <span>Paste Video URL / YouTube</span>
-                      </button>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => setShowBunnySettingsModal(true)}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold text-slate-500 hover:text-[#5d5bf6] hover:bg-[#5d5bf6]/5 border border-slate-200 cursor-pointer transition-colors"
-                      title="Configure Bunny Stream & Storage Keys"
-                    >
-                      <Settings className="w-3 h-3 text-slate-400" />
-                      <span>Bunny Settings</span>
-                      {isBunnyStreamConfigured(bunnyConfig) && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      )}
-                    </button>
-                  </div>
-
-                  {/* TAB A: DIRECT VIDEO UPLOAD */}
-                  {videoTabMode === 'upload' && (
-                    <div className="space-y-3">
-                      {!isBunnyStreamConfigured(bunnyConfig) ? (
-                        <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-center space-y-3">
-                          <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mx-auto font-bold">
-                            ⚠️
-                          </div>
-                          <div className="max-w-md mx-auto">
-                            <h4 className="text-xs font-black text-amber-950">Bunny Stream Credentials Required</h4>
-                            <p className="text-[11px] text-amber-800/80 mt-1">
-                              To upload videos directly from the admin panel, connect your Bunny.net Video Library ID and API Key.
-                            </p>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => setShowBunnySettingsModal(true)}
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold border-none cursor-pointer transition-colors shadow-2xs"
-                          >
-                            <Settings className="w-3.5 h-3.5" />
-                            <span>Configure Bunny.net Now</span>
-                          </button>
-                        </div>
-                      ) : videoUploadState.uploading ? (
-                        <div className="p-6 rounded-2xl bg-indigo-50/70 border border-indigo-200/80 text-center space-y-3">
-                          <div className="w-12 h-12 rounded-2xl bg-[#5d5bf6] text-white flex items-center justify-center mx-auto shadow-md animate-pulse">
-                            <Upload className="w-6 h-6 animate-bounce" />
-                          </div>
-                          <div>
-                            <h4 className="text-xs font-black text-slate-900">Uploading Video directly to Bunny Stream...</h4>
-                            <p className="text-[11px] text-slate-500 mt-0.5 font-mono">
-                              {((videoUploadState.loaded || 0) / (1024 * 1024)).toFixed(1)} MB / {((videoUploadState.total || 0) / (1024 * 1024)).toFixed(1)} MB ({videoUploadState.percent}%)
-                            </p>
-                          </div>
-
-                          {/* Progress Bar */}
-                          <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden max-w-md mx-auto">
-                            <div 
-                              className="bg-gradient-to-r from-[#5d5bf6] to-purple-600 h-2.5 rounded-full transition-all duration-200"
-                              style={{ width: `${videoUploadState.percent}%` }}
-                            />
-                          </div>
-
-                          <p className="text-[10px] text-slate-400">
-                            Please keep this window open until upload finishes. Bunny will automatically encode adaptive qualities (1080p, 720p, 480p, 360p).
-                          </p>
-                        </div>
-                      ) : (
-                        <div className="p-6 rounded-2xl border-2 border-dashed border-indigo-200 hover:border-[#5d5bf6] bg-indigo-50/20 text-center space-y-3 transition-colors">
-                          <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-[#5d5bf6] flex items-center justify-center mx-auto shadow-inner">
-                            <Video className="w-6 h-6" />
-                          </div>
-                          <div>
-                            <h4 className="text-xs font-extrabold text-slate-900">Upload Video File (.mp4, .mov, .mkv)</h4>
-                            <p className="text-[11px] text-slate-500 mt-0.5 max-w-sm mx-auto">
-                              Video will be uploaded directly to your Bunny Stream video library and instantly ready for playback.
-                            </p>
-                          </div>
-                          <div className="flex items-center justify-center gap-2 pt-1">
-                            <button
-                              type="button"
-                              onClick={() => videoFileInputRef.current?.click()}
-                              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#5d5bf6] to-purple-600 hover:from-[#4e4be3] hover:to-purple-700 text-white text-xs font-bold border-none cursor-pointer shadow-sm transition-all active:scale-95"
-                            >
-                              <Upload className="w-3.5 h-3.5" />
-                              <span>Choose Video File from Computer</span>
-                            </button>
-                          </div>
-                          {classWizardModal.videoUrl && (
-                            <div className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-50 border border-emerald-200/80 gap-2">
-                              <div className="flex items-center gap-2 min-w-0">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                                <span className="text-[11px] text-emerald-900 font-mono truncate max-w-sm">
-                                  {classWizardModal.videoUrl}
-                                </span>
-                              </div>
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setClassWizardModal(prev => ({ ...prev, videoUrl: '' }));
-                                  triggerToast('🗑️ Video removed');
-                                }}
-                                className="px-2.5 py-1 text-xs font-bold text-rose-600 hover:bg-rose-50 rounded-lg border border-rose-200 cursor-pointer transition-colors shrink-0"
-                              >
-                                Remove Video
-                              </button>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* TAB B: PASTE URL */}
+                  {/* TAB A: PASTE URL */}
                   {videoTabMode === 'url' && (
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <label className="text-xs font-bold text-slate-700">
-                          Video Lecture Stream URL (YouTube or Bunny Stream)
-                        </label>
-                        {classWizardModal.videoUrl && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setClassWizardModal(prev => ({ ...prev, videoUrl: '' }));
-                              triggerToast('🗑️ Video removed');
-                            }}
-                            className="text-[11px] font-bold text-rose-600 hover:text-rose-700 cursor-pointer border-none bg-transparent"
-                          >
-                            Clear Video
-                          </button>
-                        )}
-                      </div>
                       <div className="relative">
                         <Play className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                         <input
                           type="text"
-                          autoFocus
                           value={classWizardModal.videoUrl}
                           onChange={(e) => setClassWizardModal(prev => ({ ...prev, videoUrl: e.target.value }))}
                           placeholder="e.g. https://www.youtube.com/watch?v=... or https://iframe.mediadelivery.net/embed/..."
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs font-mono text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] transition-all"
+                          className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs font-mono text-slate-800 outline-none focus:border-[#5d5bf6] transition-all shadow-2xs"
                         />
                       </div>
                       <div className="flex items-center gap-2 text-[11px] text-slate-500 flex-wrap">
                         <span className="font-bold text-slate-700">Supported:</span>
-                        <span className="bg-slate-100 px-2 py-0.5 rounded text-[10px] font-mono">YouTube Videos & Shorts</span>
-                        <span className="bg-slate-100 px-2 py-0.5 rounded text-[10px] font-mono">Bunny Stream Iframe</span>
-                        <span className="bg-slate-100 px-2 py-0.5 rounded text-[10px] font-mono">Direct Video Links</span>
+                        <span className="bg-white px-2 py-0.5 rounded text-[10px] font-mono border border-slate-200">YouTube Videos & Shorts</span>
+                        <span className="bg-white px-2 py-0.5 rounded text-[10px] font-mono border border-slate-200">Bunny Stream Iframe</span>
+                        <span className="bg-white px-2 py-0.5 rounded text-[10px] font-mono border border-slate-200">Direct Video URLs</span>
                       </div>
                     </div>
                   )}
 
-                  {/* Live Player Preview Screen */}
-                  <div className="space-y-1.5 pt-1">
+                  {/* TAB B: DIRECT BUNNY UPLOAD */}
+                  {videoTabMode === 'upload' && (
+                    <div className="space-y-3">
+                      {!isBunnyStreamConfigured(bunnyConfig) ? (
+                        <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 text-center space-y-2">
+                          <p className="text-xs font-bold text-amber-950">Bunny Stream credentials required for direct uploads</p>
+                          <button
+                            type="button"
+                            onClick={() => setShowBunnySettingsModal(true)}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold border-none cursor-pointer"
+                          >
+                            <Settings className="w-3.5 h-3.5" />
+                            <span>Configure Bunny Stream</span>
+                          </button>
+                        </div>
+                      ) : videoUploadState.uploading ? (
+                        <div className="p-5 rounded-xl bg-indigo-50/70 border border-indigo-200/80 text-center space-y-2">
+                          <h4 className="text-xs font-black text-slate-900">Uploading Video directly to Bunny Stream...</h4>
+                          <p className="text-[11px] text-slate-500 font-mono">
+                            {((videoUploadState.loaded || 0) / (1024 * 1024)).toFixed(1)} MB / {((videoUploadState.total || 0) / (1024 * 1024)).toFixed(1)} MB ({videoUploadState.percent}%)
+                          </p>
+                          <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden max-w-md mx-auto">
+                            <div 
+                              className="bg-gradient-to-r from-[#5d5bf6] to-purple-600 h-2 rounded-full transition-all duration-200"
+                              style={{ width: `${videoUploadState.percent}%` }}
+                            />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="p-5 rounded-xl border-2 border-dashed border-indigo-200 hover:border-[#5d5bf6] bg-white text-center space-y-2">
+                          <p className="text-xs font-bold text-slate-800">Upload video directly to Bunny Stream Library</p>
+                          <button
+                            type="button"
+                            onClick={() => videoFileInputRef.current?.click()}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#5d5bf6] to-purple-600 text-white text-xs font-bold border-none cursor-pointer shadow-2xs"
+                          >
+                            <Upload className="w-3.5 h-3.5" />
+                            <span>Select Video File from Computer</span>
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Live Video Player Preview */}
+                  <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                         <span>Live Video Player Preview</span>
@@ -3453,13 +3428,13 @@ Explanation: Flock refers to a group of birds or sheep.`}
                           }}
                           className="text-[11px] text-rose-600 hover:text-rose-700 font-bold border-none bg-transparent cursor-pointer"
                         >
-                          Remove Video
+                          Clear Video
                         </button>
                       )}
                     </div>
 
                     {classWizardModal.videoUrl ? (
-                      <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg border border-slate-800">
+                      <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg border border-slate-800 max-h-72">
                         <iframe
                           src={getEmbedUrl(classWizardModal.videoUrl)}
                           title="Class Video Preview"
@@ -3470,9 +3445,9 @@ Explanation: Flock refers to a group of birds or sheep.`}
                         />
                       </div>
                     ) : (
-                      <div className="p-4 rounded-2xl border border-dashed border-slate-200 bg-slate-50/50 flex items-center justify-center gap-2 text-slate-400 text-xs">
+                      <div className="p-3.5 rounded-xl border border-dashed border-slate-200 bg-white flex items-center justify-center gap-2 text-slate-400 text-xs">
                         <Play className="w-4 h-4 text-slate-400" />
-                        <span>Upload a video or paste a link above to preview player</span>
+                        <span>Paste a video link above or upload to preview player here</span>
                       </div>
                     )}
                   </div>
@@ -3480,128 +3455,155 @@ Explanation: Flock refers to a group of birds or sheep.`}
               )}
 
               {/* ---------------------------------------------------- */}
-              {/* STEP 3: LECTURE SHEET PDF (DIRECT BUNNY STORAGE OR LINK) */}
+              {/* SECTION 3: SUPPLEMENTARY MATERIALS (PDF & QUIZ) */}
               {/* ---------------------------------------------------- */}
-              {classWizardModal.activeStep === 3 && (
-                <div className="space-y-4">
-                  {/* Hidden PDF File Input */}
-                  <input
-                    ref={pdfFileInputRef}
-                    type="file"
-                    accept="application/pdf,.pdf"
-                    className="hidden"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) handleDirectPdfUpload(file);
-                      e.target.value = '';
-                    }}
-                  />
+              {(studioModalTab === 'all' || studioModalTab === 'notes' || studioModalTab === 'quiz') && (
+                <div className="space-y-6">
 
-                  {/* Mode Selector Tabs */}
-                  <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2 flex-wrap">
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        type="button"
-                        onClick={() => setPdfTabMode('upload')}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                          pdfTabMode === 'upload'
-                            ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-2xs'
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>Direct PDF Upload (Bunny Storage CDN)</span>
-                      </button>
+                  {/* 3A: PDF NOTES & LECTURE SHEET */}
+                  {(studioModalTab === 'all' || studioModalTab === 'notes') && (
+                    <div className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-4 sm:p-5 space-y-4">
+                      <div className="flex items-center justify-between border-b border-slate-200/60 pb-2.5 flex-wrap gap-2">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs font-black">
+                            3
+                          </span>
+                          <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+                            Lecture Sheet / PDF Notes (ঐচ্ছিক লেকচার শিট)
+                          </h4>
+                        </div>
 
-                      <button
-                        type="button"
-                        onClick={() => setPdfTabMode('url')}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                          pdfTabMode === 'url'
-                            ? 'bg-blue-600 text-white shadow-2xs'
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                      >
-                        <FileText className="w-3.5 h-3.5" />
-                        <span>Paste Google Drive / External Link</span>
-                      </button>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => setShowBunnySettingsModal(true)}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold text-slate-500 hover:text-blue-600 hover:bg-blue-50 border border-slate-200 cursor-pointer transition-colors"
-                      title="Configure Bunny Storage CDN Keys"
-                    >
-                      <Settings className="w-3 h-3 text-slate-400" />
-                      <span>Bunny Settings</span>
-                      {isBunnyStorageConfigured(bunnyConfig) && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      )}
-                    </button>
-                  </div>
-
-                  {/* TAB A: DIRECT PDF UPLOAD */}
-                  {pdfTabMode === 'upload' && (
-                    <div className="space-y-3">
-                      {!isBunnyStorageConfigured(bunnyConfig) ? (
-                        <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-center space-y-3">
-                          <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mx-auto font-bold">
-                            ⚠️
-                          </div>
-                          <div className="max-w-md mx-auto">
-                            <h4 className="text-xs font-black text-amber-950">Bunny Storage Credentials Required</h4>
-                            <p className="text-[11px] text-amber-800/80 mt-1">
-                              To upload PDF lecture sheets directly to Bunny CDN, connect your Storage Zone Name, Password, and Pull Zone domain.
-                            </p>
-                          </div>
+                        <div className="flex items-center gap-1.5">
                           <button
                             type="button"
-                            onClick={() => setShowBunnySettingsModal(true)}
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold border-none cursor-pointer transition-colors shadow-2xs"
+                            onClick={() => setPdfTabMode('url')}
+                            className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer border ${
+                              pdfTabMode === 'url'
+                                ? 'bg-blue-600 text-white border-blue-600'
+                                : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                            }`}
                           >
-                            <Settings className="w-3.5 h-3.5" />
-                            <span>Configure Bunny Storage Now</span>
+                            <FileText className="w-3 h-3" />
+                            <span>Paste Link</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => setPdfTabMode('upload')}
+                            className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer border ${
+                              pdfTabMode === 'upload'
+                                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-transparent'
+                                : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                            }`}
+                          >
+                            <Upload className="w-3 h-3" />
+                            <span>Bunny CDN Upload</span>
                           </button>
                         </div>
-                      ) : pdfUploadState.uploading ? (
-                        <div className="p-6 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-center space-y-3">
-                          <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center mx-auto shadow-md animate-pulse">
-                            <Upload className="w-6 h-6 animate-bounce" />
-                          </div>
-                          <div>
-                            <h4 className="text-xs font-black text-slate-900">Uploading PDF directly to Bunny Storage CDN...</h4>
-                            <p className="text-[11px] text-slate-500 mt-0.5 font-mono">
-                              {((pdfUploadState.loaded || 0) / 1024).toFixed(1)} KB / {((pdfUploadState.total || 0) / 1024).toFixed(1)} KB ({pdfUploadState.percent}%)
-                            </p>
-                          </div>
+                      </div>
 
-                          <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden max-w-md mx-auto">
-                            <div 
-                              className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2.5 rounded-full transition-all duration-200"
-                              style={{ width: `${pdfUploadState.percent}%` }}
+                      {/* Hidden PDF File Input */}
+                      <input
+                        ref={pdfFileInputRef}
+                        type="file"
+                        accept="application/pdf,.pdf"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) handleDirectPdfUpload(file);
+                          e.target.value = '';
+                        }}
+                      />
+
+                      {pdfTabMode === 'url' && (
+                        <div className="space-y-1.5">
+                          <div className="relative">
+                            <FileText className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                            <input
+                              type="text"
+                              value={classWizardModal.pdfUrl}
+                              onChange={(e) => setClassWizardModal(prev => ({ ...prev, pdfUrl: e.target.value }))}
+                              placeholder="e.g. https://drive.google.com/file/d/... or https://example.com/sheet.pdf"
+                              className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-mono text-slate-800 outline-none focus:border-blue-500 transition-all shadow-2xs"
                             />
                           </div>
                         </div>
-                      ) : (
-                        <div className="p-6 rounded-2xl border-2 border-dashed border-blue-200 hover:border-blue-500 bg-blue-50/20 text-center space-y-3 transition-colors">
-                          <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto shadow-inner">
-                            <FileText className="w-6 h-6" />
+                      )}
+
+                      {pdfTabMode === 'upload' && (
+                        <div className="space-y-2">
+                          {!isBunnyStorageConfigured(bunnyConfig) ? (
+                            <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 text-center space-y-2">
+                              <p className="text-xs font-bold text-amber-950">Bunny Storage credentials required for PDF upload</p>
+                              <button
+                                type="button"
+                                onClick={() => setShowBunnySettingsModal(true)}
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold border-none cursor-pointer"
+                              >
+                                <Settings className="w-3.5 h-3.5" />
+                                <span>Configure Bunny Storage</span>
+                              </button>
+                            </div>
+                          ) : pdfUploadState.uploading ? (
+                            <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200/80 text-center space-y-2">
+                              <h4 className="text-xs font-black text-slate-900">Uploading PDF to Bunny CDN...</h4>
+                              <p className="text-[11px] text-slate-500 font-mono">
+                                {((pdfUploadState.loaded || 0) / 1024).toFixed(1)} KB / {((pdfUploadState.total || 0) / 1024).toFixed(1)} KB ({pdfUploadState.percent}%)
+                              </p>
+                              <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden max-w-md mx-auto">
+                                <div 
+                                  className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2 rounded-full transition-all duration-200"
+                                  style={{ width: `${pdfUploadState.percent}%` }}
+                                />
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="p-4 rounded-xl border-2 border-dashed border-blue-200 hover:border-blue-500 bg-white text-center space-y-2">
+                              <p className="text-xs font-bold text-slate-800">Upload PDF to Bunny Storage Global Edge CDN</p>
+                              <button
+                                type="button"
+                                onClick={() => pdfFileInputRef.current?.click()}
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold border-none cursor-pointer shadow-2xs"
+                              >
+                                <Upload className="w-3.5 h-3.5" />
+                                <span>Select PDF File from Computer</span>
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Attached PDF card */}
+                      {classWizardModal.pdfUrl && (
+                        <div className="flex items-center justify-between p-3 rounded-xl bg-blue-50/80 border border-blue-200/80 gap-3">
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <span className="w-7 h-7 rounded-lg bg-blue-500 text-white flex items-center justify-center text-xs font-bold shrink-0">📄</span>
+                            <div className="min-w-0">
+                              <span className="block text-xs font-bold text-blue-900">PDF Sheet Attached</span>
+                              <span className="text-[10px] text-blue-700/80 truncate block font-mono" title={classWizardModal.pdfUrl}>
+                                {classWizardModal.pdfUrl}
+                              </span>
+                            </div>
                           </div>
-                          <div>
-                            <h4 className="text-xs font-extrabold text-slate-900">Upload PDF Lecture Sheet (.pdf)</h4>
-                            <p className="text-[11px] text-slate-500 mt-0.5 max-w-sm mx-auto">
-                              PDF will be stored on Bunny CDN with global edge delivery for ultra-fast student downloads.
-                            </p>
-                          </div>
-                          <div className="flex items-center justify-center gap-2 pt-1">
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            <a
+                              href={classWizardModal.pdfUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold no-underline"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              <span>View</span>
+                            </a>
                             <button
                               type="button"
-                              onClick={() => pdfFileInputRef.current?.click()}
-                              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold border-none cursor-pointer shadow-sm transition-all active:scale-95"
+                              onClick={() => {
+                                setClassWizardModal(prev => ({ ...prev, pdfUrl: '' }));
+                                triggerToast('🗑️ PDF removed');
+                              }}
+                              className="px-2 py-1 text-xs font-bold text-rose-600 hover:bg-rose-50 rounded-lg border border-rose-200 cursor-pointer"
                             >
-                              <Upload className="w-3.5 h-3.5" />
-                              <span>Choose PDF Document from Computer</span>
+                              Remove
                             </button>
                           </div>
                         </div>
@@ -3609,281 +3611,194 @@ Explanation: Flock refers to a group of birds or sheep.`}
                     </div>
                   )}
 
-                  {/* TAB B: PASTE URL */}
-                  {pdfTabMode === 'url' && (
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <label className="text-xs font-bold text-slate-700">
-                          Lecture Sheet / PDF Notes Link
-                        </label>
-                        {classWizardModal.pdfUrl && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setClassWizardModal(prev => ({ ...prev, pdfUrl: '' }));
-                              triggerToast('🗑️ PDF removed');
-                            }}
-                            className="text-[11px] font-bold text-rose-600 hover:text-rose-700 cursor-pointer border-none bg-transparent"
-                          >
-                            Clear Link
-                          </button>
-                        )}
-                      </div>
-                      <div className="relative">
-                        <FileText className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="text"
-                          autoFocus
-                          value={classWizardModal.pdfUrl}
-                          onChange={(e) => setClassWizardModal(prev => ({ ...prev, pdfUrl: e.target.value }))}
-                          placeholder="e.g. https://drive.google.com/file/d/... or https://example.com/sheet.pdf"
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs font-mono text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] transition-all"
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {classWizardModal.pdfUrl && (
-                    <div className="flex items-center justify-between p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200/80 gap-3">
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <span className="w-8 h-8 rounded-xl bg-blue-500 text-white flex items-center justify-center text-sm font-bold shrink-0">📄</span>
-                        <div className="min-w-0">
-                          <span className="block text-xs font-bold text-blue-900">PDF Notes Attached</span>
-                          <span className="text-[10px] text-blue-700/80 truncate block font-mono" title={classWizardModal.pdfUrl}>
-                            {classWizardModal.pdfUrl}
+                  {/* 3B: PRACTICE QUIZ & EXAM */}
+                  {(studioModalTab === 'all' || studioModalTab === 'quiz') && (
+                    <div className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-4 sm:p-5 space-y-4">
+                      <div className="flex items-center justify-between border-b border-slate-200/60 pb-2.5 flex-wrap gap-2">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 h-6 rounded-lg bg-purple-600 text-white flex items-center justify-center text-xs font-black">
+                            4
                           </span>
+                          <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+                            Practice Quiz & MCQs (প্র্যাকটিস কুইজ - ঐচ্ছিক)
+                          </h4>
                         </div>
-                      </div>
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        <a
-                          href={classWizardModal.pdfUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-colors shadow-2xs no-underline"
-                        >
-                          <ExternalLink className="w-3.5 h-3.5" />
-                          <span>View PDF</span>
-                        </a>
+
                         <button
                           type="button"
                           onClick={() => {
-                            setClassWizardModal(prev => ({ ...prev, pdfUrl: '' }));
-                            triggerToast('🗑️ PDF removed successfully');
+                            setClassWizardModal(prev => {
+                              const nextVal = !prev.hasQuiz;
+                              return {
+                                ...prev,
+                                hasQuiz: nextVal,
+                                quizTitle: prev.quizTitle || (nextVal ? `${prev.title || 'Class'} - Quiz` : '')
+                              };
+                            });
                           }}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 cursor-pointer transition-colors shadow-2xs"
-                          title="Remove attached PDF"
+                          className={`px-3 py-1 rounded-xl text-xs font-bold cursor-pointer transition-all border ${
+                            classWizardModal.hasQuiz 
+                              ? 'bg-purple-600 text-white border-purple-600 shadow-2xs' 
+                              : 'bg-white text-slate-600 border-slate-200 hover:border-purple-300'
+                          }`}
                         >
-                          <Trash2 className="w-3.5 h-3.5" />
-                          <span>Remove</span>
+                          {classWizardModal.hasQuiz ? 'Quiz Enabled ✓' : '+ Enable Quiz'}
                         </button>
                       </div>
-                    </div>
-                  )}
 
-                  <p className="text-[11px] text-slate-400 text-center pt-1">
-                    💡 PDF notes are optional. If using Google Drive, make sure link sharing is set to "Anyone with the link can view".
-                  </p>
-                </div>
-              )}
-
-              {/* ---------------------------------------------------- */}
-              {/* STEP 4: PRACTICE QUIZ & EXAM MCQs */}
-              {/* ---------------------------------------------------- */}
-              {classWizardModal.activeStep === 4 && (
-                <div className="space-y-4">
-                  {/* Enable Quiz Toggle */}
-                  <div className="flex items-center justify-between p-4 rounded-2xl bg-purple-50/50 border border-purple-200/80">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-purple-600 text-white flex items-center justify-center text-sm font-bold shadow-xs">
-                        ⚡
-                      </div>
-                      <div>
-                        <h5 className="text-xs font-black text-purple-900">Include Practice Quiz for this Class?</h5>
-                        <p className="text-[11px] text-purple-700/80">Students can test their knowledge immediately after watching this lecture.</p>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setClassWizardModal(prev => {
-                          const nextVal = !prev.hasQuiz;
-                          return {
-                            ...prev,
-                            hasQuiz: nextVal,
-                            quizTitle: prev.quizTitle || (nextVal ? `${prev.title || 'Class'} - Quiz` : '')
-                          };
-                        });
-                      }}
-                      className={`px-3.5 py-1.5 rounded-xl text-xs font-bold cursor-pointer transition-all border ${
-                        classWizardModal.hasQuiz 
-                          ? 'bg-purple-600 text-white border-purple-600 shadow-sm' 
-                          : 'bg-white text-slate-600 border-slate-300 hover:border-purple-300'
-                      }`}
-                    >
-                      {classWizardModal.hasQuiz ? 'Quiz Enabled ✓' : 'Click to Enable'}
-                    </button>
-                  </div>
-
-                  {classWizardModal.hasQuiz ? (
-                    <div className="space-y-4">
-                      {/* Quiz Settings */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div className="sm:col-span-2">
-                          <label className="text-xs font-bold text-slate-700 block mb-1">Quiz Title</label>
-                          <input
-                            type="text"
-                            value={classWizardModal.quizTitle}
-                            onChange={(e) => setClassWizardModal(prev => ({ ...prev, quizTitle: e.target.value }))}
-                            placeholder="e.g. Day 01 Class Practice Quiz"
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all"
-                          />
-                        </div>
-                        <div>
-                          <label className="text-xs font-bold text-slate-700 block mb-1">Time Limit (Min)</label>
-                          <input
-                            type="number"
-                            min="1"
-                            value={classWizardModal.durationMinutes}
-                            onChange={(e) => setClassWizardModal(prev => ({ ...prev, durationMinutes: e.target.value }))}
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Question Actions Bar */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 rounded-2xl bg-slate-50 border border-slate-200">
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs font-extrabold text-slate-800">
-                            Questions ({classWizardModal.questions.length})
-                          </span>
-                          <span className="text-[10px] text-slate-500 font-mono">
-                            · 1 mark per question
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-2 flex-wrap">
-                          {/* Hidden CSV Input */}
-                          <input
-                            type="file"
-                            ref={wizardCsvInputRef}
-                            accept=".csv,text/csv"
-                            onChange={handleWizardCSVUpload}
-                            className="hidden"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => wizardCsvInputRef.current?.click()}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 text-xs font-bold border border-purple-200 cursor-pointer transition-all"
-                          >
-                            <Upload className="w-3.5 h-3.5" />
-                            <span>Upload CSV</span>
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={handleDownloadSampleCSV}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer transition-all"
-                          >
-                            <Download className="w-3.5 h-3.5" />
-                            <span>Sample CSV</span>
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={handleAddWizardQuestion}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold border-none cursor-pointer transition-all shadow-xs"
-                          >
-                            <Plus className="w-3.5 h-3.5" />
-                            <span>+ Add Question</span>
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* Questions List */}
-                      {classWizardModal.questions.length === 0 ? (
-                        <div className="p-6 rounded-2xl bg-white border border-dashed border-slate-300 text-center space-y-2">
-                          <p className="text-xs font-bold text-slate-600">No MCQ questions added yet</p>
-                          <p className="text-[11px] text-slate-400">
-                            Click <strong>"Upload CSV"</strong> to import questions in bulk, or <strong>"+ Add Question"</strong> to create MCQs manually.
-                          </p>
-                        </div>
-                      ) : (
-                        <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
-                          {classWizardModal.questions.map((q, qIdx) => (
-                            <div key={q.id || qIdx} className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-2.5">
-                              <div className="flex items-start justify-between gap-2">
-                                <span className="w-5 h-5 rounded-md bg-purple-100 text-purple-700 text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
-                                  {qIdx + 1}
-                                </span>
-                                <input
-                                  type="text"
-                                  value={q.question}
-                                  onChange={(e) => handleUpdateWizardQuestion(qIdx, 'question', e.target.value)}
-                                  placeholder={`Question #${qIdx + 1} statement...`}
-                                  className="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1 text-xs font-bold text-slate-800 outline-none focus:bg-white focus:border-purple-600"
-                                />
-                                <button
-                                  type="button"
-                                  onClick={() => handleDeleteWizardQuestion(qIdx)}
-                                  className="w-6 h-6 rounded-md text-slate-400 hover:text-rose-600 hover:bg-rose-50 flex items-center justify-center border-none cursor-pointer transition-colors"
-                                  title="Delete Question"
-                                >
-                                  <Trash2 className="w-3 h-3" />
-                                </button>
-                              </div>
-
-                              {/* 4 Options */}
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-7">
-                                {(q.options || ['', '', '', '']).map((opt, optIdx) => {
-                                  const optLetter = String.fromCharCode(65 + optIdx);
-                                  const isCorrect = q.correctAnswer === optIdx;
-                                  return (
-                                    <div key={optIdx} className="flex items-center gap-1.5">
-                                      <button
-                                        type="button"
-                                        onClick={() => handleUpdateWizardQuestion(qIdx, 'correctAnswer', optIdx)}
-                                        className={`w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center cursor-pointer transition-all border shrink-0 ${
-                                          isCorrect
-                                            ? 'bg-emerald-500 text-white border-emerald-500 shadow-2xs'
-                                            : 'bg-white text-slate-500 border-slate-300 hover:border-emerald-400'
-                                        }`}
-                                        title={`Mark option ${optLetter} as correct`}
-                                      >
-                                        {optLetter}
-                                      </button>
-                                      <input
-                                        type="text"
-                                        value={opt}
-                                        onChange={(e) => handleUpdateWizardOption(qIdx, optIdx, e.target.value)}
-                                        placeholder={`Option ${optLetter}`}
-                                        className={`flex-1 bg-slate-50 border rounded-lg px-2 py-1 text-[11px] outline-none ${
-                                          isCorrect ? 'border-emerald-300 font-bold text-slate-900 bg-emerald-50/30' : 'border-slate-200 text-slate-700'
-                                        }`}
-                                      />
-                                    </div>
-                                  );
-                                })}
-                              </div>
+                      {classWizardModal.hasQuiz && (
+                        <div className="space-y-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div className="sm:col-span-2">
+                              <label className="text-xs font-bold text-slate-700 block mb-1">Quiz Title</label>
+                              <input
+                                type="text"
+                                value={classWizardModal.quizTitle}
+                                onChange={(e) => setClassWizardModal(prev => ({ ...prev, quizTitle: e.target.value }))}
+                                placeholder="e.g. Day 01 Class Practice Quiz"
+                                className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none focus:border-purple-600 transition-all shadow-2xs"
+                              />
                             </div>
-                          ))}
+                            <div>
+                              <label className="text-xs font-bold text-slate-700 block mb-1">Time Limit (Min)</label>
+                              <input
+                                type="number"
+                                min="1"
+                                value={classWizardModal.durationMinutes}
+                                onChange={(e) => setClassWizardModal(prev => ({ ...prev, durationMinutes: e.target.value }))}
+                                className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-slate-800 outline-none focus:border-purple-600 transition-all shadow-2xs"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Action Toolbar */}
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 rounded-xl bg-white border border-slate-200">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-extrabold text-slate-800">
+                                Questions ({classWizardModal.questions.length})
+                              </span>
+                              <span className="text-[10px] text-slate-500 font-mono">
+                                · 1 mark per question
+                              </span>
+                            </div>
+
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <input
+                                type="file"
+                                ref={wizardCsvInputRef}
+                                accept=".csv,text/csv"
+                                onChange={handleWizardCSVUpload}
+                                className="hidden"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => wizardCsvInputRef.current?.click()}
+                                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-purple-50 hover:bg-purple-100 text-purple-700 text-xs font-bold border border-purple-200 cursor-pointer"
+                              >
+                                <Upload className="w-3.5 h-3.5" />
+                                <span>CSV Upload</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={handleDownloadSampleCSV}
+                                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer"
+                              >
+                                <Download className="w-3.5 h-3.5" />
+                                <span>Sample CSV</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={handleAddWizardQuestion}
+                                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold border-none cursor-pointer shadow-2xs"
+                              >
+                                <Plus className="w-3.5 h-3.5" />
+                                <span>+ Add Question</span>
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Questions List */}
+                          {classWizardModal.questions.length === 0 ? (
+                            <div className="p-4 rounded-xl bg-white border border-dashed border-slate-300 text-center space-y-1">
+                              <p className="text-xs font-bold text-slate-600">No questions added yet</p>
+                              <p className="text-[11px] text-slate-400">
+                                Click <strong>"CSV Upload"</strong> to import questions in bulk, or <strong>"+ Add Question"</strong> to create MCQs manually.
+                              </p>
+                            </div>
+                          ) : (
+                            <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
+                              {classWizardModal.questions.map((q, qIdx) => (
+                                <div key={q.id || qIdx} className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-2.5">
+                                  <div className="flex items-start justify-between gap-2">
+                                    <span className="w-5 h-5 rounded-md bg-purple-100 text-purple-700 text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                                      {qIdx + 1}
+                                    </span>
+                                    <input
+                                      type="text"
+                                      value={q.question}
+                                      onChange={(e) => handleUpdateWizardQuestion(qIdx, 'question', e.target.value)}
+                                      placeholder={`Question #${qIdx + 1} statement...`}
+                                      className="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1 text-xs font-bold text-slate-800 outline-none focus:bg-white focus:border-purple-600"
+                                    />
+                                    <button
+                                      type="button"
+                                      onClick={() => handleDeleteWizardQuestion(qIdx)}
+                                      className="w-6 h-6 rounded-md text-slate-400 hover:text-rose-600 hover:bg-rose-50 flex items-center justify-center border-none cursor-pointer"
+                                      title="Delete Question"
+                                    >
+                                      <Trash2 className="w-3 h-3" />
+                                    </button>
+                                  </div>
+
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-7">
+                                    {(q.options || ['', '', '', '']).map((opt, optIdx) => {
+                                      const optLetter = String.fromCharCode(65 + optIdx);
+                                      const isCorrect = q.correctAnswer === optIdx;
+                                      return (
+                                        <div key={optIdx} className="flex items-center gap-1.5">
+                                          <button
+                                            type="button"
+                                            onClick={() => handleUpdateWizardQuestion(qIdx, 'correctAnswer', optIdx)}
+                                            className={`w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center cursor-pointer transition-all border shrink-0 ${
+                                              isCorrect
+                                                ? 'bg-emerald-500 text-white border-emerald-500 shadow-2xs'
+                                                : 'bg-white text-slate-500 border-slate-300 hover:border-emerald-400'
+                                            }`}
+                                            title={`Mark option ${optLetter} as correct`}
+                                          >
+                                            {optLetter}
+                                          </button>
+                                          <input
+                                            type="text"
+                                            value={opt}
+                                            onChange={(e) => handleUpdateWizardOption(qIdx, optIdx, e.target.value)}
+                                            placeholder={`Option ${optLetter}`}
+                                            className={`flex-1 bg-slate-50 border rounded-lg px-2 py-1 text-[11px] outline-none ${
+                                              isCorrect ? 'border-emerald-300 font-bold text-slate-900 bg-emerald-50/30' : 'border-slate-200 text-slate-700'
+                                            }`}
+                                          />
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
-                  ) : (
-                    <div className="p-6 rounded-2xl bg-white border border-dashed border-slate-200 text-center space-y-1.5">
-                      <p className="text-xs font-bold text-slate-700">Quiz is optional</p>
-                      <p className="text-[11px] text-slate-400 max-w-sm mx-auto">
-                        If this class does not require a quiz, you're all set! Click <strong>"Save Class & Publish"</strong> below to complete this class.
-                      </p>
-                    </div>
                   )}
+
                 </div>
               )}
 
             </div>
 
-            {/* Stepper Footer Controls */}
-            <div className="p-4 border-t border-slate-100 bg-slate-50/80 flex items-center justify-between gap-3 shrink-0">
+            {/* Modal Bottom Sticky Action Bar */}
+            <div className="p-4 border-t border-slate-100 bg-slate-50/90 backdrop-blur-xs flex items-center justify-between gap-3 shrink-0">
               <button
                 type="button"
                 onClick={() => setClassWizardModal(prev => ({ ...prev, isOpen: false }))}
@@ -3892,36 +3807,46 @@ Explanation: Flock refers to a group of birds or sheep.`}
                 Cancel
               </button>
 
-              <div className="flex items-center gap-2">
-                {classWizardModal.activeStep > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => setClassWizardModal(prev => ({ ...prev, activeStep: prev.activeStep - 1 }))}
-                    className="px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer transition-colors"
-                  >
-                    ← Previous Step
-                  </button>
+              {/* Status summary pills */}
+              <div className="hidden sm:flex items-center gap-2 text-xs">
+                {classWizardModal.title ? (
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-200/70 text-slate-700 font-bold text-[11px]">
+                    ✓ Title Ready
+                  </span>
+                ) : (
+                  <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 font-bold text-[11px]">
+                    ⚠️ Title Required
+                  </span>
                 )}
-
-                {classWizardModal.activeStep < 4 ? (
-                  <button
-                    type="button"
-                    onClick={() => setClassWizardModal(prev => ({ ...prev, activeStep: prev.activeStep + 1 }))}
-                    className="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-[#5d5bf6] text-xs font-bold border border-indigo-200 cursor-pointer transition-colors"
-                  >
-                    Next Step →
-                  </button>
-                ) : null}
-
-                <button
-                  type="button"
-                  onClick={handleSaveClassWizard}
-                  className="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs font-black border-none cursor-pointer transition-all shadow-sm flex items-center gap-1.5 active:scale-95"
-                >
-                  <Check className="w-3.5 h-3.5" />
-                  <span>Save Class & Publish</span>
-                </button>
+                {classWizardModal.videoUrl ? (
+                  <span className="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-[11px]">
+                    🎬 Video Ready
+                  </span>
+                ) : (
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 text-[11px]">
+                    ⚪ No Video
+                  </span>
+                )}
+                {classWizardModal.pdfUrl && (
+                  <span className="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-bold text-[11px]">
+                    📄 PDF Ready
+                  </span>
+                )}
+                {classWizardModal.hasQuiz && (
+                  <span className="px-2.5 py-1 rounded-lg bg-purple-100 text-purple-800 font-bold text-[11px]">
+                    ⚡ {classWizardModal.questions.length} MCQs
+                  </span>
+                )}
               </div>
+
+              <button
+                type="button"
+                onClick={handleSaveClassWizard}
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs font-black border-none cursor-pointer transition-all shadow-md flex items-center gap-1.5 active:scale-95"
+              >
+                <Check className="w-4 h-4" />
+                <span>Save Class & Publish</span>
+              </button>
             </div>
 
           </div>
