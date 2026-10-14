@@ -93,6 +93,10 @@ export function subscribeToCloudData(onUpdate) {
         onUpdate(cloudData);
       }
     }, (error) => {
+      if (error?.code === 'resource-exhausted') {
+        console.warn('[FirestoreSync] Cloud daily read quota reached. Running in local mode.');
+        return;
+      }
       console.warn('[FirestoreSync] Real-time listener error:', error);
     });
 

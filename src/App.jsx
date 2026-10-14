@@ -427,6 +427,30 @@ export default function App() {
             parsed.courses = purged;
             modified = true;
           }
+
+          // Ensure Physics 1st paper Finishing Touch Series has its full 3 classes
+          const physIdx = parsed.courses.findIndex(c => 
+            c.slug === 'physics-finishing-touch-series' || 
+            c.id === 'course-1791887161017' || 
+            (c.title || '').toLowerCase().includes('physics')
+          );
+          const initialPhys = initialData.courses.find(c => c.slug === 'physics-finishing-touch-series');
+          if (initialPhys) {
+            if (physIdx === -1) {
+              parsed.courses.unshift(initialPhys);
+              modified = true;
+            } else {
+              const currentLessons = (parsed.courses[physIdx].curriculum?.[0]?.chapters?.[0]?.lessons || []);
+              if (currentLessons.length < 3) {
+                parsed.courses[physIdx] = {
+                  ...parsed.courses[physIdx],
+                  curriculum: initialPhys.curriculum,
+                  totalClasses: '৩টি ক্লাস'
+                };
+                modified = true;
+              }
+            }
+          }
         }
         if (Array.isArray(parsed.instructors)) {
           const ZENITH_INSTRUCTOR_NAMES = [
@@ -553,16 +577,14 @@ export default function App() {
       const localTime = prev._lastUpdated ? new Date(prev._lastUpdated).getTime() : 0;
       const cloudTime = cloudData._lastUpdated ? new Date(cloudData._lastUpdated).getTime() : 0;
 
-      // If local state has newer edits than cloudData, do not overwrite local with stale cloud!
+      // If local state has newer edits than cloudData, preserve local without writing back in a loop
       if (localTime > cloudTime && localTime > 0) {
-        saveCloudData(prev);
         return prev;
       }
 
       const sanitized = { ...cloudData };
       if (Array.isArray(sanitized.homeStats) && sanitized.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) {
         sanitized.homeStats = initialData.homeStats;
-        saveCloudData({ homeStats: initialData.homeStats });
       }
 
       // Clean instructors resolution: filter Zenith legacy faculty and respect user edits

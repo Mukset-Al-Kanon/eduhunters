@@ -51,6 +51,79 @@ export const homeCoursesData = [
     slug: "master-english-30-days",
     playlistId: "PLCOrbehX14ag"
   },
+  {
+    id: "course-1791887161017",
+    slug: "physics-finishing-touch-series",
+    title: "Physics 1st paper Finishing Touch Series",
+    name: "Physics 1st paper Finishing Touch Series",
+    category: "Medical",
+    isBundle: false,
+    isFree: false,
+    image: "https://assets.codervai.com/banners/1781465730213-cropped-image.webp",
+    description: "মেডিকেল ও ডেন্টাল ভর্তি পরীক্ষার পদার্থবিজ্ঞান ১ম পত্রের সম্পূর্ণ রিভিশন ও প্র্যাকটিস কোর্স।",
+    salePrice: 499,
+    regularPrice: 1200,
+    totalClasses: "৩টি ক্লাস",
+    curriculum: [
+      {
+        name: "Physics 1st paper Finishing Touch Series",
+        title: "Physics 1st paper Finishing Touch Series",
+        chapters: [
+          {
+            id: "chap-01",
+            name: "Chapter 01 ভৌতজগৎ ও পরিমাপ",
+            title: "Chapter 01 ভৌতজগৎ ও পরিমাপ",
+            lessons: [
+              {
+                id: "les-01",
+                title: "Chapter 1 ভৌতজগৎ ও পরিমাপ",
+                duration: "31 min",
+                videoUrl: "https://youtu.be/vnHUmQqTFJQ",
+                isFree: true
+              },
+              {
+                id: "les-02",
+                title: "Chapter 2 ভেক্টর",
+                duration: "31 min",
+                videoUrl: "https://youtu.be/vnHUmQqTFJQ",
+                isFree: false
+              },
+              {
+                id: "les-03",
+                title: "Chapter 3 গতিবিদ্যা",
+                duration: "45 min",
+                videoUrl: "https://youtu.be/vnHUmQqTFJQ",
+                isFree: false
+              }
+            ]
+          }
+        ],
+        lessons: [
+          {
+            id: "les-01",
+            title: "Chapter 1 ভৌতজগৎ ও পরিমাপ",
+            duration: "31 min",
+            videoUrl: "https://youtu.be/vnHUmQqTFJQ",
+            isFree: true
+          },
+          {
+            id: "les-02",
+            title: "Chapter 2 ভেক্টর",
+            duration: "31 min",
+            videoUrl: "https://youtu.be/vnHUmQqTFJQ",
+            isFree: false
+          },
+          {
+            id: "les-03",
+            title: "Chapter 3 গতিবিদ্যা",
+            duration: "45 min",
+            videoUrl: "https://youtu.be/vnHUmQqTFJQ",
+            isFree: false
+          }
+        ]
+      }
+    ]
+  },
   ...freeCoursesData.map(c => ({
     id: c.id,
     title: c.title,

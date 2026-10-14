@@ -490,6 +490,53 @@ export default function HomePage({
     setShowCheckout(true);
   };
 
+  // Smart slide click navigation handler
+  const handleSlideClick = (slide) => {
+    if (!slide || !slide.link) {
+      if (onNavigateCourse) onNavigateCourse();
+      return;
+    }
+    const rawLink = String(slide.link).trim();
+    if (!rawLink) {
+      if (onNavigateCourse) onNavigateCourse();
+      return;
+    }
+
+    // External URLs (e.g. https://... or http://...)
+    if (rawLink.startsWith('http://') || rawLink.startsWith('https://')) {
+      window.open(rawLink, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    // Clean internal route & query parameters
+    const [pathPart, queryPart] = rawLink.split('?');
+    const path = pathPart.toLowerCase().replace(/^\/+/, ''); // strip leading slashes
+    const searchParams = new URLSearchParams(queryPart || '');
+
+    if (path.startsWith('exams') || path.includes('exam')) {
+      const category = searchParams.get('category') || (path.split('/')[1] || null);
+      if (onNavigateExams) onNavigateExams(category);
+    } else if (path.startsWith('bundles') || path.includes('bundle')) {
+      const bundleId = path.split('/')[1] || null;
+      if (onNavigateBundle) onNavigateBundle(bundleId);
+      else if (onNavigateCourse) onNavigateCourse();
+    } else if (path.startsWith('store') || path.includes('store')) {
+      if (onNavigateStore) onNavigateStore();
+    } else if (path.startsWith('about') || path.includes('about')) {
+      if (onNavigateAbout) onNavigateAbout();
+    } else if (path.startsWith('courses')) {
+      const parts = path.split('/').filter(Boolean);
+      // e.g. 'courses/0' or 'courses/master-english'
+      if (parts.length > 1) {
+        if (onNavigateCourse) onNavigateCourse(parts[1]);
+      } else {
+        if (onNavigateCourse) onNavigateCourse();
+      }
+    } else {
+      if (onNavigateCourse) onNavigateCourse();
+    }
+  };
+
   return (
     <div className={`min-h-screen font-sans antialiased transition-colors duration-250 ${
       isDark 
@@ -552,7 +599,7 @@ export default function HomePage({
               className={`flex h-full ${
                 isTransitionEnabled 
                   ? 'transition-transform duration-700 ease-in-out' 
-                  : ''
+                : ''
               }`}
               style={{
                 transform: `translateX(-${slideCount > 1 ? currentSlideIndex * 100 : 0}%)`
@@ -561,13 +608,7 @@ export default function HomePage({
               {extendedSlides.map((slide, idx) => (
                 <div 
                   key={`${slide.id || idx}-${idx}`}
-                  onClick={() => {
-                    if (slide.link?.includes('biology')) onNavigateCourse();
-                    else if (slide.link?.includes('exam')) onNavigateExams();
-                    else if (slide.link?.includes('store')) onNavigateStore();
-                    else if (slide.link?.includes('about')) onNavigateAbout();
-                    else onNavigateCourse();
-                  }}
+                  onClick={() => handleSlideClick(slide)}
                   className="w-full h-full shrink-0 relative cursor-pointer"
                 >
                   <img 
