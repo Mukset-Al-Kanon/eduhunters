@@ -315,8 +315,20 @@ export default function CourseStudioPage({
   const [csvParsedPreview, setCsvParsedPreview] = useState([]);
   const [questionFilter, setQuestionFilter] = useState('');
 
-  // Derived Curriculum Statistics
-  const curriculum = useMemo(() => Array.isArray(course?.curriculum) ? course.curriculum : [], [course]);
+  // Derived Curriculum Statistics with automatic name/title synchronization
+  const curriculum = useMemo(() => {
+    const raw = Array.isArray(course?.curriculum) ? course.curriculum : [];
+    return raw.map((sec, idx) => {
+      const cleanTitle = (sec.name && sec.name !== 'Module 1: Complete Foundation Course') 
+        ? sec.name 
+        : (sec.title && sec.title !== 'Module 1: Complete Foundation Course' ? sec.title : (sec.name || `Module ${idx + 1}`));
+      return {
+        ...sec,
+        name: cleanTitle,
+        title: cleanTitle
+      };
+    });
+  }, [course]);
   const totalSections = curriculum.length;
   const totalChapters = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters?.length || 0), 0), [curriculum]);
   const totalLessons = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons?.length || 0), 0), 0), [curriculum]);
@@ -382,6 +394,7 @@ export default function CourseStudioPage({
     const newSection = {
       id: `sec-${Date.now()}`,
       name: `Module ${curriculum.length + 1}: New Topic`,
+      title: `Module ${curriculum.length + 1}: New Topic`,
       summary: '1 Chapter · 5 Lectures',
       chapters: [
         {
@@ -400,7 +413,12 @@ export default function CourseStudioPage({
 
   const handleUpdateSection = (secIdx, field, value) => {
     const updatedCurriculum = curriculum.map((sec, i) => {
-      if (i === secIdx) return { ...sec, [field]: value };
+      if (i === secIdx) {
+        if (field === 'name' || field === 'title') {
+          return { ...sec, name: value, title: value };
+        }
+        return { ...sec, [field]: value };
+      }
       return sec;
     });
     notifySave({ ...course, curriculum: updatedCurriculum });
@@ -429,9 +447,11 @@ export default function CourseStudioPage({
     const updatedCurriculum = curriculum.map((sec, i) => {
       if (i === secIdx) {
         const chapters = Array.isArray(sec.chapters) ? [...sec.chapters] : [];
+        const nextNum = chapters.length + 1;
+        const pad = nextNum < 10 ? `0${nextNum}` : nextNum;
         chapters.push({
           id: `chap-${Date.now()}`,
-          name: `Chapter ${chapters.length + 1}: Detailed Lessons`,
+          name: `Chapter ${pad}: নতুন অধ্যায়`,
           lessons: []
         });
         return { ...sec, chapters };
@@ -439,7 +459,7 @@ export default function CourseStudioPage({
       return sec;
     });
     notifySave({ ...course, curriculum: updatedCurriculum });
-    triggerToast('➕ Chapter added to module');
+    triggerToast('➕ নতুন অধ্যায় / চ্যাপ্টার যুক্ত হয়েছে');
   };
 
   const handleUpdateChapter = (secIdx, chapIdx, name) => {
@@ -476,7 +496,7 @@ export default function CourseStudioPage({
     const draftKey = `${secIdx}-${chapIdx}`;
     const draft = newLessonDrafts[draftKey] || { title: '', duration: '45 min', videoUrl: '', pdfUrl: '', isFree: false };
     if (!draft.title.trim()) {
-      alert('Please enter a lesson title before adding.');
+      triggerToast('⚠️ অনুগ্রহ করে ক্লাসের নাম / শিরোনাম লিখুন');
       return;
     }
 
@@ -509,7 +529,7 @@ export default function CourseStudioPage({
       ...prev,
       [draftKey]: { title: '', duration: '45 min', videoUrl: '', pdfUrl: '', isFree: false }
     }));
-    triggerToast('🎉 Lesson added successfully!');
+    triggerToast(`🎉 ক্লাস "${newLessonItem.title}" সফলভাবে যুক্ত হয়েছে!`);
   };
 
   const handleUpdateLesson = (secIdx, chapIdx, lesIdx, field, value) => {
@@ -906,7 +926,7 @@ export default function CourseStudioPage({
   // =========================================================================
   // STEP-BY-STEP CLASS INTEGRATION WIZARD HANDLERS
   // =========================================================================
-  const handleOpenAddClassWizard = (secIdx = 0, chapIdx = 0, initialStep = 1) => {
+  const handleOpenAddClassWizard = (secIdx = 0, chapIdx = 0, initialStep = 1, prefill = {}) => {
     let targetCurriculum = curriculum;
     let targetSec = secIdx;
     let targetChap = chapIdx;
@@ -914,10 +934,11 @@ export default function CourseStudioPage({
     if (!targetCurriculum || targetCurriculum.length === 0) {
       const defaultSec = {
         id: `sec-${Date.now()}`,
-        title: 'Module 1: Complete Foundation Course',
+        name: course?.title ? `${course.title} - Module 01` : 'Module 01: Core Syllabus',
+        title: course?.title ? `${course.title} - Module 01` : 'Module 01: Core Syllabus',
         chapters: [{
           id: `chap-${Date.now()}`,
-          name: 'Chapter 01: Core Lecture Series',
+          name: 'Chapter 01: Basic Lecture Series',
           lessons: []
         }]
       };
@@ -932,7 +953,7 @@ export default function CourseStudioPage({
             ...sec,
             chapters: [{
               id: `chap-${Date.now()}`,
-              name: 'Chapter 01: Core Lecture Series',
+              name: 'Chapter 01: Basic Lecture Series',
               lessons: []
             }]
           };
@@ -952,11 +973,11 @@ export default function CourseStudioPage({
       chapIdx: targetChap,
       lesIdx: null,
       activeStep: initialStep,
-      title: '',
-      duration: '45 min',
-      isFree: false,
-      videoUrl: '',
-      pdfUrl: '',
+      title: prefill.title || '',
+      duration: prefill.duration || '45 min',
+      isFree: Boolean(prefill.isFree),
+      videoUrl: prefill.videoUrl || '',
+      pdfUrl: prefill.pdfUrl || '',
       hasQuiz: false,
       quizTitle: '',
       durationMinutes: 10,
@@ -1947,7 +1968,10 @@ export default function CourseStudioPage({
 
                               <button
                                 type="button"
-                                onClick={() => handleOpenAddClassWizard(secIdx, chapIdx, 1)}
+                                onClick={() => handleOpenAddClassWizard(secIdx, chapIdx, 1, {
+                                  title: draft.title || '',
+                                  videoUrl: draft.videoUrl || ''
+                                })}
                                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-[#5d5bf6] hover:to-purple-600 text-[#5d5bf6] hover:text-white text-xs font-bold border border-indigo-200/80 hover:border-transparent transition-all cursor-pointer shadow-2xs shrink-0 active:scale-95"
                                 title="Open Full Studio for Video Uploads, Notes, and Quizzes"
                               >
@@ -3068,7 +3092,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                     </span>
                   </div>
                   <p className="text-xs text-slate-500 mt-0.5 truncate">
-                    {curriculum[classWizardModal.secIdx]?.title || 'Module'} → {curriculum[classWizardModal.secIdx]?.chapters?.[classWizardModal.chapIdx]?.name || 'Chapter'}
+                    {(curriculum[classWizardModal.secIdx]?.name || curriculum[classWizardModal.secIdx]?.title || 'Module')} → {(curriculum[classWizardModal.secIdx]?.chapters?.[classWizardModal.chapIdx]?.name || 'Chapter')}
                   </p>
                 </div>
               </div>
@@ -3147,7 +3171,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                   {/* Chapter Selector */}
                   <div>
                     <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Assigned Chapter / Module
+                      Assigned Chapter / Module (নির্ধারিত অধ্যায় / মডিউল)
                     </label>
                     <select
                       value={`${classWizardModal.secIdx}-${classWizardModal.chapIdx}`}
@@ -3160,7 +3184,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                       {curriculum.map((sec, sIdx) => 
                         (sec.chapters || []).map((ch, cIdx) => (
                           <option key={`${sIdx}-${cIdx}`} value={`${sIdx}-${cIdx}`}>
-                            {sec.title} → {ch.name}
+                            {(sec.name || sec.title || `Module ${sIdx + 1}`)} → {(ch.name || `Chapter ${cIdx + 1}`)}
                           </option>
                         ))
                       )}
