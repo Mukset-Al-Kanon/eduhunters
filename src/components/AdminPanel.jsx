@@ -80,6 +80,8 @@ import {
 } from '../services/bunnyService';
 import { saveCloudData } from '../services/firestoreSyncService';
 import { uploadImageFile } from '../services/cloudStorageService';
+import { isSupabaseConfigured } from '../supabase/config';
+import { fetchSupabaseOrders, subscribeToSupabaseOrders, fetchSupabaseUsers, subscribeToSupabaseUsers } from '../services/supabaseService';
 
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
@@ -734,6 +736,136 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       }
     }
 
+    // 1.1 Supabase Real-time Listeners & Initial Fetch (Unlimited Free Realtime)
+    let unsubscribeSupabaseOrders = null;
+    let unsubscribeSupabaseUsers = null;
+    let unsubscribeSupabaseHeartbeat = null;
+
+    if (isSupabaseConfigured) {
+      try {
+        let isInitialSupabaseOrders = true;
+
+        fetchSupabaseOrders().then(orders => {
+          if (Array.isArray(orders) && orders.length > 0) {
+            const mappedTxs = orders.map(o => mapOrderDocToTx(o.id, o));
+            const mappedStudents = orders.map(o => mapOrderDocToStudent(o.id, o));
+
+            setAccounting(prev => {
+              const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
+              const txMap = new Map();
+              prevTxs.forEach(tx => {
+                const key = tx.orderId || tx.id || tx.trxId;
+                if (key) txMap.set(key, tx);
+              });
+              mappedTxs.forEach(tx => {
+                const key = tx.orderId || tx.id || tx.trxId;
+                if (key) txMap.set(key, tx);
+              });
+              const allTxs = Array.from(txMap.values());
+              const completedRev = allTxs
+                .filter(t => (t.status || '').toLowerCase() === 'completed')
+                .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+              const totalExpenses = Number(prev?.totalExpenses) || 0;
+              return {
+                ...prev,
+                totalRevenue: completedRev,
+                netProfit: completedRev - totalExpenses,
+                totalOrders: allTxs.filter(t => (t.type || '').toUpperCase() === 'INCOME' || !t.type).length,
+                transactions: allTxs
+              };
+            });
+
+            setEnrolledStudents(prev => {
+              const stMap = new Map();
+              prev.forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
+              mappedStudents.forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
+              return Array.from(stMap.values());
+            });
+          }
+        }).catch(() => {});
+
+        fetchSupabaseUsers().then(users => {
+          if (Array.isArray(users) && users.length > 0) {
+            setUsersList(prev => {
+              const emailMap = new Map();
+              prev.forEach(u => {
+                const key = (u.email || u.id || '').toLowerCase();
+                if (key) emailMap.set(key, u);
+              });
+              users.forEach(u => {
+                const key = (u.email || u.id || '').toLowerCase();
+                if (key) emailMap.set(key, u);
+              });
+              return Array.from(emailMap.values());
+            });
+          }
+        }).catch(() => {});
+
+        unsubscribeSupabaseOrders = subscribeToSupabaseOrders(({ eventType, order }) => {
+          const tx = mapOrderDocToTx(order.id, order);
+          const student = mapOrderDocToStudent(order.id, order);
+          if (eventType === 'INSERT' && !isInitialSupabaseOrders) {
+            playNotificationChime();
+            triggerToast(`🔔 নতুন কোর্স এনরোলমেন্ট রিকোয়েস্ট! ${tx.studentName} — "${tx.itemTitle}" (৳${tx.amount})`);
+          }
+          handleIncomingEnrollment({ order, transaction: tx, student });
+        });
+        isInitialSupabaseOrders = false;
+
+        unsubscribeSupabaseUsers = subscribeToSupabaseUsers(({ eventType, user }) => {
+          if (eventType === 'INSERT') {
+            triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${user.displayName || user.name || user.email}`);
+          }
+          upsertUserInList(user, eventType === 'INSERT');
+        });
+
+        // 15-second background heartbeat poll to ensure 100% sync reliability
+        const supabaseHeartbeat = setInterval(() => {
+          fetchSupabaseOrders().then(orders => {
+            if (Array.isArray(orders) && orders.length > 0) {
+              const mappedTxs = orders.map(o => mapOrderDocToTx(o.id, o));
+              const mappedStudents = orders.map(o => mapOrderDocToStudent(o.id, o));
+              setAccounting(prev => {
+                const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
+                const txMap = new Map();
+                prevTxs.forEach(tx => {
+                  const key = tx.orderId || tx.id || tx.trxId;
+                  if (key) txMap.set(key, tx);
+                });
+                mappedTxs.forEach(tx => {
+                  const key = tx.orderId || tx.id || tx.trxId;
+                  if (key) txMap.set(key, tx);
+                });
+                const allTxs = Array.from(txMap.values());
+                const completedRev = allTxs
+                  .filter(t => (t.status || '').toLowerCase() === 'completed')
+                  .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+                const totalExpenses = Number(prev?.totalExpenses) || 0;
+                return {
+                  ...prev,
+                  totalRevenue: completedRev,
+                  netProfit: completedRev - totalExpenses,
+                  totalOrders: allTxs.filter(t => (t.type || '').toUpperCase() === 'INCOME' || !t.type).length,
+                  transactions: allTxs
+                };
+              });
+
+              setEnrolledStudents(prev => {
+                const stMap = new Map();
+                prev.forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
+                mappedStudents.forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
+                return Array.from(stMap.values());
+              });
+            }
+          }).catch(() => {});
+        }, 15000);
+
+        unsubscribeSupabaseHeartbeat = () => clearInterval(supabaseHeartbeat);
+      } catch (err) {
+        console.warn('[AdminPanel] Supabase real-time setup note:', err);
+      }
+    }
+
     // 2. BroadcastChannel for Instant Cross-Tab & Multi-Window Sync
     let bc = null;
     if (typeof BroadcastChannel !== 'undefined') {
@@ -814,6 +946,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     window.addEventListener('storage', handleStorageChange);
 
     return () => {
+      if (typeof unsubscribeSupabaseHeartbeat === 'function') unsubscribeSupabaseHeartbeat();
+      if (typeof unsubscribeSupabaseOrders === 'function') unsubscribeSupabaseOrders();
+      if (typeof unsubscribeSupabaseUsers === 'function') unsubscribeSupabaseUsers();
       if (typeof unsubscribeUsers === 'function') unsubscribeUsers();
       if (typeof unsubscribeOrders === 'function') unsubscribeOrders();
       if (bc) bc.close();

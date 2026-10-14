@@ -1,5 +1,6 @@
 import { db, isFirebaseConfigured } from '../firebase/config';
-import { doc, setDoc, getDoc, getDocs, collection } from 'firebase/firestore';
+import { doc, setDoc, getDoc, getDocs, collection, query, where, limit } from 'firebase/firestore';
+import { saveSupabaseOrder, updateSupabaseOrderStatus } from './supabaseService';
 
 const ORDERS_STORAGE_KEY = 'eh_user_orders_v3';
 
@@ -214,7 +215,14 @@ export async function saveNewOrder({
       } catch (e) {}
     }
 
-    // 7. Persist order in Cloud Firestore asynchronously (non-blocking for instant UI response)
+    // 7. Persist order in Supabase asynchronously (No daily request limit, 100% free)
+    saveSupabaseOrder({
+      ...newOrder,
+      transaction: newTx,
+      student: newStudent
+    }).catch(e => console.warn('[orderService] Supabase save note:', e));
+
+    // 8. Persist order in Cloud Firestore asynchronously (non-blocking for instant UI response)
     if (isFirebaseConfigured && db) {
       try {
         const docRef = doc(db, 'orders', orderId);
@@ -229,7 +237,7 @@ export async function saveNewOrder({
           console.warn('[orderService] Cloud order background save note:', cloudErr);
         });
 
-        // 8. Back-propagate contact info directly to student's user profile in Cloud Firestore
+        // 9. Back-propagate contact info directly to student's user profile in Cloud Firestore
         const cleanPhone = (studentPhone || '').trim();
         if (cleanPhone && cleanPhone !== 'N/A') {
           const profileUpdates = {
@@ -245,13 +253,12 @@ export async function saveNewOrder({
           if (studentUid) {
             setDoc(doc(db, 'users', studentUid), profileUpdates, { merge: true }).catch(() => {});
           } else if (studentEmail) {
-            getDocs(collection(db, 'users')).then(snap => {
-              snap.docs.forEach(docSnap => {
-                const uData = docSnap.data();
-                if (uData.email && uData.email.toLowerCase() === studentEmail.toLowerCase()) {
-                  setDoc(doc(db, 'users', docSnap.id), profileUpdates, { merge: true }).catch(() => {});
-                }
-              });
+            const q = query(collection(db, 'users'), where('email', '==', studentEmail.toLowerCase()), limit(1));
+            getDocs(q).then(snap => {
+              if (!snap.empty) {
+                const targetDoc = snap.docs[0];
+                setDoc(doc(db, 'users', targetDoc.id), profileUpdates, { merge: true }).catch(() => {});
+              }
             }).catch(() => {});
           }
         }
@@ -381,9 +388,18 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
       }
     } catch (e) {}
 
-    // 4. Update Cloud Firestore if configured
+    // 4. Update Supabase if configured
+    const targetOrderId = approvedOrder?.id || (typeof identifier === 'string' && identifier.startsWith('ord_') ? identifier : null);
+    if (targetOrderId) {
+      updateSupabaseOrderStatus(targetOrderId, {
+        status: 'PAID',
+        isApproved: true,
+        raw_data: approvedOrder
+      }).catch(e => console.warn('[orderService] Supabase update note:', e));
+    }
+
+    // 5. Update Cloud Firestore if configured
     if (isFirebaseConfigured && db) {
-      const targetOrderId = approvedOrder?.id || (typeof identifier === 'string' && identifier.startsWith('ord_') ? identifier : null);
       if (targetOrderId) {
         try {
           setDoc(doc(db, 'orders', targetOrderId), {
@@ -395,27 +411,22 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
       }
 
       // Automatically unlock course for student in Firestore users collection
-      if (cleanEmail || cleanPhone) {
+      if (cleanEmail) {
         try {
-          getDocs(collection(db, 'users')).then(snap => {
-            snap.docs.forEach(docSnap => {
+          const q = query(collection(db, 'users'), where('email', '==', cleanEmail), limit(1));
+          getDocs(q).then(snap => {
+            if (!snap.empty) {
+              const docSnap = snap.docs[0];
               const uData = docSnap.data();
-              const uEmail = (uData.email || '').toLowerCase().trim();
-              const uPhone = (uData.whatsapp || uData.phone || '').replace(/[^0-9]/g, '');
-              const isMatch = (cleanEmail && uEmail && uEmail === cleanEmail) ||
-                              (cleanPhone && uPhone && (uPhone === cleanPhone || uPhone.endsWith(cleanPhone) || cleanPhone.endsWith(uPhone)));
-
-              if (isMatch) {
-                const enrolled = Array.isArray(uData.enrolledCourses) ? uData.enrolledCourses : [];
-                if (!enrolled.includes(finalTitle)) {
-                  setDoc(doc(db, 'users', docSnap.id), {
-                    enrolledCourses: [finalTitle, ...enrolled],
-                    status: 'Active',
-                    totalSpent: (Number(uData.totalSpent) || 0) + finalAmount
-                  }, { merge: true }).catch(() => {});
-                }
+              const enrolled = Array.isArray(uData.enrolledCourses) ? uData.enrolledCourses : [];
+              if (!enrolled.includes(finalTitle)) {
+                setDoc(doc(db, 'users', docSnap.id), {
+                  enrolledCourses: [finalTitle, ...enrolled],
+                  status: 'Active',
+                  totalSpent: (Number(uData.totalSpent) || 0) + finalAmount
+                }, { merge: true }).catch(() => {});
               }
-            });
+            }
           }).catch(() => {});
         } catch (e) {}
       }

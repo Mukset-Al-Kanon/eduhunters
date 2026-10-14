@@ -5,6 +5,7 @@ import { initialData } from '../data/mockData';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { db, isFirebaseConfigured } from '../firebase/config';
 import { doc, setDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { saveSupabaseOrder } from '../services/supabaseService';
 import React, { useState, useEffect, useMemo } from 'react';
 
 export const ENROLLED_COURSES_KEY = 'eduhunters_enrolled_courses';
@@ -275,6 +276,7 @@ export function grantCourseAccess(itemOrTitle, data = {}, targetUser = null) {
         };
         nextOrdersList.unshift(adminOrder);
         localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrdersList));
+        saveSupabaseOrder(adminOrder).catch(e => console.warn('[enrollmentService] Supabase grant save note:', e));
       }
     } catch (e) {}
 

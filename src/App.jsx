@@ -19,8 +19,8 @@ import ProfileModal from './components/ProfileModal';
 import PreloaderScreen from './components/PreloaderScreen';
 import AdminAuthModal from './components/AdminAuthModal';
 import { isStudentProfileComplete } from './utils/studentProfile';
-import { getAdminSession, clearAdminSession } from './services/adminAuthService';
 import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/firestoreSyncService';
+import { saveSupabaseSiteData, subscribeToSupabaseSiteData } from './services/supabaseService';
 
 // Performance Optimization: Lazy load heavy AdminPanel
 const AdminPanel = lazy(() => import('./components/AdminPanel'));
@@ -522,7 +522,6 @@ export default function App() {
         if (parsed.termsAndConditions?.clauses && cleanClauses(parsed.termsAndConditions.clauses)) modified = true;
         if (modified) {
           localStorage.setItem('eduhunters_data', JSON.stringify(parsed));
-          saveCloudData({ homeStats: initialData.homeStats, siteSettings: parsed.siteSettings });
           setData(prev => ({
             ...prev,
             courses: parsed.courses || prev.courses,
@@ -566,11 +565,13 @@ export default function App() {
       console.error('Error saving data to localStorage:', e);
     }
     broadcastSync(dataWithTimestamp);
-    // Cloud Firestore synchronization: Save permanently in cloud so git pushes never erase admin edits
+    // Supabase synchronization: Primary real-time database with no daily quota limits
+    saveSupabaseSiteData(dataWithTimestamp);
+    // Cloud Firestore synchronization: Fallback
     saveCloudData(dataWithTimestamp);
   };
 
-  // Real-time synchronization listener: Local tabs + Cloud Firestore
+  // Real-time synchronization listener: Local tabs + Supabase Realtime + Cloud Firestore
   useEffect(() => {
     const mergeCloudWithLocal = (prev, cloudData) => {
       if (!cloudData) return prev;
@@ -614,14 +615,14 @@ export default function App() {
       return merged;
     };
 
-    // 0. Immediately fetch cloud data on cold start
-    fetchCloudData().then((cloudData) => {
+    // 1. Supabase Realtime subscription (Instant sync for hero slider, courses, etc.)
+    const unsubscribeSupabase = subscribeToSupabaseSiteData((cloudData) => {
       if (cloudData) {
         setData(prev => mergeCloudWithLocal(prev, cloudData));
       }
-    }).catch(() => {});
+    });
 
-    // 1. Listen for real-time Cloud Firestore updates (across all devices & live vs local)
+    // 2. Listen for real-time Cloud Firestore updates (fallback)
     const unsubscribeCloud = subscribeToCloudData((cloudData) => {
       if (cloudData) {
         setData(prev => mergeCloudWithLocal(prev, cloudData));
@@ -664,6 +665,7 @@ export default function App() {
     window.addEventListener('eduhunters_data_updated', handleCustomSync);
 
     return () => {
+      if (typeof unsubscribeSupabase === 'function') unsubscribeSupabase();
       if (typeof unsubscribeCloud === 'function') unsubscribeCloud();
       window.removeEventListener('storage', handleStorageChange);
       window.removeEventListener('eduhunters_data_updated', handleCustomSync);

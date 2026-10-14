@@ -30,6 +30,7 @@ import {
   limit,
   onSnapshot
 } from 'firebase/firestore';
+import { saveSupabaseUser } from '../services/supabaseService';
 
 const AuthContext = createContext(null);
 
@@ -151,6 +152,11 @@ export function AuthProvider({ children }) {
     } catch (err) {
       console.warn('[AuthContext] Firestore sync skipped or failed (Check security rules):', err);
     }
+
+    // Supabase User Synchronization
+    try {
+      saveSupabaseUser(user, additionalData).catch(e => console.warn('[AuthContext] Supabase user sync note:', e));
+    } catch (e) {}
   };
 
   // Handle redirect result on mount (for mobile Google Sign-In)
