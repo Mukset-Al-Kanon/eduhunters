@@ -19,6 +19,7 @@ import ProfileModal from './components/ProfileModal';
 import PreloaderScreen from './components/PreloaderScreen';
 import AdminAuthModal from './components/AdminAuthModal';
 import { isStudentProfileComplete } from './utils/studentProfile';
+import { getAdminSession, clearAdminSession } from './services/adminAuthService';
 import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/firestoreSyncService';
 import { saveSupabaseSiteData, subscribeToSupabaseSiteData } from './services/supabaseService';
 
