@@ -50,6 +50,7 @@ import {
   testBunnyStreamConnection,
   testBunnyStorageConnection
 } from '../services/bunnyService';
+import { uploadVideoFile, uploadPdfFile } from '../services/cloudStorageService';
 
 // YouTube & Bunny Video Embed Link Helper
 function getEmbedUrl(url) {
@@ -306,6 +307,8 @@ export default function CourseStudioPage({
   const [pdfUploadState, setPdfUploadState] = useState({ uploading: false, percent: 0, loaded: 0, total: 0, error: '' });
   const videoFileInputRef = useRef(null);
   const pdfFileInputRef = useRef(null);
+  const [isDraggingVideo, setIsDraggingVideo] = useState(false);
+  const [isDraggingPdf, setIsDraggingPdf] = useState(false);
 
   // Dedicated refs & state for CSV Upload
   const quickCsvInputRef = useRef(null);
@@ -843,27 +846,33 @@ export default function CourseStudioPage({
   };
 
   // =========================================================================
-  // BUNNY.NET DIRECT CLOUD UPLOAD HANDLERS
+  // DIRECT CLOUD UPLOAD HANDLERS (DRAG & DROP / FILE PICKER)
   // =========================================================================
   const handleDirectVideoUpload = async (file) => {
     if (!file) return;
-    if (!isBunnyStreamConfigured(bunnyConfig)) {
-      setShowBunnySettingsModal(true);
-      triggerToast('⚙️ Please enter your Bunny Stream Library ID & API Key.');
-      return;
-    }
 
     setVideoUploadState({ uploading: true, percent: 0, loaded: 0, total: file.size, error: '' });
     try {
-      const res = await uploadVideoToBunnyStream(file, classWizardModal.title || file.name, ({ percent, loaded, total }) => {
-        setVideoUploadState(prev => ({ ...prev, percent, loaded, total }));
-      });
-      setClassWizardModal(prev => ({
-        ...prev,
-        videoUrl: res.embedUrl
-      }));
+      let res;
+      if (isBunnyStreamConfigured(bunnyConfig)) {
+        res = await uploadVideoToBunnyStream(file, classWizardModal.title || file.name, ({ percent, loaded, total }) => {
+          setVideoUploadState(prev => ({ ...prev, percent, loaded, total }));
+        });
+        setClassWizardModal(prev => ({
+          ...prev,
+          videoUrl: res.embedUrl
+        }));
+      } else {
+        res = await uploadVideoFile(file, classWizardModal.title || file.name, ({ percent, loaded, total }) => {
+          setVideoUploadState(prev => ({ ...prev, percent, loaded, total }));
+        });
+        setClassWizardModal(prev => ({
+          ...prev,
+          videoUrl: res.url
+        }));
+      }
       setVideoUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
-      triggerToast('🎉 Video uploaded directly to Bunny Stream!');
+      triggerToast('🎉 ভিডিও সফলভাবে আপলোড সম্পন্ন হয়েছে!');
     } catch (err) {
       setVideoUploadState({ uploading: false, percent: 0, loaded: 0, total: 0, error: err.message });
       triggerToast(`❌ ${err.message}`);
@@ -872,23 +881,29 @@ export default function CourseStudioPage({
 
   const handleDirectPdfUpload = async (file) => {
     if (!file) return;
-    if (!isBunnyStorageConfigured(bunnyConfig)) {
-      setShowBunnySettingsModal(true);
-      triggerToast('⚙️ Please configure your Bunny Storage Zone credentials.');
-      return;
-    }
 
     setPdfUploadState({ uploading: true, percent: 0, loaded: 0, total: file.size, error: '' });
     try {
-      const res = await uploadPdfToBunnyStorage(file, 'course_notes', ({ percent, loaded, total }) => {
-        setPdfUploadState(prev => ({ ...prev, percent, loaded, total }));
-      });
-      setClassWizardModal(prev => ({
-        ...prev,
-        pdfUrl: res.cdnUrl
-      }));
+      let res;
+      if (isBunnyStorageConfigured(bunnyConfig)) {
+        res = await uploadPdfToBunnyStorage(file, 'course_notes', ({ percent, loaded, total }) => {
+          setPdfUploadState(prev => ({ ...prev, percent, loaded, total }));
+        });
+        setClassWizardModal(prev => ({
+          ...prev,
+          pdfUrl: res.cdnUrl
+        }));
+      } else {
+        res = await uploadPdfFile(file, classWizardModal.title || file.name, ({ percent, loaded, total }) => {
+          setPdfUploadState(prev => ({ ...prev, percent, loaded, total }));
+        });
+        setClassWizardModal(prev => ({
+          ...prev,
+          pdfUrl: res.url
+        }));
+      }
       setPdfUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
-      triggerToast('🎉 PDF sheet uploaded directly to Bunny Storage CDN!');
+      triggerToast('🎉 পিডিএফ লেকচার শিট সফলভাবে আপলোড সম্পন্ন হয়েছে!');
     } catch (err) {
       setPdfUploadState({ uploading: false, percent: 0, loaded: 0, total: 0, error: err.message });
       triggerToast(`❌ ${err.message}`);
@@ -3310,41 +3325,31 @@ Explanation: Flock refers to a group of birds or sheep.`}
                       </h4>
                     </div>
 
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        type="button"
-                        onClick={() => setVideoTabMode('url')}
-                        className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer border ${
-                          videoTabMode === 'url'
-                            ? 'bg-[#5d5bf6] text-white border-[#5d5bf6]'
-                            : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-                        }`}
-                      >
-                        <Play className="w-3 h-3" />
-                        <span>Paste URL</span>
-                      </button>
-
+                    <div className="flex items-center gap-1.5 flex-wrap">
                       <button
                         type="button"
                         onClick={() => setVideoTabMode('upload')}
-                        className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer border ${
+                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
                           videoTabMode === 'upload'
-                            ? 'bg-gradient-to-r from-[#5d5bf6] to-purple-600 text-white border-transparent'
-                            : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                            ? 'bg-[#5d5bf6] text-white border-[#5d5bf6] shadow-xs'
+                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
                         }`}
                       >
-                        <Upload className="w-3 h-3" />
-                        <span>Bunny Upload</span>
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>📂 ড্র্যাগ ও ড্রপ আপলোড</span>
                       </button>
 
                       <button
                         type="button"
-                        onClick={() => setShowBunnySettingsModal(true)}
-                        className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold text-slate-500 hover:text-[#5d5bf6] bg-white border border-slate-200 cursor-pointer"
-                        title="Configure Bunny Stream"
+                        onClick={() => setVideoTabMode('url')}
+                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+                          videoTabMode === 'url'
+                            ? 'bg-[#5d5bf6] text-white border-[#5d5bf6] shadow-xs'
+                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                        }`}
                       >
-                        <Settings className="w-3 h-3" />
-                        {isBunnyStreamConfigured(bunnyConfig) && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />}
+                        <Play className="w-3.5 h-3.5" />
+                        <span>🔗 ইউটিউব / ভিডিও লিংক</span>
                       </button>
                     </div>
                   </div>
@@ -3353,7 +3358,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                   <input
                     ref={videoFileInputRef}
                     type="file"
-                    accept="video/mp4,video/x-m4v,video/quicktime,video/webm,video/*"
+                    accept="video/mp4,video/x-m4v,video/quicktime,video/webm,video/mkv,video/*"
                     className="hidden"
                     onChange={(e) => {
                       const file = e.target.files?.[0];
@@ -3362,7 +3367,85 @@ Explanation: Flock refers to a group of birds or sheep.`}
                     }}
                   />
 
-                  {/* TAB A: PASTE URL */}
+                  {/* TAB A: DIRECT VIDEO DRAG & DROP UPLOAD */}
+                  {videoTabMode === 'upload' && (
+                    <div className="space-y-3">
+                      {videoUploadState.uploading ? (
+                        <div className="p-6 rounded-2xl bg-indigo-50/70 border border-indigo-200 text-center space-y-3">
+                          <div className="flex items-center justify-center gap-2">
+                            <span className="w-2.5 h-2.5 rounded-full bg-[#5d5bf6] animate-ping" />
+                            <h4 className="text-xs sm:text-sm font-black text-slate-900">ভিডিও ক্লাউডে আপলোড হচ্ছে...</h4>
+                          </div>
+                          <p className="text-xs text-slate-600 font-mono">
+                            {((videoUploadState.loaded || 0) / (1024 * 1024)).toFixed(1)} MB / {((videoUploadState.total || 0) / (1024 * 1024)).toFixed(1)} MB ({videoUploadState.percent}%)
+                          </p>
+                          <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden max-w-md mx-auto">
+                            <div 
+                              className="bg-gradient-to-r from-[#5d5bf6] to-purple-600 h-2.5 rounded-full transition-all duration-200"
+                              style={{ width: `${videoUploadState.percent}%` }}
+                            />
+                          </div>
+                          <p className="text-[11px] text-slate-400">আপলোড সম্পন্ন হলে ভিডিও লিংক স্বয়ংক্রিয়ভাবে সেভ হবে</p>
+                        </div>
+                      ) : (
+                        <div 
+                          onDragOver={(e) => { e.preventDefault(); setIsDraggingVideo(true); }}
+                          onDragLeave={(e) => { e.preventDefault(); setIsDraggingVideo(false); }}
+                          onDrop={(e) => {
+                            e.preventDefault();
+                            setIsDraggingVideo(false);
+                            const file = e.dataTransfer?.files?.[0];
+                            if (file) handleDirectVideoUpload(file);
+                          }}
+                          onClick={() => videoFileInputRef.current?.click()}
+                          className={`p-6 sm:p-8 rounded-2xl border-2 border-dashed transition-all text-center cursor-pointer select-none ${
+                            isDraggingVideo 
+                              ? 'border-[#5d5bf6] bg-indigo-50 scale-[1.01]' 
+                              : 'border-indigo-200 hover:border-[#5d5bf6] bg-slate-50/60 hover:bg-indigo-50/30'
+                          }`}
+                        >
+                          <div className="w-12 h-12 rounded-2xl bg-indigo-100 text-[#5d5bf6] flex items-center justify-center mx-auto mb-3 shadow-xs">
+                            <Upload className="w-6 h-6" />
+                          </div>
+                          <h4 className="text-xs sm:text-sm font-black text-slate-800">
+                            ভিডিও ফাইল ড্র্যাগ করে এখানে ছাড়ুন, অথবা ক্লিক করে ফাইল বেছে নিন
+                          </h4>
+                          <p className="text-[11px] text-slate-500 mt-1">
+                            MP4, WebM, MOV, MKV বা যেকোনো ভিডিও ফরম্যাট সাপোর্টেড
+                          </p>
+                          <div className="pt-2">
+                            <button
+                              type="button"
+                              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#5d5bf6] text-white text-xs font-bold border-none pointer-events-none shadow-xs"
+                            >
+                              <Upload className="w-3.5 h-3.5" />
+                              <span>কম্পিউটার থেকে ভিডিও ফাইল সিলেক্ট করুন</span>
+                            </button>
+                          </div>
+                        </div>
+                      )}
+
+                      {classWizardModal.videoUrl && (
+                        <div className="p-3 bg-emerald-50/70 border border-emerald-200 rounded-xl flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="text-xs font-bold text-emerald-900 truncate font-mono">
+                              সংযুক্ত ভিডিও: {classWizardModal.videoUrl}
+                            </span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => setClassWizardModal(prev => ({ ...prev, videoUrl: '' }))}
+                            className="text-xs font-bold text-rose-600 hover:underline shrink-0 bg-transparent border-none cursor-pointer"
+                          >
+                            রিমুভ
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* TAB B: PASTE URL */}
                   {videoTabMode === 'url' && (
                     <div className="space-y-2">
                       <div className="relative">
@@ -3371,60 +3454,16 @@ Explanation: Flock refers to a group of birds or sheep.`}
                           type="text"
                           value={classWizardModal.videoUrl}
                           onChange={(e) => setClassWizardModal(prev => ({ ...prev, videoUrl: e.target.value }))}
-                          placeholder="e.g. https://www.youtube.com/watch?v=... or https://iframe.mediadelivery.net/embed/..."
+                          placeholder="e.g. https://www.youtube.com/watch?v=... or direct MP4 link"
                           className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs font-mono text-slate-800 outline-none focus:border-[#5d5bf6] transition-all shadow-2xs"
                         />
                       </div>
                       <div className="flex items-center gap-2 text-[11px] text-slate-500 flex-wrap">
                         <span className="font-bold text-slate-700">Supported:</span>
                         <span className="bg-white px-2 py-0.5 rounded text-[10px] font-mono border border-slate-200">YouTube Videos & Shorts</span>
-                        <span className="bg-white px-2 py-0.5 rounded text-[10px] font-mono border border-slate-200">Bunny Stream Iframe</span>
-                        <span className="bg-white px-2 py-0.5 rounded text-[10px] font-mono border border-slate-200">Direct Video URLs</span>
+                        <span className="bg-white px-2 py-0.5 rounded text-[10px] font-mono border border-slate-200">Bunny Stream Embeds</span>
+                        <span className="bg-white px-2 py-0.5 rounded text-[10px] font-mono border border-slate-200">Direct MP4/WebM URLs</span>
                       </div>
-                    </div>
-                  )}
-
-                  {/* TAB B: DIRECT BUNNY UPLOAD */}
-                  {videoTabMode === 'upload' && (
-                    <div className="space-y-3">
-                      {!isBunnyStreamConfigured(bunnyConfig) ? (
-                        <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 text-center space-y-2">
-                          <p className="text-xs font-bold text-amber-950">Bunny Stream credentials required for direct uploads</p>
-                          <button
-                            type="button"
-                            onClick={() => setShowBunnySettingsModal(true)}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold border-none cursor-pointer"
-                          >
-                            <Settings className="w-3.5 h-3.5" />
-                            <span>Configure Bunny Stream</span>
-                          </button>
-                        </div>
-                      ) : videoUploadState.uploading ? (
-                        <div className="p-5 rounded-xl bg-indigo-50/70 border border-indigo-200/80 text-center space-y-2">
-                          <h4 className="text-xs font-black text-slate-900">Uploading Video directly to Bunny Stream...</h4>
-                          <p className="text-[11px] text-slate-500 font-mono">
-                            {((videoUploadState.loaded || 0) / (1024 * 1024)).toFixed(1)} MB / {((videoUploadState.total || 0) / (1024 * 1024)).toFixed(1)} MB ({videoUploadState.percent}%)
-                          </p>
-                          <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden max-w-md mx-auto">
-                            <div 
-                              className="bg-gradient-to-r from-[#5d5bf6] to-purple-600 h-2 rounded-full transition-all duration-200"
-                              style={{ width: `${videoUploadState.percent}%` }}
-                            />
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="p-5 rounded-xl border-2 border-dashed border-indigo-200 hover:border-[#5d5bf6] bg-white text-center space-y-2">
-                          <p className="text-xs font-bold text-slate-800">Upload video directly to Bunny Stream Library</p>
-                          <button
-                            type="button"
-                            onClick={() => videoFileInputRef.current?.click()}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#5d5bf6] to-purple-600 text-white text-xs font-bold border-none cursor-pointer shadow-2xs"
-                          >
-                            <Upload className="w-3.5 h-3.5" />
-                            <span>Select Video File from Computer</span>
-                          </button>
-                        </div>
-                      )}
                     </div>
                   )}
 
@@ -3514,14 +3553,27 @@ Explanation: Flock refers to a group of birds or sheep.`}
                           <button
                             type="button"
                             onClick={() => setPdfTabMode('upload')}
-                            className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer border ${
+                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
                               pdfTabMode === 'upload'
-                                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-transparent'
-                                : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                                ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                                : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
                             }`}
                           >
-                            <Upload className="w-3 h-3" />
-                            <span>Bunny CDN Upload</span>
+                            <Upload className="w-3.5 h-3.5" />
+                            <span>📄 ড্র্যাগ ও ড্রপ পিডিএফ</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => setPdfTabMode('url')}
+                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+                              pdfTabMode === 'url'
+                                ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                                : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                            }`}
+                          >
+                            <FileText className="w-3.5 h-3.5" />
+                            <span>🔗 লিংক পেস্ট করুন</span>
                           </button>
                         </div>
                       </div>
@@ -3539,6 +3591,57 @@ Explanation: Flock refers to a group of birds or sheep.`}
                         }}
                       />
 
+                      {/* TAB A: DIRECT PDF DRAG & DROP UPLOAD */}
+                      {pdfTabMode === 'upload' && (
+                        <div className="space-y-3">
+                          {pdfUploadState.uploading ? (
+                            <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-200 text-center space-y-3">
+                              <div className="flex items-center justify-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping" />
+                                <h4 className="text-xs sm:text-sm font-black text-slate-900">পিডিএফ লেকচার শিট আপলোড হচ্ছে...</h4>
+                              </div>
+                              <p className="text-xs text-slate-600 font-mono">
+                                {((pdfUploadState.loaded || 0) / 1024).toFixed(1)} KB / {((pdfUploadState.total || 0) / 1024).toFixed(1)} KB ({pdfUploadState.percent}%)
+                              </p>
+                              <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden max-w-md mx-auto">
+                                <div 
+                                  className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2.5 rounded-full transition-all duration-200"
+                                  style={{ width: `${pdfUploadState.percent}%` }}
+                                />
+                              </div>
+                            </div>
+                          ) : (
+                            <div 
+                              onDragOver={(e) => { e.preventDefault(); setIsDraggingPdf(true); }}
+                              onDragLeave={(e) => { e.preventDefault(); setIsDraggingPdf(false); }}
+                              onDrop={(e) => {
+                                e.preventDefault();
+                                setIsDraggingPdf(false);
+                                const file = e.dataTransfer?.files?.[0];
+                                if (file) handleDirectPdfUpload(file);
+                              }}
+                              onClick={() => pdfFileInputRef.current?.click()}
+                              className={`p-6 sm:p-7 rounded-2xl border-2 border-dashed transition-all text-center cursor-pointer select-none ${
+                                isDraggingPdf 
+                                  ? 'border-blue-500 bg-blue-50 scale-[1.01]' 
+                                  : 'border-blue-200 hover:border-blue-500 bg-slate-50/60 hover:bg-blue-50/30'
+                              }`}
+                            >
+                              <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-2.5 shadow-xs">
+                                <FileText className="w-5 h-5" />
+                              </div>
+                              <h4 className="text-xs font-black text-slate-800">
+                                পিডিএফ ফাইল ড্র্যাগ করে এখানে ছাড়ুন, অথবা ক্লিক করুন
+                              </h4>
+                              <p className="text-[11px] text-slate-500 mt-0.5">
+                                অফিশিয়াল লেকচার শিট, হ্যান্ডনোট ও প্রশ্নব্যাংক PDF সাপোর্টেড
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* TAB B: PASTE PDF URL */}
                       {pdfTabMode === 'url' && (
                         <div className="space-y-1.5">
                           <div className="relative">
@@ -3547,53 +3650,10 @@ Explanation: Flock refers to a group of birds or sheep.`}
                               type="text"
                               value={classWizardModal.pdfUrl}
                               onChange={(e) => setClassWizardModal(prev => ({ ...prev, pdfUrl: e.target.value }))}
-                              placeholder="e.g. https://drive.google.com/file/d/... or https://example.com/sheet.pdf"
+                              placeholder="e.g. https://drive.google.com/file/d/... or direct PDF link"
                               className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-mono text-slate-800 outline-none focus:border-blue-500 transition-all shadow-2xs"
                             />
                           </div>
-                        </div>
-                      )}
-
-                      {pdfTabMode === 'upload' && (
-                        <div className="space-y-2">
-                          {!isBunnyStorageConfigured(bunnyConfig) ? (
-                            <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 text-center space-y-2">
-                              <p className="text-xs font-bold text-amber-950">Bunny Storage credentials required for PDF upload</p>
-                              <button
-                                type="button"
-                                onClick={() => setShowBunnySettingsModal(true)}
-                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold border-none cursor-pointer"
-                              >
-                                <Settings className="w-3.5 h-3.5" />
-                                <span>Configure Bunny Storage</span>
-                              </button>
-                            </div>
-                          ) : pdfUploadState.uploading ? (
-                            <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200/80 text-center space-y-2">
-                              <h4 className="text-xs font-black text-slate-900">Uploading PDF to Bunny CDN...</h4>
-                              <p className="text-[11px] text-slate-500 font-mono">
-                                {((pdfUploadState.loaded || 0) / 1024).toFixed(1)} KB / {((pdfUploadState.total || 0) / 1024).toFixed(1)} KB ({pdfUploadState.percent}%)
-                              </p>
-                              <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden max-w-md mx-auto">
-                                <div 
-                                  className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2 rounded-full transition-all duration-200"
-                                  style={{ width: `${pdfUploadState.percent}%` }}
-                                />
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="p-4 rounded-xl border-2 border-dashed border-blue-200 hover:border-blue-500 bg-white text-center space-y-2">
-                              <p className="text-xs font-bold text-slate-800">Upload PDF to Bunny Storage Global Edge CDN</p>
-                              <button
-                                type="button"
-                                onClick={() => pdfFileInputRef.current?.click()}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold border-none cursor-pointer shadow-2xs"
-                              >
-                                <Upload className="w-3.5 h-3.5" />
-                                <span>Select PDF File from Computer</span>
-                              </button>
-                            </div>
-                          )}
                         </div>
                       )}
 

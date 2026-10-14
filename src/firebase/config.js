@@ -1,7 +1,7 @@
-// src/firebase/config.js
 import { initializeApp, getApps } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyBOA7g2QOdCrYqEtmfEiPGdWluHMfNecdk',
@@ -26,6 +26,7 @@ let app = null;
 let auth = null;
 let googleProvider = null;
 let db = null;
+let storage = null;
 
 if (isFirebaseConfigured) {
   try {
@@ -34,6 +35,11 @@ if (isFirebaseConfigured) {
     googleProvider = new GoogleAuthProvider();
     googleProvider.setCustomParameters({ prompt: 'select_account' });
     db = getFirestore(app);
+    try {
+      storage = getStorage(app);
+    } catch (sErr) {
+      console.warn('[Firebase Storage] Init note:', sErr);
+    }
   } catch (error) {
     console.warn('[Firebase] Initialization error:', error);
   }
@@ -43,4 +49,5 @@ if (isFirebaseConfigured) {
   );
 }
 
-export { app, auth, googleProvider, db };
+export { app, auth, googleProvider, db, storage };
+
