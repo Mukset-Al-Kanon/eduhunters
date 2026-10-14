@@ -1,22 +1,15 @@
 export const heroSlidesData = [
   {
     id: 1,
-    title: "Extra Info কভার মাত্র ৩ মিনিটে! - As Sami Islam",
-    image: "/slides/slide-extra-info.jpg",
-    link: "/courses",
+    title: "পদার্থবিজ্ঞান Finishing Touch Series - ১৫/১৫ পেতে এটুকুই যথেষ্ট",
+    image: "/slides/slide-physics-finishing-touch.png",
+    link: "/courses/physics-finishing-touch-series",
     type: "course"
   },
   {
     id: 2,
     title: "৩০ দিনে Master English শেষ করার মিশন",
     image: "/slides/slide-master-english-30days.png",
-    link: "/courses",
-    type: "course"
-  },
-  {
-    id: 3,
-    title: "Noun and Its Classification - মাত্র ৩০ দিনে (Day-1)",
-    image: "/slides/slide-noun-day1.png",
     link: "/courses",
     type: "course"
   }

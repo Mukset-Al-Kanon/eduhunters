@@ -477,6 +477,10 @@ export default function App() {
           parsed.homeStats = initialData.homeStats;
           modified = true;
         }
+        if (!Array.isArray(parsed.heroSlides) || parsed.heroSlides.length !== 2 || parsed.heroSlides.some(s => s.image?.includes('extra-info') || s.image?.includes('noun-day1'))) {
+          parsed.heroSlides = initialData.heroSlides;
+          modified = true;
+        }
         if (parsed.siteSettings && (!parsed.siteSettings.contactEmail || parsed.siteSettings.contactEmail.includes('support@eduhunters.com') || parsed.siteSettings.contactEmail.includes('gmial.com'))) {
           parsed.siteSettings.contactEmail = 'eduhuntersbd@gmail.com';
           modified = true;
@@ -587,6 +591,9 @@ export default function App() {
       const sanitized = { ...cloudData };
       if (Array.isArray(sanitized.homeStats) && sanitized.homeStats.some(s => s.value === '3000+' || s.value === '70000+')) {
         sanitized.homeStats = initialData.homeStats;
+      }
+      if (Array.isArray(sanitized.heroSlides) && sanitized.heroSlides.some(s => s.image?.includes('extra-info') || s.image?.includes('noun-day1'))) {
+        sanitized.heroSlides = initialData.heroSlides;
       }
 
       // Clean instructors resolution: filter Zenith legacy faculty and respect user edits
