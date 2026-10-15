@@ -144,6 +144,138 @@ export const mapOrderDocToStudent = (docId, order) => {
   };
 };
 
+// Pure helper: Deduplicate transactions so approved students never have duplicate pending records
+export const deduplicateTransactions = (txList) => {
+  if (!Array.isArray(txList)) return [];
+
+  // 1. Identify all completed/approved transactions
+  const approvedKeys = new Set();
+  txList.forEach(t => {
+    if (!t) return;
+    const s = (t.status || '').toLowerCase();
+    const isApproved = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
+    if (isApproved) {
+      const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+      const e = (t.studentEmail || '').trim().toLowerCase();
+      const c = (t.itemTitle || t.category || '').trim().toLowerCase();
+      if (p && c) approvedKeys.add(`${p}_${c}`);
+      if (e && c) approvedKeys.add(`${e}_${c}`);
+      if (p) approvedKeys.add(p);
+      if (e) approvedKeys.add(e);
+    }
+  });
+
+  // 2. Filter transactions: keep all completed/paid/rejected.
+  // If pending, discard if student already has an approved transaction for the course.
+  // Also keep only the most recent pending attempt for the same student + course.
+  const seenPendingKeys = new Set();
+  const result = [];
+
+  for (const t of txList) {
+    if (!t) continue;
+    const s = (t.status || '').toLowerCase();
+    const isCompleted = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
+
+    if (isCompleted || s === 'rejected') {
+      result.push(t);
+      continue;
+    }
+
+    // It's a pending transaction:
+    const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+    const e = (t.studentEmail || '').trim().toLowerCase();
+    const c = (t.itemTitle || t.category || '').trim().toLowerCase();
+
+    const hasApproved = (p && c && approvedKeys.has(`${p}_${c}`)) ||
+                        (e && c && approvedKeys.has(`${e}_${c}`)) ||
+                        (p && approvedKeys.has(p) && !c);
+    if (hasApproved) {
+      // Discard duplicate pending because student has already been approved!
+      continue;
+    }
+
+    const pendingKey = p && c ? `${p}_${c}` : (e && c ? `${e}_${c}` : (p || e || t.id));
+    if (seenPendingKeys.has(pendingKey)) {
+      continue;
+    }
+    seenPendingKeys.add(pendingKey);
+    result.push(t);
+  }
+
+  return result;
+};
+
+// Pure helper: Deduplicate users without EVER losing any enrolled course access (Union of courses)
+export const deduplicateUsers = (userList) => {
+  if (!Array.isArray(userList)) return [];
+  const mergedMap = new Map();
+
+  userList.forEach(u => {
+    if (!u) return;
+    const emailKey = (u.email || '').trim().toLowerCase();
+    const phoneKey = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+
+    const isRealEmail = emailKey && !emailKey.includes('@eduhunters.com') && emailKey.includes('@');
+    const primaryKey = isRealEmail ? `email:${emailKey}` : (phoneKey && phoneKey.length >= 8 ? `phone:${phoneKey}` : `id:${u.id || u.uid}`);
+
+    let existing = mergedMap.get(primaryKey);
+    if (!existing && phoneKey && phoneKey.length >= 8) {
+      existing = mergedMap.get(`phone:${phoneKey}`);
+    }
+    if (!existing && isRealEmail) {
+      existing = mergedMap.get(`email:${emailKey}`);
+    }
+
+    if (existing) {
+      // 100% GUARANTEE: UNION OF ENROLLED COURSES SO ACCESS IS NEVER LOST
+      const allCourses = Array.from(new Set([
+        ...(Array.isArray(existing.enrolledCourses) ? existing.enrolledCourses : []),
+        ...(Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [])
+      ]));
+
+      const mergedUser = {
+        ...existing,
+        ...u,
+        id: existing.id || u.id,
+        name: existing.name && existing.name !== 'Student' && existing.name !== 'Online Student' ? existing.name : (u.name || existing.name),
+        email: existing.email || u.email,
+        phone: existing.phone || u.phone || existing.whatsapp || u.whatsapp,
+        whatsapp: existing.whatsapp || u.whatsapp || existing.phone || u.phone,
+        college: existing.college || u.college || existing.institution || u.institution,
+        institution: existing.institution || u.institution || existing.college || u.college,
+        role: (existing.role === 'Admin' || u.role === 'Admin') ? 'Admin' : (existing.role || u.role || 'Student'),
+        status: (existing.status === 'Active' || u.status === 'Active') ? 'Active' : (existing.status || u.status || 'Active'),
+        batch: existing.batch || u.batch || existing.hscBatch || u.hscBatch || 'HSC 26',
+        hscBatch: existing.hscBatch || u.hscBatch || existing.batch || u.batch || 'HSC 26',
+        enrolledCourses: allCourses,
+        totalSpent: Math.max(Number(existing.totalSpent) || 0, Number(u.totalSpent) || 0)
+      };
+
+      mergedMap.set(primaryKey, mergedUser);
+      if (phoneKey && phoneKey.length >= 8) mergedMap.set(`phone:${phoneKey}`, mergedUser);
+      if (isRealEmail) mergedMap.set(`email:${emailKey}`, mergedUser);
+    } else {
+      const newUser = {
+        ...u,
+        enrolledCourses: Array.isArray(u.enrolledCourses) ? [...u.enrolledCourses] : []
+      };
+      mergedMap.set(primaryKey, newUser);
+      if (phoneKey && phoneKey.length >= 8) mergedMap.set(`phone:${phoneKey}`, newUser);
+      if (isRealEmail) mergedMap.set(`email:${emailKey}`, newUser);
+    }
+  });
+
+  const unique = new Map();
+  mergedMap.forEach(u => {
+    const k = (u.email || u.id || u.uid || '').toLowerCase();
+    if (k && !unique.has(k)) {
+      unique.set(k, u);
+    }
+  });
+
+  return Array.from(unique.values());
+};
+
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
   const [activeTab, setActiveTabState] = useState(() => {
@@ -361,7 +493,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       }
     } catch (e) {}
 
-    const allTxs = Array.from(txMap.values());
+    const allTxs = deduplicateTransactions(Array.from(txMap.values()));
     const completedRev = allTxs
       .filter(t => (t.status || '').toLowerCase() === 'completed')
       .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
@@ -493,7 +625,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       });
     } catch (e) {}
 
-    return Array.from(userMap.values());
+    return deduplicateUsers(Array.from(userMap.values()));
   });
 
   const [userSearchQuery, setUserSearchQuery] = useState('');
@@ -890,7 +1022,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               if (key) txMap.set(key, tx);
             });
 
-            const allTxs = Array.from(txMap.values());
+            const allTxs = deduplicateTransactions(Array.from(txMap.values()));
             const completedRev = allTxs
               .filter(t => (t.status || '').toLowerCase() === 'completed')
               .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
@@ -972,7 +1104,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 const key = tx.orderId || tx.id || tx.trxId;
                 if (key) txMap.set(key, tx);
               });
-              const allTxs = Array.from(txMap.values());
+              const allTxs = deduplicateTransactions(Array.from(txMap.values()));
               const completedRev = allTxs
                 .filter(t => (t.status || '').toLowerCase() === 'completed')
                 .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
@@ -1030,7 +1162,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   notifiedUserKeysRef.current.add(key);
                 }
               });
-              const mergedUsers = Array.from(emailMap.values());
+              const mergedUsers = deduplicateUsers(Array.from(emailMap.values()));
               try {
                 localStorage.setItem('eh_registered_users', JSON.stringify(mergedUsers));
               } catch (e) {}
@@ -1083,7 +1215,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   const key = tx.orderId || tx.id || tx.trxId;
                   if (key) txMap.set(key, tx);
                 });
-                const allTxs = Array.from(txMap.values());
+                const allTxs = deduplicateTransactions(Array.from(txMap.values()));
                 const completedRev = allTxs
                   .filter(t => (t.status || '').toLowerCase() === 'completed')
                   .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
@@ -1976,6 +2108,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     }
 
     if (editingUserId) {
+      const targetUser = usersList.find(u => u.id === editingUserId);
+      const oldSpent = Number(targetUser?.totalSpent) || 0;
+      const newSpent = Number(userForm.totalSpent) || 0;
+      const spentDiff = newSpent - oldSpent;
+
       let savedUserRecord = null;
       const updated = usersList.map(u => {
         if (u.id === editingUserId) {
@@ -1991,14 +2128,70 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             status: userForm.status,
             batch: userForm.batch || 'HSC 26',
             hscBatch: userForm.batch || 'HSC 26',
-            totalSpent: Number(userForm.totalSpent) || 0
+            totalSpent: newSpent
           };
           return savedUserRecord;
         }
         return u;
       });
       setUsersList(updated);
-      persistAll({ users: updated });
+
+      // Bidirectional sync: If totalSpent changed, immediately sync with Ledger & Enrolled Students
+      let nextAcc = accounting;
+      let nextEnrolled = enrolledStudents;
+
+      if (spentDiff !== 0) {
+        const uPhone = (userForm.phone || '').replace(/[^0-9]/g, '');
+        const uEmail = userForm.email.trim().toLowerCase();
+
+        // 1. Sync Accounting transactions
+        let txUpdated = false;
+        const nextTxs = (accounting.transactions || []).map(t => {
+          const tp = (t.studentPhone || '').replace(/[^0-9]/g, '');
+          const te = (t.studentEmail || '').trim().toLowerCase();
+          const match = (uPhone && tp && (uPhone.includes(tp) || tp.includes(uPhone))) || (uEmail && te === uEmail);
+          const st = (t.status || '').toLowerCase();
+          const isComp = st === 'completed' || st === 'paid';
+          if (match && isComp && !txUpdated) {
+            txUpdated = true;
+            const updatedTrxAmt = Math.max(0, (Number(t.amount) || 0) + spentDiff);
+            const targetOrderId = t.orderId || t.id;
+            if (isSupabaseConfigured && targetOrderId) {
+              updateSupabaseOrderAmount(targetOrderId, updatedTrxAmt).catch(() => {});
+            }
+            return { ...t, amount: updatedTrxAmt };
+          }
+          return t;
+        });
+
+        const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + spentDiff);
+        const newExp = Number(accounting.totalExpenses) || 0;
+        nextAcc = {
+          ...accounting,
+          totalRevenue: newRev,
+          netProfit: newRev - newExp,
+          transactions: nextTxs
+        };
+        setAccounting(nextAcc);
+
+        // 2. Sync Enrolled Students
+        nextEnrolled = enrolledStudents.map(st => {
+          const sp = (st.phone || '').replace(/[^0-9]/g, '');
+          const se = (st.email || '').trim().toLowerCase();
+          const match = (uPhone && sp && (uPhone.includes(sp) || sp.includes(uPhone))) || (uEmail && se === uEmail);
+          if (match) {
+            return { ...st, amount: newSpent };
+          }
+          return st;
+        });
+        setEnrolledStudents(nextEnrolled);
+      }
+
+      persistAll({ 
+        users: updated,
+        accounting: nextAcc,
+        enrolledStudents: nextEnrolled
+      });
 
       // Sync updated user to Supabase
       if (isSupabaseConfigured && savedUserRecord) {
@@ -2823,10 +3016,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       return t;
     });
 
-    const isCompleted = targetTx.status === 'Completed';
-    const isIncome = targetTx.type === 'INCOME' || !targetTx.type;
+    const isCompleted = (targetTx.status || '').toLowerCase() === 'completed' || (targetTx.status || '').toLowerCase() === 'paid' || Boolean(targetTx.isApproved);
+    const isIncome = (targetTx.type || '').toUpperCase() === 'INCOME' || !targetTx.type;
     const revDiff = (isIncome && isCompleted) ? diff : 0;
-    const expDiff = targetTx.type === 'EXPENSE' ? diff : 0;
+    const expDiff = (targetTx.type || '').toUpperCase() === 'EXPENSE' ? diff : 0;
 
     const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + revDiff);
     const newExp = Math.max(0, (Number(accounting.totalExpenses) || 0) + expDiff);
@@ -2842,6 +3035,44 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setAccounting(newAcc);
     setEditingTrxAmountId(null);
     setEditingTrxAmountVal('');
+
+    // Sync to selectedTxDetails if currently viewed in modal
+    setSelectedTxDetails(prev => (prev && prev.id === trxId) ? { ...prev, amount: newAmt } : prev);
+
+    // Sync to enrolledStudents
+    const cleanPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
+    const cleanEmail = (targetTx.studentEmail || '').trim().toLowerCase();
+
+    const nextEnrolled = enrolledStudents.map(st => {
+      const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
+      const stEmail = (st.email || '').trim().toLowerCase();
+      const match = (cleanPhone && stPhone && (cleanPhone.includes(stPhone) || stPhone.includes(cleanPhone))) ||
+                    (cleanEmail && stEmail === cleanEmail);
+      if (match) {
+        return { ...st, amount: newAmt };
+      }
+      return st;
+    });
+    setEnrolledStudents(nextEnrolled);
+
+    // Sync to usersList (totalSpent)
+    let userUpdated = false;
+    const nextUsers = usersList.map(u => {
+      const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+      const uEmail = (u.email || '').trim().toLowerCase();
+      const match = (cleanPhone && uPhone && (cleanPhone.includes(uPhone) || uPhone.includes(cleanPhone))) ||
+                    (cleanEmail && uEmail === cleanEmail);
+      if (match) {
+        userUpdated = true;
+        const curSpent = Number(u.totalSpent) || 0;
+        const nextSpent = Math.max(0, curSpent + (isCompleted ? diff : 0));
+        return { ...u, totalSpent: nextSpent };
+      }
+      return u;
+    });
+    if (userUpdated) {
+      setUsersList(nextUsers);
+    }
 
     // Update in Supabase
     const targetOrderId = targetTx.orderId || (targetTx.id.startsWith('ord_') ? targetTx.id : (targetTx.id.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : targetTx.id));
@@ -2864,7 +3095,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       }
     } catch (e) {}
 
-    persistAll({ accounting: newAcc });
+    persistAll({ 
+      accounting: newAcc,
+      enrolledStudents: nextEnrolled,
+      users: nextUsers
+    });
     triggerToast(`Amount updated to ৳${newAmt}`);
   };
 
@@ -3221,24 +3456,68 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const handleApproveAndEnrollStudent = (tx) => {
     if (!tx) return;
 
-    // 1. Update transaction status to Completed in Accounting
-    const updatedTxs = (accounting.transactions || []).map(t => 
-      t.id === tx.id ? { ...t, status: 'Completed' } : t
-    );
-    const updatedAccounting = {
-      ...accounting,
-      transactions: updatedTxs,
-      totalRevenue: (accounting.totalRevenue || 0) + (Number(tx.amount) || 0)
-    };
-    setAccounting(updatedAccounting);
-
-    // 2. Grant access globally & locally via enrollmentService
     const cleanPhone = (tx.studentPhone || tx.phone || '').trim();
     const rawPhone = cleanPhone.replace(/[^0-9]/g, '');
     const studentName = tx.studentName || tx.customer || 'New Student';
     const rawName = studentName.trim().toLowerCase();
     const studentEmail = (tx.studentEmail || tx.email || '').trim().toLowerCase();
+    const itemTitle = tx.itemTitle || tx.category || 'Course Enrollment';
+    const courseTitle = itemTitle;
 
+    // 1. Identify and purge any duplicate pending transactions for this student + course
+    const duplicatePendingTxs = (accounting.transactions || []).filter(t => {
+      if (t.id === tx.id) return false;
+      const s = (t.status || '').toLowerCase();
+      const isPending = s === 'pending' || (s !== 'completed' && s !== 'paid' && s !== 'rejected');
+      if (!isPending) return false;
+
+      const tp = (t.studentPhone || '').replace(/[^0-9]/g, '');
+      const te = (t.studentEmail || '').trim().toLowerCase();
+      const tc = (t.itemTitle || t.category || '').trim().toLowerCase();
+
+      const phoneMatch = rawPhone && tp && (rawPhone.includes(tp) || tp.includes(rawPhone));
+      const emailMatch = studentEmail && te && studentEmail === te;
+      const courseMatch = !tc || !courseTitle || tc.includes(courseTitle.toLowerCase()) || courseTitle.toLowerCase().includes(tc);
+
+      return (phoneMatch || emailMatch) && courseMatch;
+    });
+
+    const duplicateOrderIds = new Set(duplicatePendingTxs.map(d => d.orderId || d.id));
+
+    // Update transaction status to Completed and filter out duplicate pending transactions
+    const updatedTxs = (accounting.transactions || [])
+      .filter(t => !duplicateOrderIds.has(t.id) && !duplicateOrderIds.has(t.orderId))
+      .map(t => t.id === tx.id ? { ...t, status: 'Completed', isApproved: true } : t);
+
+    const prevRev = Number(accounting.totalRevenue) || 0;
+    const addedAmt = Number(tx.amount) || 0;
+    const updatedAccounting = {
+      ...accounting,
+      transactions: updatedTxs,
+      totalRevenue: prevRev + addedAmt,
+      netProfit: (prevRev + addedAmt) - (Number(accounting.totalExpenses) || 0)
+    };
+    setAccounting(updatedAccounting);
+
+    // Delete duplicate pending orders from Supabase in background
+    duplicatePendingTxs.forEach(dtx => {
+      const dupOrderId = dtx.orderId || dtx.id;
+      if (isSupabaseConfigured && dupOrderId) {
+        deleteSupabaseOrder(dupOrderId).catch(() => {});
+      }
+    });
+
+    // Clean duplicate pending orders from localStorage
+    try {
+      const rawOrders = localStorage.getItem('eh_user_orders_v3');
+      if (rawOrders) {
+        const ords = JSON.parse(rawOrders);
+        const filtered = ords.filter(o => !duplicateOrderIds.has(o.id));
+        localStorage.setItem('eh_user_orders_v3', JSON.stringify(filtered));
+      }
+    } catch (e) {}
+
+    // 2. Grant access globally & locally via enrollmentService
     const matchedTargetUser = usersList.find(u => {
       const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
       const uEmail = (u.email || '').trim().toLowerCase();
@@ -3248,7 +3527,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
              (rawName && (uName === rawName || uName.includes(rawName)));
     });
 
-    const itemTitle = tx.itemTitle || tx.category || 'Course Enrollment';
     const { courses: grantedCourses } = grantCourseAccess(itemTitle, { bundles, courses }, matchedTargetUser);
 
     // 3. Check if student already in enrolledStudents or create new active student
@@ -3257,7 +3535,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     );
 
     let updatedEnrolled = [...enrolledStudents];
-    const courseTitle = itemTitle;
 
     if (existingStudent) {
       updatedEnrolled = updatedEnrolled.map(st => 
@@ -3266,7 +3543,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               ...st, 
               status: 'Active', 
               courseName: courseTitle,
-              joinedDate: 'Today'
+              joinedDate: 'Today',
+              amount: Math.max(Number(st.amount) || 0, addedAmt)
             } 
           : st
       );
@@ -3281,28 +3559,31 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                courseTitle.includes('28') ? 'HSC 28' : 'HSC 26',
         courseName: courseTitle,
         phone: cleanPhone || '',
-        email: tx.email || `${studentName.toLowerCase().replace(/[^a-z0-9]/g, '') || 'student'}@gmail.com`,
+        email: tx.studentEmail || tx.email || `${studentName.toLowerCase().replace(/[^a-z0-9]/g, '') || 'student'}@gmail.com`,
         avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
         status: 'Active',
-        joinedDate: 'Today'
+        joinedDate: 'Today',
+        amount: addedAmt
       };
       updatedEnrolled = [newStudent, ...updatedEnrolled];
     }
     setEnrolledStudents(updatedEnrolled);
 
-    // 4. Update usersList
+    // 4. Update usersList - Union of enrolled courses, 100% guarantee no access is lost
     let updatedUsers = usersList.map(u => {
       const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
       const uName = (u.name || '').trim().toLowerCase();
+      const uEmail = (u.email || '').trim().toLowerCase();
       const matchPhone = rawPhone.length >= 6 && uPhone.includes(rawPhone);
+      const matchEmail = studentEmail && uEmail === studentEmail;
       const matchName = rawName && (uName === rawName || uName.includes(rawName));
-      if (matchPhone || matchName) {
+      if (matchPhone || matchEmail || matchName) {
         const current = u.enrolledCourses || [];
         return {
           ...u,
           status: 'Active',
           enrolledCourses: Array.from(new Set([...current, courseTitle, ...grantedCourses])),
-          totalSpent: (u.totalSpent || 0) + (Number(tx.amount) || 0)
+          totalSpent: (Number(u.totalSpent) || 0) + addedAmt
         };
       }
       return u;
@@ -3334,14 +3615,29 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       return;
     }
 
+    const wasCompleted = (tx.status || '').toLowerCase() === 'completed' || (tx.status || '').toLowerCase() === 'paid';
+    const isNowCompleted = newStatus.toLowerCase() === 'completed' || newStatus.toLowerCase() === 'paid';
+    let revDiff = 0;
+    if (wasCompleted && !isNowCompleted) revDiff = -Number(tx.amount || 0);
+    if (!wasCompleted && isNowCompleted) revDiff = Number(tx.amount || 0);
+
     const updatedTxs = (accounting.transactions || []).map(t => 
       t.id === tx.id ? { ...t, status: newStatus } : t
     );
+    const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + revDiff);
+    const newExp = Number(accounting.totalExpenses) || 0;
     const updatedAccounting = {
       ...accounting,
+      totalRevenue: newRev,
+      netProfit: newRev - newExp,
       transactions: updatedTxs
     };
     setAccounting(updatedAccounting);
+
+    if (isSupabaseConfigured && (tx.orderId || tx.id)) {
+      updateSupabaseOrderStatus(tx.orderId || tx.id, newStatus.toUpperCase()).catch(() => {});
+    }
+
     persistAll({ accounting: updatedAccounting });
     triggerToast(
       newStatus === 'Rejected' 
@@ -3955,9 +4251,42 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Memoized Pending Requests (Chronologically Sorted - Newest First)
   const pendingRequests = useMemo(() => {
-    return (accounting?.transactions || []).filter(tx => {
+    const txs = accounting?.transactions || [];
+
+    const approvedKeys = new Set();
+    txs.forEach(t => {
+      const st = (t.status || '').toLowerCase();
+      if (st === 'completed' || st === 'paid' || Boolean(t.isApproved)) {
+        const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+        const e = (t.studentEmail || '').trim().toLowerCase();
+        const c = (t.itemTitle || t.category || '').trim().toLowerCase();
+        if (p && c) approvedKeys.add(`${p}_${c}`);
+        if (e && c) approvedKeys.add(`${e}_${c}`);
+        if (p) approvedKeys.add(p);
+      }
+    });
+
+    const seenPending = new Set();
+    return txs.filter(tx => {
       const s = (tx.status || '').toLowerCase();
-      return s === 'pending' || (s !== 'completed' && s !== 'paid' && s !== 'rejected');
+      const isPending = s === 'pending' || (s !== 'completed' && s !== 'paid' && s !== 'rejected');
+      if (!isPending) return false;
+
+      const p = (tx.studentPhone || '').replace(/[^0-9]/g, '');
+      const e = (tx.studentEmail || '').trim().toLowerCase();
+      const c = (tx.itemTitle || tx.category || '').trim().toLowerCase();
+
+      // Discard if student has an approved transaction for this course
+      if ((p && c && approvedKeys.has(`${p}_${c}`)) || (e && c && approvedKeys.has(`${e}_${c}`))) {
+        return false;
+      }
+
+      // Keep only one pending request per student + course
+      const key = p && c ? `${p}_${c}` : (e && c ? `${e}_${c}` : tx.id);
+      if (seenPending.has(key)) return false;
+      seenPending.add(key);
+
+      return true;
     }).sort((a, b) => {
       const timeA = new Date(a.createdAt || a.date || 0).getTime();
       const timeB = new Date(b.createdAt || b.date || 0).getTime();
@@ -3974,14 +4303,40 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const filteredTransactions = useMemo(() => {
     const txs = accounting?.transactions || [];
     const query = deferredSearchTrx.trim().toLowerCase();
+
+    const approvedKeys = new Set();
+    txs.forEach(t => {
+      const st = (t.status || '').toLowerCase();
+      if (st === 'completed' || st === 'paid' || Boolean(t.isApproved)) {
+        const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+        const e = (t.studentEmail || '').trim().toLowerCase();
+        const c = (t.itemTitle || t.category || '').trim().toLowerCase();
+        if (p && c) approvedKeys.add(`${p}_${c}`);
+        if (e && c) approvedKeys.add(`${e}_${c}`);
+      }
+    });
+
     const filtered = txs.filter(tx => {
+      const st = (tx.status || '').toLowerCase();
+      const isPending = st === 'pending' || (st !== 'completed' && st !== 'paid' && st !== 'rejected');
+
+      // If pending, hide if student already has an approved transaction for this course
+      if (isPending) {
+        const p = (tx.studentPhone || '').replace(/[^0-9]/g, '');
+        const e = (tx.studentEmail || '').trim().toLowerCase();
+        const c = (tx.itemTitle || tx.category || '').trim().toLowerCase();
+        if ((p && c && approvedKeys.has(`${p}_${c}`)) || (e && c && approvedKeys.has(`${e}_${c}`))) {
+          return false;
+        }
+      }
+
       const matchesSearch = !query ||
         (tx.studentName || '').toLowerCase().includes(query) ||
         (tx.itemTitle || '').toLowerCase().includes(query) ||
         (tx.trxId || '').toLowerCase().includes(query) ||
         (tx.studentPhone || '').includes(query);
-      const st = (tx.status || '').toLowerCase();
-      if (trxFilter === 'PENDING') return matchesSearch && st !== 'completed' && st !== 'paid';
+
+      if (trxFilter === 'PENDING') return matchesSearch && isPending;
       if (trxFilter === 'INCOME') return matchesSearch && (tx.type || '').toUpperCase() === 'INCOME';
       if (trxFilter === 'EXPENSE') return matchesSearch && (tx.type || '').toUpperCase() === 'EXPENSE';
       return matchesSearch;
@@ -4005,6 +4360,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const q = deferredVerifQuery.trim().toLowerCase();
     const qClean = q.replace(/[^a-zA-Z0-9]/g, '');
 
+    const approvedKeys = new Set();
+    txs.forEach(t => {
+      const st = (t.status || '').toLowerCase();
+      if (st === 'completed' || st === 'paid' || Boolean(t.isApproved)) {
+        const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+        const e = (t.studentEmail || '').trim().toLowerCase();
+        const c = (t.itemTitle || t.category || '').trim().toLowerCase();
+        if (p && c) approvedKeys.add(`${p}_${c}`);
+        if (e && c) approvedKeys.add(`${e}_${c}`);
+      }
+    });
+
+    const seenPending = new Set();
     return txs.filter(tx => {
       if ((tx.type || '').toUpperCase() === 'EXPENSE') return false;
 
@@ -4012,6 +4380,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const isPending = st === 'pending' || (st !== 'completed' && st !== 'paid' && st !== 'rejected');
       const isCompleted = st === 'completed' || st === 'paid' || Boolean(tx.isApproved);
       const isRejected = st === 'rejected';
+
+      // If pending, hide duplicate if student already has an approved transaction
+      if (isPending) {
+        const p = (tx.studentPhone || '').replace(/[^0-9]/g, '');
+        const e = (tx.studentEmail || '').trim().toLowerCase();
+        const c = (tx.itemTitle || tx.category || '').trim().toLowerCase();
+        if ((p && c && approvedKeys.has(`${p}_${c}`)) || (e && c && approvedKeys.has(`${e}_${c}`))) {
+          return false;
+        }
+        const key = p && c ? `${p}_${c}` : (e && c ? `${e}_${c}` : tx.id);
+        if (seenPending.has(key)) return false;
+        seenPending.add(key);
+      }
 
       if (verificationFilter === 'PENDING' && !isPending) return false;
       if (verificationFilter === 'COMPLETED' && !isCompleted) return false;
@@ -5064,9 +5445,54 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                           </div>
                                         </div>
                                         <div className="text-right shrink-0">
-                                          <div className="font-black text-slate-900 text-base leading-tight">
-                                            ৳{Number(tx.amount || 0).toLocaleString()}
-                                          </div>
+                                          {editingTrxAmountId === tx.id ? (
+                                            <div className="flex items-center gap-1 mt-1 justify-end">
+                                              <input
+                                                type="number"
+                                                value={editingTrxAmountVal}
+                                                onChange={(e) => setEditingTrxAmountVal(e.target.value)}
+                                                onKeyDown={(e) => {
+                                                  if (e.key === 'Enter') handleSaveTrxAmount(tx.id);
+                                                  if (e.key === 'Escape') setEditingTrxAmountId(null);
+                                                }}
+                                                className="w-16 px-1.5 py-0.5 text-xs font-bold border border-[#5d5bf6] rounded-md bg-white text-slate-800"
+                                                autoFocus
+                                              />
+                                              <button
+                                                type="button"
+                                                onClick={() => handleSaveTrxAmount(tx.id)}
+                                                className="p-1 rounded-md bg-emerald-600 text-white cursor-pointer border-none"
+                                                title="Save"
+                                              >
+                                                <Check className="w-3 h-3" />
+                                              </button>
+                                              <button
+                                                type="button"
+                                                onClick={() => setEditingTrxAmountId(null)}
+                                                className="p-1 rounded-md bg-slate-200 text-slate-600 cursor-pointer border-none"
+                                                title="Cancel"
+                                              >
+                                                <X className="w-3 h-3" />
+                                              </button>
+                                            </div>
+                                          ) : (
+                                            <div className="flex items-center gap-1 justify-end">
+                                              <div className="font-black text-slate-900 text-base leading-tight">
+                                                ৳{Number(tx.amount || 0).toLocaleString()}
+                                              </div>
+                                              <button
+                                                type="button"
+                                                onClick={() => {
+                                                  setEditingTrxAmountId(tx.id);
+                                                  setEditingTrxAmountVal(String(tx.amount || 0));
+                                                }}
+                                                className="p-0.5 text-slate-400 hover:text-[#5d5bf6] bg-transparent border-none cursor-pointer"
+                                                title="Edit Amount"
+                                              >
+                                                <Edit2 className="w-3 h-3" />
+                                              </button>
+                                            </div>
+                                          )}
                                           <div className="text-[10px] text-slate-400 mt-0.5">{tx.date}</div>
                                         </div>
                                       </div>
@@ -5247,9 +5673,55 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                             </div>
                                           </td>
 
-                                          {/* Col 4: Amount */}
+                                          {/* Col 4: Amount (Editable Inline) */}
                                           <td className="py-2.5 px-2 font-black text-slate-900 text-xs whitespace-nowrap">
-                                            ৳{Number(tx.amount || 0).toLocaleString()}
+                                            {editingTrxAmountId === tx.id ? (
+                                              <div className="flex items-center gap-1">
+                                                <span className="text-slate-400 text-xs font-bold">৳</span>
+                                                <input
+                                                  type="number"
+                                                  value={editingTrxAmountVal}
+                                                  onChange={(e) => setEditingTrxAmountVal(e.target.value)}
+                                                  onKeyDown={(e) => {
+                                                    if (e.key === 'Enter') handleSaveTrxAmount(tx.id);
+                                                    if (e.key === 'Escape') setEditingTrxAmountId(null);
+                                                  }}
+                                                  className="w-20 px-2 py-1 text-xs font-bold border border-[#5d5bf6] rounded-md focus:outline-none bg-white text-slate-800"
+                                                  autoFocus
+                                                />
+                                                <button
+                                                  type="button"
+                                                  onClick={() => handleSaveTrxAmount(tx.id)}
+                                                  className="p-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer border-none"
+                                                  title="Save Amount"
+                                                >
+                                                  <Check className="w-3.5 h-3.5" />
+                                                </button>
+                                                <button
+                                                  type="button"
+                                                  onClick={() => setEditingTrxAmountId(null)}
+                                                  className="p-1 rounded-md bg-slate-200 hover:bg-slate-300 text-slate-600 cursor-pointer border-none"
+                                                  title="Cancel"
+                                                >
+                                                  <X className="w-3.5 h-3.5" />
+                                                </button>
+                                              </div>
+                                            ) : (
+                                              <div className="flex items-center gap-1.5 group">
+                                                <span>৳{Number(tx.amount || 0).toLocaleString()}</span>
+                                                <button
+                                                  type="button"
+                                                  onClick={() => {
+                                                    setEditingTrxAmountId(tx.id);
+                                                    setEditingTrxAmountVal(String(tx.amount || 0));
+                                                  }}
+                                                  className="p-1 rounded-md hover:bg-slate-100 text-slate-400 hover:text-[#5d5bf6] transition-colors cursor-pointer border-none"
+                                                  title="Edit Amount"
+                                                >
+                                                  <Edit2 className="w-3 h-3" />
+                                                </button>
+                                              </div>
+                                            )}
                                           </td>
 
                                           {/* Col 5: Status Badge (Interactive Status Dropdown) */}
@@ -11488,9 +11960,55 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                   <div className="text-right pl-3 border-l border-slate-200">
                     <div className="text-[10px] font-bold text-slate-400">Payment Amount</div>
-                    <div className="text-lg font-black text-emerald-600">
-                      ৳{selectedTxDetails.amount}
-                    </div>
+                    {editingTrxAmountId === selectedTxDetails.id ? (
+                      <div className="flex items-center gap-1 mt-1 justify-end">
+                        <span className="text-slate-400 text-xs font-bold">৳</span>
+                        <input
+                          type="number"
+                          value={editingTrxAmountVal}
+                          onChange={(e) => setEditingTrxAmountVal(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') handleSaveTrxAmount(selectedTxDetails.id);
+                            if (e.key === 'Escape') setEditingTrxAmountId(null);
+                          }}
+                          className="w-20 px-2 py-0.5 text-xs font-bold border border-[#5d5bf6] rounded-md focus:outline-none bg-white text-slate-800"
+                          autoFocus
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleSaveTrxAmount(selectedTxDetails.id)}
+                          className="p-1 rounded-md bg-emerald-600 text-white cursor-pointer border-none"
+                          title="Save"
+                        >
+                          <Check className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setEditingTrxAmountId(null)}
+                          className="p-1 rounded-md bg-slate-200 text-slate-600 cursor-pointer border-none"
+                          title="Cancel"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1.5 justify-end">
+                        <div className="text-lg font-black text-emerald-600">
+                          ৳{selectedTxDetails.amount}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setEditingTrxAmountId(selectedTxDetails.id);
+                            setEditingTrxAmountVal(String(selectedTxDetails.amount || 0));
+                          }}
+                          className="p-1 rounded-md hover:bg-slate-100 text-slate-400 hover:text-[#5d5bf6] transition-colors cursor-pointer border-none"
+                          title="Edit Amount"
+                        >
+                          <Edit2 className="w-3 h-3" />
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

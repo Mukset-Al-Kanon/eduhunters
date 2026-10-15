@@ -783,8 +783,45 @@ export default function App() {
           });
         } catch (e) {}
 
-        const allTxs = Array.from(txMap.values());
-        const completedRev = allTxs
+        // Deduplicate transactions: Prune duplicate pending records if student already has an approved transaction
+        const approvedKeys = new Set();
+        txMap.forEach(t => {
+          const s = (t.status || '').toLowerCase();
+          if (s === 'completed' || s === 'paid' || Boolean(t.isApproved)) {
+            const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+            const e = (t.studentEmail || '').trim().toLowerCase();
+            const c = (t.itemTitle || t.category || '').trim().toLowerCase();
+            if (p && c) approvedKeys.add(`${p}_${c}`);
+            if (e && c) approvedKeys.add(`${e}_${c}`);
+            if (p) approvedKeys.add(p);
+          }
+        });
+
+        const seenPending = new Set();
+        const cleanTxs = [];
+        txMap.forEach(t => {
+          const s = (t.status || '').toLowerCase();
+          const isCompleted = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
+          if (isCompleted || s === 'rejected') {
+            cleanTxs.push(t);
+            return;
+          }
+
+          // It's pending: discard if student is already approved for this course
+          const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+          const e = (t.studentEmail || '').trim().toLowerCase();
+          const c = (t.itemTitle || t.category || '').trim().toLowerCase();
+          if ((p && c && approvedKeys.has(`${p}_${c}`)) || (e && c && approvedKeys.has(`${e}_${c}`))) {
+            return;
+          }
+
+          const key = p && c ? `${p}_${c}` : (e && c ? `${e}_${c}` : t.id);
+          if (seenPending.has(key)) return;
+          seenPending.add(key);
+          cleanTxs.push(t);
+        });
+
+        const completedRev = cleanTxs
           .filter(t => (t.status || '').toLowerCase() === 'completed')
           .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
         const totalExp = Number(cloudAcc.totalExpenses !== undefined ? cloudAcc.totalExpenses : prevAcc.totalExpenses) || 0;
@@ -793,38 +830,63 @@ export default function App() {
           totalRevenue: completedRev,
           totalExpenses: totalExp,
           netProfit: completedRev - totalExp,
-          totalOrders: allTxs.length,
-          transactions: allTxs
+          totalOrders: cleanTxs.length,
+          transactions: cleanTxs
         };
       }
 
-      // Safe deduplicating merge for users so remote updates never wipe newly registered users
+      // Safe deduplicating merge for users with 100% course access guarantee (Union of enrolledCourses)
       let resolvedUsers = prev.users || [];
       if (Array.isArray(sanitized.users) || Array.isArray(prev.users)) {
         const cloudUsers = Array.isArray(sanitized.users) ? sanitized.users : [];
         const prevUsers = Array.isArray(prev.users) ? prev.users : [];
         const uMap = new Map();
+
+        const mergeUserRecord = (targetKey, u) => {
+          const ex = uMap.get(targetKey);
+          if (!ex) {
+            uMap.set(targetKey, { ...u, enrolledCourses: Array.isArray(u.enrolledCourses) ? [...u.enrolledCourses] : [] });
+          } else {
+            const allCourses = Array.from(new Set([
+              ...(Array.isArray(ex.enrolledCourses) ? ex.enrolledCourses : []),
+              ...(Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [])
+            ]));
+            uMap.set(targetKey, {
+              ...ex,
+              ...u,
+              id: ex.id || u.id,
+              name: ex.name && ex.name !== 'Student' && ex.name !== 'Online Student' ? ex.name : (u.name || ex.name),
+              email: ex.email || u.email,
+              phone: ex.phone || u.phone || ex.whatsapp || u.whatsapp,
+              whatsapp: ex.whatsapp || u.whatsapp || ex.phone || u.phone,
+              college: ex.college || u.college || ex.institution || u.institution,
+              institution: ex.institution || u.institution || ex.college || u.college,
+              role: (ex.role === 'Admin' || u.role === 'Admin') ? 'Admin' : (ex.role || u.role || 'Student'),
+              status: (ex.status === 'Active' || u.status === 'Active') ? 'Active' : (ex.status || u.status || 'Active'),
+              batch: ex.batch || u.batch || ex.hscBatch || u.hscBatch || 'HSC 26',
+              hscBatch: ex.hscBatch || u.hscBatch || ex.batch || u.batch || 'HSC 26',
+              enrolledCourses: allCourses,
+              totalSpent: Math.max(Number(ex.totalSpent) || 0, Number(u.totalSpent) || 0)
+            });
+          }
+        };
+
         cloudUsers.forEach(u => {
           const k = (u.email || u.id || u.uid || '').toLowerCase();
-          if (k) uMap.set(k, u);
+          if (k) mergeUserRecord(k, u);
         });
         prevUsers.forEach(u => {
           const k = (u.email || u.id || u.uid || '').toLowerCase();
-          if (k) {
-            const ex = uMap.get(k);
-            uMap.set(k, ex ? { ...ex, ...u } : u);
-          }
+          if (k) mergeUserRecord(k, u);
         });
         try {
           const regUsers = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
           regUsers.forEach(u => {
             const k = (u.email || u.id || u.uid || '').toLowerCase();
-            if (k) {
-              const ex = uMap.get(k);
-              uMap.set(k, ex ? { ...ex, ...u } : u);
-            }
+            if (k) mergeUserRecord(k, u);
           });
         } catch (e) {}
+
         resolvedUsers = Array.from(uMap.values());
       }
 
