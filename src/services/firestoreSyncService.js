@@ -23,55 +23,17 @@ export async function fetchCloudData() {
   return null;
 }
 
+import { saveSupabaseSiteData } from './supabaseService';
+
 /**
- * Save updated site data to Cloud Firestore
- * Runs seamlessly in background with optimistic fallback
+ * Save updated site data directly to Supabase PostgreSQL (100% Centralized Cloud)
  */
 export async function saveCloudData(newData) {
-  if (!isFirebaseConfigured || !db || !newData) return false;
+  if (!newData) return false;
   try {
-    // Sanitize to clean JSON to prevent Firestore throwing on undefined fields
-    const sanitized = JSON.parse(JSON.stringify(newData, (key, value) => {
-      if (value === undefined) return null;
-      return value;
-    }));
-
-    const docRef = doc(db, COLLECTION_NAME, DOC_ID);
-    const now = new Date().toISOString();
-
-    // Prevent Firestore 1MB document quota crash only if data strictly approaches 1MB limit
-    const jsonStr = JSON.stringify(sanitized);
-    if (jsonStr.length > 950000 && sanitized.heroSlides) {
-      sanitized.heroSlides = sanitized.heroSlides.map(s => {
-        if (s.image && s.image.startsWith('data:image/') && s.image.length > 200000) {
-          return { ...s, image: s.image.slice(0, 1000) };
-        }
-        return s;
-      });
-    }
-
-    try {
-      await setDoc(docRef, {
-        ...sanitized,
-        _lastUpdated: now
-      }, { merge: true });
-      return true;
-    } catch (writeErr) {
-      // Fallback: If full document was rejected due to size, persist critical fields (courses & batches)
-      console.warn('[FirestoreSync] Full doc write failed, attempting critical fields fallback:', writeErr);
-      if (sanitized.courses || sanitized.examBatches) {
-        await setDoc(docRef, {
-          ...(sanitized.courses ? { courses: sanitized.courses } : {}),
-          ...(sanitized.examBatches ? { examBatches: sanitized.examBatches } : {}),
-          ...(sanitized.siteSettings ? { siteSettings: sanitized.siteSettings } : {}),
-          _lastUpdated: now
-        }, { merge: true });
-        return true;
-      }
-      throw writeErr;
-    }
+    return await saveSupabaseSiteData(newData);
   } catch (error) {
-    console.warn('[FirestoreSync] Failed to save cloud data:', error);
+    console.warn('[FirestoreSync] Failed to save cloud data to Supabase:', error);
     return false;
   }
 }

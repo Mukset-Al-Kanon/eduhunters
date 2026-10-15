@@ -390,21 +390,7 @@ export function grantCourseAccess(itemOrTitle, data = {}, targetUser = null) {
       }
     } catch (e) {}
 
-    // 7. Update Cloud Firestore atomically if configured and user has a valid UID
-    if (isFirebaseConfigured && db && targetUid) {
-      try {
-        const firestoreUpdates = {
-          enrolledCourses: arrayUnion(...resolvedCourses),
-          lastAccessGrantedAt: new Date().toISOString()
-        };
-        if (resolvedBatches && resolvedBatches.length > 0) {
-          firestoreUpdates.enrolledBatches = arrayUnion(...resolvedBatches);
-        }
-        setDoc(doc(db, 'users', targetUid), firestoreUpdates, { merge: true }).catch(err => {
-          console.warn('[enrollmentService] Firestore setDoc note:', err);
-        });
-      } catch (err) {}
-    }
+    // 7. Access is synchronized directly in Supabase eduhunters_users and eduhunters_orders (100% Centralized Cloud)
 
     // 8. Broadcast real-time events across windows & listeners
     if (typeof window !== 'undefined') {
@@ -535,18 +521,14 @@ export function revokeCourseAccess(itemOrTitle, data = {}, targetUser = null) {
       localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrdersList));
     } catch (e) {}
 
-    // 5. Update Firestore atomically if configured
-    if (isFirebaseConfigured && db && targetUid) {
-      try {
-        const firestoreUpdates = {
-          enrolledCourses: arrayRemove(...resolvedCourses),
-          lastAccessRevokedAt: new Date().toISOString()
-        };
-        if (resolvedBatches && resolvedBatches.length > 0) {
-          firestoreUpdates.enrolledBatches = arrayRemove(...resolvedBatches);
-        }
-        setDoc(doc(db, 'users', targetUid), firestoreUpdates, { merge: true }).catch(() => {});
-      } catch (e) {}
+    // 5. Update Supabase eduhunters_users (100% Centralized Cloud)
+    if (targetUid || targetEmail) {
+      saveSupabaseUser({
+        id: targetUid,
+        email: targetEmail
+      }, {
+        enrolledCourses: (targetUser?.enrolledCourses || []).filter(c => !resolvedCourses.includes(c))
+      }).catch(() => {});
     }
 
     // 6. Broadcast real-time events

@@ -157,13 +157,7 @@ export function saveManifestOverrides(manifest) {
       .catch(e => console.warn('[ExamStorage] Supabase manifest save note:', e));
   }
 
-  // Asynchronously sync to Firestore (secondary)
-  if (isFirebaseConfigured && db) {
-    try {
-      setDoc(doc(db, 'eduhunters_site', 'exam_manifest'), payload, { merge: true })
-        .catch(e => console.warn('[ExamStorage] Firestore manifest save note:', e));
-    } catch (e) {}
-  }
+  // Manifest is saved directly to Supabase eduhunters_site (100% Centralized Cloud)
 }
 
 /**
@@ -408,13 +402,7 @@ export function saveCustomExam(examId, updatedExamData, manifest, onManifestUpda
         .catch(e => console.warn('[ExamStorage] Supabase custom exam save note:', e));
     }
 
-    // Asynchronously sync to Cloud Firestore (secondary)
-    if (isFirebaseConfigured && db) {
-      try {
-        setDoc(doc(db, 'eduhunters_site', `exam_${examId}`), updatedExamData, { merge: true })
-          .catch(e => console.warn('[ExamStorage] Firestore custom exam save note:', e));
-      } catch (e) {}
-    }
+    // Custom exam is saved directly to Supabase eduhunters_site (100% Centralized Cloud)
 
     // Update question count in manifest
     if (manifest && manifest.exams) {

@@ -122,46 +122,9 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [isLiveFirebase, setIsLiveFirebase] = useState(isFirebaseConfigured);
 
-  // Sync user profile data to Firestore
+  // Sync user profile data directly to Supabase (100% Centralized Cloud)
   const syncUserToFirestore = async (user, additionalData = {}) => {
-    if (!db || !user?.uid) return;
-    try {
-      const userRef = doc(db, 'users', user.uid);
-      const userSnap = await getDoc(userRef);
-
-      const baseUserData = {
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName || additionalData.displayName || user.email?.split('@')[0],
-        photoURL: user.photoURL || additionalData.photoURL || '/avatar.svg',
-        role: additionalData.role || (userSnap.exists() ? userSnap.data().role : 'student'),
-        authProvider: additionalData.authProvider || user.providerData?.[0]?.providerId || (userSnap.exists() ? userSnap.data().authProvider : 'password'),
-        lastLoginAt: serverTimestamp(),
-        ...additionalData
-      };
-
-      if (!userSnap.exists()) {
-        baseUserData.createdAt = serverTimestamp();
-        baseUserData.enrolledCourses = [];
-        baseUserData.registeredDevices = [
-          {
-            id: 'dev_' + Math.random().toString(36).substring(2, 9),
-            name: typeof navigator !== 'undefined' && navigator.userAgent.includes('Windows') ? 'Windows • Browser' : 'Mobile / Device',
-            browser: typeof navigator !== 'undefined' && navigator.userAgent.includes('Chrome') ? 'Chrome' : 'Browser',
-            deviceType: typeof navigator !== 'undefined' && /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
-            isCurrent: true,
-            isActive: true,
-            firstSeenAt: new Date().toISOString()
-          }
-        ];
-      }
-
-      await setDoc(userRef, baseUserData, { merge: true });
-    } catch (err) {
-      console.warn('[AuthContext] Firestore sync skipped or failed (Check security rules):', err);
-    }
-
-    // Supabase User Synchronization
+    if (!user) return;
     try {
       saveSupabaseUser(user, additionalData).catch(e => console.warn('[AuthContext] Supabase user sync note:', e));
     } catch (e) {}
@@ -608,16 +571,7 @@ export function AuthProvider({ children }) {
           localStorage.setItem('eh_last_auth_email', cleanEmail);
           setCurrentUser(newUser);
 
-          if (isFirebaseConfigured && db) {
-            try {
-              setDoc(doc(db, 'users', newUser.uid), {
-                ...newUser,
-                createdAt: serverTimestamp(),
-                lastLoginAt: serverTimestamp()
-              }, { merge: true }).catch(() => {});
-            } catch (e) {}
-          }
-
+          // User profile is saved directly to Supabase eduhunters_users (100% Centralized Cloud)
           saveSupabaseUser(newUser, { isNewRegistration: true }).catch(() => {});
           broadcastUserSync('REGISTER', newUser);
           return newUser;
@@ -650,16 +604,7 @@ export function AuthProvider({ children }) {
       localStorage.setItem('eh_last_auth_email', cleanEmail);
       setCurrentUser(newUser);
 
-      if (isFirebaseConfigured && db) {
-        try {
-          setDoc(doc(db, 'users', newUser.uid), {
-            ...newUser,
-            createdAt: serverTimestamp(),
-            lastLoginAt: serverTimestamp()
-          }, { merge: true }).catch(() => {});
-        } catch (e) {}
-      }
-
+      // User profile is saved directly to Supabase eduhunters_users (100% Centralized Cloud)
       saveSupabaseUser(newUser, { isNewRegistration: true }).catch(() => {});
       broadcastUserSync('REGISTER', newUser);
       return newUser;
@@ -1011,18 +956,7 @@ export function AuthProvider({ children }) {
           }
         }
 
-        const targetUid = currentUser?.uid || mergedUser?.uid;
-        if (isFirebaseConfigured && db && targetUid) {
-          try {
-            const userRef = doc(db, 'users', targetUid);
-            await setDoc(userRef, {
-              ...profileUpdates,
-              updatedAt: serverTimestamp()
-            }, { merge: true });
-          } catch (e) {
-            console.warn('[AuthContext] Firestore sync notice:', e);
-          }
-        }
+        // Profile is saved directly to Supabase eduhunters_users (100% Centralized Cloud)
       })().catch(() => {});
 
       return mergedUser;

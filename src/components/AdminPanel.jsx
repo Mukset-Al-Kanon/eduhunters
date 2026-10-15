@@ -2072,12 +2072,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         deleteSupabaseUser(userId, targetUser?.email).catch(e => console.warn('[AdminPanel] Supabase delete user note:', e));
       }
 
-      // Delete from Firestore if configured
-      if (isFirebaseConfigured && db && userId) {
-        try {
-          deleteDoc(doc(db, 'users', userId)).catch(() => {});
-        } catch (e) {}
-      }
+      // User deleted permanently from Supabase eduhunters_users (100% Centralized Cloud)
 
       triggerToast(`User "${userName}" permanently deleted`);
     }
@@ -2771,13 +2766,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         deleteSupabaseOrder(targetOrderId).catch(e => console.warn('[AdminPanel] Supabase delete order note:', e));
       }
 
-      // Delete from Firestore if configured
-      if (isFirebaseConfigured && db && targetOrderId) {
-        try {
-          deleteDoc(doc(db, 'orders', targetOrderId)).catch(() => {});
-        } catch (e) {}
-      }
-
       triggerToast('Transaction permanently deleted');
     }
   };
@@ -2831,9 +2819,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         if (isSupabaseConfigured) {
           updateSupabaseOrderStatus(resolvedOrderId, { status: 'PAID', isApproved: true, is_approved: true }).catch(() => {});
         }
-        if (isFirebaseConfigured && db) {
-          setDoc(doc(db, 'orders', resolvedOrderId), { status: 'PAID', isApproved: true, approvedAt: new Date().toISOString() }, { merge: true }).catch(() => {});
-        }
       }
     } else {
       // Revoke course access & lock
@@ -2843,9 +2828,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       if (resolvedOrderId) {
         if (isSupabaseConfigured) {
           updateSupabaseOrderStatus(resolvedOrderId, { status: 'PENDING', isApproved: false, is_approved: false }).catch(() => {});
-        }
-        if (isFirebaseConfigured && db) {
-          setDoc(doc(db, 'orders', resolvedOrderId), { status: 'PENDING', isApproved: false }, { merge: true }).catch(() => {});
         }
       }
       // Update eh_user_orders_v3 in localStorage
@@ -2935,12 +2917,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       deleteSupabaseOrder(resolvedOrderId).catch(e => console.warn('[AdminPanel] Supabase delete order note:', e));
     }
 
-    // 4. Delete from Firestore orders
-    if (isFirebaseConfigured && db && resolvedOrderId) {
-      try {
-        deleteDoc(doc(db, 'orders', resolvedOrderId)).catch(() => {});
-      } catch (e) {}
-    }
+    // 4. Order deleted permanently from Supabase eduhunters_orders (100% Centralized Cloud)
 
     // 5. Revoke course access for user profile
     const rawPhone = (st.phone || '').replace(/[^0-9]/g, '');
@@ -11462,14 +11439,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         is_approved: newStudentData.status === 'Active'
                       }).catch(() => {});
                     }
-                    if (isFirebaseConfigured && db) {
-                      setDoc(doc(db, 'orders', targetOrderId), {
-                        customer: { name: newStudentData.name.trim(), phone: newStudentData.phone.trim(), email: newStudentData.email.trim() },
-                        course: { name: newStudentData.courseName },
-                        status: newStudentData.status === 'Active' ? 'PAID' : 'PENDING',
-                        isApproved: newStudentData.status === 'Active'
-                      }, { merge: true }).catch(() => {});
-                    }
+                    // Order info is updated directly in Supabase eduhunters_orders (100% Centralized Cloud)
                   }
 
                   if (newStudentData.status === 'Active') {
@@ -11523,21 +11493,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     }).catch(() => {});
                   }
 
-                  // Save to Firestore
-                  if (isFirebaseConfigured && db) {
-                    setDoc(doc(db, 'orders', newOrderId), {
-                      id: newOrderId,
-                      invoiceNumber: `INV-MANUAL-${Math.floor(100000 + Math.random() * 900000)}`,
-                      customer: { name: newStudentData.name.trim(), phone: newStudentData.phone.trim(), email: newEntry.email },
-                      course: { name: newStudentData.courseName },
-                      totalPaid: 0,
-                      paymentMethodName: 'Manual Enrollment',
-                      transactionId: newEntry.trxId,
-                      status: newEntry.status === 'Active' ? 'PAID' : 'PENDING',
-                      isApproved: newEntry.status === 'Active',
-                      createdAt: new Date().toISOString()
-                    }, { merge: true }).catch(() => {});
-                  }
+                  // Manual enrollment order is saved directly to Supabase eduhunters_orders (100% Centralized Cloud)
 
                   if (newEntry.status === 'Active') {
                     grantCourseAccess(newStudentData.courseName, { bundles, courses }, { name: newStudentData.name, phone: newStudentData.phone, email: newStudentData.email });

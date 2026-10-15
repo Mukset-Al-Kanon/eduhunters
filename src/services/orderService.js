@@ -233,49 +233,15 @@ export async function saveNewOrder({
       student: newStudent
     }).catch(e => console.warn('[orderService] Supabase save note:', e));
 
-    // 8. Persist order in Cloud Firestore asynchronously (non-blocking for instant UI response)
-    if (isFirebaseConfigured && db) {
-      try {
-        const docRef = doc(db, 'orders', orderId);
-        const cloudOrderData = sanitizeForFirestore({
-          ...newOrder,
-          transaction: newTx,
-          student: newStudent,
-          _savedAt: new Date().toISOString()
-        });
-        // Background fire-and-forget: AdminPanel onSnapshot(collection(db, 'orders')) receives it in real-time
-        setDoc(docRef, cloudOrderData).catch((cloudErr) => {
-          console.warn('[orderService] Cloud order background save note:', cloudErr);
-        });
-
-        // 9. Back-propagate contact info directly to student's user profile in Cloud Firestore
-        const cleanPhone = (studentPhone || '').trim();
-        if (cleanPhone && cleanPhone !== 'N/A') {
-          const profileUpdates = {
-            phone: cleanPhone,
-            whatsapp: cleanPhone,
-            updatedAt: new Date().toISOString()
-          };
-          if (studentName && studentName !== 'Online Student' && studentName !== 'Student') {
-            profileUpdates.displayName = studentName;
-            profileUpdates.name = studentName;
-          }
-
-          if (studentUid) {
-            setDoc(doc(db, 'users', studentUid), profileUpdates, { merge: true }).catch(() => {});
-          } else if (studentEmail) {
-            const q = query(collection(db, 'users'), where('email', '==', studentEmail.toLowerCase()), limit(1));
-            getDocs(q).then(snap => {
-              if (!snap.empty) {
-                const targetDoc = snap.docs[0];
-                setDoc(doc(db, 'users', targetDoc.id), profileUpdates, { merge: true }).catch(() => {});
-              }
-            }).catch(() => {});
-          }
-        }
-      } catch (e) {
-        console.warn('[orderService] Background task setup note:', e);
-      }
+    // 8. Back-propagate contact info directly to student's user profile in Supabase (100% Centralized Cloud)
+    const cleanPhone = (studentPhone || '').trim();
+    if ((cleanPhone && cleanPhone !== 'N/A') || studentEmail) {
+      saveSupabaseUser({
+        id: studentUid,
+        email: studentEmail,
+        phone: cleanPhone,
+        name: studentName
+      }).catch(e => console.warn('[orderService] Supabase profile sync note:', e));
     }
 
     // 9. Back-sync contact number to active local user session if not already populated
@@ -432,39 +398,7 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
       }).catch(e => console.warn('[orderService] Supabase user enrollment update note:', e));
     }
 
-    // 5. Update Cloud Firestore if configured
-    if (isFirebaseConfigured && db) {
-      if (targetOrderId) {
-        try {
-          setDoc(doc(db, 'orders', targetOrderId), {
-            status: 'PAID',
-            isApproved: true,
-            approvedAt: new Date().toISOString()
-          }, { merge: true }).catch(() => {});
-        } catch (e) {}
-      }
-
-      // Automatically unlock course for student in Firestore users collection
-      if (cleanEmail) {
-        try {
-          const q = query(collection(db, 'users'), where('email', '==', cleanEmail), limit(1));
-          getDocs(q).then(snap => {
-            if (!snap.empty) {
-              const docSnap = snap.docs[0];
-              const uData = docSnap.data();
-              const enrolled = Array.isArray(uData.enrolledCourses) ? uData.enrolledCourses : [];
-              if (!enrolled.includes(finalTitle)) {
-                setDoc(doc(db, 'users', docSnap.id), {
-                  enrolledCourses: [finalTitle, ...enrolled],
-                  status: 'Active',
-                  totalSpent: (Number(uData.totalSpent) || 0) + finalAmount
-                }, { merge: true }).catch(() => {});
-              }
-            }
-          }).catch(() => {});
-        } catch (e) {}
-      }
-    }
+    // 5. Course enrollment is already updated in Supabase (100% Centralized Cloud)
 
     // 5. Dispatch real-time unlock broadcast across tabs and windows
     if (typeof window !== 'undefined') {
