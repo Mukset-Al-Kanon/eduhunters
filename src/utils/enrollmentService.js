@@ -23,6 +23,21 @@ export function normalizeStr(str) {
 }
 
 /**
+ * Normalizes and matches Bangladeshi & international phone numbers reliably
+ * Handles +880, 880, 0, whitespace, hyphens, and compares last 10 digits
+ */
+export function isPhoneMatch(p1, p2) {
+  if (!p1 || !p2) return false;
+  const c1 = String(p1).replace(/[^0-9]/g, '');
+  const c2 = String(p2).replace(/[^0-9]/g, '');
+  if (c1.length < 6 || c2.length < 6) return false;
+  if (c1 === c2) return true;
+  if (c1.endsWith(c2) || c2.endsWith(c1)) return true;
+  if (c1.length >= 10 && c2.length >= 10 && c1.slice(-10) === c2.slice(-10)) return true;
+  return false;
+}
+
+/**
  * Returns all enrolled course identifiers from localStorage
  */
 export function getStoredEnrolledCourses() {
@@ -378,10 +393,14 @@ export function grantCourseAccess(itemOrTitle, data = {}, targetUser = null) {
     // 7. Update Cloud Firestore atomically if configured and user has a valid UID
     if (isFirebaseConfigured && db && targetUid) {
       try {
-        setDoc(doc(db, 'users', targetUid), {
+        const firestoreUpdates = {
           enrolledCourses: arrayUnion(...resolvedCourses),
           lastAccessGrantedAt: new Date().toISOString()
-        }, { merge: true }).catch(err => {
+        };
+        if (resolvedBatches && resolvedBatches.length > 0) {
+          firestoreUpdates.enrolledBatches = arrayUnion(...resolvedBatches);
+        }
+        setDoc(doc(db, 'users', targetUid), firestoreUpdates, { merge: true }).catch(err => {
           console.warn('[enrollmentService] Firestore setDoc note:', err);
         });
       } catch (err) {}
@@ -519,10 +538,14 @@ export function revokeCourseAccess(itemOrTitle, data = {}, targetUser = null) {
     // 5. Update Firestore atomically if configured
     if (isFirebaseConfigured && db && targetUid) {
       try {
-        setDoc(doc(db, 'users', targetUid), {
+        const firestoreUpdates = {
           enrolledCourses: arrayRemove(...resolvedCourses),
           lastAccessRevokedAt: new Date().toISOString()
-        }, { merge: true }).catch(() => {});
+        };
+        if (resolvedBatches && resolvedBatches.length > 0) {
+          firestoreUpdates.enrolledBatches = arrayRemove(...resolvedBatches);
+        }
+        setDoc(doc(db, 'users', targetUid), firestoreUpdates, { merge: true }).catch(() => {});
       } catch (e) {}
     }
 
@@ -706,7 +729,7 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null, option
         const orderUid = ord.userId || ord.customer?.uid;
 
         const isOwner = (userEmail && orderEmail && orderEmail === userEmail) ||
-                        (userPhone && orderPhone && (orderPhone === userPhone || orderPhone.endsWith(userPhone) || userPhone.endsWith(orderPhone))) ||
+                        isPhoneMatch(userPhone, orderPhone) ||
                         (userUid && orderUid && orderUid === userUid);
 
         if (!isOwner) continue;
@@ -750,7 +773,7 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null, option
       const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
       const uEmail = (u.email || '').toLowerCase().trim();
 
-      const isMatch = (userPhone.length >= 6 && uPhone === userPhone) ||
+      const isMatch = isPhoneMatch(userPhone, uPhone) ||
                       (userEmail && uEmail === userEmail) ||
                       (currentUser?.uid && u.id === currentUser.uid);
 

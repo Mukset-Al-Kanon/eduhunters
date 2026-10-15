@@ -13,6 +13,17 @@ function sanitizeForFirestore(obj) {
   }));
 }
 
+export function isPhoneMatch(p1, p2) {
+  if (!p1 || !p2) return false;
+  const c1 = String(p1).replace(/[^0-9]/g, '');
+  const c2 = String(p2).replace(/[^0-9]/g, '');
+  if (c1.length < 6 || c2.length < 6) return false;
+  if (c1 === c2) return true;
+  if (c1.endsWith(c2) || c2.endsWith(c1)) return true;
+  if (c1.length >= 10 && c2.length >= 10 && c1.slice(-10) === c2.slice(-10)) return true;
+  return false;
+}
+
 /**
  * Retrieves all stored user orders, initializing clean for production.
  */
@@ -333,7 +344,7 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
         const cur = JSON.parse(rawCur);
         const curPhone = (cur.whatsapp || cur.phone || '').replace(/[^0-9]/g, '');
         const curEmail = (cur.email || '').toLowerCase().trim();
-        const isCurrentTarget = (cleanPhone && curPhone === cleanPhone) || (cleanEmail && curEmail === cleanEmail) || (!cleanPhone && !cleanEmail);
+        const isCurrentTarget = isPhoneMatch(curPhone, cleanPhone) || (cleanEmail && curEmail === cleanEmail) || (!cleanPhone && !cleanEmail);
 
         if (isCurrentTarget) {
           const enrolled = Array.isArray(cur.enrolledCourses) ? cur.enrolledCourses : [];
@@ -341,6 +352,15 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
             cur.enrolledCourses = [finalTitle, ...enrolled];
             cur.totalSpent = (Number(cur.totalSpent) || 0) + finalAmount;
             localStorage.setItem('eh_current_user', JSON.stringify(cur));
+          }
+
+          // Also update global and user-scoped storage immediately
+          const localC = JSON.parse(localStorage.getItem('eduhunters_enrolled_courses') || '[]');
+          localStorage.setItem('eduhunters_enrolled_courses', JSON.stringify(Array.from(new Set([...localC, finalTitle]))));
+
+          if (cur.uid) {
+            const scopedC = JSON.parse(localStorage.getItem(`eduhunters_enrolled_courses_${cur.uid}`) || '[]');
+            localStorage.setItem(`eduhunters_enrolled_courses_${cur.uid}`, JSON.stringify(Array.from(new Set([...scopedC, finalTitle]))));
           }
         }
       }
@@ -353,7 +373,7 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
           const updatedReg = regList.map(u => {
             const uPhone = (u.whatsapp || u.phone || '').replace(/[^0-9]/g, '');
             const uEmail = (u.email || '').toLowerCase().trim();
-            if ((cleanEmail && uEmail === cleanEmail) || (cleanPhone && uPhone === cleanPhone)) {
+            if ((cleanEmail && uEmail === cleanEmail) || isPhoneMatch(uPhone, cleanPhone)) {
               const uEnrolled = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
               return {
                 ...u,
@@ -378,7 +398,7 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
           const nextStudents = stList.map(st => {
             const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
             const stEmail = (st.email || '').toLowerCase().trim();
-            if ((cleanPhone && stPhone === cleanPhone) || (cleanEmail && stEmail === cleanEmail) || (st.courseName === finalTitle && cleanPhone && stPhone.includes(cleanPhone))) {
+            if (isPhoneMatch(stPhone, cleanPhone) || (cleanEmail && stEmail === cleanEmail) || (st.courseName === finalTitle && isPhoneMatch(stPhone, cleanPhone))) {
               return { ...st, status: 'Active' };
             }
             return st;

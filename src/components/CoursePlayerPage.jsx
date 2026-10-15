@@ -153,8 +153,9 @@ export default function CoursePlayerPage({
 
   const _isCourseEnrolled = useEnrollmentStatus(course, currentUser, data);
   const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com';
-  // If student is genuinely enrolled or user is admin, everything is unlocked
-  const isEnrolled = _isCourseEnrolled || isAdmin;
+  const isFreeCourse = Boolean(course?.isFree) || (course?.salePrice !== undefined && Number(course?.salePrice) === 0 && Number(course?.price || 0) === 0);
+  // If student is genuinely enrolled, user is admin, or course is free, everything is unlocked
+  const isEnrolled = _isCourseEnrolled || isAdmin || isFreeCourse;
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
 
   // Flatten curriculum into ordered array of lessons with metadata

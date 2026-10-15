@@ -67,7 +67,7 @@ import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import CourseStudioPage from './CourseStudioPage';
 import BundleStudioPage from './BundleStudioPage';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
-import { grantCourseAccess, revokeCourseAccess, getCanonicalCourses } from '../utils/enrollmentService';
+import { grantCourseAccess, revokeCourseAccess, getCanonicalCourses, isPhoneMatch } from '../utils/enrollmentService';
 import CourseSearchSelect from './CourseSearchSelect';
 import { approveOrder } from '../services/orderService';
 import { 
@@ -2213,7 +2213,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
         const uEmail = (u.email || '').trim().toLowerCase();
         const uName = (u.name || '').trim().toLowerCase();
-        return (rawPhone.length >= 6 && uPhone.includes(rawPhone)) ||
+        return isPhoneMatch(rawPhone, uPhone) ||
                (rawEmail && uEmail === rawEmail) ||
                (rawName && (uName === rawName || uName.includes(rawName)));
       });
@@ -2239,8 +2239,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       // Update enrolled students
       const foundSt = enrolledStudents.find(st => {
         const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
+        const stEmail = (st.email || '').trim().toLowerCase();
         const stName = (st.name || '').trim().toLowerCase();
-        return (rawPhone.length >= 6 && stPhone.includes(rawPhone)) || (rawName && stName === rawName);
+        return isPhoneMatch(rawPhone, stPhone) || (rawEmail && stEmail === rawEmail) || (rawName && stName === rawName);
       });
       if (foundSt) {
         extraStudentUpdates = enrolledStudents.map(st => 
@@ -2262,14 +2263,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       }
       setEnrolledStudents(extraStudentUpdates);
 
-      if (rawPhone.length >= 6 || rawName) {
+      if (rawPhone.length >= 6 || rawEmail || rawName) {
         extraUserUpdates = usersList.map(u => {
           const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
+          const uEmail = (u.email || '').trim().toLowerCase();
           const uName = (u.name || '').trim().toLowerCase();
-          const matchPhone = rawPhone.length >= 6 && uPhone.includes(rawPhone);
-          const matchName = rawName && (uName === rawName || uName.includes(rawName));
+          const matchPhone = isPhoneMatch(rawPhone, uPhone);
+          const matchEmail = Boolean(rawEmail && uEmail && uEmail === rawEmail);
+          const matchName = Boolean(rawName && (uName === rawName || uName.includes(rawName)));
 
-          if (matchPhone || matchName) {
+          if (matchPhone || matchEmail || matchName) {
             const current = u.enrolledCourses || [];
             return {
               ...u,

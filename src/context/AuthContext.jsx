@@ -31,6 +31,7 @@ import {
   onSnapshot
 } from 'firebase/firestore';
 import { saveSupabaseUser, fetchUserApprovedEnrollments } from '../services/supabaseService';
+import { isPhoneMatch } from '../utils/enrollmentService';
 
 const AuthContext = createContext(null);
 
@@ -422,7 +423,9 @@ export function AuthProvider({ children }) {
         if (!prev) return prev;
         const curEmail = (prev.email || '').toLowerCase().trim();
         const curPhone = (prev.phone || prev.whatsapp || '').replace(/[^0-9]/g, '');
-        const isMatch = (studentEmail && curEmail === studentEmail) || (studentPhone && curPhone && (curPhone === studentPhone || curPhone.endsWith(studentPhone) || studentPhone.endsWith(curPhone))) || (!studentEmail && !studentPhone);
+        const isMatch = (studentEmail && curEmail === studentEmail) || 
+                        isPhoneMatch(curPhone, studentPhone) || 
+                        (!studentEmail && !studentPhone);
         
         if (isMatch) {
           const prevCourses = Array.isArray(prev.enrolledCourses) ? prev.enrolledCourses : [];
@@ -433,6 +436,10 @@ export function AuthProvider({ children }) {
               localStorage.setItem('eh_current_user', JSON.stringify(updated));
               const localC = JSON.parse(localStorage.getItem('eduhunters_enrolled_courses') || '[]');
               localStorage.setItem('eduhunters_enrolled_courses', JSON.stringify(Array.from(new Set([...localC, targetCourse]))));
+              if (prev.uid) {
+                const scopedC = JSON.parse(localStorage.getItem(`eduhunters_enrolled_courses_${prev.uid}`) || '[]');
+                localStorage.setItem(`eduhunters_enrolled_courses_${prev.uid}`, JSON.stringify(Array.from(new Set([...scopedC, targetCourse]))));
+              }
             } catch (err) {}
             return updated;
           }

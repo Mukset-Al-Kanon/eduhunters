@@ -329,7 +329,15 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
     // 2. Fetch all approved/paid orders from eduhunters_orders
     const filterClauses = [];
     if (cleanEmail) filterClauses.push(`customer_email.eq.${cleanEmail}`);
-    if (cleanPhone && cleanPhone.length >= 6) filterClauses.push(`customer_phone.eq.${cleanPhone}`);
+    if (cleanPhone && cleanPhone.length >= 6) {
+      filterClauses.push(`customer_phone.eq.${cleanPhone}`);
+      const raw10 = cleanPhone.slice(-10);
+      if (raw10.length === 10) {
+        filterClauses.push(`customer_phone.eq.0${raw10}`);
+        filterClauses.push(`customer_phone.eq.880${raw10}`);
+        filterClauses.push(`customer_phone.eq.+880${raw10}`);
+      }
+    }
     if (uid) filterClauses.push(`id.eq.${uid}`);
 
     let ordersList = [];
@@ -338,7 +346,7 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
         .from('eduhunters_orders')
         .select('*')
         .or(filterClauses.join(','))
-        .in('status', ['PAID', 'Completed', 'paid', 'completed'])
+        .in('status', ['PAID', 'Completed', 'paid', 'completed', 'APPROVED', 'Approved', 'approved', 'SUCCESS', 'success'])
         .order('created_at', { ascending: false });
 
       if (!error && Array.isArray(matchedOrders)) {
@@ -514,14 +522,45 @@ export async function saveSupabaseUser(user, extra = {}) {
   if (!isSupabaseConfigured || !supabase || !user?.uid) return false;
   try {
     const isNew = Boolean(extra.isNewRegistration);
+
+    // Fetch existing user record to preserve and merge enrolled_courses and raw_data
+    let existingEnrolled = [];
+    let existingRaw = {};
+    try {
+      const { data: existingUser } = await supabase
+        .from('eduhunters_users')
+        .select('enrolled_courses, raw_data, email, name, phone, role')
+        .eq('id', user.uid)
+        .maybeSingle();
+      if (existingUser) {
+        if (Array.isArray(existingUser.enrolled_courses)) {
+          existingEnrolled = existingUser.enrolled_courses;
+        }
+        if (existingUser.raw_data && typeof existingUser.raw_data === 'object') {
+          existingRaw = existingUser.raw_data;
+        }
+      }
+    } catch (e) {}
+
+    const incomingCourses = Array.isArray(user.enrolledCourses)
+      ? user.enrolledCourses
+      : Array.isArray(extra.enrolledCourses)
+        ? extra.enrolledCourses
+        : [];
+
+    const mergedCourses = Array.from(new Set([
+      ...existingEnrolled,
+      ...incomingCourses
+    ])).filter(Boolean);
+
     const payload = {
       id: user.uid,
-      email: user.email,
-      name: user.displayName || user.name || extra.displayName || user.email?.split('@')[0],
-      phone: user.phone || user.whatsapp || extra.phone || '',
-      role: user.role || extra.role || 'student',
-      enrolled_courses: user.enrolledCourses || extra.enrolledCourses || [],
-      raw_data: { ...user, ...extra },
+      email: user.email || existingRaw.email,
+      name: user.displayName || user.name || extra.displayName || existingRaw.displayName || existingRaw.name || user.email?.split('@')[0],
+      phone: user.phone || user.whatsapp || extra.phone || existingRaw.phone || '',
+      role: user.role || extra.role || existingRaw.role || 'student',
+      enrolled_courses: mergedCourses,
+      raw_data: { ...existingRaw, ...user, ...extra, enrolledCourses: mergedCourses },
       last_active_at: new Date().toISOString()
     };
 
