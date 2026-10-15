@@ -6,15 +6,19 @@ import {
   ExternalLink, 
   Clock, 
   ChevronDown, 
-  ListVideo,
-  CheckSquare,
-  RotateCcw,
-  X,
-  Zap,
-  Check,
-  Lock,
-  ShoppingCart,
-  ShieldCheck
+  ListVideo, 
+  CheckSquare, 
+  RotateCcw, 
+  X, 
+  Zap, 
+  Check, 
+  Lock, 
+  ShoppingCart, 
+  ShieldCheck,
+  Calendar,
+  Trophy,
+  AlertCircle,
+  Timer
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import { freeCoursesData } from '../data/freeCoursesData';
@@ -27,6 +31,7 @@ import Navbar from './Navbar';
 import SureShotExamSystem from './SureShotExamSystem';
 import CheckoutModal from './CheckoutModal';
 import { recordQuizSubmission, checkQuizLiveStatus } from '../services/quizService';
+import { getQuizScheduleState, formatScheduleDateTimeBn, toBengaliDigits } from '../utils/quizScheduleHelper';
 
 function getEmbedUrl(url) {
   if (!url) return '';
@@ -334,6 +339,16 @@ export default function CoursePlayerPage({
   // Practice Quiz & Exam state
   const [isQuizDropdownOpen, setIsQuizDropdownOpen] = useState(false);
   const [activeLessonExam, setActiveLessonExam] = useState(null);
+  const [clockTime, setClockTime] = useState(() => Date.now());
+
+  // Real-time ticker for scheduled exam locks and countdowns
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setClockTime(Date.now());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   const [savedLessonScores, setSavedLessonScores] = useState(() => {
     try {
       const saved = localStorage.getItem('eduhunters_lesson_quiz_scores');
@@ -355,6 +370,15 @@ export default function CoursePlayerPage({
   }, [activeLessonExam]);
 
   const handleStartQuiz = async () => {
+    // Strictly prevent starting upcoming scheduled exams before start date
+    if (currentLesson.quiz) {
+      const sched = getQuizScheduleState(currentLesson.quiz, clockTime);
+      if (sched.isUpcoming) {
+        alert(`এই পরীক্ষাটি নির্ধারিত সময়ের আগে শুরু করা যাবে না। পরীক্ষা শুরু হওয়ার নির্ধারিত সময়: ${sched.formattedStartBn}`);
+        return;
+      }
+    }
+
     let qList = [];
     let durMins = Number(currentLesson.quiz?.durationMinutes) || 10;
     let negMark = currentLesson.quiz?.negativeMark !== undefined ? Number(currentLesson.quiz.negativeMark) : 0.25;
@@ -398,7 +422,7 @@ export default function CoursePlayerPage({
       category: 'course_lesson',
       categoryName: course.title || course.name || 'Master English',
       subCategory: null,
-      subject: 'English',
+      subject: course.subject || 'Physics',
       durationMinutes: durMins,
       duration_minutes: durMins,
       totalQuestions: normalizedQuestions.length,
@@ -406,7 +430,9 @@ export default function CoursePlayerPage({
       negativeMark: negMark,
       negative_mark: negMark,
       hasExplanations: true,
-      questions: normalizedQuestions
+      questions: normalizedQuestions,
+      startDate: currentLesson.quiz?.startDate,
+      endDate: currentLesson.quiz?.endDate
     };
 
     try {
@@ -863,64 +889,331 @@ export default function CoursePlayerPage({
                             <span>এখনই কোর্সে ভর্তি হোন</span>
                           </button>
                         </div>
-                      ) : (currentLesson.quiz || currentLesson.examId) ? (
-                        <div className="space-y-2">
-                          <div
-                            onClick={handleStartQuiz}
-                            className={`w-full p-4 sm:px-5 sm:py-4 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 group active:scale-[0.99] select-none ${
-                              isDark 
-                                ? 'bg-[#1a040a] hover:bg-[#250711] border-[#e11438]/30 hover:border-red-500/50 text-white shadow-sm' 
-                                : 'bg-white hover:bg-red-50/40 border-slate-200 hover:border-red-200 text-slate-900 shadow-2xs'
-                            }`}
-                          >
-                            <div className="min-w-0 flex-1">
-                              <span className="text-sm font-bold truncate block">
-                                {(currentLesson.quiz?.title || `${currentLesson.title} - Quiz`).replace(/practice\s*quiz/gi, 'Quiz')}
-                              </span>
-                              <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                                {currentLesson.quiz && (
-                                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                                    checkQuizLiveStatus(currentLesson.quiz).isLive 
-                                      ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25' 
-                                      : (checkQuizLiveStatus(currentLesson.quiz).isUpcoming 
-                                          ? 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/25' 
-                                          : 'bg-slate-500/15 text-slate-600 dark:text-slate-400 border border-slate-500/25')
-                                  }`}>
-                                    {checkQuizLiveStatus(currentLesson.quiz).statusText}
-                                  </span>
-                                )}
-                                {savedLessonScores[currentLesson.id] && (
-                                  <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400">
-                                    Official Score: {savedLessonScores[currentLesson.id].score} / {savedLessonScores[currentLesson.id].totalPossible}
-                                  </span>
-                                )}
-                              </div>
-                            </div>
+                      ) : (currentLesson.quiz || currentLesson.examId) ? (() => {
+                        const sched = getQuizScheduleState(currentLesson.quiz, clockTime);
+                        const savedScore = savedLessonScores[currentLesson.id];
+                        const totalQs = currentLesson.quiz?.questions?.length || currentLesson.quiz?.totalQuestions || 50;
+                        const durMins = currentLesson.quiz?.durationMinutes || 30;
+                        const negMark = currentLesson.quiz?.negativeMark !== undefined ? currentLesson.quiz.negativeMark : 0.25;
+                        const quizTitle = (currentLesson.quiz?.title || `${currentLesson.title} - Quiz`).replace(/practice\s*quiz/gi, 'Quiz');
 
-                            <div className="flex items-center gap-2">
-                              {onNavigateLeaderboard && (
+                        // -------------------------------------------------------------
+                        // STATE 1: UPCOMING (STRICTLY LOCKED UNTIL START DATE & TIME)
+                        // -------------------------------------------------------------
+                        if (sched.isUpcoming) {
+                          return (
+                            <div className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all relative overflow-hidden ${
+                              isDark 
+                                ? 'bg-gradient-to-br from-[#1a0f05]/95 via-[#140306]/95 to-[#0d0205] border-amber-500/35 shadow-[0_8px_30px_rgba(245,158,11,0.08)]' 
+                                : 'bg-gradient-to-br from-amber-50/80 via-orange-50/40 to-white border-amber-200/90 shadow-sm'
+                            }`}>
+                              {/* Ambient Warm Amber Glow in Dark Mode */}
+                              {isDark && (
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+                              )}
+
+                              <div className="relative z-10 space-y-4">
+                                {/* Header Badge & Leaderboard Button */}
+                                <div className="flex items-center justify-between gap-3 flex-wrap">
+                                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 border border-amber-500/30 text-amber-500 dark:text-amber-400">
+                                    <Lock className="w-3.5 h-3.5 animate-pulse" />
+                                    <span>নির্ধারিত সময়সূচি • লকড এক্সাম (Upcoming Exam)</span>
+                                  </div>
+
+                                  {onNavigateLeaderboard && (
+                                    <button
+                                      type="button"
+                                      onClick={onNavigateLeaderboard}
+                                      className="px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/25 cursor-pointer transition-colors flex items-center gap-1.5"
+                                    >
+                                      <Trophy className="w-3.5 h-3.5" />
+                                      <span>লিডারবোর্ড</span>
+                                    </button>
+                                  )}
+                                </div>
+
+                                {/* Title & Exam Meta Chips */}
+                                <div>
+                                  <h4 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
+                                    {quizTitle}
+                                  </h4>
+                                  <div className="flex items-center gap-2 mt-2 flex-wrap text-xs font-semibold">
+                                    <span className={`px-2.5 py-1 rounded-lg border ${
+                                      isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                    }`}>
+                                      📋 {toBengaliDigits(totalQs)} টি প্রশ্ন
+                                    </span>
+                                    <span className={`px-2.5 py-1 rounded-lg border ${
+                                      isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                    }`}>
+                                      ⏱️ {toBengaliDigits(durMins)} মিনিট
+                                    </span>
+                                    <span className={`px-2.5 py-1 rounded-lg border ${
+                                      isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                    }`}>
+                                      🎯 পূর্ণমান {toBengaliDigits(totalQs)}
+                                    </span>
+                                    <span className={`px-2.5 py-1 rounded-lg border ${
+                                      isDark ? 'bg-red-500/10 border-red-500/20 text-red-400' : 'bg-red-50 border-red-200 text-red-600'
+                                    }`}>
+                                      ⚠️ নেগেটিভ মার্ক {toBengaliDigits(negMark)}
+                                    </span>
+                                  </div>
+                                </div>
+
+                                {/* Scheduled Start Time Callout */}
+                                <div className={`p-3.5 sm:p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+                                  isDark ? 'bg-[#120603]/80 border-amber-500/20 text-amber-300/90' : 'bg-amber-100/60 border-amber-300/70 text-amber-900'
+                                }`}>
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-500 flex items-center justify-center shrink-0">
+                                      <Calendar className="w-5 h-5" />
+                                    </div>
+                                    <div>
+                                      <p className="text-[11px] font-bold uppercase tracking-wider opacity-75">
+                                        পরীক্ষা শুরুর নির্ধারিত সময়
+                                      </p>
+                                      <p className="text-sm sm:text-base font-black text-amber-500 dark:text-amber-400 mt-0.5">
+                                        {sched.formattedStartBn}
+                                      </p>
+                                    </div>
+                                  </div>
+
+                                  {sched.endDate && (
+                                    <div className="text-left sm:text-right text-[11px] font-medium opacity-80">
+                                      <span>সমাপ্তি: {sched.formattedEndBn}</span>
+                                    </div>
+                                  )}
+                                </div>
+
+                                {/* Real-time Countdown Box */}
+                                <div className={`p-4 rounded-2xl border text-center space-y-2.5 ${
+                                  isDark ? 'bg-black/40 border-amber-500/25' : 'bg-white border-amber-200'
+                                }`}>
+                                  <p className={`text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 ${
+                                    isDark ? 'text-amber-400' : 'text-amber-700'
+                                  }`}>
+                                    <Timer className="w-4 h-4 animate-spin text-amber-500" style={{ animationDuration: '4s' }} />
+                                    <span>পরীক্ষা শুরু হতে বাকি সময়</span>
+                                  </p>
+
+                                  <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+                                    {sched.countdown?.days > 0 && (
+                                      <div className={`px-3 py-2 rounded-xl border min-w-[64px] text-center ${
+                                        isDark ? 'bg-[#180a04] border-amber-500/30' : 'bg-amber-50 border-amber-200'
+                                      }`}>
+                                        <span className="text-xl sm:text-2xl font-black font-mono text-amber-500 block leading-tight">
+                                          {toBengaliDigits(sched.countdown.days)}
+                                        </span>
+                                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">দিন</span>
+                                      </div>
+                                    )}
+                                    <div className={`px-3 py-2 rounded-xl border min-w-[64px] text-center ${
+                                      isDark ? 'bg-[#180a04] border-amber-500/30' : 'bg-amber-50 border-amber-200'
+                                    }`}>
+                                      <span className="text-xl sm:text-2xl font-black font-mono text-amber-500 block leading-tight">
+                                        {toBengaliDigits(sched.countdown?.hours ?? 0)}
+                                      </span>
+                                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">ঘণ্টা</span>
+                                    </div>
+                                    <div className={`px-3 py-2 rounded-xl border min-w-[64px] text-center ${
+                                      isDark ? 'bg-[#180a04] border-amber-500/30' : 'bg-amber-50 border-amber-200'
+                                    }`}>
+                                      <span className="text-xl sm:text-2xl font-black font-mono text-amber-500 block leading-tight">
+                                        {toBengaliDigits(sched.countdown?.minutes ?? 0)}
+                                      </span>
+                                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">মিনিট</span>
+                                    </div>
+                                    <div className={`px-3 py-2 rounded-xl border min-w-[64px] text-center ${
+                                      isDark ? 'bg-[#180a04] border-amber-500/30' : 'bg-amber-50 border-amber-200'
+                                    }`}>
+                                      <span className="text-xl sm:text-2xl font-black font-mono text-amber-500 block leading-tight">
+                                        {toBengaliDigits(sched.countdown?.seconds ?? 0)}
+                                      </span>
+                                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">সেকেন্ড</span>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Information & Instructions */}
+                                <div className={`p-3 rounded-xl text-xs leading-relaxed flex items-start gap-2.5 ${
+                                  isDark ? 'bg-white/5 text-gray-300' : 'bg-slate-100 text-slate-600'
+                                }`}>
+                                  <AlertCircle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                                  <p>
+                                    এই পরীক্ষাটি নির্ধারিত সময়ে স্বয়ংক্রিয়ভাবে উন্মুক্ত হবে। প্রথমবার পরীক্ষায় অংশগ্রহণকারীদের মধ্য থেকে অফিশিয়াল মেধা তালিকা ও লিডারবোর্ড প্রস্তুত করা হবে। সময়মতো পরীক্ষায় অংশ নিন।
+                                  </p>
+                                </div>
+
+                                {/* Disabled Locked CTA Button */}
                                 <button
                                   type="button"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    onNavigateLeaderboard();
-                                  }}
-                                  className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/20 cursor-pointer transition-colors"
+                                  disabled
+                                  className="w-full py-3.5 px-6 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-amber-500/80 font-bold text-sm sm:text-base flex items-center justify-center gap-2 cursor-not-allowed select-none opacity-85 transition-all"
                                 >
-                                  Leaderboard
+                                  <Lock className="w-4 h-4" />
+                                  <span>নির্ধারিত সময়ে পরীক্ষা উন্মুক্ত হবে ({sched.countdown?.bnText || 'অপেক্ষা করুন'})</span>
                                 </button>
-                              )}
-                              <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 ${
-                                isDark 
-                                  ? 'bg-red-500/15 border border-red-500/30 text-red-400 group-hover:bg-red-500/25' 
-                                  : 'bg-red-50 border border-red-200 text-red-600 group-hover:bg-red-100'
-                              }`}>
-                                <FileText className="w-4 h-4" />
                               </div>
                             </div>
+                          );
+                        }
+
+                        // -------------------------------------------------------------
+                        // STATE 2: CURRENTLY LIVE (OFFICIAL FIRST ATTEMPT OPEN)
+                        // -------------------------------------------------------------
+                        if (sched.isLive) {
+                          return (
+                            <div className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all relative overflow-hidden ${
+                              isDark 
+                                ? 'bg-gradient-to-br from-[#041a10]/95 via-[#0d0205] to-[#120306] border-emerald-500/40 shadow-[0_8px_30px_rgba(16,185,129,0.12)]' 
+                                : 'bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white border-emerald-300 shadow-sm'
+                            }`}>
+                              <div className="relative z-10 space-y-4">
+                                <div className="flex items-center justify-between gap-3 flex-wrap">
+                                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400">
+                                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                                    <span>অফিশিয়াল লাইভ পরীক্ষা চলছে (Official Live Exam)</span>
+                                  </div>
+
+                                  {onNavigateLeaderboard && (
+                                    <button
+                                      type="button"
+                                      onClick={onNavigateLeaderboard}
+                                      className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25 cursor-pointer transition-colors flex items-center gap-1.5"
+                                    >
+                                      <Trophy className="w-3.5 h-3.5" />
+                                      <span>লাইভ লিডারবোর্ড</span>
+                                    </button>
+                                  )}
+                                </div>
+
+                                <div>
+                                  <h4 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
+                                    {quizTitle}
+                                  </h4>
+                                  <div className="flex items-center gap-2 mt-2 flex-wrap text-xs font-semibold">
+                                    <span className={`px-2.5 py-1 rounded-lg border ${
+                                      isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                    }`}>
+                                      📋 {toBengaliDigits(totalQs)} টি প্রশ্ন
+                                    </span>
+                                    <span className={`px-2.5 py-1 rounded-lg border ${
+                                      isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                    }`}>
+                                      ⏱️ {toBengaliDigits(durMins)} মিনিট
+                                    </span>
+                                    <span className={`px-2.5 py-1 rounded-lg border ${
+                                      isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                    }`}>
+                                      🎯 পূর্ণমান {toBengaliDigits(totalQs)}
+                                    </span>
+                                    <span className={`px-2.5 py-1 rounded-lg border ${
+                                      isDark ? 'bg-red-500/10 border-red-500/20 text-red-400' : 'bg-red-50 border-red-200 text-red-600'
+                                    }`}>
+                                      ⚠️ নেগেটিভ মার্ক {toBengaliDigits(negMark)}
+                                    </span>
+                                  </div>
+                                </div>
+
+                                {sched.endDate && (
+                                  <div className={`p-3 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-semibold ${
+                                    isDark ? 'bg-emerald-950/30 border-emerald-500/25 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-900'
+                                  }`}>
+                                    <span className="flex items-center gap-1.5">
+                                      <Clock className="w-4 h-4 text-emerald-500" />
+                                      লাইভ শেষ সময়: {sched.formattedEndBn}
+                                    </span>
+                                    {sched.countdown && (
+                                      <span className="font-mono font-bold text-emerald-500">
+                                        বাকি সময়: {sched.countdown.bnText}
+                                      </span>
+                                    )}
+                                  </div>
+                                )}
+
+                                {savedScore && (
+                                  <div className={`p-3 rounded-xl border flex items-center justify-between text-xs font-semibold ${
+                                    isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                  }`}>
+                                    <span>অফিশিয়াল স্কোর: <strong>{savedScore.score} / {savedScore.totalPossible}</strong></span>
+                                    <span className="text-[11px] opacity-75">প্রথম প্রচেষ্টার রেজাল্ট সংরক্ষিত</span>
+                                  </div>
+                                )}
+
+                                <button
+                                  type="button"
+                                  onClick={handleStartQuiz}
+                                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/40 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border-none"
+                                >
+                                  <Play className="w-4 h-4 fill-white" />
+                                  <span>{savedScore ? '🔄 পুনরায় প্র্যাকটিস করুন' : '🚀 অফিশিয়াল পরীক্ষায় অংশগ্রহণ করুন (Start Exam)'}</span>
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        // -------------------------------------------------------------
+                        // STATE 3: EXPIRED (PRACTICE MODE)
+                        // -------------------------------------------------------------
+                        return (
+                          <div className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all ${
+                            isDark 
+                              ? 'bg-gradient-to-br from-[#16040a]/90 to-[#0d0205] border-red-500/25 shadow-sm' 
+                              : 'bg-white border-slate-200 shadow-2xs'
+                          }`}>
+                            <div className="space-y-4">
+                              <div className="flex items-center justify-between gap-3 flex-wrap">
+                                <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-500/15 text-slate-500 dark:text-slate-400 border border-slate-500/25">
+                                  📁 লাইভ উইন্ডো সমাপ্ত • প্র্যাকটিস মোড
+                                </span>
+
+                                {onNavigateLeaderboard && (
+                                  <button
+                                    type="button"
+                                    onClick={onNavigateLeaderboard}
+                                    className="px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/20 cursor-pointer transition-colors"
+                                  >
+                                    Leaderboard
+                                  </button>
+                                )}
+                              </div>
+
+                              <div>
+                                <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                                  {quizTitle}
+                                </h4>
+                                <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
+                                  অফিশিয়াল লাইভ উইন্ডো শেষ হয়েছে। তবে আপনি ইচ্ছামতো প্র্যাকটিস টেস্ট দিতে পারেন ও ব্যাখ্যা দেখতে পারবেন।
+                                </p>
+                              </div>
+
+                              {savedScore && (
+                                <div className={`p-3 rounded-xl border flex items-center justify-between text-xs font-semibold ${
+                                  isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+                                }`}>
+                                  <span>অফিশিয়াল স্কোর: <strong>{savedScore.score} / {savedScore.totalPossible}</strong></span>
+                                  <span className="text-[11px] opacity-75">প্রথম প্রচেষ্টার রেজাল্ট</span>
+                                </div>
+                              )}
+
+                              <button
+                                type="button"
+                                onClick={handleStartQuiz}
+                                className={`w-full py-3.5 px-6 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer transition-all border ${
+                                  isDark 
+                                    ? 'bg-red-500/20 hover:bg-red-500/30 border-red-500/40 text-red-400' 
+                                    : 'bg-red-600 hover:bg-red-700 border-red-600 text-white shadow-md'
+                                }`}
+                              >
+                                <Play className="w-4 h-4 fill-current" />
+                                <span>প্র্যাকটিস টেস্ট দিন</span>
+                              </button>
+                            </div>
                           </div>
-                        </div>
-                      ) : (
+                        );
+                      })() : (
                         <div className={`p-8 rounded-2xl border text-center flex flex-col items-center justify-center space-y-3 ${
                           isDark ? 'border-red-500/20 bg-[#16040a]/60' : 'border-slate-200 bg-slate-50/70'
                         }`}>
@@ -1037,6 +1330,30 @@ export default function CoursePlayerPage({
                               </span>
                             )
                           )}
+
+                          {les.quiz && (() => {
+                            const sched = getQuizScheduleState(les.quiz, clockTime);
+                            if (sched.isUpcoming) {
+                              return (
+                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-amber-500/15 text-amber-500 border border-amber-500/25 flex items-center gap-1 shrink-0">
+                                  <Lock className="w-2.5 h-2.5" /> কুইজ লকড
+                                </span>
+                              );
+                            }
+                            if (sched.isLive) {
+                              return (
+                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-500 border border-emerald-500/25 flex items-center gap-1 shrink-0">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                                  কুইজ লাইভ
+                                </span>
+                              );
+                            }
+                            return (
+                              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-slate-500/15 text-slate-400 border border-slate-500/25 shrink-0">
+                                প্র্যাকটিস কুইজ
+                              </span>
+                            );
+                          })()}
                         </div>
                       </div>
                     </div>

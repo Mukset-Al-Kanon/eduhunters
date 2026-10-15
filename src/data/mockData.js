@@ -10,6 +10,7 @@ import {
 } from './homeData';
 import { masterEnglishCourseData } from './masterEnglishCourseData';
 import { freeCoursesData } from './freeCoursesData';
+import { physicsFinishingTouchCourseData } from './physicsFinishingTouchData';
 import { EXAM_CATEGORIES_METADATA } from './examCategoriesData';
 
 // Helper to reliably detect and purge only legacy Zenith Crew / Codervai copied dummy courses
@@ -169,6 +170,13 @@ export const initialData = {
         supportPhone: masterEnglishCourseData.supportPhone,
         previewVideoUrl: masterEnglishCourseData.previewVideoUrl,
         curriculum: masterEnglishCourseData.curriculum
+      };
+    }
+    if (course.id === 'course-1791887161017' || course.slug === 'physics-finishing-touch-series') {
+      return {
+        ...course,
+        ...physicsFinishingTouchCourseData,
+        curriculum: physicsFinishingTouchCourseData.curriculum
       };
     }
     const foundFree = freeCoursesData.find(c => c.id === course.id || c.slug === course.slug);

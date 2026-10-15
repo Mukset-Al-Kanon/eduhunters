@@ -1,5 +1,6 @@
 // src/services/supabaseService.js
 import { supabase, isSupabaseConfigured } from '../supabase/config.js';
+import { physicsFinishingTouchCourseData } from '../data/physicsFinishingTouchData.js';
 
 /**
  * ==========================================
@@ -430,6 +431,26 @@ export async function saveSupabaseSiteData(siteData) {
       if (value === undefined) return null;
       return value;
     }));
+
+    // Bulletproof Guard: Protect Physics 1st paper Finishing Touch Series and its 5 chapters/quizzes
+    if (sanitized && Array.isArray(sanitized.courses)) {
+      const physIdx = sanitized.courses.findIndex(c => 
+        c && (c.id === 'course-1791887161017' || c.slug === 'physics-finishing-touch-series')
+      );
+      if (physIdx !== -1) {
+        const cur = sanitized.courses[physIdx];
+        const lessons = cur?.curriculum?.[0]?.lessons || cur?.curriculum?.sections?.[0]?.lessons;
+        if (!lessons || lessons.length < 5 || !lessons[0]?.quiz?.questions?.length) {
+          sanitized.courses[physIdx] = {
+            ...cur,
+            ...physicsFinishingTouchCourseData,
+            curriculum: physicsFinishingTouchCourseData.curriculum
+          };
+        }
+      } else {
+        sanitized.courses.push(physicsFinishingTouchCourseData);
+      }
+    }
 
     const now = new Date().toISOString();
     const payload = {

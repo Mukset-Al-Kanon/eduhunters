@@ -19,6 +19,7 @@ import { stripEmoji } from '../utils/textUtils';
 import { getMergedExamManifest, loadExamQuestions } from '../utils/examBatchStorage';
 import { useAuth } from '../context/AuthContext';
 import { getStoredEnrolledBatches, grantCourseAccess, isItemEnrolled } from '../utils/enrollmentService';
+import { getQuizScheduleState } from '../utils/quizScheduleHelper';
 
 
 // Fallback initial lists for instant rendering before manifest loads
@@ -200,6 +201,12 @@ export default function SureShotExamSystem({
   const [categorySearchQuery, setCategorySearchQuery] = useState('');
 
   const { currentUser } = useAuth();
+  const [examClockTime, setExamClockTime] = useState(() => Date.now());
+
+  useEffect(() => {
+    const t = setInterval(() => setExamClockTime(Date.now()), 1000);
+    return () => clearInterval(t);
+  }, []);
 
   // Enrolled batch keys (e.g. ['sureshot', 'medical'])
   const [enrolledBatches, setEnrolledBatches] = useState(() => {
@@ -837,6 +844,16 @@ export default function SureShotExamSystem({
 
   // Start Exam
   const handleStartExam = async (mode = 'real') => {
+    // Safety lock check: strictly block starting if exam is scheduled in the future
+    const examStart = examData?.startDate || selectedExamMeta?.startDate;
+    if (examStart) {
+      const sched = getQuizScheduleState({ startDate: examStart });
+      if (sched.isUpcoming) {
+        alert(`এই পরীক্ষাটি নির্ধারিত সময়ের আগে শুরু করা সম্ভব নয়। পরীক্ষা শুরুর সময়: ${sched.formattedStartBn}`);
+        return;
+      }
+    }
+
     let questions = examData?.questions || [];
     if (questions.length === 0 && selectedExamMeta) {
       setIsLoadingExam(true);
@@ -2167,18 +2184,60 @@ export default function SureShotExamSystem({
             </button>
           </div>
 
+          {/* Scheduled Lock Banner & Countdown if exam is in the future */}
+          {(() => {
+            const sched = getQuizScheduleState(
+              { startDate: examData?.startDate || selectedExamMeta?.startDate, endDate: examData?.endDate || selectedExamMeta?.endDate },
+              examClockTime
+            );
+            if (sched.isUpcoming) {
+              return (
+                <div className={`p-4 rounded-2xl border text-center space-y-2 mb-2 ${
+                  isDark ? 'bg-amber-500/10 border-amber-500/30 text-amber-300' : 'bg-amber-50 border-amber-300 text-amber-900'
+                }`}>
+                  <div className="flex items-center justify-center gap-2 text-sm font-bold text-amber-500">
+                    <Lock size={16} />
+                    <span>নির্ধারিত সময়ের আগে পরীক্ষা শুরু করা সম্ভব নয়</span>
+                  </div>
+                  <p className="text-xs font-semibold">
+                    শুরুর সময়: {sched.formattedStartBn}
+                  </p>
+                  <p className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
+                    বাকি সময়: {sched.countdown?.bnText || 'অপেক্ষা করুন'}
+                  </p>
+                </div>
+              );
+            }
+            return null;
+          })()}
+
           {/* Action Button: Start Exam */}
-          <button
-            onClick={() => handleStartExam(examMode)}
-            disabled={isLoadingExam}
-            className="w-full py-3 px-6 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-[#b91c1c] hover:to-[#991b1b] text-white font-bold text-sm sm:text-base rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-red-950/40 hover:shadow-red-900/50 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border-none disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            {isLoadingExam ? (
-              <span>⏳ প্রশ্ন লোড হচ্ছে...</span>
-            ) : (
-              <span>🚀 Start Exam</span>
-            )}
-          </button>
+          {(() => {
+            const sched = getQuizScheduleState(
+              { startDate: examData?.startDate || selectedExamMeta?.startDate, endDate: examData?.endDate || selectedExamMeta?.endDate },
+              examClockTime
+            );
+            const isLocked = sched.isUpcoming;
+            return (
+              <button
+                onClick={() => !isLocked && handleStartExam(examMode)}
+                disabled={isLoadingExam || isLocked}
+                className={`w-full py-3 px-6 text-white font-bold text-sm sm:text-base rounded-2xl flex items-center justify-center gap-2 transition-all border-none ${
+                  isLocked
+                    ? 'bg-amber-600/60 opacity-70 cursor-not-allowed shadow-none'
+                    : 'bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-[#b91c1c] hover:to-[#991b1b] shadow-lg shadow-red-950/40 hover:shadow-red-900/50 hover:scale-[1.01] active:scale-[0.99] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed'
+                }`}
+              >
+                {isLoadingExam ? (
+                  <span>⏳ প্রশ্ন লোড হচ্ছে...</span>
+                ) : isLocked ? (
+                  <span className="flex items-center gap-1.5"><Lock size={16} /> পরীক্ষা শুরুর অপেক্ষা ({sched.countdown?.bnText || 'লকড'})</span>
+                ) : (
+                  <span>🚀 Start Exam</span>
+                )}
+              </button>
+            );
+          })()}
 
           {/* Back button */}
           <div className="text-center pt-0.5">
