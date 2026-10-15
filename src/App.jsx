@@ -383,19 +383,79 @@ export default function App() {
             : (initialData.storeProducts || []),
           accounting: (() => {
             const acc = parsed.accounting;
-            if (!acc || acc.totalRevenue === 284500 || (Array.isArray(acc.transactions) && acc.transactions.some(t => t.id === 'TRX-94825'))) {
-              return initialData.accounting;
-            }
-            const txs = Array.isArray(acc.transactions)
+            const baseTxs = (acc && acc.totalRevenue !== 284500 && Array.isArray(acc.transactions) && !acc.transactions.some(t => t.id === 'TRX-94825'))
               ? acc.transactions.filter(t => !t.id?.startsWith('TRX-948'))
               : [];
+            
+            const txMap = new Map();
+            baseTxs.forEach(t => {
+              const k = t.orderId || t.id || t.trxId;
+              if (k) txMap.set(k, t);
+            });
+
+            // Merge local orders from eh_user_orders_v3 so un-synced orders are never lost
+            try {
+              const localOrds = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+              localOrds.forEach(ord => {
+                const k = ord.id || ord.orderId || ord.transactionId;
+                if (k && !txMap.has(k)) {
+                  const t = ord.transaction || {};
+                  const isPaid = ord.status === 'PAID' || ord.status === 'COMPLETED' || Boolean(ord.isApproved);
+                  txMap.set(k, {
+                    id: t.id || `TRX-${ord.id}`,
+                    orderId: ord.id,
+                    invoiceNumber: ord.invoiceNumber || t.invoiceNumber || 'INV-EH',
+                    type: 'INCOME',
+                    category: ord.targetType === 'exam' ? 'Exam Batch Enrollment' : 'Course Enrollment',
+                    itemTitle: ord.course?.name || ord.items?.[0]?.title || 'Course Access',
+                    amount: Number(ord.totalPaid || ord.amount || 0),
+                    method: ord.paymentMethodName || ord.paymentGateway || 'bKash',
+                    trxId: ord.transactionId || 'PENDING',
+                    studentName: ord.customer?.name || 'Online Student',
+                    studentPhone: ord.customer?.phone || 'N/A',
+                    studentEmail: ord.customer?.email || '',
+                    date: (ord.createdAt ? ord.createdAt.split('T')[0] : new Date().toISOString().split('T')[0]),
+                    createdAt: ord.createdAt || new Date().toISOString(),
+                    status: isPaid ? 'Completed' : 'Pending',
+                    notes: 'Synchronized from local order cache'
+                  });
+                }
+              });
+            } catch (e) {}
+
+            const allTxs = Array.from(txMap.values());
+            const completedRev = allTxs
+              .filter(t => (t.status || '').toLowerCase() === 'completed')
+              .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+            const totalExp = Number(acc?.totalExpenses) || 0;
+
             return {
-              totalRevenue: acc.totalRevenue || 0,
-              totalExpenses: acc.totalExpenses || 0,
-              netProfit: acc.netProfit || 0,
-              totalOrders: acc.totalOrders || txs.length,
-              transactions: txs
+              totalRevenue: completedRev,
+              totalExpenses: totalExp,
+              netProfit: completedRev - totalExp,
+              totalOrders: allTxs.length,
+              transactions: allTxs
             };
+          })(),
+          users: (() => {
+            const rawUsers = Array.isArray(parsed.users) ? parsed.users : [];
+            let regUsers = [];
+            try {
+              regUsers = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
+            } catch (e) {}
+            const uMap = new Map();
+            rawUsers.forEach(u => {
+              const k = (u.email || u.id || u.uid || '').toLowerCase();
+              if (k) uMap.set(k, u);
+            });
+            (Array.isArray(regUsers) ? regUsers : []).forEach(u => {
+              const k = (u.email || u.id || u.uid || '').toLowerCase();
+              if (k) {
+                const ex = uMap.get(k);
+                uMap.set(k, ex ? { ...ex, ...u } : u);
+              }
+            });
+            return Array.from(uMap.values());
           })(),
           termsAndConditions: parsed.termsAndConditions || initialData.termsAndConditions,
           refundPolicy: parsed.refundPolicy || initialData.refundPolicy,
@@ -668,11 +728,113 @@ export default function App() {
         }
       }
 
+      // Safe deduplicating merge for accounting transactions so cloud site data never wipes local orders
+      let resolvedAccounting = prev.accounting;
+      if (sanitized.accounting || prev.accounting) {
+        const cloudAcc = sanitized.accounting || {};
+        const prevAcc = prev.accounting || {};
+        const cloudTxs = (Array.isArray(cloudAcc.transactions) && cloudAcc.totalRevenue !== 284500)
+          ? cloudAcc.transactions.filter(t => !t.id?.startsWith('TRX-948'))
+          : [];
+        const prevTxs = (Array.isArray(prevAcc.transactions) && prevAcc.totalRevenue !== 284500)
+          ? prevAcc.transactions.filter(t => !t.id?.startsWith('TRX-948'))
+          : [];
+
+        const txMap = new Map();
+        // 1. Add cloud transactions
+        cloudTxs.forEach(t => {
+          const k = t.orderId || t.id || t.trxId;
+          if (k) txMap.set(k, t);
+        });
+        // 2. Add local previous transactions
+        prevTxs.forEach(t => {
+          const k = t.orderId || t.id || t.trxId;
+          if (k) {
+            const ex = txMap.get(k);
+            txMap.set(k, ex ? { ...ex, ...t } : t);
+          }
+        });
+        // 3. Add any orders from eh_user_orders_v3
+        try {
+          const localOrds = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+          localOrds.forEach(ord => {
+            const k = ord.id || ord.orderId || ord.transactionId;
+            if (k && !txMap.has(k)) {
+              const isPaid = ord.status === 'PAID' || ord.status === 'COMPLETED' || Boolean(ord.isApproved);
+              txMap.set(k, {
+                id: `TRX-${ord.id}`,
+                orderId: ord.id,
+                invoiceNumber: ord.invoiceNumber || 'INV-EH',
+                type: 'INCOME',
+                category: ord.targetType === 'exam' ? 'Exam Batch Enrollment' : 'Course Enrollment',
+                itemTitle: ord.course?.name || ord.items?.[0]?.title || 'Course Access',
+                amount: Number(ord.totalPaid || ord.amount || 0),
+                method: ord.paymentMethodName || 'bKash',
+                trxId: ord.transactionId || 'PENDING',
+                studentName: ord.customer?.name || 'Online Student',
+                studentPhone: ord.customer?.phone || 'N/A',
+                studentEmail: ord.customer?.email || '',
+                date: (ord.createdAt ? ord.createdAt.split('T')[0] : new Date().toISOString().split('T')[0]),
+                createdAt: ord.createdAt || new Date().toISOString(),
+                status: isPaid ? 'Completed' : 'Pending',
+                notes: 'Synchronized local order'
+              });
+            }
+          });
+        } catch (e) {}
+
+        const allTxs = Array.from(txMap.values());
+        const completedRev = allTxs
+          .filter(t => (t.status || '').toLowerCase() === 'completed')
+          .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+        const totalExp = Number(cloudAcc.totalExpenses !== undefined ? cloudAcc.totalExpenses : prevAcc.totalExpenses) || 0;
+
+        resolvedAccounting = {
+          totalRevenue: completedRev,
+          totalExpenses: totalExp,
+          netProfit: completedRev - totalExp,
+          totalOrders: allTxs.length,
+          transactions: allTxs
+        };
+      }
+
+      // Safe deduplicating merge for users so remote updates never wipe newly registered users
+      let resolvedUsers = prev.users || [];
+      if (Array.isArray(sanitized.users) || Array.isArray(prev.users)) {
+        const cloudUsers = Array.isArray(sanitized.users) ? sanitized.users : [];
+        const prevUsers = Array.isArray(prev.users) ? prev.users : [];
+        const uMap = new Map();
+        cloudUsers.forEach(u => {
+          const k = (u.email || u.id || u.uid || '').toLowerCase();
+          if (k) uMap.set(k, u);
+        });
+        prevUsers.forEach(u => {
+          const k = (u.email || u.id || u.uid || '').toLowerCase();
+          if (k) {
+            const ex = uMap.get(k);
+            uMap.set(k, ex ? { ...ex, ...u } : u);
+          }
+        });
+        try {
+          const regUsers = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
+          regUsers.forEach(u => {
+            const k = (u.email || u.id || u.uid || '').toLowerCase();
+            if (k) {
+              const ex = uMap.get(k);
+              uMap.set(k, ex ? { ...ex, ...u } : u);
+            }
+          });
+        } catch (e) {}
+        resolvedUsers = Array.from(uMap.values());
+      }
+
       const merged = {
         ...prev,
         ...sanitized,
         courses: resolvedCourses,
-        instructors: resolvedInstructors
+        instructors: resolvedInstructors,
+        accounting: resolvedAccounting,
+        users: resolvedUsers
       };
 
       try {

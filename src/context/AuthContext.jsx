@@ -618,6 +618,7 @@ export function AuthProvider({ children }) {
             } catch (e) {}
           }
 
+          saveSupabaseUser(newUser, { isNewRegistration: true }).catch(() => {});
           broadcastUserSync('REGISTER', newUser);
           return newUser;
         }
@@ -659,6 +660,7 @@ export function AuthProvider({ children }) {
         } catch (e) {}
       }
 
+      saveSupabaseUser(newUser, { isNewRegistration: true }).catch(() => {});
       broadcastUserSync('REGISTER', newUser);
       return newUser;
     }

@@ -116,7 +116,26 @@ export async function updateSupabaseOrderStatus(orderId, updates) {
     };
     if (updates.status) payload.status = updates.status;
     if (typeof updates.isApproved === 'boolean') payload.is_approved = updates.isApproved;
-    if (updates.raw_data) payload.raw_data = updates.raw_data;
+
+    try {
+      const { data: existing } = await supabase
+        .from('eduhunters_orders')
+        .select('raw_data')
+        .eq('id', orderId)
+        .maybeSingle();
+      if (existing?.raw_data) {
+        payload.raw_data = {
+          ...existing.raw_data,
+          status: updates.status || existing.raw_data.status,
+          isApproved: typeof updates.isApproved === 'boolean' ? updates.isApproved : existing.raw_data.isApproved,
+          updatedAt: new Date().toISOString()
+        };
+      } else if (updates.raw_data) {
+        payload.raw_data = updates.raw_data;
+      }
+    } catch (e) {
+      if (updates.raw_data) payload.raw_data = updates.raw_data;
+    }
 
     // 1. Instant Broadcast to all users / student device
     broadcastSupabaseMessage('ORDER_STATUS_CHANGED', { orderId, ...updates });
@@ -556,7 +575,8 @@ export function subscribeToSupabaseSiteData(onUpdate) {
  * Sync user profile to Supabase
  */
 export async function saveSupabaseUser(user, extra = {}) {
-  if (!isSupabaseConfigured || !supabase || !user?.uid) return false;
+  const targetId = user?.uid || user?.id || (user?.email ? 'u_' + btoa(user.email).replace(/[^a-zA-Z0-9]/g, '') : null);
+  if (!isSupabaseConfigured || !supabase || !targetId) return false;
   try {
     const isNew = Boolean(extra.isNewRegistration);
 
@@ -567,7 +587,7 @@ export async function saveSupabaseUser(user, extra = {}) {
       const { data: existingUser } = await supabase
         .from('eduhunters_users')
         .select('enrolled_courses, raw_data, email, name, phone, role')
-        .eq('id', user.uid)
+        .eq('id', targetId)
         .maybeSingle();
       if (existingUser) {
         if (Array.isArray(existingUser.enrolled_courses)) {
@@ -591,13 +611,13 @@ export async function saveSupabaseUser(user, extra = {}) {
     ])).filter(Boolean);
 
     const payload = {
-      id: user.uid,
+      id: targetId,
       email: user.email || existingRaw.email,
       name: user.displayName || user.name || extra.displayName || existingRaw.displayName || existingRaw.name || user.email?.split('@')[0],
       phone: user.phone || user.whatsapp || extra.phone || existingRaw.phone || '',
       role: user.role || extra.role || existingRaw.role || 'student',
       enrolled_courses: mergedCourses,
-      raw_data: { ...existingRaw, ...user, ...extra, enrolledCourses: mergedCourses },
+      raw_data: { ...existingRaw, ...user, ...extra, enrolledCourses: mergedCourses, id: targetId, uid: targetId },
       last_active_at: new Date().toISOString()
     };
 

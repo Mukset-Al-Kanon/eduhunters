@@ -95,6 +95,55 @@ import {
   saveSupabaseSiteData
 } from '../services/supabaseService';
 
+// File-scoped pure mappers so state initializers, listeners, and heartbeats can convert order docs reliably
+export const mapOrderDocToTx = (docId, order) => {
+  if (!order) return null;
+  const t = order.transaction || {};
+  const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
+  const isRejected = order.status === 'REJECTED' || (t.status || '').toLowerCase() === 'rejected';
+  const status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
+
+  return {
+    id: t.id || `TRX-${docId}`,
+    orderId: docId,
+    invoiceNumber: order.invoiceNumber || t.invoiceNumber || 'INV-EH',
+    type: 'INCOME',
+    category: t.category || (order.type === 'store' ? 'Store Product' : (order.targetType === 'exam' ? 'Exam Batch Enrollment' : 'Course Enrollment')),
+    itemTitle: t.itemTitle || order.course?.name || order.items?.[0]?.title || 'Course Access',
+    amount: Number(t.amount !== undefined ? t.amount : (order.totalPaid || 0)),
+    method: t.method || (order.paymentMethodName?.toLowerCase().includes('nagad') ? 'Nagad' : (order.paymentMethodName?.toLowerCase().includes('card') ? 'Card' : 'bKash')),
+    trxId: t.trxId || order.transactionId || 'PENDING',
+    studentName: t.studentName || order.customer?.name || 'Online Student',
+    studentPhone: t.studentPhone || order.customer?.phone || 'N/A',
+    studentEmail: t.studentEmail || order.customer?.email || '',
+    date: t.date || (order.createdAt ? order.createdAt.split('T')[0] : new Date().toISOString().split('T')[0]),
+    createdAt: t.createdAt || order.createdAt || new Date().toISOString(),
+    status: status,
+    notes: t.notes || (order.paymentMethodName ? `Paid via ${order.paymentMethodName}` : 'Submitted via Web Checkout')
+  };
+};
+
+export const mapOrderDocToStudent = (docId, order) => {
+  if (!order) return null;
+  const s = order.student || {};
+  const t = order.transaction || {};
+  const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
+  return {
+    id: s.id || `st-${docId}`,
+    orderId: docId,
+    name: s.name || order.customer?.name || t.studentName || 'Online Student',
+    phone: s.phone || order.customer?.phone || t.studentPhone || 'N/A',
+    email: s.email || order.customer?.email || t.studentEmail || '',
+    batch: s.batch || 'HSC 26',
+    courseName: s.courseName || order.course?.name || order.items?.[0]?.title || 'Course Access',
+    status: isPaid ? 'Active' : 'Pending',
+    joinedDate: s.joinedDate || (order.createdAt ? new Date(order.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently'),
+    amount: Number(s.amount !== undefined ? s.amount : (order.totalPaid || 0)),
+    trxId: s.trxId || order.transactionId || t.trxId || 'PENDING',
+    paymentMethod: s.paymentMethod || t.method || (order.paymentMethodName?.toLowerCase().includes('nagad') ? 'Nagad' : 'bKash')
+  };
+};
+
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
   const [activeTab, setActiveTabState] = useState(() => {
@@ -258,21 +307,72 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   const [accounting, setAccounting] = useState(() => {
     const raw = data?.accounting;
-    if (!raw || raw.totalRevenue === 284500 || (Array.isArray(raw.transactions) && raw.transactions.some(t => t.id === 'TRX-94825'))) {
-      return {
-        totalRevenue: 0,
-        totalExpenses: 0,
-        netProfit: 0,
-        totalOrders: 0,
-        transactions: []
-      };
-    }
+    const baseTxs = (raw && raw.totalRevenue !== 284500 && Array.isArray(raw.transactions) && !raw.transactions.some(t => t.id === 'TRX-94825'))
+      ? raw.transactions.filter(t => !t.id?.startsWith('TRX-948'))
+      : [];
+
+    const txMap = new Map();
+    baseTxs.forEach(t => {
+      const k = t.orderId || t.id || t.trxId;
+      if (k) txMap.set(k, t);
+    });
+
+    // Merge from eh_user_orders_v3 so fresh orders are immediately present on refresh
+    try {
+      const userOrders = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+      if (Array.isArray(userOrders)) {
+        userOrders.forEach(ord => {
+          const k = ord.id || ord.orderId || ord.transactionId;
+          if (k && !txMap.has(k)) {
+            const mapped = mapOrderDocToTx(ord.id, ord);
+            if (mapped) txMap.set(k, mapped);
+          }
+        });
+      }
+    } catch (e) {}
+
+    // Merge from eh_enrolled_students
+    try {
+      const enrolled = JSON.parse(localStorage.getItem('eh_enrolled_students') || '[]');
+      if (Array.isArray(enrolled)) {
+        enrolled.forEach(st => {
+          const k = st.orderId || st.id || st.trxId;
+          if (k && !txMap.has(k)) {
+            txMap.set(k, {
+              id: st.id || `TRX-${Date.now()}`,
+              orderId: st.orderId || st.id,
+              invoiceNumber: st.invoiceNumber || 'INV-EH',
+              type: 'INCOME',
+              category: 'Course Enrollment',
+              itemTitle: st.courseName || 'Course Access',
+              amount: Number(st.amount) || 0,
+              method: st.paymentMethod || 'bKash',
+              trxId: st.trxId || 'PENDING',
+              studentName: st.name || 'Student',
+              studentPhone: st.phone || '',
+              studentEmail: st.email || '',
+              date: (st.joinedDate || new Date().toISOString()).split('T')[0],
+              createdAt: new Date().toISOString(),
+              status: (st.status || '').toLowerCase() === 'active' ? 'Completed' : 'Pending',
+              notes: 'Preserved from local student records'
+            });
+          }
+        });
+      }
+    } catch (e) {}
+
+    const allTxs = Array.from(txMap.values());
+    const completedRev = allTxs
+      .filter(t => (t.status || '').toLowerCase() === 'completed')
+      .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+    const totalExp = Number(raw?.totalExpenses) || 0;
+
     return {
-      totalRevenue: raw.totalRevenue || 0,
-      totalExpenses: raw.totalExpenses || 0,
-      netProfit: raw.netProfit || 0,
-      totalOrders: raw.totalOrders || 0,
-      transactions: Array.isArray(raw.transactions) ? raw.transactions.filter(t => !t.id?.startsWith('TRX-948')) : []
+      totalRevenue: completedRev,
+      totalExpenses: totalExp,
+      netProfit: completedRev - totalExp,
+      totalOrders: allTxs.length,
+      transactions: allTxs
     };
   });
 
@@ -346,9 +446,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       }
     ];
 
+    const userMap = new Map();
+    defaultSeed.forEach(u => userMap.set(u.email.toLowerCase(), u));
+
     if (Array.isArray(data?.users) && data.users.length > 0) {
-      const cleanUsers = data.users.filter(u => !['usr-1', 'usr-2', 'usr-3', 'usr-4', 'usr-5', 'usr-6', 'usr-7', 'usr-8'].includes(u.id));
-      if (cleanUsers.length > 0) return cleanUsers;
+      data.users.filter(u => !['usr-1', 'usr-2', 'usr-3', 'usr-4', 'usr-5', 'usr-6', 'usr-7', 'usr-8'].includes(u.id)).forEach(u => {
+        const k = (u.email || u.id || '').toLowerCase();
+        if (k) userMap.set(k, { ...userMap.get(k), ...u });
+      });
     }
 
     try {
@@ -360,9 +465,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         allLocal.push(currentStored);
       }
 
-      if (allLocal.length > 0) {
-        const mapped = allLocal.map((u, i) => ({
-          id: u.uid || `usr-reg-${i}`,
+      allLocal.forEach((u, i) => {
+        const k = (u.email || u.id || u.uid || '').toLowerCase();
+        if (!k) return;
+        const mapped = {
+          id: u.uid || u.id || `usr-reg-${i}`,
           name: u.displayName || u.name || u.email?.split('@')[0] || 'Student',
           email: u.email,
           phone: u.whatsapp || u.phone || '',
@@ -380,18 +487,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           lastActive: 'Recently',
           device: 'Web Client',
           avatar: u.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(u.email || 'user')}`
-        }));
-        const existingEmails = new Set(defaultSeed.map(u => u.email.toLowerCase()));
-        const uniqueRegistered = mapped.filter(u => !existingEmails.has(u.email.toLowerCase()));
-        const mergedDefault = defaultSeed.map(d => {
-          const match = mapped.find(u => u.email?.toLowerCase() === d.email?.toLowerCase());
-          return match ? { ...d, ...match } : d;
-        });
-        return [...mergedDefault, ...uniqueRegistered];
-      }
+        };
+        const ex = userMap.get(k);
+        userMap.set(k, ex ? { ...ex, ...mapped } : mapped);
+      });
     } catch (e) {}
 
-    return defaultSeed;
+    return Array.from(userMap.values());
   });
 
   const [userSearchQuery, setUserSearchQuery] = useState('');
@@ -604,6 +706,18 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       } catch (e) {}
       return nextStudents;
     });
+
+    // Sync to local orders cache and eduhunters_data
+    if (order) {
+      try {
+        const rawOrders = localStorage.getItem('eh_user_orders_v3');
+        const ords = rawOrders ? JSON.parse(rawOrders) : [];
+        if (!ords.some(o => o.id === order.id || (order.transactionId && o.transactionId === order.transactionId))) {
+          ords.unshift(order);
+          localStorage.setItem('eh_user_orders_v3', JSON.stringify(ords));
+        }
+      } catch (e) {}
+    }
 
     // 3. If already approved/completed, unlock for user
     if (isAlreadyCompleted && (tx.studentEmail || tx.studentPhone)) {
@@ -882,6 +996,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               } catch (e) {}
               return mergedSt;
             });
+
+            // Sync to local orders cache so refreshing the page immediately has all orders
+            try {
+              const localOrds = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+              const ordMap = new Map();
+              localOrds.forEach(o => { if (o && o.id) ordMap.set(o.id, o); });
+              activeOrders.forEach(o => { if (o && o.id) ordMap.set(o.id, o); });
+              localStorage.setItem('eh_user_orders_v3', JSON.stringify(Array.from(ordMap.values())));
+            } catch (e) {}
           }
         }).catch(() => {});
 
@@ -907,7 +1030,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   notifiedUserKeysRef.current.add(key);
                 }
               });
-              return Array.from(emailMap.values());
+              const mergedUsers = Array.from(emailMap.values());
+              try {
+                localStorage.setItem('eh_registered_users', JSON.stringify(mergedUsers));
+              } catch (e) {}
+              return mergedUsers;
             });
           }
         }).catch(() => {});
@@ -1144,18 +1271,40 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Edu Hunters Real Enrolled Students State
   const [enrolledStudents, setEnrolledStudents] = useState(() => {
+    const studentMap = new Map();
     try {
       const saved = localStorage.getItem('eh_enrolled_students');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed)) {
-          return parsed.filter(s => !['st-101', 'st-102', 'st-103', 'st-104', 'st-105'].includes(s.id));
+          parsed.filter(s => !['st-101', 'st-102', 'st-103', 'st-104', 'st-105'].includes(s.id)).forEach(st => {
+            const key = `${st.phone}_${st.courseName}`;
+            studentMap.set(key, st);
+          });
         }
       }
-    } catch {
-      // ignore
-    }
-    return [];
+    } catch {}
+
+    // Merge from eh_user_orders_v3 so any enrolled student appears immediately
+    try {
+      const rawOrders = localStorage.getItem('eh_user_orders_v3');
+      if (rawOrders) {
+        const parsedOrders = JSON.parse(rawOrders);
+        if (Array.isArray(parsedOrders)) {
+          parsedOrders.forEach(ord => {
+            const mappedSt = mapOrderDocToStudent(ord.id, ord);
+            if (mappedSt) {
+              const key = `${mappedSt.phone}_${mappedSt.courseName}`;
+              if (!studentMap.has(key)) {
+                studentMap.set(key, mappedSt);
+              }
+            }
+          });
+        }
+      }
+    } catch {}
+
+    return Array.from(studentMap.values());
   });
 
   useEffect(() => {
