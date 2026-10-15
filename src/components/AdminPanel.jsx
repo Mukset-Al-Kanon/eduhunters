@@ -60,7 +60,7 @@ import {
   Zap,
   LogOut
 } from 'lucide-react';
-import { collection, getDocs, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot, doc, deleteDoc, setDoc } from 'firebase/firestore';
 import { db, isFirebaseConfigured } from '../firebase/config';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
@@ -90,7 +90,8 @@ import {
   deleteSupabaseOrder,
   updateSupabaseOrderAmount,
   updateSupabaseOrderStatus,
-  saveSupabaseUser
+  saveSupabaseUser,
+  saveSupabaseOrder
 } from '../services/supabaseService';
 
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
@@ -751,10 +752,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
         // Orders collection real-time listener (all course purchases across all devices & live site)
         unsubscribeOrders = onSnapshot(collection(db, 'orders'), (snapshot) => {
-          const cloudOrders = snapshot.docs.map(docSnap => ({
-            id: docSnap.id,
-            ...docSnap.data()
-          }));
+          const deletedIds = new Set(JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]'));
+          const cloudOrders = snapshot.docs
+            .map(docSnap => ({ id: docSnap.id, ...docSnap.data() }))
+            .filter(o => !deletedIds.has(o.id) && !deletedIds.has(o.invoiceNumber) && !deletedIds.has(o.transactionId));
 
           const mappedTxs = cloudOrders.map(o => mapOrderDocToTx(o.id, o));
           const mappedStudents = cloudOrders.map(o => mapOrderDocToStudent(o.id, o));
@@ -763,8 +764,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           setAccounting(prev => {
             const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
             const txMap = new Map();
-            // Retain any manual/offline transactions
-            prevTxs.forEach(tx => {
+            // Retain any manual/offline transactions that are not deleted
+            prevTxs.filter(tx => !deletedIds.has(tx.orderId) && !deletedIds.has(tx.id) && !deletedIds.has(tx.trxId)).forEach(tx => {
               const key = tx.orderId || tx.id || tx.trxId;
               if (key) txMap.set(key, tx);
             });
@@ -792,11 +793,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           // Atomically update enrolled students list
           setEnrolledStudents(prev => {
             const stMap = new Map();
-            prev.forEach(st => {
+            prev.filter(st => !deletedIds.has(st.id) && !deletedIds.has(st.orderId)).forEach(st => {
               const key = `${st.phone}_${st.courseName}`;
               stMap.set(key, st);
             });
-            mappedStudents.forEach(st => {
+            mappedStudents.filter(st => !deletedIds.has(st.id) && !deletedIds.has(st.orderId)).forEach(st => {
               const key = `${st.phone}_${st.courseName}`;
               stMap.set(key, st);
             });
@@ -839,13 +840,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
         fetchSupabaseOrders().then(orders => {
           if (Array.isArray(orders) && orders.length > 0) {
-            const mappedTxs = orders.map(o => mapOrderDocToTx(o.id, o));
-            const mappedStudents = orders.map(o => mapOrderDocToStudent(o.id, o));
+            const deletedIds = new Set(JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]'));
+            const activeOrders = orders.filter(o => !deletedIds.has(o.id) && !deletedIds.has(o.invoiceNumber) && !deletedIds.has(o.transactionId));
+
+            const mappedTxs = activeOrders.map(o => mapOrderDocToTx(o.id, o));
+            const mappedStudents = activeOrders.map(o => mapOrderDocToStudent(o.id, o));
 
             setAccounting(prev => {
               const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
               const txMap = new Map();
-              prevTxs.forEach(tx => {
+              prevTxs.filter(tx => !deletedIds.has(tx.orderId) && !deletedIds.has(tx.id) && !deletedIds.has(tx.trxId)).forEach(tx => {
                 const key = tx.orderId || tx.id || tx.trxId;
                 if (key) txMap.set(key, tx);
               });
@@ -869,9 +873,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
             setEnrolledStudents(prev => {
               const stMap = new Map();
-              prev.forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
-              mappedStudents.forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
-              return Array.from(stMap.values());
+              prev.filter(st => !deletedIds.has(st.id) && !deletedIds.has(st.orderId)).forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
+              mappedStudents.filter(st => !deletedIds.has(st.id) && !deletedIds.has(st.orderId)).forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
+              const mergedSt = Array.from(stMap.values());
+              try {
+                localStorage.setItem('eh_enrolled_students', JSON.stringify(mergedSt));
+              } catch (e) {}
+              return mergedSt;
             });
           }
         }).catch(() => {});
@@ -904,6 +912,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         }).catch(() => {});
 
         unsubscribeSupabaseOrders = subscribeToSupabaseOrders(({ eventType, order }) => {
+          const deletedIds = new Set(JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]'));
+          if (deletedIds.has(order?.id) || deletedIds.has(order?.invoiceNumber) || deletedIds.has(order?.transactionId)) {
+            return;
+          }
           const tx = mapOrderDocToTx(order.id, order);
           const student = mapOrderDocToStudent(order.id, order);
           if (eventType === 'INSERT' && !isInitialSupabaseOrders) {
@@ -2422,6 +2434,221 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
       triggerToast('Transaction permanently deleted');
     }
+  };
+
+  // Toggle Student Status (Active <-> Pending) with Full Cloud & Access Synchronization
+  const handleToggleStudentStatus = async (studentId) => {
+    const st = enrolledStudents.find(item => item.id === studentId);
+    if (!st) return;
+
+    const nextStatus = st.status === 'Active' ? 'Pending' : 'Active';
+    const isNowActive = nextStatus === 'Active';
+
+    // 1. Update enrolledStudents state & localStorage
+    const nextStudents = enrolledStudents.map(item => item.id === studentId ? { ...item, status: nextStatus } : item);
+    setEnrolledStudents(nextStudents);
+    try {
+      localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+    } catch (e) {}
+
+    // 2. Identify target orderId & transaction
+    const targetOrderId = st.orderId || (st.id.startsWith('st-ord_') ? st.id.replace('st-', '') : (st.id.startsWith('ord_') ? st.id : null));
+    const targetTx = (accounting.transactions || []).find(t => 
+      t.orderId === targetOrderId || 
+      (t.studentPhone && isPhoneMatch(t.studentPhone, st.phone) && t.itemTitle === st.courseName) ||
+      (t.trxId && st.trxId && t.trxId !== 'PENDING' && t.trxId === st.trxId)
+    );
+    const resolvedOrderId = targetOrderId || targetTx?.orderId || (targetTx?.id?.startsWith('ord_') ? targetTx.id : (targetTx?.id?.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : null));
+
+    // 3. Match user to grant or revoke course access
+    const rawPhone = (st.phone || '').replace(/[^0-9]/g, '');
+    const rawEmail = (st.email || '').trim().toLowerCase();
+    const matchedUser = usersList.find(u => {
+      const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+      const uEmail = (u.email || '').trim().toLowerCase();
+      return isPhoneMatch(rawPhone, uPhone) || (rawEmail && uEmail === rawEmail);
+    });
+
+    if (isNowActive) {
+      // Grant course access & unlock
+      if (st.courseName) {
+        grantCourseAccess(st.courseName, { bundles, courses }, matchedUser);
+      }
+      if (resolvedOrderId) {
+        approveOrder(resolvedOrderId, {
+          courseTitle: st.courseName,
+          studentPhone: st.phone,
+          studentEmail: st.email,
+          studentName: st.name,
+          amount: st.amount
+        });
+        if (isSupabaseConfigured) {
+          updateSupabaseOrderStatus(resolvedOrderId, { status: 'PAID', isApproved: true, is_approved: true }).catch(() => {});
+        }
+        if (isFirebaseConfigured && db) {
+          setDoc(doc(db, 'orders', resolvedOrderId), { status: 'PAID', isApproved: true, approvedAt: new Date().toISOString() }, { merge: true }).catch(() => {});
+        }
+      }
+    } else {
+      // Revoke course access & lock
+      if (st.courseName) {
+        revokeCourseAccess(st.courseName, { bundles, courses }, matchedUser);
+      }
+      if (resolvedOrderId) {
+        if (isSupabaseConfigured) {
+          updateSupabaseOrderStatus(resolvedOrderId, { status: 'PENDING', isApproved: false, is_approved: false }).catch(() => {});
+        }
+        if (isFirebaseConfigured && db) {
+          setDoc(doc(db, 'orders', resolvedOrderId), { status: 'PENDING', isApproved: false }, { merge: true }).catch(() => {});
+        }
+      }
+      // Update eh_user_orders_v3 in localStorage
+      try {
+        const rawOrders = localStorage.getItem('eh_user_orders_v3');
+        if (rawOrders) {
+          const ords = JSON.parse(rawOrders);
+          const nextOrds = ords.map(o => {
+            if (o.id === resolvedOrderId || (isPhoneMatch(o.customer?.phone, st.phone) && (o.course?.name === st.courseName || o.items?.[0]?.title === st.courseName))) {
+              return { ...o, status: 'PENDING', isApproved: false };
+            }
+            return o;
+          });
+          localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrds));
+        }
+      } catch (e) {}
+    }
+
+    // 4. Update accounting transactions
+    let updatedAccounting = accounting;
+    if (targetTx) {
+      const updatedTxs = (accounting.transactions || []).map(t => {
+        if (t.id === targetTx.id) {
+          return { ...t, status: isNowActive ? 'Completed' : 'Pending' };
+        }
+        return t;
+      });
+      const amt = Number(targetTx.amount) || Number(st.amount) || 0;
+      const revDiff = isNowActive ? amt : -amt;
+      const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + revDiff);
+      const newProfit = newRev - (Number(accounting.totalExpenses) || 0);
+
+      updatedAccounting = {
+        ...accounting,
+        totalRevenue: newRev,
+        netProfit: newProfit,
+        transactions: updatedTxs
+      };
+      setAccounting(updatedAccounting);
+    }
+
+    // 5. Persist to cloud & local storage
+    persistAll({
+      accounting: updatedAccounting,
+      enrolledStudents: nextStudents
+    });
+
+    triggerToast(isNowActive ? `✅ ${st.name} approved & course unlocked!` : `🔒 ${st.name} status set to Pending & locked`);
+  };
+
+  // Permanently Delete a Student from Cloud Database & Local Storage
+  const handleDeleteStudent = async (studentId) => {
+    const st = enrolledStudents.find(item => item.id === studentId);
+    if (!st) return;
+
+    if (!confirm(`Are you sure you want to permanently delete "${st.name}" from the student database and cloud?`)) {
+      return;
+    }
+
+    // 1. Filter out from enrolledStudents state & localStorage
+    const nextStudents = enrolledStudents.filter(item => item.id !== studentId);
+    setEnrolledStudents(nextStudents);
+    try {
+      localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+    } catch (e) {}
+
+    // 2. Resolve target orderId & mark as deleted to prevent resurrection
+    const targetOrderId = st.orderId || (st.id.startsWith('st-ord_') ? st.id.replace('st-', '') : (st.id.startsWith('ord_') ? st.id : null));
+    const targetTx = (accounting.transactions || []).find(t => 
+      t.orderId === targetOrderId || 
+      (t.studentPhone && isPhoneMatch(t.studentPhone, st.phone) && t.itemTitle === st.courseName) ||
+      (t.trxId && st.trxId && t.trxId !== 'PENDING' && t.trxId === st.trxId)
+    );
+    const resolvedOrderId = targetOrderId || targetTx?.orderId || (targetTx?.id?.startsWith('ord_') ? targetTx.id : (targetTx?.id?.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : null));
+
+    // Record in deleted list to prevent resurrection on refresh
+    try {
+      const deletedIds = new Set(JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]'));
+      if (resolvedOrderId) deletedIds.add(resolvedOrderId);
+      if (studentId) deletedIds.add(studentId);
+      if (targetTx?.id) deletedIds.add(targetTx.id);
+      localStorage.setItem('eh_deleted_orders', JSON.stringify(Array.from(deletedIds)));
+    } catch (e) {}
+
+    // 3. Delete from Supabase eduhunters_orders
+    if (isSupabaseConfigured && resolvedOrderId) {
+      deleteSupabaseOrder(resolvedOrderId).catch(e => console.warn('[AdminPanel] Supabase delete order note:', e));
+    }
+
+    // 4. Delete from Firestore orders
+    if (isFirebaseConfigured && db && resolvedOrderId) {
+      try {
+        deleteDoc(doc(db, 'orders', resolvedOrderId)).catch(() => {});
+      } catch (e) {}
+    }
+
+    // 5. Revoke course access for user profile
+    const rawPhone = (st.phone || '').replace(/[^0-9]/g, '');
+    const rawEmail = (st.email || '').trim().toLowerCase();
+    const matchedUser = usersList.find(u => {
+      const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+      const uEmail = (u.email || '').trim().toLowerCase();
+      return isPhoneMatch(rawPhone, uPhone) || (rawEmail && uEmail === rawEmail);
+    });
+    if (st.courseName) {
+      revokeCourseAccess(st.courseName, { bundles, courses }, matchedUser);
+    }
+
+    // 6. Delete from eh_user_orders_v3
+    try {
+      const rawOrders = localStorage.getItem('eh_user_orders_v3');
+      if (rawOrders) {
+        const ords = JSON.parse(rawOrders);
+        const filteredOrds = ords.filter(o => 
+          o.id !== resolvedOrderId && 
+          o.id !== studentId && 
+          !(isPhoneMatch(o.customer?.phone, st.phone) && (o.course?.name === st.courseName || o.items?.[0]?.title === st.courseName))
+        );
+        localStorage.setItem('eh_user_orders_v3', JSON.stringify(filteredOrds));
+      }
+    } catch (e) {}
+
+    // 7. Update accounting transactions
+    let updatedAccounting = accounting;
+    if (targetTx) {
+      const updatedTxs = (accounting.transactions || []).filter(t => t.id !== targetTx.id);
+      const isCompleted = targetTx.status === 'Completed';
+      const amt = Number(targetTx.amount) || Number(st.amount) || 0;
+      const diff = isCompleted ? -amt : 0;
+      const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + diff);
+      const newProfit = newRev - (Number(accounting.totalExpenses) || 0);
+
+      updatedAccounting = {
+        ...accounting,
+        totalRevenue: newRev,
+        netProfit: newProfit,
+        totalOrders: Math.max(0, (accounting.totalOrders || 1) - 1),
+        transactions: updatedTxs
+      };
+      setAccounting(updatedAccounting);
+    }
+
+    // 8. Persist all
+    persistAll({
+      accounting: updatedAccounting,
+      enrolledStudents: nextStudents
+    });
+
+    triggerToast(`🗑️ ${st.name} permanently removed from cloud database & student list`);
   };
 
   // Save Inline Amount for Transaction
@@ -5074,11 +5301,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 <div className="flex items-center justify-between gap-2 pt-0.5 flex-wrap">
                                   <button
                                     type="button"
-                                    onClick={() => {
-                                      setEnrolledStudents(prev => prev.map(item => item.id === st.id ? { ...item, status: item.status === 'Active' ? 'Pending' : 'Active' } : item));
-                                      triggerToast(`Status updated for ${st.name}`);
-                                    }}
-                                    title="Click to toggle status"
+                                    onClick={() => handleToggleStudentStatus(st.id)}
+                                    title="Click to toggle status (Active <-> Pending)"
                                     className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold border cursor-pointer transition-all ${
                                       st.status === 'Active' 
                                         ? 'text-emerald-700 bg-emerald-50 border-emerald-200/80 hover:bg-emerald-100' 
@@ -5111,13 +5335,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     </button>
                                     <button 
                                       type="button" 
-                                      onClick={() => {
-                                        if (confirm(`Are you sure you want to remove ${st.name} from the student database?`)) {
-                                          setEnrolledStudents(prev => prev.filter(item => item.id !== st.id));
-                                          triggerToast(`🗑️ ${st.name} removed from student list`);
-                                        }
-                                      }}
-                                      title="Delete Student"
+                                      onClick={() => handleDeleteStudent(st.id)}
+                                      title="Permanently Delete Student"
                                       className="p-1.5 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-xl border border-slate-200 transition-colors cursor-pointer bg-white"
                                     >
                                       <Trash2 className="w-3.5 h-3.5" />
@@ -5179,11 +5398,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     <td className="py-3 px-3">
                                       <button
                                         type="button"
-                                        onClick={() => {
-                                          setEnrolledStudents(prev => prev.map(item => item.id === st.id ? { ...item, status: item.status === 'Active' ? 'Pending' : 'Active' } : item));
-                                          triggerToast(`Status updated for ${st.name}`);
-                                        }}
-                                        title="Click to toggle status"
+                                        onClick={() => handleToggleStudentStatus(st.id)}
+                                        title="Click to toggle status (Active <-> Pending)"
                                         className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold border cursor-pointer transition-all ${
                                           st.status === 'Active' 
                                             ? 'text-emerald-700 bg-emerald-50 border-emerald-200/80 hover:bg-emerald-100' 
@@ -5217,13 +5433,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                         </button>
                                         <button 
                                           type="button" 
-                                          onClick={() => {
-                                            if (confirm(`Are you sure you want to remove ${st.name} from the student database?`)) {
-                                              setEnrolledStudents(prev => prev.filter(item => item.id !== st.id));
-                                              triggerToast(`🗑️ ${st.name} removed from student list`);
-                                            }
-                                          }}
-                                          title="Delete Student"
+                                          onClick={() => handleDeleteStudent(st.id)}
+                                          title="Permanently Delete Student"
                                           className="p-1.5 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer border-none bg-transparent"
                                         >
                                           <Trash2 className="w-3.5 h-3.5" />
@@ -10590,7 +10801,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 }
 
                 if (editingStudentId) {
-                  setEnrolledStudents(prev => prev.map(st => {
+                  const existingSt = enrolledStudents.find(s => s.id === editingStudentId);
+                  const updatedStudents = enrolledStudents.map(st => {
                     if (st.id === editingStudentId) {
                       return {
                         ...st,
@@ -10603,12 +10815,47 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       };
                     }
                     return st;
-                  }));
-                  triggerToast(`✅ Student info updated for ${newStudentData.name}!`);
+                  });
+                  setEnrolledStudents(updatedStudents);
+                  try {
+                    localStorage.setItem('eh_enrolled_students', JSON.stringify(updatedStudents));
+                  } catch (e) {}
+
+                  // Update cloud databases
+                  const targetOrderId = existingSt?.orderId || (editingStudentId.startsWith('st-ord_') ? editingStudentId.replace('st-', '') : null);
+                  if (targetOrderId) {
+                    if (isSupabaseConfigured) {
+                      updateSupabaseOrderStatus(targetOrderId, {
+                        customer_name: newStudentData.name.trim(),
+                        customer_phone: newStudentData.phone.trim(),
+                        customer_email: newStudentData.email.trim(),
+                        course_name: newStudentData.courseName,
+                        status: newStudentData.status === 'Active' ? 'PAID' : 'PENDING',
+                        is_approved: newStudentData.status === 'Active'
+                      }).catch(() => {});
+                    }
+                    if (isFirebaseConfigured && db) {
+                      setDoc(doc(db, 'orders', targetOrderId), {
+                        customer: { name: newStudentData.name.trim(), phone: newStudentData.phone.trim(), email: newStudentData.email.trim() },
+                        course: { name: newStudentData.courseName },
+                        status: newStudentData.status === 'Active' ? 'PAID' : 'PENDING',
+                        isApproved: newStudentData.status === 'Active'
+                      }, { merge: true }).catch(() => {});
+                    }
+                  }
+
+                  if (newStudentData.status === 'Active') {
+                    grantCourseAccess(newStudentData.courseName, { bundles, courses }, { name: newStudentData.name, phone: newStudentData.phone, email: newStudentData.email });
+                  }
+
+                  persistAll({ enrolledStudents: updatedStudents });
+                  triggerToast(`✅ Student info updated & synced for ${newStudentData.name}!`);
                 } else {
                   const newIdNumber = Math.floor(100 + Math.random() * 900);
+                  const newOrderId = `ord_manual_${Date.now()}`;
                   const newEntry = {
                     id: `st-${Date.now()}`,
+                    orderId: newOrderId,
                     name: newStudentData.name.trim(),
                     studentId: `EH-2026-${newIdNumber}`,
                     batch: newStudentData.batch,
@@ -10617,10 +10864,59 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     email: newStudentData.email.trim() || `student${newIdNumber}@eduhunters.com`,
                     avatar: `https://images.unsplash.com/photo-${1534528741775 + Math.floor(Math.random() * 1000)}?w=100&auto=format&fit=crop&q=80`,
                     status: newStudentData.status || 'Active',
-                    joinedDate: 'Today'
+                    joinedDate: 'Today',
+                    amount: 0,
+                    trxId: `MANUAL-${Date.now()}`,
+                    paymentMethod: 'Manual Enrollment'
                   };
-                  setEnrolledStudents([newEntry, ...enrolledStudents]);
-                  triggerToast(`🎉 Student "${newEntry.name}" enrolled successfully!`);
+
+                  const updatedStudents = [newEntry, ...enrolledStudents];
+                  setEnrolledStudents(updatedStudents);
+                  try {
+                    localStorage.setItem('eh_enrolled_students', JSON.stringify(updatedStudents));
+                  } catch (e) {}
+
+                  // Save to Supabase
+                  if (isSupabaseConfigured) {
+                    saveSupabaseOrder({
+                      id: newOrderId,
+                      invoice_number: `INV-MANUAL-${Math.floor(100000 + Math.random() * 900000)}`,
+                      customer_name: newStudentData.name.trim(),
+                      customer_phone: newStudentData.phone.trim(),
+                      customer_email: newEntry.email,
+                      course_name: newStudentData.courseName,
+                      course_slug: '',
+                      amount: 0,
+                      payment_method: 'Manual Enrollment',
+                      trx_id: newEntry.trxId,
+                      status: newEntry.status === 'Active' ? 'PAID' : 'PENDING',
+                      is_approved: newEntry.status === 'Active',
+                      raw_data: { ...newEntry, orderId: newOrderId, isApproved: newEntry.status === 'Active' }
+                    }).catch(() => {});
+                  }
+
+                  // Save to Firestore
+                  if (isFirebaseConfigured && db) {
+                    setDoc(doc(db, 'orders', newOrderId), {
+                      id: newOrderId,
+                      invoiceNumber: `INV-MANUAL-${Math.floor(100000 + Math.random() * 900000)}`,
+                      customer: { name: newStudentData.name.trim(), phone: newStudentData.phone.trim(), email: newEntry.email },
+                      course: { name: newStudentData.courseName },
+                      totalPaid: 0,
+                      paymentMethodName: 'Manual Enrollment',
+                      transactionId: newEntry.trxId,
+                      status: newEntry.status === 'Active' ? 'PAID' : 'PENDING',
+                      isApproved: newEntry.status === 'Active',
+                      createdAt: new Date().toISOString()
+                    }, { merge: true }).catch(() => {});
+                  }
+
+                  if (newEntry.status === 'Active') {
+                    grantCourseAccess(newStudentData.courseName, { bundles, courses }, { name: newStudentData.name, phone: newStudentData.phone, email: newStudentData.email });
+                  }
+
+                  persistAll({ enrolledStudents: updatedStudents });
+                  triggerToast(`🎉 Student "${newEntry.name}" permanently enrolled & synced!`);
                 }
 
                 setShowAddStudentModal(false);
