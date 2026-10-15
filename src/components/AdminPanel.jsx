@@ -149,6 +149,34 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     }
   }, [data?.courses]);
 
+  useEffect(() => {
+    if (data?.siteSettings) setSiteSettings(data.siteSettings);
+  }, [data?.siteSettings]);
+
+  useEffect(() => {
+    if (data?.sectionTexts) setSectionTexts(data.sectionTexts);
+  }, [data?.sectionTexts]);
+
+  useEffect(() => {
+    if (data?.announcement !== undefined) setAnnouncement(data.announcement);
+  }, [data?.announcement]);
+
+  useEffect(() => {
+    if (Array.isArray(data?.heroSlides) && data.heroSlides.length > 0) setHeroSlides(data.heroSlides);
+  }, [data?.heroSlides]);
+
+  useEffect(() => {
+    if (Array.isArray(data?.bundles) && data.bundles.length > 0) setBundles(data.bundles);
+  }, [data?.bundles]);
+
+  useEffect(() => {
+    if (Array.isArray(data?.instructors) && data.instructors.length > 0) setInstructors(data.instructors);
+  }, [data?.instructors]);
+
+  useEffect(() => {
+    if (Array.isArray(data?.whyChooseUs) && data.whyChooseUs.length > 0) setWhyChooseUs(data.whyChooseUs);
+  }, [data?.whyChooseUs]);
+
   const [categories, setCategories] = useState(() => {
     const raw = Array.isArray(data?.categories) 
       ? data.categories 
@@ -1414,12 +1442,20 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   }));
 
   const handleUpdateSiteSetting = (field, value) => {
-    setSiteSettings(prev => ({ ...prev, [field]: value }));
+    setSiteSettings(prev => {
+      const next = { ...prev, [field]: value };
+      persistAll({ siteSettings: next });
+      return next;
+    });
     setHasUnsavedChanges(true);
   };
 
   const handleUpdateSectionText = (key, value) => {
-    setSectionTexts(prev => ({ ...prev, [key]: value }));
+    setSectionTexts(prev => {
+      const next = { ...prev, [key]: value };
+      persistAll({ sectionTexts: next });
+      return next;
+    });
     setHasUnsavedChanges(true);
   };
 
@@ -8213,11 +8249,22 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     Directly manage bKash, Nagad, WhatsApp, support hotline, and email. Changes sync live instantly across the website without redeployment.
                   </p>
                 </div>
-                <div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-2xs">
+                <div className="flex items-center gap-2.5">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-2xs">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     Live Sync Active
                   </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      persistAll({ siteSettings, sectionTexts });
+                      triggerToast('✅ All settings & payment accounts saved live!');
+                    }}
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white text-xs font-black border-none cursor-pointer shadow-sm shadow-emerald-600/20 flex items-center gap-1.5 transition-all active:scale-95"
+                  >
+                    <Save className="w-4 h-4" />
+                    <span>Save All Settings</span>
+                  </button>
                 </div>
               </div>
 

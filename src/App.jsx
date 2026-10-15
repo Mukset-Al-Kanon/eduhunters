@@ -594,8 +594,8 @@ export default function App() {
       const localTime = prev._lastUpdated ? new Date(prev._lastUpdated).getTime() : 0;
       const cloudTime = cloudData._lastUpdated ? new Date(cloudData._lastUpdated).getTime() : 0;
 
-      // If local state has newer edits than cloudData, preserve local without writing back in a loop
-      if (localTime > cloudTime && localTime > 0) {
+      // If local state has newer or equal edits than cloudData, preserve local without writing back in a loop
+      if (localTime >= cloudTime && localTime > 0) {
         return prev;
       }
 
@@ -640,21 +640,26 @@ export default function App() {
       return merged;
     };
 
-    // 1. Proactive Initial Fetches on Mount: Supabase (Primary zero-quota DB) + Firestore (Fallback)
+    // 1. Proactive Initial Fetch on Mount: Supabase (Primary authoritative DB)
     fetchSupabaseSiteData().then(cloudData => {
       if (cloudData) {
         setData(prev => mergeCloudWithLocal(prev, cloudData));
+      } else {
+        // Fallback to Firestore ONLY if Supabase returned nothing
+        fetchCloudData().then(fallbackData => {
+          if (fallbackData) {
+            setData(prev => mergeCloudWithLocal(prev, fallbackData));
+          }
+        }).catch(() => {});
       }
     }).catch(err => {
       console.warn('[App] Proactive Supabase site data fetch note:', err);
-    });
-
-    fetchCloudData().then(cloudData => {
-      if (cloudData) {
-        setData(prev => mergeCloudWithLocal(prev, cloudData));
-      }
-    }).catch(err => {
-      console.warn('[App] Proactive Firestore site data fetch note:', err);
+      // Fallback to Firestore on Supabase network failure
+      fetchCloudData().then(fallbackData => {
+        if (fallbackData) {
+          setData(prev => mergeCloudWithLocal(prev, fallbackData));
+        }
+      }).catch(() => {});
     });
 
     // 2. Supabase Realtime subscription (Instant sync for hero slider, courses, new classes, etc.)
