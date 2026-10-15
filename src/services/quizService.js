@@ -109,6 +109,8 @@ export function checkQuizLiveStatus(quiz) {
   };
 }
 
+let isQuizTableMissing = false;
+
 /**
  * Fetch all raw submissions from Supabase and LocalStorage (fault-tolerant multi-tier)
  */
@@ -116,7 +118,7 @@ export async function fetchAllSubmissions() {
   const allMap = new Map();
 
   // 1. Fetch from eduhunters_quiz_submissions table if available
-  if (isSupabaseConfigured && supabase) {
+  if (isSupabaseConfigured && supabase && !isQuizTableMissing) {
     try {
       const { data, error } = await supabase
         .from('eduhunters_quiz_submissions')
@@ -128,6 +130,8 @@ export async function fetchAllSubmissions() {
             allMap.set(item.id, item);
           }
         });
+      } else if (error && (error.code === 'PGRST205' || error.message?.includes('schema cache'))) {
+        isQuizTableMissing = true;
       }
     } catch (e) {
       console.warn('[QuizService] Table fetch error:', e);
@@ -139,7 +143,7 @@ export async function fetchAllSubmissions() {
         .from('eduhunters_site')
         .select('data')
         .eq('id', 'quiz_submissions')
-        .single();
+        .maybeSingle();
 
       if (!error && data?.data?.submissions && Array.isArray(data.data.submissions)) {
         data.data.submissions.forEach(item => {
@@ -244,17 +248,22 @@ export async function recordQuizSubmission({
 
   // 2. Save to Supabase
   if (isSupabaseConfigured && supabase) {
-    try {
-      // 2a. Attempt insert into dedicated table
-      const { error: tblError } = await supabase
-        .from('eduhunters_quiz_submissions')
-        .insert([submissionPayload]);
+    if (!isQuizTableMissing) {
+      try {
+        // 2a. Attempt insert into dedicated table
+        const { error: tblError } = await supabase
+          .from('eduhunters_quiz_submissions')
+          .insert([submissionPayload]);
 
-      if (tblError) {
-        console.warn('[QuizService] Table insert notice:', tblError.message);
+        if (tblError) {
+          if (tblError.code === 'PGRST205' || tblError.message?.includes('schema cache')) {
+            isQuizTableMissing = true;
+          }
+          console.warn('[QuizService] Table insert notice:', tblError.message);
+        }
+      } catch (e) {
+        console.warn('[QuizService] Network error submitting to Supabase table:', e);
       }
-    } catch (e) {
-      console.warn('[QuizService] Network error submitting to Supabase table:', e);
     }
 
     try {
@@ -263,7 +272,7 @@ export async function recordQuizSubmission({
         .from('eduhunters_site')
         .select('data')
         .eq('id', 'quiz_submissions')
-        .single();
+        .maybeSingle();
 
       const existingSubs = Array.isArray(siteRow?.data?.submissions) ? siteRow.data.submissions : [];
       const updatedSubs = [

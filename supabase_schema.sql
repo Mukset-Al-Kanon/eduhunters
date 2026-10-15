@@ -1,9 +1,10 @@
 -- ==============================================================================
--- EduHunters Supabase Database Schema
--- Run this complete script in your Supabase SQL Editor (https://supabase.com/dashboard/project/_/sql)
+-- EduHunters Supabase Database Schema (Idempotent & Production-Ready)
+-- Run this complete script in your Supabase SQL Editor:
+-- https://supabase.com/dashboard/project/prblcytpdlfgvransoqr/sql/new
 -- ==============================================================================
 
--- 1. ORDERS TABLE (Student Course Enrollments, Transactions & Approvals)
+-- 1. ORDERS TABLE (Course Enrollments, Transactions & Approvals)
 create table if not exists public.eduhunters_orders (
   id text primary key,
   invoice_number text,
@@ -70,7 +71,7 @@ create table if not exists public.eduhunters_quiz_submissions (
 );
 
 -- ==============================================================================
--- ROW LEVEL SECURITY (RLS) - PUBLIC ACCESS FOR CLIENT APP
+-- ROW LEVEL SECURITY (RLS) - PERMISSIVE PUBLIC POLICIES FOR WEB CLIENT
 -- ==============================================================================
 
 alter table public.eduhunters_orders enable row level security;
@@ -94,10 +95,47 @@ create policy "Allow public access to eduhunters_quiz_submissions"
   on public.eduhunters_quiz_submissions for all using (true) with check (true);
 
 -- ==============================================================================
--- ENABLE SUPABASE REALTIME REPLICATION (Instant Real-time push to Admin Panel)
+-- REPLICA IDENTITY (Required for Supabase Realtime UPDATE/DELETE payloads)
+-- Fixes "table does not have replica identity full" warnings/errors in Realtime
 -- ==============================================================================
 
-alter publication supabase_realtime add table public.eduhunters_orders;
-alter publication supabase_realtime add table public.eduhunters_users;
-alter publication supabase_realtime add table public.eduhunters_site;
-alter publication supabase_realtime add table public.eduhunters_quiz_submissions;
+alter table public.eduhunters_orders replica identity full;
+alter table public.eduhunters_users replica identity full;
+alter table public.eduhunters_site replica identity full;
+alter table public.eduhunters_quiz_submissions replica identity full;
+
+-- ==============================================================================
+-- SAFE IDEMPOTENT SUPABASE REALTIME PUBLICATION
+-- Only adds tables if not already in the publication (prevents abort errors)
+-- ==============================================================================
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_publication_tables 
+    where pubname = 'supabase_realtime' and tablename = 'eduhunters_orders'
+  ) then
+    alter publication supabase_realtime add table public.eduhunters_orders;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables 
+    where pubname = 'supabase_realtime' and tablename = 'eduhunters_users'
+  ) then
+    alter publication supabase_realtime add table public.eduhunters_users;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables 
+    where pubname = 'supabase_realtime' and tablename = 'eduhunters_site'
+  ) then
+    alter publication supabase_realtime add table public.eduhunters_site;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables 
+    where pubname = 'supabase_realtime' and tablename = 'eduhunters_quiz_submissions'
+  ) then
+    alter publication supabase_realtime add table public.eduhunters_quiz_submissions;
+  end if;
+end $$;

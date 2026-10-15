@@ -92,7 +92,7 @@ export async function saveSupabaseOrder(order) {
       .from('eduhunters_orders')
       .upsert(payload, { onConflict: 'id' })
       .select()
-      .single();
+      .maybeSingle();
 
     if (error) {
       console.warn('[Supabase] Failed to save order:', error.message);
@@ -290,8 +290,9 @@ export function subscribeToSupabaseOrders(onOrderChange) {
   });
 
   // 2. PostgreSQL CDC listener
+  const channelId = `eduhunters_orders_cdc_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
   const channel = supabase
-    .channel('eduhunters_orders_cdc')
+    .channel(channelId)
     .on(
       'postgres_changes',
       { event: '*', schema: 'public', table: 'eduhunters_orders' },
@@ -507,7 +508,7 @@ export async function fetchSupabaseSiteData() {
       .from('eduhunters_site')
       .select('data')
       .eq('id', 'main_data')
-      .single();
+      .maybeSingle();
 
     if (error) {
       if (error.code !== 'PGRST116') {
@@ -536,8 +537,9 @@ export function subscribeToSupabaseSiteData(onUpdate) {
   });
 
   // 2. PostgreSQL CDC listener
+  const channelId = `eduhunters_site_cdc_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
   const channel = supabase
-    .channel('eduhunters_site_cdc')
+    .channel(channelId)
     .on(
       'postgres_changes',
       { event: '*', schema: 'public', table: 'eduhunters_site', filter: 'id=eq.main_data' },
@@ -722,8 +724,9 @@ export function subscribeToSupabaseUsers(onUserChange) {
   });
 
   // 2. PostgreSQL CDC listener
+  const channelId = `eduhunters_users_cdc_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
   const channel = supabase
-    .channel('eduhunters_users_cdc')
+    .channel(channelId)
     .on(
       'postgres_changes',
       { event: '*', schema: 'public', table: 'eduhunters_users' },
