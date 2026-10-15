@@ -589,6 +589,7 @@ export default function SureShotExamSystem({
 
   const timerRef = useRef(null);
   const questionRefs = useRef({});
+  const examStartTimeRef = useRef(null);
 
   // Keep state synchronized whenever initialExam is passed or changes
   useEffect(() => {
@@ -816,7 +817,7 @@ export default function SureShotExamSystem({
           let safeDataNeg = typeof rawDataNeg === 'string' 
             ? parseFloat(rawDataNeg.replace(/[০-৯]/g, d => ({ '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' })[d]))
             : Number(rawDataNeg);
-          if (isNaN(safeDataNeg) || safeDataNeg <= 0) safeDataNeg = 0.25;
+          if (isNaN(safeDataNeg) || safeDataNeg < 0) safeDataNeg = 0;
           if (safeDataNeg >= 1) safeDataNeg = safeDataNeg / 100;
 
           const freshData = {
@@ -891,6 +892,7 @@ export default function SureShotExamSystem({
     setExamResult(null);
     const activeDur = customDurationMins || examData?.duration_minutes || selectedExamMeta?.durationMinutes || 40;
     setTimeLeft(activeDur * 60);
+    examStartTimeRef.current = Date.now();
     updateExamStep('exam_live', selectedCategory, selectedExamMeta?.id);
   };
 
@@ -974,9 +976,10 @@ export default function SureShotExamSystem({
 
     examData.questions.forEach(q => {
       const selected = userAnswers[q.id];
-      if (selected === undefined) {
+      const targetCorrect = q.correct_index !== undefined ? q.correct_index : (q.correctIndex !== undefined ? q.correctIndex : q.answer);
+      if (selected === undefined || selected === null) {
         skipped++;
-      } else if (selected === q.correct_index) {
+      } else if (Number(selected) === Number(targetCorrect)) {
         correct++;
       } else {
         wrong++;
@@ -987,7 +990,7 @@ export default function SureShotExamSystem({
     let parsedNeg = typeof rawNegVal === 'string' 
       ? parseFloat(rawNegVal.replace(/[০-৯]/g, d => ({ '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' })[d]))
       : Number(rawNegVal);
-    if (isNaN(parsedNeg) || parsedNeg <= 0) parsedNeg = 0.25;
+    if (isNaN(parsedNeg) || parsedNeg < 0) parsedNeg = 0;
     if (parsedNeg >= 1) parsedNeg = parsedNeg / 100; // e.g. 25 becomes 0.25
 
     const negPerWrong = parsedNeg;
@@ -999,6 +1002,12 @@ export default function SureShotExamSystem({
     const percentage = Math.max(0, Math.round((score / examData.questions.length) * 100));
     const isPassed = score >= passMarks;
 
+    const activeDur = customDurationMins || examData?.duration_minutes || selectedExamMeta?.durationMinutes || 40;
+    const totalDurationSecs = activeDur * 60;
+    const elapsedSecs = examStartTimeRef.current
+      ? Math.min(totalDurationSecs, Math.max(1, Math.round((Date.now() - examStartTimeRef.current) / 1000)))
+      : Math.max(1, totalDurationSecs - (timeLeft || 0));
+
     const resultObj = {
       examId: selectedExamMeta?.id || examData?.exam_id || Date.now().toString(),
       title: examData.title,
@@ -1007,6 +1016,7 @@ export default function SureShotExamSystem({
       subject: examData.subject,
       date: new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
       totalQuestions: examData.questions.length,
+      totalPossible: examData.total_marks || examData.questions.length,
       correct,
       wrong,
       skipped,
@@ -1016,6 +1026,8 @@ export default function SureShotExamSystem({
       secondTimerPenalty,
       totalPenalty,
       finalScore: score,
+      score: score,
+      timeTakenSeconds: elapsedSecs,
       percentage,
       isPassed,
       userAnswers: { ...userAnswers },

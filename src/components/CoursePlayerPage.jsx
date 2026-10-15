@@ -492,7 +492,8 @@ export default function CoursePlayerPage({
                 wrongCount: result.wrong,
                 skippedCount: result.skipped,
                 totalQuestions: result.totalQuestions,
-                percentage: result.percentage
+                percentage: result.percentage,
+                timeTakenSeconds: result.timeTakenSeconds || 0
               };
               setSavedLessonScores(prev => {
                 const updated = {

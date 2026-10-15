@@ -118,13 +118,21 @@ function RosetteBadge({ rank }) {
 // 2. TOKEN PILL (Points number)
 // Clean marks pill without any "T" icon as requested
 // ============================================================================
+export function formatScoreNumber(points) {
+  if (points === undefined || points === null || points === '--') return '--';
+  const num = Number(points);
+  if (isNaN(num)) return points;
+  return Number.isInteger(num) ? num : +(num.toFixed(2));
+}
+
 function TokenPill({ points, size = 'sm' }) {
   const isLarge = size === 'lg';
+  const formatted = formatScoreNumber(points);
   return (
     <div className={`inline-flex items-center justify-center rounded-full bg-[#270811]/95 border border-[#e11438]/40 shadow-[0_3px_10px_rgba(0,0,0,0.6)] text-white font-mono font-bold select-none ${
       isLarge ? 'px-3.5 py-0.5 text-xs' : 'px-3 py-0.5 text-[11px]'
     }`}>
-      <span className="tracking-tight text-white/95">{points}</span>
+      <span className="tracking-tight text-white/95">{formatted}</span>
     </div>
   );
 }
@@ -627,259 +635,266 @@ export default function LeaderboardPage({
       {/* Main Content Area */}
       <main className="w-full max-w-md sm:max-w-lg mx-auto px-3 sm:px-6 pb-20 relative z-10 flex flex-col min-h-screen">
         
-        {/* ========================================================================= */}
-        {/* 3. 100% WIDE OPEN SPACIOUS BREATHING SPACE (ফুল ফাঁকা ও অ্যাম্বিয়েন্ট গ্লো)  */}
-        {/* The horizontal slider is completely removed as requested by the user.     */}
-        {/* Avatars float high in this majestic open negative space!                  */}
-        {/* ========================================================================= */}
-        <div className="pt-16 sm:pt-20 pb-0 relative w-full">
-          
-          {/* Ground Soft Cast Ambient Shadow underneath the podium base */}
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[94%] h-16 bg-black/95 rounded-full blur-2xl pointer-events-none z-0" />
-
-          {/* Unified 3-Column Podium Stage */}
-          <div className="relative flex items-end justify-center w-full max-w-[360px] sm:max-w-[420px] mx-auto z-10">
-            
-            {/* ------------------------------------------------------ */}
-            {/* RANK 2 (SILVER - LEFT BLOCK) */}
-            {/* ------------------------------------------------------ */}
-            <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -mr-1">
-              
-              {/* Floating Avatar 2 */}
-              <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
-                <div className="relative group shrink-0">
-                  {/* Floating Elevation Shadow */}
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black/85 rounded-full blur-[3px]" />
-                  
-                  {/* Avatar Circle with Crisp White Rim */}
-                  <img 
-                    src={rank2?.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80'} 
-                    alt={rank2?.student_name || 'Rank 2'}
-                    className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] rounded-full object-cover border-[2.5px] border-white shadow-[0_10px_22px_rgba(0,0,0,0.7)] relative z-10 shrink-0"
-                    onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                  />
-                </div>
-
-                {/* Username */}
-                <span className="text-[11px] sm:text-xs font-semibold text-white/90 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                  {rank2?.student_username || rank2?.student_name?.split(' ')[0] || 'examinee'}
-                </span>
-
-                {/* Marks Pill */}
-                <div className="mt-1">
-                  <TokenPill points={viewMode === 'overall' ? (rank2?.total_score || 0) : (rank2?.score || 0)} />
-                </div>
-              </div>
-
-              {/* 3D Pillar #2 (Medium Height) */}
-              <div className="w-full flex flex-col items-center relative">
-                
-                {/* 3D Top Face Cap (Clean, full-width illuminated slab) */}
-                <div className="w-full h-8 sm:h-9 bg-gradient-to-b from-[#3a0e1a] via-[#260811] to-[#17040b] border-t border-l border-white/20 shadow-inner relative z-10">
-                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
-                </div>
-
-                {/* 3D Front Vertical Face with Monolithic Shading */}
-                <div className="w-full h-36 sm:h-40 bg-gradient-to-b from-[#1e060d] via-[#110207] to-[#070103] border-l border-b border-white/10 pt-5 sm:pt-6 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_10px_20px_rgba(0,0,0,0.6)]">
-                  {/* Subtle Top Specular Edge Line */}
-                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-
-                  {/* Chiseled Embossed Numeral 2 (Clean watermark engraved into stone) */}
-                  <span 
-                    className="font-black text-5xl sm:text-6xl select-none leading-none"
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.09)',
-                      textShadow: '0 2px 4px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.1)'
-                    }}
-                  >
-                    2
-                  </span>
-                </div>
-              </div>
-
-            </div>
-
-            {/* ------------------------------------------------------ */}
-            {/* RANK 1 (GOLD - CENTER - TALLEST & PROTRUDING FORWARD) */}
-            {/* ------------------------------------------------------ */}
-            <div className="w-[36%] min-w-0 flex flex-col items-center relative z-20">
-              
-              {/* Floating Avatar 1 (Highest elevation & largest) */}
-              <div className="flex flex-col items-center mb-3.5 animate-in fade-in duration-300 w-full">
-                <div className="relative group shrink-0">
-                  {/* Floating Elevation Shadow */}
-                  <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-black/90 rounded-full blur-[4px]" />
-
-                  {/* Avatar Circle with Crisp White Rim */}
-                  <img 
-                    src={rank1?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'} 
-                    alt={rank1?.student_name || 'Rank 1'}
-                    className="w-[74px] h-[74px] sm:w-[84px] sm:h-[84px] rounded-full object-cover border-[3px] border-white shadow-[0_12px_28px_rgba(245,158,11,0.4)] relative z-10 shrink-0"
-                    onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                  />
-                </div>
-
-                {/* Username */}
-                <span className="text-xs sm:text-sm font-bold text-white truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                  {rank1?.student_username || rank1?.student_name?.split(' ')[0] || 'examinee'}
-                </span>
-
-                {/* Marks Pill (Slightly larger for #1) */}
-                <div className="mt-1">
-                  <TokenPill points={viewMode === 'overall' ? (rank1?.total_score || 0) : (rank1?.score || 0)} size="lg" />
-                </div>
-              </div>
-
-              {/* 3D Pillar #1 (Tallest Center Block with Drop Shadows on both sides) */}
-              <div className="w-full flex flex-col items-center relative z-20 shadow-[-16px_0_35px_rgba(0,0,0,0.92),16px_0_35px_rgba(0,0,0,0.92)]">
-                
-                {/* 3D Top Face Cap (Clean, full-width illuminated slab - perfectly flush with front face) */}
-                <div className="w-full h-9 sm:h-10 bg-gradient-to-b from-[#551425] via-[#380c19] to-[#22050f] border-t border-x border-white/25 shadow-inner relative z-10">
-                  {/* Top Specular Rim */}
-                  <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-white/15 via-white/45 to-white/15" />
-                </div>
-
-                {/* 3D Front Vertical Face with Monolithic Shading */}
-                <div className="w-full h-48 sm:h-56 bg-gradient-to-b from-[#270610] via-[#150209] to-[#080104] border-x border-b border-white/15 pt-6 sm:pt-8 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_12px_24px_rgba(0,0,0,0.7)]">
-                  {/* Subtle Top Specular Edge Line */}
-                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent" />
-
-                  {/* Chiseled Embossed Numeral 1 (Clean watermark engraved into stone) */}
-                  <span 
-                    className="font-black text-6xl sm:text-7xl select-none leading-none"
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.12)',
-                      textShadow: '0 3px 6px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.15)'
-                    }}
-                  >
-                    1
-                  </span>
-                </div>
-              </div>
-
-            </div>
-
-            {/* ------------------------------------------------------ */}
-            {/* RANK 3 (BRONZE - RIGHT BLOCK) */}
-            {/* ------------------------------------------------------ */}
-            <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -ml-1">
-              
-              {/* Floating Avatar 3 */}
-              <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
-                <div className="relative group shrink-0">
-                  {/* Floating Elevation Shadow */}
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-black/85 rounded-full blur-[3px]" />
-
-                  {/* Avatar Circle with Crisp White Rim */}
-                  <img 
-                    src={rank3?.avatar || 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80'} 
-                    alt={rank3?.student_name || 'Rank 3'}
-                    className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] rounded-full object-cover border-[2.5px] border-white shadow-[0_10px_22px_rgba(0,0,0,0.7)] relative z-10 shrink-0"
-                    onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                  />
-                </div>
-
-                {/* Username */}
-                <span className="text-[11px] sm:text-xs font-semibold text-white/90 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                  {rank3?.student_username || rank3?.student_name?.split(' ')[0] || 'examinee'}
-                </span>
-
-                {/* Marks Pill */}
-                <div className="mt-1">
-                  <TokenPill points={viewMode === 'overall' ? (rank3?.total_score || 0) : (rank3?.score || 0)} />
-                </div>
-              </div>
-
-              {/* 3D Pillar #3 (Shortest Height) */}
-              <div className="w-full flex flex-col items-center relative">
-                
-                {/* 3D Top Face Cap (Clean, full-width illuminated slab) */}
-                <div className="w-full h-8 sm:h-9 bg-gradient-to-b from-[#3a0e1a] via-[#260811] to-[#17040b] border-t border-r border-white/20 shadow-inner relative z-10">
-                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
-                </div>
-
-                {/* 3D Front Vertical Face with Monolithic Shading */}
-                <div className="w-full h-28 sm:h-32 bg-gradient-to-b from-[#1e060d] via-[#110207] to-[#070103] border-r border-b border-white/10 pt-4 sm:pt-5 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_10px_20px_rgba(0,0,0,0.6)]">
-                  {/* Subtle Top Specular Edge Line */}
-                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-
-                  {/* Chiseled Embossed Numeral 3 (Clean watermark engraved into stone) */}
-                  <span 
-                    className="font-black text-4xl sm:text-5xl select-none leading-none"
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.09)',
-                      textShadow: '0 2px 4px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.1)'
-                    }}
-                  >
-                    3
-                  </span>
-                </div>
-              </div>
-
-            </div>
-
+        {/* Loading State */}
+        {isLoading ? (
+          <div className="pt-28 pb-20 flex flex-col items-center justify-center text-center">
+            <div className="w-12 h-12 rounded-full border-2 border-white/10 border-t-[#e11438] animate-spin mb-4" />
+            <span className="text-sm text-white/60 font-medium">লিডারবোর্ড তথ্য লোড হচ্ছে...</span>
           </div>
-        </div>
+        ) : filteredData.length === 0 ? (
+          /* Empty State when zero real submissions exist */
+          <div className="pt-24 pb-20 px-4 flex flex-col items-center justify-center text-center animate-in fade-in duration-300">
+            <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-[#e11438]/20 via-[#800a20]/20 to-amber-500/10 border border-[#e11438]/30 flex items-center justify-center mb-5 shadow-[0_0_35px_rgba(225,20,56,0.3)]">
+              <Trophy className="w-10 h-10 text-amber-400 drop-shadow-[0_0_12px_rgba(251,191,36,0.5)]" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
+              এখনও কোনো লিডারবোর্ড রেকর্ড নেই
+            </h3>
+            <p className="text-sm text-white/60 max-w-xs mb-7 leading-relaxed">
+              এই পরীক্ষা বা কোর্সে এখনও কোনো শিক্ষার্থী অংশ নেয়নি। পরীক্ষা দিয়ে প্রথম স্থান অধিকার করো!
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                if (onNavigateCourse) {
+                  onNavigateCourse(activeCourse?.id || activeCourse?.slug || selectedCourseId);
+                } else if (onNavigateExams) {
+                  onNavigateExams();
+                }
+              }}
+              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#e11438] to-[#ff3358] hover:from-[#c70f30] hover:to-[#e11438] text-white text-xs font-bold shadow-[0_0_25px_rgba(225,20,56,0.5)] transition-all cursor-pointer flex items-center gap-2 active:scale-95"
+            >
+              <Zap className="w-4 h-4 fill-white" />
+              <span>পরীক্ষায় অংশ নিন</span>
+            </button>
+          </div>
+        ) : (
+          /* Real Data Available: Render Clean 3D Podium and Examinee Sheet */
+          <>
+            <div className="pt-16 sm:pt-20 pb-0 relative w-full">
+              {/* Ground Soft Cast Ambient Shadow underneath the podium base */}
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[94%] h-16 bg-black/95 rounded-full blur-2xl pointer-events-none z-0" />
 
-        {/* ========================================================= */}
-        {/* 4. ROUNDED BOTTOM SHEET (Ranks 4+ and Search) */}
-        {/* Slides up and interlocks with the base of the podium */}
-        {/* ========================================================= */}
-        <div className="relative z-30 -mt-6 sm:-mt-8 rounded-t-[36px] sm:rounded-t-[42px] bg-gradient-to-b from-[#18040b] via-[#0e0206] to-[#070102] backdrop-blur-2xl border-t border-x border-white/10 pt-4 px-3 sm:px-6 pb-28 shadow-[0_-20px_50px_rgba(0,0,0,0.95)] flex-1">
-          
-          {/* Native Mobile Sheet Top Handle */}
-          <div className="w-10 h-1 bg-white/25 rounded-full mx-auto mb-4" />
-
-          {/* List of remaining examinees (Rank 4 to N) */}
-          <div className="divide-y divide-white/[0.04]">
-            {remainingList.length === 0 && (
-              <div className="py-10 text-center text-xs text-white/40">
-                {isLoading ? 'Loading participants...' : 'No other participants in this bracket.'}
-              </div>
-            )}
-
-            {remainingList.map((student, idx) => {
-              const rankNum = idx + 4;
-              const points = viewMode === 'overall' ? (student.total_score || 0) : (student.score || 0);
-
-              return (
-                <div
-                  key={student.student_id || idx}
-                  className="flex items-center justify-between gap-3 py-3 px-1 rounded-2xl hover:bg-white/[0.03] transition-colors"
-                >
-                  {/* Left: Rank, Profile Picture & Vertically Center-Aligned Name */}
-                  <div className="flex items-center gap-3 min-w-0">
-                    <span className="w-5 text-center text-sm font-semibold text-white/50 shrink-0">
-                      {rankNum}
-                    </span>
-
-                    <img 
-                      src={student.avatar || '/avatar.svg'} 
-                      alt={student.student_name}
-                      className="w-10 h-10 rounded-full object-cover border border-white/15 shadow-sm bg-white/5 shrink-0"
-                      onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                    />
-
-                    <h4 className="text-sm font-semibold text-white truncate leading-none tracking-tight">
-                      {student.student_username || student.student_name}
-                    </h4>
+              {/* Unified 3-Column Podium Stage */}
+              <div className="relative flex items-end justify-center w-full max-w-[360px] sm:max-w-[420px] mx-auto z-10">
+                
+                {/* ------------------------------------------------------ */}
+                {/* RANK 2 (SILVER - LEFT BLOCK) */}
+                {/* ------------------------------------------------------ */}
+                <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -mr-1">
+                  {/* Floating Avatar 2 */}
+                  <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
+                    {rank2 ? (
+                      <>
+                        <div className="relative group shrink-0">
+                          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black/85 rounded-full blur-[3px]" />
+                          <img 
+                            src={rank2.avatar || rank2.student_avatar || '/avatar.svg'} 
+                            alt={rank2.student_name || 'Rank 2'}
+                            className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] rounded-full object-cover border-[2.5px] border-white shadow-[0_10px_22px_rgba(0,0,0,0.7)] relative z-10 shrink-0"
+                            onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                          />
+                        </div>
+                        <span className="text-[11px] sm:text-xs font-semibold text-white/90 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
+                          {rank2.student_username || rank2.student_name?.split(' ')[0] || 'Student'}
+                        </span>
+                        <div className="mt-1">
+                          <TokenPill points={viewMode === 'overall' ? rank2.total_score : rank2.score} />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] rounded-full border-2 border-dashed border-white/20 flex items-center justify-center bg-white/[0.03] text-white/40">
+                          <span className="font-bold text-sm">২</span>
+                        </div>
+                        <span className="text-[10px] font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
+                          ২য় স্থান (খালি)
+                        </span>
+                        <div className="mt-1">
+                          <TokenPill points="--" />
+                        </div>
+                      </>
+                    )}
                   </div>
 
-                  {/* Right side: Marks on top, Time with seconds below (same font & color as 24m) */}
-                  <div className="text-right shrink-0">
-                    <span className="font-bold text-white text-sm block leading-tight">
-                      {points}
-                    </span>
-                    <span className="text-xs text-white/40 block leading-tight mt-0.5">
-                      {formatMinimalTime(viewMode === 'overall' ? student.total_time_seconds : student.time_taken_seconds)}
-                    </span>
+                  {/* 3D Pillar #2 (Medium Height) */}
+                  <div className="w-full flex flex-col items-center relative">
+                    <div className="w-full h-8 sm:h-9 bg-gradient-to-b from-[#3a0e1a] via-[#260811] to-[#17040b] border-t border-l border-white/20 shadow-inner relative z-10">
+                      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
+                    </div>
+                    <div className="w-full h-36 sm:h-40 bg-gradient-to-b from-[#1e060d] via-[#110207] to-[#070103] border-l border-b border-white/10 pt-5 sm:pt-6 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_10px_20px_rgba(0,0,0,0.6)]">
+                      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                      <span 
+                        className="font-black text-5xl sm:text-6xl select-none leading-none"
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.09)',
+                          textShadow: '0 2px 4px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.1)'
+                        }}
+                      >
+                        2
+                      </span>
+                    </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
 
-        </div>
+                {/* ------------------------------------------------------ */}
+                {/* RANK 1 (GOLD - CENTER - TALLEST & PROTRUDING FORWARD) */}
+                {/* ------------------------------------------------------ */}
+                <div className="w-[36%] min-w-0 flex flex-col items-center relative z-20">
+                  {/* Floating Avatar 1 */}
+                  <div className="flex flex-col items-center mb-3.5 animate-in fade-in duration-300 w-full">
+                    <div className="relative group shrink-0">
+                      <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-black/90 rounded-full blur-[4px]" />
+                      <img 
+                        src={rank1?.avatar || rank1?.student_avatar || '/avatar.svg'} 
+                        alt={rank1?.student_name || 'Rank 1'}
+                        className="w-[74px] h-[74px] sm:w-[84px] sm:h-[84px] rounded-full object-cover border-[3px] border-white shadow-[0_12px_28px_rgba(245,158,11,0.4)] relative z-10 shrink-0"
+                        onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                      />
+                    </div>
+                    <span className="text-xs sm:text-sm font-bold text-white truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
+                      {rank1?.student_username || rank1?.student_name?.split(' ')[0] || 'Champion'}
+                    </span>
+                    <div className="mt-1">
+                      <TokenPill points={viewMode === 'overall' ? rank1?.total_score : rank1?.score} size="lg" />
+                    </div>
+                  </div>
+
+                  {/* 3D Pillar #1 */}
+                  <div className="w-full flex flex-col items-center relative z-20 shadow-[-16px_0_35px_rgba(0,0,0,0.92),16px_0_35px_rgba(0,0,0,0.92)]">
+                    <div className="w-full h-9 sm:h-10 bg-gradient-to-b from-[#551425] via-[#380c19] to-[#22050f] border-t border-x border-white/25 shadow-inner relative z-10">
+                      <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-white/15 via-white/45 to-white/15" />
+                    </div>
+                    <div className="w-full h-48 sm:h-56 bg-gradient-to-b from-[#270610] via-[#150209] to-[#080104] border-x border-b border-white/15 pt-6 sm:pt-8 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_12px_24px_rgba(0,0,0,0.7)]">
+                      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent" />
+                      <span 
+                        className="font-black text-6xl sm:text-7xl select-none leading-none"
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.12)',
+                          textShadow: '0 3px 6px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.15)'
+                        }}
+                      >
+                        1
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ------------------------------------------------------ */}
+                {/* RANK 3 (BRONZE - RIGHT BLOCK) */}
+                {/* ------------------------------------------------------ */}
+                <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -ml-1">
+                  {/* Floating Avatar 3 */}
+                  <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
+                    {rank3 ? (
+                      <>
+                        <div className="relative group shrink-0">
+                          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-black/85 rounded-full blur-[3px]" />
+                          <img 
+                            src={rank3.avatar || rank3.student_avatar || '/avatar.svg'} 
+                            alt={rank3.student_name || 'Rank 3'}
+                            className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] rounded-full object-cover border-[2.5px] border-white shadow-[0_10px_22px_rgba(0,0,0,0.7)] relative z-10 shrink-0"
+                            onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                          />
+                        </div>
+                        <span className="text-[11px] sm:text-xs font-semibold text-white/90 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
+                          {rank3.student_username || rank3.student_name?.split(' ')[0] || 'Student'}
+                        </span>
+                        <div className="mt-1">
+                          <TokenPill points={viewMode === 'overall' ? rank3.total_score : rank3.score} />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] rounded-full border-2 border-dashed border-white/20 flex items-center justify-center bg-white/[0.03] text-white/40">
+                          <span className="font-bold text-sm">৩</span>
+                        </div>
+                        <span className="text-[10px] font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
+                          ৩য় স্থান (খালি)
+                        </span>
+                        <div className="mt-1">
+                          <TokenPill points="--" />
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {/* 3D Pillar #3 */}
+                  <div className="w-full flex flex-col items-center relative">
+                    <div className="w-full h-8 sm:h-9 bg-gradient-to-b from-[#3a0e1a] via-[#260811] to-[#17040b] border-t border-r border-white/20 shadow-inner relative z-10">
+                      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
+                    </div>
+                    <div className="w-full h-28 sm:h-32 bg-gradient-to-b from-[#1e060d] via-[#110207] to-[#070103] border-r border-b border-white/10 pt-4 sm:pt-5 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_10px_20px_rgba(0,0,0,0.6)]">
+                      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                      <span 
+                        className="font-black text-4xl sm:text-5xl select-none leading-none"
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.09)',
+                          textShadow: '0 2px 4px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.1)'
+                        }}
+                      >
+                        3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* 4. ROUNDED BOTTOM SHEET (Ranks 4+) */}
+            <div className="relative z-30 -mt-6 sm:-mt-8 rounded-t-[36px] sm:rounded-t-[42px] bg-gradient-to-b from-[#18040b] via-[#0e0206] to-[#070102] backdrop-blur-2xl border-t border-x border-white/10 pt-4 px-3 sm:px-6 pb-28 shadow-[0_-20px_50px_rgba(0,0,0,0.95)] flex-1">
+              <div className="w-10 h-1 bg-white/25 rounded-full mx-auto mb-4" />
+
+              <div className="divide-y divide-white/[0.04]">
+                {remainingList.length === 0 && (
+                  <div className="py-8 text-center text-xs text-white/40">
+                    শীর্ষ ৩ জন ব্যতীত আর কোনো প্রতিযোগী নেই।
+                  </div>
+                )}
+
+                {remainingList.map((student, idx) => {
+                  const rankNum = idx + 4;
+                  const rawPoints = viewMode === 'overall' ? (student.total_score || 0) : (student.score || 0);
+                  const points = formatScoreNumber(rawPoints);
+
+                  return (
+                    <div
+                      key={student.student_id || idx}
+                      className="flex items-center justify-between gap-3 py-3 px-1 rounded-2xl hover:bg-white/[0.03] transition-colors"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span className="w-5 text-center text-sm font-semibold text-white/50 shrink-0">
+                          {rankNum}
+                        </span>
+
+                        <img 
+                          src={student.avatar || student.student_avatar || '/avatar.svg'} 
+                          alt={student.student_name}
+                          className="w-10 h-10 rounded-full object-cover border border-white/15 shadow-sm bg-white/5 shrink-0"
+                          onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                        />
+
+                        <h4 className="text-sm font-semibold text-white truncate leading-none tracking-tight">
+                          {student.student_username || student.student_name}
+                        </h4>
+                      </div>
+
+                      <div className="text-right shrink-0">
+                        <span className="font-bold text-white text-sm block leading-tight">
+                          {points}
+                        </span>
+                        <span className="text-xs text-white/40 block leading-tight mt-0.5 font-mono">
+                          {formatMinimalTime(viewMode === 'overall' ? student.total_time_seconds : student.time_taken_seconds)}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        )}
 
       </main>
 
@@ -903,7 +918,7 @@ export default function LeaderboardPage({
 
             <div className="text-right shrink-0">
               <span className="font-mono font-black text-[#ff4d6d] text-sm block">
-                {viewMode === 'overall' ? userRankEntry.total_score : userRankEntry.score} pts
+                {formatScoreNumber(viewMode === 'overall' ? userRankEntry.total_score : userRankEntry.score)} pts
               </span>
               <span className="text-[10px] text-white/60 font-mono">
                 Accuracy: {userRankEntry.percentage}%
