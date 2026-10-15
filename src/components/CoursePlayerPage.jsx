@@ -26,6 +26,7 @@ import { useEnrollmentStatus } from '../utils/enrollmentService';
 import Navbar from './Navbar';
 import SureShotExamSystem from './SureShotExamSystem';
 import CheckoutModal from './CheckoutModal';
+import { recordQuizSubmission, checkQuizLiveStatus } from '../services/quizService';
 
 function getEmbedUrl(url) {
   if (!url) return '';
@@ -94,6 +95,7 @@ export default function CoursePlayerPage({
   onNavigateDashboard,
   onNavigateHome,
   onNavigateExams,
+  onNavigateLeaderboard,
   onNavigateStore,
   onNavigateAbout,
   onNavigateDevices,
@@ -426,6 +428,7 @@ export default function CoursePlayerPage({
           onNavigateDashboard={() => { setActiveLessonExam(null); onNavigateDashboard?.(); }}
           onNavigateCourse={(cId) => { setActiveLessonExam(null); onNavigateCourse?.(cId); }}
           onNavigateExams={(cat) => { setActiveLessonExam(null); onNavigateExams?.(cat); }}
+          onNavigateLeaderboard={() => { setActiveLessonExam(null); onNavigateLeaderboard?.(); }}
           onNavigateStore={() => { setActiveLessonExam(null); onNavigateStore?.(); }}
           onNavigateAbout={() => { setActiveLessonExam(null); onNavigateAbout?.(); }}
           onNavigateDevices={() => { setActiveLessonExam(null); onNavigateDevices?.(); }}
@@ -441,7 +444,7 @@ export default function CoursePlayerPage({
             isCourseQuiz={true}
             onBackToLesson={() => setActiveLessonExam(null)}
             onBackToCourses={() => setActiveLessonExam(null)}
-            onExamComplete={(result) => {
+            onExamComplete={async (result) => {
               const totalPossible = activeLessonExam.totalMarks || activeLessonExam.totalQuestions || result.totalQuestions;
               const resultObj = {
                 score: result.finalScore,
@@ -462,6 +465,19 @@ export default function CoursePlayerPage({
                 } catch {}
                 return updated;
               });
+
+              try {
+                await recordQuizSubmission({
+                  student: currentUser || { id: 'guest_student', name: 'Student' },
+                  course,
+                  lesson: currentLesson,
+                  quiz: currentLesson.quiz,
+                  result: resultObj,
+                  timeTakenSeconds: result.timeTakenSeconds || 0
+                });
+              } catch (e) {
+                console.warn('[CoursePlayer] Failed to record quiz submission:', e);
+              }
             }}
             siteSettings={data?.siteSettings || {}}
             customExamBatches={data?.examBatches}
@@ -496,6 +512,7 @@ export default function CoursePlayerPage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
@@ -834,24 +851,60 @@ export default function CoursePlayerPage({
                           </button>
                         </div>
                       ) : (currentLesson.quiz || currentLesson.examId) ? (
-                        <div
-                          onClick={handleStartQuiz}
-                          className={`w-full p-4 sm:px-5 sm:py-4 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 group active:scale-[0.99] select-none ${
-                            isDark 
-                              ? 'bg-[#1a040a] hover:bg-[#250711] border-[#e11438]/30 hover:border-red-500/50 text-white shadow-sm' 
-                              : 'bg-white hover:bg-red-50/40 border-slate-200 hover:border-red-200 text-slate-900 shadow-2xs'
-                          }`}
-                        >
-                          <span className="text-sm font-bold truncate">
-                            {(currentLesson.quiz?.title || `${currentLesson.title} - Quiz`).replace(/practice\s*quiz/gi, 'Quiz')}
-                          </span>
+                        <div className="space-y-2">
+                          <div
+                            onClick={handleStartQuiz}
+                            className={`w-full p-4 sm:px-5 sm:py-4 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 group active:scale-[0.99] select-none ${
+                              isDark 
+                                ? 'bg-[#1a040a] hover:bg-[#250711] border-[#e11438]/30 hover:border-red-500/50 text-white shadow-sm' 
+                                : 'bg-white hover:bg-red-50/40 border-slate-200 hover:border-red-200 text-slate-900 shadow-2xs'
+                            }`}
+                          >
+                            <div className="min-w-0 flex-1">
+                              <span className="text-sm font-bold truncate block">
+                                {(currentLesson.quiz?.title || `${currentLesson.title} - Quiz`).replace(/practice\s*quiz/gi, 'Quiz')}
+                              </span>
+                              <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                                {currentLesson.quiz && (
+                                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                                    checkQuizLiveStatus(currentLesson.quiz).isLive 
+                                      ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25' 
+                                      : (checkQuizLiveStatus(currentLesson.quiz).isUpcoming 
+                                          ? 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/25' 
+                                          : 'bg-slate-500/15 text-slate-600 dark:text-slate-400 border border-slate-500/25')
+                                  }`}>
+                                    {checkQuizLiveStatus(currentLesson.quiz).statusText}
+                                  </span>
+                                )}
+                                {savedLessonScores[currentLesson.id] && (
+                                  <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400">
+                                    Official Score: {savedLessonScores[currentLesson.id].score} / {savedLessonScores[currentLesson.id].totalPossible}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
 
-                          <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 ${
-                            isDark 
-                              ? 'bg-red-500/15 border border-red-500/30 text-red-400 group-hover:bg-red-500/25' 
-                              : 'bg-red-50 border border-red-200 text-red-600 group-hover:bg-red-100'
-                          }`}>
-                            <FileText className="w-4 h-4" />
+                            <div className="flex items-center gap-2">
+                              {onNavigateLeaderboard && (
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    onNavigateLeaderboard();
+                                  }}
+                                  className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/20 cursor-pointer transition-colors"
+                                >
+                                  Leaderboard
+                                </button>
+                              )}
+                              <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 ${
+                                isDark 
+                                  ? 'bg-red-500/15 border border-red-500/30 text-red-400 group-hover:bg-red-500/25' 
+                                  : 'bg-red-50 border border-red-200 text-red-600 group-hover:bg-red-100'
+                              }`}>
+                                <FileText className="w-4 h-4" />
+                              </div>
+                            </div>
                           </div>
                         </div>
                       ) : (

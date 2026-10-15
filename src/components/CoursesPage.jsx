@@ -33,6 +33,7 @@ export default function CoursesPage({
   onNavigateCourse,
   onNavigateBundle,
   onNavigateExams,
+  onNavigateLeaderboard,
   onNavigateStore,
   onNavigateAbout,
   onNavigateDevices,
@@ -238,6 +239,7 @@ export default function CoursesPage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}

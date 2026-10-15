@@ -52,6 +52,7 @@ export default function BundleDetailPage({
   onNavigateDashboard,
   onNavigateCourse,
   onNavigateExams,
+  onNavigateLeaderboard,
   onNavigateStore,
   onNavigateAbout,
   onNavigateDevices,
@@ -249,6 +250,7 @@ export default function BundleDetailPage({
           onNavigateDashboard={onNavigateDashboard}
           onNavigateCourse={onNavigateCourse}
           onNavigateExams={onNavigateExams}
+          onNavigateLeaderboard={onNavigateLeaderboard}
           onNavigateStore={onNavigateStore}
           onNavigateAbout={onNavigateAbout}
           onNavigateDevices={onNavigateDevices}
@@ -286,6 +288,7 @@ export default function BundleDetailPage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}

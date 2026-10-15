@@ -8,7 +8,7 @@ const STORAGE_KEY = 'eduhunters_bunny_credentials';
 
 const DEFAULT_BUNNY_CONFIG = {
   streamLibraryId: import.meta.env.VITE_BUNNY_STREAM_LIBRARY_ID || '777670',
-  streamApiKey: import.meta.env.VITE_BUNNY_STREAM_API_KEY || '',
+  streamApiKey: import.meta.env.VITE_BUNNY_STREAM_API_KEY || 'c99c17d7-42de-42fb-9b9356122cbd-1fe9-4fc2',
   streamCdnHost: import.meta.env.VITE_BUNNY_STREAM_CDN_HOST || 'vz-d60c940a-08c.b-cdn.net',
   storageZoneName: import.meta.env.VITE_BUNNY_STORAGE_ZONE_NAME || 'eduhunters-storage',
   storagePassword: import.meta.env.VITE_BUNNY_STORAGE_PASSWORD || '',
@@ -24,13 +24,13 @@ export function getBunnyConfig() {
       return {
         ...DEFAULT_BUNNY_CONFIG,
         ...parsed,
-        streamLibraryId: parsed.streamLibraryId || DEFAULT_BUNNY_CONFIG.streamLibraryId,
-        streamApiKey: parsed.streamApiKey || DEFAULT_BUNNY_CONFIG.streamApiKey,
-        streamCdnHost: parsed.streamCdnHost || DEFAULT_BUNNY_CONFIG.streamCdnHost,
-        storageZoneName: parsed.storageZoneName || DEFAULT_BUNNY_CONFIG.storageZoneName,
-        storagePassword: parsed.storagePassword || DEFAULT_BUNNY_CONFIG.storagePassword,
-        storageHostname: parsed.storageHostname || DEFAULT_BUNNY_CONFIG.storageHostname,
-        pullZoneHostname: parsed.pullZoneHostname || DEFAULT_BUNNY_CONFIG.pullZoneHostname
+        streamLibraryId: (parsed.streamLibraryId && String(parsed.streamLibraryId).trim()) || DEFAULT_BUNNY_CONFIG.streamLibraryId,
+        streamApiKey: (parsed.streamApiKey && String(parsed.streamApiKey).trim()) || DEFAULT_BUNNY_CONFIG.streamApiKey,
+        streamCdnHost: (parsed.streamCdnHost && String(parsed.streamCdnHost).trim()) || DEFAULT_BUNNY_CONFIG.streamCdnHost,
+        storageZoneName: (parsed.storageZoneName && String(parsed.storageZoneName).trim()) || DEFAULT_BUNNY_CONFIG.storageZoneName,
+        storagePassword: (parsed.storagePassword && String(parsed.storagePassword).trim()) || DEFAULT_BUNNY_CONFIG.storagePassword,
+        storageHostname: (parsed.storageHostname && String(parsed.storageHostname).trim()) || DEFAULT_BUNNY_CONFIG.storageHostname,
+        pullZoneHostname: (parsed.pullZoneHostname && String(parsed.pullZoneHostname).trim()) || DEFAULT_BUNNY_CONFIG.pullZoneHostname
       };
     }
   } catch (e) {}

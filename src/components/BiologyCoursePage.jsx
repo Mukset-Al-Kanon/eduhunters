@@ -97,12 +97,114 @@ function getEmbedUrl(url) {
   return url;
 }
 
+export function parseCountNumber(str) {
+  if (!str) return 0;
+  const bnToEn = { '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' };
+  const normalized = String(str).replace(/[০-৯]/g, d => bnToEn[d]);
+  const match = normalized.match(/\d[\d,]*/);
+  if (!match) return 0;
+  const parsed = parseInt(match[0].replace(/,/g, ''), 10);
+  return isNaN(parsed) ? 0 : parsed;
+}
+
+export function toBengaliNumerals(n) {
+  const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+  return String(n).replace(/[0-9]/g, d => bnDigits[Number(d)]);
+}
+
+export function getRealCourseEnrolledStudentsCount(course, data) {
+  if (!course) return 0;
+  const keys = new Set();
+  const addKey = (val) => {
+    if (!val) return;
+    const s = String(val).trim().toLowerCase();
+    if (s) {
+      keys.add(s);
+      keys.add(s.replace(/[^a-z0-9]/g, ''));
+    }
+  };
+
+  addKey(course.id);
+  addKey(course.slug);
+  addKey(course.title);
+  addKey(course.name);
+  addKey(course.key);
+
+  const isMatch = (item) => {
+    if (!item) return false;
+    const str = String(item).trim().toLowerCase();
+    const clean = str.replace(/[^a-z0-9]/g, '');
+    return keys.has(str) || (clean && keys.has(clean));
+  };
+
+  const enrolledSet = new Set();
+
+  // 1. Check data.users
+  const users = Array.isArray(data?.users) ? data.users : [];
+  users.forEach((u, idx) => {
+    const enrolled = Array.isArray(u?.enrolledCourses) ? u.enrolledCourses : [];
+    if (enrolled.some(isMatch)) {
+      const uid = u.id || u.email || u.phone || `u_${idx}`;
+      enrolledSet.add(uid);
+    }
+  });
+
+  // 2. Check registered users in localStorage
+  try {
+    const reg = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
+    if (Array.isArray(reg)) {
+      reg.forEach((u, idx) => {
+        const enrolled = Array.isArray(u?.enrolledCourses) ? u.enrolledCourses : [];
+        if (enrolled.some(isMatch)) {
+          const uid = u.id || u.email || u.phone || `reg_${idx}`;
+          enrolledSet.add(uid);
+        }
+      });
+    }
+  } catch (e) {}
+
+  // 3. Check orders in eh_user_orders_v3
+  try {
+    const ords = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+    if (Array.isArray(ords)) {
+      ords.forEach(o => {
+        const isApproved = o.status === 'PAID' || o.status === 'Completed' || o.isApproved === true;
+        if (!isApproved) return;
+        const oMatch = isMatch(o.course?.name) || isMatch(o.course?.slug) ||
+          (Array.isArray(o.items) && o.items.some(it => isMatch(it.title) || isMatch(it.name)));
+        if (oMatch) {
+          const custId = o.customer?.phone || o.customer?.email || o.customer?.studentId || o.id;
+          enrolledSet.add(custId);
+        }
+      });
+    }
+  } catch (e) {}
+
+  // 4. Check enrolled students in eh_enrolled_students
+  try {
+    const stList = JSON.parse(localStorage.getItem('eh_enrolled_students') || '[]');
+    if (Array.isArray(stList)) {
+      stList.forEach(st => {
+        if (st.status === 'Active' || !st.status) {
+          if (isMatch(st.courseTitle) || isMatch(st.course) || isMatch(st.targetTitle)) {
+            const stId = st.phone || st.email || st.studentId || st.id;
+            enrolledSet.add(stId);
+          }
+        }
+      });
+    }
+  } catch (e) {}
+
+  return enrolledSet.size;
+}
+
 export default function BiologyCoursePage({ 
   data = {},
   selectedCourseId,
   onNavigateHome,
   onNavigateDashboard,
   onNavigateExams, 
+  onNavigateLeaderboard,
   onNavigateStore,
   onNavigateAbout,
   onNavigateDevices,
@@ -243,6 +345,40 @@ export default function BiologyCoursePage({
 
   const course = courseOverride || baseCourse;
   const setCourse = setCourseOverride;
+
+  const [enrollmentTick, setEnrollmentTick] = useState(0);
+
+  useEffect(() => {
+    const handleSync = () => {
+      setEnrollmentTick(t => t + 1);
+    };
+
+    window.addEventListener('storage', handleSync);
+    window.addEventListener('eduhunters_data_updated', handleSync);
+    window.addEventListener('eh:enrollment_updated', handleSync);
+    window.addEventListener('eh:orders_updated', handleSync);
+    window.addEventListener('eh:new_enrollment', handleSync);
+    window.addEventListener('eh:enrollment_approved', handleSync);
+    window.addEventListener('eh_user_changed', handleSync);
+
+    return () => {
+      window.removeEventListener('storage', handleSync);
+      window.removeEventListener('eduhunters_data_updated', handleSync);
+      window.removeEventListener('eh:enrollment_updated', handleSync);
+      window.removeEventListener('eh:orders_updated', handleSync);
+      window.removeEventListener('eh:new_enrollment', handleSync);
+      window.removeEventListener('eh:enrollment_approved', handleSync);
+      window.removeEventListener('eh_user_changed', handleSync);
+    };
+  }, []);
+
+  const displayedStudentsCount = React.useMemo(() => {
+    const rawCountStr = String(course?.studentsCount || '১২৫০+').trim();
+    const baseNumber = parseCountNumber(rawCountStr) || 1250;
+    const realStudents = getRealCourseEnrolledStudentsCount(course, data);
+    const total = baseNumber + realStudents;
+    return `${toBengaliNumerals(total)}+`;
+  }, [course?.studentsCount, course?.id, course?.slug, course?.title, data?.users, enrollmentTick]);
 
   const computedTotalClasses = React.useMemo(() => {
     if (!Array.isArray(course?.curriculum)) return 0;
@@ -608,21 +744,69 @@ export default function BiologyCoursePage({
                 {rawTitle}
               </p>
             )}
-            <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-              {pdfUrl && (
-                <span className="text-[10px] text-blue-500 font-semibold bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">📄 PDF নোট</span>
-              )}
-              {isFree && (
-                <span className="text-[10px] text-emerald-600 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">ফ্রি ট্রায়াল</span>
-              )}
-            </div>
           </div>
         </div>
 
-        <div className="shrink-0 ml-3 flex items-center gap-2">
-          {/* Admin Direct Lesson Edit Button */}
+        <div className="shrink-0 ml-3 flex items-center gap-2 sm:gap-2.5">
+          {/* Free Trial Badge (placed to the left of the PDF icon) */}
+          {isFree && (
+            <span className={`inline-flex items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold rounded-md border shrink-0 ${
+              isDark 
+                ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30' 
+                : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            }`}>
+              ফ্রি ট্রায়াল
+            </span>
+          )}
+
+          {/* Sleek Gray PDF Icon Button (placed to the left of Time duration) */}
+          {pdfUrl && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (!isUnlocked) {
+                  handleOpenCheckout();
+                  return;
+                }
+                if (pdfUrl.startsWith('http') || pdfUrl.startsWith('/') || pdfUrl.startsWith('blob:')) {
+                  window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+                } else if (onOpenLesson) {
+                  onOpenLesson(course.id || course.slug || selectedCourseId, {
+                    title: displayTitle,
+                    videoUrl: videoUrl || course.previewVideoUrl,
+                    pdfUrl,
+                    duration,
+                    lessonIdx: lIdx,
+                    activeTab: 'notes'
+                  });
+                }
+              }}
+              className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold border transition-all cursor-pointer shrink-0 ${
+                isDark 
+                  ? 'bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border-slate-700/60' 
+                  : 'bg-slate-100 hover:bg-slate-200/90 text-slate-600 hover:text-slate-900 border-slate-200'
+              }`}
+              title={isUnlocked ? "PDF লেকচার নোট দেখুন" : "PDF দেখতে এনরোল করুন"}
+            >
+              <FileText className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-300" />
+              <span className="text-[11px] font-medium tracking-tight">PDF</span>
+            </button>
+          )}
+
+          {/* Time Duration */}
+          {duration && (
+            <div className={`flex items-center gap-1 text-xs font-mono font-medium shrink-0 ${
+              isDark ? 'text-gray-400' : 'text-gray-500'
+            }`}>
+              <Clock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+              <span>{duration}</span>
+            </div>
+          )}
+
+          {/* Admin Direct Lesson Edit / Delete Buttons */}
           {isAdmin && (
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 shrink-0">
               <button
                 type="button"
                 onClick={(e) => {
@@ -638,7 +822,7 @@ export default function BiologyCoursePage({
                     isFree: Boolean(isFree)
                   });
                 }}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold bg-[#e11438]/15 hover:bg-[#e11438] text-[#ff4d6d] hover:text-white border border-[#e11438]/30 transition-all cursor-pointer shrink-0 shadow-xs active:scale-95"
+                className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold bg-[#e11438]/15 hover:bg-[#e11438] text-[#ff4d6d] hover:text-white border border-[#e11438]/30 transition-all cursor-pointer shrink-0 shadow-xs active:scale-95"
                 title="এই লেকচারের নাম ও ভিডিও লিংক এডিট করুন"
               >
                 <Edit2 className="w-3 h-3" />
@@ -651,7 +835,7 @@ export default function BiologyCoursePage({
                   e.stopPropagation();
                   handleDeleteLesson(sIdx, cIdx, lIdx);
                 }}
-                className="p-1.5 rounded-lg text-xs font-bold bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/20 transition-all cursor-pointer shrink-0 shadow-xs"
+                className="p-1 rounded-lg text-xs font-bold bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/20 transition-all cursor-pointer shrink-0 shadow-xs"
                 title="এই ক্লাসটি মুছে ফেলুন"
               >
                 <Trash2 className="w-3 h-3" />
@@ -659,16 +843,9 @@ export default function BiologyCoursePage({
             </div>
           )}
 
-          {duration && (
-            <div className={`flex items-center gap-1.5 text-xs font-mono font-medium ${
-              isDark ? 'text-gray-400' : 'text-gray-500'
-            }`}>
-              <Clock className="w-3.5 h-3.5 text-gray-400" />
-              <span>{duration}</span>
-            </div>
-          )}
+          {/* Locked Badge */}
           {!isUnlocked && (
-            <span className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-full ${
+            <span className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-full shrink-0 ${
               isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-600'
             }`}>
               <Lock className="w-3.5 h-3.5" />
@@ -692,6 +869,7 @@ export default function BiologyCoursePage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={() => {}}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
@@ -752,7 +930,7 @@ export default function BiologyCoursePage({
                     isDark ? 'border border-[#e11438]/30 bg-[#160408] text-gray-200' : 'border border-white/30 bg-white/20 text-white'
                   }`}>
                     <svg className={`w-3.5 h-3.5 ${isDark ? 'text-[#ff6b8b]' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 10-4-4 4 4 0 004 4z"></path></svg>
-                    {course.studentsCount} শিক্ষার্থী
+                    {displayedStudentsCount} শিক্ষার্থী
                   </span>
                 </div>
               </div>
@@ -1191,14 +1369,21 @@ export default function BiologyCoursePage({
                   <div className="mb-6">
                     <h3 className={`text-sm font-black mb-3 ${isDark ? 'text-white' : 'text-[#111827]'}`}>এই কোর্সে যা থাকছে</h3>
                     <div className="grid grid-cols-2 gap-2.5">
-                      {course.features.map((feat, i) => (
-                        <div key={i} className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 ${
+                      {((Array.isArray(course.features) && course.features.length > 0) ? course.features : [
+                        'HD কোয়ালিটি লাইভ ও রেকর্ডেড ক্লাস',
+                        'অধ্যায়ভিত্তিক লেকচার নোট ও প্র্যাকটিস শিট',
+                        'এক্সক্লুসিভ এক্সাম ও সলভ ক্লাস',
+                        '২৪/৭ টেলিগ্রাম ডাউট সলভিং সাপোর্ট'
+                      ]).map((feat, i) => (
+                        <div key={i} className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 transition-all ${
                           isDark ? 'border-[#e11438]/20 bg-[#160408]' : 'border-gray-200 bg-white'
                         }`}>
                           <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#dc2626]/10">
                             <Check className="w-3 h-3 text-[#dc2626]" strokeWidth={3} />
                           </span>
-                          <span className={`text-xs font-semibold leading-tight ${isDark ? 'text-gray-200' : 'text-[#111827]'}`}>{feat}</span>
+                          <span className={`text-xs font-semibold leading-tight ${isDark ? 'text-gray-200' : 'text-[#111827]'}`}>
+                            {typeof feat === 'object' ? (feat?.text || feat?.title || '') : String(feat)}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -1214,7 +1399,7 @@ export default function BiologyCoursePage({
                       </div>
                       <div className="min-w-0">
                         <div className="text-[10px] sm:text-xs text-gray-400 font-bold truncate">ভর্তি সংখ্যা</div>
-                        <div className={`text-base sm:text-lg font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>{course.studentsCount || "১২৫০+"}</div>
+                        <div className={`text-base sm:text-lg font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>{displayedStudentsCount}</div>
                       </div>
                     </div>
 

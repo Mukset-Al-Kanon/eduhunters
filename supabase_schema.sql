@@ -42,6 +42,33 @@ create table if not exists public.eduhunters_site (
   updated_at timestamptz default now()
 );
 
+-- 4. QUIZ SUBMISSIONS TABLE (Class Quizzes, Attempts, Time Tracking & Leaderboards)
+create table if not exists public.eduhunters_quiz_submissions (
+  id text primary key,
+  student_id text,
+  student_name text,
+  student_phone text,
+  student_email text,
+  course_id text,
+  course_slug text,
+  course_name text,
+  lesson_id text,
+  lesson_title text,
+  quiz_id text,
+  score numeric default 0,
+  total_marks numeric default 0,
+  percentage numeric default 0,
+  correct_count integer default 0,
+  wrong_count integer default 0,
+  skipped_count integer default 0,
+  time_taken_seconds integer default 0,
+  is_first_attempt boolean default true,
+  is_live_window boolean default true,
+  attempt_number integer default 1,
+  raw_answers jsonb default '[]'::jsonb,
+  submitted_at timestamptz default now()
+);
+
 -- ==============================================================================
 -- ROW LEVEL SECURITY (RLS) - PUBLIC ACCESS FOR CLIENT APP
 -- ==============================================================================
@@ -61,6 +88,11 @@ drop policy if exists "Allow public access to eduhunters_site" on public.eduhunt
 create policy "Allow public access to eduhunters_site" 
   on public.eduhunters_site for all using (true) with check (true);
 
+alter table public.eduhunters_quiz_submissions enable row level security;
+drop policy if exists "Allow public access to eduhunters_quiz_submissions" on public.eduhunters_quiz_submissions;
+create policy "Allow public access to eduhunters_quiz_submissions" 
+  on public.eduhunters_quiz_submissions for all using (true) with check (true);
+
 -- ==============================================================================
 -- ENABLE SUPABASE REALTIME REPLICATION (Instant Real-time push to Admin Panel)
 -- ==============================================================================
@@ -68,3 +100,4 @@ create policy "Allow public access to eduhunters_site"
 alter publication supabase_realtime add table public.eduhunters_orders;
 alter publication supabase_realtime add table public.eduhunters_users;
 alter publication supabase_realtime add table public.eduhunters_site;
+alter publication supabase_realtime add table public.eduhunters_quiz_submissions;

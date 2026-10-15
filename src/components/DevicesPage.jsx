@@ -9,6 +9,7 @@ export default function DevicesPage({
   onNavigateDashboard,
   onNavigateCourse,
   onNavigateExams,
+  onNavigateLeaderboard,
   onNavigateStore,
   onNavigateAbout,
   onNavigateDevices,
@@ -103,6 +104,7 @@ export default function DevicesPage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}

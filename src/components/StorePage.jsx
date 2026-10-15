@@ -12,6 +12,7 @@ export default function StorePage({
   onNavigateDashboard,
   onNavigateCourse, 
   onNavigateExams, 
+  onNavigateLeaderboard,
   onNavigateAbout, 
   onNavigateDevices,
   onNavigateOrders,
@@ -50,6 +51,7 @@ export default function StorePage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={() => {}}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}

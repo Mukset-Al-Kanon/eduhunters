@@ -1,6 +1,6 @@
 import { db, isFirebaseConfigured } from '../firebase/config';
 import { doc, setDoc, getDoc, getDocs, collection, query, where, limit } from 'firebase/firestore';
-import { saveSupabaseOrder, updateSupabaseOrderStatus } from './supabaseService';
+import { saveSupabaseOrder, updateSupabaseOrderStatus, saveSupabaseUser } from './supabaseService';
 
 const ORDERS_STORAGE_KEY = 'eh_user_orders_v3';
 
@@ -396,6 +396,20 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
         isApproved: true,
         raw_data: approvedOrder
       }).catch(e => console.warn('[orderService] Supabase update note:', e));
+    }
+
+    // Sync student profile with unlocked course in Supabase users table
+    if (cleanEmail || approvedOrder?.customer?.uid || approvedOrder?.userId) {
+      const uUid = approvedOrder?.customer?.uid || approvedOrder?.userId || `u_${cleanEmail.replace(/[^a-z0-9]/g, '')}`;
+      saveSupabaseUser({
+        uid: uUid,
+        id: uUid,
+        email: cleanEmail,
+        displayName: studentName || approvedOrder?.customer?.name || 'Student',
+        phone: cleanPhone
+      }, {
+        enrolledCourses: [finalTitle]
+      }).catch(e => console.warn('[orderService] Supabase user enrollment update note:', e));
     }
 
     // 5. Update Cloud Firestore if configured

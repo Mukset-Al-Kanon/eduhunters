@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback, useDeferredValue } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useDeferredValue, useRef } from 'react';
 import { 
   LayoutDashboard, 
   Menu,
@@ -60,14 +60,14 @@ import {
   Zap,
   LogOut
 } from 'lucide-react';
-import { collection, getDocs, onSnapshot } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 import { db, isFirebaseConfigured } from '../firebase/config';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import CourseStudioPage from './CourseStudioPage';
 import BundleStudioPage from './BundleStudioPage';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
-import { grantCourseAccess, revokeCourseAccess } from '../utils/enrollmentService';
+import { grantCourseAccess, revokeCourseAccess, getCanonicalCourses } from '../utils/enrollmentService';
 import CourseSearchSelect from './CourseSearchSelect';
 import { approveOrder } from '../services/orderService';
 import { 
@@ -81,7 +81,17 @@ import {
 import { saveCloudData } from '../services/firestoreSyncService';
 import { uploadImageFile } from '../services/cloudStorageService';
 import { isSupabaseConfigured } from '../supabase/config';
-import { fetchSupabaseOrders, subscribeToSupabaseOrders, fetchSupabaseUsers, subscribeToSupabaseUsers } from '../services/supabaseService';
+import { 
+  fetchSupabaseOrders, 
+  subscribeToSupabaseOrders, 
+  fetchSupabaseUsers, 
+  subscribeToSupabaseUsers,
+  deleteSupabaseUser,
+  deleteSupabaseOrder,
+  updateSupabaseOrderAmount,
+  updateSupabaseOrderStatus,
+  saveSupabaseUser
+} from '../services/supabaseService';
 
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
@@ -132,6 +142,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       : initialData.courses;
     return raw.filter(c => !isZenithCopiedCourse(c));
   });
+
+  useEffect(() => {
+    if (Array.isArray(data?.courses) && data.courses.length > 0) {
+      setCourses(data.courses.filter(c => !isZenithCopiedCourse(c)));
+    }
+  }, [data?.courses]);
 
   const [categories, setCategories] = useState(() => {
     const raw = Array.isArray(data?.categories) 
@@ -229,6 +245,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       transactions: Array.isArray(raw.transactions) ? raw.transactions.filter(t => !t.id?.startsWith('TRX-948')) : []
     };
   });
+
+  const [editingTrxAmountId, setEditingTrxAmountId] = useState(null);
+  const [editingTrxAmountVal, setEditingTrxAmountVal] = useState('');
+  const [showNotificationPopover, setShowNotificationPopover] = useState(false);
 
   // 100% Dynamic Text & Headings State
   const [sectionTexts, setSectionTexts] = useState(() => ({
@@ -367,6 +387,17 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const [selectedCourseToEnroll, setSelectedCourseToEnroll] = useState('');
   const [userTabInsideModal, setUserTabInsideModal] = useState('profile'); // 'profile' | 'courses' | 'transactions'
 
+  // Notified users cache & initial mount guard to prevent repetitive toasts on navigation/refresh
+  const notifiedUserKeysRef = useRef(new Set());
+  const isInitialAdminMountRef = useRef(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      isInitialAdminMountRef.current = false;
+    }, 3500);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Audio Chime notification for instant feedback when an enrollment is submitted
   const playNotificationChime = () => {
     try {
@@ -386,6 +417,39 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       osc.stop(ctx.currentTime + 0.35);
     } catch (e) {}
   };
+
+  // Centralized, deduplicated user registration notification handler
+  const notifyNewUserRegistration = useCallback((user) => {
+    if (!user) return;
+    const userKey = (user.id || user.uid || user.email || '').toLowerCase().trim();
+    if (!userKey) return;
+
+    // Suppress if within initial mount window (first 3.5s)
+    if (isInitialAdminMountRef.current) {
+      notifiedUserKeysRef.current.add(userKey);
+      return;
+    }
+
+    // Never re-notify the same user
+    if (notifiedUserKeysRef.current.has(userKey)) return;
+
+    // Verify registration recency (if timestamp exists, must be within last 2 minutes)
+    const createdAt = user.created_at || user.createdAt || user.joinedDate;
+    if (createdAt && typeof createdAt === 'string' && createdAt !== 'Today' && createdAt !== 'Just registered') {
+      const createdTime = new Date(createdAt).getTime();
+      if (!isNaN(createdTime) && Date.now() - createdTime > 120000) {
+        notifiedUserKeysRef.current.add(userKey);
+        return;
+      }
+    }
+
+    // Mark as notified immediately so it NEVER repeats
+    notifiedUserKeysRef.current.add(userKey);
+
+    const userName = user.displayName || user.name || user.email?.split('@')[0] || 'Student';
+    playNotificationChime();
+    triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${userName}`);
+  }, []);
 
   // Central User Upsert Handler for User Management Tab
   const upsertUserInList = useCallback((u, isNew = false) => {
@@ -584,8 +648,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               if (key) emailMap.set(key, u);
             });
             cloudUsers.forEach(u => {
-              const key = (u.email || u.id || '').toLowerCase();
+              const key = (u.email || u.id || '').toLowerCase().trim();
               if (key) {
+                notifiedUserKeysRef.current.add(key);
                 const existing = emailMap.get(key);
                 emailMap.set(key, existing ? { ...existing, ...u } : u);
               }
@@ -598,8 +663,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             snapshot.docChanges().forEach(change => {
               if (change.type === 'added') {
                 const d = change.doc.data();
-                const userName = d.displayName || d.name || d.email?.split('@')[0] || 'Student';
-                triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${userName}`);
+                notifyNewUserRegistration({ ...d, id: change.doc.id });
               }
             });
           }
@@ -786,15 +850,25 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
         fetchSupabaseUsers().then(users => {
           if (Array.isArray(users) && users.length > 0) {
+            users.forEach(u => {
+              const key = (u.email || u.id || u.uid || '').toLowerCase().trim();
+              if (key) notifiedUserKeysRef.current.add(key);
+            });
             setUsersList(prev => {
               const emailMap = new Map();
               prev.forEach(u => {
                 const key = (u.email || u.id || '').toLowerCase();
-                if (key) emailMap.set(key, u);
+                if (key) {
+                  emailMap.set(key, u);
+                  notifiedUserKeysRef.current.add(key);
+                }
               });
               users.forEach(u => {
                 const key = (u.email || u.id || '').toLowerCase();
-                if (key) emailMap.set(key, u);
+                if (key) {
+                  emailMap.set(key, u);
+                  notifiedUserKeysRef.current.add(key);
+                }
               });
               return Array.from(emailMap.values());
             });
@@ -812,12 +886,17 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         });
         isInitialSupabaseOrders = false;
 
+        let isInitialSupabaseUsers = true;
         unsubscribeSupabaseUsers = subscribeToSupabaseUsers(({ eventType, user }) => {
-          if (eventType === 'INSERT') {
-            triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${user.displayName || user.name || user.email}`);
+          if (eventType === 'INSERT' && !isInitialSupabaseUsers) {
+            notifyNewUserRegistration(user);
+          } else if (isInitialSupabaseUsers && user) {
+            const key = (user.id || user.uid || user.email || '').toLowerCase().trim();
+            if (key) notifiedUserKeysRef.current.add(key);
           }
           upsertUserInList(user, eventType === 'INSERT');
         });
+        isInitialSupabaseUsers = false;
 
         // 15-second background heartbeat poll to ensure 100% sync reliability
         const supabaseHeartbeat = setInterval(() => {
@@ -876,9 +955,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           if (type === 'USER_SYNC' && payload) {
             upsertUserInList(payload, action === 'REGISTER');
             if (action === 'REGISTER') {
-              triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${payload.displayName || payload.name || payload.email}`);
-            } else {
-              triggerToast(`✏️ প্রোফাইল আপডেট হয়েছে: ${payload.displayName || payload.name || payload.email}`);
+              notifyNewUserRegistration(payload);
             }
           }
           if (type === 'NEW_ENROLLMENT_ORDER' && payload) {
@@ -892,14 +969,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const handleProfileUpdate = (e) => {
       if (e.detail) {
         upsertUserInList(e.detail, false);
-        triggerToast(`✏️ প্রোফাইল আপডেট হয়েছে: ${e.detail.displayName || e.detail.name || e.detail.email}`);
       }
     };
 
     const handleUserRegistered = (e) => {
       if (e.detail) {
         upsertUserInList(e.detail, true);
-        triggerToast(`👤 নতুন ইউজার রেজিস্টার করেছেন: ${e.detail.displayName || e.detail.name || e.detail.email}`);
+        notifyNewUserRegistration(e.detail);
       }
     };
 
@@ -1637,12 +1713,40 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   };
 
   const handleDeleteUser = (userId, userName) => {
+    const targetUser = usersList.find(u => u.id === userId);
     if (confirm(`Are you sure you want to permanently delete user "${userName}"?`)) {
       const updated = usersList.filter(u => u.id !== userId);
       setUsersList(updated);
       persistAll({ users: updated });
       if (selectedUserDetails?.id === userId) setSelectedUserDetails(null);
-      triggerToast(`User "${userName}" deleted`);
+
+      // Clean from localStorage registered users
+      try {
+        const rawReg = localStorage.getItem('eh_registered_users');
+        if (rawReg) {
+          const list = JSON.parse(rawReg);
+          const filtered = list.filter(u => 
+            u.id !== userId && 
+            u.uid !== userId && 
+            (!targetUser?.email || (u.email || '').toLowerCase() !== targetUser.email.toLowerCase())
+          );
+          localStorage.setItem('eh_registered_users', JSON.stringify(filtered));
+        }
+      } catch (e) {}
+
+      // Delete permanently from Supabase
+      if (isSupabaseConfigured) {
+        deleteSupabaseUser(userId, targetUser?.email).catch(e => console.warn('[AdminPanel] Supabase delete user note:', e));
+      }
+
+      // Delete from Firestore if configured
+      if (isFirebaseConfigured && db && userId) {
+        try {
+          deleteDoc(doc(db, 'users', userId)).catch(() => {});
+        } catch (e) {}
+      }
+
+      triggerToast(`User "${userName}" permanently deleted`);
     }
   };
 
@@ -1657,6 +1761,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       role: user.role || 'Student',
       status: user.status || 'Active',
       batch: user.hscBatch || user.batch || 'HSC 26',
+      totalSpent: user.totalSpent !== undefined ? user.totalSpent : 0,
       password: ''
     });
     setShowAddUserModal(true);
@@ -1665,27 +1770,50 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const handleSaveUser = (e) => {
     e.preventDefault();
     if (!userForm.name.trim() || !userForm.email.trim()) {
-      triggerToast('⚠️ Full name and email address are required');
+      triggerToast('Full name and email address are required');
       return;
     }
 
     if (editingUserId) {
-      const updated = usersList.map(u => u.id === editingUserId ? {
-        ...u,
-        name: userForm.name.trim(),
-        email: userForm.email.trim(),
-        phone: userForm.phone.trim(),
-        whatsapp: (userForm.whatsapp || userForm.phone).trim(),
-        college: (userForm.college || '').trim(),
-        institution: (userForm.college || '').trim(),
-        role: userForm.role,
-        status: userForm.status,
-        batch: userForm.batch || 'HSC 26',
-        hscBatch: userForm.batch || 'HSC 26'
-      } : u);
+      let savedUserRecord = null;
+      const updated = usersList.map(u => {
+        if (u.id === editingUserId) {
+          savedUserRecord = {
+            ...u,
+            name: userForm.name.trim(),
+            email: userForm.email.trim(),
+            phone: userForm.phone.trim(),
+            whatsapp: (userForm.whatsapp || userForm.phone).trim(),
+            college: (userForm.college || '').trim(),
+            institution: (userForm.college || '').trim(),
+            role: userForm.role,
+            status: userForm.status,
+            batch: userForm.batch || 'HSC 26',
+            hscBatch: userForm.batch || 'HSC 26',
+            totalSpent: Number(userForm.totalSpent) || 0
+          };
+          return savedUserRecord;
+        }
+        return u;
+      });
       setUsersList(updated);
       persistAll({ users: updated });
-      triggerToast(`✅ User "${userForm.name}" updated successfully!`);
+
+      // Sync updated user to Supabase
+      if (isSupabaseConfigured && savedUserRecord) {
+        saveSupabaseUser({
+          uid: savedUserRecord.id || savedUserRecord.uid,
+          email: savedUserRecord.email,
+          displayName: savedUserRecord.name,
+          phone: savedUserRecord.phone,
+          role: savedUserRecord.role
+        }, {
+          totalSpent: savedUserRecord.totalSpent,
+          enrolledCourses: savedUserRecord.enrolledCourses || []
+        }).catch(e => console.warn('[AdminPanel] Supabase user update note:', e));
+      }
+
+      triggerToast(`User "${userForm.name}" updated successfully`);
     } else {
       const newUser = {
         id: `usr-${Date.now().toString().slice(-4)}`,
@@ -1700,7 +1828,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         batch: userForm.batch || 'HSC 26',
         hscBatch: userForm.batch || 'HSC 26',
         enrolledCourses: [],
-        totalSpent: 0,
+        totalSpent: Number(userForm.totalSpent) || 0,
         joinedDate: 'Today',
         lastActive: 'Just registered',
         device: 'Manual Admin Entry',
@@ -1709,7 +1837,21 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const updated = [newUser, ...usersList];
       setUsersList(updated);
       persistAll({ users: updated });
-      triggerToast(`🎉 New user "${userForm.name}" registered!`);
+
+      if (isSupabaseConfigured) {
+        saveSupabaseUser({
+          uid: newUser.id,
+          email: newUser.email,
+          displayName: newUser.name,
+          phone: newUser.phone,
+          role: newUser.role
+        }, {
+          totalSpent: newUser.totalSpent,
+          enrolledCourses: []
+        }).catch(() => {});
+      }
+
+      triggerToast(`New user "${userForm.name}" registered`);
     }
 
     setShowAddUserModal(false);
@@ -1723,6 +1865,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       role: 'Student',
       status: 'Active',
       batch: 'HSC 26',
+      totalSpent: 0,
       password: ''
     });
   };
@@ -1746,7 +1889,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       });
 
       coursesToAdd = [foundBundle.title, ...resolvedIncluded];
-      toastLabel = `🎁 "${foundBundle.title}" (${resolvedIncluded.length}টি কোর্স সহ)`;
+      toastLabel = `"${foundBundle.title}"`;
     } else {
       coursesToAdd = [selection];
       toastLabel = `"${selection}"`;
@@ -1757,8 +1900,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const updated = usersList.map(u => {
       if (u.id === userId || u.uid === userId || u.email === userId) {
         const current = u.enrolledCourses || [];
-        const combined = Array.from(new Set([...current, ...coursesToAdd]));
-        return { ...u, enrolledCourses: combined };
+        const canonical = getCanonicalCourses([...current, ...coursesToAdd], { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA });
+        return { ...u, enrolledCourses: canonical };
       }
       return u;
     });
@@ -1770,36 +1913,71 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     if (selectedUserDetails?.id === userId || selectedUserDetails?.uid === userId) {
       setSelectedUserDetails(prev => ({
         ...prev,
-        enrolledCourses: Array.from(new Set([...(prev.enrolledCourses || []), ...coursesToAdd]))
+        enrolledCourses: getCanonicalCourses([...(prev.enrolledCourses || []), ...coursesToAdd], { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA })
+      }));
+    }
+
+    if (quickEnrollUser?.id === userId || quickEnrollUser?.uid === userId) {
+      setQuickEnrollUser(prev => ({
+        ...prev,
+        enrolledCourses: getCanonicalCourses([...(prev.enrolledCourses || []), ...coursesToAdd], { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA })
       }));
     }
 
     setQuickEnrollUser(null);
     setSelectedCourseToEnroll('');
-    triggerToast(`✅ সফলভাবে এক্সেস দেওয়া হয়েছে: ${toastLabel}`);
+    triggerToast(`Course access granted: ${toastLabel}`);
   };
 
   const handleRevokeCourseFromUser = (userId, courseTitle) => {
     const targetUser = usersList.find(u => u.id === userId || u.uid === userId || u.email === userId);
+    const normT = (courseTitle || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
     const updated = usersList.map(u => {
       if (u.id === userId || u.uid === userId || u.email === userId) {
+        const filtered = (u.enrolledCourses || []).filter(c => {
+          const normC = (c || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+          return normC !== normT && !normC.includes(normT) && !normT.includes(normC);
+        });
         return {
           ...u,
-          enrolledCourses: (u.enrolledCourses || []).filter(c => c !== courseTitle)
+          enrolledCourses: getCanonicalCourses(filtered, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA })
         };
       }
       return u;
     });
+
     setUsersList(updated);
     persistAll({ users: updated });
     revokeCourseAccess(courseTitle, { bundles, courses }, targetUser || { id: userId, uid: userId });
+
     if (selectedUserDetails?.id === userId || selectedUserDetails?.uid === userId) {
       setSelectedUserDetails(prev => ({
         ...prev,
-        enrolledCourses: (prev.enrolledCourses || []).filter(c => c !== courseTitle)
+        enrolledCourses: getCanonicalCourses(
+          (prev.enrolledCourses || []).filter(c => {
+            const normC = (c || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            return normC !== normT && !normC.includes(normT) && !normT.includes(normC);
+          }),
+          { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA }
+        )
       }));
     }
-    triggerToast(`🚫 "${courseTitle}" এর এক্সেস বাতিল করা হয়েছে`);
+
+    if (quickEnrollUser?.id === userId || quickEnrollUser?.uid === userId) {
+      setQuickEnrollUser(prev => ({
+        ...prev,
+        enrolledCourses: getCanonicalCourses(
+          (prev.enrolledCourses || []).filter(c => {
+            const normC = (c || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            return normC !== normT && !normC.includes(normT) && !normT.includes(normC);
+          }),
+          { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA }
+        )
+      }));
+    }
+
+    triggerToast(`Access revoked for "${courseTitle}"`);
   };
 
   const handleExportUsersCSV = () => {
@@ -1813,7 +1991,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       `"${(u.hscBatch || u.batch || '').replace(/"/g, '""')}"`,
       u.role,
       u.status,
-      u.enrolledCourses?.length || 0,
+      getCanonicalCourses(u.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA }).length,
       u.totalSpent || 0,
       u.joinedDate,
       `"${u.device || 'Web'}"`
@@ -2084,7 +2262,223 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       enrolledStudents: extraStudentUpdates,
       ...(extraUserUpdates ? { users: extraUserUpdates } : {})
     });
-    triggerToast('✅ Enrollment approved and courses unlocked successfully!');
+    triggerToast('Enrollment approved and courses unlocked successfully');
+  };
+
+  // Revoke Approval for a Transaction
+  const handleRevokeTrx = (trxId) => {
+    const targetTx = (accounting.transactions || []).find(t => t.id === trxId);
+    if (!targetTx) return;
+
+    if (confirm(`Are you sure you want to revoke approval for "${targetTx.studentName}" and lock the course?`)) {
+      const updated = (accounting.transactions || []).map(t => {
+        if (t.id === trxId) return { ...t, status: 'Pending' };
+        return t;
+      });
+
+      const amt = Number(targetTx.amount) || 0;
+      const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) - amt);
+      const newProfit = newRev - (Number(accounting.totalExpenses) || 0);
+
+      const newAcc = {
+        ...accounting,
+        totalRevenue: newRev,
+        netProfit: newProfit,
+        transactions: updated
+      };
+      setAccounting(newAcc);
+
+      // Revoke course access for user
+      const rawPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
+      const rawEmail = (targetTx.studentEmail || '').trim().toLowerCase();
+      const matchedTargetUser = usersList.find(u => {
+        const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+        const uEmail = (u.email || '').trim().toLowerCase();
+        return (rawPhone.length >= 6 && uPhone.includes(rawPhone)) || (rawEmail && uEmail === rawEmail);
+      });
+
+      if (targetTx.itemTitle) {
+        revokeCourseAccess(targetTx.itemTitle, { bundles, courses }, matchedTargetUser);
+      }
+
+      // Update enrolled students list
+      const updatedStudents = enrolledStudents.map(st => {
+        const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
+        const stEmail = (st.email || '').trim().toLowerCase();
+        const isMatch = (rawPhone.length >= 6 && stPhone.includes(rawPhone)) || (rawEmail && stEmail === rawEmail);
+        return isMatch ? { ...st, status: 'Pending' } : st;
+      });
+      setEnrolledStudents(updatedStudents);
+
+      // Update Supabase order
+      const targetOrderId = targetTx.orderId || (targetTx.id.startsWith('ord_') ? targetTx.id : (targetTx.id.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : targetTx.id));
+      if (isSupabaseConfigured && targetOrderId) {
+        updateSupabaseOrderStatus(targetOrderId, { status: 'PENDING', isApproved: false }).catch(() => {});
+      }
+
+      persistAll({
+        accounting: newAcc,
+        enrolledStudents: updatedStudents
+      });
+
+      triggerToast('Enrollment approval revoked and course locked');
+    }
+  };
+
+  // Permanently Delete a Transaction
+  const handleDeleteTrx = (trxId) => {
+    const targetTx = (accounting.transactions || []).find(t => t.id === trxId);
+    if (!targetTx) return;
+
+    if (confirm(`Are you sure you want to permanently delete transaction "${targetTx.id}"?`)) {
+      const updated = (accounting.transactions || []).filter(t => t.id !== trxId);
+      const isIncome = targetTx.type === 'INCOME' || !targetTx.type;
+      const isCompleted = targetTx.status === 'Completed';
+      const amt = Number(targetTx.amount) || 0;
+      const diff = (isIncome && isCompleted) ? -amt : 0;
+      const expDiff = targetTx.type === 'EXPENSE' ? -amt : 0;
+
+      const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + diff);
+      const newExp = Math.max(0, (Number(accounting.totalExpenses) || 0) + expDiff);
+
+      const newAcc = {
+        ...accounting,
+        totalRevenue: newRev,
+        totalExpenses: newExp,
+        netProfit: newRev - newExp,
+        totalOrders: Math.max(0, (Number(accounting.totalOrders) || updated.length) - (isIncome ? 1 : 0)),
+        transactions: updated
+      };
+
+      setAccounting(newAcc);
+      persistAll({ accounting: newAcc });
+
+      // Clean from localStorage orders
+      try {
+        const rawOrders = localStorage.getItem('eh_user_orders_v3');
+        if (rawOrders) {
+          const ords = JSON.parse(rawOrders);
+          const filteredOrds = ords.filter(o => 
+            o.id !== trxId && 
+            o.id !== targetTx.orderId && 
+            o.invoiceNumber !== targetTx.invoiceNumber && 
+            (targetTx.trxId === 'PENDING' || o.transactionId !== targetTx.trxId)
+          );
+          localStorage.setItem('eh_user_orders_v3', JSON.stringify(filteredOrds));
+        }
+      } catch (e) {}
+
+      // Delete permanently from Supabase
+      const targetOrderId = targetTx.orderId || (targetTx.id.startsWith('ord_') ? targetTx.id : (targetTx.id.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : targetTx.id));
+      if (isSupabaseConfigured && targetOrderId) {
+        deleteSupabaseOrder(targetOrderId).catch(e => console.warn('[AdminPanel] Supabase delete order note:', e));
+      }
+
+      // Delete from Firestore if configured
+      if (isFirebaseConfigured && db && targetOrderId) {
+        try {
+          deleteDoc(doc(db, 'orders', targetOrderId)).catch(() => {});
+        } catch (e) {}
+      }
+
+      triggerToast('Transaction permanently deleted');
+    }
+  };
+
+  // Save Inline Amount for Transaction
+  const handleSaveTrxAmount = (trxId) => {
+    const newAmt = Number(editingTrxAmountVal);
+    if (isNaN(newAmt) || newAmt < 0) {
+      triggerToast('Please enter a valid amount');
+      return;
+    }
+
+    const targetTx = (accounting.transactions || []).find(t => t.id === trxId);
+    if (!targetTx) return;
+
+    const oldAmt = Number(targetTx.amount) || 0;
+    const diff = newAmt - oldAmt;
+
+    const updated = (accounting.transactions || []).map(t => {
+      if (t.id === trxId) return { ...t, amount: newAmt };
+      return t;
+    });
+
+    const isCompleted = targetTx.status === 'Completed';
+    const isIncome = targetTx.type === 'INCOME' || !targetTx.type;
+    const revDiff = (isIncome && isCompleted) ? diff : 0;
+    const expDiff = targetTx.type === 'EXPENSE' ? diff : 0;
+
+    const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + revDiff);
+    const newExp = Math.max(0, (Number(accounting.totalExpenses) || 0) + expDiff);
+
+    const newAcc = {
+      ...accounting,
+      totalRevenue: newRev,
+      totalExpenses: newExp,
+      netProfit: newRev - newExp,
+      transactions: updated
+    };
+
+    setAccounting(newAcc);
+    setEditingTrxAmountId(null);
+    setEditingTrxAmountVal('');
+
+    // Update in Supabase
+    const targetOrderId = targetTx.orderId || (targetTx.id.startsWith('ord_') ? targetTx.id : (targetTx.id.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : targetTx.id));
+    if (isSupabaseConfigured && targetOrderId) {
+      updateSupabaseOrderAmount(targetOrderId, newAmt).catch(() => {});
+    }
+
+    // Update in localStorage orders
+    try {
+      const rawOrders = localStorage.getItem('eh_user_orders_v3');
+      if (rawOrders) {
+        const ords = JSON.parse(rawOrders);
+        const nextOrds = ords.map(o => {
+          if (o.id === targetOrderId || o.id === trxId || o.invoiceNumber === targetTx.invoiceNumber) {
+            return { ...o, totalPaid: newAmt, amount: newAmt };
+          }
+          return o;
+        });
+        localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrds));
+      }
+    } catch (e) {}
+
+    persistAll({ accounting: newAcc });
+    triggerToast(`Amount updated to ৳${newAmt}`);
+  };
+
+  // Open full student profile modal from a transaction record
+  const handleOpenStudentFromTrx = (tx) => {
+    if (!tx) return;
+    const rawPhone = (tx.studentPhone || '').replace(/[^0-9]/g, '');
+    const rawEmail = (tx.studentEmail || '').trim().toLowerCase();
+    const matched = usersList.find(u => {
+      const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+      const uEmail = (u.email || '').trim().toLowerCase();
+      return (rawPhone && rawPhone.length >= 6 && uPhone.includes(rawPhone)) || (rawEmail && uEmail === rawEmail);
+    });
+
+    if (matched) {
+      setSelectedUserDetails(matched);
+    } else {
+      setSelectedUserDetails({
+        id: tx.orderId || tx.id,
+        name: tx.studentName || 'Student',
+        email: tx.studentEmail || 'N/A',
+        phone: tx.studentPhone || '',
+        whatsapp: tx.studentPhone || '',
+        role: 'Student',
+        status: tx.status === 'Completed' ? 'Active' : 'Pending',
+        batch: 'HSC 26',
+        totalSpent: Number(tx.amount) || 0,
+        enrolledCourses: [tx.itemTitle].filter(Boolean),
+        joinedDate: tx.date || 'Recently',
+        device: 'Web Client',
+        avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(tx.studentEmail || tx.studentName || 'student')}`
+      });
+    }
   };
 
   // Add Slide
@@ -2552,17 +2946,36 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const course = courses[courseIdx];
     if (!course) return;
 
+    let needsUpdate = false;
+    let initialCurr = course.curriculum;
     if (!Array.isArray(course.curriculum) || course.curriculum.length === 0) {
-      const initialCurr = (course.id === 'master-english-30-days' || course.slug === 'master-english-30-days')
+      initialCurr = (course.id === 'master-english-30-days' || course.slug === 'master-english-30-days')
         ? JSON.parse(JSON.stringify(masterEnglishCourseData.curriculum))
         : [];
+      needsUpdate = true;
+    }
+
+    if (!course.features || !Array.isArray(course.features) || course.features.length === 0) {
+      needsUpdate = true;
+    }
+
+    if (needsUpdate) {
+      const defaultFeats = (course.id === 'master-english-30-days' || course.slug === 'master-english-30-days')
+        ? masterEnglishCourseData.features
+        : [
+            'HD কোয়ালিটি লাইভ ও রেকর্ডেড ক্লাস',
+            'অধ্যায়ভিত্তিক লেকচার নোট ও প্র্যাকটিস শিট',
+            'এক্সক্লুসিভ এক্সাম ও সলভ ক্লাস',
+            '২৪/৭ টেলিগ্রাম ডাউট সলভিং সাপোর্ট'
+          ];
       const updated = courses.map((c, i) => i === courseIdx ? { 
         ...c, 
         curriculum: initialCurr,
         tagline: c.tagline || (c.id === 'master-english-30-days' ? masterEnglishCourseData.tagline : ''),
         aboutText: c.aboutText || (c.id === 'master-english-30-days' ? masterEnglishCourseData.aboutText : ''),
         totalClasses: c.totalClasses || (c.id === 'master-english-30-days' ? masterEnglishCourseData.totalClasses : ''),
-        features: (c.features && c.features.length > 0) ? c.features : (c.id === 'master-english-30-days' ? masterEnglishCourseData.features : []),
+        features: (c.features && c.features.length > 0) ? c.features : defaultFeats,
+        studentsCount: c.studentsCount || '১২৫০+',
         supportPhone: c.supportPhone || '01342227935',
         previewVideoUrl: c.previewVideoUrl || (c.id === 'master-english-30-days' ? masterEnglishCourseData.previewVideoUrl : '')
       } : c);
@@ -3097,11 +3510,21 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     } else if (userSortBy === 'spend') {
       list.sort((a, b) => (b.totalSpent || 0) - (a.totalSpent || 0));
     } else if (userSortBy === 'courses') {
-      list.sort((a, b) => (b.enrolledCourses?.length || 0) - (a.enrolledCourses?.length || 0));
+      list.sort((a, b) => (
+        getCanonicalCourses(b.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA }).length -
+        getCanonicalCourses(a.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA }).length
+      ));
+    } else {
+      // Default: Newest users ALWAYS on top
+      list.sort((a, b) => {
+        const timeA = new Date(a.createdAt || a.joinedDate || 0).getTime() || (a.id?.startsWith('usr-') ? Number(a.id.replace('usr-', '')) : 0);
+        const timeB = new Date(b.createdAt || b.joinedDate || 0).getTime() || (b.id?.startsWith('usr-') ? Number(b.id.replace('usr-', '')) : 0);
+        return timeB - timeA;
+      });
     }
 
     return list;
-  }, [usersList, userRoleFilter, userStatusFilter, userBatchFilter, deferredUserQuery, userSortBy]);
+  }, [usersList, userRoleFilter, userStatusFilter, userBatchFilter, deferredUserQuery, userSortBy, courses, bundles]);
 
   const userMetrics = useMemo(() => {
     const total = usersList.length;
@@ -3111,19 +3534,28 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     return { total, activeStudents, staffCount, suspendedCount };
   }, [usersList]);
 
-  // Memoized Pending Count
-  const pendingCount = useMemo(() => {
+  // Memoized Pending Requests (Chronologically Sorted - Newest First)
+  const pendingRequests = useMemo(() => {
     return (accounting?.transactions || []).filter(tx => {
       const s = (tx.status || '').toLowerCase();
       return s === 'pending' || (s !== 'completed' && s !== 'paid' && s !== 'rejected');
-    }).length;
+    }).sort((a, b) => {
+      const timeA = new Date(a.createdAt || a.date || 0).getTime();
+      const timeB = new Date(b.createdAt || b.date || 0).getTime();
+      return timeB - timeA;
+    });
   }, [accounting?.transactions]);
 
-  // Memoized Filtered Transactions
+  // Memoized Pending Count
+  const pendingCount = useMemo(() => {
+    return pendingRequests.length;
+  }, [pendingRequests]);
+
+  // Memoized Filtered Transactions (Pending & Newest on TOP)
   const filteredTransactions = useMemo(() => {
     const txs = accounting?.transactions || [];
     const query = deferredSearchTrx.trim().toLowerCase();
-    return txs.filter(tx => {
+    const filtered = txs.filter(tx => {
       const matchesSearch = !query ||
         (tx.studentName || '').toLowerCase().includes(query) ||
         (tx.itemTitle || '').toLowerCase().includes(query) ||
@@ -3134,6 +3566,17 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       if (trxFilter === 'INCOME') return matchesSearch && (tx.type || '').toUpperCase() === 'INCOME';
       if (trxFilter === 'EXPENSE') return matchesSearch && (tx.type || '').toUpperCase() === 'EXPENSE';
       return matchesSearch;
+    });
+
+    return filtered.sort((a, b) => {
+      const aPending = (a.status || '').toLowerCase() === 'pending' || ((a.status || '').toLowerCase() !== 'completed' && (a.status || '').toLowerCase() !== 'paid');
+      const bPending = (b.status || '').toLowerCase() === 'pending' || ((b.status || '').toLowerCase() !== 'completed' && (b.status || '').toLowerCase() !== 'paid');
+      if (aPending && !bPending) return -1;
+      if (!aPending && bPending) return 1;
+
+      const timeA = new Date(a.createdAt || a.date || 0).getTime();
+      const timeB = new Date(b.createdAt || b.date || 0).getTime();
+      return timeB - timeA;
     });
   }, [accounting?.transactions, deferredSearchTrx, trxFilter]);
 
@@ -3285,7 +3728,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           initialTab={curriculumStudioTab}
           categories={categories}
           onUpdateCourse={(updatedCourse) => {
-            const next = courses.map((c, i) => i === curriculumCourseIndex ? updatedCourse : c);
+            const next = courses.map((c, i) => (
+              i === curriculumCourseIndex ||
+              (updatedCourse?.id && c?.id === updatedCourse.id) ||
+              (updatedCourse?.slug && c?.slug === updatedCourse.slug)
+            ) ? updatedCourse : c);
             setCourses(next);
             persistAll({ courses: next });
             saveCloudData({ courses: next });
@@ -3700,15 +4147,104 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             <span>Add Course</span>
           </button>
 
-          {/* Notification Bell */}
-          <div 
-            onClick={() => setActiveTab('accounting')}
-            title="Notifications & Pending Verifications"
-            className="relative p-2 rounded-xl hover:bg-slate-100 text-slate-600 cursor-pointer transition-colors"
-          >
-            <Bell className="w-4 h-4" />
-            {pendingCount > 0 && (
-              <span className="w-2 h-2 rounded-full bg-[#5d5bf6] absolute top-1.5 right-1.5 ring-2 ring-white" />
+          {/* Notification Bell with 100% Functional Interactive Dropdown */}
+          <div className="relative">
+            <button 
+              type="button"
+              onClick={() => setShowNotificationPopover(prev => !prev)}
+              title="Notifications & Pending Enrollments"
+              className="relative p-2 rounded-xl hover:bg-slate-100 text-slate-600 cursor-pointer transition-colors border-none bg-transparent flex items-center justify-center"
+            >
+              <Bell className="w-4 h-4" />
+              {pendingCount > 0 && (
+                <span className="min-w-[18px] h-[18px] px-1 rounded-full bg-rose-500 text-white text-[10px] font-black absolute -top-0.5 -right-0.5 flex items-center justify-center ring-2 ring-white shadow-xs animate-pulse">
+                  {pendingCount}
+                </span>
+              )}
+            </button>
+
+            {/* Notification Popover Dropdown */}
+            {showNotificationPopover && (
+              <>
+                <div 
+                  className="fixed inset-0 z-40" 
+                  onClick={() => setShowNotificationPopover(false)} 
+                />
+                <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+                  <div className="p-3.5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-black text-slate-900 uppercase tracking-wider">Notifications</span>
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#5d5bf6]/10 text-[#5d5bf6]">
+                        {pendingCount} Pending
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowNotificationPopover(false);
+                        setActiveTab('accounting');
+                      }}
+                      className="text-[11px] font-bold text-[#5d5bf6] hover:underline bg-transparent border-none cursor-pointer"
+                    >
+                      View All in Ledger
+                    </button>
+                  </div>
+
+                  <div className="max-h-80 overflow-y-auto divide-y divide-slate-100">
+                    {pendingRequests.length === 0 ? (
+                      <div className="p-6 text-center text-slate-400">
+                        <CheckCircle2 className="w-8 h-8 text-emerald-500 mx-auto mb-2 opacity-80" />
+                        <p className="text-xs font-bold text-slate-700">All caught up!</p>
+                        <p className="text-[11px] text-slate-400 mt-0.5">No pending enrollment requests right now.</p>
+                      </div>
+                    ) : (
+                      pendingRequests.slice(0, 6).map(req => (
+                        <div key={req.id} className="p-3 hover:bg-slate-50/80 transition-colors flex items-start justify-between gap-2.5">
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0" />
+                              <span className="font-bold text-xs text-slate-900 truncate">{req.studentName}</span>
+                              <span className="text-[10px] text-slate-400 font-mono shrink-0">৳{req.amount}</span>
+                            </div>
+                            <div className="text-[11px] text-slate-500 font-medium truncate mt-0.5 pl-3.5">
+                              {req.itemTitle}
+                            </div>
+                            <div className="text-[10px] text-slate-400 font-mono mt-0.5 pl-3.5">
+                              {req.method} · {req.trxId}
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-1 shrink-0 pt-0.5">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                handleApproveTrx(req.id);
+                              }}
+                              className="px-2 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[10px] inline-flex items-center gap-1 border-none cursor-pointer shadow-2xs active:scale-95"
+                              title="Approve this enrollment"
+                            >
+                              <Check className="w-3 h-3" />
+                              <span>Approve</span>
+                            </button>
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+
+                  <div className="p-2.5 border-t border-slate-100 bg-slate-50/50 text-center">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowNotificationPopover(false);
+                        setActiveTab('accounting');
+                      }}
+                      className="w-full py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors border-none cursor-pointer"
+                    >
+                      Go to Enrollments & Ledger
+                    </button>
+                  </div>
+                </div>
+              </>
             )}
           </div>
 
@@ -4836,7 +5372,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             {/* Row 1: Student / Description, Type Badge, Amount */}
                             <div className="flex items-start justify-between gap-2">
                               <div className="min-w-0 flex-1">
-                                <div className="font-bold text-slate-900 text-sm truncate">
+                                <div 
+                                  className="font-bold text-slate-900 text-sm truncate cursor-pointer hover:text-[#5d5bf6] transition-colors"
+                                  onClick={() => handleOpenStudentFromTrx(tx)}
+                                  title="Click to view full student details"
+                                >
                                   {tx.studentName || tx.customer || 'Direct Ledger Entry'}
                                 </div>
                                 <div className="text-[11px] text-slate-500 font-medium truncate mt-0.5">
@@ -4844,9 +5384,50 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 </div>
                               </div>
                               <div className="text-right shrink-0">
-                                <div className={`font-black text-base leading-tight ${isIncome ? 'text-emerald-600' : 'text-rose-600'}`}>
-                                  {isIncome ? `+৳${(tx.amount || 0).toLocaleString()}` : `-৳${(tx.amount || 0).toLocaleString()}`}
-                                </div>
+                                {editingTrxAmountId === tx.id ? (
+                                  <div className="flex items-center gap-1 mt-1 justify-end">
+                                    <input
+                                      type="number"
+                                      value={editingTrxAmountVal}
+                                      onChange={(e) => setEditingTrxAmountVal(e.target.value)}
+                                      className="w-16 px-1.5 py-0.5 text-xs font-bold border border-[#5d5bf6] rounded-md bg-white text-slate-800"
+                                      autoFocus
+                                    />
+                                    <button
+                                      type="button"
+                                      onClick={() => handleSaveTrxAmount(tx.id)}
+                                      className="p-1 rounded-md bg-emerald-600 text-white cursor-pointer border-none"
+                                      title="Save"
+                                    >
+                                      <Check className="w-3 h-3" />
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => setEditingTrxAmountId(null)}
+                                      className="p-1 rounded-md bg-slate-200 text-slate-600 cursor-pointer border-none"
+                                      title="Cancel"
+                                    >
+                                      <X className="w-3 h-3" />
+                                    </button>
+                                  </div>
+                                ) : (
+                                  <div className="flex items-center gap-1 justify-end">
+                                    <div className={`font-black text-base leading-tight ${isIncome ? 'text-emerald-600' : 'text-rose-600'}`}>
+                                      {isIncome ? `+৳${(tx.amount || 0).toLocaleString()}` : `-৳${(tx.amount || 0).toLocaleString()}`}
+                                    </div>
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setEditingTrxAmountId(tx.id);
+                                        setEditingTrxAmountVal(String(tx.amount || 0));
+                                      }}
+                                      className="p-0.5 text-slate-400 hover:text-[#5d5bf6] bg-transparent border-none cursor-pointer"
+                                      title="Edit Amount"
+                                    >
+                                      <Edit2 className="w-3 h-3" />
+                                    </button>
+                                  </div>
+                                )}
                                 <div className="text-[10px] text-slate-400 mt-0.5 font-mono">{tx.date}</div>
                               </div>
                             </div>
@@ -4870,9 +5451,26 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                   </>
                                 )}
                               </div>
-                              {tx.studentPhone && (
-                                <span className="font-mono text-slate-500 shrink-0">{tx.studentPhone}</span>
-                              )}
+                              {tx.studentPhone && (() => {
+                                const cleanDigits = (tx.studentPhone || '').replace(/[^0-9]/g, '');
+                                const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
+                                return (
+                                  <div className="flex items-center gap-1 shrink-0 font-mono text-slate-700">
+                                    <span>{tx.studentPhone}</span>
+                                    {cleanDigits.length >= 6 && (
+                                      <a
+                                        href={`https://wa.me/${waPhone}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="Chat on WhatsApp"
+                                        className="text-emerald-600 hover:text-emerald-700 p-0.5 inline-flex items-center"
+                                      >
+                                        <MessageCircle className="w-3.5 h-3.5" />
+                                      </a>
+                                    )}
+                                  </div>
+                                );
+                              })()}
                             </div>
 
                             {/* Row 3: Status Badge & Minimal Actions */}
@@ -4889,7 +5487,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               </span>
 
                               <div className="flex items-center gap-1">
-                                {tx.status !== 'Completed' && (
+                                {tx.status !== 'Completed' ? (
                                   <button
                                     type="button"
                                     onClick={() => handleApproveTrx(tx.id)}
@@ -4898,26 +5496,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     <Check className="w-3.5 h-3.5" />
                                     <span>Approve</span>
                                   </button>
+                                ) : (
+                                  <button
+                                    type="button"
+                                    onClick={() => handleRevokeTrx(tx.id)}
+                                    className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 cursor-pointer border-none active:scale-95"
+                                  >
+                                    <RotateCcw className="w-3.5 h-3.5" />
+                                    <span>Revoke</span>
+                                  </button>
                                 )}
                                 <button
                                   type="button"
-                                  onClick={() => {
-                                    if (confirm(`Delete transaction (${tx.id})?`)) {
-                                      const updated = accounting.transactions.filter(t => t.id !== tx.id);
-                                      const diff = tx.type === 'INCOME' ? -(tx.amount || 0) : 0;
-                                      const expDiff = tx.type === 'EXPENSE' ? -(tx.amount || 0) : 0;
-                                      const newAcc = {
-                                        ...accounting,
-                                        totalRevenue: (accounting.totalRevenue || 0) + diff,
-                                        totalExpenses: (accounting.totalExpenses || 0) + expDiff,
-                                        netProfit: ((accounting.totalRevenue || 0) + diff) - ((accounting.totalExpenses || 0) + expDiff),
-                                        transactions: updated
-                                      };
-                                      setAccounting(newAcc);
-                                      persistAll({ accounting: newAcc });
-                                      triggerToast('Transaction deleted!');
-                                    }
-                                  }}
+                                  onClick={() => handleDeleteTrx(tx.id)}
                                   className="p-1.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors cursor-pointer bg-white"
                                   title="Delete"
                                 >
@@ -4952,8 +5543,35 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               <td className="py-3 px-4 font-mono font-bold text-slate-400">{tx.id}</td>
                               <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{tx.date}</td>
                               <td className="py-3 px-4">
-                                <div className="font-bold text-slate-900">{tx.studentName}</div>
-                                <div className="text-[10px] text-slate-400">{tx.studentPhone}</div>
+                                {(() => {
+                                  const cleanDigits = (tx.studentPhone || '').replace(/[^0-9]/g, '');
+                                  const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
+                                  return (
+                                    <div>
+                                      <div 
+                                        className="font-bold text-slate-900 cursor-pointer hover:text-[#5d5bf6] transition-colors"
+                                        onClick={() => handleOpenStudentFromTrx(tx)}
+                                        title="Click to view full student details"
+                                      >
+                                        {tx.studentName}
+                                      </div>
+                                      <div className="flex items-center gap-1.5 text-[10px] text-slate-400 mt-0.5">
+                                        <span className="font-mono">{tx.studentPhone}</span>
+                                        {cleanDigits.length >= 6 && (
+                                          <a
+                                            href={`https://wa.me/${waPhone}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            title="Chat on WhatsApp"
+                                            className="text-emerald-600 hover:text-emerald-700 p-0.5 inline-flex items-center"
+                                          >
+                                            <MessageCircle className="w-3.5 h-3.5" />
+                                          </a>
+                                        )}
+                                      </div>
+                                    </div>
+                                  );
+                                })()}
                               </td>
                               <td className="py-3 px-4 font-medium max-w-[200px] truncate text-slate-800" title={tx.itemTitle}>
                                 {tx.itemTitle}
@@ -4973,43 +5591,85 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                   {tx.status === 'Completed' ? 'Approved' : 'Pending'}
                                 </span>
                               </td>
-                              <td className={`py-3 px-4 text-right font-black text-sm whitespace-nowrap ${
-                                tx.type === 'INCOME' ? 'text-emerald-600' : 'text-rose-600'
-                              }`}>
-                                {tx.type === 'INCOME' ? `+৳${(tx.amount || 0).toLocaleString()}` : `-৳${(tx.amount || 0).toLocaleString()}`}
+                              <td className="py-3 px-4 text-right font-black text-sm whitespace-nowrap">
+                                {editingTrxAmountId === tx.id ? (
+                                  <div className="flex items-center justify-end gap-1">
+                                    <span className="text-slate-400 text-xs font-bold">৳</span>
+                                    <input
+                                      type="number"
+                                      value={editingTrxAmountVal}
+                                      onChange={(e) => setEditingTrxAmountVal(e.target.value)}
+                                      onKeyDown={(e) => {
+                                        if (e.key === 'Enter') handleSaveTrxAmount(tx.id);
+                                        if (e.key === 'Escape') setEditingTrxAmountId(null);
+                                      }}
+                                      className="w-20 px-2 py-1 text-xs font-bold border border-[#5d5bf6] rounded-md focus:outline-none bg-white text-slate-800"
+                                      autoFocus
+                                    />
+                                    <button
+                                      type="button"
+                                      onClick={() => handleSaveTrxAmount(tx.id)}
+                                      className="p-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer border-none"
+                                      title="Save"
+                                    >
+                                      <Check className="w-3.5 h-3.5" />
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => setEditingTrxAmountId(null)}
+                                      className="p-1 rounded-md bg-slate-200 hover:bg-slate-300 text-slate-600 cursor-pointer border-none"
+                                      title="Cancel"
+                                    >
+                                      <X className="w-3.5 h-3.5" />
+                                    </button>
+                                  </div>
+                                ) : (
+                                  <div className="flex items-center justify-end gap-1.5 group">
+                                    <span className={tx.type === 'INCOME' ? 'text-emerald-600' : 'text-rose-600'}>
+                                      {tx.type === 'INCOME' ? `+৳${(tx.amount || 0).toLocaleString()}` : `-৳${(tx.amount || 0).toLocaleString()}`}
+                                    </span>
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setEditingTrxAmountId(tx.id);
+                                        setEditingTrxAmountVal(String(tx.amount || 0));
+                                      }}
+                                      className="opacity-0 group-hover:opacity-100 p-1 rounded-md hover:bg-slate-100 text-slate-400 hover:text-[#5d5bf6] transition-opacity cursor-pointer border-none"
+                                      title="Edit Amount"
+                                    >
+                                      <Edit2 className="w-3 h-3" />
+                                    </button>
+                                  </div>
+                                )}
                               </td>
                               <td className="py-3 px-4 text-center">
                                 <div className="flex items-center justify-center gap-1.5">
-                                  {tx.status !== 'Completed' && (
+                                  {tx.status !== 'Completed' ? (
                                     <button
+                                      type="button"
                                       onClick={() => handleApproveTrx(tx.id)}
                                       className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs inline-flex items-center gap-1 shadow-2xs border-none cursor-pointer transition-all active:scale-95"
-                                      title="Approve Enrollment & Unlock Course"
+                                      title="Approve Enrollment"
                                     >
                                       <Check className="w-3.5 h-3.5" />
                                       <span>Approve</span>
                                     </button>
+                                  ) : (
+                                    <button
+                                      type="button"
+                                      onClick={() => handleRevokeTrx(tx.id)}
+                                      className="px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs inline-flex items-center gap-1 shadow-2xs border-none cursor-pointer transition-all active:scale-95"
+                                      title="Revoke Approval & Lock Access"
+                                    >
+                                      <RotateCcw className="w-3.5 h-3.5" />
+                                      <span>Revoke</span>
+                                    </button>
                                   )}
                                   <button
-                                    onClick={() => {
-                                      if (confirm(`Delete transaction (${tx.id})?`)) {
-                                        const updated = accounting.transactions.filter(t => t.id !== tx.id);
-                                        const diff = tx.type === 'INCOME' ? -(tx.amount || 0) : 0;
-                                        const expDiff = tx.type === 'EXPENSE' ? -(tx.amount || 0) : 0;
-                                        const newAcc = {
-                                          ...accounting,
-                                          totalRevenue: (accounting.totalRevenue || 0) + diff,
-                                          totalExpenses: (accounting.totalExpenses || 0) + expDiff,
-                                          netProfit: ((accounting.totalRevenue || 0) + diff) - ((accounting.totalExpenses || 0) + expDiff),
-                                          transactions: updated
-                                        };
-                                        setAccounting(newAcc);
-                                        persistAll({ accounting: newAcc });
-                                        triggerToast('Transaction deleted!');
-                                      }
-                                    }}
+                                    type="button"
+                                    onClick={() => handleDeleteTrx(tx.id)}
                                     className="text-slate-400 hover:text-rose-600 p-1.5 rounded-lg hover:bg-rose-50 border-none bg-transparent cursor-pointer transition-colors"
-                                    title="Delete"
+                                    title="Delete Transaction"
                                   >
                                     <Trash2 className="w-3.5 h-3.5" />
                                   </button>
@@ -5246,8 +5906,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         const cleanDigits = contactNum.replace(/[^0-9]/g, '');
                         const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
                         const displayId = user.id ? (user.id.startsWith('usr-') ? user.id.toUpperCase() : (user.id.length > 10 ? `STU-${user.id.slice(0, 6).toUpperCase()}` : user.id.toUpperCase())) : 'STU-001';
-                        const enrolledTitle = Array.isArray(user.enrolledCourses) && user.enrolledCourses.length > 0
-                          ? (user.enrolledCourses[0] + (user.enrolledCourses.length > 1 ? ` (+${user.enrolledCourses.length - 1})` : ''))
+                        const canonicalCourses = getCanonicalCourses(user.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA });
+                        const enrolledTitle = canonicalCourses.length > 0
+                          ? (canonicalCourses[0] + (canonicalCourses.length > 1 ? ` (+${canonicalCourses.length - 1})` : ''))
                           : 'No enrolled courses';
 
                         return (
@@ -5347,10 +6008,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     setSelectedCourseToEnroll(courses[0]?.title || '');
                                   }}
                                   className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-[#5d5bf6] text-[#5d5bf6] hover:text-white border border-indigo-200/80 font-bold text-[11px] transition-colors cursor-pointer shadow-2xs"
-                                  title="কোর্স এক্সেস দিন"
+                                  title="Grant Course Access"
                                 >
                                   <GraduationCap className="w-3 h-3" />
-                                  <span>কোর্স দিন</span>
+                                  <span>Grant Course</span>
                                 </button>
                                 <button
                                   type="button"
@@ -5403,9 +6064,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             // Display ID in TRX/STU style
                             const displayId = user.id ? (user.id.startsWith('usr-') ? user.id.toUpperCase() : (user.id.length > 10 ? `STU-${user.id.slice(0, 6).toUpperCase()}` : user.id.toUpperCase())) : 'STU-001';
 
-                            // Enrolled courses display
-                            const enrolledTitle = Array.isArray(user.enrolledCourses) && user.enrolledCourses.length > 0
-                              ? (user.enrolledCourses[0] + (user.enrolledCourses.length > 1 ? ` (+${user.enrolledCourses.length - 1})` : ''))
+                            // Enrolled courses display (Canonicalized - No Duplicates)
+                            const canonicalCourses = getCanonicalCourses(user.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA });
+                            const enrolledTitle = canonicalCourses.length > 0
+                              ? (canonicalCourses[0] + (canonicalCourses.length > 1 ? ` (+${canonicalCourses.length - 1})` : ''))
                               : 'No enrolled courses';
 
                             return (
@@ -5450,7 +6112,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 {/* Course / Product */}
                                 <td className="py-3.5 px-4">
                                   <div className="flex items-center gap-1.5 flex-wrap">
-                                    {Array.isArray(user.enrolledCourses) && user.enrolledCourses.length > 0 ? (
+                                    {canonicalCourses.length > 0 ? (
                                       <button
                                         type="button"
                                         onClick={() => {
@@ -5458,13 +6120,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                           setUserTabInsideModal('courses');
                                         }}
                                         className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-50 text-[#5d5bf6] hover:bg-indigo-100 border border-indigo-200/80 transition-all cursor-pointer shadow-2xs"
-                                        title={user.enrolledCourses.join('\n')}
+                                        title={canonicalCourses.join('\n')}
                                       >
                                         <GraduationCap className="w-3.5 h-3.5 shrink-0 text-[#5d5bf6]" />
-                                        <span className="truncate max-w-[170px]">{user.enrolledCourses[0]}</span>
-                                        {user.enrolledCourses.length > 1 && (
+                                        <span className="truncate max-w-[170px]">{canonicalCourses[0]}</span>
+                                        {canonicalCourses.length > 1 && (
                                           <span className="px-1.5 py-0.2 rounded-full text-[10px] font-extrabold bg-[#5d5bf6] text-white">
-                                            +{user.enrolledCourses.length - 1}
+                                            +{canonicalCourses.length - 1}
                                           </span>
                                         )}
                                       </button>
@@ -5477,7 +6139,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                         }}
                                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold text-slate-500 hover:text-[#5d5bf6] hover:bg-indigo-50 border border-dashed border-slate-300 hover:border-indigo-300 transition-colors cursor-pointer bg-transparent"
                                       >
-                                        <span>+ কোর্স যুক্ত করুন</span>
+                                        <span>+ Grant Course</span>
                                       </button>
                                     )}
                                   </div>
@@ -5565,11 +6227,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                         setQuickEnrollUser(user);
                                         setSelectedCourseToEnroll(courses[0]?.title || '');
                                       }}
-                                      title="কোর্স এক্সেস দিন (Grant Course Access)"
+                                      title="Grant Course Access"
                                       className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-[#5d5bf6] text-[#5d5bf6] hover:text-white border border-indigo-200/80 font-bold text-[11px] transition-all cursor-pointer shadow-2xs active:scale-95"
                                     >
                                       <GraduationCap className="w-3.5 h-3.5" />
-                                      <span>কোর্স দিন</span>
+                                      <span>Grant Course</span>
                                     </button>
 
                                     <button
@@ -10654,59 +11316,62 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       {/* ========================================================= */}
       {/* MODAL 1: USER DETAILS PROFILE DRAWER / MODAL */}
       {/* ========================================================= */}
-      {selectedUserDetails && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
-          <div className="bg-white rounded-3xl w-full max-w-2xl border border-slate-100 shadow-2xl overflow-hidden my-8">
-            {/* Header Banner */}
-            <div className="bg-gradient-to-r from-[#5d5bf6] to-[#7c7afc] p-6 text-white relative">
-              <button
-                onClick={() => setSelectedUserDetails(null)}
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center cursor-pointer border-none transition-colors"
-              >
-                ✕
-              </button>
+      {selectedUserDetails && (() => {
+        const canonicalUserCourses = getCanonicalCourses(selectedUserDetails.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA });
 
-              <div className="flex items-center gap-4">
-                <img 
-                  src={selectedUserDetails.avatar} 
-                  alt={selectedUserDetails.name} 
-                  className="w-16 h-16 rounded-full object-cover ring-4 ring-white/30 shadow-md"
-                />
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h2 className="text-xl font-black tracking-tight">{selectedUserDetails.name}</h2>
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-white/20 uppercase tracking-wider">
-                      {selectedUserDetails.role}
-                    </span>
+        return (
+          <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
+            <div className="bg-white rounded-3xl w-full max-w-2xl border border-slate-100 shadow-2xl overflow-hidden my-8">
+              {/* Header Banner */}
+              <div className="bg-gradient-to-r from-[#5d5bf6] to-[#7c7afc] p-6 text-white relative">
+                <button
+                  onClick={() => setSelectedUserDetails(null)}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center cursor-pointer border-none transition-colors"
+                >
+                  ✕
+                </button>
+
+                <div className="flex items-center gap-4">
+                  <img 
+                    src={selectedUserDetails.avatar} 
+                    alt={selectedUserDetails.name} 
+                    className="w-16 h-16 rounded-full object-cover ring-4 ring-white/30 shadow-md"
+                  />
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h2 className="text-xl font-black tracking-tight">{selectedUserDetails.name}</h2>
+                      <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-white/20 uppercase tracking-wider">
+                        {selectedUserDetails.role}
+                      </span>
+                    </div>
+                    <p className="text-xs text-white/80 mt-0.5">{selectedUserDetails.email}</p>
+                    <p className="text-[11px] text-white/70 mt-0.5 font-mono">ID: {selectedUserDetails.id} • Joined: {selectedUserDetails.joinedDate}</p>
                   </div>
-                  <p className="text-xs text-white/80 mt-0.5">{selectedUserDetails.email}</p>
-                  <p className="text-[11px] text-white/70 mt-0.5 font-mono">ID: {selectedUserDetails.id} • Joined: {selectedUserDetails.joinedDate}</p>
                 </div>
               </div>
-            </div>
 
-            {/* Modal Tabs Bar */}
-            <div className="flex items-center gap-2 px-6 pt-4 border-b border-slate-100 bg-slate-50/50">
-              <button
-                onClick={() => setUserTabInsideModal('profile')}
-                className={`px-4 py-2.5 text-xs font-bold border-b-2 cursor-pointer transition-colors ${
-                  userTabInsideModal === 'profile'
-                    ? 'border-[#5d5bf6] text-[#5d5bf6]'
-                    : 'border-transparent text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                Profile & Security
-              </button>
-              <button
-                onClick={() => setUserTabInsideModal('courses')}
-                className={`px-4 py-2.5 text-xs font-bold border-b-2 cursor-pointer transition-colors ${
-                  userTabInsideModal === 'courses'
-                    ? 'border-[#5d5bf6] text-[#5d5bf6]'
-                    : 'border-transparent text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                Enrolled Courses ({selectedUserDetails.enrolledCourses?.length || 0})
-              </button>
+              {/* Modal Tabs Bar */}
+              <div className="flex items-center gap-2 px-6 pt-4 border-b border-slate-100 bg-slate-50/50">
+                <button
+                  onClick={() => setUserTabInsideModal('profile')}
+                  className={`px-4 py-2.5 text-xs font-bold border-b-2 cursor-pointer transition-colors ${
+                    userTabInsideModal === 'profile'
+                      ? 'border-[#5d5bf6] text-[#5d5bf6]'
+                      : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  Profile & Security
+                </button>
+                <button
+                  onClick={() => setUserTabInsideModal('courses')}
+                  className={`px-4 py-2.5 text-xs font-bold border-b-2 cursor-pointer transition-colors ${
+                    userTabInsideModal === 'courses'
+                      ? 'border-[#5d5bf6] text-[#5d5bf6]'
+                      : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  Enrolled Courses ({canonicalUserCourses.length})
+                </button>
               <button
                 onClick={() => setUserTabInsideModal('transactions')}
                 className={`px-4 py-2.5 text-xs font-bold border-b-2 cursor-pointer transition-colors ${
@@ -10845,65 +11510,73 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   </div>
 
                   {/* Direct In-Tab Course Assign Form */}
-                  <div className="p-3 bg-indigo-50/60 rounded-2xl border border-indigo-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
-                    <div className="flex-1 min-w-0">
-                      <CourseSearchSelect
-                        value={selectedCourseToEnroll}
-                        onChange={setSelectedCourseToEnroll}
-                        bundles={bundles}
-                        courses={courses}
-                        examBatches={EXAM_CATEGORIES_METADATA}
-                        placeholder="কোর্স অথবা কম্বো বান্ডিল বেছে নিন..."
-                      />
-                    </div>
-
-                    <button
-                      type="button"
-                      disabled={!selectedCourseToEnroll}
-                      onClick={() => {
-                        handleAssignCourseToUser(selectedUserDetails.id, selectedCourseToEnroll);
-                        setSelectedCourseToEnroll('');
-                      }}
-                      className="px-5 py-2.5 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-50 text-white text-xs font-bold shrink-0 cursor-pointer border-none shadow-xs flex items-center justify-center gap-1.5 transition-all active:scale-95"
-                    >
-                      <Check className="w-4 h-4" />
-                      <span>এক্সেস যুক্ত করুন</span>
-                    </button>
-                  </div>
-
-                  {(selectedUserDetails.enrolledCourses || []).length === 0 ? (
-                    <div className="text-center py-8 text-slate-400 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                      <BookOpen className="w-8 h-8 mx-auto text-slate-300 mb-1" />
-                      <p className="text-xs font-bold text-slate-600">কোনো সক্রিয় কোর্স নেই</p>
-                      <p className="text-[11px] text-slate-400">উপরের ড্রপডাউন থেকে কোর্স সিলেক্ট করে এক্সেস যুক্ত করুন।</p>
-                    </div>
-                  ) : (
-                    <div className="space-y-2.5">
-                      {selectedUserDetails.enrolledCourses.map((cTitle, idx) => (
-                        <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-slate-100/60 transition-colors">
-                          <div className="flex items-center gap-2.5">
-                            <div className="w-7 h-7 rounded-lg bg-[#5d5bf6]/10 text-[#5d5bf6] flex items-center justify-center font-bold text-xs">
-                              {idx + 1}
-                            </div>
-                            <div>
-                              <div className="text-xs font-bold text-slate-800">{cTitle}</div>
-                              <div className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                                <span>অ্যাক্সেস সক্রিয় (Active Access Pass)</span>
-                              </div>
-                            </div>
+                  {(() => {
+                    const canonicalUserCourses = getCanonicalCourses(selectedUserDetails.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA });
+                    return (
+                      <>
+                        <div className="p-3.5 bg-gradient-to-r from-indigo-50/80 to-purple-50/50 rounded-2xl border border-indigo-100/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                          <div className="flex-1 min-w-0">
+                            <CourseSearchSelect
+                              value={selectedCourseToEnroll}
+                              onChange={(val) => setSelectedCourseToEnroll(val)}
+                              courses={courses}
+                              bundles={bundles}
+                              examBatches={EXAM_CATEGORIES_METADATA}
+                              enrolledCourses={canonicalUserCourses}
+                              placeholder="Choose Course, Bundle or Exam Batch..."
+                            />
                           </div>
+
                           <button
                             type="button"
-                            onClick={() => handleRevokeCourseFromUser(selectedUserDetails.id, cTitle)}
-                            className="text-xs text-rose-600 hover:text-rose-700 font-bold hover:underline bg-rose-50 hover:bg-rose-100 px-2.5 py-1 rounded-lg border border-rose-200 cursor-pointer transition-colors"
+                            disabled={!selectedCourseToEnroll}
+                            onClick={() => {
+                              handleAssignCourseToUser(selectedUserDetails.id, selectedCourseToEnroll);
+                              setSelectedCourseToEnroll('');
+                            }}
+                            className="px-5 py-2.5 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-50 text-white text-xs font-bold shrink-0 cursor-pointer border-none shadow-xs flex items-center justify-center gap-1.5 transition-all active:scale-95"
                           >
-                            এক্সেস বাতিল
+                            <Check className="w-4 h-4" />
+                            <span>Grant Access</span>
                           </button>
                         </div>
-                      ))}
-                    </div>
-                  )}
+
+                        {canonicalUserCourses.length === 0 ? (
+                          <div className="text-center py-8 text-slate-400 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                            <BookOpen className="w-8 h-8 mx-auto text-slate-300 mb-1" />
+                            <p className="text-xs font-bold text-slate-600">No active courses</p>
+                            <p className="text-[11px] text-slate-400">Select a course from the dropdown above to grant access.</p>
+                          </div>
+                        ) : (
+                          <div className="space-y-2.5">
+                            {canonicalUserCourses.map((cTitle, idx) => (
+                              <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-slate-100/60 transition-colors">
+                                <div className="flex items-center gap-2.5">
+                                  <div className="w-7 h-7 rounded-lg bg-[#5d5bf6]/10 text-[#5d5bf6] flex items-center justify-center font-bold text-xs">
+                                    {idx + 1}
+                                  </div>
+                                  <div>
+                                    <div className="text-xs font-bold text-slate-800">{cTitle}</div>
+                                    <div className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                      <span>Active Access Pass</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={() => handleRevokeCourseFromUser(selectedUserDetails.id, cTitle)}
+                                  className="text-xs text-rose-600 hover:text-rose-700 font-bold hover:underline bg-rose-50 hover:bg-rose-100 px-2.5 py-1 rounded-lg border border-rose-200 cursor-pointer transition-colors"
+                                >
+                                  Revoke Access
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
               )}
 
@@ -10939,7 +11612,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             </div>
           </div>
         </div>
-      )}
+      );
+    })()}
 
       {/* ========================================================= */}
       {/* MODAL 2: ADD / EDIT USER MODAL */}
@@ -11042,7 +11716,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-3 gap-3">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">Account Role</label>
                   <select
@@ -11063,10 +11737,20 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     onChange={(e) => setUserForm(prev => ({ ...prev, status: e.target.value }))}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
                   >
-                    <option value="Active">🟢 Active</option>
-                    <option value="Pending">🟡 Pending Verification</option>
-                    <option value="Suspended">🔴 Suspended</option>
+                    <option value="Active">Active</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Suspended">Suspended</option>
                   </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Total Paid (৳)</label>
+                  <input
+                    type="number"
+                    placeholder="e.g. 499"
+                    value={userForm.totalSpent !== undefined ? userForm.totalSpent : ''}
+                    onChange={(e) => setUserForm(prev => ({ ...prev, totalSpent: e.target.value }))}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-black text-emerald-600 outline-none focus:bg-white focus:border-emerald-500"
+                  />
                 </div>
               </div>
 
@@ -11094,11 +11778,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       {/* MODAL 3: QUICK COURSE ENROLL MODAL */}
       {/* ========================================================= */}
       {quickEnrollUser && (() => {
-        const bundleId = selectedCourseToEnroll.startsWith('bundle:') ? selectedCourseToEnroll.replace('bundle:', '') : selectedCourseToEnroll;
-        const selectedBundle = bundles.find(b => b.id === bundleId || b.title === selectedCourseToEnroll || b.slug === bundleId);
-        const selectedCourse = courses.find(c => c.title === selectedCourseToEnroll || c.id === selectedCourseToEnroll || c.slug === selectedCourseToEnroll);
-        const selectedExamBatch = EXAM_CATEGORIES_METADATA.find(eb => eb.title === selectedCourseToEnroll || eb.key === selectedCourseToEnroll);
-        const activeCoursesList = Array.isArray(quickEnrollUser.enrolledCourses) ? quickEnrollUser.enrolledCourses : [];
+        const canonicalActive = getCanonicalCourses(quickEnrollUser.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA });
 
         return (
           <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
@@ -11110,63 +11790,69 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     <GraduationCap className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-base font-black text-slate-900 tracking-tight">কোর্স এক্সেস প্রদান করুন</h3>
+                    <h3 className="text-base font-black text-slate-900 tracking-tight">Grant Course Access</h3>
                     <p className="text-xs text-slate-500 font-medium">
-                      শিক্ষার্থী: <strong className="text-slate-800">{quickEnrollUser.name}</strong> • {quickEnrollUser.email || 'N/A'}
+                      Student: <strong className="text-slate-800">{quickEnrollUser.name}</strong> • {quickEnrollUser.email || quickEnrollUser.phone || 'N/A'}
                     </p>
                   </div>
                 </div>
                 <button
                   type="button"
-                  onClick={() => setQuickEnrollUser(null)}
+                  onClick={() => {
+                    setQuickEnrollUser(null);
+                    setSelectedCourseToEnroll('');
+                  }}
                   className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center cursor-pointer border-none"
                 >
-                  ✕
+                  <X className="w-4 h-4" />
                 </button>
               </div>
 
-              {/* Current Active Courses */}
+              {/* Current Active Courses (Canonical & De-duplicated) */}
               <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">বর্তমানে সক্রিয় কোর্সসমূহ:</span>
+                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                    Active Courses ({canonicalActive.length}):
+                  </span>
                   <span className="text-[11px] font-extrabold text-[#5d5bf6]">
-                    {activeCoursesList.length}টি কোর্স
+                    {canonicalActive.length} Active Course{canonicalActive.length !== 1 ? 's' : ''}
                   </span>
                 </div>
-                {activeCoursesList.length > 0 ? (
+                {canonicalActive.length > 0 ? (
                   <div className="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto">
-                    {activeCoursesList.map((c, idx) => (
+                    {canonicalActive.map((c, idx) => (
                       <span key={idx} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-white text-slate-800 border border-slate-200 shadow-2xs">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                         <span className="truncate max-w-[210px]">{c}</span>
                         <button
                           type="button"
                           onClick={() => handleRevokeCourseFromUser(quickEnrollUser.id, c)}
                           className="text-slate-400 hover:text-rose-600 p-0.5 ml-1 border-none bg-transparent cursor-pointer"
-                          title="এক্সেস বাতিল করুন"
+                          title="Revoke access"
                         >
-                          ✕
+                          <X className="w-3.5 h-3.5" />
                         </button>
                       </span>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-xs text-slate-400 italic">এই শিক্ষার্থীর কোনো সক্রিয় কোর্স নেই</p>
+                  <p className="text-xs text-slate-400 italic">No active courses currently assigned to this student.</p>
                 )}
               </div>
 
-              {/* Course Selector Dropdown */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                  যে কোর্স বা ব্যাচের এক্সেস দিতে চান তা নির্বাচন করুন:
+              {/* Professional Course Search & Select Component */}
+              <div className="space-y-1.5">
+                <label className="block text-xs font-bold text-slate-700">
+                  Select Course or Batch to Grant:
                 </label>
                 <CourseSearchSelect
                   value={selectedCourseToEnroll}
-                  onChange={setSelectedCourseToEnroll}
-                  bundles={bundles}
+                  onChange={(val) => setSelectedCourseToEnroll(val)}
                   courses={courses}
+                  bundles={bundles}
                   examBatches={EXAM_CATEGORIES_METADATA}
-                  placeholder="কোর্স অথবা কম্বো বান্ডিল বেছে নিন..."
+                  enrolledCourses={canonicalActive}
+                  placeholder="Choose Course, Bundle or Exam Batch..."
                 />
               </div>
 
@@ -11175,10 +11861,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 <div className="p-3 bg-emerald-50/70 border border-emerald-200 rounded-2xl space-y-1 animate-in fade-in">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-800">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>সিলেক্ট করা হয়েছে: {selectedBundle?.title || selectedCourse?.title || selectedExamBatch?.title || selectedCourseToEnroll}</span>
+                    <span>Selected: {selectedCourseToEnroll}</span>
                   </div>
                   <p className="text-[11px] text-emerald-700 leading-relaxed pl-5">
-                    এক্সেস কনফার্ম করলে শিক্ষার্থীর ড্যাশবোর্ডে কোর্সটি সাথে সাথে যুক্ত হয়ে যাবে এবং কোর্স প্লেয়ারের সকল ক্লাস, রেকর্ডেড ভিডিও, পিডিএফ লেকচার নোটস ও কুইজ আনলক হয়ে যাবে।
+                    Clicking &quot;Grant Course Access&quot; will immediately unlock all chapters, video classes, lecture notes, and quizzes for this student.
                   </p>
                 </div>
               )}
@@ -11187,10 +11873,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               <div className="flex items-center justify-end gap-2.5 pt-2 border-t border-slate-100">
                 <button
                   type="button"
-                  onClick={() => setQuickEnrollUser(null)}
+                  onClick={() => {
+                    setQuickEnrollUser(null);
+                    setSelectedCourseToEnroll('');
+                  }}
                   className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer border-none transition-colors"
                 >
-                  বাতিল (Cancel)
+                  Cancel
                 </button>
                 <button
                   type="button"
@@ -11199,7 +11888,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   className="px-5 py-2.5 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-50 text-white text-xs font-bold shadow-md shadow-[#5d5bf6]/25 cursor-pointer border-none flex items-center gap-1.5 transition-all active:scale-95"
                 >
                   <GraduationCap className="w-4 h-4" />
-                  <span>কোর্স এক্সেস নিশ্চিত করুন</span>
+                  <span>Grant Course Access</span>
                 </button>
               </div>
             </div>

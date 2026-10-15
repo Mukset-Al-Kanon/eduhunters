@@ -93,6 +93,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
 
   const handleConfirmPayment = (e) => {
     e.preventDefault();
+    if (isProcessing) return;
     const cleanPhone = (phoneNumber || '').replace(/[^0-9]/g, '');
     if (!cleanPhone || cleanPhone.length < 11) {
       alert("Please enter a valid 11-digit mobile number");

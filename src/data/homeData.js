@@ -57,6 +57,13 @@ export const homeCoursesData = [
     salePrice: 499,
     regularPrice: 1200,
     totalClasses: "৩টি ক্লাস",
+    studentsCount: "১২৫০+",
+    features: [
+      "HD কোয়ালিটি লাইভ ও রেকর্ডেড ক্লাস",
+      "অধ্যায়ভিত্তিক লেকচার নোট ও প্র্যাকটিস শিট",
+      "এক্সক্লুসিভ এক্সাম ও সলভ ক্লাস",
+      "২৪/৭ টেলিগ্রাম ডাউট সলভিং সাপোর্ট"
+    ],
     curriculum: [
       {
         name: "Physics 1st paper Finishing Touch Series",

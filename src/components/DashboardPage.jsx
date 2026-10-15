@@ -11,6 +11,7 @@ export default function DashboardPage({
   onNavigateCourse,
   onNavigateCoursePlayer,
   onNavigateExams,
+  onNavigateLeaderboard,
   onNavigateStore,
   onNavigateAbout,
   onNavigateDevices,
@@ -186,6 +187,7 @@ export default function DashboardPage({
         onNavigateDashboard={() => {}}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}

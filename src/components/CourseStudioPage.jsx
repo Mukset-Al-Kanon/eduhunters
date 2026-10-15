@@ -35,20 +35,25 @@ import {
   RefreshCw,
   Server,
   Key,
-  ShieldCheck
+  ShieldCheck,
+  Hash
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
+
+export const DEFAULT_COURSE_FEATURES = [
+  'HD কোয়ালিটি লাইভ ও রেকর্ডেড ক্লাস',
+  'অধ্যায়ভিত্তিক লেকচার নোট ও প্র্যাকটিস শিট',
+  'এক্সক্লুসিভ এক্সাম ও সলভ ক্লাস',
+  '২৪/৭ টেলিগ্রাম ডাউট সলভিং সাপোর্ট'
+];
 import ExamBatchStudio from './ExamBatchStudio';
 import { parseBulkQuestionsFromText } from '../utils/examBatchStorage';
 import { 
   getBunnyConfig, 
-  saveBunnyConfig, 
   isBunnyStreamConfigured, 
   isBunnyStorageConfigured,
   uploadVideoToBunnyStream,
-  uploadPdfToBunnyStorage,
-  testBunnyStreamConnection,
-  testBunnyStorageConnection
+  uploadPdfToBunnyStorage
 } from '../services/bunnyService';
 import { uploadVideoFile, uploadPdfFile } from '../services/cloudStorageService';
 
@@ -260,18 +265,13 @@ export default function CourseStudioPage({
   }, [initialTab]);
   const [expandedSections, setExpandedSections] = useState({ 0: true, 1: true });
   const [newLessonDrafts, setNewLessonDrafts] = useState({});
-  const [newFeatureInput, setNewFeatureInput] = useState('');
   const [saveStatus, setSaveStatus] = useState('saved'); // 'saved' | 'saving'
-  const [quizModal, setQuizModal] = useState({
-    isOpen: false,
-    secIdx: null,
-    chapIdx: null,
-    lesIdx: null,
-    lessonTitle: '',
-    quiz: null,
-    bulkText: '',
-    activeTab: 'builder'
-  });
+  const [deleteConfirmTarget, setDeleteConfirmTarget] = useState(null);
+  // Dedicated Full-Page Class Quiz Studio State
+  const [activeQuizPage, setActiveQuizPage] = useState(null);
+  const quizPageCsvRef = useRef(null);
+  const [quizQuestionFilter, setQuizQuestionFilter] = useState('');
+  const [highlightedQuizQIdx, setHighlightedQuizQIdx] = useState(null);
 
   // Step-by-Step Class Integration Wizard Modal State
   const [classWizardModal, setClassWizardModal] = useState({
@@ -290,6 +290,8 @@ export default function CourseStudioPage({
     quizTitle: '',
     durationMinutes: 10,
     negativeMark: 0.25,
+    startDate: '',
+    endDate: '',
     questions: [],
     examId: ''
   });
@@ -298,9 +300,7 @@ export default function CourseStudioPage({
   const [studioModalTab, setStudioModalTab] = useState('all'); // 'all' | 'video' | 'notes' | 'quiz'
 
   // Bunny.net Cloud Integration State
-  const [bunnyConfig, setBunnyConfig] = useState(() => getBunnyConfig());
-  const [showBunnySettingsModal, setShowBunnySettingsModal] = useState(false);
-  const [bunnyTestResults, setBunnyTestResults] = useState({ stream: null, storage: null, testingStream: false, testingStorage: false });
+  const [bunnyConfig] = useState(() => getBunnyConfig());
   const [videoTabMode, setVideoTabMode] = useState('upload'); // 'upload' | 'url'
   const [pdfTabMode, setPdfTabMode] = useState('upload'); // 'upload' | 'url'
   const [videoUploadState, setVideoUploadState] = useState({ uploading: false, percent: 0, loaded: 0, total: 0, error: '' });
@@ -372,10 +372,12 @@ export default function CourseStudioPage({
     if (Array.isArray(updatedCourse?.curriculum)) {
       const syncedCurriculum = updatedCourse.curriculum.map(sec => {
         const chapters = Array.isArray(sec.chapters) ? sec.chapters : [];
-        const flatLessons = chapters.flatMap(ch => ch.lessons || []);
+        const flatLessons = chapters.flatMap(ch => Array.isArray(ch.lessons) ? ch.lessons : []);
         return {
           ...sec,
-          lessons: flatLessons.length > 0 ? flatLessons : (sec.lessons || [])
+          chapters,
+          // When section has chapters defined, lessons must strictly match flatLessons
+          lessons: chapters.length > 0 ? flatLessons : (Array.isArray(sec.lessons) ? sec.lessons : [])
         };
       });
       payload = { ...updatedCourse, curriculum: syncedCurriculum };
@@ -402,7 +404,7 @@ export default function CourseStudioPage({
       const updated = { ...course, curriculum: updatedCurriculum };
       notifySave(updated);
       setExpandedSections(prev => ({ ...prev, [curriculum.length]: true }));
-      triggerToast('✨ Standard syllabus template loaded successfully!');
+      triggerToast('Standard syllabus template loaded successfully');
     }
   };
 
@@ -424,7 +426,7 @@ export default function CourseStudioPage({
     const updated = { ...course, curriculum: updatedCurriculum };
     notifySave(updated);
     setExpandedSections(prev => ({ ...prev, [curriculum.length]: true }));
-    triggerToast('➕ New Module added to syllabus');
+    triggerToast('New module added to syllabus');
   };
 
   const handleUpdateSection = (secIdx, field, value) => {
@@ -440,13 +442,17 @@ export default function CourseStudioPage({
     notifySave({ ...course, curriculum: updatedCurriculum });
   };
 
+  // In-App Interactive Delete Confirmation Handlers
   const handleDeleteSection = (secIdx) => {
-    const secName = curriculum[secIdx]?.name || 'this module';
-    if (confirm(`Are you sure you want to delete "${secName}"?`)) {
-      const updatedCurriculum = curriculum.filter((_, i) => i !== secIdx);
-      notifySave({ ...course, curriculum: updatedCurriculum });
-      triggerToast('🗑️ Module deleted');
-    }
+    const sec = curriculum[secIdx];
+    const secName = sec?.name || sec?.title || `Module ${secIdx + 1}`;
+    const chapterCount = (sec?.chapters || []).length;
+    setDeleteConfirmTarget({
+      type: 'section',
+      secIdx,
+      title: secName,
+      subtitle: `এই মডিউলে ${chapterCount}টি অধ্যায় রয়েছে। ডিলিট করলে এর সকল ক্লাসও স্থায়ীভাবে মুছে যাবে।`
+    });
   };
 
   const handleMoveSection = (secIdx, direction) => {
@@ -475,13 +481,13 @@ export default function CourseStudioPage({
       return sec;
     });
     notifySave({ ...course, curriculum: updatedCurriculum });
-    triggerToast('➕ নতুন অধ্যায় / চ্যাপ্টার যুক্ত হয়েছে');
+    triggerToast('New chapter added successfully');
   };
 
   const handleUpdateChapter = (secIdx, chapIdx, name) => {
     const updatedCurriculum = curriculum.map((sec, i) => {
       if (i === secIdx) {
-        const chapters = sec.chapters.map((ch, cIdx) => {
+        const chapters = (sec.chapters || []).map((ch, cIdx) => {
           if (cIdx === chapIdx) return { ...ch, name };
           return ch;
         });
@@ -493,26 +499,86 @@ export default function CourseStudioPage({
   };
 
   const handleDeleteChapter = (secIdx, chapIdx) => {
-    if (confirm('Delete this chapter and all of its lectures?')) {
+    const sec = curriculum[secIdx];
+    const chap = (sec?.chapters || [])[chapIdx];
+    const chapName = chap?.name || `Chapter ${chapIdx + 1}`;
+    const lessonCount = (chap?.lessons || []).length;
+    setDeleteConfirmTarget({
+      type: 'chapter',
+      secIdx,
+      chapIdx,
+      title: chapName,
+      subtitle: lessonCount > 0 
+        ? `This chapter contains ${lessonCount} classes. Deleting it will permanently delete all classes.`
+        : 'This chapter has no classes. It will be permanently removed.'
+    });
+  };
+
+  const handleDeleteLesson = (secIdx, chapIdx, lesIdx) => {
+    const sec = curriculum[secIdx];
+    const chap = (sec?.chapters || [])[chapIdx];
+    const les = (chap?.lessons || [])[lesIdx];
+    const lesTitle = typeof les === 'object' && les !== null ? (les.title || `Class ${lesIdx + 1}`) : (les || `Class ${lesIdx + 1}`);
+    setDeleteConfirmTarget({
+      type: 'lesson',
+      secIdx,
+      chapIdx,
+      lesIdx,
+      title: lesTitle,
+      subtitle: 'This class will be permanently removed from syllabus.'
+    });
+  };
+
+  const handleConfirmDelete = () => {
+    if (!deleteConfirmTarget) return;
+    const { type, secIdx, chapIdx, lesIdx } = deleteConfirmTarget;
+
+    if (type === 'section') {
+      const updatedCurriculum = curriculum.filter((_, i) => i !== secIdx);
+      notifySave({ ...course, curriculum: updatedCurriculum });
+      triggerToast('Module deleted successfully');
+    } else if (type === 'chapter') {
       const updatedCurriculum = curriculum.map((sec, i) => {
         if (i === secIdx) {
+          const chapters = (sec.chapters || []).filter((_, cIdx) => cIdx !== chapIdx);
           return {
             ...sec,
-            chapters: sec.chapters.filter((_, cIdx) => cIdx !== chapIdx)
+            chapters
           };
         }
         return sec;
       });
       notifySave({ ...course, curriculum: updatedCurriculum });
-      triggerToast('🗑️ Chapter removed');
+      triggerToast('Chapter deleted successfully');
+    } else if (type === 'lesson') {
+      const updatedCurriculum = curriculum.map((sec, i) => {
+        if (i === secIdx) {
+          const chapters = (sec.chapters || []).map((ch, cIdx) => {
+            if (cIdx === chapIdx) {
+              const lessons = (ch.lessons || []).filter((_, lIdx) => lIdx !== lesIdx);
+              return {
+                ...ch,
+                lessons
+              };
+            }
+            return ch;
+          });
+          return { ...sec, chapters };
+        }
+        return sec;
+      });
+      notifySave({ ...course, curriculum: updatedCurriculum });
+      triggerToast('Class deleted successfully');
     }
+
+    setDeleteConfirmTarget(null);
   };
 
   const handleAddLesson = (secIdx, chapIdx) => {
     const draftKey = `${secIdx}-${chapIdx}`;
     const draft = newLessonDrafts[draftKey] || { title: '', duration: '45 min', videoUrl: '', pdfUrl: '', isFree: false };
     if (!draft.title.trim()) {
-      triggerToast('⚠️ অনুগ্রহ করে ক্লাসের নাম / শিরোনাম লিখুন');
+      triggerToast('Please enter class title');
       return;
     }
 
@@ -545,7 +611,7 @@ export default function CourseStudioPage({
       ...prev,
       [draftKey]: { title: '', duration: '45 min', videoUrl: '', pdfUrl: '', isFree: false }
     }));
-    triggerToast(`🎉 ক্লাস "${newLessonItem.title}" সফলভাবে যুক্ত হয়েছে!`);
+    triggerToast(`Class "${newLessonItem.title}" added successfully`);
   };
 
   const handleUpdateLesson = (secIdx, chapIdx, lesIdx, field, value) => {
@@ -587,7 +653,8 @@ export default function CourseStudioPage({
             correct_index: cIdx,
             options: Array.isArray(q.options) && q.options.length >= 4
               ? q.options.slice(0, 4)
-              : [q.options?.[0] || 'Option A', q.options?.[1] || 'Option B', q.options?.[2] || 'Option C', q.options?.[3] || 'Option D']
+              : [q.options?.[0] || 'Option A', q.options?.[1] || 'Option B', q.options?.[2] || 'Option C', q.options?.[3] || 'Option D'],
+            explanation: (q.explanation || '').trim()
           };
         })
       : [];
@@ -595,34 +662,37 @@ export default function CourseStudioPage({
     const initialQuiz = existingQuiz ? {
       title: (existingQuiz.title || `${lessonTitleStr} - Quiz`).replace(/practice\s*quiz/gi, 'Quiz'),
       durationMinutes: existingQuiz.durationMinutes || 10,
-      totalMarks: existingQuiz.totalMarks || (normalizedQuestions.length || 5),
+      totalMarks: normalizedQuestions.length,
       negativeMark: existingQuiz.negativeMark !== undefined ? existingQuiz.negativeMark : 0.25,
+      startDate: existingQuiz.startDate || '',
+      endDate: existingQuiz.endDate || '',
       questions: normalizedQuestions,
       examId: existingQuiz.examId || (isObj ? lesson.examId : '') || ''
     } : {
       title: `${lessonTitleStr} - Quiz`,
       durationMinutes: 10,
-      totalMarks: 5,
+      totalMarks: 0,
       negativeMark: 0.25,
+      startDate: '',
+      endDate: '',
       questions: [],
       examId: (isObj ? lesson.examId : '') || ''
     };
 
-    setQuizModal({
-      isOpen: true,
+    setActiveQuizPage({
       secIdx,
       chapIdx,
       lesIdx,
       lessonTitle: lessonTitleStr,
-      quiz: initialQuiz,
-      bulkText: '',
-      activeTab: 'builder'
+      quiz: initialQuiz
     });
+    setQuizQuestionFilter('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSaveQuizModal = () => {
-    if (!quizModal.isOpen || quizModal.secIdx === null) return;
-    const { secIdx, chapIdx, lesIdx, quiz } = quizModal;
+  const handleSaveQuizPage = () => {
+    if (!activeQuizPage || activeQuizPage.secIdx === null) return;
+    const { secIdx, chapIdx, lesIdx, quiz } = activeQuizPage;
 
     const cleanedQuestions = (quiz.questions || []).map((q, idx) => {
       const correctIdx = q.correctAnswer !== undefined 
@@ -643,10 +713,12 @@ export default function CourseStudioPage({
 
     const cleanedQuiz = {
       ...quiz,
-      title: (quiz.title || `${quizModal.lessonTitle} - Quiz`).trim(),
+      title: (quiz.title || `${activeQuizPage.lessonTitle} - Quiz`).trim(),
       durationMinutes: Number(quiz.durationMinutes) > 0 ? Number(quiz.durationMinutes) : 10,
-      totalMarks: Number(quiz.totalMarks) > 0 ? Number(quiz.totalMarks) : (cleanedQuestions.length || 5),
+      totalMarks: cleanedQuestions.length,
       negativeMark: (quiz.negativeMark !== '' && quiz.negativeMark !== undefined && !isNaN(Number(quiz.negativeMark))) ? Number(quiz.negativeMark) : 0.25,
+      startDate: quiz.startDate || '',
+      endDate: quiz.endDate || '',
       questions: cleanedQuestions,
       examId: quiz.examId?.trim() || null
     };
@@ -676,13 +748,13 @@ export default function CourseStudioPage({
     });
 
     notifySave({ ...course, curriculum: updatedCurriculum });
-    setQuizModal(prev => ({ ...prev, isOpen: false }));
-    triggerToast('🎉 Class quiz saved successfully!');
+    setActiveQuizPage(null);
+    triggerToast('Class quiz saved successfully');
   };
 
-  const handleRemoveQuizModal = () => {
-    if (!quizModal.isOpen || quizModal.secIdx === null) return;
-    const { secIdx, chapIdx, lesIdx } = quizModal;
+  const handleRemoveQuizFromPage = () => {
+    if (!activeQuizPage || activeQuizPage.secIdx === null) return;
+    const { secIdx, chapIdx, lesIdx } = activeQuizPage;
     if (!confirm('Are you sure you want to remove the quiz from this lesson?')) return;
 
     const updatedCurriculum = curriculum.map((sec, i) => {
@@ -710,12 +782,13 @@ export default function CourseStudioPage({
     });
 
     notifySave({ ...course, curriculum: updatedCurriculum });
-    setQuizModal(prev => ({ ...prev, isOpen: false }));
-    triggerToast('🗑️ Quiz removed from lesson');
+    setActiveQuizPage(null);
+    triggerToast('Quiz removed from lesson');
   };
 
-  const handleAddQuestionToQuiz = () => {
-    setQuizModal(prev => {
+  const handleAddQuestionToQuizPage = () => {
+    setActiveQuizPage(prev => {
+      if (!prev) return null;
       const currentList = prev.quiz?.questions || [];
       const newQuestion = {
         id: `q-${Date.now()}-${currentList.length + 1}`,
@@ -729,7 +802,6 @@ export default function CourseStudioPage({
       const updatedList = [...currentList, newQuestion];
       return {
         ...prev,
-        activeTab: 'builder',
         quiz: {
           ...prev.quiz,
           questions: updatedList,
@@ -737,10 +809,14 @@ export default function CourseStudioPage({
         }
       };
     });
+    setTimeout(() => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }, 100);
   };
 
-  const handleDuplicateQuestion = (qIdx) => {
-    setQuizModal(prev => {
+  const handleDuplicateQuestionOnPage = (qIdx) => {
+    setActiveQuizPage(prev => {
+      if (!prev) return null;
       const currentList = prev.quiz?.questions || [];
       const target = currentList[qIdx];
       if (!target) return prev;
@@ -750,7 +826,8 @@ export default function CourseStudioPage({
         question: target.question ? `${target.question} (Copy)` : 'Copy of question',
         options: [...(target.options || ['', '', '', ''])],
         correctAnswer: target.correctAnswer !== undefined ? target.correctAnswer : (target.correct_index || 0),
-        correct_index: target.correct_index !== undefined ? target.correct_index : (target.correctAnswer || 0)
+        correct_index: target.correct_index !== undefined ? target.correct_index : (target.correctAnswer || 0),
+        explanation: target.explanation || ''
       };
       const updatedList = [...currentList.slice(0, qIdx + 1), clone, ...currentList.slice(qIdx + 1)];
       return {
@@ -762,11 +839,12 @@ export default function CourseStudioPage({
         }
       };
     });
-    triggerToast('📋 Question duplicated');
+    triggerToast('Question duplicated');
   };
 
-  const handleMoveQuestion = (qIdx, direction) => {
-    setQuizModal(prev => {
+  const handleMoveQuestionOnPage = (qIdx, direction) => {
+    setActiveQuizPage(prev => {
+      if (!prev) return null;
       const currentList = [...(prev.quiz?.questions || [])];
       const targetIdx = direction === 'up' ? qIdx - 1 : qIdx + 1;
       if (targetIdx < 0 || targetIdx >= currentList.length) return prev;
@@ -783,21 +861,39 @@ export default function CourseStudioPage({
     });
   };
 
-  const handleClearAllQuestions = () => {
-    if (!confirm('Are you sure you want to clear all questions in this quiz?')) return;
-    setQuizModal(prev => ({
-      ...prev,
-      quiz: {
-        ...prev.quiz,
-        questions: [],
-        totalMarks: 0
-      }
-    }));
-    triggerToast('🗑️ All questions cleared');
+  const handleDeleteQuestionOnPage = (qIdx) => {
+    setActiveQuizPage(prev => {
+      if (!prev) return null;
+      const updatedList = (prev.quiz?.questions || []).filter((_, idx) => idx !== qIdx);
+      return {
+        ...prev,
+        quiz: {
+          ...prev.quiz,
+          questions: updatedList,
+          totalMarks: updatedList.length
+        }
+      };
+    });
+    triggerToast('Question deleted');
   };
 
-  // CSV File Upload & Processing Handler
-  const handleProcessCSVFile = (file, mode = 'append') => {
+  const handleClearAllQuestionsOnPage = () => {
+    if (!confirm('Are you sure you want to clear all questions in this quiz?')) return;
+    setActiveQuizPage(prev => {
+      if (!prev) return null;
+      return {
+        ...prev,
+        quiz: {
+          ...prev.quiz,
+          questions: [],
+          totalMarks: 0
+        }
+      };
+    });
+    triggerToast('All questions cleared');
+  };
+
+  const handleProcessCSVFileOnPage = (file) => {
     if (!file) return;
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -805,57 +901,685 @@ export default function CourseStudioPage({
         const text = e.target.result;
         const parsed = parseCSVQuestions(text);
         if (!parsed || parsed.length === 0) {
-          triggerToast('❌ Could not parse any valid questions from CSV file. Please check format.');
+          triggerToast('Could not parse any valid questions from CSV file. Please check format.');
           return;
         }
 
-        setQuizModal(prev => {
+        setActiveQuizPage(prev => {
+          if (!prev) return null;
           const existing = prev.quiz?.questions || [];
-          const combined = mode === 'replace' ? parsed : [...existing, ...parsed];
+          const combined = [...existing, ...parsed];
           return {
             ...prev,
             quiz: {
               ...prev.quiz,
               questions: combined,
               totalMarks: combined.length
-            },
-            activeTab: 'builder'
+            }
           };
         });
 
-        setCsvFileObj(null);
-        setCsvParsedPreview([]);
-        triggerToast(`🎉 Successfully imported ${parsed.length} questions from CSV!`);
+        triggerToast(`Successfully imported ${parsed.length} questions from CSV`);
       } catch (err) {
         console.error('Error processing CSV:', err);
-        triggerToast('❌ Error parsing CSV file. Check formatting.');
+        triggerToast('Error parsing CSV file. Check formatting.');
       }
     };
     reader.onerror = () => {
-      triggerToast('❌ Could not read the selected file.');
-    };
-    reader.readAsText(file, 'utf-8');
-  };
-
-  const handleSelectCSVFileForPreview = (file) => {
-    if (!file) return;
-    setCsvFileObj(file);
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      try {
-        const text = e.target.result;
-        const parsed = parseCSVQuestions(text);
-        setCsvParsedPreview(parsed);
-      } catch {
-        setCsvParsedPreview([]);
-      }
+      triggerToast('Could not read the selected file.');
     };
     reader.readAsText(file, 'utf-8');
   };
 
   const handleDownloadSampleCSV = () => {
     downloadSampleQuizCSV();
-    triggerToast('📥 Downloaded sample quiz CSV template');
+    triggerToast('Downloaded sample quiz CSV template');
+  };
+
+  // =========================================================================
+  // RENDER DEDICATED FULL-PAGE CLASS QUIZ STUDIO
+  // =========================================================================
+  const renderClassQuizStudioPage = () => {
+    if (!activeQuizPage) return null;
+    const quiz = activeQuizPage.quiz || {};
+    const questions = quiz.questions || [];
+    const answeredCount = questions.filter(q => 
+      q.question?.trim() && 
+      q.options?.every(o => o?.trim()) && 
+      q.correctAnswer !== undefined
+    ).length;
+
+    const filteredQuestions = questions
+      .map((q, idx) => ({ ...q, originalIndex: idx }))
+      .filter(q => {
+        if (!quizQuestionFilter.trim()) return true;
+        const f = quizQuestionFilter.toLowerCase();
+        return (
+          (q.question || '').toLowerCase().includes(f) ||
+          (q.options || []).some(opt => (opt || '').toLowerCase().includes(f)) ||
+          (q.explanation || '').toLowerCase().includes(f)
+        );
+      });
+
+    return (
+      <div className="min-h-screen bg-[#f4f6fa] text-slate-800 pb-28 font-sans antialiased">
+        {/* Top Sticky Studio Header */}
+        <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 min-w-0">
+              <button
+                type="button"
+                onClick={() => {
+                  if (confirm('Exit without saving quiz changes?')) {
+                    setActiveQuizPage(null);
+                  }
+                }}
+                className="p-2 -ml-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer border-none bg-transparent shrink-0"
+                title="Back to Course Studio"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                    CLASS QUIZ STUDIO
+                  </span>
+                  <span className="text-xs text-slate-400 font-medium hidden sm:inline">•</span>
+                  <span className="text-xs text-slate-500 font-bold truncate max-w-[200px] sm:max-w-xs">
+                    {course.title}
+                  </span>
+                  <span className="text-xs text-slate-400 font-medium hidden sm:inline">•</span>
+                  <span className="text-xs text-purple-700 font-bold truncate max-w-[180px]">
+                    {activeQuizPage.lessonTitle}
+                  </span>
+                </div>
+                <h1 className="text-sm sm:text-base font-black text-slate-900 truncate">
+                  {quiz.title || `${activeQuizPage.lessonTitle} - Quiz`}
+                </h1>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              {/* Save Status */}
+              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-600">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-emerald-700 font-bold">Live Sync Ready</span>
+              </div>
+
+              {/* Remove Quiz button if quiz has questions */}
+              <button
+                type="button"
+                onClick={handleRemoveQuizFromPage}
+                className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 cursor-pointer transition-colors"
+                title="Remove Quiz from this lesson"
+              >
+                <Trash2 className="w-3.5 h-3.5 text-rose-600" />
+                <span className="hidden sm:inline">Remove Quiz</span>
+              </button>
+
+              {/* Back to Studio */}
+              <button
+                type="button"
+                onClick={() => {
+                  if (confirm('Exit without saving quiz changes?')) {
+                    setActiveQuizPage(null);
+                  }
+                }}
+                className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer border-none"
+              >
+                <span>Back</span>
+              </button>
+
+              {/* Save & Done */}
+              <button
+                type="button"
+                onClick={handleSaveQuizPage}
+                className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-black shadow-md shadow-purple-600/25 transition-all cursor-pointer border-none active:scale-95"
+              >
+                <Check className="w-4 h-4" />
+                <span>Save & Done</span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        {/* Top Quiz Settings Banner */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-6">
+          <div className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
+              <div>
+                <h3 className="text-sm font-extrabold text-slate-900">Quiz Configuration & Rules</h3>
+                <p className="text-xs text-slate-400">Total marks are calculated automatically: 1 question = 1 mark.</p>
+              </div>
+              <span className="text-xs font-bold font-mono px-3 py-1 rounded-xl bg-purple-50 text-purple-700 border border-purple-200">
+                Total Marks: {questions.length} (Auto)
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div>
+                <label className="text-[11px] font-bold text-slate-600 uppercase tracking-wide block mb-1">
+                  Quiz Title
+                </label>
+                <input
+                  type="text"
+                  value={quiz.title || ''}
+                  onChange={(e) => setActiveQuizPage(prev => ({
+                    ...prev,
+                    quiz: { ...prev.quiz, title: e.target.value }
+                  }))}
+                  placeholder="e.g. Day 01 - Practice Quiz"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-bold text-slate-600 uppercase tracking-wide block mb-1">
+                  Time Limit (Minutes)
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  max="180"
+                  value={quiz.durationMinutes ?? 10}
+                  onChange={(e) => {
+                    const val = parseInt(e.target.value, 10) || 1;
+                    setActiveQuizPage(prev => ({
+                      ...prev,
+                      quiz: { ...prev.quiz, durationMinutes: val }
+                    }));
+                  }}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-bold text-slate-600 uppercase tracking-wide block mb-1">
+                  Total Marks (Auto)
+                </label>
+                <div className="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-purple-700 flex items-center justify-between">
+                  <span>{questions.length} Marks</span>
+                  <span className="text-[10px] text-slate-500 font-sans font-medium">1 mark/Q</span>
+                </div>
+              </div>
+
+              <div>
+                <label className="text-[11px] font-bold text-slate-600 uppercase tracking-wide block mb-1">
+                  Negative Mark Per Wrong Answer
+                </label>
+                <input
+                  type="number"
+                  step="0.05"
+                  min="0"
+                  value={quiz.negativeMark ?? 0.25}
+                  onChange={(e) => {
+                    const val = e.target.value === '' ? '' : (parseFloat(e.target.value) || 0);
+                    setActiveQuizPage(prev => ({
+                      ...prev,
+                      quiz: { ...prev.quiz, negativeMark: val }
+                    }));
+                  }}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Live Window Schedule row */}
+            <div className="pt-2 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="text-[11px] font-semibold text-slate-600 block mb-1">
+                  Live Window Start (Optional)
+                </label>
+                <input
+                  type="datetime-local"
+                  value={quiz.startDate || ''}
+                  onChange={(e) => setActiveQuizPage(prev => ({
+                    ...prev,
+                    quiz: { ...prev.quiz, startDate: e.target.value }
+                  }))}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 font-mono outline-none focus:bg-white focus:border-purple-600 transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-semibold text-slate-600 block mb-1">
+                  Live Window End (Optional)
+                </label>
+                <input
+                  type="datetime-local"
+                  value={quiz.endDate || ''}
+                  onChange={(e) => setActiveQuizPage(prev => ({
+                    ...prev,
+                    quiz: { ...prev.quiz, endDate: e.target.value }
+                  }))}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 font-mono outline-none focus:bg-white focus:border-purple-600 transition-all"
+                />
+              </div>
+            </div>
+            <p className="text-[11px] text-slate-400">
+              Note: Students taking their first attempt during the live window are officially recorded for the Leaderboard podium.
+            </p>
+          </div>
+        </div>
+
+        {/* Action Strip */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-5">
+          <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-xs font-black px-3 py-1 rounded-xl bg-purple-100 text-purple-800 border border-purple-200">
+                {questions.length} Questions
+              </span>
+
+              {questions.length > 0 && (
+                <div className="relative">
+                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    placeholder="Search questions or options..."
+                    value={quizQuestionFilter}
+                    onChange={(e) => setQuizQuestionFilter(e.target.value)}
+                    className="w-48 sm:w-64 bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-1.5 text-xs text-slate-700 outline-none focus:bg-white focus:border-purple-600 transition-all"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2 flex-wrap">
+              {/* Hidden CSV file input */}
+              <input
+                ref={quizPageCsvRef}
+                type="file"
+                accept=".csv,text/csv"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) handleProcessCSVFileOnPage(file);
+                  e.target.value = '';
+                }}
+              />
+
+              <button
+                type="button"
+                onClick={() => quizPageCsvRef.current?.click()}
+                className="px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center gap-1.5 border border-emerald-200 cursor-pointer transition-all shadow-2xs"
+                title="Upload questions from a CSV file"
+              >
+                <Upload className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Upload CSV</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleDownloadSampleCSV}
+                className="px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold flex items-center gap-1.5 border border-slate-200 cursor-pointer transition-all"
+                title="Download sample CSV format"
+              >
+                <Download className="w-3.5 h-3.5 text-slate-500" />
+                <span>Sample CSV</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleAddQuestionToQuizPage}
+                className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center gap-1.5 border-none cursor-pointer transition-all shadow-xs"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>+ Add Question</span>
+              </button>
+
+              {questions.length > 0 && (
+                <button
+                  type="button"
+                  onClick={handleClearAllQuestionsOnPage}
+                  className="p-2 rounded-xl text-rose-500 hover:text-rose-700 hover:bg-rose-50 border border-rose-200 cursor-pointer transition-all"
+                  title="Clear all questions"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* 2-Column Responsive Body */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-5">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+            
+            {/* Left Column: Questions List / Empty State */}
+            <div className="lg:col-span-3 space-y-4">
+              {questions.length === 0 ? (
+                <div className="p-12 rounded-3xl border-2 border-dashed border-slate-200 text-center space-y-4 bg-white shadow-2xs">
+                  <div className="w-16 h-16 rounded-3xl bg-purple-50 text-purple-600 flex items-center justify-center mx-auto shadow-inner">
+                    <CheckSquare className="w-8 h-8" />
+                  </div>
+                  <div className="max-w-md mx-auto space-y-1">
+                    <h4 className="text-base font-extrabold text-slate-900">No Questions Added Yet</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      You can write questions manually one-by-one or import bulk questions directly using a CSV spreadsheet.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap justify-center gap-3 pt-3">
+                    <button
+                      type="button"
+                      onClick={handleAddQuestionToQuizPage}
+                      className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold border-none cursor-pointer shadow-xs transition-all flex items-center gap-2"
+                    >
+                      <Plus className="w-4 h-4" />
+                      <span>+ Create Question</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => quizPageCsvRef.current?.click()}
+                      className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold border-none cursor-pointer shadow-xs transition-all flex items-center gap-2"
+                    >
+                      <Upload className="w-4 h-4" />
+                      <span>Upload CSV File</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleDownloadSampleCSV}
+                      className="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer transition-all flex items-center gap-2"
+                    >
+                      <Download className="w-4 h-4 text-slate-500" />
+                      <span>Download Sample CSV</span>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {filteredQuestions.map((q) => {
+                    const qIdx = q.originalIndex;
+                    const optLabels = ['A', 'B', 'C', 'D'];
+                    const currentCorrect = q.correctAnswer !== undefined 
+                      ? Number(q.correctAnswer) 
+                      : (q.correct_index !== undefined ? Number(q.correct_index) : 0);
+                    const isHighlighted = highlightedQuizQIdx === qIdx;
+
+                    return (
+                      <div
+                        key={q.id || qIdx}
+                        id={`quiz-question-${qIdx}`}
+                        className={`bg-white border rounded-2xl p-5 space-y-4 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all ${
+                          isHighlighted 
+                            ? 'border-purple-500 ring-2 ring-purple-500/20 shadow-md' 
+                            : 'border-slate-200/90 hover:border-slate-300'
+                        }`}
+                      >
+                        {/* Header: Question Number, Answer Status & Actions */}
+                        <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 flex-wrap">
+                          <div className="flex items-center gap-2.5">
+                            <span className="w-7 h-7 rounded-lg bg-purple-600 text-white text-xs font-mono font-black flex items-center justify-center shrink-0 shadow-2xs">
+                              {qIdx + 1}
+                            </span>
+                            <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                              Question #{qIdx + 1}
+                            </span>
+
+                            {currentCorrect >= 0 && currentCorrect < 4 ? (
+                              <span className="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+                                <Check className="w-3 h-3 stroke-[3]" />
+                                <span>Correct: Option {optLabels[currentCorrect]}</span>
+                              </span>
+                            ) : (
+                              <span className="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                                No Answer Set
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="flex items-center gap-1">
+                            {/* Move Up */}
+                            <button
+                              type="button"
+                              onClick={() => handleMoveQuestionOnPage(qIdx, 'up')}
+                              disabled={qIdx === 0}
+                              className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 disabled:opacity-25 flex items-center justify-center cursor-pointer border-none transition-colors"
+                              title="Move Question Up"
+                            >
+                              <ArrowUp className="w-3.5 h-3.5" />
+                            </button>
+
+                            {/* Move Down */}
+                            <button
+                              type="button"
+                              onClick={() => handleMoveQuestionOnPage(qIdx, 'down')}
+                              disabled={qIdx === questions.length - 1}
+                              className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 disabled:opacity-25 flex items-center justify-center cursor-pointer border-none transition-colors"
+                              title="Move Question Down"
+                            >
+                              <ArrowDown className="w-3.5 h-3.5" />
+                            </button>
+
+                            {/* Duplicate */}
+                            <button
+                              type="button"
+                              onClick={() => handleDuplicateQuestionOnPage(qIdx)}
+                              className="w-7 h-7 rounded-lg text-slate-400 hover:text-purple-600 hover:bg-purple-50 flex items-center justify-center cursor-pointer border-none transition-colors"
+                              title="Duplicate Question"
+                            >
+                              <Copy className="w-3.5 h-3.5" />
+                            </button>
+
+                            {/* Delete */}
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteQuestionOnPage(qIdx)}
+                              className="w-7 h-7 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 flex items-center justify-center cursor-pointer border-none transition-colors"
+                              title="Delete Question"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Question Statement */}
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wide block mb-1">
+                            Question Statement
+                          </label>
+                          <textarea
+                            rows={2}
+                            value={q.question || ''}
+                            placeholder={`Enter Question #${qIdx + 1} text...`}
+                            onChange={(e) => {
+                              const updated = [...questions];
+                              updated[qIdx] = { ...updated[qIdx], question: e.target.value };
+                              setActiveQuizPage(prev => ({
+                                ...prev,
+                                quiz: { ...prev.quiz, questions: updated }
+                              }));
+                            }}
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs font-bold text-slate-900 outline-none focus:bg-white focus:border-purple-600 transition-all leading-relaxed"
+                          />
+                        </div>
+
+                        {/* 4 Options Grid */}
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wide block mb-1">
+                            Options (Click option to mark as correct answer)
+                          </label>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            {[0, 1, 2, 3].map((optIdx) => {
+                              const isCorrect = currentCorrect === optIdx;
+                              return (
+                                <div
+                                  key={optIdx}
+                                  onClick={() => {
+                                    const updated = [...questions];
+                                    updated[qIdx] = { 
+                                      ...updated[qIdx], 
+                                      correctAnswer: optIdx, 
+                                      correct_index: optIdx 
+                                    };
+                                    setActiveQuizPage(prev => ({
+                                      ...prev,
+                                      quiz: { ...prev.quiz, questions: updated }
+                                    }));
+                                  }}
+                                  className={`flex items-center gap-2.5 p-2.5 rounded-xl border transition-all cursor-pointer ${
+                                    isCorrect 
+                                      ? 'border-emerald-400 bg-emerald-50/80 ring-1 ring-emerald-400/40 text-emerald-950 font-bold' 
+                                      : 'border-slate-200 bg-slate-50/70 hover:bg-slate-100/70 text-slate-700'
+                                  }`}
+                                >
+                                  <span className={`w-6 h-6 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ${
+                                    isCorrect ? 'bg-emerald-600 text-white shadow-2xs' : 'bg-slate-200 text-slate-700'
+                                  }`}>
+                                    {optLabels[optIdx]}
+                                  </span>
+
+                                  <input
+                                    type="text"
+                                    value={q.options?.[optIdx] || ''}
+                                    onClick={(e) => e.stopPropagation()}
+                                    placeholder={`Option ${optLabels[optIdx]}...`}
+                                    onChange={(e) => {
+                                      const updated = [...questions];
+                                      const newOpts = [...(updated[qIdx].options || ['', '', '', ''])];
+                                      newOpts[optIdx] = e.target.value;
+                                      updated[qIdx] = { ...updated[qIdx], options: newOpts };
+                                      setActiveQuizPage(prev => ({
+                                        ...prev,
+                                        quiz: { ...prev.quiz, questions: updated }
+                                      }));
+                                    }}
+                                    className="flex-1 bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-slate-800 outline-none focus:border-purple-600"
+                                  />
+
+                                  {isCorrect && (
+                                    <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md shrink-0">
+                                      <Check className="w-3 h-3 stroke-[3]" />
+                                      <span>Correct</span>
+                                    </span>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Explanation Box */}
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wide block mb-1">
+                            Explanation & Reference (Optional)
+                          </label>
+                          <input
+                            type="text"
+                            value={q.explanation || ''}
+                            placeholder="Answer explanation / reference note (Optional)..."
+                            onChange={(e) => {
+                              const updated = [...questions];
+                              updated[qIdx] = { ...updated[qIdx], explanation: e.target.value };
+                              setActiveQuizPage(prev => ({
+                                ...prev,
+                                quiz: { ...prev.quiz, questions: updated }
+                              }));
+                            }}
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-600 outline-none focus:bg-white focus:border-purple-600 transition-all placeholder:text-slate-400"
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Right Column: Question Navigator & Jumper Palette */}
+            <div className="lg:col-span-1 sticky top-24 space-y-4">
+              <div className="bg-white rounded-3xl p-5 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                    <Hash className="w-3.5 h-3.5 text-purple-600" />
+                    <span>Question Navigator</span>
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-400 font-mono">
+                    {questions.length} Total
+                  </span>
+                </div>
+
+                {/* Progress indicators */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-600">
+                    <span>Answer Set</span>
+                    <span className="text-emerald-600 font-mono">
+                      {answeredCount} / {questions.length}
+                    </span>
+                  </div>
+                  <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-emerald-500 rounded-full transition-all duration-300"
+                      style={{ width: `${questions.length > 0 ? (answeredCount / questions.length) * 100 : 0}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Question Numbers Grid */}
+                {questions.length > 0 && (
+                  <div className="max-h-72 overflow-y-auto pr-1">
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {questions.map((q, idx) => {
+                        const hasQuestion = Boolean(q.question?.trim());
+                        const hasAns = q.correctAnswer !== undefined && q.correctAnswer >= 0;
+                        const isComplete = hasQuestion && hasAns;
+
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={() => {
+                              const el = document.getElementById(`quiz-question-${idx}`);
+                              if (el) {
+                                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                setHighlightedQuizQIdx(idx);
+                                setTimeout(() => setHighlightedQuizQIdx(null), 1500);
+                              }
+                            }}
+                            className={`h-8 rounded-lg text-xs font-mono font-bold flex items-center justify-center border cursor-pointer transition-all ${
+                              isComplete
+                                ? 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100'
+                                : 'bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100'
+                            }`}
+                            title={`Jump to Question #${idx + 1}`}
+                          >
+                            {idx + 1}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Quick Action in Sidebar */}
+                <button
+                  type="button"
+                  onClick={handleAddQuestionToQuizPage}
+                  className="w-full py-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 text-xs font-bold border border-purple-200 cursor-pointer transition-all flex items-center justify-center gap-1.5"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>+ Add Next Question (#{questions.length + 1})</span>
+                </button>
+              </div>
+
+              {/* Guide Card */}
+              <div className="bg-white rounded-3xl p-5 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] space-y-2">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+                  <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+                  <span>Class Quiz Tips</span>
+                </div>
+                <ul className="text-[11px] text-slate-500 space-y-1 list-disc pl-4 leading-relaxed">
+                  <li>Total marks auto-updates with question count (1 mark per question).</li>
+                  <li>Click on any option (A, B, C, D) to set it as the correct answer.</li>
+                  <li>Use the Navigator on the right to jump directly to any question.</li>
+                  <li>Click "Save & Done" to sync changes directly into the course curriculum.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    );
   };
 
   // =========================================================================
@@ -885,10 +1609,10 @@ export default function CourseStudioPage({
         }));
       }
       setVideoUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
-      triggerToast('🎉 ভিডিও সফলভাবে আপলোড সম্পন্ন হয়েছে!');
+      triggerToast('Video uploaded successfully');
     } catch (err) {
       setVideoUploadState({ uploading: false, percent: 0, loaded: 0, total: 0, error: err.message });
-      triggerToast(`❌ ${err.message}`);
+      triggerToast(err.message || 'Video upload failed');
     }
   };
 
@@ -916,40 +1640,13 @@ export default function CourseStudioPage({
         }));
       }
       setPdfUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
-      triggerToast('🎉 পিডিএফ লেকচার শিট সফলভাবে আপলোড সম্পন্ন হয়েছে!');
+      triggerToast('PDF lecture note uploaded successfully');
     } catch (err) {
       setPdfUploadState({ uploading: false, percent: 0, loaded: 0, total: 0, error: err.message });
-      triggerToast(`❌ ${err.message}`);
+      triggerToast(err.message || 'PDF upload failed');
     }
   };
 
-  const handleSaveBunnySettings = () => {
-    saveBunnyConfig(bunnyConfig);
-    setShowBunnySettingsModal(false);
-    triggerToast('✅ Bunny.net credentials saved successfully!');
-  };
-
-  const handleTestBunnyStream = async () => {
-    setBunnyTestResults(prev => ({ ...prev, testingStream: true, stream: null }));
-    const res = await testBunnyStreamConnection(bunnyConfig);
-    setBunnyTestResults(prev => ({ ...prev, testingStream: false, stream: res }));
-    if (res.success) {
-      triggerToast('🟢 Bunny Stream connected successfully!');
-    } else {
-      triggerToast(`❌ Stream connection: ${res.message}`);
-    }
-  };
-
-  const handleTestBunnyStorage = async () => {
-    setBunnyTestResults(prev => ({ ...prev, testingStorage: true, storage: null }));
-    const res = await testBunnyStorageConnection(bunnyConfig);
-    setBunnyTestResults(prev => ({ ...prev, testingStorage: false, storage: res }));
-    if (res.success) {
-      triggerToast('🟢 Bunny Storage connected successfully!');
-    } else {
-      triggerToast(`❌ Storage connection: ${res.message}`);
-    }
-  };
 
   // =========================================================================
   // STEP-BY-STEP CLASS INTEGRATION WIZARD HANDLERS
@@ -1010,6 +1707,8 @@ export default function CourseStudioPage({
       quizTitle: '',
       durationMinutes: 10,
       negativeMark: 0.25,
+      startDate: prefill.startDate || '',
+      endDate: prefill.endDate || '',
       questions: [],
       examId: ''
     });
@@ -1038,6 +1737,8 @@ export default function CourseStudioPage({
       quizTitle: existingQuiz?.title || `${lessonTitle} - Quiz`,
       durationMinutes: existingQuiz?.durationMinutes || 10,
       negativeMark: existingQuiz?.negativeMark !== undefined ? existingQuiz.negativeMark : 0.25,
+      startDate: existingQuiz?.startDate || '',
+      endDate: existingQuiz?.endDate || '',
       questions: Array.isArray(existingQuiz?.questions) ? existingQuiz.questions : [],
       examId: existingQuiz?.examId || (isObj ? lesson.examId : '') || ''
     });
@@ -1045,17 +1746,19 @@ export default function CourseStudioPage({
 
   const handleSaveClassWizard = () => {
     if (!classWizardModal.title.trim()) {
-      triggerToast('⚠️ Please enter a Class Title before saving.');
+      triggerToast('Please enter a Class Title before saving.');
       return;
     }
 
-    const { secIdx, chapIdx, lesIdx, mode, hasQuiz, quizTitle, durationMinutes, negativeMark, questions, examId } = classWizardModal;
+    const { secIdx, chapIdx, lesIdx, mode, hasQuiz, quizTitle, durationMinutes, negativeMark, startDate, endDate, questions, examId } = classWizardModal;
 
     const finalQuiz = hasQuiz ? {
       title: quizTitle.trim() || `${classWizardModal.title.trim()} - Quiz`,
       durationMinutes: Number(durationMinutes) || 10,
       totalMarks: questions.length > 0 ? questions.length : 5,
       negativeMark: Number(negativeMark) || 0.25,
+      startDate: startDate || '',
+      endDate: endDate || '',
       questions: questions,
       examId: examId || ''
     } : null;
@@ -1088,7 +1791,7 @@ export default function CourseStudioPage({
 
       notifySave({ ...course, curriculum: updatedCurriculum });
       setClassWizardModal(prev => ({ ...prev, isOpen: false }));
-      triggerToast(`🎉 Class "${classWizardModal.title}" created & published!`);
+      triggerToast(`Class "${classWizardModal.title}" created & published successfully`);
     } else {
       // Edit mode
       const updatedCurriculum = curriculum.map((sec, sIdx) => {
@@ -1122,7 +1825,7 @@ export default function CourseStudioPage({
 
       notifySave({ ...course, curriculum: updatedCurriculum });
       setClassWizardModal(prev => ({ ...prev, isOpen: false }));
-      triggerToast(`🎉 Class "${classWizardModal.title}" updated successfully!`);
+      triggerToast(`Class "${classWizardModal.title}" updated successfully`);
     }
   };
 
@@ -1135,7 +1838,7 @@ export default function CourseStudioPage({
         const text = evt.target.result;
         const parsed = parseCSVQuestions(text);
         if (!parsed || parsed.length === 0) {
-          triggerToast('❌ Could not parse any valid questions from CSV file.');
+          triggerToast('Could not parse any valid questions from CSV file');
           return;
         }
         setClassWizardModal(prev => ({
@@ -1143,10 +1846,10 @@ export default function CourseStudioPage({
           hasQuiz: true,
           questions: [...prev.questions, ...parsed]
         }));
-        triggerToast(`🎉 Successfully imported ${parsed.length} questions from CSV!`);
+        triggerToast(`Successfully imported ${parsed.length} questions from CSV`);
       } catch (err) {
         console.error('CSV parse error:', err);
-        triggerToast('❌ Error parsing CSV file.');
+        triggerToast('Error parsing CSV file');
       }
     };
     reader.readAsText(file, 'utf-8');
@@ -1200,74 +1903,39 @@ export default function CourseStudioPage({
     }));
   };
 
-  const handleBulkImportQuestions = () => {
-    if (!quizModal.bulkText?.trim()) return;
-    const existingCount = quizModal.quiz?.questions?.length || 0;
-    const parsed = parseBulkQuestionsFromText(quizModal.bulkText, existingCount + 1);
-    if (!parsed || parsed.length === 0) {
-      triggerToast('❌ Could not find questions in the pasted text. Check format.');
-      return;
-    }
-    const normalizedParsed = parsed.map((q, idx) => {
-      const cIdx = q.correct_index !== undefined ? Number(q.correct_index) : 0;
-      return {
-        ...q,
-        id: q.id || `q-${Date.now()}-${existingCount + idx + 1}`,
-        question_no: existingCount + idx + 1,
-        correctAnswer: cIdx,
-        correct_index: cIdx
-      };
-    });
-    setQuizModal(prev => {
-      const combined = [...(prev.quiz?.questions || []), ...normalizedParsed];
-      return {
-        ...prev,
-        quiz: {
-          ...prev.quiz,
-          questions: combined,
-          totalMarks: combined.length
-        },
-        bulkText: '',
-        activeTab: 'builder'
-      };
-    });
-    triggerToast(`🎉 Imported ${parsed.length} questions successfully!`);
-  };
-
-  const handleDeleteLesson = (secIdx, chapIdx, lesIdx) => {
-    const updatedCurriculum = curriculum.map((sec, i) => {
-      if (i === secIdx) {
-        const chapters = sec.chapters.map((ch, cIdx) => {
-          if (cIdx === chapIdx) {
-            return {
-              ...ch,
-              lessons: ch.lessons.filter((_, lIdx) => lIdx !== lesIdx)
-            };
-          }
-          return ch;
-        });
-        return { ...sec, chapters };
-      }
-      return sec;
-    });
-    notifySave({ ...course, curriculum: updatedCurriculum });
-    triggerToast('Lesson removed');
-  };
 
   // Features List Handlers
+  const handleUpdateFeature = (fIdx, newText) => {
+    const baseList = (Array.isArray(course?.features) && course.features.length > 0)
+      ? [...course.features]
+      : [...DEFAULT_COURSE_FEATURES];
+    baseList[fIdx] = newText;
+    notifySave({ ...course, features: baseList });
+  };
+
   const handleAddFeature = () => {
     if (!newFeatureInput.trim()) return;
-    const currentFeatures = Array.isArray(course?.features) ? course.features : [];
-    const updated = { ...course, features: [...currentFeatures, newFeatureInput.trim()] };
+    const baseList = (Array.isArray(course?.features) && course.features.length > 0)
+      ? [...course.features]
+      : [...DEFAULT_COURSE_FEATURES];
+    const updated = { ...course, features: [...baseList, newFeatureInput.trim()] };
     notifySave(updated);
     setNewFeatureInput('');
-    triggerToast('Feature bullet added');
+    if (triggerToast) triggerToast('নতুন ফিচার যুক্ত হয়েছে');
   };
 
   const handleRemoveFeature = (fIdx) => {
-    const currentFeatures = Array.isArray(course?.features) ? course.features : [];
-    const updated = { ...course, features: currentFeatures.filter((_, i) => i !== fIdx) };
+    const baseList = (Array.isArray(course?.features) && course.features.length > 0)
+      ? [...course.features]
+      : [...DEFAULT_COURSE_FEATURES];
+    const updated = { ...course, features: baseList.filter((_, i) => i !== fIdx) };
     notifySave(updated);
+    if (triggerToast) triggerToast('ফিচার মুছে ফেলা হয়েছে');
+  };
+
+  const handleResetFeatures = () => {
+    notifySave({ ...course, features: [...DEFAULT_COURSE_FEATURES] });
+    if (triggerToast) triggerToast('ডিফল্ট ৪টি ফিচার রিস্টোর করা হয়েছে');
   };
 
   // Toggle all expand/collapse
@@ -1279,6 +1947,11 @@ export default function CourseStudioPage({
     });
     setExpandedSections(nextState);
   };
+
+  // DEDICATED FULL-PAGE CLASS QUIZ STUDIO VIEW (NO POPUP)
+  if (activeQuizPage) {
+    return renderClassQuizStudioPage();
+  }
 
   return (
     <div className="min-h-screen bg-[#f4f6fa] text-slate-800 pb-20 animate-in fade-in duration-150">
@@ -1347,7 +2020,7 @@ export default function CourseStudioPage({
             <button
               type="button"
               onClick={() => {
-                triggerToast('🎉 Course changes saved successfully!');
+                triggerToast('Course changes saved successfully');
                 onBack();
               }}
               className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold shadow-md shadow-[#5d5bf6]/25 transition-all cursor-pointer border-none"
@@ -1405,7 +2078,7 @@ export default function CourseStudioPage({
                     const nextActive = course.isActive === false ? true : false;
                     handleUpdateField('isActive', nextActive);
                     if (triggerToast) {
-                      triggerToast(nextActive ? `🟢 "${course.title}" Activated` : `⚪ "${course.title}" Deactivated`);
+                      triggerToast(nextActive ? `"${course.title}" Activated` : `"${course.title}" Deactivated`);
                     }
                   }}
                   className="inline-flex items-center gap-1.5 cursor-pointer border border-slate-200/80 bg-slate-50 hover:bg-slate-100 px-2.5 py-0.5 rounded-lg select-none transition-colors"
@@ -1506,7 +2179,7 @@ export default function CourseStudioPage({
             <span className={`text-[10px] px-2 py-0.5 rounded-md font-black ${
               activeTab === 'overview' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
             }`}>
-              {course.features?.length || 0}
+              {((Array.isArray(course.features) && course.features.length > 0) ? course.features : DEFAULT_COURSE_FEATURES).length}
             </span>
           </button>
         </div>
@@ -2130,7 +2803,7 @@ export default function CourseStudioPage({
                       const nextActive = course.isActive === false ? true : false;
                       handleUpdateField('isActive', nextActive);
                       if (triggerToast) {
-                        triggerToast(nextActive ? `🟢 "${course.title}" Activated` : `⚪ "${course.title}" Deactivated`);
+                        triggerToast(nextActive ? `"${course.title}" Activated` : `"${course.title}" Deactivated`);
                       }
                     }}
                     className="w-full flex items-center justify-between px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer text-xs font-bold transition-all hover:bg-slate-100"
@@ -2237,8 +2910,8 @@ export default function CourseStudioPage({
                 <p className="text-xs text-slate-400 font-medium">Configure marketing copy, description text, support contacts, and key bullet points.</p>
               </div>
 
-              {/* Tagline & Total Classes */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Tagline, Total Classes & Students Count */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="text-xs font-bold text-slate-700 block mb-1.5">Hero Tagline</label>
                   <input
@@ -2258,6 +2931,17 @@ export default function CourseStudioPage({
                     placeholder="e.g. 45 Live Lectures + 10 Exams"
                     onChange={(e) => handleUpdateField('totalClasses', e.target.value)}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-slate-700 block mb-1.5">ভর্তি সংখ্যা (Base Students Enrolled)</label>
+                  <input
+                    type="text"
+                    value={course.studentsCount || '১২৫০+'}
+                    placeholder="e.g. ১২৫০+ or 1250+"
+                    onChange={(e) => handleUpdateField('studentsCount', e.target.value)}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] transition-all"
                   />
                 </div>
               </div>
@@ -2300,30 +2984,49 @@ export default function CourseStudioPage({
               </div>
 
               {/* Course Features Bullets Editor */}
-              <div className="space-y-3 pt-2 border-t border-slate-100">
-                <label className="text-xs font-bold text-slate-700 block">
-                  Course Feature Highlights (What's included in enrollment)
-                </label>
+              <div className="space-y-4 pt-4 border-t border-slate-100">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <label className="text-xs font-bold text-slate-800 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                      এই কোর্সে যা থাকছে (Course Feature Highlights - 4 Cards)
+                    </label>
+                    <p className="text-[11px] text-slate-400 mt-0.5">
+                      শিক্ষার্থীদের ল্যান্ডিং পেজে শো করার জন্য ফিচারসমূহ। সরাসরি টেক্সট বক্সে ক্লিক করে যেকোনো পরিবর্তন করুন।
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleResetFeatures}
+                    className="self-start sm:self-auto text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl border border-indigo-200/50 cursor-pointer transition-colors"
+                  >
+                    ↺ ডিফল্ট ৪টি ফিচার লোড করুন
+                  </button>
+                </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {(course.features || []).map((feat, fIdx) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {((Array.isArray(course.features) && course.features.length > 0) ? course.features : DEFAULT_COURSE_FEATURES).map((feat, fIdx) => (
                     <div 
                       key={fIdx}
-                      className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-800"
+                      className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 shadow-2xs hover:border-indigo-300 focus-within:border-indigo-500 focus-within:bg-white transition-all"
                     >
-                      <div className="flex items-center gap-2 min-w-0">
-                        <span className="w-5 h-5 rounded-full bg-[#5d5bf6]/10 text-[#5d5bf6] flex items-center justify-center shrink-0">
-                          <Check className="w-3 h-3" />
-                        </span>
-                        <span className="truncate">{typeof feat === 'object' ? (feat?.text || feat?.title || '') : String(feat)}</span>
-                      </div>
+                      <span className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xs">
+                        {fIdx + 1}
+                      </span>
+                      <input
+                        type="text"
+                        value={typeof feat === 'object' ? (feat?.text || feat?.title || '') : String(feat)}
+                        onChange={(e) => handleUpdateFeature(fIdx, e.target.value)}
+                        placeholder={`ফিচার #${fIdx + 1} লিখুন...`}
+                        className="flex-1 bg-transparent border-none text-xs font-bold text-slate-800 outline-none px-1 py-1"
+                      />
                       <button
                         type="button"
                         onClick={() => handleRemoveFeature(fIdx)}
-                        className="text-slate-400 hover:text-rose-600 border-none bg-transparent cursor-pointer p-1 transition-colors"
+                        className="text-slate-400 hover:text-rose-600 border-none bg-transparent cursor-pointer p-1.5 rounded-md hover:bg-rose-50 transition-colors shrink-0"
                         title="Remove Feature"
                       >
-                        <X className="w-3.5 h-3.5" />
+                        <X className="w-4 h-4" />
                       </button>
                     </div>
                   ))}
@@ -2333,18 +3036,18 @@ export default function CourseStudioPage({
                 <div className="flex items-center gap-2 pt-1">
                   <input
                     type="text"
-                    placeholder="Enter new feature (e.g. Chapter-wise revision notes & formula book)..."
+                    placeholder="নতুন ফিচার টেক্সট লিখুন (যেমন: অধ্যায়ভিত্তিক কুইজ ও প্র্যাকটিস টেস্ট)..."
                     value={newFeatureInput}
                     onChange={(e) => setNewFeatureInput(e.target.value)}
                     onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddFeature(); } }}
-                    className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
+                    className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
                   />
                   <button
                     type="button"
                     onClick={handleAddFeature}
-                    className="px-4 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold border-none cursor-pointer transition-colors shadow-2xs"
+                    className="px-4 py-2.5 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold border-none cursor-pointer transition-colors shadow-2xs shrink-0"
                   >
-                    + Add Feature
+                    + ফিচার যোগ করুন
                   </button>
                 </div>
               </div>
@@ -2355,747 +3058,6 @@ export default function CourseStudioPage({
 
       </main>
 
-      {/* ========================================================= */}
-      {/* 5. CLASS PRACTICE QUIZ & EXAM BUILDER MODAL */}
-      {/* ========================================================= */}
-      {quizModal.isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="w-full max-w-4xl max-h-[92vh] bg-white rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden">
-            
-            {/* Modal Header */}
-            <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between gap-4 bg-slate-50/80 shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center shadow-inner shrink-0">
-                  <Zap className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-base font-extrabold text-slate-900 leading-tight">
-                    Class Quiz & Exam Builder
-                  </h3>
-                  <p className="text-xs text-slate-500 font-medium truncate max-w-md">
-                    Lesson: {quizModal.lessonTitle}
-                  </p>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setQuizModal(prev => ({ ...prev, isOpen: false }))}
-                className="w-8 h-8 rounded-xl bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer border-none"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Modal Settings Bar */}
-            <div className="p-4 sm:px-6 bg-purple-50/40 border-b border-purple-100/60 grid grid-cols-2 sm:grid-cols-4 gap-3 shrink-0">
-              <div>
-                <label className="text-[11px] font-bold text-slate-600 uppercase tracking-wide block mb-1">
-                  Quiz Title
-                </label>
-                <input
-                  type="text"
-                  value={quizModal.quiz?.title || ''}
-                  onChange={(e) => setQuizModal(prev => ({
-                    ...prev,
-                    quiz: { ...prev.quiz, title: e.target.value }
-                  }))}
-                  placeholder="Practice Quiz Title"
-                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-800 outline-none focus:border-purple-600"
-                />
-              </div>
-
-              <div>
-                <label className="text-[11px] font-bold text-slate-600 uppercase tracking-wide block mb-1">
-                  Duration (Minutes)
-                </label>
-                <input
-                  type="number"
-                  min="1"
-                  max="180"
-                  value={quizModal.quiz?.durationMinutes ?? 10}
-                  onChange={(e) => {
-                    const val = e.target.value === '' ? '' : (parseInt(e.target.value, 10) || 1);
-                    setQuizModal(prev => ({
-                      ...prev,
-                      quiz: { ...prev.quiz, durationMinutes: val }
-                    }));
-                  }}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-mono font-semibold text-slate-800 outline-none focus:border-purple-600"
-                />
-              </div>
-
-              <div>
-                <label className="text-[11px] font-bold text-slate-600 uppercase tracking-wide block mb-1">
-                  Total Marks
-                </label>
-                <input
-                  type="number"
-                  min="1"
-                  value={quizModal.quiz?.totalMarks ?? 5}
-                  onChange={(e) => {
-                    const val = e.target.value === '' ? '' : (parseFloat(e.target.value) || 0);
-                    setQuizModal(prev => ({
-                      ...prev,
-                      quiz: { ...prev.quiz, totalMarks: val }
-                    }));
-                  }}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-mono font-semibold text-slate-800 outline-none focus:border-purple-600"
-                />
-              </div>
-
-              <div>
-                <label className="text-[11px] font-bold text-slate-600 uppercase tracking-wide block mb-1">
-                  Negative Mark
-                </label>
-                <input
-                  type="number"
-                  step="0.05"
-                  min="0"
-                  value={quizModal.quiz?.negativeMark ?? 0.25}
-                  onChange={(e) => {
-                    const val = e.target.value === '' ? '' : (parseFloat(e.target.value) || 0);
-                    setQuizModal(prev => ({
-                      ...prev,
-                      quiz: { ...prev.quiz, negativeMark: val }
-                    }));
-                  }}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-mono font-semibold text-slate-800 outline-none focus:border-purple-600"
-                />
-              </div>
-            </div>
-
-            {/* Mode Switcher Tabs */}
-            <div className="px-4 sm:px-6 pt-3 flex items-center gap-2 border-b border-slate-100 shrink-0 overflow-x-auto">
-              <button
-                type="button"
-                onClick={() => setQuizModal(prev => ({ ...prev, activeTab: 'builder' }))}
-                className={`px-4 py-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center gap-2 whitespace-nowrap ${
-                  quizModal.activeTab === 'builder'
-                    ? 'border-purple-600 text-purple-700 font-extrabold'
-                    : 'border-transparent text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                <CheckSquare className="w-3.5 h-3.5" />
-                <span>Questions Builder & Review ({quizModal.quiz?.questions?.length || 0})</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setQuizModal(prev => ({ ...prev, activeTab: 'csv' }))}
-                className={`px-4 py-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center gap-2 whitespace-nowrap ${
-                  quizModal.activeTab === 'csv'
-                    ? 'border-emerald-600 text-emerald-700 font-extrabold'
-                    : 'border-transparent text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Upload CSV File (CSV Import)</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setQuizModal(prev => ({ ...prev, activeTab: 'bulk' }))}
-                className={`px-4 py-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center gap-2 whitespace-nowrap ${
-                  quizModal.activeTab === 'bulk'
-                    ? 'border-purple-600 text-purple-700 font-extrabold'
-                    : 'border-transparent text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Bulk Text Import</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setQuizModal(prev => ({ ...prev, activeTab: 'link_exam' }))}
-                className={`px-4 py-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center gap-2 whitespace-nowrap ${
-                  quizModal.activeTab === 'link_exam'
-                    ? 'border-purple-600 text-purple-700 font-extrabold'
-                    : 'border-transparent text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                <Zap className="w-3.5 h-3.5" />
-                <span>Link Exam Batch ID</span>
-              </button>
-            </div>
-
-            {/* Modal Body */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
-              
-              {/* TAB 1: QUESTIONS BUILDER / VERIFICATION VIEW */}
-              {quizModal.activeTab === 'builder' && (
-                <div className="space-y-4">
-                  
-                  {/* Action Toolbar */}
-                  <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <span className="text-xs font-black text-slate-800 px-3 py-1 rounded-xl bg-purple-100 text-purple-800 border border-purple-200">
-                        {quizModal.quiz?.questions?.length || 0} Questions
-                      </span>
-                      {quizModal.quiz?.questions?.length > 0 && (
-                        <div className="relative">
-                          <Search className="w-3 h-3 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
-                          <input
-                            type="text"
-                            placeholder="Filter questions..."
-                            value={questionFilter}
-                            onChange={(e) => setQuestionFilter(e.target.value)}
-                            className="w-40 sm:w-56 bg-white border border-slate-200 rounded-xl pl-8 pr-2.5 py-1 text-xs text-slate-700 outline-none focus:border-purple-600"
-                          />
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="flex items-center gap-2 flex-wrap">
-                      {/* Hidden Quick CSV File Input */}
-                      <input 
-                        ref={quickCsvInputRef}
-                        type="file"
-                        accept=".csv,text/csv"
-                        className="hidden"
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file) handleProcessCSVFile(file, 'append');
-                          e.target.value = '';
-                        }}
-                      />
-
-                      <button
-                        type="button"
-                        onClick={() => quickCsvInputRef.current?.click()}
-                        className="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center gap-1.5 border border-emerald-200 cursor-pointer transition-all shadow-2xs"
-                        title="Upload questions directly from CSV"
-                      >
-                        <Upload className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>Upload CSV</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={handleDownloadSampleCSV}
-                        className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5 border border-slate-200 cursor-pointer transition-all"
-                        title="Download sample CSV template"
-                      >
-                        <Download className="w-3.5 h-3.5 text-slate-500" />
-                        <span>Sample CSV</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={handleAddQuestionToQuiz}
-                        className="px-3.5 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center gap-1.5 border-none cursor-pointer transition-all shadow-xs"
-                      >
-                        <Plus className="w-3.5 h-3.5" />
-                        <span>+ Add Question</span>
-                      </button>
-
-                      {quizModal.quiz?.questions?.length > 0 && (
-                        <button
-                          type="button"
-                          onClick={handleClearAllQuestions}
-                          className="p-1.5 rounded-xl text-rose-500 hover:text-rose-700 hover:bg-rose-50 border border-rose-200 cursor-pointer transition-all"
-                          title="Clear all questions"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      )}
-                    </div>
-                  </div>
-
-                  {(!quizModal.quiz?.questions || quizModal.quiz.questions.length === 0) ? (
-                    <div className="p-10 rounded-3xl border-2 border-dashed border-slate-200 text-center space-y-4 bg-slate-50/50">
-                      <div className="w-14 h-14 rounded-3xl bg-purple-100/80 text-purple-600 flex items-center justify-center mx-auto shadow-inner">
-                        <CheckSquare className="w-7 h-7" />
-                      </div>
-                      <div className="max-w-md mx-auto">
-                        <h4 className="text-base font-extrabold text-slate-800">No Questions Added Yet</h4>
-                        <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                          You can upload questions easily using a CSV spreadsheet, write questions manually one-by-one, or paste whole question text in bulk.
-                        </p>
-                      </div>
-                      <div className="flex flex-wrap justify-center gap-3 pt-2">
-                        <button
-                          type="button"
-                          onClick={() => setQuizModal(prev => ({ ...prev, activeTab: 'csv' }))}
-                          className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold border-none cursor-pointer shadow-xs transition-all flex items-center gap-2"
-                        >
-                          <FileSpreadsheet className="w-4 h-4" />
-                          <span>Upload Questions via CSV</span>
-                        </button>
-                        <button
-                          type="button"
-                          onClick={handleAddQuestionToQuiz}
-                          className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold border-none cursor-pointer shadow-xs transition-all flex items-center gap-2"
-                        >
-                          <Plus className="w-4 h-4" />
-                          <span>+ Create First Question Manually</span>
-                        </button>
-                        <button
-                          type="button"
-                          onClick={handleDownloadSampleCSV}
-                          className="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer transition-all flex items-center gap-2"
-                        >
-                          <Download className="w-4 h-4 text-slate-500" />
-                          <span>Download Sample CSV</span>
-                        </button>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="space-y-3">
-                      {quizModal.quiz.questions
-                        .map((q, qIdx) => ({ ...q, originalIndex: qIdx }))
-                        .filter(q => {
-                          if (!questionFilter.trim()) return true;
-                          const f = questionFilter.toLowerCase();
-                          return (
-                            (q.question || '').toLowerCase().includes(f) ||
-                            (q.options || []).some(opt => (opt || '').toLowerCase().includes(f)) ||
-                            (q.explanation || '').toLowerCase().includes(f)
-                          );
-                        })
-                        .map((q) => {
-                          const qIdx = q.originalIndex;
-                          const optLabels = ['A', 'B', 'C', 'D'];
-                          return (
-                            <div
-                              key={q.id || qIdx}
-                              className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-3.5 shadow-2xs hover:border-slate-300 transition-all"
-                            >
-                              {/* Header: Question Number & Actions */}
-                              <div className="flex items-center justify-between gap-3">
-                                <div className="flex items-center gap-2.5">
-                                  <span className="w-7 h-7 rounded-lg bg-purple-600 text-white text-xs font-mono font-black flex items-center justify-center shrink-0 shadow-2xs">
-                                    {qIdx + 1}
-                                  </span>
-                                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                                    Question {qIdx + 1}
-                                  </span>
-                                </div>
-
-                                <div className="flex items-center gap-1">
-                                  {/* Move Up / Down */}
-                                  <button
-                                    type="button"
-                                    onClick={() => handleMoveQuestion(qIdx, 'up')}
-                                    disabled={qIdx === 0}
-                                    className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 disabled:opacity-30 flex items-center justify-center cursor-pointer border-none transition-colors"
-                                    title="Move Question Up"
-                                  >
-                                    <ArrowUp className="w-3.5 h-3.5" />
-                                  </button>
-                                  <button
-                                    type="button"
-                                    onClick={() => handleMoveQuestion(qIdx, 'down')}
-                                    disabled={qIdx === quizModal.quiz.questions.length - 1}
-                                    className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 disabled:opacity-30 flex items-center justify-center cursor-pointer border-none transition-colors"
-                                    title="Move Question Down"
-                                  >
-                                    <ArrowDown className="w-3.5 h-3.5" />
-                                  </button>
-
-                                  {/* Duplicate */}
-                                  <button
-                                    type="button"
-                                    onClick={() => handleDuplicateQuestion(qIdx)}
-                                    className="w-7 h-7 rounded-lg text-slate-400 hover:text-purple-600 hover:bg-purple-50 flex items-center justify-center cursor-pointer border-none transition-colors"
-                                    title="Duplicate Question"
-                                  >
-                                    <Copy className="w-3.5 h-3.5" />
-                                  </button>
-
-                                  {/* Delete */}
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      const updated = quizModal.quiz.questions.filter((_, idx) => idx !== qIdx);
-                                      setQuizModal(prev => ({
-                                        ...prev,
-                                        quiz: { ...prev.quiz, questions: updated, totalMarks: updated.length }
-                                      }));
-                                    }}
-                                    className="w-7 h-7 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 flex items-center justify-center cursor-pointer border-none transition-colors"
-                                    title="Delete Question"
-                                  >
-                                    <Trash2 className="w-3.5 h-3.5" />
-                                  </button>
-                                </div>
-                              </div>
-
-                              {/* Question Input */}
-                              <div>
-                                <textarea
-                                  rows={2}
-                                  value={q.question || ''}
-                                  placeholder={`Question #${qIdx + 1} text...`}
-                                  onChange={(e) => {
-                                    const updated = [...quizModal.quiz.questions];
-                                    updated[qIdx] = { ...updated[qIdx], question: e.target.value };
-                                    setQuizModal(prev => ({
-                                      ...prev,
-                                      quiz: { ...prev.quiz, questions: updated }
-                                    }));
-                                  }}
-                                  className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs font-bold text-slate-900 outline-none focus:bg-white focus:border-purple-600 transition-all leading-relaxed"
-                                />
-                              </div>
-
-                              {/* 4 Options Grid */}
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                                {[0, 1, 2, 3].map((optIdx) => {
-                                  const qCorrect = q.correctAnswer !== undefined ? Number(q.correctAnswer) : (q.correct_index !== undefined ? Number(q.correct_index) : 0);
-                                  const isCorrect = qCorrect === optIdx;
-                                  return (
-                                    <div
-                                      key={optIdx}
-                                      onClick={() => {
-                                        const updated = [...quizModal.quiz.questions];
-                                        updated[qIdx] = { ...updated[qIdx], correctAnswer: optIdx, correct_index: optIdx };
-                                        setQuizModal(prev => ({
-                                          ...prev,
-                                          quiz: { ...prev.quiz, questions: updated }
-                                        }));
-                                      }}
-                                      className={`flex items-center gap-2.5 p-2 rounded-xl border transition-all cursor-pointer ${
-                                        isCorrect 
-                                          ? 'border-emerald-500 bg-emerald-50/70 ring-1 ring-emerald-500/30' 
-                                          : 'border-slate-200 bg-slate-50/60 hover:bg-slate-100/60'
-                                      }`}
-                                    >
-                                      <label
-                                        className="flex items-center gap-1.5 cursor-pointer select-none shrink-0"
-                                        title="Click to set as correct answer"
-                                      >
-                                        <input
-                                          type="radio"
-                                          name={`correct-${qIdx}`}
-                                          checked={isCorrect}
-                                          onChange={() => {
-                                            const updated = [...quizModal.quiz.questions];
-                                            updated[qIdx] = { ...updated[qIdx], correctAnswer: optIdx, correct_index: optIdx };
-                                            setQuizModal(prev => ({
-                                              ...prev,
-                                              quiz: { ...prev.quiz, questions: updated }
-                                            }));
-                                          }}
-                                          className="accent-emerald-600 cursor-pointer w-4 h-4"
-                                        />
-                                        <span className={`text-[11px] font-black px-2 py-0.5 rounded font-mono ${
-                                          isCorrect ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-700'
-                                        }`}>
-                                          {optLabels[optIdx]}
-                                        </span>
-                                      </label>
-
-                                      <input
-                                        type="text"
-                                        value={q.options?.[optIdx] || ''}
-                                        placeholder={`Option ${optLabels[optIdx]}`}
-                                        onClick={(e) => e.stopPropagation()}
-                                        onChange={(e) => {
-                                          const updated = [...quizModal.quiz.questions];
-                                          const newOpts = [...(updated[qIdx].options || ['', '', '', ''])];
-                                          newOpts[optIdx] = e.target.value;
-                                          updated[qIdx] = { ...updated[qIdx], options: newOpts };
-                                          setQuizModal(prev => ({
-                                            ...prev,
-                                            quiz: { ...prev.quiz, questions: updated }
-                                          }));
-                                        }}
-                                        className="flex-1 bg-transparent border-0 text-xs font-medium text-slate-800 outline-none"
-                                      />
-
-                                      {isCorrect && (
-                                        <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded shrink-0">
-                                          ✓ Correct
-                                        </span>
-                                      )}
-                                    </div>
-                                  );
-                                })}
-                              </div>
-
-                              {/* Explanation field */}
-                              <div className="pt-1">
-                                <input
-                                  type="text"
-                                  value={q.explanation || ''}
-                                  placeholder="Answer explanation / reference note (Optional)..."
-                                  onChange={(e) => {
-                                    const updated = [...quizModal.quiz.questions];
-                                    updated[qIdx] = { ...updated[qIdx], explanation: e.target.value };
-                                    setQuizModal(prev => ({
-                                      ...prev,
-                                      quiz: { ...prev.quiz, questions: updated }
-                                    }));
-                                  }}
-                                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-600 outline-none focus:bg-white focus:border-purple-600 transition-all placeholder:text-slate-400"
-                                />
-                              </div>
-                            </div>
-                          );
-                        })}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* TAB 2: DEDICATED CSV FILE IMPORT */}
-              {quizModal.activeTab === 'csv' && (
-                <div className="space-y-5 max-w-3xl mx-auto">
-                  
-                  {/* CSV File Upload Dropzone */}
-                  <div className="bg-white rounded-3xl border-2 border-dashed border-emerald-300 p-8 text-center space-y-4 hover:border-emerald-500 transition-colors">
-                    <div className="w-16 h-16 rounded-3xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
-                      <FileSpreadsheet className="w-8 h-8" />
-                    </div>
-                    
-                    <div className="space-y-1">
-                      <h4 className="text-base font-extrabold text-slate-900">
-                        Upload Quiz Questions CSV File
-                      </h4>
-                      <p className="text-xs text-slate-500 max-w-md mx-auto">
-                        Import bulk multiple-choice questions easily. Supports Microsoft Excel (.csv) and Google Sheets exported CSV files.
-                      </p>
-                    </div>
-
-                    <input
-                      ref={csvFileInputRef}
-                      type="file"
-                      accept=".csv,text/csv"
-                      className="hidden"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) handleSelectCSVFileForPreview(file);
-                        e.target.value = '';
-                      }}
-                    />
-
-                    <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                      <button
-                        type="button"
-                        onClick={() => csvFileInputRef.current?.click()}
-                        className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold border-none cursor-pointer transition-all shadow-sm flex items-center gap-2"
-                      >
-                        <Upload className="w-4 h-4" />
-                        <span>Choose CSV File from Computer</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={handleDownloadSampleCSV}
-                        className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer transition-all flex items-center gap-2"
-                      >
-                        <Download className="w-4 h-4 text-slate-500" />
-                        <span>Download Sample CSV Template</span>
-                      </button>
-                    </div>
-
-                    {csvFileObj && (
-                      <div className="mt-4 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-left flex items-center justify-between gap-3">
-                        <div className="flex items-center gap-2.5">
-                          <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                          <div>
-                            <p className="text-xs font-bold text-emerald-950">{csvFileObj.name}</p>
-                            <p className="text-[11px] text-emerald-700">
-                              {(csvFileObj.size / 1024).toFixed(1)} KB · Found {csvParsedPreview.length} questions
-                            </p>
-                          </div>
-                        </div>
-
-                        <button
-                          type="button"
-                          onClick={() => { setCsvFileObj(null); setCsvParsedPreview([]); }}
-                          className="text-emerald-700 hover:text-rose-600 p-1 border-none bg-transparent cursor-pointer"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Import Mode & Confirmation */}
-                  {csvFileObj && csvParsedPreview.length > 0 && (
-                    <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-4">
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="text-xs font-bold text-slate-700">How should these questions be added?</span>
-                        <div className="flex items-center gap-4 text-xs font-semibold text-slate-700">
-                          <label className="flex items-center gap-1.5 cursor-pointer">
-                            <input
-                              type="radio"
-                              name="importMode"
-                              checked={csvImportMode === 'append'}
-                              onChange={() => setCsvImportMode('append')}
-                              className="accent-emerald-600"
-                            />
-                            <span>Append to existing ({quizModal.quiz?.questions?.length || 0})</span>
-                          </label>
-                          <label className="flex items-center gap-1.5 cursor-pointer">
-                            <input
-                              type="radio"
-                              name="importMode"
-                              checked={csvImportMode === 'replace'}
-                              onChange={() => setCsvImportMode('replace')}
-                              className="accent-emerald-600"
-                            />
-                            <span>Replace all existing</span>
-                          </label>
-                        </div>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={() => handleProcessCSVFile(csvFileObj, csvImportMode)}
-                        className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold border-none cursor-pointer transition-all shadow-xs flex items-center justify-center gap-2"
-                      >
-                        <Check className="w-4 h-4" />
-                        <span>Confirm & Import {csvParsedPreview.length} Questions</span>
-                      </button>
-                    </div>
-                  )}
-
-                  {/* CSV Column Format Guide */}
-                  <div className="bg-slate-50/80 rounded-2xl p-4 border border-slate-200/80 space-y-2.5">
-                    <div className="flex items-center gap-2">
-                      <HelpCircle className="w-4 h-4 text-purple-600" />
-                      <h5 className="text-xs font-extrabold text-slate-800">CSV Column Format Reference</h5>
-                    </div>
-                    <p className="text-[11px] text-slate-500 leading-relaxed">
-                      Your CSV spreadsheet must include the following 7 columns in order (or as column headers):
-                    </p>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-[11px] text-left border-collapse bg-white rounded-xl overflow-hidden border border-slate-200">
-                        <thead className="bg-slate-100 text-slate-700 font-bold">
-                          <tr>
-                            <th className="p-2 border-b">1. Question</th>
-                            <th className="p-2 border-b">2. Option A</th>
-                            <th className="p-2 border-b">3. Option B</th>
-                            <th className="p-2 border-b">4. Option C</th>
-                            <th className="p-2 border-b">5. Option D</th>
-                            <th className="p-2 border-b">6. Correct Answer</th>
-                            <th className="p-2 border-b">7. Explanation</th>
-                          </tr>
-                        </thead>
-                        <tbody className="text-slate-600 font-mono text-[10px]">
-                          <tr>
-                            <td className="p-2 border-b">What is an Abstract Noun?</td>
-                            <td className="p-2 border-b">Honesty</td>
-                            <td className="p-2 border-b">Water</td>
-                            <td className="p-2 border-b">Army</td>
-                            <td className="p-2 border-b">Boy</td>
-                            <td className="p-2 border-b font-bold text-emerald-600">A</td>
-                            <td className="p-2 border-b">Quality or state of mind</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                </div>
-              )}
-
-              {/* TAB 2: BULK IMPORT */}
-              {quizModal.activeTab === 'bulk' && (
-                <div className="space-y-4">
-                  <div className="p-3.5 rounded-xl bg-purple-50 border border-purple-200/80 text-xs text-purple-900 leading-relaxed">
-                    <span className="font-extrabold block mb-1">Standard Format Guide:</span>
-                    Paste questions with options (A, B, C, D) and answer (Ans: A/B/C/D). The intelligent parser will automatically split and format them into MCQs!
-                  </div>
-
-                  <textarea
-                    rows={12}
-                    value={quizModal.bulkText}
-                    onChange={(e) => setQuizModal(prev => ({ ...prev, bulkText: e.target.value }))}
-                    placeholder={`1. What is an Abstract Noun?
-A) Honesty
-B) Boy
-C) Army
-D) River
-Ans: A
-Explanation: Honesty is an abstract state or quality.
-
-2. What is 'Flock' an example of?
-A) Proper Noun
-B) Collective Noun
-C) Material Noun
-D) Common Noun
-Ans: B
-Explanation: Flock refers to a group of birds or sheep.`}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-xs font-mono text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all"
-                  />
-
-                  <div className="flex justify-end">
-                    <button
-                      type="button"
-                      onClick={handleBulkImportQuestions}
-                      disabled={!quizModal.bulkText?.trim()}
-                      className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 disabled:opacity-40 text-white text-xs font-bold border-none cursor-pointer transition-all shadow-xs"
-                    >
-                      Parse & Import Questions
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 3: LINK EXAM BATCH ID */}
-              {quizModal.activeTab === 'link_exam' && (
-                <div className="space-y-4 max-w-xl">
-                  <div className="p-3.5 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-700 leading-relaxed">
-                    If you already have a full exam in the Exam Batches (e.g. Sure Shot Carnival, English Master, or Medical question bank), you can simply paste its Exam ID here. Students will take that exact test!
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Existing Exam ID
-                    </label>
-                    <input
-                      type="text"
-                      value={quizModal.quiz?.examId || ''}
-                      onChange={(e) => setQuizModal(prev => ({
-                        ...prev,
-                        quiz: { ...prev.quiz, examId: e.target.value.trim() }
-                      }))}
-                      placeholder="e.g. sureshot-1 or english_master-5"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono text-slate-800 outline-none focus:bg-white focus:border-purple-600"
-                    />
-                  </div>
-                </div>
-              )}
-
-            </div>
-
-            {/* Modal Footer Controls */}
-            <div className="p-4 border-t border-slate-100 bg-slate-50/80 flex items-center justify-between gap-3 shrink-0">
-              <button
-                type="button"
-                onClick={handleRemoveQuizModal}
-                className="px-4 py-2 rounded-xl text-rose-600 hover:bg-rose-50 text-xs font-bold border border-rose-200 cursor-pointer transition-colors"
-              >
-                Remove Quiz
-              </button>
-
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setQuizModal(prev => ({ ...prev, isOpen: false }))}
-                  className="px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer transition-colors"
-                >
-                  Cancel
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleSaveQuizModal}
-                  className="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold border-none cursor-pointer transition-all shadow-xs"
-                >
-                  Save Quiz & Close
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )}
 
       {/* ========================================================= */}
       {/* UNIFIED CLASS STUDIO & CONTENT EDITOR MODAL */}
@@ -3108,7 +3070,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
             <div className="p-4 sm:p-5 border-b border-slate-100 bg-gradient-to-r from-slate-50 via-indigo-50/20 to-purple-50/20 flex items-center justify-between gap-4 shrink-0">
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#5d5bf6] to-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-sm shrink-0">
-                  {classWizardModal.mode === 'add' ? '🚀' : '✏️'}
+                  <Layers className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
@@ -3140,9 +3102,9 @@ Explanation: Flock refers to a group of birds or sheep.`}
               <div className="flex items-center gap-1.5 flex-wrap">
                 {[
                   { id: 'all', label: 'All-in-One Studio', icon: Layers },
-                  { id: 'video', label: 'Video Lecture', icon: Video, badge: classWizardModal.videoUrl ? '🟢 Ready' : null },
-                  { id: 'notes', label: 'PDF Notes', icon: FileText, badge: classWizardModal.pdfUrl ? '✓ Attached' : null },
-                  { id: 'quiz', label: 'Practice Quiz', icon: Zap, badge: classWizardModal.hasQuiz ? `✓ (${classWizardModal.questions.length})` : null },
+                  { id: 'video', label: 'Video Lecture', icon: Video, badge: classWizardModal.videoUrl ? 'Ready' : null },
+                  { id: 'notes', label: 'PDF Notes', icon: FileText, badge: classWizardModal.pdfUrl ? 'Attached' : null },
+                  { id: 'quiz', label: 'Practice Quiz', icon: Zap, badge: classWizardModal.hasQuiz ? `(${classWizardModal.questions.length})` : null },
                 ].map((tab) => {
                   const Icon = tab.icon;
                   const isActive = studioModalTab === tab.id;
@@ -3172,7 +3134,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
               </div>
 
               <div className="text-[11px] text-slate-400 font-medium hidden sm:block">
-                ⚡ Title + Video is enough to publish
+                Title + Video is enough to publish
               </div>
             </div>
 
@@ -3349,7 +3311,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                         }`}
                       >
                         <Upload className="w-3.5 h-3.5" />
-                        <span>📂 ড্র্যাগ ও ড্রপ আপলোড</span>
+                        <span>Direct Upload</span>
                       </button>
 
                       <button
@@ -3362,7 +3324,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                         }`}
                       >
                         <Play className="w-3.5 h-3.5" />
-                        <span>🔗 ইউটিউব / ভিডিও লিংক</span>
+                        <span>Video Link</span>
                       </button>
                     </div>
                   </div>
@@ -3379,6 +3341,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                       e.target.value = '';
                     }}
                   />
+
 
                   {/* TAB A: DIRECT VIDEO DRAG & DROP UPLOAD */}
                   {videoTabMode === 'upload' && (
@@ -3500,7 +3463,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                           type="button"
                           onClick={() => {
                             setClassWizardModal(prev => ({ ...prev, videoUrl: '' }));
-                            triggerToast('🗑️ Video removed');
+                            triggerToast('Video removed');
                           }}
                           className="text-[11px] text-rose-600 hover:text-rose-700 font-bold border-none bg-transparent cursor-pointer"
                         >
@@ -3545,24 +3508,11 @@ Explanation: Flock refers to a group of birds or sheep.`}
                             3
                           </span>
                           <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
-                            Lecture Sheet / PDF Notes (ঐচ্ছিক লেকচার শিট)
+                            Lecture Sheet / PDF Notes (Optional)
                           </h4>
                         </div>
 
                         <div className="flex items-center gap-1.5">
-                          <button
-                            type="button"
-                            onClick={() => setPdfTabMode('url')}
-                            className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer border ${
-                              pdfTabMode === 'url'
-                                ? 'bg-blue-600 text-white border-blue-600'
-                                : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-                            }`}
-                          >
-                            <FileText className="w-3 h-3" />
-                            <span>Paste Link</span>
-                          </button>
-
                           <button
                             type="button"
                             onClick={() => setPdfTabMode('upload')}
@@ -3573,7 +3523,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                             }`}
                           >
                             <Upload className="w-3.5 h-3.5" />
-                            <span>📄 ড্র্যাগ ও ড্রপ পিডিএফ</span>
+                            <span>Direct Upload</span>
                           </button>
 
                           <button
@@ -3586,7 +3536,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                             }`}
                           >
                             <FileText className="w-3.5 h-3.5" />
-                            <span>🔗 লিংক পেস্ট করুন</span>
+                            <span>Paste Link</span>
                           </button>
                         </div>
                       </div>
@@ -3603,6 +3553,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                           e.target.value = '';
                         }}
                       />
+
 
                       {/* TAB A: DIRECT PDF DRAG & DROP UPLOAD */}
                       {pdfTabMode === 'upload' && (
@@ -3674,7 +3625,9 @@ Explanation: Flock refers to a group of birds or sheep.`}
                       {classWizardModal.pdfUrl && (
                         <div className="flex items-center justify-between p-3 rounded-xl bg-blue-50/80 border border-blue-200/80 gap-3">
                           <div className="flex items-center gap-2.5 min-w-0">
-                            <span className="w-7 h-7 rounded-lg bg-blue-500 text-white flex items-center justify-center text-xs font-bold shrink-0">📄</span>
+                            <span className="w-7 h-7 rounded-lg bg-blue-500 text-white flex items-center justify-center text-xs font-bold shrink-0">
+                              <FileText className="w-3.5 h-3.5" />
+                            </span>
                             <div className="min-w-0">
                               <span className="block text-xs font-bold text-blue-900">PDF Sheet Attached</span>
                               <span className="text-[10px] text-blue-700/80 truncate block font-mono" title={classWizardModal.pdfUrl}>
@@ -3696,7 +3649,7 @@ Explanation: Flock refers to a group of birds or sheep.`}
                               type="button"
                               onClick={() => {
                                 setClassWizardModal(prev => ({ ...prev, pdfUrl: '' }));
-                                triggerToast('🗑️ PDF removed');
+                                triggerToast('PDF removed');
                               }}
                               className="px-2 py-1 text-xs font-bold text-rose-600 hover:bg-rose-50 rounded-lg border border-rose-200 cursor-pointer"
                             >
@@ -3765,6 +3718,42 @@ Explanation: Flock refers to a group of birds or sheep.`}
                                 onChange={(e) => setClassWizardModal(prev => ({ ...prev, durationMinutes: e.target.value }))}
                                 className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-slate-800 outline-none focus:border-purple-600 transition-all shadow-2xs"
                               />
+                            </div>
+                          </div>
+
+                          {/* Live Window Schedule */}
+                          <div className="p-3 bg-white border border-slate-200/90 rounded-xl space-y-2">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                              <span className="text-xs font-bold text-slate-800">
+                                Live Window Schedule (Optional)
+                              </span>
+                              <span className="text-[10px] text-slate-500">
+                                First attempt within window counts for official Leaderboard
+                              </span>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                              <div>
+                                <label className="text-[11px] font-semibold text-slate-600 block mb-1">
+                                  Live Window Start
+                                </label>
+                                <input
+                                  type="datetime-local"
+                                  value={classWizardModal.startDate || ''}
+                                  onChange={(e) => setClassWizardModal(prev => ({ ...prev, startDate: e.target.value }))}
+                                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all font-mono"
+                                />
+                              </div>
+                              <div>
+                                <label className="text-[11px] font-semibold text-slate-600 block mb-1">
+                                  Live Window End
+                                </label>
+                                <input
+                                  type="datetime-local"
+                                  value={classWizardModal.endDate || ''}
+                                  onChange={(e) => setClassWizardModal(prev => ({ ...prev, endDate: e.target.value }))}
+                                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all font-mono"
+                                />
+                              </div>
                             </div>
                           </div>
 
@@ -3908,30 +3897,30 @@ Explanation: Flock refers to a group of birds or sheep.`}
               <div className="hidden sm:flex items-center gap-2 text-xs">
                 {classWizardModal.title ? (
                   <span className="px-2.5 py-1 rounded-lg bg-slate-200/70 text-slate-700 font-bold text-[11px]">
-                    ✓ Title Ready
+                    Title Ready
                   </span>
                 ) : (
                   <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 font-bold text-[11px]">
-                    ⚠️ Title Required
+                    Title Required
                   </span>
                 )}
                 {classWizardModal.videoUrl ? (
                   <span className="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-[11px]">
-                    🎬 Video Ready
+                    Video Ready
                   </span>
                 ) : (
                   <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 text-[11px]">
-                    ⚪ No Video
+                    No Video
                   </span>
                 )}
                 {classWizardModal.pdfUrl && (
                   <span className="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-bold text-[11px]">
-                    📄 PDF Ready
+                    PDF Ready
                   </span>
                 )}
                 {classWizardModal.hasQuiz && (
                   <span className="px-2.5 py-1 rounded-lg bg-purple-100 text-purple-800 font-bold text-[11px]">
-                    ⚡ {classWizardModal.questions.length} MCQs
+                    {classWizardModal.questions.length} MCQs
                   </span>
                 )}
               </div>
@@ -3951,316 +3940,62 @@ Explanation: Flock refers to a group of birds or sheep.`}
       )}
 
       {/* ========================================================= */}
-      {/* BUNNY.NET STREAM & STORAGE CREDENTIALS CONFIG MODAL */}
+      {/* 5. IN-APP INTERACTIVE DELETE CONFIRMATION MODAL */}
       {/* ========================================================= */}
-      {showBunnySettingsModal && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-100 flex flex-col max-h-[92vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-            
-            {/* Header */}
-            <div className="p-4 sm:p-5 border-b border-slate-100 bg-gradient-to-r from-orange-50 via-amber-50/30 to-purple-50/20 flex items-center justify-between gap-4 shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-orange-500 to-amber-500 text-white flex items-center justify-center font-bold text-lg shadow-sm">
-                  🐰
-                </div>
-                <div>
-                  <h3 className="text-base font-black text-slate-900 flex items-center gap-2">
-                    <span>Bunny.net Cloud Stream & Storage Setup</span>
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Direct video upload transcoding & PDF CDN delivery credentials
-                  </p>
-                </div>
+      {deleteConfirmTarget && (
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in duration-150">
+          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-rose-100 p-6 flex flex-col space-y-4 animate-in zoom-in-95 duration-150">
+            {/* Trash icon & header */}
+            <div className="flex items-start gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-100 text-rose-600 flex items-center justify-center shrink-0 shadow-xs">
+                <Trash2 className="w-6 h-6" />
               </div>
-
-              <button
-                type="button"
-                onClick={() => setShowBunnySettingsModal(false)}
-                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center border-none cursor-pointer transition-colors"
-                title="Close"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Modal Body */}
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1 space-y-6">
-
-              {/* Status Summary Banner */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
-                  isBunnyStreamConfigured(bunnyConfig)
-                    ? 'bg-emerald-50/60 border-emerald-200 text-emerald-900'
-                    : 'bg-slate-50 border-slate-200 text-slate-600'
-                }`}>
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-base">🎬</span>
-                    <div>
-                      <span className="text-xs font-black block">Bunny Stream (Video)</span>
-                      <span className="text-[11px] text-slate-500">
-                        {isBunnyStreamConfigured(bunnyConfig) ? 'Ready for Direct Uploads' : 'Not Configured Yet'}
-                      </span>
-                    </div>
-                  </div>
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                    isBunnyStreamConfigured(bunnyConfig) ? 'bg-emerald-500 text-white' : 'bg-slate-200 text-slate-600'
-                  }`}>
-                    {isBunnyStreamConfigured(bunnyConfig) ? 'Active ✓' : 'Setup Required'}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-rose-100 text-rose-800">
+                    {deleteConfirmTarget.type === 'section' ? 'Module Delete' : (deleteConfirmTarget.type === 'chapter' ? 'Chapter Delete' : 'Class Delete')}
                   </span>
                 </div>
-
-                <div className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
-                  isBunnyStorageConfigured(bunnyConfig)
-                    ? 'bg-blue-50/60 border-blue-200 text-blue-900'
-                    : 'bg-slate-50 border-slate-200 text-slate-600'
-                }`}>
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-base">📄</span>
-                    <div>
-                      <span className="text-xs font-black block">Bunny Storage (PDF Notes)</span>
-                      <span className="text-[11px] text-slate-500">
-                        {isBunnyStorageConfigured(bunnyConfig) ? 'Ready for CDN Delivery' : 'Not Configured Yet'}
-                      </span>
-                    </div>
-                  </div>
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                    isBunnyStorageConfigured(bunnyConfig) ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-600'
-                  }`}>
-                    {isBunnyStorageConfigured(bunnyConfig) ? 'Active ✓' : 'Setup Required'}
-                  </span>
-                </div>
+                <h3 className="text-base font-black text-slate-900 mt-1">
+                  {deleteConfirmTarget.type === 'section' ? 'মডিউল ডিলিট করবেন?' : (deleteConfirmTarget.type === 'chapter' ? 'অধ্যায় / চ্যাপ্টার ডিলিট করবেন?' : 'ক্লাস ডিলিট করবেন?')}
+                </h3>
               </div>
-
-              {/* PART 1: BUNNY STREAM (VIDEOS) */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-purple-50/40 via-white to-indigo-50/30 border border-purple-100 space-y-4">
-                <div className="flex items-center justify-between border-b border-purple-100/80 pb-2.5">
-                  <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs">
-                      1
-                    </span>
-                    <h4 className="text-xs font-black text-slate-900 uppercase tracking-wide">
-                      Bunny Stream (Direct Video Upload & Transcoding)
-                    </h4>
-                  </div>
-                  <a
-                    href="https://dash.bunny.net/stream"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[11px] font-bold text-purple-600 hover:text-purple-700 flex items-center gap-1 hover:underline"
-                  >
-                    <span>dash.bunny.net/stream</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Stream Video Library ID <span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. 312456"
-                      value={bunnyConfig.streamLibraryId || ''}
-                      onChange={(e) => setBunnyConfig(prev => ({ ...prev, streamLibraryId: e.target.value.trim() }))}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-purple-600 transition-all shadow-2xs"
-                    />
-                    <span className="text-[10px] text-slate-400 mt-1 block">
-                      Found in Bunny Stream → Manage Library → API → Library ID
-                    </span>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Stream API Key (AccessKey) <span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      type="password"
-                      placeholder="e.g. 7f8a9b1c-..."
-                      value={bunnyConfig.streamApiKey || ''}
-                      onChange={(e) => setBunnyConfig(prev => ({ ...prev, streamApiKey: e.target.value.trim() }))}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-purple-600 transition-all shadow-2xs"
-                    />
-                    <span className="text-[10px] text-slate-400 mt-1 block">
-                      Found in Bunny Stream → API → API Key
-                    </span>
-                  </div>
-                </div>
-
-                {/* Test Connection Button & Result */}
-                <div className="flex items-center justify-between pt-1 flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={handleTestBunnyStream}
-                    disabled={bunnyTestResults.testingStream || !bunnyConfig.streamLibraryId || !bunnyConfig.streamApiKey}
-                    className="px-3.5 py-1.5 rounded-xl bg-purple-100 hover:bg-purple-200 disabled:opacity-50 text-purple-800 text-xs font-bold border-none cursor-pointer transition-all flex items-center gap-1.5"
-                  >
-                    {bunnyTestResults.testingStream ? (
-                      <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                    ) : (
-                      <Zap className="w-3.5 h-3.5" />
-                    )}
-                    <span>{bunnyTestResults.testingStream ? 'Testing Connection...' : 'Test Stream Connection'}</span>
-                  </button>
-
-                  {bunnyTestResults.stream && (
-                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-lg ${
-                      bunnyTestResults.stream.success
-                        ? 'bg-emerald-100 text-emerald-800'
-                        : 'bg-rose-100 text-rose-800'
-                    }`}>
-                      {bunnyTestResults.stream.message}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* PART 2: BUNNY STORAGE (PDFS & LECTURE SHEETS) */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-50/40 via-white to-cyan-50/30 border border-blue-100 space-y-4">
-                <div className="flex items-center justify-between border-b border-blue-100/80 pb-2.5">
-                  <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">
-                      2
-                    </span>
-                    <h4 className="text-xs font-black text-slate-900 uppercase tracking-wide">
-                      Bunny Storage & CDN (Direct PDF & File Upload)
-                    </h4>
-                  </div>
-                  <a
-                    href="https://dash.bunny.net/storage"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[11px] font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 hover:underline"
-                  >
-                    <span>dash.bunny.net/storage</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Storage Zone Name <span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. eduhunters-storage"
-                      value={bunnyConfig.storageZoneName || ''}
-                      onChange={(e) => setBunnyConfig(prev => ({ ...prev, storageZoneName: e.target.value.trim() }))}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-blue-600 transition-all shadow-2xs"
-                    />
-                    <span className="text-[10px] text-slate-400 mt-1 block">
-                      The name of your Bunny storage zone
-                    </span>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Storage Password / Access Key <span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      type="password"
-                      placeholder="e.g. 8a9b2c3d-..."
-                      value={bunnyConfig.storagePassword || ''}
-                      onChange={(e) => setBunnyConfig(prev => ({ ...prev, storagePassword: e.target.value.trim() }))}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-blue-600 transition-all shadow-2xs"
-                    />
-                    <span className="text-[10px] text-slate-400 mt-1 block">
-                      Found in Storage Zone → FTP & API Access → Password
-                    </span>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Storage Hostname
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="storage.bunnycdn.com"
-                      value={bunnyConfig.storageHostname || 'storage.bunnycdn.com'}
-                      onChange={(e) => setBunnyConfig(prev => ({ ...prev, storageHostname: e.target.value.trim() }))}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono text-slate-900 outline-none focus:border-blue-600 transition-all shadow-2xs"
-                    />
-                    <span className="text-[10px] text-slate-400 mt-1 block">
-                      Default: storage.bunnycdn.com (or region like ny.storage.bunnycdn.com)
-                    </span>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Connected Pull Zone (Public CDN Domain) <span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. eduhunters-cdn.b-cdn.net"
-                      value={bunnyConfig.pullZoneHostname || ''}
-                      onChange={(e) => setBunnyConfig(prev => ({ ...prev, pullZoneHostname: e.target.value.trim() }))}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-slate-900 outline-none focus:border-blue-600 transition-all shadow-2xs"
-                    />
-                    <span className="text-[10px] text-slate-400 mt-1 block">
-                      The public CDN domain connected to this storage zone for instant PDF downloads
-                    </span>
-                  </div>
-                </div>
-
-                {/* Important CORS Note */}
-                <div className="p-3 rounded-xl bg-amber-50 border border-amber-200/80 text-[11px] text-amber-900 flex items-start gap-2">
-                  <span className="font-bold shrink-0">⚠️ Important:</span>
-                  <span>
-                    In your Bunny dashboard under <strong>Storage Zone → Security / CORS</strong>, make sure <strong>"Enable CORS Headers"</strong> is toggled <strong>ON</strong> so browsers can upload directly without being blocked.
-                  </span>
-                </div>
-
-                {/* Test Storage Connection Button & Result */}
-                <div className="flex items-center justify-between pt-1 flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={handleTestBunnyStorage}
-                    disabled={bunnyTestResults.testingStorage || !bunnyConfig.storageZoneName || !bunnyConfig.storagePassword}
-                    className="px-3.5 py-1.5 rounded-xl bg-blue-100 hover:bg-blue-200 disabled:opacity-50 text-blue-800 text-xs font-bold border-none cursor-pointer transition-all flex items-center gap-1.5"
-                  >
-                    {bunnyTestResults.testingStorage ? (
-                      <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                    ) : (
-                      <Zap className="w-3.5 h-3.5" />
-                    )}
-                    <span>{bunnyTestResults.testingStorage ? 'Testing Connection...' : 'Test Storage Connection'}</span>
-                  </button>
-
-                  {bunnyTestResults.storage && (
-                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-lg ${
-                      bunnyTestResults.storage.success
-                        ? 'bg-emerald-100 text-emerald-800'
-                        : 'bg-rose-100 text-rose-800'
-                    }`}>
-                      {bunnyTestResults.storage.message}
-                    </span>
-                  )}
-                </div>
-              </div>
-
             </div>
 
-            {/* Footer Buttons */}
-            <div className="p-4 border-t border-slate-100 bg-slate-50/80 flex items-center justify-between gap-3 shrink-0">
-              <button
-                type="button"
-                onClick={() => setShowBunnySettingsModal(false)}
-                className="px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 cursor-pointer transition-colors"
-              >
-                Close
-              </button>
-
-              <button
-                type="button"
-                onClick={handleSaveBunnySettings}
-                className="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs font-black border-none cursor-pointer transition-all shadow-sm flex items-center gap-1.5 active:scale-95"
-              >
-                <Check className="w-3.5 h-3.5" />
-                <span>Save Credentials</span>
-              </button>
+            {/* Target Details */}
+            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
+              <p className="text-xs font-bold text-slate-900 break-words font-mono">
+                {deleteConfirmTarget.title || 'Selected Item'}
+              </p>
+              {deleteConfirmTarget.subtitle && (
+                <p className="text-[11px] text-slate-500 font-medium">
+                  {deleteConfirmTarget.subtitle}
+                </p>
+              )}
             </div>
 
+            <p className="text-xs text-rose-600 font-medium bg-rose-50/70 p-2.5 rounded-xl border border-rose-100">
+              Warning: Deleting this item is permanent and will sync immediately across all users.
+            </p>
+
+            {/* Actions */}
+            <div className="flex items-center justify-end gap-2.5 pt-2">
+              <button
+                type="button"
+                onClick={() => setDeleteConfirmTarget(null)}
+                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border-none cursor-pointer transition-colors"
+              >
+                বাতিল করুন
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmDelete}
+                className="px-5 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-700 hover:to-red-700 text-white text-xs font-black border-none cursor-pointer transition-all shadow-md shadow-rose-600/25 flex items-center gap-1.5 active:scale-95"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span>হ্যাঁ, ডিলিট করুন</span>
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -30,7 +30,7 @@ import {
   limit,
   onSnapshot
 } from 'firebase/firestore';
-import { saveSupabaseUser } from '../services/supabaseService';
+import { saveSupabaseUser, fetchUserApprovedEnrollments } from '../services/supabaseService';
 
 const AuthContext = createContext(null);
 
@@ -177,9 +177,11 @@ export function AuthProvider({ children }) {
               authProvider: 'google.com'
             };
 
+            let isNewRedirect = false;
             try {
               const googleEmails = JSON.parse(localStorage.getItem('eh_google_registered_emails') || '[]');
               if (rUser.email && !googleEmails.includes(rUser.email.toLowerCase())) {
+                isNewRedirect = true;
                 googleEmails.push(rUser.email.toLowerCase());
                 localStorage.setItem('eh_google_registered_emails', JSON.stringify(googleEmails));
               }
@@ -189,8 +191,8 @@ export function AuthProvider({ children }) {
             } catch (e) {}
 
             setCurrentUser(mappedGoogleUser);
-            broadcastUserSync('REGISTER', mappedGoogleUser);
-            syncUserToFirestore(rUser, { authProvider: 'google.com' }).catch(() => {});
+            broadcastUserSync(isNewRedirect ? 'REGISTER' : 'UPDATE', mappedGoogleUser);
+            syncUserToFirestore(rUser, { authProvider: 'google.com', isNewRegistration: isNewRedirect }).catch(() => {});
           }
         })
         .catch((err) => {
@@ -265,6 +267,39 @@ export function AuthProvider({ children }) {
             } catch (e) {
               // Ignore firestore permission error during initial auth
             }
+          }
+
+          // Cross-Device Cloud Sync: Automatically fetch & unlock approved courses from Supabase
+          try {
+            const { courses: spCourses, orders: spOrders } = await fetchUserApprovedEnrollments(
+              user.email,
+              enrichedUser.phone || enrichedUser.whatsapp,
+              user.uid
+            );
+
+            if (spCourses.length > 0) {
+              const curEnrolled = Array.isArray(enrichedUser.enrolledCourses) ? enrichedUser.enrolledCourses : [];
+              const mergedCourses = Array.from(new Set([...curEnrolled, ...spCourses]));
+              enrichedUser.enrolledCourses = mergedCourses;
+
+              try {
+                localStorage.setItem(`eduhunters_enrolled_courses_${user.uid}`, JSON.stringify(mergedCourses));
+                const localCourses = JSON.parse(localStorage.getItem('eduhunters_enrolled_courses') || '[]');
+                localStorage.setItem('eduhunters_enrolled_courses', JSON.stringify(Array.from(new Set([...localCourses, ...mergedCourses]))));
+              } catch (e) {}
+            }
+
+            if (spOrders.length > 0) {
+              try {
+                const localOrders = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+                const ordMap = new Map();
+                localOrders.forEach(o => ordMap.set(o.id || o.invoiceNumber, o));
+                spOrders.forEach(o => ordMap.set(o.id || o.invoiceNumber, o));
+                localStorage.setItem('eh_user_orders_v3', JSON.stringify(Array.from(ordMap.values())));
+              } catch (e) {}
+            }
+          } catch (e) {
+            console.warn('[AuthContext] Supabase enrollment sync note:', e);
           }
 
           try {
@@ -474,7 +509,8 @@ export function AuthProvider({ children }) {
         syncUserToFirestore(res.user, { 
           displayName, 
           photoURL: defaultAvatar, 
-          authProvider: 'password' 
+          authProvider: 'password',
+          isNewRegistration: true
         }).catch(() => {});
 
         const createdUser = {
@@ -784,9 +820,11 @@ export function AuthProvider({ children }) {
           };
 
           // Record Google credentials in local storage
+          let isNewGoogle = false;
           try {
             const googleEmails = JSON.parse(localStorage.getItem('eh_google_registered_emails') || '[]');
             if (resUser.email && !googleEmails.includes(resUser.email.toLowerCase())) {
+              isNewGoogle = true;
               googleEmails.push(resUser.email.toLowerCase());
               localStorage.setItem('eh_google_registered_emails', JSON.stringify(googleEmails));
             }
@@ -796,10 +834,13 @@ export function AuthProvider({ children }) {
           } catch (e) {}
 
           setCurrentUser(mappedGoogleUser);
-          broadcastUserSync('REGISTER', mappedGoogleUser);
+          broadcastUserSync(isNewGoogle ? 'REGISTER' : 'UPDATE', mappedGoogleUser);
 
           // Non-blocking background sync to Firestore
-          syncUserToFirestore(resUser, { authProvider: 'google.com' }).catch((e) => {
+          syncUserToFirestore(resUser, { 
+            authProvider: 'google.com',
+            isNewRegistration: isNewGoogle
+          }).catch((e) => {
             console.warn('[AuthContext] Background sync user note:', e);
           });
 

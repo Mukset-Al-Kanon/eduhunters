@@ -5,7 +5,7 @@ import { initialData } from '../data/mockData';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { db, isFirebaseConfigured } from '../firebase/config';
 import { doc, setDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
-import { saveSupabaseOrder } from '../services/supabaseService';
+import { saveSupabaseOrder, saveSupabaseUser } from '../services/supabaseService';
 import React, { useState, useEffect, useMemo } from 'react';
 
 export const ENROLLED_COURSES_KEY = 'eduhunters_enrolled_courses';
@@ -50,6 +50,89 @@ export function getStoredEnrolledBatches() {
   } catch (e) {
     return [];
   }
+}
+
+/**
+ * De-duplicates and canonicalizes an enrolled courses array into clean, human-readable course titles.
+ * Eliminates internal ID/slug variations (e.g. ['Physics Finishing Touch Series', 'course-1791887161017', 'physics-finishing-touch-series'] => ['Physics Finishing Touch Series'])
+ */
+export function getCanonicalCourses(rawCourses, data = {}) {
+  if (!Array.isArray(rawCourses) || rawCourses.length === 0) return [];
+
+  const allCourses = data?.courses || initialData.courses || [];
+  const allBundles = data?.bundles || initialData.bundles || [];
+  const allBatches = EXAM_CATEGORIES_METADATA || [];
+
+  const canonicalMap = new Map();
+
+  rawCourses.forEach(item => {
+    if (!item) return;
+    const str = String(item).trim();
+    if (!str) return;
+
+    // Check against courses
+    const foundCourse = allCourses.find(c => 
+      c.id === str || 
+      c.slug === str || 
+      c.title === str || 
+      c.name === str ||
+      c.title?.toLowerCase() === str.toLowerCase() ||
+      c.slug?.toLowerCase() === str.toLowerCase() ||
+      c.id?.toLowerCase() === str.toLowerCase()
+    );
+    if (foundCourse) {
+      const canonicalTitle = foundCourse.title || foundCourse.name;
+      const key = canonicalTitle.toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (!canonicalMap.has(key)) {
+        canonicalMap.set(key, canonicalTitle);
+      }
+      return;
+    }
+
+    // Check against bundles
+    const foundBundle = allBundles.find(b => 
+      b.id === str || 
+      b.slug === str || 
+      b.title === str ||
+      b.title?.toLowerCase() === str.toLowerCase()
+    );
+    if (foundBundle) {
+      const canonicalTitle = foundBundle.title;
+      const key = canonicalTitle.toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (!canonicalMap.has(key)) {
+        canonicalMap.set(key, canonicalTitle);
+      }
+      return;
+    }
+
+    // Check against exam batches
+    const foundBatch = allBatches.find(eb => 
+      eb.key === str || 
+      eb.id === str || 
+      eb.title === str ||
+      eb.title?.toLowerCase() === str.toLowerCase()
+    );
+    if (foundBatch) {
+      const canonicalTitle = foundBatch.title;
+      const key = canonicalTitle.toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (!canonicalMap.has(key)) {
+        canonicalMap.set(key, canonicalTitle);
+      }
+      return;
+    }
+
+    // Filter out internal generated slugs or IDs
+    if (str.startsWith('course-') || str.startsWith('ord_') || str.startsWith('TRX-') || str.startsWith('GRANT-') || str.startsWith('INV-')) {
+      return;
+    }
+
+    const key = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (!canonicalMap.has(key)) {
+      canonicalMap.set(key, str);
+    }
+  });
+
+  return Array.from(canonicalMap.values());
 }
 
 /**
@@ -189,7 +272,7 @@ export function grantCourseAccess(itemOrTitle, data = {}, targetUser = null) {
 
         if (isMatch) {
           const userCourses = parsedUser.enrolledCourses || [];
-          parsedUser.enrolledCourses = Array.from(new Set([...userCourses, ...resolvedCourses]));
+          parsedUser.enrolledCourses = getCanonicalCourses([...userCourses, titleToUse], data);
           localStorage.setItem('eh_current_user', JSON.stringify(parsedUser));
         }
       }
@@ -214,7 +297,7 @@ export function grantCourseAccess(itemOrTitle, data = {}, targetUser = null) {
               const prevCourses = Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [];
               return {
                 ...u,
-                enrolledCourses: Array.from(new Set([...prevCourses, ...resolvedCourses]))
+                enrolledCourses: getCanonicalCourses([...prevCourses, titleToUse], data)
               };
             }
             return u;
@@ -277,6 +360,18 @@ export function grantCourseAccess(itemOrTitle, data = {}, targetUser = null) {
         nextOrdersList.unshift(adminOrder);
         localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrdersList));
         saveSupabaseOrder(adminOrder).catch(e => console.warn('[enrollmentService] Supabase grant save note:', e));
+
+        if (targetUser && (targetUid || targetEmail)) {
+          saveSupabaseUser({
+            uid: targetUid || `u_${targetEmail.replace(/[^a-z0-9]/g, '')}`,
+            id: targetUid,
+            email: targetEmail,
+            displayName: targetUser.name || targetUser.displayName || 'Student',
+            phone: targetPhone
+          }, {
+            enrolledCourses: resolvedCourses
+          }).catch(e => console.warn('[enrollmentService] Supabase user grant sync note:', e));
+        }
       }
     } catch (e) {}
 

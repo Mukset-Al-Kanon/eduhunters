@@ -177,6 +177,7 @@ export default function HomePage({
   onNavigateCourse, 
   onNavigateBundle,
   onNavigateExams, 
+  onNavigateLeaderboard,
   onNavigateStore, 
   onNavigateAbout, 
   onNavigateDevices,
@@ -551,6 +552,7 @@ export default function HomePage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}

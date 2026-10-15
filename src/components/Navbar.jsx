@@ -12,6 +12,7 @@ export default function Navbar({
   onNavigateDashboard,
   onNavigateCourse,
   onNavigateExams,
+  onNavigateLeaderboard,
   onNavigateStore,
   onNavigateAbout,
   onNavigateDevices,
@@ -45,6 +46,19 @@ export default function Navbar({
   const handleNav = (action) => {
     setIsDrawerOpen(false);
     if (action) action();
+  };
+
+  const handleLeaderboardNav = () => {
+    if (typeof onNavigateLeaderboard === 'function') {
+      onNavigateLeaderboard();
+    } else {
+      try {
+        window.history.pushState(null, '', '/leaderboard');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      } catch {
+        window.location.href = '/leaderboard';
+      }
+    }
   };
 
   const navItems = [
@@ -107,6 +121,22 @@ export default function Navbar({
         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="m9 11 3 3L22 4"></path>
           <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+      )
+    },
+    {
+      id: 'leaderboard',
+      label: 'Leaderboard',
+      bnLabel: 'লিডারবোর্ড',
+      action: handleLeaderboardNav,
+      icon: (
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+          <path d="M4 22h16" />
+          <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+          <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+          <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
         </svg>
       )
     },
@@ -568,7 +598,7 @@ export default function Navbar({
 
               {/* 4. Leaderboard */}
               <button
-                onClick={() => handleNav(onNavigateExams)}
+                onClick={() => handleNav(handleLeaderboardNav)}
                 className={`flex items-center justify-between text-left group bg-transparent border-none p-1.5 rounded-xl cursor-pointer transition-colors ${
                   activePage === 'leaderboard' 
                     ? (isDark ? 'text-white font-semibold' : 'text-[#dc2626] font-semibold bg-red-50/70') 

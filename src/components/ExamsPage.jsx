@@ -14,6 +14,7 @@ export default function ExamsPage({
   onNavigateHome, 
   onNavigateDashboard,
   onNavigateCourse, 
+  onNavigateLeaderboard,
   onNavigateStore, 
   onNavigateAbout, 
   onNavigateDevices,
@@ -46,6 +47,7 @@ export default function ExamsPage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={() => {}}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={onNavigateAbout}
         onNavigateDevices={onNavigateDevices}
@@ -235,7 +237,18 @@ export default function ExamsPage({
                   ) : null}
 
                   <button 
-                    onClick={() => setActiveLiveExam(initialData.exams[0])}
+                    onClick={() => {
+                      if (onNavigateLeaderboard) {
+                        onNavigateLeaderboard();
+                      } else {
+                        try {
+                          window.history.pushState(null, '', '/leaderboard');
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                        } catch {
+                          window.location.href = '/leaderboard';
+                        }
+                      }
+                    }}
                     className={`px-4 py-2 rounded-xl text-sm font-semibold cursor-pointer ${
                       isDark 
                         ? 'border border-[#e11438]/30 text-gray-200 hover:bg-[#e11438]/10 hover:text-white bg-[#160408]' 

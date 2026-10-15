@@ -9,6 +9,7 @@ export default function AboutPage({
   onNavigateDashboard,
   onNavigateCourse, 
   onNavigateExams, 
+  onNavigateLeaderboard,
   onNavigateStore, 
   onNavigateDevices,
   onNavigateOrders,
@@ -47,6 +48,7 @@ export default function AboutPage({
         onNavigateDashboard={onNavigateDashboard}
         onNavigateCourse={onNavigateCourse}
         onNavigateExams={onNavigateExams}
+        onNavigateLeaderboard={onNavigateLeaderboard}
         onNavigateStore={onNavigateStore}
         onNavigateAbout={() => {}}
         onNavigateDevices={onNavigateDevices}

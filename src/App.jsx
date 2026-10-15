@@ -14,6 +14,7 @@ import DevicesPage from './components/DevicesPage';
 import OrdersPage from './components/OrdersPage';
 import DashboardPage from './components/DashboardPage';
 import LegalPoliciesPage from './components/LegalPoliciesPage';
+import LeaderboardPage from './components/LeaderboardPage';
 import AuthModal from './components/AuthModal';
 import ProfileModal from './components/ProfileModal';
 import PreloaderScreen from './components/PreloaderScreen';
@@ -21,7 +22,7 @@ import AdminAuthModal from './components/AdminAuthModal';
 import { isStudentProfileComplete } from './utils/studentProfile';
 import { getAdminSession, clearAdminSession } from './services/adminAuthService';
 import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/firestoreSyncService';
-import { saveSupabaseSiteData, subscribeToSupabaseSiteData } from './services/supabaseService';
+import { saveSupabaseSiteData, fetchSupabaseSiteData, subscribeToSupabaseSiteData } from './services/supabaseService';
 
 // Performance Optimization: Lazy load heavy AdminPanel
 const AdminPanel = lazy(() => import('./components/AdminPanel'));
@@ -149,6 +150,7 @@ export default function App() {
     if (path.includes('/exams') || hash.includes('exams')) return 'exams';
     if (path.includes('/devices') || hash.includes('devices')) return 'devices';
     if (path.includes('/orders') || hash.includes('orders')) return 'orders';
+    if (path.includes('/leaderboard') || hash.includes('leaderboard')) return 'leaderboard';
     if (path.includes('/terms') || path.includes('/refund') || path.includes('/privacy') || path.includes('/policies') || hash.includes('terms') || hash.includes('refund') || hash.includes('privacy')) return 'policies';
     if (path.startsWith('/bundles/') || path.startsWith('/bundle/')) return 'bundle_detail';
     if (path.startsWith('/courses/') && (path.includes('/watch') || path.includes('/lecture'))) return 'course_player';
@@ -279,6 +281,7 @@ export default function App() {
           setViewMode('courses');
         }
         else if (path.includes('/store') || hash.includes('store')) setViewMode('store');
+        else if (path.includes('/leaderboard') || hash.includes('leaderboard')) setViewMode('leaderboard');
         else if (path.includes('/about') || hash.includes('about')) setViewMode('about');
         else if (path.includes('/devices') || hash.includes('devices')) setViewMode('devices');
         else if (path.includes('/orders') || hash.includes('orders')) setViewMode('orders');
@@ -344,8 +347,16 @@ export default function App() {
                 .map(c => {
                   let mapped = c.category === 'University A Unit' ? { ...c, category: 'Free' } : c;
                   const initialMatch = initialData.courses.find(initC => initC.id === c.id || initC.slug === c.slug);
-                  if (initialMatch && (!mapped.curriculum || mapped.curriculum[0]?.chapters?.[0]?.lessons?.some(l => l.title === 'HSC 26,27'))) {
-                    mapped = { ...mapped, curriculum: initialMatch.curriculum };
+                  if (initialMatch) {
+                    if (!mapped.curriculum || !Array.isArray(mapped.curriculum) || mapped.curriculum.length === 0) {
+                      mapped = { ...mapped, curriculum: initialMatch.curriculum };
+                    }
+                    if (!mapped.features || !Array.isArray(mapped.features) || mapped.features.length === 0) {
+                      mapped = { ...mapped, features: initialMatch.features };
+                    }
+                    if (!mapped.studentsCount) {
+                      mapped = { ...mapped, studentsCount: initialMatch.studentsCount };
+                    }
                   }
                   return mapped;
                 });
@@ -429,7 +440,7 @@ export default function App() {
             modified = true;
           }
 
-          // Ensure Physics 1st paper Finishing Touch Series has its full 3 classes
+          // Ensure Physics 1st paper Finishing Touch Series exists with valid initial curriculum if completely missing
           const physIdx = parsed.courses.findIndex(c => 
             c.slug === 'physics-finishing-touch-series' || 
             c.id === 'course-1791887161017' || 
@@ -441,12 +452,12 @@ export default function App() {
               parsed.courses.unshift(initialPhys);
               modified = true;
             } else {
-              const currentLessons = (parsed.courses[physIdx].curriculum?.[0]?.chapters?.[0]?.lessons || []);
-              if (currentLessons.length < 3) {
+              const hasCurriculum = Array.isArray(parsed.courses[physIdx].curriculum) && parsed.courses[physIdx].curriculum.length > 0;
+              if (!hasCurriculum) {
                 parsed.courses[physIdx] = {
                   ...parsed.courses[physIdx],
                   curriculum: initialPhys.curriculum,
-                  totalClasses: '৩টি ক্লাস'
+                  totalClasses: initialPhys.totalClasses || '৩টি ক্লাস'
                 };
                 modified = true;
               }
@@ -611,9 +622,15 @@ export default function App() {
         ? cleanCloudInstructors
         : cleanPrevInstructors;
 
+      // Cloud courses take precedence so new classes and curriculum edits reflect immediately across all users
+      const resolvedCourses = (Array.isArray(sanitized.courses) && sanitized.courses.length > 0)
+        ? sanitized.courses.filter(c => !isZenithCopiedCourse(c))
+        : prev.courses;
+
       const merged = {
         ...prev,
         ...sanitized,
+        courses: resolvedCourses,
         instructors: resolvedInstructors
       };
 
@@ -623,14 +640,31 @@ export default function App() {
       return merged;
     };
 
-    // 1. Supabase Realtime subscription (Instant sync for hero slider, courses, etc.)
+    // 1. Proactive Initial Fetches on Mount: Supabase (Primary zero-quota DB) + Firestore (Fallback)
+    fetchSupabaseSiteData().then(cloudData => {
+      if (cloudData) {
+        setData(prev => mergeCloudWithLocal(prev, cloudData));
+      }
+    }).catch(err => {
+      console.warn('[App] Proactive Supabase site data fetch note:', err);
+    });
+
+    fetchCloudData().then(cloudData => {
+      if (cloudData) {
+        setData(prev => mergeCloudWithLocal(prev, cloudData));
+      }
+    }).catch(err => {
+      console.warn('[App] Proactive Firestore site data fetch note:', err);
+    });
+
+    // 2. Supabase Realtime subscription (Instant sync for hero slider, courses, new classes, etc.)
     const unsubscribeSupabase = subscribeToSupabaseSiteData((cloudData) => {
       if (cloudData) {
         setData(prev => mergeCloudWithLocal(prev, cloudData));
       }
     });
 
-    // 2. Listen for real-time Cloud Firestore updates (fallback)
+    // 3. Listen for real-time Cloud Firestore updates (fallback)
     const unsubscribeCloud = subscribeToCloudData((cloudData) => {
       if (cloudData) {
         setData(prev => mergeCloudWithLocal(prev, cloudData));
@@ -987,6 +1021,13 @@ export default function App() {
         setViewMode('store');
       }, '/store');
     },
+    onNavigateLeaderboard: () => {
+      setExamFromBundle(false);
+      try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
+      navigateWithSmoothTransition(() => {
+        setViewMode('leaderboard');
+      }, '/leaderboard');
+    },
     onNavigateAbout: () => {
       navigateWithSmoothTransition(() => {
         setViewMode('about');
@@ -1171,11 +1212,17 @@ export default function App() {
               const updatedCourses = (prev.courses || []).map(c => 
                 (c.id === updatedCourse.id || c.slug === updatedCourse.slug) ? updatedCourse : c
               );
-              const nextData = { ...prev, courses: updatedCourses };
+              const nextData = { 
+                ...prev, 
+                courses: updatedCourses,
+                _lastUpdated: new Date().toISOString()
+              };
               try {
                 localStorage.setItem('eduhunters_data', JSON.stringify(nextData));
               } catch (e) {}
-              saveCloudData({ courses: updatedCourses });
+              broadcastSync(nextData);
+              saveSupabaseSiteData(nextData);
+              saveCloudData(nextData);
               return nextData;
             });
           }}
@@ -1225,6 +1272,17 @@ export default function App() {
       return (
         <OrdersPage 
           data={data}
+          {...navHandlers}
+        />
+      );
+    }
+
+    if (viewMode === 'leaderboard') {
+      return (
+        <LeaderboardPage 
+          courses={data?.courses || initialData.courses || []}
+          currentUser={currentUser}
+          siteSettings={data?.siteSettings}
           {...navHandlers}
         />
       );
