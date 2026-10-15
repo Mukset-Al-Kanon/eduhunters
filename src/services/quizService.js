@@ -179,10 +179,10 @@ export async function recordQuizSubmission({
   result,
   timeTakenSeconds = 0
 }) {
-  const studentId = student?.id || student?.phone || student?.email || `std_${Date.now()}`;
+  const studentId = student?.id || student?.uid || student?.phone || student?.email || `std_${Date.now()}`;
   const studentName = student?.name || student?.displayName || student?.phone || 'Student';
-  const studentPhone = student?.phone || '';
-  const studentEmail = student?.email || '';
+  const rawPhone = (student?.phone || student?.whatsapp || '').replace(/[^0-9]/g, '');
+  const cleanEmail = (student?.email || '').trim().toLowerCase();
   const studentAvatar = student?.avatar || student?.photoURL || student?.profilePic || '';
 
   const courseId = String(course?.id || course?.slug || 'course_default');
@@ -193,15 +193,35 @@ export async function recordQuizSubmission({
   const lessonTitle = lesson?.title || 'Class Lesson';
   const quizId = quiz?.id || `quiz_${lessonId}`;
 
-  // Check previous attempts
+  // Check previous attempts across studentId, UID, Phone, Email, and local attempts cache
   const allSubmissions = await fetchAllSubmissions();
-  const existingAttempts = allSubmissions.filter(s => 
-    String(s.student_id) === String(studentId) && 
-    String(s.lesson_id) === String(lessonId)
-  );
+  const existingAttempts = allSubmissions.filter(s => {
+    const sId = String(s.student_id || '');
+    const sPhone = (s.student_phone || '').replace(/[^0-9]/g, '');
+    const sEmail = (s.student_email || '').trim().toLowerCase();
 
-  const attemptNumber = existingAttempts.length + 1;
-  const isFirstAttempt = existingAttempts.length === 0;
+    const idMatch = sId && (sId === String(studentId) || (student?.uid && sId === String(student?.uid)));
+    const phoneMatch = rawPhone && sPhone && (rawPhone === sPhone || (rawPhone.length >= 10 && sPhone.includes(rawPhone.slice(-10))));
+    const emailMatch = cleanEmail && sEmail && cleanEmail === sEmail;
+
+    const studentMatch = idMatch || phoneMatch || emailMatch;
+    const lessonMatch = String(s.lesson_id) === String(lessonId);
+
+    return studentMatch && lessonMatch;
+  });
+
+  const localAttemptKey = `eh_quiz_attempt_${studentId}_${lessonId}`;
+  let hasLocalAttempt = false;
+  try {
+    hasLocalAttempt = Boolean(localStorage.getItem(localAttemptKey));
+  } catch (e) {}
+
+  const attemptNumber = Math.max(existingAttempts.length + 1, hasLocalAttempt ? 2 : 1);
+  const isFirstAttempt = existingAttempts.length === 0 && !hasLocalAttempt;
+
+  try {
+    localStorage.setItem(localAttemptKey, String(attemptNumber));
+  } catch (e) {}
 
   const liveStatus = checkQuizLiveStatus(quiz);
   const isLiveWindow = liveStatus.isLive;
@@ -316,7 +336,7 @@ export async function fetchLessonLeaderboard(courseId, lessonId) {
   // Filter only official first attempts for this lesson
   const filtered = allSubmissions.filter(s => {
     if (isDemoSubmission(s)) return false;
-    if (!s.is_first_attempt) return false;
+    if (s.is_first_attempt === false || (s.attempt_number && Number(s.attempt_number) > 1)) return false;
 
     const matchLesson = !lessonId || String(s.lesson_id) === String(lessonId);
     const matchCourse = !courseId || 
@@ -325,12 +345,22 @@ export async function fetchLessonLeaderboard(courseId, lessonId) {
     return matchLesson && matchCourse;
   });
 
-  // Deduplicate strictly by student_id to ensure 1 rank per student
+  // Sort chronologically so earliest submission per student is prioritized
+  filtered.sort((a, b) => new Date(a.submitted_at || 0) - new Date(b.submitted_at || 0));
+
+  // Deduplicate strictly across student ID, phone, and email to ensure exactly 1 rank per student
   const studentBestMap = new Map();
   for (const item of filtered) {
-    const sId = String(item.student_id);
-    if (!studentBestMap.has(sId)) {
-      studentBestMap.set(sId, item);
+    const sId = String(item.student_id || '');
+    const sPhone = (item.student_phone || '').replace(/[^0-9]/g, '');
+    const sEmail = (item.student_email || '').trim().toLowerCase();
+
+    const key = sPhone && sPhone.length >= 8 
+      ? `phone_${sPhone.slice(-10)}` 
+      : (sEmail ? `email_${sEmail}` : `id_${sId}`);
+
+    if (!studentBestMap.has(key)) {
+      studentBestMap.set(key, item);
     }
   }
 
@@ -379,7 +409,7 @@ export async function fetchCourseLeaderboard(courseId, courseTitle = '') {
 
   const courseSubmissions = allSubmissions.filter(s => {
     if (isDemoSubmission(s)) return false;
-    if (!s.is_first_attempt) return false;
+    if (s.is_first_attempt === false || (s.attempt_number && Number(s.attempt_number) > 1)) return false;
 
     if (candidateIds.size === 0) return true;
 
@@ -395,12 +425,21 @@ export async function fetchCourseLeaderboard(courseId, courseTitle = '') {
     );
   });
 
+  // Sort chronologically so earliest attempt per lesson per student is retained
+  courseSubmissions.sort((a, b) => new Date(a.submitted_at || 0) - new Date(b.submitted_at || 0));
+
   // Deduplicate per lesson per student before aggregating
   const studentLessonMap = new Map();
   courseSubmissions.forEach(sub => {
-    const key = `${sub.student_id}_${sub.lesson_id}`;
+    const sPhone = (sub.student_phone || '').replace(/[^0-9]/g, '');
+    const sEmail = (sub.student_email || '').trim().toLowerCase();
+    const studentKey = sPhone && sPhone.length >= 8 
+      ? `p_${sPhone.slice(-10)}` 
+      : (sEmail ? `e_${sEmail}` : `id_${sub.student_id}`);
+
+    const key = `${studentKey}_${sub.lesson_id}`;
     if (!studentLessonMap.has(key)) {
-      studentLessonMap.set(key, sub);
+      studentLessonMap.set(key, { ...sub, canonicalStudentKey: studentKey });
     }
   });
 

@@ -22,6 +22,8 @@ import {
   fetchCourseLeaderboard, 
   checkQuizLiveStatus 
 } from '../services/quizService';
+import { subscribeToSupabaseMessage } from '../services/supabaseService';
+import { supabase, isSupabaseConfigured } from '../supabase/config';
 import { isItemEnrolled, normalizeStr } from '../utils/enrollmentService';
 
 // ============================================================================
@@ -334,12 +336,12 @@ export default function LeaderboardPage({
     return currentActiveLesson?.shortTitle || 'Leaderboard';
   }, [viewMode, activeCourse, currentActiveLesson]);
 
-  // Load Leaderboard data
+  // Load Leaderboard data with Real-Time Live Sync
   useEffect(() => {
     let isMounted = true;
-    setIsLoading(true);
 
-    async function loadData() {
+    async function loadData(showSpinner = true) {
+      if (showSpinner) setIsLoading(true);
       try {
         const courseId = activeCourse?.id || activeCourse?.slug || selectedCourseId;
         const courseTitle = activeCourse?.title || activeCourse?.name || '';
@@ -353,14 +355,47 @@ export default function LeaderboardPage({
         }
       } catch (err) {
         console.warn('Failed to load leaderboard:', err);
-        if (isMounted) setLeaderboardData([]);
+        if (isMounted && showSpinner) setLeaderboardData([]);
       } finally {
-        if (isMounted) setIsLoading(false);
+        if (isMounted && showSpinner) setIsLoading(false);
       }
     }
 
-    loadData();
-    return () => { isMounted = false; };
+    loadData(true);
+
+    // 1. Instant WebSocket Broadcast listener (<50ms real-time update when any student submits)
+    const unsubBroadcast = subscribeToSupabaseMessage('quiz_submission_created', () => {
+      loadData(false);
+    });
+
+    // 2. PostgreSQL CDC listener for remote database changes
+    let cdcChannel = null;
+    if (isSupabaseConfigured && supabase) {
+      const channelId = `leaderboard_live_cdc_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
+      cdcChannel = supabase
+        .channel(channelId)
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'eduhunters_quiz_submissions' },
+          () => {
+            loadData(false);
+          }
+        )
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'eduhunters_site', filter: 'id=eq.quiz_submissions' },
+          () => {
+            loadData(false);
+          }
+        )
+        .subscribe();
+    }
+
+    return () => {
+      isMounted = false;
+      if (typeof unsubBroadcast === 'function') unsubBroadcast();
+      if (cdcChannel && supabase) supabase.removeChannel(cdcChannel);
+    };
   }, [activeCourse, selectedCourseId, viewMode, selectedLessonId, availableLessons]);
 
   // Filtered leaderboard data
