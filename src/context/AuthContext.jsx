@@ -111,7 +111,14 @@ export function formatAuthError(error) {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('eh_current_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
   const [loading, setLoading] = useState(true);
   const [isLiveFirebase, setIsLiveFirebase] = useState(isFirebaseConfigured);
 
@@ -270,15 +277,15 @@ export function AuthProvider({ children }) {
             }
           }
 
-          // Cross-Device Cloud Sync: Automatically fetch & unlock approved courses from Supabase
+          // Cross-Device Cloud Sync: Automatically fetch & unlock approved courses & batches from Supabase
           try {
-            const { courses: spCourses, orders: spOrders } = await fetchUserApprovedEnrollments(
+            const { courses: spCourses, batches: spBatches = [], orders: spOrders } = await fetchUserApprovedEnrollments(
               user.email,
               enrichedUser.phone || enrichedUser.whatsapp,
               user.uid
             );
 
-            if (spCourses.length > 0) {
+            if (spCourses && spCourses.length > 0) {
               const curEnrolled = Array.isArray(enrichedUser.enrolledCourses) ? enrichedUser.enrolledCourses : [];
               const mergedCourses = Array.from(new Set([...curEnrolled, ...spCourses]));
               enrichedUser.enrolledCourses = mergedCourses;
@@ -290,7 +297,19 @@ export function AuthProvider({ children }) {
               } catch (e) {}
             }
 
-            if (spOrders.length > 0) {
+            if (spBatches && spBatches.length > 0) {
+              const curBatches = Array.isArray(enrichedUser.enrolledBatches) ? enrichedUser.enrolledBatches : [];
+              const mergedBatches = Array.from(new Set([...curBatches, ...spBatches]));
+              enrichedUser.enrolledBatches = mergedBatches;
+
+              try {
+                localStorage.setItem(`eduhunters_enrolled_batches_${user.uid}`, JSON.stringify(mergedBatches));
+                const localBatches = JSON.parse(localStorage.getItem('eduhunters_enrolled_batches') || '[]');
+                localStorage.setItem('eduhunters_enrolled_batches', JSON.stringify(Array.from(new Set([...localBatches, ...mergedBatches]))));
+              } catch (e) {}
+            }
+
+            if (spOrders && spOrders.length > 0) {
               try {
                 const localOrders = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
                 const ordMap = new Map();
@@ -309,18 +328,14 @@ export function AuthProvider({ children }) {
 
           setCurrentUser(enrichedUser);
         } else {
-          // Check if local demo / fallback user is stored
+          // Check if local authenticated session is stored (Prevent dropping active student access on refresh)
           try {
             const saved = localStorage.getItem('eh_current_user');
             if (saved) {
               const parsed = JSON.parse(saved);
-              // Preserve session for demo users, admin master, or fallback registered users
-              if (parsed?.uid && (
-                parsed.uid.startsWith('demo_') || 
-                parsed.uid === 'admin_master' || 
-                parsed.uid.startsWith('user_') || 
-                parsed.uid.startsWith('g_')
-              )) {
+              // Preserve session for ANY valid signed-in student or admin
+              // Only explicit logout() will remove eh_current_user
+              if (parsed && parsed.uid) {
                 setCurrentUser(parsed);
                 setLoading(false);
                 return;

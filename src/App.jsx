@@ -622,10 +622,51 @@ export default function App() {
         ? cleanCloudInstructors
         : cleanPrevInstructors;
 
-      // Cloud courses take precedence so new classes and curriculum edits reflect immediately across all users
-      const resolvedCourses = (Array.isArray(sanitized.courses) && sanitized.courses.length > 0)
-        ? sanitized.courses.filter(c => !isZenithCopiedCourse(c))
-        : prev.courses;
+      // Smart course resolution: merge curriculum so newly added classes/lessons are never lost
+      const countLessons = (cur) => {
+        if (!Array.isArray(cur)) return 0;
+        return cur.reduce((acc, sec) => {
+          const chapLessons = (sec.chapters || []).reduce((ca, ch) => ca + (ch.lessons?.length || 0), 0);
+          return acc + chapLessons + (sec.lessons?.length || 0);
+        }, 0);
+      };
+
+      let resolvedCourses = prev.courses;
+      if (Array.isArray(sanitized.courses) && sanitized.courses.length > 0) {
+        const cleanCloudCourses = sanitized.courses.filter(c => !isZenithCopiedCourse(c));
+        const prevCoursesMap = new Map((prev.courses || []).map(c => [c.id || c.slug, c]));
+
+        resolvedCourses = cleanCloudCourses.map(cloudCourse => {
+          const key = cloudCourse.id || cloudCourse.slug;
+          const localCourse = prevCoursesMap.get(key) || (prev.courses || []).find(lc => 
+            (lc.id && cloudCourse.id && lc.id === cloudCourse.id) ||
+            (lc.slug && cloudCourse.slug && lc.slug === cloudCourse.slug)
+          );
+
+          if (!localCourse) return cloudCourse;
+
+          const localLessons = countLessons(localCourse.curriculum);
+          const cloudLessons = countLessons(cloudCourse.curriculum);
+
+          // If local course has richer curriculum or cloud curriculum is empty, preserve local curriculum
+          if (localLessons > cloudLessons) {
+            return {
+              ...cloudCourse,
+              curriculum: localCourse.curriculum
+            };
+          }
+          return cloudCourse;
+        });
+
+        // Ensure any local-only courses (e.g. freshly created custom courses) are preserved
+        const resolvedIds = new Set(resolvedCourses.map(c => c.id || c.slug));
+        for (const localCourse of (prev.courses || [])) {
+          const lk = localCourse.id || localCourse.slug;
+          if (lk && !resolvedIds.has(lk)) {
+            resolvedCourses.push(localCourse);
+          }
+        }
+      }
 
       const merged = {
         ...prev,

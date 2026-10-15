@@ -91,7 +91,8 @@ import {
   updateSupabaseOrderAmount,
   updateSupabaseOrderStatus,
   saveSupabaseUser,
-  saveSupabaseOrder
+  saveSupabaseOrder,
+  saveSupabaseSiteData
 } from '../services/supabaseService';
 
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
@@ -1733,6 +1734,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       privacyPolicy: overrides.privacyPolicy !== undefined ? overrides.privacyPolicy : privacyPolicy
     };
     onUpdateData(fullState);
+    try {
+      saveSupabaseSiteData(fullState);
+    } catch (e) {}
     return fullState;
   };
 
@@ -4000,7 +4004,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               (updatedCourse?.slug && c?.slug === updatedCourse.slug)
             ) ? updatedCourse : c);
             setCourses(next);
-            persistAll({ courses: next });
+            const fullState = persistAll({ courses: next });
+            try {
+              saveSupabaseSiteData(fullState);
+            } catch (e) {}
             saveCloudData({ courses: next });
           }}
           onBack={() => {

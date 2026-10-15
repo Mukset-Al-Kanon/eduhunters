@@ -3,6 +3,9 @@
  * Central utility to load, customize, reorder, and persist Exam Batches,
  * Quizzes, Categories/Subcategories, and individual Exam Questions.
  */
+import { supabase, isSupabaseConfigured } from '../supabase/config';
+import { db, isFirebaseConfigured } from '../firebase/config';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const MANIFEST_OVERRIDE_KEY = 'eduhunters_exam_manifest_overrides';
 const CUSTOM_EXAM_PREFIX = 'eduhunters_custom_exam_';
@@ -13,7 +16,7 @@ let inMemoryManifestCache = null;
 
 /**
  * Loads the complete manifest, merging /exams_data/all_exams_manifest.json
- * with any admin overrides saved in localStorage.
+ * with any admin overrides saved in Supabase, Firestore, or localStorage.
  */
 export async function getMergedExamManifest(forceRefresh = false) {
   if (!forceRefresh && inMemoryManifestCache) {
@@ -30,16 +33,63 @@ export async function getMergedExamManifest(forceRefresh = false) {
     console.warn('Could not fetch base manifest, using fallback:', err);
   }
 
-  // Check localStorage overrides
+  let cloudOverrides = null;
+
+  // 1. Proactive cloud check from Supabase (primary)
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { data: row, error } = await supabase
+        .from('eduhunters_site')
+        .select('data')
+        .eq('id', 'exam_manifest')
+        .maybeSingle();
+      if (!error && row?.data) {
+        cloudOverrides = row.data;
+      }
+    } catch (e) {
+      console.warn('[ExamStorage] Supabase manifest fetch note:', e);
+    }
+  }
+
+  // 2. Fallback cloud check from Firestore
+  if (!cloudOverrides && isFirebaseConfigured && db) {
+    try {
+      const snap = await getDoc(doc(db, 'eduhunters_site', 'exam_manifest'));
+      if (snap.exists()) {
+        cloudOverrides = snap.data();
+      }
+    } catch (e) {
+      console.warn('[ExamStorage] Firestore manifest fetch note:', e);
+    }
+  }
+
+  // 3. Check localStorage overrides
+  let localOverrides = null;
   try {
     const rawOverrides = localStorage.getItem(MANIFEST_OVERRIDE_KEY);
     if (rawOverrides) {
-      const overrides = JSON.parse(rawOverrides);
+      localOverrides = JSON.parse(rawOverrides);
+    }
+  } catch (err) {
+    console.error('Error reading local manifest overrides:', err);
+  }
+
+  // Merge the freshest overrides
+  let overrides = null;
+  if (cloudOverrides && localOverrides) {
+    const cloudTime = cloudOverrides.updatedAt ? new Date(cloudOverrides.updatedAt).getTime() : 0;
+    const localTime = localOverrides.updatedAt ? new Date(localOverrides.updatedAt).getTime() : 0;
+    overrides = localTime > cloudTime ? localOverrides : cloudOverrides;
+  } else {
+    overrides = cloudOverrides || localOverrides;
+  }
+
+  if (overrides) {
+    try {
       if (overrides.categories && Array.isArray(overrides.categories)) {
         baseManifest.categories = overrides.categories;
       }
       if (overrides.exams && Array.isArray(overrides.exams)) {
-        // Merge exams: map by ID
         const overrideMap = new Map(overrides.exams.map(e => [e.id, e]));
         const mergedExams = [];
         const seenIds = new Set();
@@ -64,9 +114,13 @@ export async function getMergedExamManifest(forceRefresh = false) {
 
         baseManifest.exams = mergedExams;
       }
+
+      try {
+        localStorage.setItem(MANIFEST_OVERRIDE_KEY, JSON.stringify(overrides));
+      } catch (e) {}
+    } catch (err) {
+      console.error('Error applying manifest overrides:', err);
     }
-  } catch (err) {
-    console.error('Error applying manifest overrides:', err);
   }
 
   inMemoryManifestCache = baseManifest;
@@ -74,24 +128,47 @@ export async function getMergedExamManifest(forceRefresh = false) {
 }
 
 /**
- * Saves updated manifest (categories & exams list) to localStorage and in-memory cache.
+ * Saves updated manifest (categories & exams list) to Supabase, Firestore, and localStorage.
  */
 export function saveManifestOverrides(manifest) {
   inMemoryManifestCache = manifest;
+  const payload = {
+    categories: manifest.categories || [],
+    exams: manifest.exams || [],
+    updatedAt: new Date().toISOString()
+  };
+
   try {
-    localStorage.setItem(MANIFEST_OVERRIDE_KEY, JSON.stringify({
-      categories: manifest.categories || [],
-      exams: manifest.exams || [],
-      updatedAt: new Date().toISOString()
-    }));
+    localStorage.setItem(MANIFEST_OVERRIDE_KEY, JSON.stringify(payload));
   } catch (err) {
-    console.error('Error saving manifest overrides:', err);
+    console.error('Error saving manifest overrides locally:', err);
+  }
+
+  // Asynchronously sync to Supabase (primary)
+  if (isSupabaseConfigured && supabase) {
+    supabase
+      .from('eduhunters_site')
+      .upsert({
+        id: 'exam_manifest',
+        data: payload,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'id' })
+      .then(() => {})
+      .catch(e => console.warn('[ExamStorage] Supabase manifest save note:', e));
+  }
+
+  // Asynchronously sync to Firestore (secondary)
+  if (isFirebaseConfigured && db) {
+    try {
+      setDoc(doc(db, 'eduhunters_site', 'exam_manifest'), payload, { merge: true })
+        .catch(e => console.warn('[ExamStorage] Firestore manifest save note:', e));
+    } catch (e) {}
   }
 }
 
 /**
  * Loads full exam details and questions for a specific exam.
- * Checks in-memory cache first, then localStorage, then fetches static JSON.
+ * Checks in-memory cache first, then localStorage, then Supabase, then Firestore, then static JSON.
  */
 export async function loadExamQuestions(examMeta) {
   if (!examMeta) return { questions: [] };
@@ -117,6 +194,43 @@ export async function loadExamQuestions(examMeta) {
     } catch (e) {
       console.warn('Error parsing cached custom exam:', e);
     }
+  }
+
+  // 3. Proactive Cloud check from Supabase
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { data: row } = await supabase
+        .from('eduhunters_site')
+        .select('data')
+        .eq('id', `exam_${examMeta.id}`)
+        .maybeSingle();
+      if (row?.data) {
+        const normalized = normalizeExamQuestions(row.data, examMeta);
+        if (normalized && normalized.questions && normalized.questions.length > 0) {
+          inMemoryExamCache.set(examMeta.id, normalized);
+          try { localStorage.setItem(customKey, JSON.stringify(normalized)); } catch (e) {}
+          return normalized;
+        }
+      }
+    } catch (e) {}
+  }
+
+  // 4. Proactive Cloud check from Firestore
+  if (isFirebaseConfigured && db) {
+    try {
+      const snap = await getDoc(doc(db, 'eduhunters_site', `exam_${examMeta.id}`));
+      if (snap.exists()) {
+        const cloudData = snap.data();
+        if (cloudData) {
+          const normalized = normalizeExamQuestions(cloudData, examMeta);
+          if (normalized && normalized.questions && normalized.questions.length > 0) {
+            inMemoryExamCache.set(examMeta.id, normalized);
+            try { localStorage.setItem(customKey, JSON.stringify(normalized)); } catch (e) {}
+            return normalized;
+          }
+        }
+      }
+    } catch (e) {}
   }
 
   // Fetch from static JSON file if filePath exists
@@ -269,13 +383,38 @@ export function updateExamDuration(examId, durationMinutes, manifest, onManifest
 }
 
 /**
- * Saves exam questions to localStorage and triggers manifest update
+ * Saves exam questions to localStorage, Supabase, and Firestore, and triggers manifest update
  */
 export function saveCustomExam(examId, updatedExamData, manifest, onManifestUpdate) {
   try {
     const key = `${CUSTOM_EXAM_PREFIX}${examId}`;
-    localStorage.setItem(key, JSON.stringify(updatedExamData));
+    try {
+      localStorage.setItem(key, JSON.stringify(updatedExamData));
+    } catch (e) {
+      console.warn('LocalStorage quota warning for custom exam:', e);
+    }
     inMemoryExamCache.set(examId, updatedExamData);
+
+    // Asynchronously sync question set to Supabase PostgreSQL (primary)
+    if (isSupabaseConfigured && supabase) {
+      supabase
+        .from('eduhunters_site')
+        .upsert({
+          id: `exam_${examId}`,
+          data: updatedExamData,
+          updated_at: new Date().toISOString()
+        }, { onConflict: 'id' })
+        .then(() => {})
+        .catch(e => console.warn('[ExamStorage] Supabase custom exam save note:', e));
+    }
+
+    // Asynchronously sync to Cloud Firestore (secondary)
+    if (isFirebaseConfigured && db) {
+      try {
+        setDoc(doc(db, 'eduhunters_site', `exam_${examId}`), updatedExamData, { merge: true })
+          .catch(e => console.warn('[ExamStorage] Firestore custom exam save note:', e));
+      } catch (e) {}
+    }
 
     // Update question count in manifest
     if (manifest && manifest.exams) {

@@ -114,6 +114,8 @@ export default function CoursePlayerPage({
 
     // 1. Check dynamic courses in state / storage first (so admin edits are live)
     const coursesList = data?.courses || initialData.courses || [];
+    const cleanTarget = cidStr.replace(/[^a-z0-9]/g, '');
+
     const foundDynamic = coursesList.find(c => {
       if (!c) return false;
       const idStr = String(c.id !== undefined ? c.id : '').trim().toLowerCase();
@@ -124,7 +126,9 @@ export default function CoursePlayerPage({
         idStr === cidStr ||
         slugStr === cidStr ||
         (keyStr && keyStr === cidStr) ||
-        (titleStr && titleStr === cidStr)
+        (titleStr && titleStr === cidStr) ||
+        (idStr && idStr.replace(/[^a-z0-9]/g, '') === cleanTarget) ||
+        (slugStr && slugStr.replace(/[^a-z0-9]/g, '') === cleanTarget)
       );
     });
     if (foundDynamic) return foundDynamic;
@@ -143,7 +147,15 @@ export default function CoursePlayerPage({
     });
     if (foundFree) return foundFree;
 
-    // 3. Fallback to master English course
+    // 3. Check for dynamic master english course before falling back to static
+    const masterInList = coursesList.find(c => 
+      (c.id && c.id.includes('master-english')) || 
+      (c.slug && c.slug.includes('master-english')) ||
+      (c.title && c.title.toLowerCase().includes('master english'))
+    );
+    if (masterInList) return masterInList;
+
+    // Fallback to static master English course only if not found dynamically
     if (cidStr === 'master-english-30-days' || cidStr === String(masterEnglishCourseData.id).toLowerCase()) {
       return masterEnglishCourseData;
     }

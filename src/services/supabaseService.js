@@ -377,8 +377,13 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
       }
     }
 
-    // Collect all course titles, slugs, and IDs
+    // Collect all course titles, slugs, IDs, and exam batches
     const courseKeys = new Set(userEnrolled);
+    const batchKeys = new Set();
+    if (dbUser && Array.isArray(dbUser.enrolled_batches)) {
+      dbUser.enrolled_batches.forEach(b => batchKeys.add(b));
+    }
+
     ordersList.forEach(ord => {
       if (ord.course?.name) courseKeys.add(ord.course.name);
       if (ord.course?.title) courseKeys.add(ord.course.title);
@@ -386,15 +391,26 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
       if (ord.course?.id) courseKeys.add(ord.course.id);
       if (ord.raw_data?.course?.name) courseKeys.add(ord.raw_data.course.name);
       if (ord.raw_data?.course?.slug) courseKeys.add(ord.raw_data.course.slug);
+
+      if (ord.batchId) batchKeys.add(ord.batchId);
+      if (ord.batchName) batchKeys.add(ord.batchName);
+      if (ord.raw_data?.batchId) batchKeys.add(ord.raw_data.batchId);
+      if (ord.raw_data?.batchName) batchKeys.add(ord.raw_data.batchName);
+      if (ord.raw_data?.isBatch || ord.isBatch) {
+        if (ord.course?.id) batchKeys.add(ord.course.id);
+        if (ord.course?.name) batchKeys.add(ord.course.name);
+        if (ord.course?.slug) batchKeys.add(ord.course.slug);
+      }
     });
 
     return {
       courses: Array.from(courseKeys),
+      batches: Array.from(batchKeys),
       orders: ordersList
     };
   } catch (err) {
     console.warn('[Supabase] fetchUserApprovedEnrollments exception:', err);
-    return { courses: [], orders: [] };
+    return { courses: [], batches: [], orders: [] };
   }
 }
 
