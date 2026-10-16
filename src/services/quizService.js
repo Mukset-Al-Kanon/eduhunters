@@ -518,3 +518,60 @@ export async function fetchCourseLeaderboard(courseId, courseTitle = '') {
     percentage: item.total_possible > 0 ? Math.round((item.total_score / item.total_possible) * 100) : 0
   }));
 }
+
+/**
+ * Delete a quiz submission by ID across Supabase table, site row, and localStorage
+ */
+export async function deleteQuizSubmission(submissionId) {
+  if (!submissionId) return false;
+
+  // 1. Delete from eduhunters_quiz_submissions table
+  if (isSupabaseConfigured && supabase && !isQuizTableMissing) {
+    try {
+      await supabase
+        .from('eduhunters_quiz_submissions')
+        .delete()
+        .eq('id', submissionId);
+    } catch (e) {
+      console.warn('[QuizService] Table delete error:', e);
+    }
+  }
+
+  // 2. Remove from eduhunters_site row 'quiz_submissions'
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { data: siteRow } = await supabase
+        .from('eduhunters_site')
+        .select('data')
+        .eq('id', 'quiz_submissions')
+        .maybeSingle();
+
+      if (siteRow?.data?.submissions && Array.isArray(siteRow.data.submissions)) {
+        const updated = siteRow.data.submissions.filter(s => s && s.id !== submissionId);
+        await supabase
+          .from('eduhunters_site')
+          .upsert({
+            id: 'quiz_submissions',
+            data: { submissions: updated },
+            updated_at: new Date().toISOString()
+          }, { onConflict: 'id' });
+      }
+    } catch (e) {
+      console.warn('[QuizService] Site row delete error:', e);
+    }
+  }
+
+  // 3. Remove from localStorage
+  try {
+    const raw = localStorage.getItem(LOCAL_SUBMISSIONS_KEY);
+    if (raw) {
+      const list = JSON.parse(raw);
+      if (Array.isArray(list)) {
+        const cleaned = list.filter(s => s && s.id !== submissionId);
+        localStorage.setItem(LOCAL_SUBMISSIONS_KEY, JSON.stringify(cleaned));
+      }
+    }
+  } catch (e) {}
+
+  return true;
+}

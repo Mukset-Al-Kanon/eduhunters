@@ -58,8 +58,19 @@ import {
   MessageCircle,
   Mail,
   Zap,
-  LogOut
+  LogOut,
+  Trophy,
+  Award,
+  Medal,
+  RefreshCw,
+  FileSpreadsheet
 } from 'lucide-react';
+import { 
+  fetchAllSubmissions, 
+  deleteQuizSubmission, 
+  fetchLessonLeaderboard, 
+  fetchCourseLeaderboard 
+} from '../services/quizService';
 import { collection, getDocs, onSnapshot, doc, deleteDoc, setDoc } from 'firebase/firestore';
 import { db, isFirebaseConfigured } from '../firebase/config';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
@@ -436,6 +447,198 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       ? data.storeProducts 
       : initialData.storeProducts
   );
+
+  // =========================================================================
+  // DEDICATED EXAM RESULTS & LIVE LEADERBOARD MANAGEMENT
+  // =========================================================================
+  const [examSubmissions, setExamSubmissions] = useState([]);
+  const [isLoadingSubmissions, setIsLoadingSubmissions] = useState(false);
+  const [examSubmissionsSearch, setExamSubmissionsSearch] = useState('');
+  const [selectedExamCourseFilter, setSelectedExamCourseFilter] = useState('ALL');
+  const [selectedExamFilter, setSelectedExamFilter] = useState('ALL');
+  const [examAttemptFilter, setExamAttemptFilter] = useState('ALL'); // 'ALL' | 'OFFICIAL' | 'RETAKE'
+  const [examViewMode, setExamViewMode] = useState('submissions'); // 'submissions' | 'leaderboard'
+  const [leaderboardCourseId, setLeaderboardCourseId] = useState('ALL');
+  const [leaderboardLessonId, setLeaderboardLessonId] = useState('ALL');
+  const [leaderboardData, setLeaderboardData] = useState([]);
+  const [isLoadingLeaderboard, setIsLoadingLeaderboard] = useState(false);
+  const [deletingSubmissionId, setDeletingSubmissionId] = useState(null);
+  const [submissionsLastRefreshed, setSubmissionsLastRefreshed] = useState(null);
+
+  const loadExamSubmissions = useCallback(async () => {
+    setIsLoadingSubmissions(true);
+    try {
+      const subs = await fetchAllSubmissions();
+      // Sort newest first
+      subs.sort((a, b) => new Date(b.submitted_at || 0) - new Date(a.submitted_at || 0));
+      setExamSubmissions(subs);
+      setSubmissionsLastRefreshed(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+    } catch (e) {
+      console.warn('Error fetching exam submissions:', e);
+    } finally {
+      setIsLoadingSubmissions(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadExamSubmissions();
+  }, [loadExamSubmissions]);
+
+  // Derived course options from submissions and courses
+  const submissionCourseOptions = useMemo(() => {
+    const map = new Map();
+    (courses || []).forEach(c => {
+      if (c?.id) map.set(String(c.id).toLowerCase(), c.title || c.name || c.id);
+      if (c?.slug) map.set(String(c.slug).toLowerCase(), c.title || c.name || c.slug);
+    });
+    examSubmissions.forEach(s => {
+      const cId = String(s.course_id || s.course_slug || '').toLowerCase();
+      if (cId && !map.has(cId)) {
+        map.set(cId, s.course_name || s.course_id);
+      }
+    });
+    return Array.from(map.entries()).map(([id, title]) => ({ id, title }));
+  }, [courses, examSubmissions]);
+
+  // Derived exam/lesson options
+  const submissionExamOptions = useMemo(() => {
+    const map = new Map();
+    examSubmissions.forEach(s => {
+      const matchCourse = selectedExamCourseFilter === 'ALL' || 
+        String(s.course_id || '').toLowerCase() === selectedExamCourseFilter.toLowerCase() ||
+        String(s.course_slug || '').toLowerCase() === selectedExamCourseFilter.toLowerCase() ||
+        String(s.course_name || '').toLowerCase().includes(selectedExamCourseFilter.toLowerCase());
+      if (matchCourse && s.lesson_id) {
+        map.set(String(s.lesson_id), s.lesson_title || `Exam #${s.lesson_id}`);
+      }
+    });
+    return Array.from(map.entries()).map(([id, title]) => ({ id, title }));
+  }, [examSubmissions, selectedExamCourseFilter]);
+
+  // Filtered submissions list
+  const filteredSubmissions = useMemo(() => {
+    return examSubmissions.filter(s => {
+      if (selectedExamCourseFilter !== 'ALL') {
+        const cMatch = String(s.course_id || '').toLowerCase() === selectedExamCourseFilter.toLowerCase() ||
+          String(s.course_slug || '').toLowerCase() === selectedExamCourseFilter.toLowerCase() ||
+          String(s.course_name || '').toLowerCase().includes(selectedExamCourseFilter.toLowerCase());
+        if (!cMatch) return false;
+      }
+      if (selectedExamFilter !== 'ALL') {
+        if (String(s.lesson_id) !== String(selectedExamFilter)) return false;
+      }
+      if (examAttemptFilter === 'OFFICIAL' && s.is_first_attempt === false) return false;
+      if (examAttemptFilter === 'RETAKE' && s.is_first_attempt !== false && (!s.attempt_number || s.attempt_number <= 1)) return false;
+
+      if (examSubmissionsSearch.trim()) {
+        const q = examSubmissionsSearch.toLowerCase();
+        const nameMatch = (s.student_name || '').toLowerCase().includes(q);
+        const phoneMatch = (s.student_phone || '').includes(q);
+        const emailMatch = (s.student_email || '').toLowerCase().includes(q);
+        const examMatch = (s.lesson_title || '').toLowerCase().includes(q);
+        const courseMatch = (s.course_name || '').toLowerCase().includes(q);
+        return nameMatch || phoneMatch || emailMatch || examMatch || courseMatch;
+      }
+      return true;
+    });
+  }, [examSubmissions, selectedExamCourseFilter, selectedExamFilter, examAttemptFilter, examSubmissionsSearch]);
+
+  // Metrics summary
+  const examStats = useMemo(() => {
+    const totalSubs = examSubmissions.length;
+    const uniqueStudents = new Set();
+    let totalScoreSum = 0;
+    let totalPossibleSum = 0;
+    let maxScoreItem = null;
+
+    examSubmissions.forEach(s => {
+      const stdKey = s.student_phone || s.student_email || s.student_id;
+      if (stdKey) uniqueStudents.add(stdKey);
+      const score = Number(s.score || 0);
+      const possible = Number(s.total_marks || 0);
+      totalScoreSum += score;
+      totalPossibleSum += possible;
+
+      if (!maxScoreItem || score > Number(maxScoreItem.score || 0)) {
+        maxScoreItem = s;
+      }
+    });
+
+    const avgPct = totalPossibleSum > 0 ? Math.round((totalScoreSum / totalPossibleSum) * 100) : 0;
+    return {
+      totalSubs,
+      uniqueExaminees: uniqueStudents.size,
+      avgPct,
+      topScorer: maxScoreItem
+    };
+  }, [examSubmissions]);
+
+  // Load leaderboard when in leaderboard view or filters change
+  useEffect(() => {
+    let isMounted = true;
+    const loadBoard = async () => {
+      setIsLoadingLeaderboard(true);
+      try {
+        let board = [];
+        if (leaderboardLessonId !== 'ALL') {
+          board = await fetchLessonLeaderboard(leaderboardCourseId !== 'ALL' ? leaderboardCourseId : null, leaderboardLessonId);
+        } else {
+          board = await fetchCourseLeaderboard(leaderboardCourseId !== 'ALL' ? leaderboardCourseId : null);
+        }
+        if (isMounted) setLeaderboardData(board);
+      } catch (err) {
+        console.warn('Leaderboard fetch error in Admin:', err);
+      } finally {
+        if (isMounted) setIsLoadingLeaderboard(false);
+      }
+    };
+    if (activeTab === 'results') {
+      loadBoard();
+    }
+    return () => { isMounted = false; };
+  }, [activeTab, leaderboardCourseId, leaderboardLessonId, examSubmissions]);
+
+  const handleExportCSV = () => {
+    if (!filteredSubmissions || filteredSubmissions.length === 0) {
+      alert('কোনো পরীক্ষার ফলাফল পাওয়া যায়নি এক্সপোর্ট করার জন্য।');
+      return;
+    }
+    const headers = ['Student Name', 'Phone', 'Email', 'Course Name', 'Exam Title', 'Score', 'Total Marks', 'Percentage', 'Time Taken (Sec)', 'Attempt Type', 'Submission Date'];
+    const rows = filteredSubmissions.map(s => [
+      `"${(s.student_name || 'N/A').replace(/"/g, '""')}"`,
+      `"${(s.student_phone || 'N/A').replace(/"/g, '""')}"`,
+      `"${(s.student_email || '').replace(/"/g, '""')}"`,
+      `"${(s.course_name || 'N/A').replace(/"/g, '""')}"`,
+      `"${(s.lesson_title || 'N/A').replace(/"/g, '""')}"`,
+      s.score ?? 0,
+      s.total_marks ?? 0,
+      `${s.percentage ?? 0}%`,
+      s.time_taken_seconds ?? 0,
+      s.is_first_attempt === false ? 'Retake (Practice)' : 'Official 1st Attempt',
+      `"${s.submitted_at || ''}"`
+    ]);
+    const csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `eduhunters_exam_results_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleDeleteSubmission = async (submissionId) => {
+    if (!window.confirm('আপনি কি নিশ্চিত যে এই শিক্ষার্থীর পরীক্ষার ফলাফল ডিলিট করতে চান? এটি রিভার্স করা যাবে না।')) return;
+    setDeletingSubmissionId(submissionId);
+    try {
+      await deleteQuizSubmission(submissionId);
+      setExamSubmissions(prev => prev.filter(s => s.id !== submissionId));
+    } catch (e) {
+      alert('Error deleting submission: ' + (e.message || 'Unknown error'));
+    } finally {
+      setDeletingSubmissionId(null);
+    }
+  };
 
   const [accounting, setAccounting] = useState(() => {
     const raw = data?.accounting;
@@ -4633,6 +4836,26 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
         <button
           type="button"
+          onClick={() => handleNavClick('results')}
+          className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+            activeTab === 'results'
+              ? 'bg-[#5d5bf6] text-white shadow-md shadow-[#5d5bf6]/25 font-bold border-[#5d5bf6]'
+              : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-50 hover:text-slate-900 font-medium'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <Trophy className={`w-4 h-4 shrink-0 ${activeTab === 'results' ? 'text-white' : 'text-amber-500'}`} />
+            <span>Exam Results & Merit</span>
+          </div>
+          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+            activeTab === 'results' ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+          }`}>
+            {examSubmissions.length}
+          </span>
+        </button>
+
+        <button
+          type="button"
           onClick={() => handleNavClick('bundles')}
           className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
             activeTab === 'bundles'
@@ -7451,6 +7674,675 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   ))}
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* ========================================================= */}
+          {/* TAB: EXAM RESULTS & LIVE LEADERBOARD (100% ACCURATE REAL DATA) */}
+          {/* ========================================================= */}
+          {activeTab === 'results' && (
+            <div className="space-y-6">
+              
+              {/* Top Banner / Header Card */}
+              <div className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#5d5bf6] to-[#7f7dfa] text-white flex items-center justify-center shadow-lg shadow-[#5d5bf6]/25 shrink-0">
+                    <Trophy className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                        Exam Results & Leaderboard
+                      </h2>
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#5d5bf6]/10 text-[#5d5bf6] border border-[#5d5bf6]/20">
+                        100% Real Examinees
+                      </span>
+                      {submissionsLastRefreshed && (
+                        <span className="text-[11px] text-slate-400 font-medium">
+                          Updated: {submissionsLastRefreshed}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+                      পরীক্ষার ফলাফল, খাতা মূল্যায়ন ও রিয়েল-টাইম মেধাতালিকা — প্রতিটি শিক্ষার্থীর প্রাপ্ত নম্বর, সময় ও অ্যাকুরেসি।
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-start lg:justify-end">
+                  {/* View Mode Switch */}
+                  <div className="bg-slate-100 p-1 rounded-xl flex items-center border border-slate-200/80">
+                    <button
+                      type="button"
+                      onClick={() => setExamViewMode('submissions')}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border-none ${
+                        examViewMode === 'submissions'
+                          ? 'bg-white text-slate-900 shadow-xs'
+                          : 'bg-transparent text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>All Submissions ({filteredSubmissions.length})</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setExamViewMode('leaderboard')}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border-none ${
+                        examViewMode === 'leaderboard'
+                          ? 'bg-white text-[#5d5bf6] shadow-xs'
+                          : 'bg-transparent text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      <Award className="w-3.5 h-3.5" />
+                      <span>Leaderboard Podium</span>
+                    </button>
+                  </div>
+
+                  {/* Export CSV Button */}
+                  <button
+                    type="button"
+                    onClick={handleExportCSV}
+                    className="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs border border-slate-200/90 shadow-2xs transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+                    title="Export results to CSV"
+                  >
+                    <Download className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Export CSV</span>
+                  </button>
+
+                  {/* Refresh Button */}
+                  <button
+                    type="button"
+                    onClick={loadExamSubmissions}
+                    disabled={isLoadingSubmissions}
+                    className="px-3.5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4d4be0] text-white font-bold text-xs border-none shadow-sm shadow-[#5d5bf6]/30 transition-all flex items-center gap-2 cursor-pointer active:scale-95 disabled:opacity-60"
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 ${isLoadingSubmissions ? 'animate-spin' : ''}`} />
+                    <span>{isLoadingSubmissions ? 'Loading...' : 'Refresh'}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 4 Metric Overview Cards */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+                {/* Total Submissions */}
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-500">Total Submissions</span>
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                      <FileText className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                    {examStats.totalSubs}
+                  </div>
+                  <span className="text-[11px] text-slate-400 font-medium mt-1">
+                    All completed exam attempts
+                  </span>
+                </div>
+
+                {/* Unique Examinees */}
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-500">Unique Examinees</span>
+                    <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+                      <Users className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                    {examStats.uniqueExaminees}
+                  </div>
+                  <span className="text-[11px] text-slate-400 font-medium mt-1">
+                    Distinct student participants
+                  </span>
+                </div>
+
+                {/* Avg Accuracy */}
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-500">Average Score</span>
+                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                      <TrendingUp className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-emerald-600 mt-2">
+                    {examStats.avgPct}%
+                  </div>
+                  <span className="text-[11px] text-slate-400 font-medium mt-1">
+                    Average marks percentage
+                  </span>
+                </div>
+
+                {/* Top Performer */}
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-500">Highest Mark</span>
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                      <Trophy className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-amber-600 mt-2 truncate">
+                    {examStats.topScorer ? `${examStats.topScorer.score} / ${examStats.topScorer.total_marks}` : '0'}
+                  </div>
+                  <span className="text-[11px] text-slate-400 font-medium mt-1 truncate">
+                    {examStats.topScorer ? examStats.topScorer.student_name : 'No submissions yet'}
+                  </span>
+                </div>
+              </div>
+
+              {/* VIEW 1: ALL SUBMISSIONS TABLE */}
+              {examViewMode === 'submissions' && (
+                <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden space-y-4 p-5 sm:p-6">
+                  {/* Filter Toolbar */}
+                  <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+                    {/* Search */}
+                    <div className="relative w-full sm:w-80 md:w-96 shrink-0">
+                      <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        placeholder="শিক্ষার্থীর নাম, ফোন, ইমেইল বা পরীক্ষার নাম..."
+                        value={examSubmissionsSearch}
+                        onChange={(e) => setExamSubmissionsSearch(e.target.value)}
+                        className="w-full bg-[#f4f6fa] border border-slate-200/80 rounded-xl pl-10 pr-8 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] focus:ring-2 focus:ring-[#5d5bf6]/15 transition-all font-medium placeholder:text-slate-400"
+                      />
+                      {examSubmissionsSearch && (
+                        <button
+                          type="button"
+                          onClick={() => setExamSubmissionsSearch('')}
+                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 border-none bg-transparent cursor-pointer"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Dropdowns */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      {/* Course Filter */}
+                      <select
+                        value={selectedExamCourseFilter}
+                        onChange={(e) => {
+                          setSelectedExamCourseFilter(e.target.value);
+                          setSelectedExamFilter('ALL');
+                        }}
+                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6]"
+                      >
+                        <option value="ALL">সকল কোর্স (All Courses)</option>
+                        {submissionCourseOptions.map(c => (
+                          <option key={c.id} value={c.id}>{c.title}</option>
+                        ))}
+                      </select>
+
+                      {/* Exam Filter */}
+                      <select
+                        value={selectedExamFilter}
+                        onChange={(e) => setSelectedExamFilter(e.target.value)}
+                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6] max-w-[200px]"
+                      >
+                        <option value="ALL">সকল পরীক্ষা (All Exams)</option>
+                        {submissionExamOptions.map(e => (
+                          <option key={e.id} value={e.id}>{e.title}</option>
+                        ))}
+                      </select>
+
+                      {/* Attempt Type */}
+                      <select
+                        value={examAttemptFilter}
+                        onChange={(e) => setExamAttemptFilter(e.target.value)}
+                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6]"
+                      >
+                        <option value="ALL">সকল অ্যাটেম্পট</option>
+                        <option value="OFFICIAL">অফিসিয়াল ১ম চেষ্টা (Official 1st)</option>
+                        <option value="RETAKE">প্র্যাকটিস রিটেক (Retake)</option>
+                      </select>
+
+                      {(examSubmissionsSearch || selectedExamCourseFilter !== 'ALL' || selectedExamFilter !== 'ALL' || examAttemptFilter !== 'ALL') && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setExamSubmissionsSearch('');
+                            setSelectedExamCourseFilter('ALL');
+                            setSelectedExamFilter('ALL');
+                            setExamAttemptFilter('ALL');
+                          }}
+                          className="px-2.5 py-2 rounded-xl text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 transition-colors border border-rose-200/60 cursor-pointer"
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Submissions Table */}
+                  <div className="overflow-x-auto rounded-2xl border border-slate-100">
+                    <table className="w-full text-left text-xs text-slate-700">
+                      <thead className="bg-[#f8fafc] text-slate-500 uppercase text-[10px] font-black tracking-wider border-b border-slate-200/80">
+                        <tr>
+                          <th className="py-3 px-4">#</th>
+                          <th className="py-3 px-4">শিক্ষার্থী (Student)</th>
+                          <th className="py-3 px-4">কোর্স (Course)</th>
+                          <th className="py-3 px-4">পরীক্ষার নাম (Exam)</th>
+                          <th className="py-3 px-4 text-center">নম্বর (Score)</th>
+                          <th className="py-3 px-4 text-center">শতাংশ (%)</th>
+                          <th className="py-3 px-4 text-center">সময় (Time)</th>
+                          <th className="py-3 px-4 text-center">ধরন (Type)</th>
+                          <th className="py-3 px-4">তারিখ ও সময়</th>
+                          <th className="py-3 px-4 text-center">অ্যাকশন</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        {isLoadingSubmissions ? (
+                          <tr>
+                            <td colSpan="10" className="py-12 text-center text-slate-400">
+                              <RefreshCw className="w-6 h-6 animate-spin mx-auto text-[#5d5bf6] mb-2" />
+                              <p className="font-bold text-xs text-slate-600">লোড হচ্ছে...</p>
+                            </td>
+                          </tr>
+                        ) : filteredSubmissions.length === 0 ? (
+                          <tr>
+                            <td colSpan="10" className="py-12 text-center text-slate-400">
+                              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3">
+                                <Trophy className="w-6 h-6" />
+                              </div>
+                              <p className="font-bold text-sm text-slate-700">কোনো পরীক্ষার ফলাফল পাওয়া যায়নি</p>
+                              <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
+                                আপনার নির্বাচিত ফিল্টার বা সার্চ দিয়ে কোনো রেজাল্ট মিলছে না। অথবা শিক্ষার্থীরা এখনও পরীক্ষা দেয়নি।
+                              </p>
+                            </td>
+                          </tr>
+                        ) : (
+                          filteredSubmissions.map((sub, idx) => {
+                            const pct = Number(sub.percentage || 0);
+                            const isPassing = pct >= 50;
+                            const isExcellent = pct >= 80;
+                            const sec = Number(sub.time_taken_seconds || 0);
+                            const mins = Math.floor(sec / 60);
+                            const remSec = sec % 60;
+                            const formattedTime = mins > 0 ? `${mins}m ${remSec}s` : `${remSec}s`;
+                            const dateStr = sub.submitted_at 
+                              ? new Date(sub.submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })
+                              : 'N/A';
+                            const isOfficial = sub.is_first_attempt !== false && (!sub.attempt_number || Number(sub.attempt_number) <= 1);
+
+                            return (
+                              <tr key={sub.id || idx} className="hover:bg-slate-50/70 transition-colors">
+                                <td className="py-3.5 px-4 font-mono text-[11px] text-slate-400">
+                                  {idx + 1}
+                                </td>
+                                <td className="py-3.5 px-4">
+                                  <div className="flex items-center gap-2.5">
+                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#5d5bf6]/20 to-[#5d5bf6]/5 text-[#5d5bf6] font-black text-xs flex items-center justify-center shrink-0">
+                                      {(sub.student_name || 'S').charAt(0).toUpperCase()}
+                                    </div>
+                                    <div className="min-w-0">
+                                      <div className="font-bold text-xs text-slate-900 truncate">
+                                        {sub.student_name || 'Anonymous Student'}
+                                      </div>
+                                      <div className="text-[11px] text-slate-500 font-mono flex items-center gap-1.5 flex-wrap">
+                                        {sub.student_phone && <span>{sub.student_phone}</span>}
+                                        {sub.student_email && <span className="text-slate-400">· {sub.student_email}</span>}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td className="py-3.5 px-4">
+                                  <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700 truncate max-w-[150px] inline-block">
+                                    {sub.course_name || 'Course'}
+                                  </span>
+                                </td>
+                                <td className="py-3.5 px-4">
+                                  <div className="font-bold text-xs text-slate-800 truncate max-w-[180px]">
+                                    {sub.lesson_title || 'Quiz / Exam'}
+                                  </div>
+                                </td>
+                                <td className="py-3.5 px-4 text-center">
+                                  <span className="font-black text-xs text-slate-900">
+                                    {sub.score ?? 0}
+                                  </span>
+                                  <span className="text-slate-400 font-medium text-[11px]">
+                                    {' '}/ {sub.total_marks ?? 0}
+                                  </span>
+                                </td>
+                                <td className="py-3.5 px-4 text-center">
+                                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                                    isExcellent
+                                      ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                      : isPassing
+                                      ? 'bg-amber-50 text-amber-700 border-amber-200'
+                                      : 'bg-rose-50 text-rose-700 border-rose-200'
+                                  }`}>
+                                    {pct}%
+                                  </span>
+                                </td>
+                                <td className="py-3.5 px-4 text-center font-mono text-[11px] text-slate-600">
+                                  <div className="flex items-center justify-center gap-1">
+                                    <Clock className="w-3 h-3 text-slate-400" />
+                                    <span>{formattedTime}</span>
+                                  </div>
+                                </td>
+                                <td className="py-3.5 px-4 text-center">
+                                  {isOfficial ? (
+                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#5d5bf6]/10 text-[#5d5bf6] border border-[#5d5bf6]/20">
+                                      Official 1st
+                                    </span>
+                                  ) : (
+                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+                                      Retake #{sub.attempt_number || 2}
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="py-3.5 px-4 text-[11px] text-slate-500 whitespace-nowrap">
+                                  {dateStr}
+                                </td>
+                                <td className="py-3.5 px-4 text-center">
+                                  <button
+                                    type="button"
+                                    onClick={() => handleDeleteSubmission(sub.id)}
+                                    disabled={deletingSubmissionId === sub.id}
+                                    className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors border-none bg-transparent cursor-pointer disabled:opacity-40"
+                                    title="Delete this submission record"
+                                  >
+                                    <Trash2 className="w-4 h-4" />
+                                  </button>
+                                </td>
+                              </tr>
+                            );
+                          })
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Footer note */}
+                  <div className="flex items-center justify-between text-xs text-slate-400 pt-2 px-1">
+                    <span>
+                      Showing {filteredSubmissions.length} of {examSubmissions.length} total exam submissions
+                    </span>
+                    <span className="flex items-center gap-1 font-medium">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+                      Direct from Supabase database
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* VIEW 2: LEADERBOARD PODIUM & FULL RANKINGS */}
+              {examViewMode === 'leaderboard' && (
+                <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden space-y-6 p-5 sm:p-6">
+                  {/* Exam / Course Selector for Leaderboard */}
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+                    <div>
+                      <h3 className="text-base font-bold text-slate-900">
+                        Official Leaderboard Standings (অফিসিয়াল মেধাতালিকা)
+                      </h3>
+                      <p className="text-xs text-slate-400 mt-0.5">
+                        প্রথমে সর্বোচ্চ নম্বর (Score DESC), টাই-ব্রেকারে দ্রুততম সময় (Time ASC) এবং প্রথম জমা (Timestamp ASC)।
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2">
+                      <select
+                        value={leaderboardCourseId}
+                        onChange={(e) => {
+                          setLeaderboardCourseId(e.target.value);
+                          setLeaderboardLessonId('ALL');
+                        }}
+                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6]"
+                      >
+                        <option value="ALL">সকল কোর্স মিলিয়ে (All Courses)</option>
+                        {submissionCourseOptions.map(c => (
+                          <option key={c.id} value={c.id}>{c.title}</option>
+                        ))}
+                      </select>
+
+                      <select
+                        value={leaderboardLessonId}
+                        onChange={(e) => setLeaderboardLessonId(e.target.value)}
+                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6] max-w-[220px]"
+                      >
+                        <option value="ALL">কোর্সের সকল পরীক্ষা একত্রিত (Course Aggregated)</option>
+                        {submissionExamOptions.map(e => (
+                          <option key={e.id} value={e.id}>{e.title}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {isLoadingLeaderboard ? (
+                    <div className="py-16 text-center text-slate-400">
+                      <RefreshCw className="w-7 h-7 animate-spin mx-auto text-[#5d5bf6] mb-3" />
+                      <p className="font-bold text-sm text-slate-700">মেধাতালিকা লোড হচ্ছে...</p>
+                    </div>
+                  ) : leaderboardData.length === 0 ? (
+                    <div className="py-16 text-center text-slate-400">
+                      <div className="w-14 h-14 rounded-3xl bg-amber-50 text-amber-500 flex items-center justify-center mx-auto mb-3">
+                        <Trophy className="w-7 h-7" />
+                      </div>
+                      <h4 className="font-bold text-base text-slate-800">এখনও কোনো শিক্ষার্থী পরীক্ষা দেয়নি</h4>
+                      <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
+                        শিক্ষার্থীরা যখন এই পরীক্ষায় অংশগ্রহণ করবে, তাদের অফিসিয়াল ১ম চেষ্টার ফলাফল স্বয়ংক্রিয়ভাবে লাইভ মেধাতালিকায় প্রদর্শিত হবে।
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      {/* TOP 3 PODIUM */}
+                      {leaderboardData.length >= 1 && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                          {/* 2nd Place (Silver) */}
+                          <div className="order-2 md:order-1 bg-gradient-to-b from-slate-50 to-white rounded-2xl p-5 border border-slate-200 text-center relative flex flex-col justify-between shadow-2xs">
+                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-slate-200 text-slate-700 font-black text-[11px] shadow-2xs">
+                              🥈 2ND PLACE
+                            </div>
+                            <div className="pt-3">
+                              <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-slate-300 to-slate-100 ring-4 ring-slate-200 flex items-center justify-center text-slate-700 font-black text-lg mb-2">
+                                {(leaderboardData[1]?.student_name || '2').charAt(0).toUpperCase()}
+                              </div>
+                              <h4 className="font-black text-sm text-slate-900 truncate">
+                                {leaderboardData[1]?.student_name || 'N/A'}
+                              </h4>
+                              <p className="text-[11px] text-slate-400 font-mono">
+                                {leaderboardData[1]?.student_phone || ''}
+                              </p>
+                            </div>
+                            {leaderboardData[1] && (
+                              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-around text-xs">
+                                <div>
+                                  <span className="text-[10px] text-slate-400 block font-semibold">MARKS</span>
+                                  <span className="font-black text-slate-900">{leaderboardData[1].score ?? leaderboardData[1].total_score}</span>
+                                </div>
+                                <div>
+                                  <span className="text-[10px] text-slate-400 block font-semibold">TIME</span>
+                                  <span className="font-black text-slate-900 font-mono">
+                                    {Math.round(Number(leaderboardData[1].time_taken_seconds || leaderboardData[1].total_time_seconds || 0))}s
+                                  </span>
+                                </div>
+                                <div>
+                                  <span className="text-[10px] text-slate-400 block font-semibold">ACCURACY</span>
+                                  <span className="font-black text-emerald-600">{leaderboardData[1].percentage}%</span>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* 1st Place (Gold) - Elevated Center */}
+                          <div className="order-1 md:order-2 bg-gradient-to-b from-amber-50/60 to-white rounded-2xl p-6 border-2 border-amber-300 text-center relative flex flex-col justify-between shadow-md shadow-amber-500/10 -mt-2">
+                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-white font-black text-xs shadow-sm flex items-center gap-1">
+                              👑 1ST CHAMPION
+                            </div>
+                            <div className="pt-2">
+                              <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-tr from-amber-400 to-amber-200 ring-4 ring-amber-300 flex items-center justify-center text-amber-950 font-black text-xl mb-2 shadow-inner">
+                                {(leaderboardData[0]?.student_name || '1').charAt(0).toUpperCase()}
+                              </div>
+                              <h4 className="font-black text-base text-slate-900 truncate">
+                                {leaderboardData[0]?.student_name || 'Champion'}
+                              </h4>
+                              <p className="text-xs text-slate-500 font-mono">
+                                {leaderboardData[0]?.student_phone || ''}
+                              </p>
+                            </div>
+                            {leaderboardData[0] && (
+                              <div className="mt-4 pt-3 border-t border-amber-100 flex items-center justify-around text-xs bg-amber-50/40 rounded-xl py-2">
+                                <div>
+                                  <span className="text-[10px] text-amber-700 block font-bold">MARKS</span>
+                                  <span className="font-black text-amber-900 text-sm">{leaderboardData[0].score ?? leaderboardData[0].total_score}</span>
+                                </div>
+                                <div>
+                                  <span className="text-[10px] text-amber-700 block font-bold">TIME</span>
+                                  <span className="font-black text-amber-900 text-sm font-mono">
+                                    {Math.round(Number(leaderboardData[0].time_taken_seconds || leaderboardData[0].total_time_seconds || 0))}s
+                                  </span>
+                                </div>
+                                <div>
+                                  <span className="text-[10px] text-amber-700 block font-bold">ACCURACY</span>
+                                  <span className="font-black text-emerald-600 text-sm">{leaderboardData[0].percentage}%</span>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* 3rd Place (Bronze) */}
+                          <div className="order-3 bg-gradient-to-b from-orange-50/40 to-white rounded-2xl p-5 border border-orange-200 text-center relative flex flex-col justify-between shadow-2xs">
+                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-orange-100 text-orange-800 font-black text-[11px] shadow-2xs">
+                              🥉 3RD PLACE
+                            </div>
+                            <div className="pt-3">
+                              <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-orange-300 to-orange-100 ring-4 ring-orange-200 flex items-center justify-center text-orange-800 font-black text-lg mb-2">
+                                {(leaderboardData[2]?.student_name || '3').charAt(0).toUpperCase()}
+                              </div>
+                              <h4 className="font-black text-sm text-slate-900 truncate">
+                                {leaderboardData[2]?.student_name || 'N/A'}
+                              </h4>
+                              <p className="text-[11px] text-slate-400 font-mono">
+                                {leaderboardData[2]?.student_phone || ''}
+                              </p>
+                            </div>
+                            {leaderboardData[2] && (
+                              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-around text-xs">
+                                <div>
+                                  <span className="text-[10px] text-slate-400 block font-semibold">MARKS</span>
+                                  <span className="font-black text-slate-900">{leaderboardData[2].score ?? leaderboardData[2].total_score}</span>
+                                </div>
+                                <div>
+                                  <span className="text-[10px] text-slate-400 block font-semibold">TIME</span>
+                                  <span className="font-black text-slate-900 font-mono">
+                                    {Math.round(Number(leaderboardData[2].time_taken_seconds || leaderboardData[2].total_time_seconds || 0))}s
+                                  </span>
+                                </div>
+                                <div>
+                                  <span className="text-[10px] text-slate-400 block font-semibold">ACCURACY</span>
+                                  <span className="font-black text-emerald-600">{leaderboardData[2].percentage}%</span>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* FULL LEADERBOARD TABLE */}
+                      <div className="overflow-x-auto rounded-2xl border border-slate-100 pt-2">
+                        <table className="w-full text-left text-xs text-slate-700">
+                          <thead className="bg-[#f8fafc] text-slate-500 uppercase text-[10px] font-black tracking-wider border-b border-slate-200/80">
+                            <tr>
+                              <th className="py-3 px-4 text-center">র‍্যাংক (Rank)</th>
+                              <th className="py-3 px-4">শিক্ষার্থী (Student)</th>
+                              <th className="py-3 px-4">কোর্স / পরীক্ষা</th>
+                              <th className="py-3 px-4 text-center">প্রাপ্ত নম্বর</th>
+                              <th className="py-3 px-4 text-center">অ্যাকুরেসি</th>
+                              <th className="py-3 px-4 text-center">গৃহীত সময়</th>
+                              <th className="py-3 px-4">জমার সময়</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {leaderboardData.map((item, idx) => {
+                              const rank = item.rank || idx + 1;
+                              const sec = Number(item.time_taken_seconds || item.total_time_seconds || 0);
+                              const mins = Math.floor(sec / 60);
+                              const remSec = Math.round(sec % 60);
+                              const timeStr = mins > 0 ? `${mins}m ${remSec}s` : `${remSec}s`;
+                              const scoreVal = item.score ?? item.total_score ?? 0;
+                              const totalVal = item.total_marks ?? item.total_possible ?? 0;
+                              const pct = item.percentage ?? 0;
+
+                              return (
+                                <tr key={item.id || item.student_id || idx} className="hover:bg-slate-50/70 transition-colors">
+                                  <td className="py-3.5 px-4 text-center">
+                                    {rank === 1 ? (
+                                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-100 text-amber-800 font-black text-xs">
+                                        🥇 1
+                                      </span>
+                                    ) : rank === 2 ? (
+                                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-200 text-slate-700 font-black text-xs">
+                                        🥈 2
+                                      </span>
+                                    ) : rank === 3 ? (
+                                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-orange-100 text-orange-800 font-black text-xs">
+                                        🥉 3
+                                      </span>
+                                    ) : (
+                                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 text-slate-600 font-bold text-xs font-mono">
+                                        {rank}
+                                      </span>
+                                    )}
+                                  </td>
+                                  <td className="py-3.5 px-4">
+                                    <div className="flex items-center gap-2.5">
+                                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#5d5bf6]/20 to-[#5d5bf6]/5 text-[#5d5bf6] font-black text-xs flex items-center justify-center shrink-0">
+                                        {(item.student_name || 'S').charAt(0).toUpperCase()}
+                                      </div>
+                                      <div className="min-w-0">
+                                        <div className="font-bold text-xs text-slate-900 truncate">
+                                          {item.student_name || 'Student'}
+                                        </div>
+                                        <div className="text-[11px] text-slate-400 font-mono">
+                                          {item.student_phone || item.student_email || ''}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td className="py-3.5 px-4">
+                                    <div className="text-xs font-semibold text-slate-800 truncate max-w-[200px]">
+                                      {item.lesson_title || item.course_name || 'Exam'}
+                                    </div>
+                                  </td>
+                                  <td className="py-3.5 px-4 text-center">
+                                    <span className="font-black text-xs text-slate-900">
+                                      {scoreVal}
+                                    </span>
+                                    {totalVal > 0 && (
+                                      <span className="text-slate-400 font-medium text-[11px]">
+                                        {' '}/ {totalVal}
+                                      </span>
+                                    )}
+                                  </td>
+                                  <td className="py-3.5 px-4 text-center">
+                                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                                      pct >= 80
+                                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                        : pct >= 50
+                                        ? 'bg-amber-50 text-amber-700 border-amber-200'
+                                        : 'bg-rose-50 text-rose-700 border-rose-200'
+                                    }`}>
+                                      {pct}%
+                                    </span>
+                                  </td>
+                                  <td className="py-3.5 px-4 text-center font-mono text-[11px] text-slate-600">
+                                    {timeStr}
+                                  </td>
+                                  <td className="py-3.5 px-4 text-[11px] text-slate-500 whitespace-nowrap">
+                                    {item.submitted_at || item.last_submitted_at
+                                      ? new Date(item.submitted_at || item.last_submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })
+                                      : 'N/A'}
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
             </div>
           )}
 
