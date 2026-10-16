@@ -178,14 +178,14 @@ export default function ProfileModal({
         await updateUserProfile(updates);
       }
 
-      setStatusMsg({ type: 'success', text: 'Profile updated successfully!' });
+      setStatusMsg({ type: 'success', text: 'প্রোফাইল সফলভাবে সংরক্ষিত হয়েছে! (Profile updated successfully)' });
       
       setTimeout(() => {
         handleClose();
         if (onSaveSuccess) {
           onSaveSuccess(updates);
         }
-      }, 150);
+      }, 450);
     } catch (err) {
       setStatusMsg({ type: 'error', text: err.message || 'Failed to update profile.' });
     } finally {

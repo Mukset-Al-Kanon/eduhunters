@@ -280,55 +280,190 @@ export async function loadExamQuestions(examMeta) {
 }
 
 /**
+ * Cleans and sanitizes question explanations.
+ * Filters out "missing", "none", "n/a", empty strings, and placeholders.
+ */
+export function cleanExplanation(explanation, question = null) {
+  if (!explanation) return '';
+  const trimmed = String(explanation).trim();
+  const lower = trimmed.toLowerCase();
+
+  // Known useless placeholders in dataset
+  const placeholders = [
+    'missing',
+    'none',
+    'n/a',
+    'na',
+    'null',
+    'undefined',
+    '-',
+    '--',
+    '---',
+    '...',
+    '.',
+    'no explanation',
+    'not available',
+    'no explanation available',
+    'none.',
+    'missing.'
+  ];
+
+  if (placeholders.includes(lower) || lower.startsWith('missing') || lower === 'not available') {
+    return '';
+  }
+
+  return trimmed;
+}
+
+/**
+ * Safely resolves the 0-based correct option index for ANY question object,
+ * handling correct_index, correctIndex, correctAnswer, correct_answer,
+ * answer, ans, correctOption, numeric 1-based index, letter ('A'..'E'), Bengali letter ('ক'..'ঙ'),
+ * or exact option text string.
+ */
+export function getQuestionCorrectIndex(q) {
+  if (!q) return 0;
+
+  const options = Array.isArray(q.options) ? q.options : [];
+  const optionsCount = options.length || 4;
+
+  // 1. Direct numeric types
+  for (const key of ['correct_index', 'correctIndex', 'correctOption']) {
+    if (typeof q[key] === 'number' && !isNaN(q[key])) {
+      if (q[key] >= 0 && q[key] < optionsCount) return q[key];
+      if (q[key] === optionsCount && optionsCount > 0) return optionsCount - 1;
+    }
+  }
+
+  // 2. Candidate value (string or number from any known field)
+  const candidate = q.correct_index ?? 
+                    q.correctIndex ?? 
+                    q.correct_answer ?? 
+                    q.correctAnswer ?? 
+                    q.answer ?? 
+                    q.ans ?? 
+                    q.rightAnswer ?? 
+                    q.correctOption ?? 
+                    q.correct;
+
+  if (candidate !== undefined && candidate !== null) {
+    const rawStr = String(candidate).trim();
+
+    // Check pure integer string
+    if (/^[0-9]+$/.test(rawStr)) {
+      const num = parseInt(rawStr, 10);
+      // 0-based: if 0 <= num < optionsCount
+      if (num >= 0 && num < optionsCount) return num;
+      // 1-based: e.g. 1..4
+      if (num >= 1 && num <= optionsCount) return num - 1;
+      return 0;
+    }
+
+    // Check single Latin letter: A, B, C, D, E
+    const upper = rawStr.toUpperCase();
+    if (['A', 'B', 'C', 'D', 'E'].includes(upper)) {
+      const letterIdx = upper.charCodeAt(0) - 65;
+      return letterIdx < optionsCount ? letterIdx : 0;
+    }
+
+    // Check Bengali letter: ক, খ, গ, ঘ, ঙ
+    const bnLetters = ['ক', 'খ', 'গ', 'ঘ', 'ঙ'];
+    const bnIdx = bnLetters.indexOf(rawStr);
+    if (bnIdx !== -1 && bnIdx < optionsCount) {
+      return bnIdx;
+    }
+
+    // Check if rawStr matches option text
+    if (options.length > 0) {
+      const lowerCandidate = rawStr.toLowerCase();
+      const matchIdx = options.findIndex(opt => String(opt).trim().toLowerCase() === lowerCandidate);
+      if (matchIdx !== -1) return matchIdx;
+    }
+  }
+
+  // 3. Fallback: Check if correct_answer or answer matches any option text directly
+  if (options.length > 0) {
+    for (const key of ['correct_answer', 'correctAnswer', 'answer', 'ans', 'rightAnswer']) {
+      if (q[key]) {
+        const val = String(q[key]).trim().toLowerCase();
+        const matchIdx = options.findIndex(opt => String(opt).trim().toLowerCase() === val);
+        if (matchIdx !== -1) return matchIdx;
+      }
+    }
+  }
+
+  return 0;
+}
+
+/**
+ * Robust answer extractor to reliably retrieve a user's selected answer index,
+ * whether active answers were keyed by q.id, String(q.id), Number(q.id), question_no, or numeric index.
+ */
+export function getUserAnswer(activeUserAnswers, q, idx) {
+  if (!activeUserAnswers || typeof activeUserAnswers !== 'object') return undefined;
+  if (q) {
+    if (q.id !== undefined && activeUserAnswers[q.id] !== undefined) return activeUserAnswers[q.id];
+    if (q.id !== undefined && activeUserAnswers[String(q.id)] !== undefined) return activeUserAnswers[String(q.id)];
+    if (q.id !== undefined && !isNaN(Number(q.id)) && activeUserAnswers[Number(q.id)] !== undefined) return activeUserAnswers[Number(q.id)];
+    if (q.question_no !== undefined && activeUserAnswers[q.question_no] !== undefined) return activeUserAnswers[q.question_no];
+    if (q.question_no !== undefined && activeUserAnswers[String(q.question_no)] !== undefined) return activeUserAnswers[String(q.question_no)];
+    if (q.question_no !== undefined && activeUserAnswers[`q-${q.question_no}`] !== undefined) return activeUserAnswers[`q-${q.question_no}`];
+  }
+  if (idx !== undefined && idx !== null) {
+    if (activeUserAnswers[`q-${idx + 1}`] !== undefined) return activeUserAnswers[`q-${idx + 1}`];
+    if (activeUserAnswers[idx] !== undefined) return activeUserAnswers[idx];
+    if (activeUserAnswers[String(idx)] !== undefined) return activeUserAnswers[String(idx)];
+    if (activeUserAnswers[idx + 1] !== undefined) return activeUserAnswers[idx + 1];
+  }
+  return undefined;
+}
+
+/**
  * Normalizes question structure into uniform format:
- * { id, question_no, question, options: [A, B, C, D], correct_index: 0..3, explanation, images: [] }
+ * { id, question_no, question, options: [A, B, C, D], correct_index: 0..3, correctIndex: 0..3, explanation, images: [] }
  */
 export function normalizeExamQuestions(examData, fallbackMeta = {}) {
   const rawQuestions = examData.questions || (Array.isArray(examData) ? examData : []);
-  const normalized = rawQuestions.map((q, idx) => {
-    let cIdx = q.correct_index;
-    if (cIdx === undefined || cIdx === null) {
-      if (q.correct_answer !== undefined && q.correct_answer !== null) {
-        const letter = q.correct_answer.toString().trim().toUpperCase();
-        if (['A', 'B', 'C', 'D'].includes(letter)) cIdx = letter.charCodeAt(0) - 65;
-        else if (['1', '2', '3', '4'].includes(letter)) cIdx = parseInt(letter, 10) - 1;
-        else if (['ক', 'খ', 'গ', 'ঘ'].includes(letter)) cIdx = ['ক', 'খ', 'গ', 'ঘ'].indexOf(letter);
-        else cIdx = 0;
-      } else {
-        cIdx = 0;
-      }
-    }
+  const latinLetters = ['A', 'B', 'C', 'D', 'E'];
 
+  const normalized = rawQuestions.map((q, idx) => {
     const options = Array.isArray(q.options)
       ? q.options.map(opt => typeof opt === 'string' ? opt.trim() : String(opt))
       : ['অপশন ক', 'অপশন খ', 'অপশন গ', 'অপশন ঘ'];
 
+    const qWithOptions = { ...q, options };
+    const cIdx = getQuestionCorrectIndex(qWithOptions);
+    const sanitizedExplanation = cleanExplanation(q.explanation, qWithOptions);
+
     return {
-      id: q.id || `q-${idx + 1}`,
+      ...q,
+      id: q.id !== undefined ? q.id : `q-${idx + 1}`,
       question_no: q.question_no || (idx + 1),
       question: q.question || '',
       options,
-      correct_index: cIdx >= 0 && cIdx < options.length ? cIdx : 0,
-      explanation: (q.explanation || '').trim(),
+      correct_index: cIdx,
+      correctIndex: cIdx,
+      correct_answer: latinLetters[cIdx] || 'A',
+      explanation: sanitizedExplanation,
       images: Array.isArray(q.images) ? q.images : (q.image ? [q.image] : [])
     };
   });
 
-    const rawNegVal = examData.negative_mark !== undefined ? examData.negative_mark : (fallbackMeta.negativeMark || 0.25);
-    let parsedNeg = typeof rawNegVal === 'string' 
-      ? parseFloat(rawNegVal.replace(/[০-৯]/g, d => ({ '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' })[d]))
-      : Number(rawNegVal);
-    if (isNaN(parsedNeg) || parsedNeg <= 0) parsedNeg = 0.25;
-    if (parsedNeg >= 1) parsedNeg = parsedNeg / 100; // e.g., 25 becomes 0.25
+  const rawNegVal = examData.negative_mark !== undefined ? examData.negative_mark : (fallbackMeta.negativeMark || 0.25);
+  let parsedNeg = typeof rawNegVal === 'string' 
+    ? parseFloat(rawNegVal.replace(/[০-৯]/g, d => ({ '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9' })[d]))
+    : Number(rawNegVal);
+  if (isNaN(parsedNeg) || parsedNeg <= 0) parsedNeg = 0.25;
+  if (parsedNeg >= 1) parsedNeg = parsedNeg / 100; // e.g., 25 becomes 0.25
 
-    return {
-      ...examData,
-      title: examData.title || fallbackMeta.title || 'Untitled Exam',
-      duration_minutes: fallbackMeta.durationMinutes || examData.duration_minutes || 40,
-      total_questions: normalized.length,
-      negative_mark: parsedNeg,
-      questions: normalized
-    };
+  return {
+    ...examData,
+    title: examData.title || fallbackMeta.title || 'Untitled Exam',
+    duration_minutes: fallbackMeta.durationMinutes || examData.duration_minutes || 40,
+    total_questions: normalized.length,
+    negative_mark: parsedNeg,
+    questions: normalized
+  };
 }
 
 /**

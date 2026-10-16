@@ -938,8 +938,8 @@ export function AuthProvider({ children }) {
       setCurrentUser(mergedUser);
       broadcastUserSync('UPDATE', mergedUser);
 
-      // 2. Perform remote updates asynchronously
-      (async () => {
+      // 2. Perform remote cloud updates (Firebase Auth + Firestore + Supabase Cloud)
+      try {
         if (isFirebaseConfigured && auth && auth.currentUser) {
           const authUpdates = {};
           if (profileUpdates.displayName !== undefined) authUpdates.displayName = profileUpdates.displayName;
@@ -956,8 +956,31 @@ export function AuthProvider({ children }) {
           }
         }
 
-        // Profile is saved directly to Supabase eduhunters_users (100% Centralized Cloud)
-      })().catch(() => {});
+        // 3. Save to Firestore users collection
+        const targetUid = mergedUser.uid || mergedUser.id || auth?.currentUser?.uid;
+        if (isFirebaseConfigured && db && targetUid) {
+          try {
+            const userDocRef = doc(db, 'users', targetUid);
+            await setDoc(userDocRef, {
+              ...mergedUser,
+              uid: targetUid,
+              id: targetUid,
+              updatedAt: serverTimestamp()
+            }, { merge: true });
+          } catch (e) {
+            console.warn('[AuthContext] Firestore user update notice:', e);
+          }
+        }
+
+        // 4. Save directly to Supabase eduhunters_users (100% Centralized Cloud)
+        try {
+          await saveSupabaseUser(mergedUser, profileUpdates);
+        } catch (e) {
+          console.warn('[AuthContext] Supabase profile sync error:', e);
+        }
+      } catch (remoteErr) {
+        console.warn('[AuthContext] Remote profile sync note:', remoteErr);
+      }
 
       return mergedUser;
     } catch (err) {

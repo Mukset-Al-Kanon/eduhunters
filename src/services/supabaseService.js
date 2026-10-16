@@ -599,14 +599,29 @@ export async function saveSupabaseUser(user, extra = {}) {
     const isNew = Boolean(extra.isNewRegistration);
 
     // Fetch existing user record to preserve and merge enrolled_courses and raw_data
+    let existingId = targetId;
     let existingEnrolled = [];
     let existingRaw = {};
     try {
-      const { data: existingUser } = await supabase
+      let { data: existingUser } = await supabase
         .from('eduhunters_users')
-        .select('enrolled_courses, raw_data, email, name, phone, role')
+        .select('*')
         .eq('id', targetId)
         .maybeSingle();
+
+      if (!existingUser && (user.email || extra.email)) {
+        const cleanEmail = (user.email || extra.email).toLowerCase().trim();
+        const { data: userByEmail } = await supabase
+          .from('eduhunters_users')
+          .select('*')
+          .eq('email', cleanEmail)
+          .maybeSingle();
+        if (userByEmail) {
+          existingUser = userByEmail;
+          existingId = userByEmail.id;
+        }
+      }
+
       if (existingUser) {
         if (Array.isArray(existingUser.enrolled_courses)) {
           existingEnrolled = existingUser.enrolled_courses;
@@ -628,14 +643,43 @@ export async function saveSupabaseUser(user, extra = {}) {
       ...incomingCourses
     ])).filter(Boolean);
 
+    const finalName = (user.displayName || user.name || extra.displayName || extra.name || existingRaw.displayName || existingRaw.name || user.email?.split('@')[0] || '').trim();
+    const finalPhone = (user.whatsapp || user.phone || user.phoneNumber || extra.whatsapp || extra.phone || existingRaw.whatsapp || existingRaw.phone || '').trim();
+    const finalCollege = (user.college || user.institution || extra.college || extra.institution || existingRaw.college || existingRaw.institution || '').trim();
+    const finalBatch = (user.hscBatch || user.batch || extra.hscBatch || extra.batch || existingRaw.hscBatch || existingRaw.batch || '').trim();
+    const finalPhoto = user.photoURL || extra.photoURL || existingRaw.photoURL || '/avatar.svg';
+    const finalEmail = (user.email || extra.email || existingRaw.email || '').toLowerCase().trim();
+    const finalRole = user.role || extra.role || existingRaw.role || 'student';
+
+    const mergedRaw = {
+      ...existingRaw,
+      ...user,
+      ...extra,
+      id: existingId,
+      uid: existingId,
+      email: finalEmail,
+      name: finalName,
+      displayName: finalName,
+      phone: finalPhone,
+      whatsapp: finalPhone,
+      college: finalCollege,
+      institution: finalCollege,
+      hscBatch: finalBatch,
+      batch: finalBatch,
+      photoURL: finalPhoto,
+      avatar: finalPhoto,
+      role: finalRole,
+      enrolledCourses: mergedCourses
+    };
+
     const payload = {
-      id: targetId,
-      email: user.email || existingRaw.email,
-      name: user.displayName || user.name || extra.displayName || existingRaw.displayName || existingRaw.name || user.email?.split('@')[0],
-      phone: user.phone || user.whatsapp || extra.phone || existingRaw.phone || '',
-      role: user.role || extra.role || existingRaw.role || 'student',
+      id: existingId,
+      email: finalEmail,
+      name: finalName,
+      phone: finalPhone,
+      role: finalRole,
       enrolled_courses: mergedCourses,
-      raw_data: { ...existingRaw, ...user, ...extra, enrolledCourses: mergedCourses, id: targetId, uid: targetId },
+      raw_data: mergedRaw,
       last_active_at: new Date().toISOString()
     };
 
@@ -678,19 +722,35 @@ export async function fetchSupabaseUsers() {
       console.warn('[Supabase] Failed to fetch users:', error.message);
       return [];
     }
-    return (data || []).map(row => ({
-      uid: row.id,
-      id: row.id,
-      email: row.email,
-      name: row.name,
-      displayName: row.name,
-      phone: row.phone,
-      role: row.role === 'admin' ? 'Admin' : 'Student',
-      enrolledCourses: Array.isArray(row.enrolled_courses) ? row.enrolled_courses : [],
-      created_at: row.created_at,
-      createdAt: row.created_at,
-      ...(row.raw_data || {})
-    }));
+    return (data || []).map(row => {
+      const raw = row.raw_data || {};
+      const finalName = (raw.displayName || raw.name || row.name || '').trim();
+      const finalPhone = (raw.whatsapp || raw.phone || row.phone || '').trim();
+      const finalCollege = (raw.college || raw.institution || '').trim();
+      const finalBatch = (raw.hscBatch || raw.batch || '').trim();
+      const finalPhoto = raw.photoURL || raw.avatar || '/avatar.svg';
+      const roleStr = raw.role || row.role;
+      return {
+        ...raw,
+        uid: row.id,
+        id: row.id,
+        email: row.email || raw.email,
+        name: finalName,
+        displayName: finalName,
+        phone: finalPhone,
+        whatsapp: finalPhone,
+        college: finalCollege,
+        institution: finalCollege,
+        batch: finalBatch,
+        hscBatch: finalBatch,
+        avatar: finalPhoto,
+        photoURL: finalPhoto,
+        role: roleStr === 'admin' ? 'Admin' : 'Student',
+        enrolledCourses: Array.isArray(row.enrolled_courses) ? row.enrolled_courses : (Array.isArray(raw.enrolledCourses) ? raw.enrolledCourses : []),
+        created_at: row.created_at || raw.createdAt,
+        createdAt: row.created_at || raw.createdAt
+      };
+    });
   } catch (err) {
     console.warn('[Supabase] Fetch users exception:', err);
     return [];
@@ -707,34 +767,60 @@ export function subscribeToSupabaseUsers(onUserChange) {
 
   // 1. Instant broadcast listener for genuine new registrations
   const unsubscribeBroadcast = subscribeToSupabaseMessage('USER_REGISTERED', (payload) => {
+    const raw = payload.raw_data || {};
+    const finalName = (raw.displayName || raw.name || payload.name || '').trim();
+    const finalPhone = (raw.whatsapp || raw.phone || payload.phone || '').trim();
+    const finalCollege = (raw.college || raw.institution || '').trim();
+    const finalBatch = (raw.hscBatch || raw.batch || '').trim();
+    const finalPhoto = raw.photoURL || raw.avatar || '/avatar.svg';
     const mappedUser = {
+      ...raw,
       uid: payload.id,
       id: payload.id,
-      email: payload.email,
-      name: payload.name,
-      displayName: payload.name,
-      phone: payload.phone,
-      role: payload.role === 'admin' ? 'Admin' : 'Student',
-      enrolledCourses: Array.isArray(payload.enrolled_courses) ? payload.enrolled_courses : [],
+      email: payload.email || raw.email,
+      name: finalName,
+      displayName: finalName,
+      phone: finalPhone,
+      whatsapp: finalPhone,
+      college: finalCollege,
+      institution: finalCollege,
+      batch: finalBatch,
+      hscBatch: finalBatch,
+      avatar: finalPhoto,
+      photoURL: finalPhoto,
+      role: (raw.role || payload.role) === 'admin' ? 'Admin' : 'Student',
+      enrolledCourses: Array.isArray(payload.enrolled_courses) ? payload.enrolled_courses : (Array.isArray(raw.enrolledCourses) ? raw.enrolledCourses : []),
       isNewRegistration: true,
-      registeredAt: payload.registeredAt || Date.now(),
-      ...(payload.raw_data || {})
+      registeredAt: payload.registeredAt || Date.now()
     };
     onUserChange({ eventType: 'INSERT', user: mappedUser });
   });
 
   // Listener for user profile updates
   const unsubscribeUpdate = subscribeToSupabaseMessage('USER_UPDATED', (payload) => {
+    const raw = payload.raw_data || {};
+    const finalName = (raw.displayName || raw.name || payload.name || '').trim();
+    const finalPhone = (raw.whatsapp || raw.phone || payload.phone || '').trim();
+    const finalCollege = (raw.college || raw.institution || '').trim();
+    const finalBatch = (raw.hscBatch || raw.batch || '').trim();
+    const finalPhoto = raw.photoURL || raw.avatar || '/avatar.svg';
     const mappedUser = {
+      ...raw,
       uid: payload.id,
       id: payload.id,
-      email: payload.email,
-      name: payload.name,
-      displayName: payload.name,
-      phone: payload.phone,
-      role: payload.role === 'admin' ? 'Admin' : 'Student',
-      enrolledCourses: Array.isArray(payload.enrolled_courses) ? payload.enrolled_courses : [],
-      ...(payload.raw_data || {})
+      email: payload.email || raw.email,
+      name: finalName,
+      displayName: finalName,
+      phone: finalPhone,
+      whatsapp: finalPhone,
+      college: finalCollege,
+      institution: finalCollege,
+      batch: finalBatch,
+      hscBatch: finalBatch,
+      avatar: finalPhoto,
+      photoURL: finalPhoto,
+      role: (raw.role || payload.role) === 'admin' ? 'Admin' : 'Student',
+      enrolledCourses: Array.isArray(payload.enrolled_courses) ? payload.enrolled_courses : (Array.isArray(raw.enrolledCourses) ? raw.enrolledCourses : [])
     };
     onUserChange({ eventType: 'UPDATE', user: mappedUser });
   });
@@ -749,18 +835,31 @@ export function subscribeToSupabaseUsers(onUserChange) {
       (payload) => {
         const row = payload.new;
         if (row) {
+          const raw = row.raw_data || {};
+          const finalName = (raw.displayName || raw.name || row.name || '').trim();
+          const finalPhone = (raw.whatsapp || raw.phone || row.phone || '').trim();
+          const finalCollege = (raw.college || raw.institution || '').trim();
+          const finalBatch = (raw.hscBatch || raw.batch || '').trim();
+          const finalPhoto = raw.photoURL || raw.avatar || '/avatar.svg';
           const mappedUser = {
+            ...raw,
             uid: row.id,
             id: row.id,
-            email: row.email,
-            name: row.name,
-            displayName: row.name,
-            phone: row.phone,
-            role: row.role === 'admin' ? 'Admin' : 'Student',
-            enrolledCourses: Array.isArray(row.enrolled_courses) ? row.enrolled_courses : [],
-            created_at: row.created_at,
-            createdAt: row.created_at,
-            ...(row.raw_data || {})
+            email: row.email || raw.email,
+            name: finalName,
+            displayName: finalName,
+            phone: finalPhone,
+            whatsapp: finalPhone,
+            college: finalCollege,
+            institution: finalCollege,
+            batch: finalBatch,
+            hscBatch: finalBatch,
+            avatar: finalPhoto,
+            photoURL: finalPhoto,
+            role: (raw.role || row.role) === 'admin' ? 'Admin' : 'Student',
+            enrolledCourses: Array.isArray(row.enrolled_courses) ? row.enrolled_courses : (Array.isArray(raw.enrolledCourses) ? raw.enrolledCourses : []),
+            created_at: row.created_at || raw.createdAt,
+            createdAt: row.created_at || raw.createdAt
           };
           onUserChange({ eventType: payload.eventType, user: mappedUser });
         }

@@ -192,14 +192,96 @@ export async function uploadPdfFile(file, customTitle = '', onProgress = null) {
 }
 
 /**
- * Upload an Image (banner, thumbnail, slide photo) with progress callback
+/**
+ * Process and optimize an image in Ultra High Quality (Client-Side)
+ * @param {File} file - Image file from file picker or drag & drop
+ * @param {number} maxDim - Maximum dimension (default 1600px for crystal clear retina display)
+ * @param {number} quality - Compression quality (0.92 for vibrant details)
+ * @returns {Promise<{ url: string, width: number, height: number, fileName: string, size: number }>}
+ */
+export function processHighQualityImage(file, maxDim = 1600, quality = 0.92) {
+  return new Promise((resolve, reject) => {
+    if (!file) return reject(new Error('No file provided'));
+    if (!file.type.startsWith('image/')) return reject(new Error('Invalid image file type'));
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        let width = img.naturalWidth || img.width;
+        let height = img.naturalHeight || img.height;
+
+        // Downscale only if larger than maxDim to ensure pristine sharpness
+        if (width > maxDim || height > maxDim) {
+          if (width > height) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          } else {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(img, 0, 0, width, height);
+
+        let dataUrl = '';
+        try {
+          dataUrl = canvas.toDataURL('image/webp', quality);
+          if (!dataUrl.startsWith('data:image/webp')) {
+            dataUrl = canvas.toDataURL('image/jpeg', quality);
+          }
+        } catch {
+          dataUrl = canvas.toDataURL('image/jpeg', quality);
+        }
+
+        resolve({
+          url: dataUrl,
+          width,
+          height,
+          fileName: file.name,
+          size: file.size
+        });
+      };
+      img.onerror = () => {
+        resolve({
+          url: e.target.result,
+          width: 0,
+          height: 0,
+          fileName: file.name,
+          size: file.size
+        });
+      };
+      img.src = e.target.result;
+    };
+    reader.onerror = (err) => reject(err);
+    reader.readAsDataURL(file);
+  });
+}
+
+/**
+ * Upload an Image (banner, thumbnail, slide photo, instructor avatar) with progress callback
+ * Instantly generates high-quality HD fallback so the UI never blocks or fails.
  * @param {File} file - Image file from drag-and-drop or file picker
  * @param {string} customTitle - Title to sanitize for filename
  * @param {Function} onProgress - Progress callback ({ percent, loaded, total })
- * @returns {Promise<{ url: string, fileName: string, size: number, path: string }>}
+ * @returns {Promise<{ url: string, fileName: string, size: number, path: string, isLocalFallback?: boolean }>}
  */
 export async function uploadImageFile(file, customTitle = '', onProgress = null) {
   if (!file) throw new Error('No image file selected.');
+
+  // Step 1: Immediately prepare Ultra High Quality processed Data URL (<100ms)
+  let highQualityResult = null;
+  try {
+    highQualityResult = await processHighQualityImage(file, 1600, 0.92);
+  } catch (procErr) {
+    console.warn('[CloudStorage] Image pre-process note:', procErr);
+  }
 
   const cleanName = (customTitle || file.name)
     .toLowerCase()
@@ -208,53 +290,9 @@ export async function uploadImageFile(file, customTitle = '', onProgress = null)
 
   const extension = file.name.split('.').pop() || 'webp';
   const filePath = `images/banners/${Date.now()}_${cleanName}.${extension}`;
+  const instantUrl = highQualityResult?.url || URL.createObjectURL(file);
 
-  // Helper to generate compressed Data URL as ultra-safe fallback
-  const createCompressedDataUrl = () => {
-    return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const img = new Image();
-        img.onload = () => {
-          const maxDim = 1280;
-          let width = img.width;
-          let height = img.height;
-          if (width > maxDim || height > maxDim) {
-            if (width > height) {
-              height = Math.round((height * maxDim) / width);
-              width = maxDim;
-            } else {
-              width = Math.round((width * maxDim) / height);
-              height = maxDim;
-            }
-          }
-          const canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.imageSmoothingEnabled = true;
-          ctx.imageSmoothingQuality = 'high';
-          ctx.drawImage(img, 0, 0, width, height);
-
-          let compressed = '';
-          try {
-            compressed = canvas.toDataURL('image/webp', 0.82);
-            if (!compressed.startsWith('data:image/webp')) {
-              compressed = canvas.toDataURL('image/jpeg', 0.80);
-            }
-          } catch {
-            compressed = canvas.toDataURL('image/jpeg', 0.80);
-          }
-          resolve(compressed);
-        };
-        img.onerror = () => resolve(URL.createObjectURL(file));
-        img.src = e.target.result;
-      };
-      reader.onerror = () => resolve(URL.createObjectURL(file));
-      reader.readAsDataURL(file);
-    });
-  };
-
+  // Step 2: Try Firebase Storage upload with a strict 3-second timeout race
   if (storage) {
     try {
       const storageRef = ref(storage, filePath);
@@ -262,7 +300,7 @@ export async function uploadImageFile(file, customTitle = '', onProgress = null)
         contentType: file.type || 'image/webp'
       });
 
-      return new Promise((resolve) => {
+      const cloudUploadPromise = new Promise((resolve) => {
         uploadTask.on(
           'state_changed',
           (snapshot) => {
@@ -277,11 +315,10 @@ export async function uploadImageFile(file, customTitle = '', onProgress = null)
               });
             }
           },
-          async (error) => {
-            console.warn('[CloudStorage] Image upload to Firebase storage note:', error);
-            const fallback = await createCompressedDataUrl();
+          (error) => {
+            console.warn('[CloudStorage] Firebase storage upload note:', error);
             resolve({
-              url: fallback,
+              url: instantUrl,
               fileName: file.name,
               size: file.size,
               path: filePath,
@@ -298,9 +335,8 @@ export async function uploadImageFile(file, customTitle = '', onProgress = null)
                 path: filePath
               });
             } catch {
-              const fallback = await createCompressedDataUrl();
               resolve({
-                url: fallback,
+                url: instantUrl,
                 fileName: file.name,
                 size: file.size,
                 path: filePath,
@@ -310,18 +346,34 @@ export async function uploadImageFile(file, customTitle = '', onProgress = null)
           }
         );
       });
+
+      // Timeout race: If Firebase storage doesn't succeed in 3 seconds, gracefully use the high-quality HD image
+      const timeoutPromise = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            url: instantUrl,
+            fileName: file.name,
+            size: file.size,
+            path: filePath,
+            isLocalFallback: true
+          });
+        }, 3000);
+      });
+
+      const result = await Promise.race([cloudUploadPromise, timeoutPromise]);
+      if (onProgress) onProgress({ percent: 100, loaded: file.size, total: file.size });
+      return result;
     } catch (e) {
-      console.warn('[CloudStorage] Storage init error, using compressed fallback:', e);
+      console.warn('[CloudStorage] Storage init exception, using HD fallback:', e);
     }
   }
 
-  // Fallback
+  // Graceful instant fallback
   if (onProgress) {
     onProgress({ percent: 100, loaded: file.size, total: file.size });
   }
-  const fallback = await createCompressedDataUrl();
   return {
-    url: fallback,
+    url: instantUrl,
     fileName: file.name,
     size: file.size,
     path: filePath,

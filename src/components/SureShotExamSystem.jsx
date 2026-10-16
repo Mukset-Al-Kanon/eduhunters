@@ -16,7 +16,7 @@ import ExamDetailPage from './ExamDetailPage';
 import CheckoutModal from './CheckoutModal';
 import RtdsCurriculumView from './RtdsCurriculumView';
 import { stripEmoji } from '../utils/textUtils';
-import { getMergedExamManifest, loadExamQuestions } from '../utils/examBatchStorage';
+import { getMergedExamManifest, loadExamQuestions, getQuestionCorrectIndex, cleanExplanation, getUserAnswer } from '../utils/examBatchStorage';
 import { useAuth } from '../context/AuthContext';
 import { getStoredEnrolledBatches, grantCourseAccess, isItemEnrolled } from '../utils/enrollmentService';
 import { getQuizScheduleState } from '../utils/quizScheduleHelper';
@@ -591,20 +591,29 @@ export default function SureShotExamSystem({
   const timerRef = useRef(null);
   const questionRefs = useRef({});
   const examStartTimeRef = useRef(null);
+  const currentExamIdRef = useRef(initialExam?.id || null);
 
   // Keep state synchronized whenever initialExam is passed or changes
   useEffect(() => {
     if (initialExam) {
+      const isDifferentExam = currentExamIdRef.current && currentExamIdRef.current !== initialExam.id;
+      currentExamIdRef.current = initialExam.id;
+
       setSelectedExamMeta(initialExam);
-      setExamData({
+      setExamData(prev => ({
+        ...prev,
         ...initialExam,
         exam_id: initialExam.id,
-        questions: initialExam.questions || []
-      });
-      setStep(initialStep || 'exam_intro');
-      setUserAnswers({});
-      setIsSubmitted(false);
-      setExamResult(null);
+        questions: (initialExam.questions && initialExam.questions.length > 0) ? initialExam.questions : (prev?.questions || [])
+      }));
+
+      // Only reset exam state if this is truly a brand-new/different exam
+      if (isDifferentExam) {
+        setStep(initialStep || 'exam_intro');
+        setUserAnswers({});
+        setIsSubmitted(false);
+        setExamResult(null);
+      }
     }
   }, [initialExam, initialStep]);
 
@@ -975,10 +984,11 @@ export default function SureShotExamSystem({
     let wrong = 0;
     let skipped = 0;
 
-    examData.questions.forEach(q => {
-      const selected = userAnswers[q.id];
-      const targetCorrect = q.correct_index !== undefined ? q.correct_index : (q.correctIndex !== undefined ? q.correctIndex : q.answer);
-      if (selected === undefined || selected === null) {
+    examData.questions.forEach((q, idx) => {
+      const selected = getUserAnswer(userAnswers, q, idx);
+      const isAns = selected !== undefined && selected !== null && selected !== '' && !isNaN(Number(selected));
+      const targetCorrect = getQuestionCorrectIndex(q);
+      if (!isAns) {
         skipped++;
       } else if (Number(selected) === Number(targetCorrect)) {
         correct++;
@@ -998,9 +1008,9 @@ export default function SureShotExamSystem({
     const wrongPenalty = +(wrong * negPerWrong).toFixed(2);
     const secondTimerPenalty = isSecondTimer ? 3 : 0;
     const totalPenalty = +(wrongPenalty + secondTimerPenalty).toFixed(2);
-    const score = Math.max(0, +(correct - totalPenalty).toFixed(2));
+    const score = +(correct - totalPenalty).toFixed(2);
     const passMarks = Math.round(examData.questions.length * 0.4);
-    const percentage = Math.max(0, Math.round((score / examData.questions.length) * 100));
+    const percentage = Math.max(0, Math.round((Math.max(0, score) / examData.questions.length) * 100));
     const isPassed = score >= passMarks;
 
     const activeDur = customDurationMins || examData?.duration_minutes || selectedExamMeta?.durationMinutes || 40;
@@ -1087,9 +1097,11 @@ export default function SureShotExamSystem({
     const examIdToUse = selectedExamMeta?.id || resultObj.examId;
     setSolutionFilter('all');
     updateExamStep('exam_result', catToUse, examIdToUse);
-    try {
-      window.history.replaceState(null, '', `/exams?category=${catToUse}&step=exam_result&exam=${examIdToUse}`);
-    } catch (e) {}
+    if (!isCourseQuiz) {
+      try {
+        window.history.replaceState(null, '', `/exams?category=${catToUse}&step=exam_result&exam=${examIdToUse}`);
+      } catch (e) {}
+    }
 
     if (isPassed) {
       try {
@@ -2416,10 +2428,12 @@ export default function SureShotExamSystem({
             </div>
           ) : (
             questions.map((q, idx) => {
-              const selectedOpt = userAnswers[q.id];
-              const isFlagged = flaggedQuestions[q.id];
-              const isRevealed = practiceRevealed[q.id] || (examMode === 'practice' && selectedOpt !== undefined);
-              const isCorrect = selectedOpt === q.correct_index;
+              const selectedOpt = getUserAnswer(userAnswers, q, idx);
+              const isFlagged = flaggedQuestions[q.id] || flaggedQuestions[idx];
+              const isRevealed = practiceRevealed[q.id] || practiceRevealed[idx] || (examMode === 'practice' && selectedOpt !== undefined);
+              const targetCorrect = getQuestionCorrectIndex(q);
+              const isCorrect = selectedOpt !== undefined && Number(selectedOpt) === Number(targetCorrect);
+              const cleanExp = cleanExplanation(q.explanation, q);
 
               return (
                 <div 
@@ -2447,7 +2461,7 @@ export default function SureShotExamSystem({
                     </div>
 
                     <button
-                      onClick={() => handleToggleFlag(q.id)}
+                      onClick={() => handleToggleFlag(q.id || idx)}
                       className={`p-2 rounded-lg border transition-all duration-200 ease-out hover:scale-105 active:scale-90 cursor-pointer ${
                         isFlagged 
                           ? 'bg-amber-500/20 text-amber-400 border-amber-500/50' 
@@ -2464,8 +2478,8 @@ export default function SureShotExamSystem({
                   {/* Options List */}
                   <div className="space-y-3">
                     {q.options.map((optText, oIdx) => {
-                      const isSelected = selectedOpt === oIdx;
-                      const isOptionCorrect = oIdx === q.correct_index;
+                      const isSelected = selectedOpt !== undefined && Number(selectedOpt) === Number(oIdx);
+                      const isOptionCorrect = Number(oIdx) === Number(targetCorrect);
 
                       // Option styling based on Mode & Status
                       let optionStyle = isDark 
@@ -2497,7 +2511,7 @@ export default function SureShotExamSystem({
                       return (
                         <button
                           key={oIdx}
-                          onClick={() => handleSelectOption(q.id, oIdx)}
+                          onClick={() => handleSelectOption(q.id || idx, oIdx)}
                           className={`w-full text-left p-3 sm:p-3.5 rounded-xl border flex items-center gap-3.5 transition-all duration-200 ease-out active:scale-[0.985] cursor-pointer select-none group ${optionStyle} ${
                             isSelected ? 'animate-option-pulse ring-1 ring-red-500/25' : ''
                           }`}
@@ -2526,19 +2540,28 @@ export default function SureShotExamSystem({
                   </div>
 
                   {/* Instant Explanation Box in Practice Mode */}
-                  {examMode === 'practice' && isRevealed && q.explanation && (
-                    <div className={`mt-4 p-4 rounded-xl border text-xs sm:text-sm space-y-1.5 animate-fadeIn ${
-                      isDark 
-                        ? 'bg-[#1b050d] border-[#e11438]/25 text-gray-300' 
-                        : 'bg-red-50/50 border-red-200 text-gray-700'
-                    }`}>
-                      <p className={`font-bold ${isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]'}`}>
-                        Explanation:
-                      </p>
-                      <p className="leading-relaxed whitespace-pre-line">
-                        {q.explanation}
-                      </p>
-                    </div>
+                  {examMode === 'practice' && isRevealed && (
+                    cleanExp ? (
+                      <div className={`mt-4 p-4 rounded-xl border text-xs sm:text-sm space-y-1.5 animate-fadeIn ${
+                        isDark 
+                          ? 'bg-[#1b050d] border-[#e11438]/25 text-gray-300' 
+                          : 'bg-red-50/50 border-red-200 text-gray-700'
+                      }`}>
+                        <p className={`font-bold ${isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]'}`}>
+                          ব্যাখ্যা / Explanation:
+                        </p>
+                        <p className="leading-relaxed whitespace-pre-line">
+                          {cleanExp}
+                        </p>
+                      </div>
+                    ) : (
+                      <div className={`mt-3 p-3 rounded-xl border text-xs flex items-center gap-2 ${
+                        isDark ? 'bg-emerald-950/20 border-emerald-500/20 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                      }`}>
+                        <Check size={14} className="text-emerald-500 shrink-0" />
+                        <span>সঠিক উত্তর: <strong>{OPTION_LETTERS[targetCorrect] || targetCorrect + 1}) {q.options[targetCorrect]}</strong></span>
+                      </div>
+                    )
                   )}
                 </div>
               );
@@ -2752,24 +2775,16 @@ export default function SureShotExamSystem({
 
     // Robust answer extractor to handle any ID type / index type
     const getAnswerForQuestion = (q, idx) => {
-      if (!activeUserAnswers) return undefined;
-      if (q.id !== undefined && activeUserAnswers[q.id] !== undefined) return activeUserAnswers[q.id];
-      if (q.id !== undefined && activeUserAnswers[String(q.id)] !== undefined) return activeUserAnswers[String(q.id)];
-      if (q.id !== undefined && !isNaN(Number(q.id)) && activeUserAnswers[Number(q.id)] !== undefined) return activeUserAnswers[Number(q.id)];
-      if (q.question_no !== undefined && activeUserAnswers[q.question_no] !== undefined) return activeUserAnswers[q.question_no];
-      if (q.question_no !== undefined && activeUserAnswers[String(q.question_no)] !== undefined) return activeUserAnswers[String(q.question_no)];
-      if (q.question_no !== undefined && activeUserAnswers[`q-${q.question_no}`] !== undefined) return activeUserAnswers[`q-${q.question_no}`];
-      if (activeUserAnswers[`q-${idx + 1}`] !== undefined) return activeUserAnswers[`q-${idx + 1}`];
-      if (activeUserAnswers[idx] !== undefined) return activeUserAnswers[idx];
-      return undefined;
+      return getUserAnswer(activeUserAnswers, q, idx);
     };
 
     // Filtered questions based on solutionFilter: 'all' | 'wrong' | 'correct' | 'skipped'
     const reviewQuestions = questions.filter((q, idx) => {
       const selected = getAnswerForQuestion(q, idx);
-      const isAnswered = selected !== undefined && selected !== null;
-      const isCorrect = isAnswered && Number(selected) === Number(q.correct_index);
-      const isWrong = isAnswered && Number(selected) !== Number(q.correct_index);
+      const isAnswered = selected !== undefined && selected !== null && selected !== '' && !isNaN(Number(selected));
+      const targetCorrect = getQuestionCorrectIndex(q);
+      const isCorrect = isAnswered && Number(selected) === Number(targetCorrect);
+      const isWrong = isAnswered && Number(selected) !== Number(targetCorrect);
       const isSkipped = !isAnswered;
 
       if (solutionFilter === 'wrong') return isWrong;
@@ -2778,12 +2793,24 @@ export default function SureShotExamSystem({
       return true;
     });
 
-    const penaltyAmount = Number(examResult.wrongPenalty !== undefined ? examResult.wrongPenalty : (examResult.wrong * (examResult.negPerWrong || 0.25))) + Number(examResult.secondTimerPenalty || 0);
-    const computedScore = +(Number(examResult.correct || 0) - penaltyAmount).toFixed(2);
-    const displayedFinalScore = (computedScore < 0)
-      ? computedScore
-      : (examResult.finalScore !== undefined ? examResult.finalScore : computedScore);
-    const displayedPercentage = Math.max(0, Math.round((Number(displayedFinalScore) / Number(examResult.totalQuestions || 1)) * 100));
+    // Dynamically calculate actual question review counts to eliminate discrepancies
+    const reviewCounts = useMemo(() => {
+      let c = 0, w = 0, s = 0;
+      questions.forEach((q, idx) => {
+        const selected = getUserAnswer(activeUserAnswers, q, idx);
+        const isAns = selected !== undefined && selected !== null && selected !== '' && !isNaN(Number(selected));
+        const target = getQuestionCorrectIndex(q);
+        if (!isAns) s++;
+        else if (Number(selected) === Number(target)) c++;
+        else w++;
+      });
+      return { all: questions.length, correct: c, wrong: w, skipped: s };
+    }, [questions, activeUserAnswers]);
+
+    const penaltyAmount = Number(examResult.wrongPenalty !== undefined ? examResult.wrongPenalty : (reviewCounts.wrong * (examResult.negPerWrong || 0.25))) + Number(examResult.secondTimerPenalty || 0);
+    const computedScore = +(Number(reviewCounts.correct) - penaltyAmount).toFixed(2);
+    const displayedFinalScore = examResult.finalScore !== undefined ? examResult.finalScore : computedScore;
+    const displayedPercentage = Math.max(0, Math.round((Math.max(0, displayedFinalScore) / Number(examResult.totalQuestions || 1)) * 100));
 
     return (
       <div className={`min-h-screen p-4 sm:p-6 md:p-8 font-sans transition-colors duration-300 ${
@@ -2818,23 +2845,23 @@ export default function SureShotExamSystem({
               <div className={`border p-4 rounded-2xl ${isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-200'}`}>
                 <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Correct Answers</p>
                 <p className="text-2xl font-black text-emerald-600 dark:text-emerald-400">
-                  {examResult.correct}
+                  {reviewCounts.correct}
                 </p>
-                <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>+{examResult.correct} Marks</p>
+                <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>+{reviewCounts.correct} Marks</p>
               </div>
               <div className={`border p-4 rounded-2xl ${isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-200'}`}>
                 <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Wrong Answers</p>
                 <p className="text-2xl font-black text-red-600 dark:text-red-400">
-                  {examResult.wrong}
+                  {reviewCounts.wrong}
                 </p>
                 <p className="text-[11px] text-red-500 dark:text-red-400/80 mt-0.5">
-                  -{Number(examResult.wrongPenalty !== undefined ? examResult.wrongPenalty : (examResult.wrong * 0.25)).toFixed(2)} Negative
+                  -{Number(reviewCounts.wrong * (examResult.negPerWrong || 0.25)).toFixed(2)} Negative
                 </p>
               </div>
               <div className={`border p-4 rounded-2xl ${isDark ? 'bg-[#1b050d] border-[#e11438]/15' : 'bg-gray-50 border-gray-200'}`}>
                 <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Unanswered (Skipped)</p>
                 <p className={`text-2xl font-black ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  {examResult.skipped}
+                  {reviewCounts.skipped}
                 </p>
                 <p className={`text-[11px] mt-0.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>0 marks deducted</p>
               </div>
@@ -2897,10 +2924,10 @@ export default function SureShotExamSystem({
                 isDark ? 'bg-[#140306]/90 border-[#e11438]/20 backdrop-blur-sm' : 'bg-gray-100 border-gray-200'
               }`}>
                 {[
-                  { key: 'all', label: 'All', count: questions.length, activeBg: 'bg-[#dc2626] text-white shadow-sm' },
-                  { key: 'wrong', label: 'Wrong', count: examResult.wrong, activeBg: 'bg-red-600 text-white shadow-sm' },
-                  { key: 'correct', label: 'Correct', count: examResult.correct, activeBg: 'bg-emerald-600 text-white shadow-sm' },
-                  { key: 'skipped', label: 'Skipped', count: examResult.skipped, activeBg: isDark ? 'bg-white/20 text-white shadow-sm' : 'bg-gray-600 text-white shadow-sm' }
+                  { key: 'all', label: 'All', count: reviewCounts.all, activeBg: 'bg-[#dc2626] text-white shadow-sm' },
+                  { key: 'wrong', label: 'Wrong', count: reviewCounts.wrong, activeBg: 'bg-red-600 text-white shadow-sm' },
+                  { key: 'correct', label: 'Correct', count: reviewCounts.correct, activeBg: 'bg-emerald-600 text-white shadow-sm' },
+                  { key: 'skipped', label: 'Skipped', count: reviewCounts.skipped, activeBg: isDark ? 'bg-white/20 text-white shadow-sm' : 'bg-gray-600 text-white shadow-sm' }
                 ].map(tab => {
                   const isActive = solutionFilter === tab.key;
                   return (
@@ -2924,9 +2951,11 @@ export default function SureShotExamSystem({
             <div key={solutionFilter} className="space-y-4 animate-filter-switch">
             {reviewQuestions.map((q, idx) => {
               const selectedOpt = getAnswerForQuestion(q, idx);
-              const isAnswered = selectedOpt !== undefined && selectedOpt !== null;
-              const isCorrect = isAnswered && Number(selectedOpt) === Number(q.correct_index);
+              const isAnswered = selectedOpt !== undefined && selectedOpt !== null && selectedOpt !== '' && !isNaN(Number(selectedOpt));
+              const targetCorrect = getQuestionCorrectIndex(q);
+              const isCorrect = isAnswered && Number(selectedOpt) === Number(targetCorrect);
               const isSkipped = !isAnswered;
+              const cleanExp = cleanExplanation(q.explanation, q);
 
               return (
                 <div 
@@ -2952,7 +2981,7 @@ export default function SureShotExamSystem({
                   {/* Options List */}
                   <div className="space-y-2 pt-1">
                     {q.options.map((optText, oIdx) => {
-                      const isOptionCorrect = Number(oIdx) === Number(q.correct_index);
+                      const isOptionCorrect = Number(oIdx) === Number(targetCorrect);
                       const isUserSelected = isAnswered && Number(selectedOpt) === Number(oIdx);
 
                       let optClass = isDark ? 'bg-[#1a050c] border-[#e11438]/15 text-gray-300' : 'bg-gray-50 border-gray-200 text-gray-700';
@@ -2984,7 +3013,7 @@ export default function SureShotExamSystem({
 
                           {isOptionCorrect && (
                             <span className="text-xs text-emerald-500 dark:text-emerald-400 font-bold flex items-center gap-1 shrink-0">
-                              <Check size={14} /> Correct Answer
+                              <Check size={14} /> Correct Answer {isUserSelected && '(Your Answer)'}
                             </span>
                           )}
                           {isUserSelected && !isCorrect && (
@@ -2997,17 +3026,24 @@ export default function SureShotExamSystem({
                     })}
                   </div>
 
-                  {/* Detailed Explanation */}
-                  {q.explanation && (
+                  {/* Detailed Explanation or Verified Answer */}
+                  {cleanExp ? (
                     <div className={`p-3.5 rounded-xl border text-xs sm:text-sm space-y-1 ${
                       isDark ? 'bg-[#1b050d] border-[#e11438]/20 text-gray-300' : 'bg-red-50/50 border-red-100 text-gray-700'
                     }`}>
                       <p className={`font-bold ${isDark ? 'text-[#ff4d6d]' : 'text-[#dc2626]'}`}>
-                        Explanation:
+                        ব্যাখ্যা / Explanation:
                       </p>
                       <p className="leading-relaxed whitespace-pre-line">
-                        {q.explanation}
+                        {cleanExp}
                       </p>
+                    </div>
+                  ) : (
+                    <div className={`p-2.5 rounded-xl border text-xs flex items-center gap-2 ${
+                      isDark ? 'bg-emerald-950/20 border-emerald-500/20 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                    }`}>
+                      <Check size={14} className="text-emerald-500 shrink-0" />
+                      <span>সঠিক উত্তর: <strong>{OPTION_LETTERS[targetCorrect] || targetCorrect + 1}) {q.options[targetCorrect]}</strong></span>
                     </div>
                   )}
                 </div>

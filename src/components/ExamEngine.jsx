@@ -4,12 +4,14 @@ import confetti from 'canvas-confetti';
 import { stripEmoji } from '../utils/textUtils';
 import { useAuth } from '../context/AuthContext';
 import { recordQuizSubmission } from '../services/quizService';
+import { getQuestionCorrectIndex, cleanExplanation, getUserAnswer } from '../utils/examBatchStorage';
 
 export default function ExamEngine({ exam, onClose }) {
   const { currentUser } = useAuth();
+  const questions = Array.isArray(exam?.questions) ? exam.questions : [];
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [timeLeft, setTimeLeft] = useState(exam.durationMinutes * 60);
+  const [timeLeft, setTimeLeft] = useState((exam?.durationMinutes || 15) * 60);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [result, setResult] = useState(null);
   const [tabSwitchWarnings, setTabSwitchWarnings] = useState(0);
@@ -82,56 +84,58 @@ export default function ExamEngine({ exam, onClose }) {
   };
 
   const handleSubmitExam = () => {
-    if (isSubmitted) return;
+    if (isSubmitted || questions.length === 0) return;
     setIsSubmitted(true);
 
     let correctCount = 0;
     let wrongCount = 0;
     let skippedCount = 0;
 
-    exam.questions.forEach(q => {
-      const selected = selectedAnswers[q.id];
-      if (selected === undefined) {
+    questions.forEach((q, idx) => {
+      const selected = getUserAnswer(selectedAnswers, q, idx);
+      const isAns = selected !== undefined && selected !== null && selected !== '' && !isNaN(Number(selected));
+      const targetCorrect = getQuestionCorrectIndex(q);
+      if (!isAns) {
         skippedCount++;
-      } else if (selected === q.correctIndex) {
+      } else if (Number(selected) === Number(targetCorrect)) {
         correctCount++;
       } else {
         wrongCount++;
       }
     });
 
-    const negPenalty = wrongCount * (exam.negativeMarking || 0.25);
-    const rawScore = correctCount - negPenalty;
-    const finalScore = parseFloat(rawScore.toFixed(2));
-    const percentage = Math.max(0, Math.round((finalScore / exam.questions.length) * 100));
+    const negPenalty = wrongCount * (exam?.negativeMarking || 0.25);
+    const rawScore = +(correctCount - negPenalty).toFixed(2);
+    const finalScore = rawScore;
+    const percentage = Math.max(0, Math.round((Math.max(0, finalScore) / questions.length) * 100));
 
     const resultPayload = {
-      totalQuestions: exam.questions.length,
-      totalPossible: exam.totalMarks || exam.questions.length,
+      totalQuestions: questions.length,
+      totalPossible: exam?.totalMarks || questions.length,
       correctCount,
       wrongCount,
       skippedCount,
       finalScore,
       score: finalScore,
       percentage,
-      isPassed: finalScore >= (exam.passMarks || 1)
+      isPassed: finalScore >= (exam?.passMarks || 1)
     };
 
     setResult(resultPayload);
 
     // Save exam attempt to official leaderboard
     try {
-      const durationSecs = (exam.durationMinutes ? exam.durationMinutes * 60 : 3600);
+      const durationSecs = (exam?.durationMinutes ? exam.durationMinutes * 60 : 3600);
       const timeTaken = Math.max(1, durationSecs - timeLeft);
       recordQuizSubmission({
         student: currentUser || { id: 'guest_student', name: 'Student' },
         course: { 
-          id: exam.courseId || 'exam_batch', 
-          title: exam.courseName || exam.title || 'Exam' 
+          id: exam?.courseId || 'exam_batch', 
+          title: exam?.courseName || exam?.title || 'Exam' 
         },
         lesson: { 
-          id: exam.id || `exam_${Date.now()}`, 
-          title: exam.title || 'Exam' 
+          id: exam?.id || `exam_${Date.now()}`, 
+          title: exam?.title || 'Exam' 
         },
         quiz: exam,
         result: resultPayload,
@@ -142,7 +146,7 @@ export default function ExamEngine({ exam, onClose }) {
     }
 
     // Celebrate with confetti if passed
-    if (finalScore >= (exam.passMarks || 1)) {
+    if (finalScore >= (exam?.passMarks || 1)) {
       try {
         confetti({
           particleCount: 80,
@@ -155,7 +159,7 @@ export default function ExamEngine({ exam, onClose }) {
     }
   };
 
-  const currentQ = exam.questions[currentIdx];
+  const currentQ = questions[currentIdx] || { question: '', options: [] };
 
   return (
     <div className="exam-modal-overlay">
@@ -198,11 +202,11 @@ export default function ExamEngine({ exam, onClose }) {
             {/* Question Progress Tracker */}
             <div className="question-tracker">
               <span className="tracker-text">
-                প্রশ্ন {currentIdx + 1} / {exam.questions.length}
+                প্রশ্ন {currentIdx + 1} / {questions.length}
               </span>
               <div className="tracker-dots">
-                {exam.questions.map((_, i) => {
-                  const isAns = selectedAnswers[exam.questions[i].id] !== undefined;
+                {questions.map((qItem, i) => {
+                  const isAns = getUserAnswer(selectedAnswers, qItem, i) !== undefined;
                   return (
                     <button
                       key={i}
@@ -226,14 +230,15 @@ export default function ExamEngine({ exam, onClose }) {
               </h3>
 
               <div className="options-list">
-                {currentQ.options.map((opt, oIdx) => {
-                  const isSelected = selectedAnswers[currentQ.id] === oIdx;
+                {(currentQ.options || []).map((opt, oIdx) => {
+                  const currentSelected = getUserAnswer(selectedAnswers, currentQ, currentIdx);
+                  const isSelected = currentSelected !== undefined && Number(currentSelected) === Number(oIdx);
                   const bengaliLetters = ['ক', 'খ', 'গ', 'ঘ'];
                   return (
                     <button
                       key={oIdx}
                       className={`option-btn ${isSelected ? 'selected' : ''}`}
-                      onClick={() => handleSelectOption(currentQ.id, oIdx)}
+                      onClick={() => handleSelectOption(currentQ.id || currentIdx, oIdx)}
                     >
                       <span className="option-indicator">{bengaliLetters[oIdx] || oIdx + 1}</span>
                       <span className="option-label">{opt}</span>
@@ -254,7 +259,7 @@ export default function ExamEngine({ exam, onClose }) {
               </button>
 
               <div className="exam-footer-right">
-                {currentIdx < exam.questions.length - 1 ? (
+                {currentIdx < questions.length - 1 ? (
                   <button
                     className="btn btn-outline"
                     onClick={() => setCurrentIdx(prev => prev + 1)}
@@ -305,13 +310,16 @@ export default function ExamEngine({ exam, onClose }) {
             {/* Question Review with Explanations */}
             <div className="exam-solution-section">
               <h4 className="solution-heading">প্রশ্ন ও বিস্তারিত সমাধান</h4>
-              {exam.questions.map((q, idx) => {
-                const userAns = selectedAnswers[q.id];
-                const isCorrect = userAns === q.correctIndex;
-                const isSkipped = userAns === undefined;
+              {questions.map((q, idx) => {
+                const targetCorrect = getQuestionCorrectIndex(q);
+                const userAns = getUserAnswer(selectedAnswers, q, idx);
+                const isAns = userAns !== undefined && userAns !== null && userAns !== '' && !isNaN(Number(userAns));
+                const isCorrect = isAns && Number(userAns) === Number(targetCorrect);
+                const isSkipped = !isAns;
+                const cleanExp = cleanExplanation(q.explanation, q);
 
                 return (
-                  <div key={q.id} className="solution-card">
+                  <div key={q.id || idx} className="solution-card">
                     <div className="solution-q-header">
                       <span className="font-semibold">{idx + 1}. {q.question}</span>
                       <span className={`solution-status ${isCorrect ? 'correct' : isSkipped ? 'skipped' : 'wrong'}`}>
@@ -320,16 +328,16 @@ export default function ExamEngine({ exam, onClose }) {
                     </div>
 
                     <div className="solution-options-list">
-                      {q.options.map((opt, oIdx) => {
-                        const isCorrectOpt = oIdx === q.correctIndex;
-                        const isUserOpt = oIdx === userAns;
+                      {(q.options || []).map((opt, oIdx) => {
+                        const isCorrectOpt = Number(oIdx) === Number(targetCorrect);
+                        const isUserOpt = isAns && Number(oIdx) === Number(userAns);
                         let optClass = '';
                         if (isCorrectOpt) optClass = 'correct-opt';
                         else if (isUserOpt && !isCorrect) optClass = 'wrong-opt';
 
                         return (
                           <div key={oIdx} className={`solution-opt ${optClass}`}>
-                            <span>{['ক', 'খ', 'গ', 'ঘ'][oIdx]}. {opt}</span>
+                            <span>{['ক', 'খ', 'গ', 'ঘ'][oIdx] || oIdx + 1}. {opt}</span>
                             {isCorrectOpt && <span className="text-emerald text-xs"> (সঠিক উত্তর)</span>}
                             {isUserOpt && !isCorrect && <span className="text-danger text-xs"> (আপনার উত্তর)</span>}
                           </div>
@@ -337,9 +345,13 @@ export default function ExamEngine({ exam, onClose }) {
                       })}
                     </div>
 
-                    {q.explanation && (
+                    {cleanExp ? (
                       <div className="explanation-box">
-                        <strong>ব্যাখ্যা:</strong> {q.explanation}
+                        <strong>ব্যাখ্যা:</strong> {cleanExp}
+                      </div>
+                    ) : (
+                      <div className="explanation-box verified-box" style={{ background: 'rgba(16, 185, 129, 0.08)', borderColor: 'rgba(16, 185, 129, 0.25)' }}>
+                        <span className="text-emerald-500 font-bold">✓ সঠিক উত্তর:</span> {['ক', 'খ', 'গ', 'ঘ'][targetCorrect] || targetCorrect + 1}. {q.options ? q.options[targetCorrect] : ''}
                       </div>
                     )}
                   </div>

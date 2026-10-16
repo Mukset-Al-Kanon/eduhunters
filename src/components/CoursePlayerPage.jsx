@@ -25,7 +25,7 @@ import { freeCoursesData } from '../data/freeCoursesData';
 import { initialData } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
-import { loadExamQuestions } from '../utils/examBatchStorage';
+import { loadExamQuestions, getQuestionCorrectIndex, cleanExplanation } from '../utils/examBatchStorage';
 import { useEnrollmentStatus } from '../utils/enrollmentService';
 import Navbar from './Navbar';
 import SureShotExamSystem from './SureShotExamSystem';
@@ -413,16 +413,21 @@ export default function CoursePlayerPage({
     if (!qList || qList.length === 0) return;
 
     // Normalize questions to match SureShotExamSystem schema
-    const normalizedQuestions = qList.map((q, idx) => ({
-      id: q.id !== undefined ? q.id : (idx + 1),
-      question_no: idx + 1,
-      question: q.question || q.title || `Question ${idx + 1}`,
-      options: Array.isArray(q.options) ? q.options : [],
-      correct_index: q.correct_index !== undefined 
-        ? Number(q.correct_index) 
-        : (q.correctAnswer !== undefined ? Number(q.correctAnswer) : 0),
-      explanation: q.explanation || q.hint || ''
-    }));
+    const normalizedQuestions = qList.map((q, idx) => {
+      const options = Array.isArray(q.options) ? q.options : [];
+      const qWithOptions = { ...q, options };
+      const cIdx = getQuestionCorrectIndex(qWithOptions);
+      return {
+        ...q,
+        id: q.id !== undefined ? q.id : `q-${idx + 1}`,
+        question_no: idx + 1,
+        question: q.question || q.title || `Question ${idx + 1}`,
+        options,
+        correct_index: cIdx,
+        correctIndex: cIdx,
+        explanation: cleanExplanation(q.explanation || q.hint || '', qWithOptions)
+      };
+    });
 
     const examPayload = {
       id: currentLesson.quiz?.id || currentLesson.examId || `lesson-exam-${currentLesson.id}`,
