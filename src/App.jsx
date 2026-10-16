@@ -453,28 +453,10 @@ export default function App() {
               const lowName = (inst.name || '').toLowerCase();
               return !["tahmid", "sanjid", "tofayel", "nazmuddin", "jaidul", "sk tasnim", "tasnim ferdaus"].some(zn => lowName.includes(zn));
             });
-            let combined = [...cleanList];
-            initialData.instructors.forEach(defInst => {
-              const exists = combined.some(i => (i.name || '').toLowerCase().includes(defInst.name.toLowerCase()));
-              if (!exists) {
-                combined.push(defInst);
-              }
-            });
-            combined = combined.map(inst => {
-              if ((inst.name || '').toLowerCase().includes('as sami')) {
-                return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/as_sami_islam.jpg', bio: inst.bio || 'Founder & Instructor', badge: '', designation: '' };
-              }
-              if ((inst.name || '').toLowerCase().includes('mukset') || (inst.name || '').toLowerCase().includes('kanon')) {
-                return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/mukset_al_kanon.jpg', bio: inst.bio || 'Founder', badge: '', designation: '' };
-              }
-              return inst;
-            });
-            const samiIdx = combined.findIndex(i => (i.name || '').toLowerCase().includes('as sami'));
-            if (samiIdx > 0) {
-              const [samiItem] = combined.splice(samiIdx, 1);
-              combined.unshift(samiItem);
+            if (cleanList.length > 0) {
+              return cleanList;
             }
-            return combined;
+            return initialData.instructors;
           })(),
           freeVideos: Array.isArray(parsed.freeVideos)
             ? parsed.freeVideos 
@@ -644,27 +626,11 @@ export default function App() {
             const lowName = (inst.name || '').toLowerCase();
             return !ZENITH_INSTRUCTOR_NAMES.some(zn => lowName.includes(zn));
           });
-          initialData.instructors.forEach(defInst => {
-            if (!purgedInst.some(i => (i.name || '').toLowerCase().includes(defInst.name.toLowerCase()))) {
-              purgedInst.push(defInst);
-            }
-          });
-          purgedInst = purgedInst.map(inst => {
-            if ((inst.name || '').toLowerCase().includes('as sami')) {
-              return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/as_sami_islam.jpg', bio: inst.bio || 'Founder & Instructor', badge: '', designation: '' };
-            }
-            if ((inst.name || '').toLowerCase().includes('mukset') || (inst.name || '').toLowerCase().includes('kanon')) {
-              return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/mukset_al_kanon.jpg', bio: inst.bio || 'Founder', badge: '', designation: '' };
-            }
-            return inst;
-          });
-          const samiIdx = purgedInst.findIndex(i => (i.name || '').toLowerCase().includes('as sami'));
-          if (samiIdx > 0) {
-            const [samiItem] = purgedInst.splice(samiIdx, 1);
-            purgedInst.unshift(samiItem);
+          if (purgedInst.length === 0) {
+            purgedInst = initialData.instructors;
+            modified = true;
           }
           parsed.instructors = purgedInst;
-          modified = true;
         } else {
           parsed.instructors = initialData.instructors;
           modified = true;
@@ -818,12 +784,6 @@ export default function App() {
         const [samiItem] = resolvedInstructors.splice(samiIdx, 1);
         resolvedInstructors.unshift(samiItem);
       }
-      resolvedInstructors = resolvedInstructors.map(inst => {
-        if ((inst.name || '').toLowerCase().includes('as sami') || (inst.name || '').toLowerCase().includes('mukset') || (inst.name || '').toLowerCase().includes('kanon')) {
-          return { ...inst, badge: '', designation: '' };
-        }
-        return inst;
-      });
 
       // Smart course resolution: merge curriculum so newly added classes/lessons are never lost
       const countLessons = (cur) => {

@@ -10822,7 +10822,28 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     Manage instructor profiles, designations, photos, and academic qualifications.
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      persistAll({ instructors });
+                      triggerToast('✅ All instructor profiles & faculty changes saved live!');
+                    }}
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white font-black text-xs border-none cursor-pointer transition-all shadow-md shadow-emerald-600/20 active:scale-95"
+                    title="Save all changes live"
+                  >
+                    <Save className="w-4 h-4" />
+                    <span>Save All Changes</span>
+                  </button>
+
+                  <button
+                    onClick={() => setShowAddTeacherModal(true)}
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-md shadow-purple-500/20"
+                  >
+                    <Plus className="w-4 h-4" />
+                    Add New Instructor
+                  </button>
+
                   {instructors.length > 0 && (
                     <button
                       type="button"
@@ -10833,20 +10854,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           triggerToast('All instructors removed!');
                         }
                       }}
-                      className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs border border-rose-200 transition-all cursor-pointer"
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs border border-rose-200 transition-all cursor-pointer"
                       title="Clear all instructors"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                       Remove All
                     </button>
                   )}
-                  <button
-                    onClick={() => setShowAddTeacherModal(true)}
-                    className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-md shadow-purple-500/20"
-                  >
-                    <Plus className="w-4 h-4" />
-                    Add New Instructor
-                  </button>
                 </div>
               </div>
 
@@ -11039,7 +11053,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               placeholder="Instructor Name"
                               onChange={(e) => {
                                 const val = e.target.value;
-                                const updated = instructors.map((item, i) => i === idx ? { ...item, name: val, badge: val.split(' ')[0] } : item);
+                                const updated = instructors.map((item, i) => i === idx ? { ...item, name: val } : item);
                                 setInstructors(updated);
                                 persistAll({ instructors: updated });
                               }}
@@ -11084,21 +11098,36 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     </div>
 
                     {/* Card Footer Bar */}
-                    <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
-                      <span className="text-[10px] text-slate-400 font-mono">
-                        Faculty ID: #{idx + 1}
-                      </span>
+                    <div className="px-4 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] text-slate-400 font-mono">
+                          Faculty ID: #{idx + 1}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => openGalleryModal(inst.image, `Choose Photo for ${inst.name}`, 'Faculty', (newUrl) => {
+                            const updated = instructors.map((item, i) => i === idx ? { ...item, image: newUrl } : item);
+                            setInstructors(updated);
+                            persistAll({ instructors: updated });
+                          })}
+                          className="text-[11px] font-semibold text-purple-600 hover:text-purple-700 flex items-center gap-1 bg-transparent border-none cursor-pointer p-0"
+                        >
+                          <Camera className="w-3 h-3" />
+                          <span>Change Photo</span>
+                        </button>
+                      </div>
+
                       <button
                         type="button"
-                        onClick={() => openGalleryModal(inst.image, `Choose Photo for ${inst.name}`, 'Faculty', (newUrl) => {
-                          const updated = instructors.map((item, i) => i === idx ? { ...item, image: newUrl } : item);
-                          setInstructors(updated);
-                          persistAll({ instructors: updated });
-                        })}
-                        className="text-[11px] font-semibold text-purple-600 hover:text-purple-700 flex items-center gap-1 bg-transparent border-none cursor-pointer p-0"
+                        onClick={() => {
+                          persistAll({ instructors });
+                          triggerToast(`✅ "${inst.name || 'Instructor'}" changes saved & published live!`);
+                        }}
+                        className="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs border-none cursor-pointer flex items-center gap-1.5 shadow-sm shadow-emerald-600/30 transition-all"
+                        title="Save this instructor"
                       >
-                        <Camera className="w-3 h-3" />
-                        <span>Change Photo</span>
+                        <Save className="w-3.5 h-3.5" />
+                        <span>Save</span>
                       </button>
                     </div>
                   </div>
