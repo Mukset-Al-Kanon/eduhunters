@@ -276,10 +276,35 @@ export async function recordQuizSubmission({
   if (isSupabaseConfigured && supabase) {
     if (!isQuizTableMissing) {
       try {
-        // 2a. Attempt insert into dedicated table
+        // 2a. Attempt insert into dedicated table (strictly matching table schema columns)
+        const tblPayload = {
+          id: submissionPayload.id,
+          student_id: submissionPayload.student_id,
+          student_name: submissionPayload.student_name,
+          student_phone: submissionPayload.student_phone,
+          student_email: submissionPayload.student_email,
+          course_id: submissionPayload.course_id,
+          course_slug: submissionPayload.course_slug,
+          course_name: submissionPayload.course_name,
+          lesson_id: submissionPayload.lesson_id,
+          lesson_title: submissionPayload.lesson_title,
+          quiz_id: submissionPayload.quiz_id,
+          score: submissionPayload.score,
+          total_marks: submissionPayload.total_marks,
+          percentage: submissionPayload.percentage,
+          correct_count: submissionPayload.correct_count,
+          wrong_count: submissionPayload.wrong_count,
+          skipped_count: submissionPayload.skipped_count,
+          time_taken_seconds: submissionPayload.time_taken_seconds,
+          is_first_attempt: submissionPayload.is_first_attempt,
+          is_live_window: submissionPayload.is_live_window,
+          attempt_number: submissionPayload.attempt_number,
+          raw_answers: submissionPayload.raw_answers,
+          submitted_at: submissionPayload.submitted_at
+        };
         const { error: tblError } = await supabase
           .from('eduhunters_quiz_submissions')
-          .insert([submissionPayload]);
+          .insert([tblPayload]);
 
         if (tblError) {
           if (tblError.code === 'PGRST205' || tblError.message?.includes('schema cache')) {
