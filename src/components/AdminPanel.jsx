@@ -63,7 +63,9 @@ import {
   Award,
   Medal,
   RefreshCw,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Flame,
+  BarChart3
 } from 'lucide-react';
 import { 
   fetchAllSubmissions, 
@@ -287,6 +289,31 @@ export const deduplicateUsers = (userList) => {
   return Array.from(unique.values());
 };
 
+// Minimal time formatter for podium and leaderboards (matching user website)
+const formatMinimalTime = (totalSeconds) => {
+  const sec = Math.max(0, Math.floor(Number(totalSeconds) || 0));
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  if (m > 0 && s > 0) return `${m}m ${s}s`;
+  if (m > 0) return `${m}m`;
+  return `${s}s`;
+};
+
+// Points TokenPill matching user website
+const AdminTokenPill = ({ points, size = 'sm' }) => {
+  const isLarge = size === 'lg';
+  const formatted = points === undefined || points === null || points === '--' 
+    ? '--' 
+    : (Number.isInteger(Number(points)) ? Number(points) : +(Number(points).toFixed(2)));
+  return (
+    <div className={`inline-flex items-center justify-center rounded-full bg-[#270811]/95 border border-[#e11438]/50 shadow-[0_3px_10px_rgba(0,0,0,0.6)] text-white font-mono font-bold select-none ${
+      isLarge ? 'px-3.5 py-0.5 text-xs' : 'px-3 py-0.5 text-[11px]'
+    }`}>
+      <span className="tracking-tight text-white/95">{formatted}</span>
+    </div>
+  );
+};
+
 export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
   const [activeTab, setActiveTabState] = useState(() => {
@@ -449,7 +476,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   );
 
   // =========================================================================
-  // DEDICATED EXAM RESULTS & LIVE LEADERBOARD MANAGEMENT
+  // DEDICATED EXAM RESULTS & LIVE LEADERBOARD MANAGEMENT (USER WEBSITE STYLING)
   // =========================================================================
   const [examSubmissions, setExamSubmissions] = useState([]);
   const [isLoadingSubmissions, setIsLoadingSubmissions] = useState(false);
@@ -457,13 +484,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const [selectedExamCourseFilter, setSelectedExamCourseFilter] = useState('ALL');
   const [selectedExamFilter, setSelectedExamFilter] = useState('ALL');
   const [examAttemptFilter, setExamAttemptFilter] = useState('ALL'); // 'ALL' | 'OFFICIAL' | 'RETAKE'
-  const [examViewMode, setExamViewMode] = useState('submissions'); // 'submissions' | 'leaderboard'
+  const [examViewMode, setExamViewMode] = useState('leaderboard'); // 'leaderboard' | 'gradebook' | 'submissions'
   const [leaderboardCourseId, setLeaderboardCourseId] = useState('ALL');
-  const [leaderboardLessonId, setLeaderboardLessonId] = useState('ALL');
+  const [leaderboardLessonId, setLeaderboardLessonId] = useState('');
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [isLoadingLeaderboard, setIsLoadingLeaderboard] = useState(false);
   const [deletingSubmissionId, setDeletingSubmissionId] = useState(null);
   const [submissionsLastRefreshed, setSubmissionsLastRefreshed] = useState(null);
+  const [inspectingSubmission, setInspectingSubmission] = useState(null);
+  const [gradebookSearchQuery, setGradebookSearchQuery] = useState('');
+  const [selectedGradebookStudentKey, setSelectedGradebookStudentKey] = useState(null);
 
   const loadExamSubmissions = useCallback(async () => {
     setIsLoadingSubmissions(true);
@@ -483,6 +513,84 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   useEffect(() => {
     loadExamSubmissions();
   }, [loadExamSubmissions]);
+
+  // Default leaderboard course selection to first course
+  useEffect(() => {
+    if ((!leaderboardCourseId || leaderboardCourseId === 'ALL') && courses && courses.length > 0) {
+      setLeaderboardCourseId(String(courses[0].id || courses[0].slug));
+    }
+  }, [courses, leaderboardCourseId]);
+
+  // Currently selected course object for leaderboard
+  const currentLeaderboardCourse = useMemo(() => {
+    if (!courses || courses.length === 0) return null;
+    return courses.find(c => 
+      String(c.id).toLowerCase() === String(leaderboardCourseId).toLowerCase() ||
+      String(c.slug || '').toLowerCase() === String(leaderboardCourseId).toLowerCase()
+    ) || courses[0];
+  }, [courses, leaderboardCourseId]);
+
+  // Extract all lessons and exams for the selected course
+  const currentCourseLessons = useMemo(() => {
+    if (!currentLeaderboardCourse) return [];
+    const list = [];
+    if (currentLeaderboardCourse.curriculum && Array.isArray(currentLeaderboardCourse.curriculum)) {
+      currentLeaderboardCourse.curriculum.forEach((sec, sIdx) => {
+        const chapters = Array.isArray(sec.chapters) ? sec.chapters : [];
+        chapters.forEach((ch, cIdx) => {
+          const lessons = Array.isArray(ch.lessons) ? ch.lessons : [];
+          lessons.forEach((les, lIdx) => {
+            if (les && typeof les === 'object') {
+              const fullTitle = les.title || `Class ${lIdx + 1}`;
+              const cleanShort = fullTitle
+                .replace(/^Chapter\s*\d+[\s:.-]*/i, '')
+                .replace(/^Class\s*\d+[\s:.-]*/i, '')
+                .trim();
+              list.push({
+                lessonId: String(les.id || `les-${sIdx}-${cIdx}-${lIdx}`),
+                title: fullTitle,
+                shortTitle: cleanShort || fullTitle,
+                chapterName: ch.name || `Chapter ${cIdx + 1}`,
+                quiz: les.quiz || null
+              });
+            }
+          });
+        });
+        if (Array.isArray(sec.lessons)) {
+          sec.lessons.forEach((les, lIdx) => {
+            if (les && typeof les === 'object') {
+              const fullTitle = les.title || `Class ${lIdx + 1}`;
+              list.push({
+                lessonId: String(les.id || `les-${sIdx}-${lIdx}`),
+                title: fullTitle,
+                shortTitle: fullTitle,
+                chapterName: sec.title || `Section ${sIdx + 1}`,
+                quiz: les.quiz || null
+              });
+            }
+          });
+        }
+      });
+    }
+
+    // Also include any lessons from submissions for this course that might not be in mock curriculum
+    examSubmissions.forEach(sub => {
+      const matchC = String(sub.course_id || '').toLowerCase() === String(currentLeaderboardCourse.id || '').toLowerCase() ||
+                     String(sub.course_slug || '').toLowerCase() === String(currentLeaderboardCourse.id || '').toLowerCase() ||
+                     String(sub.course_name || '').toLowerCase() === String(currentLeaderboardCourse.title || '').toLowerCase();
+      if (matchC && sub.lesson_id && !list.some(l => String(l.lessonId) === String(sub.lesson_id))) {
+        list.push({
+          lessonId: String(sub.lesson_id),
+          title: sub.lesson_title || `Exam #${sub.lesson_id}`,
+          shortTitle: sub.lesson_title || `Exam #${sub.lesson_id}`,
+          chapterName: 'Exam',
+          quiz: null
+        });
+      }
+    });
+
+    return list;
+  }, [currentLeaderboardCourse, examSubmissions]);
 
   // Derived course options from submissions and courses
   const submissionCourseOptions = useMemo(() => {
@@ -580,7 +688,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       setIsLoadingLeaderboard(true);
       try {
         let board = [];
-        if (leaderboardLessonId !== 'ALL') {
+        if (leaderboardLessonId && leaderboardLessonId !== 'ALL' && leaderboardLessonId !== 'overall') {
           board = await fetchLessonLeaderboard(leaderboardCourseId !== 'ALL' ? leaderboardCourseId : null, leaderboardLessonId);
         } else {
           board = await fetchCourseLeaderboard(leaderboardCourseId !== 'ALL' ? leaderboardCourseId : null);
@@ -597,6 +705,67 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     }
     return () => { isMounted = false; };
   }, [activeTab, leaderboardCourseId, leaderboardLessonId, examSubmissions]);
+
+  // Group submissions by student for Student Gradebook
+  const studentGradebookList = useMemo(() => {
+    const studentMap = new Map();
+    examSubmissions.forEach(sub => {
+      const sPhone = (sub.student_phone || '').replace(/[^0-9]/g, '');
+      const sEmail = (sub.student_email || '').trim().toLowerCase();
+      const sId = sub.student_id || '';
+      const key = sPhone && sPhone.length >= 8 
+        ? `phone_${sPhone.slice(-10)}` 
+        : (sEmail ? `email_${sEmail}` : `id_${sId}`);
+
+      if (!studentMap.has(key)) {
+        studentMap.set(key, {
+          key,
+          student_id: sId,
+          student_name: sub.student_name || 'Anonymous Student',
+          student_phone: sub.student_phone || '',
+          student_email: sub.student_email || '',
+          student_avatar: sub.avatar || sub.student_avatar || '/avatar.svg',
+          submissions: [],
+          totalScore: 0,
+          totalPossible: 0,
+          bestScore: 0
+        });
+      }
+      const entry = studentMap.get(key);
+      entry.submissions.push(sub);
+      const score = Number(sub.score || 0);
+      const poss = Number(sub.total_marks || 0);
+      entry.totalScore += score;
+      entry.totalPossible += poss;
+      if (score > entry.bestScore) entry.bestScore = score;
+    });
+
+    const list = Array.from(studentMap.values()).map(s => ({
+      ...s,
+      totalExams: s.submissions.length,
+      averagePercentage: s.totalPossible > 0 ? Math.round((s.totalScore / s.totalPossible) * 100) : 0
+    }));
+
+    list.sort((a, b) => b.totalExams - a.totalExams || b.totalScore - a.totalScore);
+    return list;
+  }, [examSubmissions]);
+
+  const filteredGradebookStudents = useMemo(() => {
+    if (!gradebookSearchQuery.trim()) return studentGradebookList;
+    const q = gradebookSearchQuery.toLowerCase();
+    return studentGradebookList.filter(s => 
+      (s.student_name || '').toLowerCase().includes(q) ||
+      (s.student_phone || '').includes(q) ||
+      (s.student_email || '').toLowerCase().includes(q)
+    );
+  }, [studentGradebookList, gradebookSearchQuery]);
+
+  const activeGradebookStudent = useMemo(() => {
+    if (selectedGradebookStudentKey) {
+      return studentGradebookList.find(s => s.key === selectedGradebookStudentKey) || null;
+    }
+    return filteredGradebookStudents[0] || null;
+  }, [studentGradebookList, selectedGradebookStudentKey, filteredGradebookStudents]);
 
   const handleExportCSV = () => {
     if (!filteredSubmissions || filteredSubmissions.length === 0) {
@@ -633,12 +802,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     try {
       await deleteQuizSubmission(submissionId);
       setExamSubmissions(prev => prev.filter(s => s.id !== submissionId));
+      if (inspectingSubmission?.id === submissionId) {
+        setInspectingSubmission(null);
+      }
     } catch (e) {
       alert('Error deleting submission: ' + (e.message || 'Unknown error'));
     } finally {
       setDeletingSubmissionId(null);
     }
   };
+
 
   const [accounting, setAccounting] = useState(() => {
     const raw = data?.accounting;
@@ -7678,74 +7851,49 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           )}
 
           {/* ========================================================= */}
-          {/* TAB: EXAM RESULTS & LIVE LEADERBOARD (100% ACCURATE REAL DATA) */}
+          {/* TAB: EXAM RESULTS & LIVE LEADERBOARD (EXACT USER WEBSITE STYLING) */}
           {/* ========================================================= */}
           {activeTab === 'results' && (
-            <div className="space-y-6">
-              
-              {/* Top Banner / Header Card */}
-              <div className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+            <div className="relative rounded-[32px] sm:rounded-[40px] bg-gradient-to-b from-[#140308] via-[#0d0205] to-[#070102] text-white p-5 sm:p-8 border border-[#e11438]/25 shadow-[0_25px_70px_rgba(0,0,0,0.85)] overflow-hidden space-y-7">
+              {/* Top ambient ruby radial glow */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[650px] sm:w-[900px] h-[340px] bg-gradient-to-b from-[#e11438]/25 via-[#ff2a55]/10 to-transparent blur-3xl pointer-events-none -z-0" />
+
+              {/* 1. TOP HEADER & CONTROLS */}
+              <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 pb-5 border-b border-white/10">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#5d5bf6] to-[#7f7dfa] text-white flex items-center justify-center shadow-lg shadow-[#5d5bf6]/25 shrink-0">
-                    <Trophy className="w-6 h-6" />
+                  <div className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-[#dc2626] to-[#ff2a55] text-white flex items-center justify-center shadow-[0_0_30px_rgba(225,20,56,0.65)] border border-white/25 shrink-0">
+                    <Trophy className="w-7 h-7 stroke-[2.2]" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-                        Exam Results & Leaderboard
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                        Exam Results & Live Leaderboard
                       </h2>
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#5d5bf6]/10 text-[#5d5bf6] border border-[#5d5bf6]/20">
-                        100% Real Examinees
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e11438]/20 border border-[#e11438]/40 text-[#ff4d6d] shadow-[0_0_12px_rgba(225,20,56,0.3)]">
+                        100% Real Examinees (Zero Mock)
                       </span>
                       {submissionsLastRefreshed && (
-                        <span className="text-[11px] text-slate-400 font-medium">
+                        <span className="text-[11px] text-white/50 font-mono">
                           Updated: {submissionsLastRefreshed}
                         </span>
                       )}
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
-                      পরীক্ষার ফলাফল, খাতা মূল্যায়ন ও রিয়েল-টাইম মেধাতালিকা — প্রতিটি শিক্ষার্থীর প্রাপ্ত নম্বর, সময় ও অ্যাকুরেসি।
+                    <p className="text-xs sm:text-sm text-gray-300 font-medium mt-1">
+                      ইউজার ওয়েবসাইটের আদলে রিয়েল-টাইম পরীক্ষার ফলাফল, খাতা মূল্যায়ন ও লাইভ মেধাতালিকা।
                     </p>
                   </div>
                 </div>
 
+                {/* Header Action Buttons */}
                 <div className="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-start lg:justify-end">
-                  {/* View Mode Switch */}
-                  <div className="bg-slate-100 p-1 rounded-xl flex items-center border border-slate-200/80">
-                    <button
-                      type="button"
-                      onClick={() => setExamViewMode('submissions')}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border-none ${
-                        examViewMode === 'submissions'
-                          ? 'bg-white text-slate-900 shadow-xs'
-                          : 'bg-transparent text-slate-600 hover:text-slate-900'
-                      }`}
-                    >
-                      <FileText className="w-3.5 h-3.5" />
-                      <span>All Submissions ({filteredSubmissions.length})</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setExamViewMode('leaderboard')}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border-none ${
-                        examViewMode === 'leaderboard'
-                          ? 'bg-white text-[#5d5bf6] shadow-xs'
-                          : 'bg-transparent text-slate-600 hover:text-slate-900'
-                      }`}
-                    >
-                      <Award className="w-3.5 h-3.5" />
-                      <span>Leaderboard Podium</span>
-                    </button>
-                  </div>
-
                   {/* Export CSV Button */}
                   <button
                     type="button"
                     onClick={handleExportCSV}
-                    className="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs border border-slate-200/90 shadow-2xs transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+                    className="px-4 py-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-white font-bold text-xs border border-white/15 shadow-sm transition-all flex items-center gap-2 cursor-pointer active:scale-95"
                     title="Export results to CSV"
                   >
-                    <Download className="w-3.5 h-3.5 text-slate-500" />
+                    <Download className="w-3.5 h-3.5 text-white/70" />
                     <span>Export CSV</span>
                   </button>
 
@@ -7754,7 +7902,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     type="button"
                     onClick={loadExamSubmissions}
                     disabled={isLoadingSubmissions}
-                    className="px-3.5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4d4be0] text-white font-bold text-xs border-none shadow-sm shadow-[#5d5bf6]/30 transition-all flex items-center gap-2 cursor-pointer active:scale-95 disabled:opacity-60"
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#dc2626] to-[#ff2a55] hover:from-[#c51d1d] hover:to-[#eb1c46] text-white font-bold text-xs border border-white/20 shadow-[0_0_20px_rgba(225,20,56,0.5)] transition-all flex items-center gap-2 cursor-pointer active:scale-95 disabled:opacity-60"
                   >
                     <RefreshCw className={`w-3.5 h-3.5 ${isLoadingSubmissions ? 'animate-spin' : ''}`} />
                     <span>{isLoadingSubmissions ? 'Loading...' : 'Refresh'}</span>
@@ -7762,109 +7910,734 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 </div>
               </div>
 
-              {/* 4 Metric Overview Cards */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+              {/* 2. THREE SIGNATURE NAVIGATION TABS */}
+              <div className="relative z-10 flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md">
+                <button
+                  type="button"
+                  onClick={() => setExamViewMode('leaderboard')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border ${
+                    examViewMode === 'leaderboard'
+                      ? 'bg-gradient-to-r from-[#dc2626] to-[#ff2a55] text-white border-white/25 shadow-[0_0_20px_rgba(225,20,56,0.6)]'
+                      : 'bg-transparent text-gray-300 hover:text-white border-transparent hover:bg-white/[0.04]'
+                  }`}
+                >
+                  <Trophy className="w-4 h-4" />
+                  <span>কোর্স ও পরীক্ষা ভিত্তিক লিডারবোর্ড</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setExamViewMode('gradebook')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border ${
+                    examViewMode === 'gradebook'
+                      ? 'bg-gradient-to-r from-[#dc2626] to-[#ff2a55] text-white border-white/25 shadow-[0_0_20px_rgba(225,20,56,0.6)]'
+                      : 'bg-transparent text-gray-300 hover:text-white border-transparent hover:bg-white/[0.04]'
+                  }`}
+                >
+                  <Users className="w-4 h-4" />
+                  <span>শিক্ষার্থী গ্রেডবুক ও খাতা ({studentGradebookList.length})</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setExamViewMode('submissions')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border ${
+                    examViewMode === 'submissions'
+                      ? 'bg-gradient-to-r from-[#dc2626] to-[#ff2a55] text-white border-white/25 shadow-[0_0_20px_rgba(225,20,56,0.6)]'
+                      : 'bg-transparent text-gray-300 hover:text-white border-transparent hover:bg-white/[0.04]'
+                  }`}
+                >
+                  <FileText className="w-4 h-4" />
+                  <span>সকল জমার লাইভ লেজার ({filteredSubmissions.length})</span>
+                </button>
+              </div>
+
+              {/* 3. FOUR METRIC SUMMARY CARDS (DARK GLASS WITH RUBY GLOW) */}
+              <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
                 {/* Total Submissions */}
-                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+                <div className="bg-[#1c060f]/80 rounded-2xl p-4 sm:p-5 border border-[#e11438]/25 shadow-lg backdrop-blur-md flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-500">Total Submissions</span>
-                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                    <span className="text-xs font-bold text-gray-300">Total Submissions</span>
+                    <div className="w-8 h-8 rounded-xl bg-[#e11438]/20 text-[#ff4d6d] flex items-center justify-center border border-[#e11438]/30">
                       <FileText className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                  <div className="text-2xl sm:text-3xl font-black text-white mt-2">
                     {examStats.totalSubs}
                   </div>
-                  <span className="text-[11px] text-slate-400 font-medium mt-1">
-                    All completed exam attempts
+                  <span className="text-[11px] text-gray-400 font-medium mt-1">
+                    মোট জমা হওয়া পরীক্ষার খাতা
                   </span>
                 </div>
 
                 {/* Unique Examinees */}
-                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+                <div className="bg-[#1c060f]/80 rounded-2xl p-4 sm:p-5 border border-[#e11438]/25 shadow-lg backdrop-blur-md flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-500">Unique Examinees</span>
-                    <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+                    <span className="text-xs font-bold text-gray-300">Unique Examinees</span>
+                    <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center border border-purple-500/30">
                       <Users className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                  <div className="text-2xl sm:text-3xl font-black text-white mt-2">
                     {examStats.uniqueExaminees}
                   </div>
-                  <span className="text-[11px] text-slate-400 font-medium mt-1">
-                    Distinct student participants
+                  <span className="text-[11px] text-gray-400 font-medium mt-1">
+                    অংশগ্রহণকারী পৃথক শিক্ষার্থী
                   </span>
                 </div>
 
                 {/* Avg Accuracy */}
-                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+                <div className="bg-[#1c060f]/80 rounded-2xl p-4 sm:p-5 border border-[#e11438]/25 shadow-lg backdrop-blur-md flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-500">Average Score</span>
-                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                    <span className="text-xs font-bold text-gray-300">Average Score</span>
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center border border-emerald-500/30">
                       <TrendingUp className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-emerald-600 mt-2">
+                  <div className="text-2xl sm:text-3xl font-black text-emerald-400 mt-2">
                     {examStats.avgPct}%
                   </div>
-                  <span className="text-[11px] text-slate-400 font-medium mt-1">
-                    Average marks percentage
+                  <span className="text-[11px] text-gray-400 font-medium mt-1">
+                    সামগ্রিক গড় অ্যাকুরেসি
                   </span>
                 </div>
 
                 {/* Top Performer */}
-                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+                <div className="bg-[#1c060f]/80 rounded-2xl p-4 sm:p-5 border border-[#e11438]/25 shadow-lg backdrop-blur-md flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-500">Highest Mark</span>
-                    <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                    <span className="text-xs font-bold text-gray-300">Highest Mark</span>
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-500/30">
                       <Trophy className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-amber-600 mt-2 truncate">
+                  <div className="text-2xl sm:text-3xl font-black text-amber-400 mt-2 truncate">
                     {examStats.topScorer ? `${examStats.topScorer.score} / ${examStats.topScorer.total_marks}` : '0'}
                   </div>
-                  <span className="text-[11px] text-slate-400 font-medium mt-1 truncate">
+                  <span className="text-[11px] text-gray-400 font-medium mt-1 truncate">
                     {examStats.topScorer ? examStats.topScorer.student_name : 'No submissions yet'}
                   </span>
                 </div>
               </div>
 
-              {/* VIEW 1: ALL SUBMISSIONS TABLE */}
-              {examViewMode === 'submissions' && (
-                <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden space-y-4 p-5 sm:p-6">
-                  {/* Filter Toolbar */}
-                  <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
-                    {/* Search */}
-                    <div className="relative w-full sm:w-80 md:w-96 shrink-0">
-                      <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                      <input
-                        type="text"
-                        placeholder="শিক্ষার্থীর নাম, ফোন, ইমেইল বা পরীক্ষার নাম..."
-                        value={examSubmissionsSearch}
-                        onChange={(e) => setExamSubmissionsSearch(e.target.value)}
-                        className="w-full bg-[#f4f6fa] border border-slate-200/80 rounded-xl pl-10 pr-8 py-2 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] focus:ring-2 focus:ring-[#5d5bf6]/15 transition-all font-medium placeholder:text-slate-400"
-                      />
-                      {examSubmissionsSearch && (
+              {/* 4. TAB 1: 🏆 কোর্স ও পরীক্ষা ভিত্তিক লিডারবোর্ড (Course & Exam Batches Leaderboard) */}
+              {examViewMode === 'leaderboard' && (
+                <div className="relative z-10 space-y-6">
+                  {/* Step A: Course Selection Cards */}
+                  <div className="space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-1.5">
+                        <BookOpen className="w-4 h-4 text-[#ff2a55]" />
+                        ১. কোর্স নির্বাচন করুন (Select Course):
+                      </span>
+                      <span className="text-xs text-white/50">
+                        মোট {courses.length} টি কোর্স রয়েছে
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                      {courses.map(c => {
+                        const cKey = String(c.id || c.slug);
+                        const isSelected = String(leaderboardCourseId).toLowerCase() === String(c.id).toLowerCase() ||
+                                           String(leaderboardCourseId).toLowerCase() === String(c.slug || '').toLowerCase();
+                        const cSubmissions = examSubmissions.filter(s => 
+                          String(s.course_id || '').toLowerCase() === String(c.id).toLowerCase() ||
+                          String(s.course_slug || '').toLowerCase() === String(c.slug || '').toLowerCase()
+                        );
+
+                        return (
+                          <button
+                            key={cKey}
+                            type="button"
+                            onClick={() => {
+                              setLeaderboardCourseId(cKey);
+                              setLeaderboardLessonId('');
+                            }}
+                            className={`p-3.5 rounded-2xl text-left transition-all cursor-pointer border flex items-center gap-3 ${
+                              isSelected
+                                ? 'bg-gradient-to-r from-[#e11438]/30 via-[#270811] to-[#160307] border-[#e11438] text-white shadow-[0_0_20px_rgba(225,20,56,0.35)] ring-1 ring-[#e11438]/50'
+                                : 'bg-white/[0.03] border-white/10 text-gray-300 hover:bg-white/[0.07] hover:border-white/20 hover:text-white'
+                            }`}
+                          >
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${
+                              isSelected
+                                ? 'bg-[#e11438] border-white/30 text-white shadow-[0_0_15px_rgba(225,20,56,0.6)]'
+                                : 'bg-white/10 border-white/10 text-white/70'
+                            }`}>
+                              <BookOpen className="w-5 h-5 text-white" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <h4 className="text-xs font-bold text-white truncate leading-tight">
+                                {c.title || c.name || 'Course'}
+                              </h4>
+                              <p className="text-[10px] text-gray-400 mt-1 flex items-center gap-2">
+                                <span>{c.category || 'Batch'}</span>
+                                <span>•</span>
+                                <span className="text-amber-400 font-semibold">{cSubmissions.length} জনা জমা</span>
+                              </p>
+                            </div>
+                            {isSelected && (
+                              <Check className="w-4 h-4 text-[#ff2a55] shrink-0" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Step B: Chapter / Exam Selector Pills */}
+                  {currentLeaderboardCourse && (
+                    <div className="p-4 rounded-2xl bg-black/40 border border-white/10 space-y-3">
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                          <Flame className="w-4 h-4 text-amber-400" />
+                          ২. অধ্যায় বা পরীক্ষা নির্বাচন করুন ({currentLeaderboardCourse.title}):
+                        </span>
+                        <span className="text-[11px] text-white/50">
+                          {currentCourseLessons.length} টি পরীক্ষা অন্তর্ভুক্ত
+                        </span>
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-2">
+                        {/* Overall course ranking pill */}
                         <button
                           type="button"
-                          onClick={() => setExamSubmissionsSearch('')}
-                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 border-none bg-transparent cursor-pointer"
+                          onClick={() => setLeaderboardLessonId('')}
+                          className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border flex items-center gap-1.5 ${
+                            !leaderboardLessonId || leaderboardLessonId === 'ALL' || leaderboardLessonId === 'overall'
+                              ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white border-amber-300/40 shadow-[0_0_15px_rgba(245,158,11,0.5)]'
+                              : 'bg-white/[0.04] text-gray-300 hover:text-white border-white/10 hover:bg-white/[0.08]'
+                          }`}
+                        >
+                          <Trophy className="w-3.5 h-3.5 text-amber-300" />
+                          <span>কোর্সের সামগ্রিক মেধা তালিকা (Cumulative Overall)</span>
+                        </button>
+
+                        {/* Lessons / Exams pills */}
+                        {currentCourseLessons.map((les, idx) => {
+                          const isLesActive = leaderboardLessonId === les.lessonId;
+                          return (
+                            <button
+                              key={les.lessonId}
+                              type="button"
+                              onClick={() => setLeaderboardLessonId(les.lessonId)}
+                              className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer border flex items-center gap-1.5 ${
+                                isLesActive
+                                  ? 'bg-[#e11438] text-white border-white/30 shadow-[0_0_15px_rgba(225,20,56,0.6)] font-bold'
+                                  : 'bg-white/[0.04] text-gray-300 hover:text-white border-white/10 hover:bg-white/[0.08]'
+                              }`}
+                            >
+                              <span className="w-4 h-4 rounded-full bg-white/20 text-[10px] flex items-center justify-center font-mono">
+                                {idx + 1}
+                              </span>
+                              <span className="truncate max-w-[180px]">{les.title}</span>
+                              {isLesActive && <Check className="w-3.5 h-3.5 text-white shrink-0" />}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Step C: The Iconic 3D Podium & Avatars (Exact match to LeaderboardPage.jsx!) */}
+                  {isLoadingLeaderboard ? (
+                    <div className="py-24 text-center">
+                      <RefreshCw className="w-8 h-8 text-[#ff2a55] animate-spin mx-auto mb-3" />
+                      <p className="text-sm font-bold text-white">মেধাতালিকা ও পোডিয়াম লোড হচ্ছে...</p>
+                    </div>
+                  ) : (
+                    <div className="pt-8 pb-4 relative w-full">
+                      {/* Ground Soft Cast Ambient Shadow */}
+                      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[94%] h-16 bg-black/95 rounded-full blur-2xl pointer-events-none z-0" />
+
+                      {/* 3-Column Podium Stage */}
+                      <div className="relative flex items-end justify-center w-full max-w-[420px] sm:max-w-[480px] mx-auto z-10">
+                        {/* RANK 2 (SILVER - LEFT) */}
+                        {(() => {
+                          const rank2 = leaderboardData[1] || null;
+                          return (
+                            <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -mr-1">
+                              <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
+                                {rank2 ? (
+                                  <>
+                                    <div className="relative group shrink-0">
+                                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black/85 rounded-full blur-[3px]" />
+                                      <img 
+                                        src={rank2.avatar || rank2.student_avatar || '/avatar.svg'} 
+                                        alt={rank2.student_name || 'Rank 2'}
+                                        className="w-[58px] h-[58px] sm:w-[68px] sm:h-[68px] rounded-full object-cover border-[2.5px] border-white shadow-[0_10px_22px_rgba(0,0,0,0.7)] relative z-10 shrink-0"
+                                        onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                                      />
+                                    </div>
+                                    <span className="text-[11px] sm:text-xs font-bold text-white/95 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
+                                      {rank2.student_name || 'Student'}
+                                    </span>
+                                    <div className="mt-1">
+                                      <AdminTokenPill points={rank2.score ?? rank2.total_score} />
+                                    </div>
+                                    <span className="text-[10px] text-white/50 font-mono mt-0.5">
+                                      {formatMinimalTime(rank2.time_taken_seconds ?? rank2.total_time_seconds)}
+                                    </span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <div className="w-[58px] h-[58px] sm:w-[68px] sm:h-[68px] rounded-full border-2 border-dashed border-white/20 flex items-center justify-center bg-white/[0.03] text-white/40">
+                                      <span className="font-bold text-sm">২</span>
+                                    </div>
+                                    <span className="text-[10px] font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
+                                      ২য় স্থান (খালি)
+                                    </span>
+                                    <div className="mt-1">
+                                      <AdminTokenPill points="--" />
+                                    </div>
+                                  </>
+                                )}
+                              </div>
+
+                              {/* 3D Pillar #2 */}
+                              <div className="w-full flex flex-col items-center relative">
+                                <div className="w-full h-8 sm:h-9 bg-gradient-to-b from-[#3a0e1a] via-[#260811] to-[#17040b] border-t border-l border-white/20 shadow-inner relative z-10">
+                                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
+                                </div>
+                                <div className="w-full h-36 sm:h-42 bg-gradient-to-b from-[#1e060d] via-[#110207] to-[#070103] border-l border-b border-white/10 pt-5 sm:pt-6 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_10px_20px_rgba(0,0,0,0.6)]">
+                                  <span 
+                                    className="font-black text-5xl sm:text-6xl select-none leading-none"
+                                    style={{
+                                      color: 'rgba(255, 255, 255, 0.09)',
+                                      textShadow: '0 2px 4px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.1)'
+                                    }}
+                                  >
+                                    2
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })()}
+
+                        {/* RANK 1 (GOLD - CENTER - TALLEST & PROTRUDING) */}
+                        {(() => {
+                          const rank1 = leaderboardData[0] || null;
+                          return (
+                            <div className="w-[36%] min-w-0 flex flex-col items-center relative z-20">
+                              <div className="flex flex-col items-center mb-3.5 animate-in fade-in duration-300 w-full">
+                                {rank1 ? (
+                                  <>
+                                    <div className="relative group shrink-0">
+                                      <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-black/90 rounded-full blur-[4px]" />
+                                      <img 
+                                        src={rank1.avatar || rank1.student_avatar || '/avatar.svg'} 
+                                        alt={rank1.student_name || 'Rank 1'}
+                                        className="w-[74px] h-[74px] sm:w-[86px] sm:h-[86px] rounded-full object-cover border-[3px] border-amber-300 shadow-[0_12px_28px_rgba(245,158,11,0.4)] relative z-10 shrink-0"
+                                        onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                                      />
+                                    </div>
+                                    <span className="text-xs sm:text-sm font-black text-amber-300 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
+                                      👑 {rank1.student_name || 'Champion'}
+                                    </span>
+                                    <div className="mt-1">
+                                      <AdminTokenPill points={rank1.score ?? rank1.total_score} size="lg" />
+                                    </div>
+                                    <span className="text-[10px] text-amber-300/80 font-mono mt-0.5">
+                                      {formatMinimalTime(rank1.time_taken_seconds ?? rank1.total_time_seconds)}
+                                    </span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <div className="w-[74px] h-[74px] sm:w-[86px] sm:h-[86px] rounded-full border-2 border-dashed border-amber-400/35 flex items-center justify-center bg-white/[0.03] text-amber-400/60 shadow-inner">
+                                      <span className="font-bold text-base sm:text-lg">১</span>
+                                    </div>
+                                    <span className="text-[11px] sm:text-xs font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
+                                      ১ম স্থান (খালি)
+                                    </span>
+                                    <div className="mt-1">
+                                      <AdminTokenPill points="--" size="lg" />
+                                    </div>
+                                  </>
+                                )}
+                              </div>
+
+                              {/* 3D Pillar #1 */}
+                              <div className="w-full flex flex-col items-center relative z-20 shadow-[-16px_0_35px_rgba(0,0,0,0.92),16px_0_35px_rgba(0,0,0,0.92)]">
+                                <div className="w-full h-9 sm:h-10 bg-gradient-to-b from-[#551425] via-[#380c19] to-[#22050f] border-t border-x border-white/25 shadow-inner relative z-10">
+                                  <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-white/15 via-white/45 to-white/15" />
+                                </div>
+                                <div className="w-full h-48 sm:h-58 bg-gradient-to-b from-[#270610] via-[#150209] to-[#080104] border-x border-b border-white/15 pt-6 sm:pt-8 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_12px_24px_rgba(0,0,0,0.7)]">
+                                  <span 
+                                    className="font-black text-6xl sm:text-7xl select-none leading-none"
+                                    style={{
+                                      color: 'rgba(255, 255, 255, 0.12)',
+                                      textShadow: '0 3px 6px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.15)'
+                                    }}
+                                  >
+                                    1
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })()}
+
+                        {/* RANK 3 (BRONZE - RIGHT) */}
+                        {(() => {
+                          const rank3 = leaderboardData[2] || null;
+                          return (
+                            <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -ml-1">
+                              <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
+                                {rank3 ? (
+                                  <>
+                                    <div className="relative group shrink-0">
+                                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-black/85 rounded-full blur-[3px]" />
+                                      <img 
+                                        src={rank3.avatar || rank3.student_avatar || '/avatar.svg'} 
+                                        alt={rank3.student_name || 'Rank 3'}
+                                        className="w-[58px] h-[58px] sm:w-[68px] sm:h-[68px] rounded-full object-cover border-[2.5px] border-white shadow-[0_10px_22px_rgba(0,0,0,0.7)] relative z-10 shrink-0"
+                                        onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                                      />
+                                    </div>
+                                    <span className="text-[11px] sm:text-xs font-bold text-white/95 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
+                                      {rank3.student_name || 'Student'}
+                                    </span>
+                                    <div className="mt-1">
+                                      <AdminTokenPill points={rank3.score ?? rank3.total_score} />
+                                    </div>
+                                    <span className="text-[10px] text-white/50 font-mono mt-0.5">
+                                      {formatMinimalTime(rank3.time_taken_seconds ?? rank3.total_time_seconds)}
+                                    </span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <div className="w-[58px] h-[58px] sm:w-[68px] sm:h-[68px] rounded-full border-2 border-dashed border-white/20 flex items-center justify-center bg-white/[0.03] text-white/40">
+                                      <span className="font-bold text-sm">৩</span>
+                                    </div>
+                                    <span className="text-[10px] font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
+                                      ৩য় স্থান (খালি)
+                                    </span>
+                                    <div className="mt-1">
+                                      <AdminTokenPill points="--" />
+                                    </div>
+                                  </>
+                                )}
+                              </div>
+
+                              {/* 3D Pillar #3 */}
+                              <div className="w-full flex flex-col items-center relative">
+                                <div className="w-full h-8 sm:h-9 bg-gradient-to-b from-[#3a0e1a] via-[#260811] to-[#17040b] border-t border-r border-white/20 shadow-inner relative z-10">
+                                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
+                                </div>
+                                <div className="w-full h-28 sm:h-34 bg-gradient-to-b from-[#1e060d] via-[#110207] to-[#070103] border-r border-b border-white/10 pt-4 sm:pt-5 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_10px_20px_rgba(0,0,0,0.6)]">
+                                  <span 
+                                    className="font-black text-4xl sm:text-5xl select-none leading-none"
+                                    style={{
+                                      color: 'rgba(255, 255, 255, 0.09)',
+                                      textShadow: '0 2px 4px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.1)'
+                                    }}
+                                  >
+                                    3
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })()}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Step D: Rounded Bottom Sheet for Ranks 4+ Examinees (User Website Style) */}
+                  <div className="rounded-t-[32px] sm:rounded-t-[40px] rounded-b-2xl bg-gradient-to-b from-[#18040b] via-[#0e0206] to-[#070102] border border-white/10 p-5 sm:p-6 shadow-2xl space-y-4">
+                    <div className="w-10 h-1 bg-white/25 rounded-full mx-auto" />
+                    
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                        <Award className="w-4 h-4 text-amber-400" />
+                        পূর্ণাঙ্গ মেধাতালিকা (Full Merit Standings - {leaderboardData.length} Students)
+                      </h4>
+                      <span className="text-xs text-white/40">
+                        টাই-ব্রেকার: স্কোর &gt; সময় &gt; প্রথম জমা
+                      </span>
+                    </div>
+
+                    {leaderboardData.length === 0 ? (
+                      <div className="py-12 text-center text-white/40 text-xs">
+                        এখনও কোনো শিক্ষার্থী এই পরীক্ষায় অংশগ্রহণ করেনি। শিক্ষার্থীরা পরীক্ষা দিলে স্বয়ংক্রিয়ভাবে লাইভ মেধাতালিকায় নাম প্রদর্শিত হবে।
+                      </div>
+                    ) : (
+                      <div className="divide-y divide-white/[0.05]">
+                        {leaderboardData.map((student, idx) => {
+                          const rank = student.rank || idx + 1;
+                          const rawPoints = student.score ?? student.total_score ?? 0;
+                          const sec = student.time_taken_seconds ?? student.total_time_seconds ?? 0;
+
+                          return (
+                            <div 
+                              key={student.id || student.student_id || idx}
+                              className="py-3 px-2 flex items-center justify-between gap-3 hover:bg-white/[0.03] rounded-xl transition-colors"
+                            >
+                              <div className="flex items-center gap-3 min-w-0">
+                                <span className={`w-7 text-center font-black text-sm shrink-0 ${
+                                  rank === 1 ? 'text-amber-400' : rank === 2 ? 'text-slate-200' : rank === 3 ? 'text-orange-400' : 'text-white/40'
+                                }`}>
+                                  #{rank}
+                                </span>
+
+                                <img 
+                                  src={student.avatar || student.student_avatar || '/avatar.svg'} 
+                                  alt={student.student_name}
+                                  className="w-10 h-10 rounded-full object-cover border border-white/15 bg-white/5 shrink-0"
+                                  onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                                />
+
+                                <div className="min-w-0">
+                                  <h4 className="text-sm font-bold text-white truncate">
+                                    {student.student_name || 'Anonymous Student'}
+                                  </h4>
+                                  <p className="text-[11px] text-white/40 font-mono">
+                                    {student.student_phone || student.student_email || ''}
+                                  </p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-center gap-3 shrink-0">
+                                <div className="text-right">
+                                  <span className="font-black text-white text-sm block">
+                                    {rawPoints} pts
+                                  </span>
+                                  <span className="text-[11px] text-white/40 font-mono block">
+                                    {formatMinimalTime(sec)}
+                                  </span>
+                                </div>
+
+                                {/* View Paper Button */}
+                                <button
+                                  type="button"
+                                  onClick={() => setInspectingSubmission(student)}
+                                  className="px-2.5 py-1.5 rounded-lg bg-[#e11438]/20 hover:bg-[#e11438]/35 text-white text-[11px] font-bold border border-[#e11438]/40 transition-all cursor-pointer flex items-center gap-1 active:scale-95"
+                                  title="View full answer sheet and evaluate marks"
+                                >
+                                  <Eye className="w-3.5 h-3.5 text-[#ff4d6d]" />
+                                  <span className="hidden sm:inline">খাতা দেখুন</span>
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* 5. TAB 2: 👤 শিক্ষার্থী গ্রেডবুক ও খাতা মূল্যায়ন (Individual Student Gradebook) */}
+              {examViewMode === 'gradebook' && (
+                <div className="relative z-10 space-y-6">
+                  {/* Search Bar & Quick Student Selection */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-black/40 border border-white/10 space-y-4">
+                    <div className="relative max-w-md">
+                      <Search className="w-4 h-4 text-white/40 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        placeholder="শিক্ষার্থীর নাম, মোবাইল নম্বর বা ইমেইল টাইপ করুন..."
+                        value={gradebookSearchQuery}
+                        onChange={(e) => setGradebookSearchQuery(e.target.value)}
+                        className="w-full bg-[#18040b] border border-[#e11438]/40 rounded-xl pl-10 pr-8 py-2.5 text-xs text-white outline-none focus:border-[#ff2a55] focus:ring-2 focus:ring-[#e11438]/20 placeholder:text-white/40"
+                      />
+                      {gradebookSearchQuery && (
+                        <button
+                          type="button"
+                          onClick={() => setGradebookSearchQuery('')}
+                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-white/40 hover:text-white border-none bg-transparent cursor-pointer"
                         >
                           <X className="w-3.5 h-3.5" />
                         </button>
                       )}
                     </div>
 
-                    {/* Dropdowns */}
+                    {/* Quick Selection Student Chips */}
                     <div className="flex flex-wrap items-center gap-2">
-                      {/* Course Filter */}
+                      <span className="text-[11px] text-white/50 font-semibold mr-1">
+                        শিক্ষার্থী নির্বাচন করুন:
+                      </span>
+                      {filteredGradebookStudents.slice(0, 8).map(st => {
+                        const isStSelected = activeGradebookStudent?.key === st.key;
+                        return (
+                          <button
+                            key={st.key}
+                            type="button"
+                            onClick={() => setSelectedGradebookStudentKey(st.key)}
+                            className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer border flex items-center gap-1.5 ${
+                              isStSelected
+                                ? 'bg-gradient-to-r from-[#dc2626] to-[#ff2a55] text-white border-white/30 shadow-[0_0_12px_rgba(225,20,56,0.5)] font-bold'
+                                : 'bg-white/[0.04] text-gray-300 hover:text-white border-white/10 hover:bg-white/[0.08]'
+                            }`}
+                          >
+                            <span>{st.student_name}</span>
+                            <span className="text-[10px] opacity-70">({st.totalExams})</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Active Student Detail Card & Exam History */}
+                  {activeGradebookStudent ? (
+                    <div className="space-y-5">
+                      {/* Student Profile Hero Header */}
+                      <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#20050e] via-[#150309] to-[#0c0205] border border-[#e11438]/30 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+                        <div className="flex items-center gap-4">
+                          <img 
+                            src={activeGradebookStudent.student_avatar || '/avatar.svg'} 
+                            alt={activeGradebookStudent.student_name}
+                            className="w-16 h-16 rounded-full object-cover border-2 border-[#ff2a55] shadow-[0_0_20px_rgba(225,20,56,0.4)] shrink-0"
+                            onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                          />
+                          <div>
+                            <h3 className="text-lg font-black text-white">
+                              {activeGradebookStudent.student_name}
+                            </h3>
+                            <p className="text-xs text-white/60 font-mono mt-0.5">
+                              {activeGradebookStudent.student_phone || 'No phone'} · {activeGradebookStudent.student_email || 'No email'}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Student Mini Stats */}
+                        <div className="grid grid-cols-3 gap-3 w-full md:w-auto">
+                          <div className="bg-black/40 border border-white/10 rounded-xl p-3 text-center min-w-[90px]">
+                            <span className="text-[10px] text-gray-400 block font-bold">EXAMS</span>
+                            <span className="text-base font-black text-white">{activeGradebookStudent.totalExams}</span>
+                          </div>
+                          <div className="bg-black/40 border border-white/10 rounded-xl p-3 text-center min-w-[90px]">
+                            <span className="text-[10px] text-gray-400 block font-bold">TOTAL PTS</span>
+                            <span className="text-base font-black text-amber-400">{activeGradebookStudent.totalScore}</span>
+                          </div>
+                          <div className="bg-black/40 border border-white/10 rounded-xl p-3 text-center min-w-[90px]">
+                            <span className="text-[10px] text-gray-400 block font-bold">AVG ACCURACY</span>
+                            <span className="text-base font-black text-emerald-400">{activeGradebookStudent.averagePercentage}%</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Exams History Table */}
+                      <div className="rounded-2xl bg-black/40 border border-white/10 overflow-hidden">
+                        <div className="p-4 border-b border-white/10 flex items-center justify-between">
+                          <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+                            অংশগ্রহণকৃত সকল পরীক্ষার ফলাফল তালিকা (Exam History)
+                          </h4>
+                          <span className="text-xs text-white/50">
+                            মোট {activeGradebookStudent.submissions.length} টি পরীক্ষা সম্পন্ন
+                          </span>
+                        </div>
+
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-left text-xs text-white/80">
+                            <thead className="bg-white/[0.03] text-white/50 uppercase text-[10px] font-bold border-b border-white/10">
+                              <tr>
+                                <th className="py-3 px-4">#</th>
+                                <th className="py-3 px-4">কোর্স</th>
+                                <th className="py-3 px-4">পরীক্ষার নাম</th>
+                                <th className="py-3 px-4 text-center">প্রাপ্ত নম্বর</th>
+                                <th className="py-3 px-4 text-center">অ্যাকুরেসি</th>
+                                <th className="py-3 px-4 text-center">সময়</th>
+                                <th className="py-3 px-4">তারিখ</th>
+                                <th className="py-3 px-4 text-center">খাতা পরিদর্শক</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-white/[0.04]">
+                              {activeGradebookStudent.submissions.map((sub, idx) => {
+                                const pct = sub.percentage ?? 0;
+                                const isExcellent = pct >= 80;
+                                const isPass = pct >= 50;
+
+                                return (
+                                  <tr key={sub.id || idx} className="hover:bg-white/[0.03] transition-colors">
+                                    <td className="py-3 px-4 text-white/40 font-mono text-[11px]">{idx + 1}</td>
+                                    <td className="py-3 px-4">
+                                      <span className="px-2 py-0.5 rounded-md bg-white/[0.05] text-white/80 text-[11px] font-semibold border border-white/10">
+                                        {sub.course_name || 'Course'}
+                                      </span>
+                                    </td>
+                                    <td className="py-3 px-4 font-bold text-white">
+                                      {sub.lesson_title || 'Exam'}
+                                    </td>
+                                    <td className="py-3 px-4 text-center font-bold text-white">
+                                      <span className="text-amber-400">{sub.score}</span> / {sub.total_marks}
+                                    </td>
+                                    <td className="py-3 px-4 text-center">
+                                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                                        isExcellent 
+                                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' 
+                                          : isPass
+                                          ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                                          : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                                      }`}>
+                                        {pct}%
+                                      </span>
+                                    </td>
+                                    <td className="py-3 px-4 text-center font-mono text-[11px] text-white/60">
+                                      {formatMinimalTime(sub.time_taken_seconds)}
+                                    </td>
+                                    <td className="py-3 px-4 text-white/40 text-[11px] whitespace-nowrap">
+                                      {sub.submitted_at ? new Date(sub.submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'N/A'}
+                                    </td>
+                                    <td className="py-3 px-4 text-center">
+                                      <button
+                                        type="button"
+                                        onClick={() => setInspectingSubmission(sub)}
+                                        className="px-3 py-1 rounded-lg bg-[#e11438]/20 hover:bg-[#e11438]/40 text-white text-xs font-bold border border-[#e11438]/40 transition-all cursor-pointer flex items-center gap-1 mx-auto active:scale-95"
+                                      >
+                                        <Eye className="w-3.5 h-3.5 text-[#ff4d6d]" />
+                                        <span>খাতা দেখুন</span>
+                                      </button>
+                                    </td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="py-16 text-center text-white/40">
+                      কোনো শিক্ষার্থী পাওয়া যায়নি। উপরের সার্চ বারে ফোন বা নাম দিয়ে খুঁজুন।
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* 6. TAB 3: 📋 সকল জমার লাইভ লেজার (All Submissions Master Ledger) */}
+              {examViewMode === 'submissions' && (
+                <div className="relative z-10 space-y-4">
+                  {/* Filter Toolbar */}
+                  <div className="p-4 rounded-2xl bg-black/40 border border-white/10 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+                    <div className="relative w-full sm:w-80 md:w-96 shrink-0">
+                      <Search className="w-4 h-4 text-white/40 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        placeholder="শিক্ষার্থীর নাম, ফোন, ইমেইল বা পরীক্ষার নাম..."
+                        value={examSubmissionsSearch}
+                        onChange={(e) => setExamSubmissionsSearch(e.target.value)}
+                        className="w-full bg-[#18040b] border border-[#e11438]/40 rounded-xl pl-10 pr-8 py-2 text-xs text-white outline-none focus:border-[#ff2a55] placeholder:text-white/40 font-medium"
+                      />
+                      {examSubmissionsSearch && (
+                        <button
+                          type="button"
+                          onClick={() => setExamSubmissionsSearch('')}
+                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-white/40 hover:text-white border-none bg-transparent cursor-pointer"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2">
                       <select
                         value={selectedExamCourseFilter}
                         onChange={(e) => {
                           setSelectedExamCourseFilter(e.target.value);
                           setSelectedExamFilter('ALL');
                         }}
-                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6]"
+                        className="bg-[#18040b] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-semibold outline-none focus:border-[#e11438]"
                       >
                         <option value="ALL">সকল কোর্স (All Courses)</option>
                         {submissionCourseOptions.map(c => (
@@ -7872,11 +8645,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         ))}
                       </select>
 
-                      {/* Exam Filter */}
                       <select
                         value={selectedExamFilter}
                         onChange={(e) => setSelectedExamFilter(e.target.value)}
-                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6] max-w-[200px]"
+                        className="bg-[#18040b] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-semibold outline-none focus:border-[#e11438] max-w-[200px]"
                       >
                         <option value="ALL">সকল পরীক্ষা (All Exams)</option>
                         {submissionExamOptions.map(e => (
@@ -7884,11 +8656,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         ))}
                       </select>
 
-                      {/* Attempt Type */}
                       <select
                         value={examAttemptFilter}
                         onChange={(e) => setExamAttemptFilter(e.target.value)}
-                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6]"
+                        className="bg-[#18040b] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-semibold outline-none focus:border-[#e11438]"
                       >
                         <option value="ALL">সকল অ্যাটেম্পট</option>
                         <option value="OFFICIAL">অফিসিয়াল ১ম চেষ্টা (Official 1st)</option>
@@ -7904,7 +8675,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             setSelectedExamFilter('ALL');
                             setExamAttemptFilter('ALL');
                           }}
-                          className="px-2.5 py-2 rounded-xl text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 transition-colors border border-rose-200/60 cursor-pointer"
+                          className="px-2.5 py-2 rounded-xl text-xs font-bold text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 cursor-pointer"
                         >
                           Clear
                         </button>
@@ -7913,136 +8684,115 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   </div>
 
                   {/* Submissions Table */}
-                  <div className="overflow-x-auto rounded-2xl border border-slate-100">
-                    <table className="w-full text-left text-xs text-slate-700">
-                      <thead className="bg-[#f8fafc] text-slate-500 uppercase text-[10px] font-black tracking-wider border-b border-slate-200/80">
+                  <div className="overflow-x-auto rounded-2xl bg-black/40 border border-white/10">
+                    <table className="w-full text-left text-xs text-white/80">
+                      <thead className="bg-white/[0.04] text-white/50 uppercase text-[10px] font-bold border-b border-white/10">
                         <tr>
-                          <th className="py-3 px-4">#</th>
-                          <th className="py-3 px-4">শিক্ষার্থী (Student)</th>
-                          <th className="py-3 px-4">কোর্স (Course)</th>
-                          <th className="py-3 px-4">পরীক্ষার নাম (Exam)</th>
-                          <th className="py-3 px-4 text-center">নম্বর (Score)</th>
-                          <th className="py-3 px-4 text-center">শতাংশ (%)</th>
-                          <th className="py-3 px-4 text-center">সময় (Time)</th>
-                          <th className="py-3 px-4 text-center">ধরন (Type)</th>
-                          <th className="py-3 px-4">তারিখ ও সময়</th>
-                          <th className="py-3 px-4 text-center">অ্যাকশন</th>
+                          <th className="py-3.5 px-4">#</th>
+                          <th className="py-3.5 px-4">শিক্ষার্থী</th>
+                          <th className="py-3.5 px-4">কোর্স</th>
+                          <th className="py-3.5 px-4">পরীক্ষার নাম</th>
+                          <th className="py-3.5 px-4 text-center">নম্বর</th>
+                          <th className="py-3.5 px-4 text-center">অ্যাকুরেসি</th>
+                          <th className="py-3.5 px-4 text-center">সময়</th>
+                          <th className="py-3.5 px-4 text-center">ধরন</th>
+                          <th className="py-3.5 px-4">তারিখ</th>
+                          <th className="py-3.5 px-4 text-center">অ্যাকশন</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-100">
-                        {isLoadingSubmissions ? (
+                      <tbody className="divide-y divide-white/[0.04]">
+                        {filteredSubmissions.length === 0 ? (
                           <tr>
-                            <td colSpan="10" className="py-12 text-center text-slate-400">
-                              <RefreshCw className="w-6 h-6 animate-spin mx-auto text-[#5d5bf6] mb-2" />
-                              <p className="font-bold text-xs text-slate-600">লোড হচ্ছে...</p>
-                            </td>
-                          </tr>
-                        ) : filteredSubmissions.length === 0 ? (
-                          <tr>
-                            <td colSpan="10" className="py-12 text-center text-slate-400">
-                              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3">
-                                <Trophy className="w-6 h-6" />
-                              </div>
-                              <p className="font-bold text-sm text-slate-700">কোনো পরীক্ষার ফলাফল পাওয়া যায়নি</p>
-                              <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
-                                আপনার নির্বাচিত ফিল্টার বা সার্চ দিয়ে কোনো রেজাল্ট মিলছে না। অথবা শিক্ষার্থীরা এখনও পরীক্ষা দেয়নি।
-                              </p>
+                            <td colSpan="10" className="py-14 text-center text-white/40">
+                              <Trophy className="w-8 h-8 text-white/20 mx-auto mb-2" />
+                              <p className="font-bold text-sm text-white/70">কোনো পরীক্ষার ফলাফল পাওয়া যায়নি</p>
+                              <p className="text-xs text-white/40 mt-1">শিক্ষার্থীরা পরীক্ষা জমা দিলে এখানে প্রদর্শিত হবে।</p>
                             </td>
                           </tr>
                         ) : (
                           filteredSubmissions.map((sub, idx) => {
-                            const pct = Number(sub.percentage || 0);
-                            const isPassing = pct >= 50;
+                            const pct = sub.percentage ?? 0;
                             const isExcellent = pct >= 80;
-                            const sec = Number(sub.time_taken_seconds || 0);
-                            const mins = Math.floor(sec / 60);
-                            const remSec = sec % 60;
-                            const formattedTime = mins > 0 ? `${mins}m ${remSec}s` : `${remSec}s`;
-                            const dateStr = sub.submitted_at 
-                              ? new Date(sub.submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })
-                              : 'N/A';
+                            const isPass = pct >= 50;
                             const isOfficial = sub.is_first_attempt !== false && (!sub.attempt_number || Number(sub.attempt_number) <= 1);
 
                             return (
-                              <tr key={sub.id || idx} className="hover:bg-slate-50/70 transition-colors">
-                                <td className="py-3.5 px-4 font-mono text-[11px] text-slate-400">
-                                  {idx + 1}
-                                </td>
+                              <tr key={sub.id || idx} className="hover:bg-white/[0.03] transition-colors">
+                                <td className="py-3.5 px-4 text-white/40 font-mono text-[11px]">{idx + 1}</td>
                                 <td className="py-3.5 px-4">
                                   <div className="flex items-center gap-2.5">
-                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#5d5bf6]/20 to-[#5d5bf6]/5 text-[#5d5bf6] font-black text-xs flex items-center justify-center shrink-0">
+                                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#dc2626] to-[#ff2a55] text-white font-black text-xs flex items-center justify-center shrink-0">
                                       {(sub.student_name || 'S').charAt(0).toUpperCase()}
                                     </div>
                                     <div className="min-w-0">
-                                      <div className="font-bold text-xs text-slate-900 truncate">
+                                      <div className="font-bold text-xs text-white truncate">
                                         {sub.student_name || 'Anonymous Student'}
                                       </div>
-                                      <div className="text-[11px] text-slate-500 font-mono flex items-center gap-1.5 flex-wrap">
-                                        {sub.student_phone && <span>{sub.student_phone}</span>}
-                                        {sub.student_email && <span className="text-slate-400">· {sub.student_email}</span>}
+                                      <div className="text-[11px] text-white/40 font-mono">
+                                        {sub.student_phone || sub.student_email || ''}
                                       </div>
                                     </div>
                                   </div>
                                 </td>
                                 <td className="py-3.5 px-4">
-                                  <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700 truncate max-w-[150px] inline-block">
+                                  <span className="px-2 py-0.5 rounded-md bg-white/[0.05] text-white/80 text-[11px] font-semibold border border-white/10 truncate max-w-[150px] inline-block">
                                     {sub.course_name || 'Course'}
                                   </span>
                                 </td>
-                                <td className="py-3.5 px-4">
-                                  <div className="font-bold text-xs text-slate-800 truncate max-w-[180px]">
-                                    {sub.lesson_title || 'Quiz / Exam'}
-                                  </div>
+                                <td className="py-3.5 px-4 font-bold text-white truncate max-w-[180px]">
+                                  {sub.lesson_title || 'Quiz'}
                                 </td>
-                                <td className="py-3.5 px-4 text-center">
-                                  <span className="font-black text-xs text-slate-900">
-                                    {sub.score ?? 0}
-                                  </span>
-                                  <span className="text-slate-400 font-medium text-[11px]">
-                                    {' '}/ {sub.total_marks ?? 0}
-                                  </span>
+                                <td className="py-3.5 px-4 text-center font-black text-amber-400">
+                                  {sub.score} <span className="text-white/40 font-normal">/ {sub.total_marks}</span>
                                 </td>
                                 <td className="py-3.5 px-4 text-center">
                                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
                                     isExcellent
-                                      ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                                      : isPassing
-                                      ? 'bg-amber-50 text-amber-700 border-amber-200'
-                                      : 'bg-rose-50 text-rose-700 border-rose-200'
+                                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                                      : isPass
+                                      ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                                      : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
                                   }`}>
                                     {pct}%
                                   </span>
                                 </td>
-                                <td className="py-3.5 px-4 text-center font-mono text-[11px] text-slate-600">
-                                  <div className="flex items-center justify-center gap-1">
-                                    <Clock className="w-3 h-3 text-slate-400" />
-                                    <span>{formattedTime}</span>
-                                  </div>
+                                <td className="py-3.5 px-4 text-center font-mono text-[11px] text-white/60">
+                                  {formatMinimalTime(sub.time_taken_seconds)}
                                 </td>
                                 <td className="py-3.5 px-4 text-center">
                                   {isOfficial ? (
-                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#5d5bf6]/10 text-[#5d5bf6] border border-[#5d5bf6]/20">
+                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#e11438]/20 text-[#ff4d6d] border border-[#e11438]/30">
                                       Official 1st
                                     </span>
                                   ) : (
-                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-white/10 text-white/70 border border-white/15">
                                       Retake #{sub.attempt_number || 2}
                                     </span>
                                   )}
                                 </td>
-                                <td className="py-3.5 px-4 text-[11px] text-slate-500 whitespace-nowrap">
-                                  {dateStr}
+                                <td className="py-3.5 px-4 text-white/40 text-[11px] whitespace-nowrap">
+                                  {sub.submitted_at ? new Date(sub.submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'N/A'}
                                 </td>
                                 <td className="py-3.5 px-4 text-center">
-                                  <button
-                                    type="button"
-                                    onClick={() => handleDeleteSubmission(sub.id)}
-                                    disabled={deletingSubmissionId === sub.id}
-                                    className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors border-none bg-transparent cursor-pointer disabled:opacity-40"
-                                    title="Delete this submission record"
-                                  >
-                                    <Trash2 className="w-4 h-4" />
-                                  </button>
+                                  <div className="flex items-center justify-center gap-1.5">
+                                    <button
+                                      type="button"
+                                      onClick={() => setInspectingSubmission(sub)}
+                                      className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors border-none bg-transparent cursor-pointer"
+                                      title="View Student Answer Sheet"
+                                    >
+                                      <Eye className="w-4 h-4 text-[#ff4d6d]" />
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => handleDeleteSubmission(sub.id)}
+                                      disabled={deletingSubmissionId === sub.id}
+                                      className="p-1.5 rounded-lg text-white/40 hover:text-rose-400 hover:bg-rose-500/10 transition-colors border-none bg-transparent cursor-pointer disabled:opacity-40"
+                                      title="Delete submission record"
+                                    >
+                                      <Trash2 className="w-4 h-4" />
+                                    </button>
+                                  </div>
                                 </td>
                               </tr>
                             );
@@ -8051,295 +8801,168 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       </tbody>
                     </table>
                   </div>
-
-                  {/* Footer note */}
-                  <div className="flex items-center justify-between text-xs text-slate-400 pt-2 px-1">
-                    <span>
-                      Showing {filteredSubmissions.length} of {examSubmissions.length} total exam submissions
-                    </span>
-                    <span className="flex items-center gap-1 font-medium">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-                      Direct from Supabase database
-                    </span>
-                  </div>
                 </div>
               )}
 
-              {/* VIEW 2: LEADERBOARD PODIUM & FULL RANKINGS */}
-              {examViewMode === 'leaderboard' && (
-                <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden space-y-6 p-5 sm:p-6">
-                  {/* Exam / Course Selector for Leaderboard */}
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
-                    <div>
-                      <h3 className="text-base font-bold text-slate-900">
-                        Official Leaderboard Standings (অফিসিয়াল মেধাতালিকা)
-                      </h3>
-                      <p className="text-xs text-slate-400 mt-0.5">
-                        প্রথমে সর্বোচ্চ নম্বর (Score DESC), টাই-ব্রেকারে দ্রুততম সময় (Time ASC) এবং প্রথম জমা (Timestamp ASC)।
-                      </p>
+              {/* 7. ANSWER SHEET INSPECTION MODAL (খাতা পরিদর্শক মোডাল) */}
+              {inspectingSubmission && (
+                <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
+                  <div className="relative w-full max-w-2xl max-h-[90vh] bg-gradient-to-b from-[#18040b] via-[#100207] to-[#070103] border border-[#e11438]/40 rounded-3xl p-6 text-white overflow-y-auto shadow-[0_25px_70px_rgba(225,20,56,0.4)] space-y-5">
+                    {/* Modal Header */}
+                    <div className="flex items-start justify-between gap-4 pb-4 border-b border-white/10">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#e11438]/20 text-[#ff4d6d] border border-[#e11438]/30">
+                            পরীক্ষার খাতা ও মূল্যায়ন
+                          </span>
+                          <span className="text-xs text-white/50">
+                            {inspectingSubmission.submitted_at ? new Date(inspectingSubmission.submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : ''}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-black text-white mt-1">
+                          {inspectingSubmission.lesson_title || inspectingSubmission.quiz_id || 'Class Exam'}
+                        </h3>
+                        <p className="text-xs text-gray-300 mt-0.5">
+                          কোর্স: <span className="text-white font-bold">{inspectingSubmission.course_name || 'EduHunters Course'}</span>
+                        </p>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setInspectingSubmission(null)}
+                        className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors border-none cursor-pointer"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-2">
-                      <select
-                        value={leaderboardCourseId}
-                        onChange={(e) => {
-                          setLeaderboardCourseId(e.target.value);
-                          setLeaderboardLessonId('ALL');
-                        }}
-                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6]"
-                      >
-                        <option value="ALL">সকল কোর্স মিলিয়ে (All Courses)</option>
-                        {submissionCourseOptions.map(c => (
-                          <option key={c.id} value={c.id}>{c.title}</option>
-                        ))}
-                      </select>
+                    {/* Student Info Card */}
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-between gap-4 flex-wrap">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#dc2626] to-[#ff2a55] text-white font-black text-lg flex items-center justify-center shrink-0">
+                          {(inspectingSubmission.student_name || 'S').charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <h4 className="text-sm font-bold text-white">
+                            {inspectingSubmission.student_name || 'Anonymous Student'}
+                          </h4>
+                          <p className="text-xs text-white/60 font-mono">
+                            {inspectingSubmission.student_phone || 'No phone'} · {inspectingSubmission.student_email || ''}
+                          </p>
+                        </div>
+                      </div>
 
-                      <select
-                        value={leaderboardLessonId}
-                        onChange={(e) => setLeaderboardLessonId(e.target.value)}
-                        className="bg-[#f4f6fa] border border-slate-200/80 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6] max-w-[220px]"
+                      <div className="flex items-center gap-3">
+                        <div className="text-right">
+                          <span className="text-[10px] text-white/40 block font-bold">প্রাপ্ত নম্বর</span>
+                          <span className="text-xl font-black text-amber-400">
+                            {inspectingSubmission.score} <span className="text-xs text-white/50">/ {inspectingSubmission.total_marks}</span>
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-[10px] text-white/40 block font-bold">অ্যাকুরেসি</span>
+                          <span className="text-xl font-black text-emerald-400">
+                            {inspectingSubmission.percentage}%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Score Breakdown (Correct, Wrong, Skipped) */}
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-center">
+                        <span className="text-[10px] text-emerald-300 font-bold block uppercase">সঠিক উত্তর</span>
+                        <span className="text-lg font-black text-emerald-400">
+                          {inspectingSubmission.correct_count ?? '--'}
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/25 text-center">
+                        <span className="text-[10px] text-rose-300 font-bold block uppercase">ভুল উত্তর</span>
+                        <span className="text-lg font-black text-rose-400">
+                          {inspectingSubmission.wrong_count ?? '--'}
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 text-center">
+                        <span className="text-[10px] text-gray-400 font-bold block uppercase">গৃহীত সময়</span>
+                        <span className="text-lg font-black text-white font-mono">
+                          {formatMinimalTime(inspectingSubmission.time_taken_seconds)}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Question by Question Detailed Paper (if raw answers are present) */}
+                    {Array.isArray(inspectingSubmission.raw_answers) && inspectingSubmission.raw_answers.length > 0 ? (
+                      <div className="space-y-3 pt-2">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-white/80">
+                          প্রশ্নভিত্তিক উত্তরপত্র (Question Analysis):
+                        </h4>
+                        <div className="space-y-2.5 max-h-[300px] overflow-y-auto pr-1">
+                          {inspectingSubmission.raw_answers.map((ans, qIdx) => {
+                            const isCorrect = ans.isCorrect || ans.selected === ans.correct;
+                            const isSkipped = ans.selected === undefined || ans.selected === null || ans.selected === '';
+
+                            return (
+                              <div 
+                                key={qIdx}
+                                className={`p-3 rounded-xl border ${
+                                  isCorrect 
+                                    ? 'bg-emerald-500/5 border-emerald-500/20' 
+                                    : isSkipped 
+                                    ? 'bg-white/[0.02] border-white/10' 
+                                    : 'bg-rose-500/5 border-rose-500/20'
+                                }`}
+                              >
+                                <div className="flex items-start justify-between gap-2">
+                                  <span className="text-xs font-bold text-white">
+                                    Q{qIdx + 1}. {ans.question || `Question #${qIdx + 1}`}
+                                  </span>
+                                  <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                                    isCorrect 
+                                      ? 'bg-emerald-500/20 text-emerald-300' 
+                                      : isSkipped 
+                                      ? 'bg-white/10 text-white/60' 
+                                      : 'bg-rose-500/20 text-rose-300'
+                                  }`}>
+                                    {isCorrect ? '+১ সঠিক' : isSkipped ? 'স্কিপড' : 'ভুল'}
+                                  </span>
+                                </div>
+                                <div className="mt-2 text-[11px] text-gray-300 space-y-0.5 font-mono">
+                                  <div>শিক্ষার্থীর উত্তর: <span className={isCorrect ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>{String(ans.selectedText || ans.selected || 'স্কিপ করা হয়েছে')}</span></div>
+                                  {!isCorrect && ans.correct && (
+                                    <div className="text-emerald-400">সঠিক উত্তর ছিল: <span className="font-bold">{String(ans.correctText || ans.correct)}</span></div>
+                                  )}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-center text-xs text-white/40">
+                        শিক্ষার্থীর সার্বিক স্কোর ডাটাবেজে সংরক্ষিত রয়েছে। প্রশ্নের বিস্তারিত উত্তরপত্র দেখতে শিক্ষার্থী পোর্টাল থেকে বিস্তারিত ফলাফল দেখা যাবে।
+                      </div>
+                    )}
+
+                    {/* Bottom Modal Actions */}
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteSubmission(inspectingSubmission.id)}
+                        className="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 text-xs font-bold border border-rose-500/30 transition-all cursor-pointer flex items-center gap-1.5"
                       >
-                        <option value="ALL">কোর্সের সকল পরীক্ষা একত্রিত (Course Aggregated)</option>
-                        {submissionExamOptions.map(e => (
-                          <option key={e.id} value={e.id}>{e.title}</option>
-                        ))}
-                      </select>
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>এই পরীক্ষার খাতা ডিলিট করুন</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setInspectingSubmission(null)}
+                        className="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all cursor-pointer border border-white/20"
+                      >
+                        বন্ধ করুন (Close)
+                      </button>
                     </div>
                   </div>
-
-                  {isLoadingLeaderboard ? (
-                    <div className="py-16 text-center text-slate-400">
-                      <RefreshCw className="w-7 h-7 animate-spin mx-auto text-[#5d5bf6] mb-3" />
-                      <p className="font-bold text-sm text-slate-700">মেধাতালিকা লোড হচ্ছে...</p>
-                    </div>
-                  ) : leaderboardData.length === 0 ? (
-                    <div className="py-16 text-center text-slate-400">
-                      <div className="w-14 h-14 rounded-3xl bg-amber-50 text-amber-500 flex items-center justify-center mx-auto mb-3">
-                        <Trophy className="w-7 h-7" />
-                      </div>
-                      <h4 className="font-bold text-base text-slate-800">এখনও কোনো শিক্ষার্থী পরীক্ষা দেয়নি</h4>
-                      <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
-                        শিক্ষার্থীরা যখন এই পরীক্ষায় অংশগ্রহণ করবে, তাদের অফিসিয়াল ১ম চেষ্টার ফলাফল স্বয়ংক্রিয়ভাবে লাইভ মেধাতালিকায় প্রদর্শিত হবে।
-                      </p>
-                    </div>
-                  ) : (
-                    <>
-                      {/* TOP 3 PODIUM */}
-                      {leaderboardData.length >= 1 && (
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                          {/* 2nd Place (Silver) */}
-                          <div className="order-2 md:order-1 bg-gradient-to-b from-slate-50 to-white rounded-2xl p-5 border border-slate-200 text-center relative flex flex-col justify-between shadow-2xs">
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-slate-200 text-slate-700 font-black text-[11px] shadow-2xs">
-                              🥈 2ND PLACE
-                            </div>
-                            <div className="pt-3">
-                              <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-slate-300 to-slate-100 ring-4 ring-slate-200 flex items-center justify-center text-slate-700 font-black text-lg mb-2">
-                                {(leaderboardData[1]?.student_name || '2').charAt(0).toUpperCase()}
-                              </div>
-                              <h4 className="font-black text-sm text-slate-900 truncate">
-                                {leaderboardData[1]?.student_name || 'N/A'}
-                              </h4>
-                              <p className="text-[11px] text-slate-400 font-mono">
-                                {leaderboardData[1]?.student_phone || ''}
-                              </p>
-                            </div>
-                            {leaderboardData[1] && (
-                              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-around text-xs">
-                                <div>
-                                  <span className="text-[10px] text-slate-400 block font-semibold">MARKS</span>
-                                  <span className="font-black text-slate-900">{leaderboardData[1].score ?? leaderboardData[1].total_score}</span>
-                                </div>
-                                <div>
-                                  <span className="text-[10px] text-slate-400 block font-semibold">TIME</span>
-                                  <span className="font-black text-slate-900 font-mono">
-                                    {Math.round(Number(leaderboardData[1].time_taken_seconds || leaderboardData[1].total_time_seconds || 0))}s
-                                  </span>
-                                </div>
-                                <div>
-                                  <span className="text-[10px] text-slate-400 block font-semibold">ACCURACY</span>
-                                  <span className="font-black text-emerald-600">{leaderboardData[1].percentage}%</span>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-
-                          {/* 1st Place (Gold) - Elevated Center */}
-                          <div className="order-1 md:order-2 bg-gradient-to-b from-amber-50/60 to-white rounded-2xl p-6 border-2 border-amber-300 text-center relative flex flex-col justify-between shadow-md shadow-amber-500/10 -mt-2">
-                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-white font-black text-xs shadow-sm flex items-center gap-1">
-                              👑 1ST CHAMPION
-                            </div>
-                            <div className="pt-2">
-                              <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-tr from-amber-400 to-amber-200 ring-4 ring-amber-300 flex items-center justify-center text-amber-950 font-black text-xl mb-2 shadow-inner">
-                                {(leaderboardData[0]?.student_name || '1').charAt(0).toUpperCase()}
-                              </div>
-                              <h4 className="font-black text-base text-slate-900 truncate">
-                                {leaderboardData[0]?.student_name || 'Champion'}
-                              </h4>
-                              <p className="text-xs text-slate-500 font-mono">
-                                {leaderboardData[0]?.student_phone || ''}
-                              </p>
-                            </div>
-                            {leaderboardData[0] && (
-                              <div className="mt-4 pt-3 border-t border-amber-100 flex items-center justify-around text-xs bg-amber-50/40 rounded-xl py-2">
-                                <div>
-                                  <span className="text-[10px] text-amber-700 block font-bold">MARKS</span>
-                                  <span className="font-black text-amber-900 text-sm">{leaderboardData[0].score ?? leaderboardData[0].total_score}</span>
-                                </div>
-                                <div>
-                                  <span className="text-[10px] text-amber-700 block font-bold">TIME</span>
-                                  <span className="font-black text-amber-900 text-sm font-mono">
-                                    {Math.round(Number(leaderboardData[0].time_taken_seconds || leaderboardData[0].total_time_seconds || 0))}s
-                                  </span>
-                                </div>
-                                <div>
-                                  <span className="text-[10px] text-amber-700 block font-bold">ACCURACY</span>
-                                  <span className="font-black text-emerald-600 text-sm">{leaderboardData[0].percentage}%</span>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-
-                          {/* 3rd Place (Bronze) */}
-                          <div className="order-3 bg-gradient-to-b from-orange-50/40 to-white rounded-2xl p-5 border border-orange-200 text-center relative flex flex-col justify-between shadow-2xs">
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-orange-100 text-orange-800 font-black text-[11px] shadow-2xs">
-                              🥉 3RD PLACE
-                            </div>
-                            <div className="pt-3">
-                              <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-orange-300 to-orange-100 ring-4 ring-orange-200 flex items-center justify-center text-orange-800 font-black text-lg mb-2">
-                                {(leaderboardData[2]?.student_name || '3').charAt(0).toUpperCase()}
-                              </div>
-                              <h4 className="font-black text-sm text-slate-900 truncate">
-                                {leaderboardData[2]?.student_name || 'N/A'}
-                              </h4>
-                              <p className="text-[11px] text-slate-400 font-mono">
-                                {leaderboardData[2]?.student_phone || ''}
-                              </p>
-                            </div>
-                            {leaderboardData[2] && (
-                              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-around text-xs">
-                                <div>
-                                  <span className="text-[10px] text-slate-400 block font-semibold">MARKS</span>
-                                  <span className="font-black text-slate-900">{leaderboardData[2].score ?? leaderboardData[2].total_score}</span>
-                                </div>
-                                <div>
-                                  <span className="text-[10px] text-slate-400 block font-semibold">TIME</span>
-                                  <span className="font-black text-slate-900 font-mono">
-                                    {Math.round(Number(leaderboardData[2].time_taken_seconds || leaderboardData[2].total_time_seconds || 0))}s
-                                  </span>
-                                </div>
-                                <div>
-                                  <span className="text-[10px] text-slate-400 block font-semibold">ACCURACY</span>
-                                  <span className="font-black text-emerald-600">{leaderboardData[2].percentage}%</span>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* FULL LEADERBOARD TABLE */}
-                      <div className="overflow-x-auto rounded-2xl border border-slate-100 pt-2">
-                        <table className="w-full text-left text-xs text-slate-700">
-                          <thead className="bg-[#f8fafc] text-slate-500 uppercase text-[10px] font-black tracking-wider border-b border-slate-200/80">
-                            <tr>
-                              <th className="py-3 px-4 text-center">র‍্যাংক (Rank)</th>
-                              <th className="py-3 px-4">শিক্ষার্থী (Student)</th>
-                              <th className="py-3 px-4">কোর্স / পরীক্ষা</th>
-                              <th className="py-3 px-4 text-center">প্রাপ্ত নম্বর</th>
-                              <th className="py-3 px-4 text-center">অ্যাকুরেসি</th>
-                              <th className="py-3 px-4 text-center">গৃহীত সময়</th>
-                              <th className="py-3 px-4">জমার সময়</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-slate-100">
-                            {leaderboardData.map((item, idx) => {
-                              const rank = item.rank || idx + 1;
-                              const sec = Number(item.time_taken_seconds || item.total_time_seconds || 0);
-                              const mins = Math.floor(sec / 60);
-                              const remSec = Math.round(sec % 60);
-                              const timeStr = mins > 0 ? `${mins}m ${remSec}s` : `${remSec}s`;
-                              const scoreVal = item.score ?? item.total_score ?? 0;
-                              const totalVal = item.total_marks ?? item.total_possible ?? 0;
-                              const pct = item.percentage ?? 0;
-
-                              return (
-                                <tr key={item.id || item.student_id || idx} className="hover:bg-slate-50/70 transition-colors">
-                                  <td className="py-3.5 px-4 text-center">
-                                    {rank === 1 ? (
-                                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-100 text-amber-800 font-black text-xs">
-                                        🥇 1
-                                      </span>
-                                    ) : rank === 2 ? (
-                                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-200 text-slate-700 font-black text-xs">
-                                        🥈 2
-                                      </span>
-                                    ) : rank === 3 ? (
-                                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-orange-100 text-orange-800 font-black text-xs">
-                                        🥉 3
-                                      </span>
-                                    ) : (
-                                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 text-slate-600 font-bold text-xs font-mono">
-                                        {rank}
-                                      </span>
-                                    )}
-                                  </td>
-                                  <td className="py-3.5 px-4">
-                                    <div className="flex items-center gap-2.5">
-                                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#5d5bf6]/20 to-[#5d5bf6]/5 text-[#5d5bf6] font-black text-xs flex items-center justify-center shrink-0">
-                                        {(item.student_name || 'S').charAt(0).toUpperCase()}
-                                      </div>
-                                      <div className="min-w-0">
-                                        <div className="font-bold text-xs text-slate-900 truncate">
-                                          {item.student_name || 'Student'}
-                                        </div>
-                                        <div className="text-[11px] text-slate-400 font-mono">
-                                          {item.student_phone || item.student_email || ''}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </td>
-                                  <td className="py-3.5 px-4">
-                                    <div className="text-xs font-semibold text-slate-800 truncate max-w-[200px]">
-                                      {item.lesson_title || item.course_name || 'Exam'}
-                                    </div>
-                                  </td>
-                                  <td className="py-3.5 px-4 text-center">
-                                    <span className="font-black text-xs text-slate-900">
-                                      {scoreVal}
-                                    </span>
-                                    {totalVal > 0 && (
-                                      <span className="text-slate-400 font-medium text-[11px]">
-                                        {' '}/ {totalVal}
-                                      </span>
-                                    )}
-                                  </td>
-                                  <td className="py-3.5 px-4 text-center">
-                                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
-                                      pct >= 80
-                                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                                        : pct >= 50
-                                        ? 'bg-amber-50 text-amber-700 border-amber-200'
-                                        : 'bg-rose-50 text-rose-700 border-rose-200'
-                                    }`}>
-                                      {pct}%
-                                    </span>
-                                  </td>
-                                  <td className="py-3.5 px-4 text-center font-mono text-[11px] text-slate-600">
-                                    {timeStr}
-                                  </td>
-                                  <td className="py-3.5 px-4 text-[11px] text-slate-500 whitespace-nowrap">
-                                    {item.submitted_at || item.last_submitted_at
-                                      ? new Date(item.submitted_at || item.last_submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })
-                                      : 'N/A'}
-                                  </td>
-                                </tr>
-                              );
-                            })}
-                          </tbody>
-                        </table>
-                      </div>
-                    </>
-                  )}
                 </div>
               )}
 
