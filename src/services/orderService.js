@@ -374,13 +374,22 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
       }
     } catch (e) {}
 
-    // 4. Update Supabase if configured
-    const targetOrderId = approvedOrder?.id || (typeof identifier === 'string' && identifier.startsWith('ord_') ? identifier : null);
-    if (targetOrderId) {
-      updateSupabaseOrderStatus(targetOrderId, {
+    // 4. Update Supabase if configured (supports any order ID format, TrxID, phone & course)
+    const targetOrderId = approvedOrder?.id || identifier;
+    if (targetOrderId || cleanPhone || identifier) {
+      updateSupabaseOrderStatus(targetOrderId || identifier, {
         status: 'PAID',
         isApproved: true,
         raw_data: approvedOrder
+      }, {
+        id: identifier,
+        orderId: approvedOrder?.id || identifier,
+        trxId: approvedOrder?.transactionId || (typeof identifier === 'string' && identifier.length > 5 ? identifier : null),
+        phone: cleanPhone,
+        email: cleanEmail,
+        courseTitle: finalTitle,
+        studentName: studentName || approvedOrder?.customer?.name,
+        amount: finalAmount
       }).catch(e => console.warn('[orderService] Supabase update note:', e));
     }
 
@@ -436,5 +445,59 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
   } catch (err) {
     console.error('[orderService] Failed to approve order:', err);
     return null;
+  }
+}
+
+/**
+ * Revokes an approval for an order, relocks course access, and syncs status across Supabase and local storage
+ */
+export function revokeOrder(identifier, { courseTitle, studentPhone, studentEmail } = {}) {
+  try {
+    const orders = getUserOrders();
+    const cleanPhone = (studentPhone || '').replace(/[^0-9]/g, '');
+    const cleanEmail = (studentEmail || '').toLowerCase().trim();
+    let targetOrdId = identifier;
+
+    const nextOrders = orders.map(ord => {
+      const ordPhone = (ord.customer?.phone || '').replace(/[^0-9]/g, '');
+      const ordEmail = (ord.customer?.email || '').toLowerCase().trim();
+      const ordTitle = ord.course?.name || ord.items?.[0]?.title || '';
+      const matchId = identifier && (ord.id === identifier || ord.invoiceNumber === identifier || ord.transactionId === identifier);
+      const matchDetails = (courseTitle && ordTitle === courseTitle) && ((cleanPhone && ordPhone === cleanPhone) || (cleanEmail && ordEmail === cleanEmail));
+
+      if (matchId || matchDetails) {
+        targetOrdId = ord.id;
+        return {
+          ...ord,
+          status: 'PENDING',
+          isApproved: false,
+          approvedAt: null
+        };
+      }
+      return ord;
+    });
+
+    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(nextOrders));
+
+    // Update Supabase
+    updateSupabaseOrderStatus(targetOrdId || identifier, {
+      status: 'PENDING',
+      isApproved: false
+    }, {
+      id: identifier,
+      orderId: targetOrdId,
+      phone: cleanPhone,
+      email: cleanEmail,
+      courseTitle
+    }).catch(e => console.warn('[orderService] Supabase revoke note:', e));
+
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('eh:orders_updated'));
+      window.dispatchEvent(new Event('storage'));
+    }
+    return true;
+  } catch (err) {
+    console.warn('[orderService] Failed to revoke order:', err);
+    return false;
   }
 }

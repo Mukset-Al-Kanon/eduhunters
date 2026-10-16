@@ -108,49 +108,140 @@ export async function saveSupabaseOrder(order) {
 /**
  * Update order status (Approval / Rejection) in Supabase
  */
-export async function updateSupabaseOrderStatus(orderId, updates) {
-  if (!isSupabaseConfigured || !supabase || !orderId) return false;
+/**
+ * Update order status (Approval / Rejection) in Supabase with multi-strategy ID resolution
+ */
+export async function updateSupabaseOrderStatus(orderId, updatesOrStatus, extraCriteria = {}) {
+  if (!isSupabaseConfigured || !supabase || (!orderId && !extraCriteria.id && !extraCriteria.trxId && !extraCriteria.phone)) return false;
   try {
+    const isStringStatus = typeof updatesOrStatus === 'string';
+    const statusVal = isStringStatus ? updatesOrStatus.toUpperCase() : (updatesOrStatus?.status ? updatesOrStatus.status.toUpperCase() : 'PAID');
+    const isApprovedVal = isStringStatus 
+      ? (statusVal === 'PAID' || statusVal === 'COMPLETED')
+      : (typeof updatesOrStatus?.isApproved === 'boolean' ? updatesOrStatus.isApproved : (statusVal === 'PAID' || statusVal === 'COMPLETED'));
+
     const payload = {
+      status: statusVal,
+      is_approved: isApprovedVal,
       updated_at: new Date().toISOString()
     };
-    if (updates.status) payload.status = updates.status;
-    if (typeof updates.isApproved === 'boolean') payload.is_approved = updates.isApproved;
 
-    try {
-      const { data: existing } = await supabase
-        .from('eduhunters_orders')
-        .select('raw_data')
-        .eq('id', orderId)
-        .maybeSingle();
-      if (existing?.raw_data) {
-        payload.raw_data = {
-          ...existing.raw_data,
-          status: updates.status || existing.raw_data.status,
-          isApproved: typeof updates.isApproved === 'boolean' ? updates.isApproved : existing.raw_data.isApproved,
-          updatedAt: new Date().toISOString()
-        };
-      } else if (updates.raw_data) {
-        payload.raw_data = updates.raw_data;
+    // Gather all candidate IDs to match in database
+    const idsToTry = new Set();
+    const addCandidate = (val) => {
+      if (!val || typeof val !== 'string') return;
+      const clean = val.trim();
+      if (!clean) return;
+      idsToTry.add(clean);
+      if (clean.startsWith('TRX-')) idsToTry.add(clean.replace(/^TRX-/, ''));
+      if (clean.startsWith('st-')) idsToTry.add(clean.replace(/^st-/, ''));
+      if (clean.startsWith('ord_')) idsToTry.add(clean.replace(/^ord_/, ''));
+    };
+
+    addCandidate(orderId);
+    addCandidate(extraCriteria.id);
+    addCandidate(extraCriteria.orderId);
+
+    const candidateArray = Array.from(idsToTry);
+    let matchedOrder = null;
+
+    // 1. Try finding by ID candidates
+    if (candidateArray.length > 0) {
+      for (const cand of candidateArray) {
+        const { data } = await supabase
+          .from('eduhunters_orders')
+          .select('id, raw_data')
+          .eq('id', cand)
+          .maybeSingle();
+        if (data) {
+          matchedOrder = data;
+          break;
+        }
       }
-    } catch (e) {
-      if (updates.raw_data) payload.raw_data = updates.raw_data;
     }
 
-    // 1. Instant Broadcast to all users / student device
-    broadcastSupabaseMessage('ORDER_STATUS_CHANGED', { orderId, ...updates });
+    // 2. Fallback: try finding by TrxID
+    const targetTrxId = extraCriteria.trxId || (typeof orderId === 'string' && orderId.length > 6 && !orderId.startsWith('TRX-') && !orderId.startsWith('ord_') ? orderId : null);
+    if (!matchedOrder && targetTrxId && targetTrxId !== 'PENDING' && targetTrxId !== 'PENDING_VERIFICATION') {
+      const { data } = await supabase
+        .from('eduhunters_orders')
+        .select('id, raw_data')
+        .eq('trx_id', targetTrxId)
+        .maybeSingle();
+      if (data) {
+        matchedOrder = data;
+      }
+    }
 
-    // 2. Persistent update to PostgreSQL database
-    const { error } = await supabase
-      .from('eduhunters_orders')
-      .update(payload)
-      .eq('id', orderId);
+    // 3. Fallback: try finding by invoice number
+    if (!matchedOrder && extraCriteria.invoiceNumber && extraCriteria.invoiceNumber !== 'INV-EH') {
+      const { data } = await supabase
+        .from('eduhunters_orders')
+        .select('id, raw_data')
+        .eq('invoice_number', extraCriteria.invoiceNumber)
+        .maybeSingle();
+      if (data) {
+        matchedOrder = data;
+      }
+    }
 
+    // 4. Fallback: try finding by phone + course name
+    if (!matchedOrder && extraCriteria.phone && extraCriteria.courseTitle) {
+      const cleanPhone = String(extraCriteria.phone).replace(/[^0-9]/g, '');
+      if (cleanPhone.length >= 8) {
+        const { data } = await supabase
+          .from('eduhunters_orders')
+          .select('id, raw_data')
+          .ilike('customer_phone', `%${cleanPhone.slice(-8)}%`)
+          .ilike('course_name', `%${extraCriteria.courseTitle}%`)
+          .limit(1);
+        if (data && data.length > 0) {
+          matchedOrder = data[0];
+        }
+      }
+    }
+
+    // Prepare updated raw_data
+    const existingRaw = matchedOrder?.raw_data || (typeof updatesOrStatus === 'object' && updatesOrStatus?.raw_data ? updatesOrStatus.raw_data : null);
+    if (existingRaw) {
+      payload.raw_data = {
+        ...existingRaw,
+        status: statusVal,
+        isApproved: isApprovedVal,
+        is_approved: isApprovedVal,
+        updatedAt: new Date().toISOString()
+      };
+      if (payload.raw_data.transaction) {
+        payload.raw_data.transaction.status = isApprovedVal ? 'Completed' : (statusVal === 'REJECTED' ? 'Rejected' : 'Pending');
+      }
+      if (payload.raw_data.student) {
+        payload.raw_data.student.status = isApprovedVal ? 'Active' : 'Pending';
+      }
+    }
+
+    // Execute update on matched ID or candidate IDs
+    let updateQuery = supabase.from('eduhunters_orders').update(payload);
+    if (matchedOrder?.id) {
+      updateQuery = updateQuery.eq('id', matchedOrder.id);
+    } else if (candidateArray.length > 0) {
+      updateQuery = updateQuery.in('id', candidateArray);
+    } else if (targetTrxId) {
+      updateQuery = updateQuery.eq('trx_id', targetTrxId);
+    }
+
+    const { error } = await updateQuery;
     if (error) {
       console.warn('[Supabase] Failed to update order:', error.message);
-      return false;
     }
-    return true;
+
+    // Instant Broadcast to all users / student device
+    broadcastSupabaseMessage('ORDER_STATUS_CHANGED', { 
+      orderId: matchedOrder?.id || orderId, 
+      status: statusVal, 
+      isApproved: isApprovedVal 
+    });
+
+    return !error;
   } catch (err) {
     console.warn('[Supabase] Order update exception:', err);
     return false;
@@ -735,6 +826,10 @@ export async function saveSupabaseUser(user, extra = {}) {
       enrolledCourses: mergedCourses
     };
 
+    const createdTimestamp = existingUser?.created_at || existingRaw?.createdAt || existingRaw?.created_at || new Date().toISOString();
+    mergedRaw.createdAt = createdTimestamp;
+    mergedRaw.created_at = createdTimestamp;
+
     const payload = {
       id: existingId,
       email: finalEmail,
@@ -743,6 +838,7 @@ export async function saveSupabaseUser(user, extra = {}) {
       role: finalRole,
       enrolled_courses: mergedCourses,
       raw_data: mergedRaw,
+      created_at: createdTimestamp,
       last_active_at: new Date().toISOString()
     };
 
@@ -778,7 +874,7 @@ export async function fetchSupabaseUsers() {
     const { data, error } = await supabase
       .from('eduhunters_users')
       .select('*')
-      .order('last_active_at', { ascending: false })
+      .order('created_at', { ascending: false })
       .limit(500);
 
     if (error) {
@@ -793,6 +889,7 @@ export async function fetchSupabaseUsers() {
       const finalBatch = (raw.hscBatch || raw.batch || '').trim();
       const finalPhoto = raw.photoURL || raw.avatar || '/avatar.svg';
       const roleStr = raw.role || row.role;
+      const createdIso = row.created_at || raw.createdAt || raw.created_at || row.last_active_at || new Date().toISOString();
       return {
         ...raw,
         uid: row.id,
@@ -810,8 +907,8 @@ export async function fetchSupabaseUsers() {
         photoURL: finalPhoto,
         role: roleStr === 'admin' ? 'Admin' : 'Student',
         enrolledCourses: Array.isArray(row.enrolled_courses) ? row.enrolled_courses : (Array.isArray(raw.enrolledCourses) ? raw.enrolledCourses : []),
-        created_at: row.created_at || raw.createdAt,
-        createdAt: row.created_at || raw.createdAt
+        created_at: createdIso,
+        createdAt: createdIso
       };
     });
   } catch (err) {
@@ -854,7 +951,9 @@ export function subscribeToSupabaseUsers(onUserChange) {
       role: (raw.role || payload.role) === 'admin' ? 'Admin' : 'Student',
       enrolledCourses: Array.isArray(payload.enrolled_courses) ? payload.enrolled_courses : (Array.isArray(raw.enrolledCourses) ? raw.enrolledCourses : []),
       isNewRegistration: true,
-      registeredAt: payload.registeredAt || Date.now()
+      registeredAt: payload.registeredAt || Date.now(),
+      created_at: payload.created_at || raw.createdAt || new Date().toISOString(),
+      createdAt: payload.created_at || raw.createdAt || new Date().toISOString()
     };
     onUserChange({ eventType: 'INSERT', user: mappedUser });
   });
@@ -883,7 +982,9 @@ export function subscribeToSupabaseUsers(onUserChange) {
       avatar: finalPhoto,
       photoURL: finalPhoto,
       role: (raw.role || payload.role) === 'admin' ? 'Admin' : 'Student',
-      enrolledCourses: Array.isArray(payload.enrolled_courses) ? payload.enrolled_courses : (Array.isArray(raw.enrolledCourses) ? raw.enrolledCourses : [])
+      enrolledCourses: Array.isArray(payload.enrolled_courses) ? payload.enrolled_courses : (Array.isArray(raw.enrolledCourses) ? raw.enrolledCourses : []),
+      created_at: payload.created_at || raw.created_at || raw.createdAt || new Date().toISOString(),
+      createdAt: payload.created_at || raw.created_at || raw.createdAt || new Date().toISOString()
     };
     onUserChange({ eventType: 'UPDATE', user: mappedUser });
   });

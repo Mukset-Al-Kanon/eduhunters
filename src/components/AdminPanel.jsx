@@ -82,7 +82,7 @@ import BundleStudioPage from './BundleStudioPage';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { grantCourseAccess, revokeCourseAccess, getCanonicalCourses, isPhoneMatch } from '../utils/enrollmentService';
 import CourseSearchSelect from './CourseSearchSelect';
-import { approveOrder } from '../services/orderService';
+import { approveOrder, revokeOrder } from '../services/orderService';
 import { 
   getBunnyConfig, 
   saveBunnyConfig, 
@@ -131,6 +131,81 @@ export const getAmountOverridesMap = () => {
   } catch {
     return {};
   }
+};
+
+export const getStatusOverridesMap = () => {
+  try {
+    return JSON.parse(localStorage.getItem('eh_status_overrides') || '{}');
+  } catch {
+    return {};
+  }
+};
+
+export const saveStatusOverride = (keys, status) => {
+  try {
+    const map = getStatusOverridesMap();
+    const keyArr = Array.isArray(keys) ? keys : [keys];
+    keyArr.filter(Boolean).forEach(k => {
+      const sKey = String(k).trim();
+      if (sKey) {
+        map[sKey] = status;
+        const clean = sKey.replace(/^(TRX-|st-|ord_)/, '').trim();
+        if (clean) map[clean] = status;
+      }
+    });
+    localStorage.setItem('eh_status_overrides', JSON.stringify(map));
+  } catch (e) {}
+};
+
+export const applyStatusOverride = (tx, overrides) => {
+  if (!tx) return tx;
+  const sMap = overrides || getStatusOverridesMap();
+  const cleanId = typeof tx.id === 'string' ? tx.id.replace(/^(TRX-|st-|ord_)/, '') : '';
+  const cleanOrderId = typeof tx.orderId === 'string' ? tx.orderId.replace(/^(TRX-|st-|ord_)/, '') : '';
+  const overrideVal = sMap[tx.id] ?? sMap[tx.orderId] ?? sMap[tx.trxId] ?? sMap[tx.invoiceNumber] ?? sMap[cleanId] ?? sMap[cleanOrderId];
+  if (overrideVal) {
+    const isApproved = (overrideVal || '').toLowerCase() === 'completed';
+    return { ...tx, status: overrideVal, isApproved };
+  }
+  return tx;
+};
+
+export const getUserTimestamp = (u) => {
+  if (!u) return 0;
+  if (typeof u.timestamp === 'number' && !isNaN(u.timestamp) && u.timestamp > 0) return u.timestamp;
+  if (typeof u.registeredAt === 'number' && !isNaN(u.registeredAt) && u.registeredAt > 0) return u.registeredAt;
+
+  const iso = u.createdAt || u.created_at || u.lastActiveAt || u.last_active_at;
+  if (iso) {
+    const t = new Date(iso).getTime();
+    if (!isNaN(t) && t > 0) return t;
+  }
+
+  const joined = (u.joinedDate || '').trim().toLowerCase();
+  if (joined === 'just now' || joined === 'today' || joined === 'active now' || joined === 'recently') {
+    return Date.now();
+  }
+  if (joined && joined !== 'official launch') {
+    const t = new Date(joined).getTime();
+    if (!isNaN(t) && t > 0) return t;
+  }
+
+  if (typeof u.id === 'string') {
+    const match = u.id.match(/\d{10,13}/);
+    if (match) {
+      const num = Number(match[0]);
+      if (!isNaN(num) && num > 1000000000) return num;
+    }
+  }
+  if (typeof u.uid === 'string') {
+    const match = u.uid.match(/\d{10,13}/);
+    if (match) {
+      const num = Number(match[0]);
+      if (!isNaN(num) && num > 1000000000) return num;
+    }
+  }
+
+  return 0;
 };
 
 export const isDeletedItem = (item, deletedIds) => {
@@ -205,9 +280,18 @@ export const isHistoricalTx = (tx, resetConfig) => {
 export const mapOrderDocToTx = (docId, order) => {
   if (!order) return null;
   const t = order.transaction || {};
-  const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
+  let isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || Boolean(order.is_approved) || (t.status || '').toLowerCase() === 'completed';
   const isRejected = order.status === 'REJECTED' || (t.status || '').toLowerCase() === 'rejected';
-  const status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
+  let status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
+
+  // Check persistent status override
+  const sMap = getStatusOverridesMap();
+  const cleanDocId = typeof docId === 'string' ? docId.replace(/^(TRX-|st-|ord_)/, '') : '';
+  const overrideStatus = sMap[docId] ?? sMap[cleanDocId] ?? sMap[t.id] ?? sMap[t.trxId] ?? sMap[order.transactionId] ?? sMap[order.invoiceNumber];
+  if (overrideStatus) {
+    status = overrideStatus;
+    isPaid = (overrideStatus || '').toLowerCase() === 'completed';
+  }
 
   const baseTx = {
     id: t.id || `TRX-${docId}`,
@@ -225,6 +309,7 @@ export const mapOrderDocToTx = (docId, order) => {
     date: t.date || (order.createdAt ? order.createdAt.split('T')[0] : new Date().toISOString().split('T')[0]),
     createdAt: t.createdAt || order.createdAt || new Date().toISOString(),
     status: status,
+    isApproved: isPaid,
     notes: t.notes || (order.paymentMethodName ? `Paid via ${order.paymentMethodName}` : 'Submitted via Web Checkout')
   };
   return applyAmountOverride(baseTx);
@@ -234,7 +319,15 @@ export const mapOrderDocToStudent = (docId, order) => {
   if (!order) return null;
   const s = order.student || {};
   const t = order.transaction || {};
-  const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
+  let isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || Boolean(order.is_approved) || (t.status || '').toLowerCase() === 'completed';
+  
+  const sMap = getStatusOverridesMap();
+  const cleanDocId = typeof docId === 'string' ? docId.replace(/^(TRX-|st-|ord_)/, '') : '';
+  const overrideStatus = sMap[docId] ?? sMap[cleanDocId] ?? sMap[s.id] ?? sMap[t.id] ?? sMap[s.trxId] ?? sMap[t.trxId] ?? sMap[order.transactionId];
+  if (overrideStatus) {
+    isPaid = (overrideStatus || '').toLowerCase() === 'completed';
+  }
+
   const baseStudent = {
     id: s.id || `st-${docId}`,
     orderId: docId,
@@ -1079,7 +1172,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         joinedDate: 'Official Launch',
         lastActive: 'Active now',
         device: 'Admin Console',
-        avatar: '/logo-crimson.png'
+        avatar: '/logo-crimson.png',
+        createdAt: '2026-01-01T00:00:00.000Z',
+        created_at: '2026-01-01T00:00:00.000Z'
       }
     ];
 
@@ -1089,7 +1184,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     if (Array.isArray(data?.users) && data.users.length > 0) {
       data.users.filter(u => !['usr-1', 'usr-2', 'usr-3', 'usr-4', 'usr-5', 'usr-6', 'usr-7', 'usr-8'].includes(u.id)).forEach(u => {
         const k = (u.email || u.id || '').toLowerCase();
-        if (k) userMap.set(k, { ...userMap.get(k), ...u });
+        if (k) {
+          const createdIso = u.createdAt || u.created_at || new Date().toISOString();
+          userMap.set(k, { ...userMap.get(k), ...u, createdAt: createdIso, created_at: createdIso });
+        }
       });
     }
 
@@ -1105,6 +1203,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       allLocal.forEach((u, i) => {
         const k = (u.email || u.id || u.uid || '').toLowerCase();
         if (!k) return;
+        const createdIso = u.createdAt || u.created_at || (u.joinedDate === 'Official Launch' ? '2026-01-01T00:00:00.000Z' : new Date().toISOString());
         const mapped = {
           id: u.uid || u.id || `usr-reg-${i}`,
           name: u.displayName || u.name || u.email?.split('@')[0] || 'Student',
@@ -1120,10 +1219,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           authProvider: u.authProvider || (u.email?.endsWith('@gmail.com') ? 'google.com' : 'password'),
           enrolledCourses: Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [],
           totalSpent: u.totalSpent || 0,
-          joinedDate: u.createdAt ? new Date(u.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently',
+          joinedDate: u.createdAt ? new Date(u.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : (u.joinedDate || 'Recently'),
           lastActive: 'Recently',
           device: 'Web Client',
-          avatar: u.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(u.email || 'user')}`
+          avatar: u.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(u.email || 'user')}`,
+          createdAt: createdIso,
+          created_at: createdIso
         };
         const ex = userMap.get(k);
         userMap.set(k, ex ? { ...ex, ...mapped } : mapped);
@@ -1259,6 +1360,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         } catch (e) {}
         return nextList;
       } else {
+        const userIsoCreated = u.createdAt || u.created_at || new Date().toISOString();
         const newUserRecord = {
           id: targetId || `usr-${Date.now()}`,
           name: u.displayName || u.name || (targetEmail ? targetEmail.split('@')[0] : 'New Student'),
@@ -1277,11 +1379,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           totalSpent: Number(u.totalSpent) || 0,
           joinedDate: 'Just now',
           lastActive: 'Active now',
+          createdAt: userIsoCreated,
+          created_at: userIsoCreated,
           device: 'Web Client',
           avatar: u.photoURL || u.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(targetEmail || 'student')}`,
           photoURL: u.photoURL || u.avatar || '/avatar.svg'
         };
-        const nextList = [newUserRecord, ...prev];
+        const nextList = [newUserRecord, ...prev.filter(item => item.id !== newUserRecord.id && item.email !== newUserRecord.email)];
         try {
           localStorage.setItem('eh_registered_users', JSON.stringify(nextList));
         } catch (e) {}
@@ -1652,11 +1756,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               const txMap = new Map();
               prevTxs.filter(tx => !isDeletedItem(tx, deletedIds)).forEach(tx => {
                 const key = tx.orderId || tx.id || tx.trxId;
-                if (key) txMap.set(key, applyAmountOverride(tx, overrides));
+                if (key) txMap.set(key, applyAmountOverride(applyStatusOverride(tx), overrides));
               });
               mappedTxs.forEach(tx => {
                 const key = tx.orderId || tx.id || tx.trxId;
-                if (key) txMap.set(key, applyAmountOverride(tx, overrides));
+                if (key) {
+                  const existing = txMap.get(key);
+                  const isExistingCompleted = existing && (existing.status || '').toLowerCase() === 'completed';
+                  const isCloudPending = (tx.status || '').toLowerCase() === 'pending';
+                  const finalTx = (isExistingCompleted && isCloudPending)
+                    ? { ...tx, status: 'Completed', isApproved: true }
+                    : tx;
+                  txMap.set(key, applyAmountOverride(applyStatusOverride(finalTx), overrides));
+                }
               });
               const resetConfig = getAccountingResetConfig();
               const allTxs = deduplicateTransactions(Array.from(txMap.values()));
@@ -1691,6 +1803,31 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 localStorage.setItem('eh_enrolled_students', JSON.stringify(mergedSt));
               } catch (e) {}
               return mergedSt;
+            });
+
+            // Sync student profiles from orders into User Management
+            activeOrders.forEach(o => {
+              const email = (o.customer_email || o.customer?.email || '').trim().toLowerCase();
+              const phone = (o.customer_phone || o.customer?.phone || '').trim();
+              const name = (o.customer_name || o.customer?.name || '').trim();
+              if (email || phone || name) {
+                const orderCreated = o.created_at || o.createdAt || new Date().toISOString();
+                upsertUserInList({
+                  id: o.customer?.uid || o.userId || `usr-${o.id}`,
+                  email: email || `${(name || 'student').toLowerCase().replace(/[^a-z0-9]/g, '')}@gmail.com`,
+                  name: name || 'Student',
+                  displayName: name || 'Student',
+                  phone: phone,
+                  whatsapp: phone,
+                  role: 'Student',
+                  status: (o.status === 'PAID' || o.is_approved) ? 'Active' : 'Pending',
+                  enrolledCourses: [o.course_name || o.course?.name || o.items?.[0]?.title].filter(Boolean),
+                  totalSpent: Number(o.amount || o.totalPaid || 0),
+                  createdAt: orderCreated,
+                  created_at: orderCreated,
+                  joinedDate: new Date(orderCreated).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+                }, false);
+              }
             });
 
             // Sync to local orders cache so refreshing the page immediately has all orders
@@ -1765,11 +1902,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 const txMap = new Map();
                 prevTxs.filter(tx => !isDeletedItem(tx, deletedIds)).forEach(tx => {
                   const key = tx.orderId || tx.id || tx.trxId;
-                  if (key) txMap.set(key, applyAmountOverride(tx, overrides));
+                  if (key) txMap.set(key, applyAmountOverride(applyStatusOverride(tx), overrides));
                 });
                 mappedTxs.forEach(tx => {
                   const key = tx.orderId || tx.id || tx.trxId;
-                  if (key) txMap.set(key, applyAmountOverride(tx, overrides));
+                  if (key) {
+                    const existing = txMap.get(key);
+                    const isExistingCompleted = existing && (existing.status || '').toLowerCase() === 'completed';
+                    const isCloudPending = (tx.status || '').toLowerCase() === 'pending';
+                    const finalTx = (isExistingCompleted && isCloudPending)
+                      ? { ...tx, status: 'Completed', isApproved: true }
+                      : tx;
+                    txMap.set(key, applyAmountOverride(applyStatusOverride(finalTx), overrides));
+                  }
                 });
                 const resetConfig = getAccountingResetConfig();
                 const allTxs = deduplicateTransactions(Array.from(txMap.values()));
@@ -2816,6 +2961,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
       triggerToast(`User "${userForm.name}" updated successfully`);
     } else {
+      const nowIso = new Date().toISOString();
       const newUser = {
         id: `usr-${Date.now().toString().slice(-4)}`,
         name: userForm.name.trim(),
@@ -2830,7 +2976,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         hscBatch: userForm.batch || 'HSC 26',
         enrolledCourses: [],
         totalSpent: Number(userForm.totalSpent) || 0,
-        joinedDate: 'Today',
+        createdAt: nowIso,
+        created_at: nowIso,
+        joinedDate: 'Just now',
         lastActive: 'Just registered',
         device: 'Manual Admin Entry',
         avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(userForm.email)}`
@@ -2845,7 +2993,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           email: newUser.email,
           displayName: newUser.name,
           phone: newUser.phone,
-          role: newUser.role
+          role: newUser.role,
+          createdAt: nowIso,
+          created_at: nowIso
         }, {
           totalSpent: newUser.totalSpent,
           enrolledCourses: []
@@ -3213,127 +3363,206 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     triggerToast('✅ লেজার সামারি সফলভাবে ৳০ থেকে রিস্টার্ট করা হয়েছে!');
   };
 
-  // Approve Pending Enrollment Transaction
+  // Approve Pending Enrollment Transaction (Permanently Persisted to Cloud, Overrides, & User Directory)
   const handleApproveTrx = (trxId) => {
     const targetTx = (accounting.transactions || []).find(t => t.id === trxId);
+    if (!targetTx) return;
+
+    const itemTitle = targetTx.itemTitle || '';
+    const rawPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
+    const rawName = (targetTx.studentName || '').trim().toLowerCase();
+    const rawEmail = (targetTx.studentEmail || '').trim().toLowerCase();
+
+    // 1. Permanently save status override in localStorage so page refresh NEVER reverts to Pending
+    saveStatusOverride([
+      targetTx.id,
+      targetTx.orderId,
+      targetTx.trxId,
+      targetTx.invoiceNumber,
+      trxId
+    ], 'Completed');
+
+    // 2. Immediately update local transaction state
     const updated = (accounting.transactions || []).map(t => {
-      if (t.id === trxId) return { ...t, status: 'Completed' };
+      const isMatch = t.id === trxId || 
+                      (targetTx.orderId && t.orderId === targetTx.orderId) || 
+                      (targetTx.trxId && targetTx.trxId !== 'PENDING' && t.trxId === targetTx.trxId);
+      if (isMatch) return { ...t, status: 'Completed', isApproved: true };
       return t;
     });
     const newAcc = { ...accounting, transactions: updated };
     setAccounting(newAcc);
 
-    // If transaction belongs to a student, auto-grant enrollment to them
-    let extraUserUpdates = null;
+    // 3. Grant course access & resolve courses
+    const matchedTargetUser = usersList.find(u => {
+      const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+      const uEmail = (u.email || '').trim().toLowerCase();
+      const uName = (u.name || '').trim().toLowerCase();
+      return isPhoneMatch(rawPhone, uPhone) ||
+             (rawEmail && uEmail === rawEmail) ||
+             (rawName && (uName === rawName || uName.includes(rawName)));
+    });
+
+    const { courses: grantedCourses } = grantCourseAccess(itemTitle, { bundles, courses }, matchedTargetUser);
+    const foundBundle = bundles.find(b => 
+      b.title.toLowerCase() === itemTitle.toLowerCase() ||
+      itemTitle.toLowerCase().includes(b.title.toLowerCase())
+    );
+
+    let coursesToGrant = Array.from(new Set([itemTitle, ...grantedCourses]));
+    if (foundBundle) {
+      const resolved = (foundBundle.courseIds || []).map(cId => {
+        const found = courses.find(c => c.id === cId || c.slug === cId || c.key === cId) ||
+                      EXAM_CATEGORIES_METADATA.find(b => b.id === cId || b.key === cId);
+        return found?.title || cId;
+      });
+      coursesToGrant = Array.from(new Set([foundBundle.title, ...resolved, ...coursesToGrant]));
+    }
+
+    // 4. Update enrolled students list
     let extraStudentUpdates = enrolledStudents;
-    if (targetTx) {
-      const rawPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
-      const rawName = (targetTx.studentName || '').trim().toLowerCase();
-      const rawEmail = (targetTx.studentEmail || '').trim().toLowerCase();
-
-      const matchedTargetUser = usersList.find(u => {
-        const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
-        const uEmail = (u.email || '').trim().toLowerCase();
-        const uName = (u.name || '').trim().toLowerCase();
-        return isPhoneMatch(rawPhone, uPhone) ||
-               (rawEmail && uEmail === rawEmail) ||
-               (rawName && (uName === rawName || uName.includes(rawName)));
-      });
-
-      const itemTitle = targetTx.itemTitle || '';
-      const { courses: grantedCourses } = grantCourseAccess(itemTitle, { bundles, courses }, matchedTargetUser);
-
-      const foundBundle = bundles.find(b => 
-        b.title.toLowerCase() === itemTitle.toLowerCase() ||
-        itemTitle.toLowerCase().includes(b.title.toLowerCase())
+    const foundSt = enrolledStudents.find(st => {
+      const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
+      const stEmail = (st.email || '').trim().toLowerCase();
+      const stName = (st.name || '').trim().toLowerCase();
+      return isPhoneMatch(rawPhone, stPhone) || (rawEmail && stEmail === rawEmail) || (rawName && stName === rawName);
+    });
+    if (foundSt) {
+      extraStudentUpdates = enrolledStudents.map(st => 
+        st.id === foundSt.id ? { ...st, status: 'Active', courseName: itemTitle, amount: Number(st.amount) || Number(targetTx.amount) || 0 } : st
       );
+    } else {
+      extraStudentUpdates = [{
+        id: `st-${Date.now()}`,
+        name: targetTx.studentName || 'Student',
+        studentId: `EH-2026-${Math.floor(100 + Math.random() * 900)}`,
+        batch: 'HSC 26',
+        courseName: itemTitle,
+        phone: targetTx.studentPhone || 'N/A',
+        email: targetTx.studentEmail || `${(targetTx.studentName || 'student').toLowerCase().replace(/[^a-z0-9]/g, '')}@gmail.com`,
+        avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
+        status: 'Active',
+        joinedDate: 'Today',
+        amount: Number(targetTx.amount) || 0
+      }, ...enrolledStudents];
+    }
+    setEnrolledStudents(extraStudentUpdates);
 
-      let coursesToGrant = Array.from(new Set([itemTitle, ...grantedCourses]));
-      if (foundBundle) {
-        const resolved = (foundBundle.courseIds || []).map(cId => {
-          const found = courses.find(c => c.id === cId || c.slug === cId || c.key === cId) ||
-                        EXAM_CATEGORIES_METADATA.find(b => b.id === cId || b.key === cId);
-          return found?.title || cId;
-        });
-        coursesToGrant = Array.from(new Set([foundBundle.title, ...resolved, ...coursesToGrant]));
-      }
+    // 5. User Management: Ensure student is unified into usersList & placed at the very top
+    let userFound = false;
+    const updatedUsersList = usersList.map(u => {
+      const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+      const uEmail = (u.email || '').trim().toLowerCase();
+      const uName = (u.name || '').trim().toLowerCase();
+      const matchPhone = isPhoneMatch(rawPhone, uPhone);
+      const matchEmail = Boolean(rawEmail && uEmail && uEmail === rawEmail);
+      const matchName = Boolean(rawName && (uName === rawName || uName.includes(rawName)));
 
-      // Update enrolled students
-      const foundSt = enrolledStudents.find(st => {
-        const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
-        const stEmail = (st.email || '').trim().toLowerCase();
-        const stName = (st.name || '').trim().toLowerCase();
-        return isPhoneMatch(rawPhone, stPhone) || (rawEmail && stEmail === rawEmail) || (rawName && stName === rawName);
-      });
-      if (foundSt) {
-        extraStudentUpdates = enrolledStudents.map(st => 
-          st.id === foundSt.id ? { ...st, status: 'Active', courseName: itemTitle } : st
-        );
-      } else {
-        extraStudentUpdates = [{
-          id: `st-${Date.now()}`,
-          name: targetTx.studentName || 'Student',
-          studentId: `EH-2026-${Math.floor(100 + Math.random() * 900)}`,
-          batch: 'HSC 26',
-          courseName: itemTitle,
-          phone: targetTx.studentPhone || 'N/A',
-          email: `${(targetTx.studentName || 'student').toLowerCase().replace(/[^a-z0-9]/g, '')}@gmail.com`,
-          avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
+      if (matchPhone || matchEmail || matchName) {
+        userFound = true;
+        const current = u.enrolledCourses || [];
+        return {
+          ...u,
           status: 'Active',
-          joinedDate: 'Today'
-        }, ...enrolledStudents];
+          enrolledCourses: Array.from(new Set([...current, ...coursesToGrant])),
+          totalSpent: (u.totalSpent || 0) + (Number(targetTx.amount) || 0),
+          lastActive: 'Active now'
+        };
       }
-      setEnrolledStudents(extraStudentUpdates);
+      return u;
+    });
 
-      if (rawPhone.length >= 6 || rawEmail || rawName) {
-        extraUserUpdates = usersList.map(u => {
-          const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
-          const uEmail = (u.email || '').trim().toLowerCase();
-          const uName = (u.name || '').trim().toLowerCase();
-          const matchPhone = isPhoneMatch(rawPhone, uPhone);
-          const matchEmail = Boolean(rawEmail && uEmail && uEmail === rawEmail);
-          const matchName = Boolean(rawName && (uName === rawName || uName.includes(rawName)));
-
-          if (matchPhone || matchEmail || matchName) {
-            const current = u.enrolledCourses || [];
-            return {
-              ...u,
-              status: 'Active',
-              enrolledCourses: Array.from(new Set([...current, ...coursesToGrant])),
-              totalSpent: (u.totalSpent || 0) + (Number(targetTx.amount) || 0)
-            };
-          }
-          return u;
-        });
-        setUsersList(extraUserUpdates);
+    let extraUserUpdates = updatedUsersList;
+    if (!userFound && (rawPhone.length >= 6 || rawEmail || targetTx.studentName)) {
+      const nowIso = new Date().toISOString();
+      const newStudentUser = {
+        id: `usr-${Date.now()}`,
+        name: targetTx.studentName || 'Student',
+        displayName: targetTx.studentName || 'Student',
+        email: targetTx.studentEmail || `${(targetTx.studentName || 'student').toLowerCase().replace(/[^a-z0-9]/g, '')}${Math.floor(100 + Math.random() * 900)}@gmail.com`,
+        phone: targetTx.studentPhone || '',
+        whatsapp: targetTx.studentPhone || '',
+        college: '',
+        institution: '',
+        role: 'Student',
+        status: 'Active',
+        batch: 'HSC 26',
+        hscBatch: 'HSC 26',
+        enrolledCourses: coursesToGrant,
+        totalSpent: Number(targetTx.amount) || 0,
+        joinedDate: 'Just now',
+        lastActive: 'Active now',
+        createdAt: nowIso,
+        created_at: nowIso,
+        device: 'Web Client',
+        avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(targetTx.studentName || 'student')}`
+      };
+      extraUserUpdates = [newStudentUser, ...updatedUsersList];
+      if (isSupabaseConfigured) {
+        saveSupabaseUser({
+          uid: newStudentUser.id,
+          email: newStudentUser.email,
+          displayName: newStudentUser.name,
+          phone: newStudentUser.phone,
+          role: 'Student'
+        }, {
+          enrolledCourses: coursesToGrant,
+          totalSpent: newStudentUser.totalSpent,
+          isNewRegistration: true
+        }).catch(() => {});
       }
+    }
+    setUsersList(extraUserUpdates);
 
-      // Unlock order in orderService & Cloud Firestore and broadcast real-time unlock
-      approveOrder(targetTx.orderId || targetTx.id || targetTx.trxId, {
+    // 6. Direct Supabase order status update with multi-strategy resolution
+    const resolvedOrderId = targetTx.orderId || targetTx.id;
+    if (isSupabaseConfigured) {
+      updateSupabaseOrderStatus(resolvedOrderId, { status: 'PAID', isApproved: true }, {
+        id: targetTx.id,
+        orderId: targetTx.orderId,
+        trxId: targetTx.trxId,
+        phone: targetTx.studentPhone,
+        email: targetTx.studentEmail,
         courseTitle: itemTitle,
-        studentPhone: targetTx.studentPhone,
-        studentEmail: targetTx.studentEmail,
         studentName: targetTx.studentName,
         amount: targetTx.amount
-      });
+      }).catch(e => console.warn('[AdminPanel] Direct Supabase order approval note:', e));
     }
+
+    // 7. Unlock in orderService & local caches
+    approveOrder(targetTx.orderId || targetTx.id || targetTx.trxId, {
+      courseTitle: itemTitle,
+      studentPhone: targetTx.studentPhone,
+      studentEmail: targetTx.studentEmail,
+      studentName: targetTx.studentName,
+      amount: targetTx.amount
+    });
 
     persistAll({ 
       accounting: newAcc,
       enrolledStudents: extraStudentUpdates,
-      ...(extraUserUpdates ? { users: extraUserUpdates } : {})
+      users: extraUserUpdates
     });
-    triggerToast('Enrollment approved and courses unlocked successfully');
+    triggerToast('🎉 এনরোলমেন্ট অ্যাপ্রুভ করা হয়েছে এবং কোর্স স্থায়ীভাবে আনলক হয়েছে!');
   };
 
-  // Revoke Approval for a Transaction
+  // Revoke Approval for a Transaction (Permanently Persisted)
   const handleRevokeTrx = (trxId) => {
     const targetTx = (accounting.transactions || []).find(t => t.id === trxId);
     if (!targetTx) return;
 
     if (confirm(`Are you sure you want to revoke approval for "${targetTx.studentName}" and lock the course?`)) {
+      // 1. Permanently save status override in localStorage
+      saveStatusOverride([
+        targetTx.id,
+        targetTx.orderId,
+        targetTx.trxId,
+        targetTx.invoiceNumber,
+        trxId
+      ], 'Pending');
+
       const updated = (accounting.transactions || []).map(t => {
-        if (t.id === trxId) return { ...t, status: 'Pending' };
+        if (t.id === trxId) return { ...t, status: 'Pending', isApproved: false };
         return t;
       });
 
@@ -3371,11 +3600,25 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       });
       setEnrolledStudents(updatedStudents);
 
-      // Update Supabase order
-      const targetOrderId = targetTx.orderId || (targetTx.id.startsWith('ord_') ? targetTx.id : (targetTx.id.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : targetTx.id));
+      // Update Supabase order status
+      const targetOrderId = targetTx.orderId || targetTx.id;
       if (isSupabaseConfigured && targetOrderId) {
-        updateSupabaseOrderStatus(targetOrderId, { status: 'PENDING', isApproved: false }).catch(() => {});
+        updateSupabaseOrderStatus(targetOrderId, { status: 'PENDING', isApproved: false }, {
+          id: targetTx.id,
+          orderId: targetTx.orderId,
+          trxId: targetTx.trxId,
+          phone: targetTx.studentPhone,
+          email: targetTx.studentEmail,
+          courseTitle: targetTx.itemTitle
+        }).catch(() => {});
       }
+
+      // Revoke in orderService
+      revokeOrder(targetTx.orderId || targetTx.id || targetTx.trxId, {
+        courseTitle: targetTx.itemTitle,
+        studentPhone: targetTx.studentPhone,
+        studentEmail: targetTx.studentEmail
+      });
 
       persistAll({
         accounting: newAcc,
@@ -3539,12 +3782,21 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     });
 
     if (isNowActive) {
+      // Save status override
+      saveStatusOverride([
+        st.id,
+        st.orderId,
+        st.trxId,
+        resolvedOrderId,
+        targetTx?.id
+      ], 'Completed');
+
       // Grant course access & unlock
       if (st.courseName) {
         grantCourseAccess(st.courseName, { bundles, courses }, matchedUser);
       }
-      if (resolvedOrderId) {
-        approveOrder(resolvedOrderId, {
+      if (resolvedOrderId || targetOrderId || st.trxId) {
+        approveOrder(resolvedOrderId || targetOrderId || st.id, {
           courseTitle: st.courseName,
           studentPhone: st.phone,
           studentEmail: st.email,
@@ -3552,17 +3804,47 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           amount: st.amount
         });
         if (isSupabaseConfigured) {
-          updateSupabaseOrderStatus(resolvedOrderId, { status: 'PAID', isApproved: true, is_approved: true }).catch(() => {});
+          updateSupabaseOrderStatus(resolvedOrderId || targetOrderId || st.id, { status: 'PAID', isApproved: true }, {
+            id: st.id,
+            orderId: resolvedOrderId,
+            trxId: st.trxId,
+            phone: st.phone,
+            email: st.email,
+            courseTitle: st.courseName,
+            studentName: st.name,
+            amount: st.amount
+          }).catch(() => {});
         }
       }
     } else {
+      // Save status override
+      saveStatusOverride([
+        st.id,
+        st.orderId,
+        st.trxId,
+        resolvedOrderId,
+        targetTx?.id
+      ], 'Pending');
+
       // Revoke course access & lock
       if (st.courseName) {
         revokeCourseAccess(st.courseName, { bundles, courses }, matchedUser);
       }
-      if (resolvedOrderId) {
+      if (resolvedOrderId || targetOrderId || st.trxId) {
+        revokeOrder(resolvedOrderId || targetOrderId || st.id, {
+          courseTitle: st.courseName,
+          studentPhone: st.phone,
+          studentEmail: st.email
+        });
         if (isSupabaseConfigured) {
-          updateSupabaseOrderStatus(resolvedOrderId, { status: 'PENDING', isApproved: false, is_approved: false }).catch(() => {});
+          updateSupabaseOrderStatus(resolvedOrderId || targetOrderId || st.id, { status: 'PENDING', isApproved: false }, {
+            id: st.id,
+            orderId: resolvedOrderId,
+            trxId: st.trxId,
+            phone: st.phone,
+            email: st.email,
+            courseTitle: st.courseName
+          }).catch(() => {});
         }
       }
       // Update eh_user_orders_v3 in localStorage
@@ -4142,7 +4424,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     let updatedUsers = [...usersList];
 
     pendingTxs.forEach(tx => {
-      updatedTxs = updatedTxs.map(t => t.id === tx.id ? { ...t, status: 'Completed' } : t);
+      saveStatusOverride([tx.id, tx.orderId, tx.trxId, tx.invoiceNumber], 'Completed');
+      updatedTxs = updatedTxs.map(t => t.id === tx.id ? { ...t, status: 'Completed', isApproved: true } : t);
       totalAddedRev += (Number(tx.amount) || 0);
 
       const cleanPhone = (tx.studentPhone || tx.phone || '').trim();
@@ -4150,6 +4433,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const studentName = tx.studentName || tx.customer || 'New Student';
       const rawName = studentName.trim().toLowerCase();
       const studentEmail = (tx.studentEmail || tx.email || '').trim().toLowerCase();
+
+      if (isSupabaseConfigured) {
+        updateSupabaseOrderStatus(tx.orderId || tx.id, { status: 'PAID', isApproved: true }, {
+          id: tx.id,
+          orderId: tx.orderId,
+          trxId: tx.trxId,
+          phone: cleanPhone,
+          email: studentEmail,
+          courseTitle: tx.itemTitle || tx.category || 'Course Enrollment',
+          studentName,
+          amount: tx.amount
+        }).catch(() => {});
+      }
 
       const matchedTargetUser = updatedUsers.find(u => {
         const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
@@ -4184,12 +4480,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
       // Update usersList
       if (rawPhone.length >= 6 || rawName) {
+        let foundInBatch = false;
         updatedUsers = updatedUsers.map(u => {
           const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
           const uName = (u.name || '').trim().toLowerCase();
           const matchPhone = rawPhone.length >= 6 && uPhone.includes(rawPhone);
           const matchName = rawName && (uName === rawName || uName.includes(rawName));
           if (matchPhone || matchName) {
+            foundInBatch = true;
             const current = u.enrolledCourses || [];
             return {
               ...u,
@@ -4200,7 +4498,49 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           }
           return u;
         });
+
+        if (!foundInBatch) {
+          const nowIso = new Date().toISOString();
+          const newStudentUser = {
+            id: `usr-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+            name: studentName,
+            displayName: studentName,
+            email: tx.studentEmail || tx.email || `${studentName.toLowerCase().replace(/[^a-z0-9]/g, '') || 'student'}${Math.floor(100 + Math.random() * 900)}@gmail.com`,
+            phone: cleanPhone,
+            whatsapp: cleanPhone,
+            role: 'Student',
+            status: 'Active',
+            batch: 'HSC 26',
+            hscBatch: 'HSC 26',
+            enrolledCourses: Array.from(new Set([courseTitle, ...grantedCourses])),
+            totalSpent: Number(tx.amount) || 0,
+            joinedDate: 'Just now',
+            lastActive: 'Active now',
+            createdAt: nowIso,
+            created_at: nowIso,
+            device: 'Batch Order Sync',
+            avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(studentName)}`
+          };
+          updatedUsers = [newStudentUser, ...updatedUsers];
+        }
       }
+
+      saveStatusOverride([tx.id, tx.orderId, tx.trxId, tx.invoiceNumber], 'Completed');
+
+      if (isSupabaseConfigured) {
+        updateSupabaseOrderStatus(tx.orderId || tx.id, {
+          status: 'PAID',
+          isApproved: true
+        }, {
+          trxId: tx.trxId,
+          phone: cleanPhone,
+          email: tx.studentEmail || tx.email,
+          courseTitle,
+          studentName,
+          amount: tx.amount
+        }).catch(err => console.warn('[AdminPanel] Batch Supabase approve sync note:', err));
+      }
+
       approveOrder(tx.orderId || tx.id || tx.trxId, {
         courseTitle,
         studentPhone: cleanPhone,
@@ -4237,6 +4577,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const studentEmail = (tx.studentEmail || tx.email || '').trim().toLowerCase();
     const itemTitle = tx.itemTitle || tx.category || 'Course Enrollment';
     const courseTitle = itemTitle;
+
+    // Save status override
+    saveStatusOverride([tx.id, tx.orderId, tx.trxId, tx.invoiceNumber], 'Completed');
 
     // 1. Identify and purge any duplicate pending transactions for this student + course
     const duplicatePendingTxs = (accounting.transactions || []).filter(t => {
@@ -4344,6 +4687,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setEnrolledStudents(updatedEnrolled);
 
     // 4. Update usersList - Union of enrolled courses, 100% guarantee no access is lost
+    let userFound = false;
     let updatedUsers = usersList.map(u => {
       const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
       const uName = (u.name || '').trim().toLowerCase();
@@ -4352,17 +4696,71 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const matchEmail = studentEmail && uEmail === studentEmail;
       const matchName = rawName && (uName === rawName || uName.includes(rawName));
       if (matchPhone || matchEmail || matchName) {
+        userFound = true;
         const current = u.enrolledCourses || [];
         return {
           ...u,
           status: 'Active',
           enrolledCourses: Array.from(new Set([...current, courseTitle, ...grantedCourses])),
-          totalSpent: (Number(u.totalSpent) || 0) + addedAmt
+          totalSpent: (Number(u.totalSpent) || 0) + addedAmt,
+          lastActive: 'Active now'
         };
       }
       return u;
     });
+
+    if (!userFound && (rawPhone.length >= 6 || studentEmail || studentName)) {
+      const nowIso = new Date().toISOString();
+      const newStudentUser = {
+        id: `usr-${Date.now()}`,
+        name: studentName,
+        displayName: studentName,
+        email: studentEmail || `${studentName.toLowerCase().replace(/[^a-z0-9]/g, '') || 'student'}${Math.floor(100 + Math.random() * 900)}@gmail.com`,
+        phone: cleanPhone,
+        whatsapp: cleanPhone,
+        role: 'Student',
+        status: 'Active',
+        batch: 'HSC 26',
+        hscBatch: 'HSC 26',
+        enrolledCourses: Array.from(new Set([courseTitle, ...grantedCourses])),
+        totalSpent: addedAmt,
+        joinedDate: 'Just now',
+        lastActive: 'Active now',
+        createdAt: nowIso,
+        created_at: nowIso,
+        device: 'Web Client',
+        avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(studentName)}`
+      };
+      updatedUsers = [newStudentUser, ...updatedUsers];
+      if (isSupabaseConfigured) {
+        saveSupabaseUser({
+          uid: newStudentUser.id,
+          email: newStudentUser.email,
+          displayName: newStudentUser.name,
+          phone: newStudentUser.phone,
+          role: 'Student'
+        }, {
+          enrolledCourses: newStudentUser.enrolledCourses,
+          totalSpent: addedAmt,
+          isNewRegistration: true
+        }).catch(() => {});
+      }
+    }
     setUsersList(updatedUsers);
+
+    // Direct Supabase order update
+    if (isSupabaseConfigured) {
+      updateSupabaseOrderStatus(tx.orderId || tx.id, { status: 'PAID', isApproved: true }, {
+        id: tx.id,
+        orderId: tx.orderId,
+        trxId: tx.trxId,
+        phone: cleanPhone,
+        email: tx.studentEmail || tx.email,
+        courseTitle,
+        studentName,
+        amount: tx.amount
+      }).catch(() => {});
+    }
 
     // 5. Unlock order in orderService & Cloud Firestore and broadcast real-time activation
     approveOrder(tx.orderId || tx.id || tx.trxId, {
@@ -4389,6 +4787,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       return;
     }
 
+    // Save status override
+    saveStatusOverride([tx.id, tx.orderId, tx.trxId, tx.invoiceNumber], newStatus);
+
     const wasCompleted = (tx.status || '').toLowerCase() === 'completed' || (tx.status || '').toLowerCase() === 'paid';
     const isNowCompleted = newStatus.toLowerCase() === 'completed' || newStatus.toLowerCase() === 'paid';
     let revDiff = 0;
@@ -4408,8 +4809,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     };
     setAccounting(updatedAccounting);
 
-    if (isSupabaseConfigured && (tx.orderId || tx.id)) {
-      updateSupabaseOrderStatus(tx.orderId || tx.id, newStatus.toUpperCase()).catch(() => {});
+    if (isSupabaseConfigured && (tx.orderId || tx.id || tx.trxId)) {
+      updateSupabaseOrderStatus(tx.orderId || tx.id, newStatus.toUpperCase(), {
+        id: tx.id,
+        orderId: tx.orderId,
+        trxId: tx.trxId,
+        phone: tx.studentPhone,
+        email: tx.studentEmail,
+        courseTitle: tx.itemTitle
+      }).catch(() => {});
     }
 
     persistAll({ accounting: updatedAccounting });
@@ -5004,12 +5412,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         getCanonicalCourses(a.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA }).length
       ));
     } else {
-      // Default: Newest users ALWAYS on top
-      list.sort((a, b) => {
-        const timeA = new Date(a.createdAt || a.joinedDate || 0).getTime() || (a.id?.startsWith('usr-') ? Number(a.id.replace('usr-', '')) : 0);
-        const timeB = new Date(b.createdAt || b.joinedDate || 0).getTime() || (b.id?.startsWith('usr-') ? Number(b.id.replace('usr-', '')) : 0);
-        return timeB - timeA;
-      });
+      // Default: Newest users ALWAYS on top with 100% accuracy
+      list.sort((a, b) => getUserTimestamp(b) - getUserTimestamp(a));
     }
 
     return list;
