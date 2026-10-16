@@ -117,6 +117,49 @@ const applyAmountOverride = (tx, overrides) => {
   return tx;
 };
 
+const DEFAULT_ACCOUNTING_RESET_AT = '2026-10-16T17:05:00.000Z';
+
+const getAccountingResetConfig = () => {
+  try {
+    let resetAt = localStorage.getItem('eh_accounting_reset_at');
+    if (!resetAt) {
+      resetAt = DEFAULT_ACCOUNTING_RESET_AT;
+      localStorage.setItem('eh_accounting_reset_at', resetAt);
+    }
+    const legacyIds = JSON.parse(localStorage.getItem('eh_accounting_legacy_ids') || '[]');
+    return {
+      resetAt,
+      legacyIdsSet: new Set(legacyIds)
+    };
+  } catch {
+    return { resetAt: DEFAULT_ACCOUNTING_RESET_AT, legacyIdsSet: new Set() };
+  }
+};
+
+const isHistoricalTx = (tx, resetConfig) => {
+  if (!tx) return false;
+  if (tx.isHistorical || tx.beforeReset) return true;
+  const cfg = resetConfig || getAccountingResetConfig();
+  if (cfg.legacyIdsSet && cfg.legacyIdsSet.size > 0) {
+    if (cfg.legacyIdsSet.has(tx.id) || cfg.legacyIdsSet.has(tx.orderId) || (tx.trxId && cfg.legacyIdsSet.has(tx.trxId))) {
+      return true;
+    }
+    const cleanId = typeof tx.id === 'string' ? tx.id.replace(/^(TRX-|st-)/, '') : '';
+    const cleanOrderId = typeof tx.orderId === 'string' ? tx.orderId.replace(/^(TRX-|st-)/, '') : '';
+    if (cleanId && cfg.legacyIdsSet.has(cleanId)) return true;
+    if (cleanOrderId && cfg.legacyIdsSet.has(cleanOrderId)) return true;
+  }
+  const rTime = cfg.resetAt ? new Date(cfg.resetAt).getTime() : new Date(DEFAULT_ACCOUNTING_RESET_AT).getTime();
+  if (tx.createdAt) {
+    return new Date(tx.createdAt).getTime() <= rTime;
+  }
+  if (tx.date) {
+    const dTime = new Date(tx.date).getTime();
+    if (!isNaN(dTime)) return dTime <= rTime;
+  }
+  return true;
+};
+
 export default function App() {
   const { isDark } = useTheme();
   const { currentUser } = useAuth();
@@ -462,10 +505,13 @@ export default function App() {
             } catch (e) {}
 
             const allTxs = Array.from(txMap.values());
+            const resetConfig = getAccountingResetConfig();
             const completedRev = allTxs
-              .filter(t => (t.status || '').toLowerCase() === 'completed')
+              .filter(t => (t.status || '').toLowerCase() === 'completed' && !isHistoricalTx(t, resetConfig))
               .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
-            const totalExp = Number(acc?.totalExpenses) || 0;
+            const totalExp = allTxs
+              .filter(t => (t.type || '').toUpperCase() === 'EXPENSE' && !isHistoricalTx(t, resetConfig))
+              .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
 
             return {
               totalRevenue: completedRev,
@@ -880,10 +926,13 @@ export default function App() {
           cleanTxs.push(t);
         });
 
+        const resetConfig = getAccountingResetConfig();
         const completedRev = cleanTxs
-          .filter(t => (t.status || '').toLowerCase() === 'completed')
+          .filter(t => (t.status || '').toLowerCase() === 'completed' && !isHistoricalTx(t, resetConfig))
           .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
-        const totalExp = Number(cloudAcc.totalExpenses !== undefined ? cloudAcc.totalExpenses : prevAcc.totalExpenses) || 0;
+        const totalExp = cleanTxs
+          .filter(t => (t.type || '').toUpperCase() === 'EXPENSE' && !isHistoricalTx(t, resetConfig))
+          .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
 
         resolvedAccounting = {
           totalRevenue: completedRev,

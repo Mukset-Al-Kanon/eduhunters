@@ -158,6 +158,49 @@ export const applyAmountOverride = (tx, overrides) => {
   return tx;
 };
 
+export const DEFAULT_ACCOUNTING_RESET_AT = '2026-10-16T17:05:00.000Z';
+
+export const getAccountingResetConfig = () => {
+  try {
+    let resetAt = localStorage.getItem('eh_accounting_reset_at');
+    if (!resetAt) {
+      resetAt = DEFAULT_ACCOUNTING_RESET_AT;
+      localStorage.setItem('eh_accounting_reset_at', resetAt);
+    }
+    const legacyIds = JSON.parse(localStorage.getItem('eh_accounting_legacy_ids') || '[]');
+    return {
+      resetAt,
+      legacyIdsSet: new Set(legacyIds)
+    };
+  } catch {
+    return { resetAt: DEFAULT_ACCOUNTING_RESET_AT, legacyIdsSet: new Set() };
+  }
+};
+
+export const isHistoricalTx = (tx, resetConfig) => {
+  if (!tx) return false;
+  if (tx.isHistorical || tx.beforeReset) return true;
+  const cfg = resetConfig || getAccountingResetConfig();
+  if (cfg.legacyIdsSet && cfg.legacyIdsSet.size > 0) {
+    if (cfg.legacyIdsSet.has(tx.id) || cfg.legacyIdsSet.has(tx.orderId) || (tx.trxId && cfg.legacyIdsSet.has(tx.trxId))) {
+      return true;
+    }
+    const cleanId = typeof tx.id === 'string' ? tx.id.replace(/^(TRX-|st-)/, '') : '';
+    const cleanOrderId = typeof tx.orderId === 'string' ? tx.orderId.replace(/^(TRX-|st-)/, '') : '';
+    if (cleanId && cfg.legacyIdsSet.has(cleanId)) return true;
+    if (cleanOrderId && cfg.legacyIdsSet.has(cleanOrderId)) return true;
+  }
+  const rTime = cfg.resetAt ? new Date(cfg.resetAt).getTime() : new Date(DEFAULT_ACCOUNTING_RESET_AT).getTime();
+  if (tx.createdAt) {
+    return new Date(tx.createdAt).getTime() <= rTime;
+  }
+  if (tx.date) {
+    const dTime = new Date(tx.date).getTime();
+    if (!isNaN(dTime)) return dTime <= rTime;
+  }
+  return true;
+};
+
 // File-scoped pure mappers so state initializers, listeners, and heartbeats can convert order docs reliably
 export const mapOrderDocToTx = (docId, order) => {
   if (!order) return null;
@@ -950,17 +993,22 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       }
     } catch (e) {}
 
+    const resetConfig = getAccountingResetConfig();
     const allTxs = deduplicateTransactions(Array.from(txMap.values()));
     const completedRev = allTxs
-      .filter(t => (t.status || '').toLowerCase() === 'completed')
+      .filter(t => (t.status || '').toLowerCase() === 'completed' && !isHistoricalTx(t, resetConfig))
       .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
-    const totalExp = Number(raw?.totalExpenses) || 0;
+    const totalExp = allTxs
+      .filter(t => (t.type || '').toUpperCase() === 'EXPENSE' && !isHistoricalTx(t, resetConfig))
+      .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
 
     return {
       totalRevenue: completedRev,
       totalExpenses: totalExp,
       netProfit: completedRev - totalExp,
       totalOrders: allTxs.length,
+      resetAt: resetConfig.resetAt,
+      legacyTxIds: Array.from(resetConfig.legacyIdsSet),
       transactions: allTxs
     };
   });
@@ -1523,15 +1571,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               if (key) txMap.set(key, applyAmountOverride(tx, overrides));
             });
 
+            const resetConfig = getAccountingResetConfig();
             const allTxs = deduplicateTransactions(Array.from(txMap.values()));
             const completedRev = allTxs
-              .filter(t => (t.status || '').toLowerCase() === 'completed')
+              .filter(t => (t.status || '').toLowerCase() === 'completed' && !isHistoricalTx(t, resetConfig))
               .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
-            const totalExpenses = Number(prev?.totalExpenses) || 0;
+            const totalExpenses = allTxs
+              .filter(t => (t.type || '').toUpperCase() === 'EXPENSE' && !isHistoricalTx(t, resetConfig))
+              .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
 
             return {
               ...prev,
               totalRevenue: completedRev,
+              totalExpenses: totalExpenses,
               netProfit: completedRev - totalExpenses,
               totalOrders: allTxs.filter(t => (t.type || '').toUpperCase() === 'INCOME' || !t.type).length,
               transactions: allTxs
@@ -1606,14 +1658,18 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 const key = tx.orderId || tx.id || tx.trxId;
                 if (key) txMap.set(key, applyAmountOverride(tx, overrides));
               });
+              const resetConfig = getAccountingResetConfig();
               const allTxs = deduplicateTransactions(Array.from(txMap.values()));
               const completedRev = allTxs
-                .filter(t => (t.status || '').toLowerCase() === 'completed')
+                .filter(t => (t.status || '').toLowerCase() === 'completed' && !isHistoricalTx(t, resetConfig))
                 .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
-              const totalExpenses = Number(prev?.totalExpenses) || 0;
+              const totalExpenses = allTxs
+                .filter(t => (t.type || '').toUpperCase() === 'EXPENSE' && !isHistoricalTx(t, resetConfig))
+                .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
               return {
                 ...prev,
                 totalRevenue: completedRev,
+                totalExpenses: totalExpenses,
                 netProfit: completedRev - totalExpenses,
                 totalOrders: allTxs.filter(t => (t.type || '').toUpperCase() === 'INCOME' || !t.type).length,
                 transactions: allTxs
@@ -1715,14 +1771,18 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   const key = tx.orderId || tx.id || tx.trxId;
                   if (key) txMap.set(key, applyAmountOverride(tx, overrides));
                 });
+                const resetConfig = getAccountingResetConfig();
                 const allTxs = deduplicateTransactions(Array.from(txMap.values()));
                 const completedRev = allTxs
-                  .filter(t => (t.status || '').toLowerCase() === 'completed')
+                  .filter(t => (t.status || '').toLowerCase() === 'completed' && !isHistoricalTx(t, resetConfig))
                   .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
-                const totalExpenses = Number(prev?.totalExpenses) || 0;
+                const totalExpenses = allTxs
+                  .filter(t => (t.type || '').toUpperCase() === 'EXPENSE' && !isHistoricalTx(t, resetConfig))
+                  .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
                 return {
                   ...prev,
                   totalRevenue: completedRev,
+                  totalExpenses: totalExpenses,
                   netProfit: completedRev - totalExpenses,
                   totalOrders: allTxs.filter(t => (t.type || '').toUpperCase() === 'INCOME' || !t.type).length,
                   transactions: allTxs
@@ -1883,11 +1943,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             txMap.set(t.id, overridden);
           }
         });
+        const resetConfig = getAccountingResetConfig();
         const allTxs = deduplicateTransactions(Array.from(txMap.values()));
         const completedRev = allTxs
-          .filter(t => (t.status || '').toLowerCase() === 'completed')
+          .filter(t => (t.status || '').toLowerCase() === 'completed' && !isHistoricalTx(t, resetConfig))
           .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
-        const totalExpenses = Number(data.accounting.totalExpenses ?? prev?.totalExpenses) || 0;
+        const totalExpenses = allTxs
+          .filter(t => (t.type || '').toUpperCase() === 'EXPENSE' && !isHistoricalTx(t, resetConfig))
+          .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
         return {
           ...data.accounting,
           totalRevenue: completedRev,
@@ -3079,6 +3142,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     e.preventDefault();
     if (!newTrx.itemTitle || !newTrx.amount) return;
     const amt = Number(newTrx.amount) || 0;
+    const nowIso = new Date().toISOString();
     const item = {
       id: `TRX-${Date.now().toString().slice(-5)}`,
       studentName: newTrx.studentName || 'Manual Entry',
@@ -3088,19 +3152,27 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       amount: amt,
       method: newTrx.method,
       trxId: newTrx.trxId || `TRX-${Math.floor(100000 + Math.random() * 900000)}`,
-      date: new Date().toISOString().split('T')[0],
+      date: nowIso.split('T')[0],
+      createdAt: nowIso,
+      isHistorical: false,
       status: 'Completed'
     };
 
     const updatedTrx = [item, ...(accounting.transactions || [])];
-    const newRev = newTrx.type === 'INCOME' ? (accounting.totalRevenue || 0) + amt : (accounting.totalRevenue || 0);
-    const newExp = newTrx.type === 'EXPENSE' ? (accounting.totalExpenses || 0) + amt : (accounting.totalExpenses || 0);
+    const resetConfig = getAccountingResetConfig();
+    const newRev = updatedTrx
+      .filter(t => (t.status || '').toLowerCase() === 'completed' && !isHistoricalTx(t, resetConfig))
+      .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+    const newExp = updatedTrx
+      .filter(t => (t.type || '').toUpperCase() === 'EXPENSE' && !isHistoricalTx(t, resetConfig))
+      .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+
     const updatedAccounting = {
       ...accounting,
       totalRevenue: newRev,
       totalExpenses: newExp,
       netProfit: newRev - newExp,
-      totalOrders: newTrx.type === 'INCOME' ? (accounting.totalOrders || 0) + 1 : (accounting.totalOrders || 0),
+      totalOrders: updatedTrx.length,
       transactions: updatedTrx
     };
 
@@ -3109,6 +3181,36 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setNewTrx({ studentName: '', studentPhone: '', itemTitle: '', type: 'INCOME', amount: '', method: 'bKash', trxId: '' });
     setShowAddTrxModal(false);
     triggerToast('💰 Transaction added successfully!');
+  };
+
+  // Reset Financial Ledger Totals to ৳0 baseline (keeps all transaction history and student course access 100% intact)
+  const handleResetAccountingTotals = () => {
+    if (!window.confirm('আপনি কি নিশ্চিত যে বর্তমান লেজার ইনকাম ও খরচের সামারি হিসাব ৳০ থেকে রিস্টার্ট করতে চান?\n\n(শিক্ষার্থীদের পূর্বের ট্রানজ্যাকশন তালিকা ও কোর্স এক্সেস ১০০% অপরিবর্তিত থাকবে)')) {
+      return;
+    }
+    const currentNow = new Date().toISOString();
+    const currentTxIds = (accounting?.transactions || []).map(t => t.id).filter(Boolean);
+    let existingLegacy = [];
+    try {
+      existingLegacy = JSON.parse(localStorage.getItem('eh_accounting_legacy_ids') || '[]');
+    } catch {}
+    const allLegacyIds = Array.from(new Set([...existingLegacy, ...currentTxIds]));
+
+    localStorage.setItem('eh_accounting_reset_at', currentNow);
+    localStorage.setItem('eh_accounting_legacy_ids', JSON.stringify(allLegacyIds));
+
+    const updatedAccounting = {
+      ...accounting,
+      resetAt: currentNow,
+      legacyTxIds: allLegacyIds,
+      totalRevenue: 0,
+      totalExpenses: 0,
+      netProfit: 0
+    };
+
+    setAccounting(updatedAccounting);
+    persistAll({ accounting: updatedAccounting });
+    triggerToast('✅ লেজার সামারি সফলভাবে ৳০ থেকে রিস্টার্ট করা হয়েছে!');
   };
 
   // Approve Pending Enrollment Transaction
@@ -5127,23 +5229,29 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   }, [courses, adminCourseCategoryFilter, deferredCourseQuery]);
 
 
-  // Memoized Financial Totals (Reflects verified, real transactions)
+  // Memoized Financial Totals (Reflects verified, real transactions starting from ৳0 baseline)
   const accountingTotals = useMemo(() => {
     const txs = accounting?.transactions || [];
+    const resetConfig = getAccountingResetConfig();
     let rev = 0;
     let exp = 0;
     txs.forEach(t => {
+      if (!t || isHistoricalTx(t, resetConfig)) return;
       const amt = Number(t.amount) || 0;
       const isCompleted = (t.status || '').toLowerCase() === 'completed';
-      if (t.type === 'INCOME' && isCompleted) rev += amt;
-      else if (t.type === 'EXPENSE' && isCompleted) exp += amt;
+      const isExpense = (t.type || '').toUpperCase() === 'EXPENSE';
+      if (isExpense && (isCompleted || !t.status || t.status === 'Completed')) {
+        exp += amt;
+      } else if (!isExpense && isCompleted) {
+        rev += amt;
+      }
     });
     return {
       totalRevenue: rev,
       totalExpenses: exp,
       netProfit: rev - exp
     };
-  }, [accounting?.transactions]);
+  }, [accounting?.transactions, accounting?.resetAt, accounting?.legacyTxIds]);
 
   // =========================================================
   // DEDICATED FULL-PAGE BUNDLE STUDIO VIEW (NO POPUP)
@@ -6794,18 +6902,29 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           {/* ========================================================= */}
           {activeTab === 'accounting' && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <h2 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">
                   Financial Register & Ledger
                 </h2>
-                <button
-                  type="button"
-                  onClick={() => setShowAddTrxModal(true)}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-xs active:scale-95 shrink-0"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                  <span>Add Entry</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleResetAccountingTotals}
+                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs border border-slate-200 cursor-pointer transition-all active:scale-95 shrink-0"
+                    title="পূর্বের ট্রানজ্যাকশন ও শিক্ষার্থীদের এক্সেস অপরিবর্তিত রেখে সামারি হিসাব ৳০ থেকে রিস্টার্ট করুন"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Reset Summary (৳০)</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowAddTrxModal(true)}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs border-none cursor-pointer transition-all shadow-xs active:scale-95 shrink-0"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>Add Entry</span>
+                  </button>
+                </div>
               </div>
 
               {/* Summary Cards (Minimal, 2 Side-by-Side on Mobile) */}
