@@ -535,6 +535,7 @@ export default function CoursePlayerPage({
             }}
             siteSettings={data?.siteSettings || {}}
             customExamBatches={data?.examBatches}
+            courses={data?.courses}
             onLoginClick={onLoginClick}
           />
         </main>

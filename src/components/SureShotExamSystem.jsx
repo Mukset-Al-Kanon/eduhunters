@@ -146,7 +146,7 @@ export default function SureShotExamSystem({
 
   // Navigation states: 'category_cards' | 'category_detail' | 'course_card' | 'exam_list' | 'exam_intro' | 'exam_live' | 'exam_result'
   const [step, setStep] = useState(() => {
-    if (initialExam) return initialStep || 'exam_intro';
+    if (initialExam || isCourseQuizProp) return initialStep || 'exam_intro';
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const urlStep = urlParams.get('step');
@@ -264,6 +264,16 @@ export default function SureShotExamSystem({
 
   // Sync state if initialCategory or initialStep changes
   React.useEffect(() => {
+    // If running in course quiz mode (e.g. from CoursePlayerPage lesson quiz),
+    // strictly keep step in exam flow (exam_intro / exam_live / exam_result)
+    // and never reset or fallback to category_cards or category_detail!
+    if (isCourseQuiz || initialExam) {
+      if (step !== 'exam_live' && step !== 'exam_result') {
+        setStep(initialStep || 'exam_intro');
+      }
+      return;
+    }
+
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const urlStep = urlParams.get('step');
@@ -326,11 +336,15 @@ export default function SureShotExamSystem({
       setSelectedCategory('all');
       setStep('category_cards');
     }
-  }, [initialCategory, initialStep, categoriesMetadata]);
+  }, [initialCategory, initialStep, categoriesMetadata, isCourseQuiz, initialExam]);
 
   // Handle browser popstate / back-forward within exam views
   React.useEffect(() => {
     const onPop = () => {
+      // In course quiz mode, do not let browser popstate switch to category_cards
+      if (isCourseQuiz || initialExam) {
+        return;
+      }
       try {
         const urlParams = new URLSearchParams(window.location.search);
         const urlStep = urlParams.get('step');
@@ -358,7 +372,7 @@ export default function SureShotExamSystem({
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
-  }, [allExams, categoriesMetadata]);
+  }, [allExams, categoriesMetadata, isCourseQuiz, initialExam]);
 
   // View states for streamlined Category Exam List (matching user screenshot)
   const [isExpanded, setIsExpanded] = useState(false);
@@ -607,9 +621,12 @@ export default function SureShotExamSystem({
         questions: (initialExam.questions && initialExam.questions.length > 0) ? initialExam.questions : (prev?.questions || [])
       }));
 
-      // Only reset exam state if this is truly a brand-new/different exam
-      if (isDifferentExam) {
+      // In course quiz mode, ensure step is in exam flow
+      if (isDifferentExam || (step !== 'exam_live' && step !== 'exam_result')) {
         setStep(initialStep || 'exam_intro');
+      }
+
+      if (isDifferentExam) {
         setUserAnswers({});
         setIsSubmitted(false);
         setExamResult(null);
@@ -676,6 +693,7 @@ export default function SureShotExamSystem({
 
   // 1b. Ensure URL and storage stay synchronized when in exam_result
   useEffect(() => {
+    if (isCourseQuiz || initialExam) return;
     if (step === 'exam_result') {
       try {
         const cat = selectedCategory || selectedExamMeta?.category || 'sureshot';
@@ -690,7 +708,7 @@ export default function SureShotExamSystem({
         }
       } catch (e) {}
     }
-  }, [step, selectedCategory, selectedExamMeta, examResult, examData]);
+  }, [step, selectedCategory, selectedExamMeta, examResult, examData, isCourseQuiz, initialExam]);
 
   // Ensure 'All' filter is selected by default when entering exam result
   useEffect(() => {
@@ -866,6 +884,9 @@ export default function SureShotExamSystem({
     }
 
     let questions = examData?.questions || [];
+    if (questions.length === 0 && selectedExamMeta?.questions && selectedExamMeta.questions.length > 0) {
+      questions = selectedExamMeta.questions;
+    }
     if (questions.length === 0 && selectedExamMeta) {
       setIsLoadingExam(true);
       try {
@@ -1150,6 +1171,10 @@ export default function SureShotExamSystem({
   // VIEW 0: 10MS-STYLE DEDICATED CATEGORY DETAIL PAGE
   // -------------------------------------------------------------
   if (step === 'category_detail') {
+    if (isCourseQuiz || initialExam) {
+      setStep('exam_intro');
+      return null;
+    }
     const detailToUse = selectedCategoryDetail || 
       categoriesMetadata.find(c => c.key === selectedCategory) || 
       categoriesMetadata[0];
@@ -1242,6 +1267,10 @@ export default function SureShotExamSystem({
   // VIEW 1: CATEGORY CARDS VIEW (Exact Match to User Reference Mockup)
   // -------------------------------------------------------------
   if (step === 'category_cards' || step === 'course_card') {
+    if (isCourseQuiz || initialExam) {
+      setStep('exam_intro');
+      return null;
+    }
     const filteredCategories = categoriesMetadata.filter(c => isCategoryActive(c));
 
     return (
@@ -1417,6 +1446,10 @@ export default function SureShotExamSystem({
   // VIEW 2: STREAMLINED BATCH EXAM LIST (Exact Match to User Reference Mockup)
   // -------------------------------------------------------------
   if (step === 'exam_list') {
+    if (isCourseQuiz || initialExam) {
+      setStep('exam_intro');
+      return null;
+    }
     const currentCategoryDetail = selectedCategoryDetail || 
       categoriesMetadata.find(c => c.key === selectedCategory) || 
       categoriesMetadata[0];
@@ -3070,6 +3103,13 @@ export default function SureShotExamSystem({
   }
 
   // Safe ultimate fallback: If step is invalid or unknown, render category cards view so screen is never blank
+  if (isCourseQuiz || initialExam) {
+    if (step !== 'exam_intro' && step !== 'exam_live' && step !== 'exam_result') {
+      setStep('exam_intro');
+    }
+    return null;
+  }
+
   return (
     <div className={`min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans transition-colors duration-300 ${
       isDark ? 'bg-transparent text-white' : 'bg-[#f8f9fa] text-[#111827]'
