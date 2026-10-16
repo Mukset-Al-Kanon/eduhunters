@@ -69,8 +69,8 @@ export const instructorsData = [
   {
     id: 1,
     name: "As Sami Islam",
-    badge: "FOUNDER",
-    designation: "FOUNDER & INSTRUCTOR",
+    badge: "",
+    designation: "",
     bio: "Founder & Instructor",
     image: "/instructors/as_sami_islam.jpg",
     yt: ""
@@ -78,8 +78,8 @@ export const instructorsData = [
   {
     id: 2,
     name: "Mukset Al Kanon",
-    badge: "FOUNDER",
-    designation: "FOUNDER",
+    badge: "",
+    designation: "",
     bio: "Founder",
     image: "/instructors/mukset_al_kanon.jpg",
     yt: ""

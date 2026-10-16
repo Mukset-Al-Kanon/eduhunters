@@ -462,10 +462,10 @@ export default function App() {
             });
             combined = combined.map(inst => {
               if ((inst.name || '').toLowerCase().includes('as sami')) {
-                return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/as_sami_islam.jpg', bio: inst.bio || 'Founder & Instructor', designation: inst.designation || 'FOUNDER & INSTRUCTOR' };
+                return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/as_sami_islam.jpg', bio: inst.bio || 'Founder & Instructor', badge: '', designation: '' };
               }
               if ((inst.name || '').toLowerCase().includes('mukset') || (inst.name || '').toLowerCase().includes('kanon')) {
-                return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/mukset_al_kanon.jpg', bio: inst.bio || 'Founder', designation: inst.designation || 'FOUNDER' };
+                return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/mukset_al_kanon.jpg', bio: inst.bio || 'Founder', badge: '', designation: '' };
               }
               return inst;
             });
@@ -651,10 +651,10 @@ export default function App() {
           });
           purgedInst = purgedInst.map(inst => {
             if ((inst.name || '').toLowerCase().includes('as sami')) {
-              return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/as_sami_islam.jpg', bio: inst.bio || 'Founder & Instructor', designation: inst.designation || 'FOUNDER & INSTRUCTOR' };
+              return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/as_sami_islam.jpg', bio: inst.bio || 'Founder & Instructor', badge: '', designation: '' };
             }
             if ((inst.name || '').toLowerCase().includes('mukset') || (inst.name || '').toLowerCase().includes('kanon')) {
-              return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/mukset_al_kanon.jpg', bio: inst.bio || 'Founder', designation: inst.designation || 'FOUNDER' };
+              return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/mukset_al_kanon.jpg', bio: inst.bio || 'Founder', badge: '', designation: '' };
             }
             return inst;
           });
@@ -818,6 +818,12 @@ export default function App() {
         const [samiItem] = resolvedInstructors.splice(samiIdx, 1);
         resolvedInstructors.unshift(samiItem);
       }
+      resolvedInstructors = resolvedInstructors.map(inst => {
+        if ((inst.name || '').toLowerCase().includes('as sami') || (inst.name || '').toLowerCase().includes('mukset') || (inst.name || '').toLowerCase().includes('kanon')) {
+          return { ...inst, badge: '', designation: '' };
+        }
+        return inst;
+      });
 
       // Smart course resolution: merge curriculum so newly added classes/lessons are never lost
       const countLessons = (cur) => {

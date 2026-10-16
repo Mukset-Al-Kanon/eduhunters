@@ -1179,22 +1179,26 @@ export default function HomePage({
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-[#140307] via-transparent to-transparent' : 'from-black/40 via-transparent to-transparent'}`}></div>
-                      <div className="absolute top-4 left-3 flex flex-col items-center">
-                        <span className={`font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none ${
-                          isDark ? 'text-[#ff6b8b]' : 'text-white'
-                        }`}>
-                          {inst.badge}
-                        </span>
-                      </div>
+                      {inst.badge && inst.badge.trim() !== '' && (
+                        <div className="absolute top-4 left-3 flex flex-col items-center">
+                          <span className={`font-black uppercase tracking-[0.22em] text-[10px] [writing-mode:vertical-rl] select-none ${
+                            isDark ? 'text-[#ff6b8b]' : 'text-white'
+                          }`}>
+                            {inst.badge}
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <div className="p-4">
-                      <div className="mb-1.5">
-                        <span className={`text-[10px] font-bold uppercase tracking-[0.15em] truncate block ${
-                          isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
-                        }`}>
-                          {inst.designation}
-                        </span>
-                      </div>
+                      {inst.designation && inst.designation.trim() !== '' && (
+                        <div className="mb-1.5">
+                          <span className={`text-[10px] font-bold uppercase tracking-[0.15em] truncate block ${
+                            isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
+                          }`}>
+                            {inst.designation}
+                          </span>
+                        </div>
+                      )}
                       <h3 className={`text-base font-black leading-tight mb-1 ${isDark ? 'text-white' : 'text-[#111827]'}`}>
                         {inst.name}
                       </h3>

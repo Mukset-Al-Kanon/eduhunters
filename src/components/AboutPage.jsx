@@ -115,11 +115,13 @@ export default function AboutPage({
                       />
                     </div>
                     <div className="p-4">
-                      <p className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-1 truncate ${
-                        isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
-                      }`}>
-                        {t.designation}
-                      </p>
+                      {t.designation && t.designation.trim() !== '' && (
+                        <p className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-1 truncate ${
+                          isDark ? 'text-[#ff6b8b]' : 'text-[#dc2626]'
+                        }`}>
+                          {t.designation}
+                        </p>
+                      )}
                       <h3 className={`font-black leading-tight text-base ${isDark ? 'text-white' : 'text-[#111827]'}`}>
                         {t.name}
                       </h3>
