@@ -160,18 +160,44 @@ export async function updateSupabaseOrderStatus(orderId, updates) {
 /**
  * Permanently delete order from Supabase
  */
-export async function deleteSupabaseOrder(orderId) {
+export async function deleteSupabaseOrder(orderId, extraCriteria = {}) {
   if (!isSupabaseConfigured || !supabase || !orderId) return false;
   try {
-    const { error } = await supabase
-      .from('eduhunters_orders')
-      .delete()
-      .eq('id', orderId);
-
-    if (error) {
-      console.warn('[Supabase] Failed to delete order:', error.message);
-      return false;
+    const idsToTry = new Set();
+    if (orderId) idsToTry.add(orderId);
+    if (typeof orderId === 'string') {
+      if (orderId.startsWith('TRX-')) idsToTry.add(orderId.replace('TRX-', ''));
+      if (orderId.startsWith('st-')) idsToTry.add(orderId.replace('st-', ''));
     }
+    if (extraCriteria.id) {
+      idsToTry.add(extraCriteria.id);
+      if (typeof extraCriteria.id === 'string') {
+        if (extraCriteria.id.startsWith('TRX-')) idsToTry.add(extraCriteria.id.replace('TRX-', ''));
+        if (extraCriteria.id.startsWith('st-')) idsToTry.add(extraCriteria.id.replace('st-', ''));
+      }
+    }
+    if (extraCriteria.orderId) idsToTry.add(extraCriteria.orderId);
+
+    for (const id of idsToTry) {
+      await supabase
+        .from('eduhunters_orders')
+        .delete()
+        .eq('id', id);
+    }
+
+    if (extraCriteria.trxId && extraCriteria.trxId !== 'PENDING' && extraCriteria.trxId !== 'PENDING_VERIFICATION') {
+      await supabase
+        .from('eduhunters_orders')
+        .delete()
+        .eq('trx_id', extraCriteria.trxId);
+    }
+    if (extraCriteria.invoiceNumber && extraCriteria.invoiceNumber !== 'INV-EH') {
+      await supabase
+        .from('eduhunters_orders')
+        .delete()
+        .eq('invoice_number', extraCriteria.invoiceNumber);
+    }
+
     broadcastSupabaseMessage('ORDER_DELETED', { orderId });
     return true;
   } catch (err) {
@@ -183,35 +209,72 @@ export async function deleteSupabaseOrder(orderId) {
 /**
  * Update transaction amount in Supabase order
  */
-export async function updateSupabaseOrderAmount(orderId, newAmount) {
+export async function updateSupabaseOrderAmount(orderId, newAmount, extraCriteria = {}) {
   if (!isSupabaseConfigured || !supabase || !orderId) return false;
   try {
     const num = Number(newAmount) || 0;
-    const { data: existing } = await supabase
-      .from('eduhunters_orders')
-      .select('raw_data')
-      .eq('id', orderId)
-      .maybeSingle();
-
-    const updatedRaw = {
-      ...(existing?.raw_data || {}),
-      totalPaid: num,
-      amount: num
-    };
-
-    const { error } = await supabase
-      .from('eduhunters_orders')
-      .update({
-        amount: num,
-        raw_data: updatedRaw,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', orderId);
-
-    if (error) {
-      console.warn('[Supabase] Failed to update order amount:', error.message);
-      return false;
+    const idsToTry = new Set();
+    if (orderId) idsToTry.add(orderId);
+    if (typeof orderId === 'string') {
+      if (orderId.startsWith('TRX-')) idsToTry.add(orderId.replace('TRX-', ''));
+      if (orderId.startsWith('st-')) idsToTry.add(orderId.replace('st-', ''));
     }
+    if (extraCriteria.id) {
+      idsToTry.add(extraCriteria.id);
+      if (typeof extraCriteria.id === 'string') {
+        if (extraCriteria.id.startsWith('TRX-')) idsToTry.add(extraCriteria.id.replace('TRX-', ''));
+        if (extraCriteria.id.startsWith('st-')) idsToTry.add(extraCriteria.id.replace('st-', ''));
+      }
+    }
+    if (extraCriteria.orderId) idsToTry.add(extraCriteria.orderId);
+
+    let matchedId = null;
+    let existingRaw = null;
+
+    for (const id of idsToTry) {
+      const { data } = await supabase
+        .from('eduhunters_orders')
+        .select('id, raw_data')
+        .eq('id', id)
+        .maybeSingle();
+      if (data) {
+        matchedId = data.id;
+        existingRaw = data.raw_data;
+        break;
+      }
+    }
+
+    if (!matchedId && extraCriteria.trxId && extraCriteria.trxId !== 'PENDING' && extraCriteria.trxId !== 'PENDING_VERIFICATION') {
+      const { data } = await supabase
+        .from('eduhunters_orders')
+        .select('id, raw_data')
+        .eq('trx_id', extraCriteria.trxId)
+        .maybeSingle();
+      if (data) {
+        matchedId = data.id;
+        existingRaw = data.raw_data;
+      }
+    }
+
+    if (matchedId) {
+      const updatedRaw = {
+        ...(existingRaw || {}),
+        totalPaid: num,
+        amount: num
+      };
+      if (updatedRaw.transaction) updatedRaw.transaction.amount = num;
+      if (updatedRaw.student) updatedRaw.student.amount = num;
+
+      await supabase
+        .from('eduhunters_orders')
+        .update({
+          amount: num,
+          raw_data: updatedRaw,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', matchedId);
+    }
+
     broadcastSupabaseMessage('ORDER_AMOUNT_UPDATED', { orderId, amount: num });
     return true;
   } catch (err) {

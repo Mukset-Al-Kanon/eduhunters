@@ -82,6 +82,41 @@ class ErrorBoundary extends React.Component {
   }
 }
 
+const getDeletedIdsSet = () => {
+  try {
+    const o = JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]');
+    const t = JSON.parse(localStorage.getItem('eh_deleted_transactions') || '[]');
+    const set = new Set([...(Array.isArray(o) ? o : []), ...(Array.isArray(t) ? t : [])]);
+    Array.from(set).forEach(id => {
+      if (typeof id === 'string') {
+        set.add(id.replace(/^(TRX-|st-)/, ''));
+      }
+    });
+    return set;
+  } catch {
+    return new Set();
+  }
+};
+
+const getAmountOverridesMap = () => {
+  try {
+    return JSON.parse(localStorage.getItem('eh_trx_amount_overrides') || '{}');
+  } catch {
+    return {};
+  }
+};
+
+const applyAmountOverride = (tx, overrides) => {
+  if (!tx || !overrides) return tx;
+  const cleanId = (tx.id || '').replace(/^(TRX-|st-)/, '');
+  const cleanOrderId = (tx.orderId || '').replace(/^(TRX-|st-)/, '');
+  const overrideVal = overrides[tx.id] ?? overrides[tx.orderId] ?? overrides[tx.trxId] ?? overrides[tx.invoiceNumber] ?? overrides[cleanId] ?? overrides[cleanOrderId];
+  if (overrideVal !== undefined && !isNaN(Number(overrideVal))) {
+    return { ...tx, amount: Number(overrideVal) };
+  }
+  return tx;
+};
+
 export default function App() {
   const { isDark } = useTheme();
   const { currentUser } = useAuth();
@@ -382,15 +417,17 @@ export default function App() {
             ? parsed.storeProducts.filter(p => !([1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info')))
             : (initialData.storeProducts || []),
           accounting: (() => {
+            const deletedIds = getDeletedIdsSet();
+            const overrides = getAmountOverridesMap();
             const acc = parsed.accounting;
             const baseTxs = (acc && acc.totalRevenue !== 284500 && Array.isArray(acc.transactions) && !acc.transactions.some(t => t.id === 'TRX-94825'))
-              ? acc.transactions.filter(t => !t.id?.startsWith('TRX-948'))
+              ? acc.transactions.filter(t => !t.id?.startsWith('TRX-948') && !deletedIds.has(t.id) && !deletedIds.has(t.orderId) && (!t.trxId || !deletedIds.has(t.trxId)) && (!t.invoiceNumber || !deletedIds.has(t.invoiceNumber)))
               : [];
             
             const txMap = new Map();
             baseTxs.forEach(t => {
               const k = t.orderId || t.id || t.trxId;
-              if (k) txMap.set(k, t);
+              if (k) txMap.set(k, applyAmountOverride(t, overrides));
             });
 
             // Merge local orders from eh_user_orders_v3 so un-synced orders are never lost
@@ -398,10 +435,10 @@ export default function App() {
               const localOrds = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
               localOrds.forEach(ord => {
                 const k = ord.id || ord.orderId || ord.transactionId;
-                if (k && !txMap.has(k)) {
+                if (k && !txMap.has(k) && !deletedIds.has(ord.id) && !deletedIds.has(ord.orderId) && (!ord.transactionId || !deletedIds.has(ord.transactionId)) && (!ord.invoiceNumber || !deletedIds.has(ord.invoiceNumber))) {
                   const t = ord.transaction || {};
                   const isPaid = ord.status === 'PAID' || ord.status === 'COMPLETED' || Boolean(ord.isApproved);
-                  txMap.set(k, {
+                  const newT = {
                     id: t.id || `TRX-${ord.id}`,
                     orderId: ord.id,
                     invoiceNumber: ord.invoiceNumber || t.invoiceNumber || 'INV-EH',
@@ -418,7 +455,8 @@ export default function App() {
                     createdAt: ord.createdAt || new Date().toISOString(),
                     status: isPaid ? 'Completed' : 'Pending',
                     notes: 'Synchronized from local order cache'
-                  });
+                  };
+                  txMap.set(k, applyAmountOverride(newT, overrides));
                 }
               });
             } catch (e) {}
@@ -731,13 +769,27 @@ export default function App() {
       // Safe deduplicating merge for accounting transactions so cloud site data never wipes local orders
       let resolvedAccounting = prev.accounting;
       if (sanitized.accounting || prev.accounting) {
+        const deletedIds = getDeletedIdsSet();
+        const overrides = getAmountOverridesMap();
+
+        const isDeleted = (t) => {
+          if (!t) return false;
+          const k1 = t.id;
+          const k2 = t.orderId;
+          const k3 = t.trxId;
+          const k4 = t.invoiceNumber;
+          const s1 = (t.id || '').replace(/^(TRX-|st-)/, '');
+          const s2 = (t.orderId || '').replace(/^(TRX-|st-)/, '');
+          return [k1, k2, k3, k4, s1, s2].filter(Boolean).some(id => deletedIds.has(id) || deletedIds.has(String(id)));
+        };
+
         const cloudAcc = sanitized.accounting || {};
         const prevAcc = prev.accounting || {};
         const cloudTxs = (Array.isArray(cloudAcc.transactions) && cloudAcc.totalRevenue !== 284500)
-          ? cloudAcc.transactions.filter(t => !t.id?.startsWith('TRX-948'))
+          ? cloudAcc.transactions.filter(t => !t.id?.startsWith('TRX-948') && !isDeleted(t)).map(t => applyAmountOverride(t, overrides))
           : [];
         const prevTxs = (Array.isArray(prevAcc.transactions) && prevAcc.totalRevenue !== 284500)
-          ? prevAcc.transactions.filter(t => !t.id?.startsWith('TRX-948'))
+          ? prevAcc.transactions.filter(t => !t.id?.startsWith('TRX-948') && !isDeleted(t)).map(t => applyAmountOverride(t, overrides))
           : [];
 
         const txMap = new Map();
@@ -760,8 +812,11 @@ export default function App() {
           localOrds.forEach(ord => {
             const k = ord.id || ord.orderId || ord.transactionId;
             if (k && !txMap.has(k)) {
+              if (deletedIds.has(k) || deletedIds.has(String(k)) || deletedIds.has(String(k).replace(/^(TRX-|st-)/, ''))) {
+                return;
+              }
               const isPaid = ord.status === 'PAID' || ord.status === 'COMPLETED' || Boolean(ord.isApproved);
-              txMap.set(k, {
+              let itemTx = {
                 id: `TRX-${ord.id}`,
                 orderId: ord.id,
                 invoiceNumber: ord.invoiceNumber || 'INV-EH',
@@ -778,7 +833,11 @@ export default function App() {
                 createdAt: ord.createdAt || new Date().toISOString(),
                 status: isPaid ? 'Completed' : 'Pending',
                 notes: 'Synchronized local order'
-              });
+              };
+              itemTx = applyAmountOverride(itemTx, overrides);
+              if (!isDeleted(itemTx)) {
+                txMap.set(k, itemTx);
+              }
             }
           });
         } catch (e) {}

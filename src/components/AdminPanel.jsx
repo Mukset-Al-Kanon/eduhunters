@@ -108,6 +108,56 @@ import {
   saveSupabaseSiteData
 } from '../services/supabaseService';
 
+// Permanent Tombstones & Amount Overrides Persistence Helpers
+export const getDeletedIdsSet = () => {
+  try {
+    const o = JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]');
+    const t = JSON.parse(localStorage.getItem('eh_deleted_transactions') || '[]');
+    const set = new Set([...(Array.isArray(o) ? o : []), ...(Array.isArray(t) ? t : [])]);
+    Array.from(set).forEach(id => {
+      if (typeof id === 'string') {
+        set.add(id.replace(/^(TRX-|st-)/, ''));
+      }
+    });
+    return set;
+  } catch {
+    return new Set();
+  }
+};
+
+export const getAmountOverridesMap = () => {
+  try {
+    return JSON.parse(localStorage.getItem('eh_trx_amount_overrides') || '{}');
+  } catch {
+    return {};
+  }
+};
+
+export const isDeletedItem = (item, deletedIds) => {
+  if (!item) return false;
+  const dSet = deletedIds || getDeletedIdsSet();
+  if (dSet.size === 0) return false;
+  const k1 = item.id;
+  const k2 = item.orderId;
+  const k3 = item.trxId;
+  const k4 = item.invoiceNumber;
+  const s1 = typeof item.id === 'string' ? item.id.replace(/^(TRX-|st-)/, '') : null;
+  const s2 = typeof item.orderId === 'string' ? item.orderId.replace(/^(TRX-|st-)/, '') : null;
+  return [k1, k2, k3, k4, s1, s2].filter(Boolean).some(id => dSet.has(id) || dSet.has(String(id)));
+};
+
+export const applyAmountOverride = (tx, overrides) => {
+  if (!tx) return tx;
+  const oMap = overrides || getAmountOverridesMap();
+  const cleanId = typeof tx.id === 'string' ? tx.id.replace(/^(TRX-|st-)/, '') : '';
+  const cleanOrderId = typeof tx.orderId === 'string' ? tx.orderId.replace(/^(TRX-|st-)/, '') : '';
+  const overrideVal = oMap[tx.id] ?? oMap[tx.orderId] ?? oMap[tx.trxId] ?? oMap[tx.invoiceNumber] ?? oMap[cleanId] ?? oMap[cleanOrderId];
+  if (overrideVal !== undefined && !isNaN(Number(overrideVal))) {
+    return { ...tx, amount: Number(overrideVal) };
+  }
+  return tx;
+};
+
 // File-scoped pure mappers so state initializers, listeners, and heartbeats can convert order docs reliably
 export const mapOrderDocToTx = (docId, order) => {
   if (!order) return null;
@@ -116,7 +166,7 @@ export const mapOrderDocToTx = (docId, order) => {
   const isRejected = order.status === 'REJECTED' || (t.status || '').toLowerCase() === 'rejected';
   const status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
 
-  return {
+  const baseTx = {
     id: t.id || `TRX-${docId}`,
     orderId: docId,
     invoiceNumber: order.invoiceNumber || t.invoiceNumber || 'INV-EH',
@@ -134,6 +184,7 @@ export const mapOrderDocToTx = (docId, order) => {
     status: status,
     notes: t.notes || (order.paymentMethodName ? `Paid via ${order.paymentMethodName}` : 'Submitted via Web Checkout')
   };
+  return applyAmountOverride(baseTx);
 };
 
 export const mapOrderDocToStudent = (docId, order) => {
@@ -141,7 +192,7 @@ export const mapOrderDocToStudent = (docId, order) => {
   const s = order.student || {};
   const t = order.transaction || {};
   const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
-  return {
+  const baseStudent = {
     id: s.id || `st-${docId}`,
     orderId: docId,
     name: s.name || order.customer?.name || t.studentName || 'Online Student',
@@ -155,16 +206,25 @@ export const mapOrderDocToStudent = (docId, order) => {
     trxId: s.trxId || order.transactionId || t.trxId || 'PENDING',
     paymentMethod: s.paymentMethod || t.method || (order.paymentMethodName?.toLowerCase().includes('nagad') ? 'Nagad' : 'bKash')
   };
+  const oMap = getAmountOverridesMap();
+  const cleanId = typeof baseStudent.id === 'string' ? baseStudent.id.replace(/^(TRX-|st-)/, '') : '';
+  const overrideVal = oMap[baseStudent.id] ?? oMap[baseStudent.orderId] ?? oMap[baseStudent.trxId] ?? oMap[cleanId];
+  if (overrideVal !== undefined && !isNaN(Number(overrideVal))) {
+    baseStudent.amount = Number(overrideVal);
+  }
+  return baseStudent;
 };
 
-// Pure helper: Deduplicate transactions so approved students never have duplicate pending records
+// Pure helper: Deduplicate transactions so approved students never have duplicate pending records & deleted transactions NEVER resurrect
 export const deduplicateTransactions = (txList) => {
   if (!Array.isArray(txList)) return [];
+  const deletedIds = getDeletedIdsSet();
+  const overrides = getAmountOverridesMap();
 
-  // 1. Identify all completed/approved transactions
+  // 1. Identify all completed/approved transactions (ignoring deleted)
   const approvedKeys = new Set();
   txList.forEach(t => {
-    if (!t) return;
+    if (!t || isDeletedItem(t, deletedIds)) return;
     const s = (t.status || '').toLowerCase();
     const isApproved = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
     if (isApproved) {
@@ -178,14 +238,16 @@ export const deduplicateTransactions = (txList) => {
     }
   });
 
-  // 2. Filter transactions: keep all completed/paid/rejected.
+  // 2. Filter transactions: keep all completed/paid/rejected (unless deleted).
   // If pending, discard if student already has an approved transaction for the course.
   // Also keep only the most recent pending attempt for the same student + course.
   const seenPendingKeys = new Set();
   const result = [];
 
-  for (const t of txList) {
-    if (!t) continue;
+  for (let t of txList) {
+    if (!t || isDeletedItem(t, deletedIds)) continue;
+    t = applyAmountOverride(t, overrides);
+
     const s = (t.status || '').toLowerCase();
     const isCompleted = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
 
@@ -822,9 +884,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
 
   const [accounting, setAccounting] = useState(() => {
+    const deletedIds = getDeletedIdsSet();
+    const overrides = getAmountOverridesMap();
+
     const raw = data?.accounting;
     const baseTxs = (raw && raw.totalRevenue !== 284500 && Array.isArray(raw.transactions) && !raw.transactions.some(t => t.id === 'TRX-94825'))
-      ? raw.transactions.filter(t => !t.id?.startsWith('TRX-948'))
+      ? raw.transactions.filter(t => !t.id?.startsWith('TRX-948') && !isDeletedItem(t, deletedIds)).map(t => applyAmountOverride(t, overrides))
       : [];
 
     const txMap = new Map();
@@ -838,10 +903,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const userOrders = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
       if (Array.isArray(userOrders)) {
         userOrders.forEach(ord => {
+          if (isDeletedItem(ord, deletedIds)) return;
           const k = ord.id || ord.orderId || ord.transactionId;
           if (k && !txMap.has(k)) {
             const mapped = mapOrderDocToTx(ord.id, ord);
-            if (mapped) txMap.set(k, mapped);
+            if (mapped && !isDeletedItem(mapped, deletedIds)) {
+              txMap.set(k, mapped);
+            }
           }
         });
       }
@@ -852,9 +920,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const enrolled = JSON.parse(localStorage.getItem('eh_enrolled_students') || '[]');
       if (Array.isArray(enrolled)) {
         enrolled.forEach(st => {
+          if (isDeletedItem(st, deletedIds)) return;
           const k = st.orderId || st.id || st.trxId;
           if (k && !txMap.has(k)) {
-            txMap.set(k, {
+            let itemTx = {
               id: st.id || `TRX-${Date.now()}`,
               orderId: st.orderId || st.id,
               invoiceNumber: st.invoiceNumber || 'INV-EH',
@@ -871,7 +940,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               createdAt: new Date().toISOString(),
               status: (st.status || '').toLowerCase() === 'active' ? 'Completed' : 'Pending',
               notes: 'Preserved from local student records'
-            });
+            };
+            itemTx = applyAmountOverride(itemTx, overrides);
+            if (!isDeletedItem(itemTx, deletedIds)) {
+              txMap.set(k, itemTx);
+            }
           }
         });
       }
@@ -1424,76 +1497,30 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
         let isInitialOrdersSnapshot = true;
 
-        // Helpers to map cloud order documents into ledger transaction and student records
-        const mapOrderDocToTx = (docId, order) => {
-          const t = order.transaction || {};
-          const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
-          const isRejected = order.status === 'REJECTED' || (t.status || '').toLowerCase() === 'rejected';
-          const status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
-
-          return {
-            id: t.id || `TRX-${docId}`,
-            orderId: docId,
-            invoiceNumber: order.invoiceNumber || t.invoiceNumber || 'INV-EH',
-            type: 'INCOME',
-            category: t.category || (order.type === 'store' ? 'Store Product' : 'Course Enrollment'),
-            itemTitle: t.itemTitle || order.course?.name || order.items?.[0]?.title || 'Course Access',
-            amount: Number(t.amount !== undefined ? t.amount : (order.totalPaid || 0)),
-            method: t.method || (order.paymentMethodName?.toLowerCase().includes('nagad') ? 'Nagad' : (order.paymentMethodName?.toLowerCase().includes('card') ? 'Card' : 'bKash')),
-            trxId: t.trxId || order.transactionId || 'PENDING',
-            studentName: t.studentName || order.customer?.name || 'Online Student',
-            studentPhone: t.studentPhone || order.customer?.phone || 'N/A',
-            studentEmail: t.studentEmail || order.customer?.email || '',
-            date: t.date || (order.createdAt ? order.createdAt.split('T')[0] : new Date().toISOString().split('T')[0]),
-            createdAt: t.createdAt || order.createdAt || new Date().toISOString(),
-            status: status,
-            notes: t.notes || (order.paymentMethodName ? `Paid via ${order.paymentMethodName}` : 'Submitted via Web Checkout')
-          };
-        };
-
-        const mapOrderDocToStudent = (docId, order) => {
-          const s = order.student || {};
-          const t = order.transaction || {};
-          const isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || (t.status || '').toLowerCase() === 'completed';
-          return {
-            id: s.id || `st-${docId}`,
-            orderId: docId,
-            name: s.name || order.customer?.name || t.studentName || 'Online Student',
-            phone: s.phone || order.customer?.phone || t.studentPhone || 'N/A',
-            email: s.email || order.customer?.email || t.studentEmail || '',
-            batch: s.batch || 'HSC 26',
-            courseName: s.courseName || order.course?.name || order.items?.[0]?.title || 'Course Access',
-            status: isPaid ? 'Active' : 'Pending',
-            joinedDate: s.joinedDate || (order.createdAt ? new Date(order.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recently'),
-            amount: Number(s.amount !== undefined ? s.amount : (order.totalPaid || 0)),
-            trxId: s.trxId || order.transactionId || t.trxId || 'PENDING',
-            paymentMethod: s.paymentMethod || t.method || (order.paymentMethodName?.toLowerCase().includes('nagad') ? 'Nagad' : 'bKash')
-          };
-        };
-
         // Orders collection real-time listener (all course purchases across all devices & live site)
         unsubscribeOrders = onSnapshot(collection(db, 'orders'), (snapshot) => {
-          const deletedIds = new Set(JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]'));
+          const deletedIds = getDeletedIdsSet();
+          const overrides = getAmountOverridesMap();
           const cloudOrders = snapshot.docs
             .map(docSnap => ({ id: docSnap.id, ...docSnap.data() }))
-            .filter(o => !deletedIds.has(o.id) && !deletedIds.has(o.invoiceNumber) && !deletedIds.has(o.transactionId));
+            .filter(o => !isDeletedItem(o, deletedIds));
 
-          const mappedTxs = cloudOrders.map(o => mapOrderDocToTx(o.id, o));
-          const mappedStudents = cloudOrders.map(o => mapOrderDocToStudent(o.id, o));
+          const mappedTxs = cloudOrders.map(o => mapOrderDocToTx(o.id, o)).filter(t => !isDeletedItem(t, deletedIds));
+          const mappedStudents = cloudOrders.map(o => mapOrderDocToStudent(o.id, o)).filter(st => !isDeletedItem(st, deletedIds));
 
           // Atomically update accounting.transactions
           setAccounting(prev => {
             const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
             const txMap = new Map();
             // Retain any manual/offline transactions that are not deleted
-            prevTxs.filter(tx => !deletedIds.has(tx.orderId) && !deletedIds.has(tx.id) && !deletedIds.has(tx.trxId)).forEach(tx => {
+            prevTxs.filter(tx => !isDeletedItem(tx, deletedIds)).forEach(tx => {
               const key = tx.orderId || tx.id || tx.trxId;
-              if (key) txMap.set(key, tx);
+              if (key) txMap.set(key, applyAmountOverride(tx, overrides));
             });
             // Cloud orders take precedence and reflect live Firestore state
             mappedTxs.forEach(tx => {
               const key = tx.orderId || tx.id || tx.trxId;
-              if (key) txMap.set(key, tx);
+              if (key) txMap.set(key, applyAmountOverride(tx, overrides));
             });
 
             const allTxs = deduplicateTransactions(Array.from(txMap.values()));
@@ -1514,12 +1541,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           // Atomically update enrolled students list
           setEnrolledStudents(prev => {
             const stMap = new Map();
-            prev.filter(st => !deletedIds.has(st.id) && !deletedIds.has(st.orderId)).forEach(st => {
-              const key = `${st.phone}_${st.courseName}`;
+            prev.filter(st => !isDeletedItem(st, deletedIds)).forEach(st => {
+              const key = st.id || `${st.phone}_${st.courseName}`;
               stMap.set(key, st);
             });
-            mappedStudents.filter(st => !deletedIds.has(st.id) && !deletedIds.has(st.orderId)).forEach(st => {
-              const key = `${st.phone}_${st.courseName}`;
+            mappedStudents.forEach(st => {
+              const key = st.id || `${st.phone}_${st.courseName}`;
               stMap.set(key, st);
             });
             const mergedSt = Array.from(stMap.values());
@@ -1561,22 +1588,23 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
         fetchSupabaseOrders().then(orders => {
           if (Array.isArray(orders) && orders.length > 0) {
-            const deletedIds = new Set(JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]'));
-            const activeOrders = orders.filter(o => !deletedIds.has(o.id) && !deletedIds.has(o.invoiceNumber) && !deletedIds.has(o.transactionId));
+            const deletedIds = getDeletedIdsSet();
+            const overrides = getAmountOverridesMap();
+            const activeOrders = orders.filter(o => !isDeletedItem(o, deletedIds));
 
-            const mappedTxs = activeOrders.map(o => mapOrderDocToTx(o.id, o));
-            const mappedStudents = activeOrders.map(o => mapOrderDocToStudent(o.id, o));
+            const mappedTxs = activeOrders.map(o => mapOrderDocToTx(o.id, o)).filter(t => !isDeletedItem(t, deletedIds));
+            const mappedStudents = activeOrders.map(o => mapOrderDocToStudent(o.id, o)).filter(st => !isDeletedItem(st, deletedIds));
 
             setAccounting(prev => {
               const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
               const txMap = new Map();
-              prevTxs.filter(tx => !deletedIds.has(tx.orderId) && !deletedIds.has(tx.id) && !deletedIds.has(tx.trxId)).forEach(tx => {
+              prevTxs.filter(tx => !isDeletedItem(tx, deletedIds)).forEach(tx => {
                 const key = tx.orderId || tx.id || tx.trxId;
-                if (key) txMap.set(key, tx);
+                if (key) txMap.set(key, applyAmountOverride(tx, overrides));
               });
               mappedTxs.forEach(tx => {
                 const key = tx.orderId || tx.id || tx.trxId;
-                if (key) txMap.set(key, tx);
+                if (key) txMap.set(key, applyAmountOverride(tx, overrides));
               });
               const allTxs = deduplicateTransactions(Array.from(txMap.values()));
               const completedRev = allTxs
@@ -1594,8 +1622,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
             setEnrolledStudents(prev => {
               const stMap = new Map();
-              prev.filter(st => !deletedIds.has(st.id) && !deletedIds.has(st.orderId)).forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
-              mappedStudents.filter(st => !deletedIds.has(st.id) && !deletedIds.has(st.orderId)).forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
+              prev.filter(st => !isDeletedItem(st, deletedIds)).forEach(st => {
+                const key = st.id || `${st.phone}_${st.courseName}`;
+                stMap.set(key, st);
+              });
+              mappedStudents.forEach(st => {
+                const key = st.id || `${st.phone}_${st.courseName}`;
+                stMap.set(key, st);
+              });
               const mergedSt = Array.from(stMap.values());
               try {
                 localStorage.setItem('eh_enrolled_students', JSON.stringify(mergedSt));
@@ -1607,7 +1641,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             try {
               const localOrds = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
               const ordMap = new Map();
-              localOrds.forEach(o => { if (o && o.id) ordMap.set(o.id, o); });
+              localOrds.filter(o => !isDeletedItem(o, deletedIds)).forEach(o => { if (o && o.id) ordMap.set(o.id, o); });
               activeOrders.forEach(o => { if (o && o.id) ordMap.set(o.id, o); });
               localStorage.setItem('eh_user_orders_v3', JSON.stringify(Array.from(ordMap.values())));
             } catch (e) {}
@@ -1631,12 +1665,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         refreshSupabaseUsers();
 
         unsubscribeSupabaseOrders = subscribeToSupabaseOrders(({ eventType, order }) => {
-          const deletedIds = new Set(JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]'));
-          if (deletedIds.has(order?.id) || deletedIds.has(order?.invoiceNumber) || deletedIds.has(order?.transactionId)) {
+          const deletedIds = getDeletedIdsSet();
+          if (isDeletedItem(order, deletedIds)) {
             return;
           }
           const tx = mapOrderDocToTx(order.id, order);
           const student = mapOrderDocToStudent(order.id, order);
+          if (isDeletedItem(tx, deletedIds) || isDeletedItem(student, deletedIds)) {
+            return;
+          }
           if (eventType === 'INSERT' && !isInitialSupabaseOrders) {
             playNotificationChime();
             triggerToast(`🔔 নতুন কোর্স এনরোলমেন্ট রিকোয়েস্ট! ${tx.studentName} — "${tx.itemTitle}" (৳${tx.amount})`);
@@ -1661,18 +1698,22 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         const supabaseHeartbeat = setInterval(() => {
           fetchSupabaseOrders().then(orders => {
             if (Array.isArray(orders) && orders.length > 0) {
-              const mappedTxs = orders.map(o => mapOrderDocToTx(o.id, o));
-              const mappedStudents = orders.map(o => mapOrderDocToStudent(o.id, o));
+              const deletedIds = getDeletedIdsSet();
+              const overrides = getAmountOverridesMap();
+              const activeOrders = orders.filter(o => !isDeletedItem(o, deletedIds));
+              const mappedTxs = activeOrders.map(o => mapOrderDocToTx(o.id, o)).filter(t => !isDeletedItem(t, deletedIds));
+              const mappedStudents = activeOrders.map(o => mapOrderDocToStudent(o.id, o)).filter(st => !isDeletedItem(st, deletedIds));
+
               setAccounting(prev => {
                 const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
                 const txMap = new Map();
-                prevTxs.forEach(tx => {
+                prevTxs.filter(tx => !isDeletedItem(tx, deletedIds)).forEach(tx => {
                   const key = tx.orderId || tx.id || tx.trxId;
-                  if (key) txMap.set(key, tx);
+                  if (key) txMap.set(key, applyAmountOverride(tx, overrides));
                 });
                 mappedTxs.forEach(tx => {
                   const key = tx.orderId || tx.id || tx.trxId;
-                  if (key) txMap.set(key, tx);
+                  if (key) txMap.set(key, applyAmountOverride(tx, overrides));
                 });
                 const allTxs = deduplicateTransactions(Array.from(txMap.values()));
                 const completedRev = allTxs
@@ -1690,8 +1731,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
               setEnrolledStudents(prev => {
                 const stMap = new Map();
-                prev.forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
-                mappedStudents.forEach(st => stMap.set(`${st.phone}_${st.courseName}`, st));
+                prev.filter(st => !isDeletedItem(st, deletedIds)).forEach(st => {
+                  const key = st.id || `${st.phone}_${st.courseName}`;
+                  stMap.set(key, st);
+                });
+                mappedStudents.forEach(st => {
+                  const key = st.id || `${st.phone}_${st.courseName}`;
+                  stMap.set(key, st);
+                });
                 return Array.from(stMap.values());
               });
             }
@@ -1817,25 +1864,37 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     if (data.sectionTexts) setSectionTexts(data.sectionTexts);
     if (data.accounting) {
       setAccounting(prev => {
+        const deletedIds = getDeletedIdsSet();
+        const overrides = getAmountOverridesMap();
         const prevTxs = Array.isArray(prev?.transactions) ? prev.transactions : [];
         const dataTxs = Array.isArray(data.accounting?.transactions) ? data.accounting.transactions : [];
         const txMap = new Map();
-        prevTxs.forEach(t => {
+        prevTxs.filter(t => !isDeletedItem(t, deletedIds)).forEach(t => {
           const k = t.orderId || t.id || t.trxId;
-          if (k) txMap.set(k, t);
+          if (k) txMap.set(k, applyAmountOverride(t, overrides));
         });
-        dataTxs.forEach(t => {
+        dataTxs.filter(t => !isDeletedItem(t, deletedIds)).forEach(t => {
           const k = t.orderId || t.id || t.trxId;
+          const overridden = applyAmountOverride(t, overrides);
           if (k) {
             const ex = txMap.get(k);
-            txMap.set(k, ex ? { ...ex, ...t } : t);
-          } else {
-            txMap.set(t.id, t);
+            txMap.set(k, ex ? { ...ex, ...overridden } : overridden);
+          } else if (t.id) {
+            txMap.set(t.id, overridden);
           }
         });
+        const allTxs = deduplicateTransactions(Array.from(txMap.values()));
+        const completedRev = allTxs
+          .filter(t => (t.status || '').toLowerCase() === 'completed')
+          .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+        const totalExpenses = Number(data.accounting.totalExpenses ?? prev?.totalExpenses) || 0;
         return {
           ...data.accounting,
-          transactions: Array.from(txMap.values())
+          totalRevenue: completedRev,
+          totalExpenses: totalExpenses,
+          netProfit: completedRev - totalExpenses,
+          totalOrders: allTxs.filter(t => (t.type || '').toUpperCase() === 'INCOME' || !t.type).length,
+          transactions: allTxs
         };
       });
     }
@@ -1864,16 +1923,26 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Edu Hunters Real Enrolled Students State
   const [enrolledStudents, setEnrolledStudents] = useState(() => {
+    const deletedIds = getDeletedIdsSet();
+    const overrides = getAmountOverridesMap();
     const studentMap = new Map();
     try {
       const saved = localStorage.getItem('eh_enrolled_students');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed)) {
-          parsed.filter(s => !['st-101', 'st-102', 'st-103', 'st-104', 'st-105'].includes(s.id)).forEach(st => {
-            const key = `${st.phone}_${st.courseName}`;
-            studentMap.set(key, st);
-          });
+          parsed
+            .filter(s => !['st-101', 'st-102', 'st-103', 'st-104', 'st-105'].includes(s.id))
+            .filter(s => !isDeletedItem(s, deletedIds))
+            .forEach(st => {
+              const cleanId = typeof st.id === 'string' ? st.id.replace(/^(TRX-|st-)/, '') : '';
+              const overrideVal = overrides[st.id] ?? overrides[st.orderId] ?? overrides[st.trxId] ?? overrides[cleanId];
+              const stWithAmt = (overrideVal !== undefined && !isNaN(Number(overrideVal)))
+                ? { ...st, amount: Number(overrideVal) }
+                : st;
+              const key = st.id || `${st.phone}_${st.courseName}`;
+              studentMap.set(key, stWithAmt);
+            });
         }
       }
     } catch {}
@@ -1884,15 +1953,17 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       if (rawOrders) {
         const parsedOrders = JSON.parse(rawOrders);
         if (Array.isArray(parsedOrders)) {
-          parsedOrders.forEach(ord => {
-            const mappedSt = mapOrderDocToStudent(ord.id, ord);
-            if (mappedSt) {
-              const key = `${mappedSt.phone}_${mappedSt.courseName}`;
-              if (!studentMap.has(key)) {
-                studentMap.set(key, mappedSt);
+          parsedOrders
+            .filter(ord => !isDeletedItem(ord, deletedIds))
+            .forEach(ord => {
+              const mappedSt = mapOrderDocToStudent(ord.id, ord);
+              if (mappedSt && !isDeletedItem(mappedSt, deletedIds)) {
+                const key = mappedSt.id || `${mappedSt.phone}_${mappedSt.courseName}`;
+                if (!studentMap.has(key)) {
+                  studentMap.set(key, mappedSt);
+                }
               }
-            }
-          });
+            });
         }
       }
     } catch {}
@@ -3239,28 +3310,94 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       };
 
       setAccounting(newAcc);
-      persistAll({ accounting: newAcc });
 
-      // Clean from localStorage orders
+      // 1. Record permanent tombstones in both eh_deleted_orders and eh_deleted_transactions
+      try {
+        const deletedOrders = JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]');
+        const deletedTxs = JSON.parse(localStorage.getItem('eh_deleted_transactions') || '[]');
+        const rawId = typeof targetTx.id === 'string' ? targetTx.id.replace(/^(TRX-|st-)/, '') : null;
+        const rawOrderId = typeof targetTx.orderId === 'string' ? targetTx.orderId.replace(/^(TRX-|st-)/, '') : null;
+        const toAdd = [
+          trxId,
+          targetTx.id,
+          targetTx.orderId,
+          rawId,
+          rawOrderId,
+          targetTx.invoiceNumber,
+          targetTx.trxId && targetTx.trxId !== 'PENDING' ? targetTx.trxId : null
+        ].filter(Boolean);
+
+        const newDelOrders = Array.from(new Set([...deletedOrders, ...toAdd]));
+        const newDelTxs = Array.from(new Set([...deletedTxs, ...toAdd]));
+        localStorage.setItem('eh_deleted_orders', JSON.stringify(newDelOrders));
+        localStorage.setItem('eh_deleted_transactions', JSON.stringify(newDelTxs));
+      } catch (e) {}
+
+      // 2. Remove matching student from enrolledStudents state & localStorage immediately
+      const nextStudents = enrolledStudents.filter(st => {
+        const cleanStPhone = (st.phone || '').replace(/[^0-9]/g, '');
+        const cleanTxPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
+        const cleanStEmail = (st.email || '').trim().toLowerCase();
+        const cleanTxEmail = (targetTx.studentEmail || '').trim().toLowerCase();
+        const isMatch = st.id === trxId ||
+                        st.id === targetTx.id ||
+                        st.orderId === targetTx.orderId ||
+                        (typeof st.id === 'string' && typeof targetTx.id === 'string' && st.id.replace(/^(TRX-|st-)/, '') === targetTx.id.replace(/^(TRX-|st-)/, '')) ||
+                        (st.trxId && targetTx.trxId && st.trxId !== 'PENDING' && st.trxId === targetTx.trxId) ||
+                        (cleanTxPhone && cleanStPhone && cleanTxPhone === cleanStPhone && (st.courseName === targetTx.itemTitle || st.courseName === targetTx.category)) ||
+                        (cleanTxEmail && cleanStEmail && cleanTxEmail === cleanStEmail && (st.courseName === targetTx.itemTitle || st.courseName === targetTx.category));
+        return !isMatch;
+      });
+      setEnrolledStudents(nextStudents);
+      try {
+        localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+      } catch (e) {}
+
+      // 3. Clean from localStorage eh_user_orders_v3
       try {
         const rawOrders = localStorage.getItem('eh_user_orders_v3');
         if (rawOrders) {
           const ords = JSON.parse(rawOrders);
-          const filteredOrds = ords.filter(o => 
-            o.id !== trxId && 
-            o.id !== targetTx.orderId && 
-            o.invoiceNumber !== targetTx.invoiceNumber && 
-            (targetTx.trxId === 'PENDING' || o.transactionId !== targetTx.trxId)
-          );
+          const rawId = typeof targetTx.id === 'string' ? targetTx.id.replace(/^(TRX-|st-)/, '') : '';
+          const filteredOrds = ords.filter(o => {
+            const rawOId = typeof o.id === 'string' ? o.id.replace(/^(TRX-|st-)/, '') : '';
+            return o.id !== trxId && 
+                   o.id !== targetTx.id && 
+                   o.id !== targetTx.orderId && 
+                   (!rawId || rawOId !== rawId) &&
+                   o.invoiceNumber !== targetTx.invoiceNumber && 
+                   (targetTx.trxId === 'PENDING' || o.transactionId !== targetTx.trxId);
+          });
           localStorage.setItem('eh_user_orders_v3', JSON.stringify(filteredOrds));
         }
       } catch (e) {}
 
-      // Delete permanently from Supabase
+      // 4. Remove from eh_trx_amount_overrides
+      try {
+        const overrides = JSON.parse(localStorage.getItem('eh_trx_amount_overrides') || '{}');
+        delete overrides[trxId];
+        delete overrides[targetTx.id];
+        delete overrides[targetTx.orderId];
+        const rawId = typeof targetTx.id === 'string' ? targetTx.id.replace(/^(TRX-|st-)/, '') : '';
+        if (rawId) delete overrides[rawId];
+        localStorage.setItem('eh_trx_amount_overrides', JSON.stringify(overrides));
+      } catch (e) {}
+
+      // 5. Delete permanently from Supabase
       const targetOrderId = targetTx.orderId || (targetTx.id.startsWith('ord_') ? targetTx.id : (targetTx.id.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : targetTx.id));
       if (isSupabaseConfigured && targetOrderId) {
-        deleteSupabaseOrder(targetOrderId).catch(e => console.warn('[AdminPanel] Supabase delete order note:', e));
+        deleteSupabaseOrder(targetOrderId, {
+          studentPhone: targetTx.studentPhone,
+          studentEmail: targetTx.studentEmail,
+          invoiceNumber: targetTx.invoiceNumber,
+          trxId: targetTx.trxId
+        }).catch(e => console.warn('[AdminPanel] Supabase delete order note:', e));
       }
+
+      persistAll({
+        accounting: newAcc,
+        enrolledStudents: nextStudents
+      });
 
       triggerToast('Transaction permanently deleted');
     }
@@ -3399,18 +3536,48 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     );
     const resolvedOrderId = targetOrderId || targetTx?.orderId || (targetTx?.id?.startsWith('ord_') ? targetTx.id : (targetTx?.id?.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : null));
 
-    // Record in deleted list to prevent resurrection on refresh
+    // Record in deleted lists (orders & transactions) with stripped aliases to permanently prevent resurrection on refresh
     try {
-      const deletedIds = new Set(JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]'));
-      if (resolvedOrderId) deletedIds.add(resolvedOrderId);
-      if (studentId) deletedIds.add(studentId);
-      if (targetTx?.id) deletedIds.add(targetTx.id);
-      localStorage.setItem('eh_deleted_orders', JSON.stringify(Array.from(deletedIds)));
+      const deletedOrders = JSON.parse(localStorage.getItem('eh_deleted_orders') || '[]');
+      const deletedTxs = JSON.parse(localStorage.getItem('eh_deleted_transactions') || '[]');
+      const toAdd = [
+        resolvedOrderId,
+        studentId,
+        targetTx?.id,
+        targetTx?.orderId,
+        st.id,
+        st.orderId,
+        typeof studentId === 'string' ? studentId.replace(/^(TRX-|st-)/, '') : null,
+        typeof resolvedOrderId === 'string' ? resolvedOrderId.replace(/^(TRX-|st-)/, '') : null,
+        targetTx?.trxId && targetTx.trxId !== 'PENDING' ? targetTx.trxId : null,
+        targetTx?.invoiceNumber
+      ].filter(Boolean);
+
+      const newDelOrders = Array.from(new Set([...deletedOrders, ...toAdd]));
+      const newDelTxs = Array.from(new Set([...deletedTxs, ...toAdd]));
+      localStorage.setItem('eh_deleted_orders', JSON.stringify(newDelOrders));
+      localStorage.setItem('eh_deleted_transactions', JSON.stringify(newDelTxs));
+    } catch (e) {}
+
+    // Clean from eh_trx_amount_overrides
+    try {
+      const overrides = JSON.parse(localStorage.getItem('eh_trx_amount_overrides') || '{}');
+      if (studentId) delete overrides[studentId];
+      if (resolvedOrderId) delete overrides[resolvedOrderId];
+      if (targetTx?.id) delete overrides[targetTx.id];
+      if (targetTx?.orderId) delete overrides[targetTx.orderId];
+      const strippedStId = typeof studentId === 'string' ? studentId.replace(/^(TRX-|st-)/, '') : '';
+      if (strippedStId) delete overrides[strippedStId];
+      localStorage.setItem('eh_trx_amount_overrides', JSON.stringify(overrides));
     } catch (e) {}
 
     // 3. Delete from Supabase eduhunters_orders
-    if (isSupabaseConfigured && resolvedOrderId) {
-      deleteSupabaseOrder(resolvedOrderId).catch(e => console.warn('[AdminPanel] Supabase delete order note:', e));
+    if (isSupabaseConfigured && (resolvedOrderId || studentId)) {
+      deleteSupabaseOrder(resolvedOrderId || studentId, {
+        studentPhone: st.phone,
+        studentEmail: st.email,
+        trxId: st.trxId
+      }).catch(e => console.warn('[AdminPanel] Supabase delete order note:', e));
     }
 
     // 4. Order deleted permanently from Supabase eduhunters_orders (100% Centralized Cloud)
@@ -3509,24 +3676,49 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     setEditingTrxAmountId(null);
     setEditingTrxAmountVal('');
 
+    // Persist to eh_trx_amount_overrides so refresh/cloud sync can NEVER revert the amount
+    try {
+      const overrides = JSON.parse(localStorage.getItem('eh_trx_amount_overrides') || '{}');
+      overrides[trxId] = newAmt;
+      if (targetTx.id) overrides[targetTx.id] = newAmt;
+      if (targetTx.orderId) overrides[targetTx.orderId] = newAmt;
+      if (targetTx.trxId && targetTx.trxId !== 'PENDING') overrides[targetTx.trxId] = newAmt;
+      if (targetTx.invoiceNumber) overrides[targetTx.invoiceNumber] = newAmt;
+      const strippedId = typeof targetTx.id === 'string' ? targetTx.id.replace(/^(TRX-|st-)/, '') : '';
+      if (strippedId) overrides[strippedId] = newAmt;
+      const strippedOrderId = typeof targetTx.orderId === 'string' ? targetTx.orderId.replace(/^(TRX-|st-)/, '') : '';
+      if (strippedOrderId) overrides[strippedOrderId] = newAmt;
+      localStorage.setItem('eh_trx_amount_overrides', JSON.stringify(overrides));
+    } catch (e) {}
+
     // Sync to selectedTxDetails if currently viewed in modal
     setSelectedTxDetails(prev => (prev && prev.id === trxId) ? { ...prev, amount: newAmt } : prev);
 
-    // Sync to enrolledStudents
+    // Sync to enrolledStudents with direct ID and contact matching
     const cleanPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
     const cleanEmail = (targetTx.studentEmail || '').trim().toLowerCase();
+    const strippedTargetId = typeof targetTx.id === 'string' ? targetTx.id.replace(/^(TRX-|st-)/, '') : '';
 
     const nextEnrolled = enrolledStudents.map(st => {
+      const strippedStId = typeof st.id === 'string' ? st.id.replace(/^(TRX-|st-)/, '') : '';
+      const isDirectMatch = st.id === trxId ||
+                            st.id === targetTx.id ||
+                            st.orderId === targetTx.orderId ||
+                            (strippedTargetId && strippedStId && strippedTargetId === strippedStId) ||
+                            (st.trxId && targetTx.trxId && st.trxId !== 'PENDING' && st.trxId === targetTx.trxId);
       const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
       const stEmail = (st.email || '').trim().toLowerCase();
-      const match = (cleanPhone && stPhone && (cleanPhone.includes(stPhone) || stPhone.includes(cleanPhone))) ||
-                    (cleanEmail && stEmail === cleanEmail);
-      if (match) {
+      const isContactMatch = (cleanPhone && stPhone && (cleanPhone.includes(stPhone) || stPhone.includes(cleanPhone))) ||
+                            (cleanEmail && stEmail === cleanEmail);
+      if (isDirectMatch || isContactMatch) {
         return { ...st, amount: newAmt };
       }
       return st;
     });
     setEnrolledStudents(nextEnrolled);
+    try {
+      localStorage.setItem('eh_enrolled_students', JSON.stringify(nextEnrolled));
+    } catch (e) {}
 
     // Sync to usersList (totalSpent)
     let userUpdated = false;
@@ -3550,7 +3742,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     // Update in Supabase
     const targetOrderId = targetTx.orderId || (targetTx.id.startsWith('ord_') ? targetTx.id : (targetTx.id.startsWith('TRX-ord_') ? targetTx.id.replace('TRX-', '') : targetTx.id));
     if (isSupabaseConfigured && targetOrderId) {
-      updateSupabaseOrderAmount(targetOrderId, newAmt).catch(() => {});
+      updateSupabaseOrderAmount(targetOrderId, newAmt, {
+        studentPhone: targetTx.studentPhone,
+        studentEmail: targetTx.studentEmail,
+        trxId: targetTx.trxId,
+        invoiceNumber: targetTx.invoiceNumber
+      }).catch(() => {});
     }
 
     // Update in localStorage orders
@@ -3559,7 +3756,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       if (rawOrders) {
         const ords = JSON.parse(rawOrders);
         const nextOrds = ords.map(o => {
-          if (o.id === targetOrderId || o.id === trxId || o.invoiceNumber === targetTx.invoiceNumber) {
+          const strippedOId = typeof o.id === 'string' ? o.id.replace(/^(TRX-|st-)/, '') : '';
+          const isDirect = o.id === targetOrderId || o.id === trxId || o.id === targetTx.id || o.id === targetTx.orderId || (strippedTargetId && strippedOId === strippedTargetId) || o.invoiceNumber === targetTx.invoiceNumber || (targetTx.trxId !== 'PENDING' && o.transactionId === targetTx.trxId);
+          if (isDirect) {
             return { ...o, totalPaid: newAmt, amount: newAmt };
           }
           return o;
