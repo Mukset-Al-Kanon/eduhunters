@@ -65,7 +65,26 @@ export const homeCoursesData = [
   ...EXAM_BATCHES_AS_COURSES
 ];
 
-export const instructorsData = [];
+export const instructorsData = [
+  {
+    id: 1,
+    name: "As Sami Islam",
+    badge: "FOUNDER",
+    designation: "FOUNDER & INSTRUCTOR",
+    bio: "Founder & Instructor",
+    image: "/instructors/as_sami_islam.jpg",
+    yt: ""
+  },
+  {
+    id: 2,
+    name: "Mukset Al Kanon",
+    badge: "FOUNDER",
+    designation: "FOUNDER",
+    bio: "Founder",
+    image: "/instructors/mukset_al_kanon.jpg",
+    yt: ""
+  }
+];
 
 export const freeVideosData = [
   {

@@ -447,7 +447,35 @@ export default function App() {
           examBatches: Array.isArray(parsed.examBatches)
             ? parsed.examBatches
             : (initialData.examBatches || EXAM_CATEGORIES_METADATA),
-          instructors: Array.isArray(parsed.instructors) ? parsed.instructors : [],
+          instructors: (() => {
+            const rawList = Array.isArray(parsed.instructors) ? parsed.instructors : [];
+            const cleanList = rawList.filter(inst => {
+              const lowName = (inst.name || '').toLowerCase();
+              return !["tahmid", "sanjid", "tofayel", "nazmuddin", "jaidul", "sk tasnim", "tasnim ferdaus"].some(zn => lowName.includes(zn));
+            });
+            let combined = [...cleanList];
+            initialData.instructors.forEach(defInst => {
+              const exists = combined.some(i => (i.name || '').toLowerCase().includes(defInst.name.toLowerCase()));
+              if (!exists) {
+                combined.push(defInst);
+              }
+            });
+            combined = combined.map(inst => {
+              if ((inst.name || '').toLowerCase().includes('as sami')) {
+                return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/as_sami_islam.jpg', bio: inst.bio || 'Founder & Instructor', designation: inst.designation || 'FOUNDER & INSTRUCTOR' };
+              }
+              if ((inst.name || '').toLowerCase().includes('mukset') || (inst.name || '').toLowerCase().includes('kanon')) {
+                return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/mukset_al_kanon.jpg', bio: inst.bio || 'Founder', designation: inst.designation || 'FOUNDER' };
+              }
+              return inst;
+            });
+            const samiIdx = combined.findIndex(i => (i.name || '').toLowerCase().includes('as sami'));
+            if (samiIdx > 0) {
+              const [samiItem] = combined.splice(samiIdx, 1);
+              combined.unshift(samiItem);
+            }
+            return combined;
+          })(),
           freeVideos: Array.isArray(parsed.freeVideos)
             ? parsed.freeVideos 
             : initialData.freeVideos,
@@ -610,18 +638,35 @@ export default function App() {
         }
         if (Array.isArray(parsed.instructors)) {
           const ZENITH_INSTRUCTOR_NAMES = [
-            "as sami", "tahmid", "sanjid", "tofayel", "nazmuddin", "jaidul", "sk tasnim", "tasnim ferdaus"
+            "tahmid", "sanjid", "tofayel", "nazmuddin", "jaidul", "sk tasnim", "tasnim ferdaus"
           ];
-          const purgedInst = parsed.instructors.filter(inst => {
+          let purgedInst = parsed.instructors.filter(inst => {
             const lowName = (inst.name || '').toLowerCase();
             return !ZENITH_INSTRUCTOR_NAMES.some(zn => lowName.includes(zn));
           });
-          if (purgedInst.length !== parsed.instructors.length) {
-            parsed.instructors = purgedInst;
-            modified = true;
+          initialData.instructors.forEach(defInst => {
+            if (!purgedInst.some(i => (i.name || '').toLowerCase().includes(defInst.name.toLowerCase()))) {
+              purgedInst.push(defInst);
+            }
+          });
+          purgedInst = purgedInst.map(inst => {
+            if ((inst.name || '').toLowerCase().includes('as sami')) {
+              return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/as_sami_islam.jpg', bio: inst.bio || 'Founder & Instructor', designation: inst.designation || 'FOUNDER & INSTRUCTOR' };
+            }
+            if ((inst.name || '').toLowerCase().includes('mukset') || (inst.name || '').toLowerCase().includes('kanon')) {
+              return { ...inst, image: inst.image && !inst.image.includes('codervai') ? inst.image : '/instructors/mukset_al_kanon.jpg', bio: inst.bio || 'Founder', designation: inst.designation || 'FOUNDER' };
+            }
+            return inst;
+          });
+          const samiIdx = purgedInst.findIndex(i => (i.name || '').toLowerCase().includes('as sami'));
+          if (samiIdx > 0) {
+            const [samiItem] = purgedInst.splice(samiIdx, 1);
+            purgedInst.unshift(samiItem);
           }
+          parsed.instructors = purgedInst;
+          modified = true;
         } else {
-          parsed.instructors = [];
+          parsed.instructors = initialData.instructors;
           modified = true;
         }
         if (Array.isArray(parsed.storeProducts) && parsed.storeProducts.some(p => [1, 2, 3, 4].includes(p.id) || p.title?.includes('Biology Extra Info'))) {
@@ -753,7 +798,7 @@ export default function App() {
 
       // Clean instructors resolution: filter Zenith legacy faculty and respect user edits
       const ZENITH_INSTRUCTOR_NAMES = [
-        "as sami", "tahmid", "sanjid", "tofayel", "nazmuddin", "jaidul", "sk tasnim", "tasnim ferdaus"
+        "tahmid", "sanjid", "tofayel", "nazmuddin", "jaidul", "sk tasnim", "tasnim ferdaus"
       ];
       const cleanCloudInstructors = Array.isArray(sanitized.instructors)
         ? sanitized.instructors.filter(inst => !ZENITH_INSTRUCTOR_NAMES.some(zn => (inst.name || '').toLowerCase().includes(zn)))
@@ -762,9 +807,17 @@ export default function App() {
         ? prev.instructors.filter(inst => !ZENITH_INSTRUCTOR_NAMES.some(zn => (inst.name || '').toLowerCase().includes(zn)))
         : [];
 
-      const resolvedInstructors = cleanCloudInstructors !== null
+      let resolvedInstructors = cleanCloudInstructors !== null && cleanCloudInstructors.length > 0
         ? cleanCloudInstructors
-        : cleanPrevInstructors;
+        : (cleanPrevInstructors.length > 0 ? cleanPrevInstructors : initialData.instructors);
+
+      // Guarantee "As Sami Islam" is at index 0 (first on website)
+      const samiIdx = resolvedInstructors.findIndex(i => (i.name || '').toLowerCase().includes('as sami'));
+      if (samiIdx > 0) {
+        resolvedInstructors = [...resolvedInstructors];
+        const [samiItem] = resolvedInstructors.splice(samiIdx, 1);
+        resolvedInstructors.unshift(samiItem);
+      }
 
       // Smart course resolution: merge curriculum so newly added classes/lessons are never lost
       const countLessons = (cur) => {

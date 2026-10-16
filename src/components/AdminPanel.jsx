@@ -5157,6 +5157,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     triggerToast('👨‍🏫 Instructor added successfully!');
   };
 
+  // Move Instructor in Instructors list
+  const handleMoveInstructor = (index, direction) => {
+    const targetIdx = direction === 'up' ? index - 1 : index + 1;
+    if (targetIdx < 0 || targetIdx >= instructors.length) return;
+    const nextList = [...instructors];
+    const temp = nextList[index];
+    nextList[index] = nextList[targetIdx];
+    nextList[targetIdx] = temp;
+    setInstructors(nextList);
+    persistAll({ instructors: nextList });
+    triggerToast('Instructor order updated!');
+  };
+
   // Extract Clean YouTube ID helper
   const extractCleanYouTubeId = (urlOrId) => {
     if (!urlOrId) return '';
@@ -10881,6 +10894,26 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           >
                             <ImageIcon className="w-3.5 h-3.5 text-purple-600" />
                             <span>Gallery</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            disabled={idx === 0}
+                            onClick={() => handleMoveInstructor(idx, 'up')}
+                            className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 disabled:opacity-20 disabled:cursor-not-allowed transition-colors border-none bg-transparent cursor-pointer"
+                            title="Move Earlier"
+                          >
+                            <ArrowUp className="w-3.5 h-3.5" />
+                          </button>
+
+                          <button
+                            type="button"
+                            disabled={idx === instructors.length - 1}
+                            onClick={() => handleMoveInstructor(idx, 'down')}
+                            className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 disabled:opacity-20 disabled:cursor-not-allowed transition-colors border-none bg-transparent cursor-pointer"
+                            title="Move Later"
+                          >
+                            <ArrowDown className="w-3.5 h-3.5" />
                           </button>
 
                           <button
