@@ -18,6 +18,10 @@ export function isDemoSubmission(item) {
   const sId = String(item.student_id || '').toLowerCase();
   const sName = String(item.student_name || '').toLowerCase();
   const sUser = String(item.student_username || '').toLowerCase();
+  const subId = String(item.id || '').toLowerCase();
+
+  // Purge specific historical test submission requested by user
+  if (subId === 'sub_1792087166936_jlgjb') return true;
 
   if (sId.startsWith('demo_') || sId.includes('demo_std')) return true;
   if (sUser.startsWith('demo_') || sUser === 'examinee') return true;
@@ -181,8 +185,10 @@ export async function recordQuizSubmission({
 }) {
   const studentId = student?.id || student?.uid || student?.phone || student?.email || `std_${Date.now()}`;
   const studentName = student?.name || student?.displayName || student?.phone || 'Student';
-  const rawPhone = (student?.phone || student?.whatsapp || '').replace(/[^0-9]/g, '');
-  const cleanEmail = (student?.email || '').trim().toLowerCase();
+  const studentPhone = (student?.phone || student?.whatsapp || '').replace(/[^0-9]/g, '');
+  const studentEmail = (student?.email || '').trim().toLowerCase();
+  const rawPhone = studentPhone;
+  const cleanEmail = studentEmail;
   const studentAvatar = student?.avatar || student?.photoURL || student?.profilePic || '';
 
   const courseId = String(course?.id || course?.slug || 'course_default');

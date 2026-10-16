@@ -10,7 +10,10 @@ export default function ProfileModal({
   onClose,
   onSaveSuccess,
   hintNotice,
-  requireCompletion = false
+  requireCompletion = false,
+  title,
+  subtitle,
+  submitText
 }) {
   const { currentUser, updateUserProfile } = useAuth();
 
@@ -133,18 +136,23 @@ export default function ProfileModal({
   // Save profile submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!displayName.trim()) {
-      setStatusMsg({ type: 'error', text: 'Please enter your full name.' });
+    if (!displayName.trim() || displayName.trim().length < 2) {
+      setStatusMsg({ type: 'error', text: 'দয়া করে আপনার সম্পূর্ণ নাম লিখুন।' });
       return;
     }
 
     if (requireCompletion) {
-      if (!whatsapp.trim()) {
-        setStatusMsg({ type: 'error', text: 'Please enter your active WhatsApp or mobile number to enroll.' });
+      const cleanPhone = whatsapp.replace(/[^0-9]/g, '');
+      if (!cleanPhone || cleanPhone.length < 10) {
+        setStatusMsg({ type: 'error', text: 'দয়া করে আপনার সচল ১০/১১ ডিজিটের মোবাইল বা হোয়াটসঅ্যাপ নম্বর দিন।' });
         return;
       }
-      if (!college.trim()) {
-        setStatusMsg({ type: 'error', text: 'Please enter your college or institution name to enroll.' });
+      if (!college.trim() || college.trim().length < 2) {
+        setStatusMsg({ type: 'error', text: 'দয়া করে আপনার কলেজ বা শিক্ষা প্রতিষ্ঠানের নাম লিখুন।' });
+        return;
+      }
+      if (!hscBatch.trim()) {
+        setStatusMsg({ type: 'error', text: 'দয়া করে আপনার ক্লাস বা এইচএসসি ব্যাচ নির্বাচন করুন।' });
         return;
       }
     }
@@ -231,12 +239,12 @@ export default function ProfileModal({
         {/* Header Title */}
         <div className="text-center pt-1 mb-4">
           <h2 className="text-2xl font-black tracking-tight text-white">
-            {requireCompletion ? 'Complete Your Profile' : 'Edit Profile'}
+            {title || (requireCompletion ? 'প্রোফাইল সম্পন্ন করুন' : 'Edit Profile')}
           </h2>
           <p className="text-xs text-gray-400 mt-1 max-w-[340px] mx-auto leading-relaxed">
-            {requireCompletion 
-              ? 'Please fill in your details below to successfully enroll in the course.' 
-              : 'Customize your avatar, contact, and academic details for EduHunters.'}
+            {subtitle || (requireCompletion 
+              ? 'ফ্রি ট্রায়াল ক্লাস করতে এবং এনরোলমেন্টের জন্য আপনার তথ্যগুলো পূরণ করুন।' 
+              : 'Customize your avatar, contact, and academic details for EduHunters.')}
           </p>
         </div>
 
@@ -480,7 +488,7 @@ export default function ProfileModal({
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Save Changes</span>
+                  <span>{submitText || (requireCompletion ? 'সংরক্ষণ করে ক্লাস শুরু করুন' : 'Save Changes')}</span>
                 </>
               )}
             </button>

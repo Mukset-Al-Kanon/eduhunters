@@ -3,6 +3,7 @@ import { Clock, AlertCircle, CheckCircle, ArrowLeft, RefreshCw, Award, ShieldAle
 import confetti from 'canvas-confetti';
 import { stripEmoji } from '../utils/textUtils';
 import { useAuth } from '../context/AuthContext';
+import { recordQuizSubmission } from '../services/quizService';
 
 export default function ExamEngine({ exam, onClose }) {
   const { currentUser } = useAuth();
@@ -104,15 +105,41 @@ export default function ExamEngine({ exam, onClose }) {
     const finalScore = parseFloat(rawScore.toFixed(2));
     const percentage = Math.max(0, Math.round((finalScore / exam.questions.length) * 100));
 
-    setResult({
+    const resultPayload = {
       totalQuestions: exam.questions.length,
+      totalPossible: exam.totalMarks || exam.questions.length,
       correctCount,
       wrongCount,
       skippedCount,
       finalScore,
+      score: finalScore,
       percentage,
       isPassed: finalScore >= (exam.passMarks || 1)
-    });
+    };
+
+    setResult(resultPayload);
+
+    // Save exam attempt to official leaderboard
+    try {
+      const durationSecs = (exam.durationMinutes ? exam.durationMinutes * 60 : 3600);
+      const timeTaken = Math.max(1, durationSecs - timeLeft);
+      recordQuizSubmission({
+        student: currentUser || { id: 'guest_student', name: 'Student' },
+        course: { 
+          id: exam.courseId || 'exam_batch', 
+          title: exam.courseName || exam.title || 'Exam' 
+        },
+        lesson: { 
+          id: exam.id || `exam_${Date.now()}`, 
+          title: exam.title || 'Exam' 
+        },
+        quiz: exam,
+        result: resultPayload,
+        timeTakenSeconds: timeTaken
+      });
+    } catch (e) {
+      console.warn('[ExamEngine] Leaderboard record notice:', e);
+    }
 
     // Celebrate with confetti if passed
     if (finalScore >= (exam.passMarks || 1)) {

@@ -25,8 +25,8 @@ export const physicsFinishingTouchCourseData = {
   "curriculum": [
     {
       "id": "sec-1791887600016",
-      "name": "Physics 1st paper Finishing Touch Series",
-      "title": "Physics 1st paper Finishing Touch Series",
+      "name": "Physics 1st Paper",
+      "title": "Physics 1st Paper",
       "lessons": [
         {
           "id": "les-1791910764978",
@@ -7237,6 +7237,13 @@ export const physicsFinishingTouchCourseData = {
           ]
         }
       ]
+    },
+    {
+      "id": "sec-physics-2nd-paper",
+      "name": "Physics 2nd Paper",
+      "title": "Physics 2nd Paper",
+      "chapters": [],
+      "lessons": []
     }
   ],
   "description": "",

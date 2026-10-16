@@ -646,6 +646,25 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null, option
     }
   }
 
+  // Bidirectional canonical alias expansion for Physics Finishing Touch Series
+  const isPhysicsFinishing = Array.from(candidates).some(c => {
+    const low = String(c).toLowerCase();
+    return low.includes('1791887161017') || 
+           low.includes('physics-finishing-touch-series') || 
+           (low.includes('physics') && low.includes('finishing'));
+  });
+
+  if (isPhysicsFinishing) {
+    candidates.add('Physics Finishing Touch Series');
+    candidates.add('physics finishing touch series');
+    candidates.add('physicsfinishingtouchseries');
+    candidates.add('Physics 1st paper Finishing Touch Series');
+    candidates.add('physics 1st paper finishing touch series');
+    candidates.add('physics1stpaperfinishingtouchseries');
+    candidates.add('course-1791887161017');
+    candidates.add('physics-finishing-touch-series');
+  }
+
   const cleanCandidates = Array.from(candidates).filter(Boolean);
   if (cleanCandidates.length === 0) return false;
 
@@ -654,12 +673,17 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null, option
     if (!Array.isArray(list) || list.length === 0) return false;
     for (const item of list) {
       if (!item) continue;
-      const str = typeof item === 'string' ? item.trim() : (item.id || item.slug || item.key || item.title || '').trim();
+      const str = typeof item === 'string' ? item.trim() : (item.id || item.slug || item.key || item.title || item.name || '').trim();
       if (!str) continue;
       const normItem = normalizeStr(str);
       const lowItem = str.toLowerCase();
       for (const cand of cleanCandidates) {
-        if (cand === str || cand.toLowerCase() === lowItem || normalizeStr(cand) === normItem) {
+        if (
+          cand === str || 
+          cand.toLowerCase() === lowItem || 
+          normalizeStr(cand) === normItem ||
+          (isPhysicsFinishing && (lowItem.includes('physics') && lowItem.includes('finishing')))
+        ) {
           return true;
         }
       }
@@ -710,8 +734,11 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null, option
         const orderPhone = (ord.customer?.phone || '').replace(/[^0-9]/g, '');
         const orderUid = ord.userId || ord.customer?.uid;
 
-        const isOwner = (userEmail && orderEmail && orderEmail === userEmail) ||
-                        isPhoneMatch(userPhone, orderPhone) ||
+        const orderCustomerEmail = (ord.customer_email || '').toLowerCase().trim();
+        const orderCustomerPhone = (ord.customer_phone || '').replace(/[^0-9]/g, '');
+
+        const isOwner = (userEmail && ((orderEmail && orderEmail === userEmail) || (orderCustomerEmail && orderCustomerEmail === userEmail))) ||
+                        isPhoneMatch(userPhone, orderPhone || orderCustomerPhone) ||
                         (userUid && orderUid && orderUid === userUid);
 
         if (!isOwner) continue;
@@ -728,7 +755,9 @@ export function isItemEnrolled(itemOrId, currentUser = null, data = null, option
         ord.items?.[0]?.slug,
         ord.items?.[0]?.title,
         ord.course?.name,
-        ord.course?.title
+        ord.course?.title,
+        ord.course_name,
+        ord.course_slug
       ].filter(Boolean);
 
       if (matchesList(orderKeys)) return true;

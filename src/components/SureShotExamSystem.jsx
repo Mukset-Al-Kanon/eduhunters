@@ -20,6 +20,7 @@ import { getMergedExamManifest, loadExamQuestions } from '../utils/examBatchStor
 import { useAuth } from '../context/AuthContext';
 import { getStoredEnrolledBatches, grantCourseAccess, isItemEnrolled } from '../utils/enrollmentService';
 import { getQuizScheduleState } from '../utils/quizScheduleHelper';
+import { recordQuizSubmission } from '../services/quizService';
 
 
 // Fallback initial lists for instant rendering before manifest loads
@@ -1060,6 +1061,26 @@ export default function SureShotExamSystem({
       localStorage.setItem('eduhunters_exam_history', JSON.stringify(updatedHistory));
     } catch (e) {
       console.warn("Failed to save history:", e);
+    }
+
+    // Save to Global Live Leaderboard
+    try {
+      recordQuizSubmission({
+        student: currentUser || { id: 'guest_student', name: 'Student' },
+        course: { 
+          id: selectedCategory || examData?.category || 'sureshot', 
+          title: examData?.categoryName || selectedCategory || 'Exam Batch' 
+        },
+        lesson: { 
+          id: resultObj.examId, 
+          title: resultObj.title || 'Exam' 
+        },
+        quiz: examData,
+        result: resultObj,
+        timeTakenSeconds: elapsedSecs
+      });
+    } catch (e) {
+      console.warn("[SureShot] Leaderboard submission notice:", e);
     }
 
     const catToUse = selectedCategory || examData?.category || 'sureshot';

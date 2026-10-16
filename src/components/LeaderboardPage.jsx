@@ -205,12 +205,11 @@ function getCourseLessons(course) {
     const cTitle = (course?.title || course?.name || '').toLowerCase();
     if (cTitle.includes('physics') || cTitle.includes('finishing')) {
       return [
-        { lessonId: 'les-01', title: 'Chapter 1: ভৌতজগৎ ও পরিমাপ', shortTitle: 'ভৌতজগৎ ও পরিমাপ', chapterName: 'অধ্যায় ০১' },
-        { lessonId: 'les-02', title: 'Chapter 2: ভেক্টর', shortTitle: 'ভেক্টর', chapterName: 'অধ্যায় ০২' },
-        { lessonId: 'les-03', title: 'Chapter 3: গতিবিদ্যা', shortTitle: 'গতিবিদ্যা', chapterName: 'অধ্যায় ০৩' },
-        { lessonId: 'les-04', title: 'Chapter 4: নিউটনীয় বলবিদ্যা', shortTitle: 'নিউটনীয় বলবিদ্যা', chapterName: 'অধ্যায় ০৪' },
-        { lessonId: 'les-05', title: 'Chapter 5: কাজ, শক্তি ও ক্ষমতা', shortTitle: 'কাজ, শক্তি ও ক্ষমতা', chapterName: 'অধ্যায় ০৫' },
-        { lessonId: 'les-06', title: 'Chapter 6: মহাকর্ষ ও অভিকর্ষ', shortTitle: 'মহাকর্ষ ও অভিকর্ষ', chapterName: 'অধ্যায় ০৬' }
+        { lessonId: 'les-01', title: 'ভৌতজগৎ ও পরিমাপ', shortTitle: 'ভৌতজগৎ ও পরিমাপ', chapterName: 'Physics 1st Paper' },
+        { lessonId: 'les-02', title: 'ভেক্টর', shortTitle: 'ভেক্টর', chapterName: 'Physics 1st Paper' },
+        { lessonId: 'les-03', title: 'গতিবিদ্যা', shortTitle: 'গতিবিদ্যা', chapterName: 'Physics 1st Paper' },
+        { lessonId: 'les-04', title: 'নিউটনীয় বলবিদ্যা', shortTitle: 'নিউটনীয় বলবিদ্যা', chapterName: 'Physics 1st Paper' },
+        { lessonId: 'les-05', title: 'কাজ, শক্তি ও ক্ষমতা', shortTitle: 'কাজ, শক্তি ও ক্ষমতা', chapterName: 'Physics 1st Paper' }
       ];
     }
   }
@@ -676,35 +675,8 @@ export default function LeaderboardPage({
             <div className="w-12 h-12 rounded-full border-2 border-white/10 border-t-[#e11438] animate-spin mb-4" />
             <span className="text-sm text-white/60 font-medium">লিডারবোর্ড তথ্য লোড হচ্ছে...</span>
           </div>
-        ) : filteredData.length === 0 ? (
-          /* Empty State when zero real submissions exist */
-          <div className="pt-24 pb-20 px-4 flex flex-col items-center justify-center text-center animate-in fade-in duration-300">
-            <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-[#e11438]/20 via-[#800a20]/20 to-amber-500/10 border border-[#e11438]/30 flex items-center justify-center mb-5 shadow-[0_0_35px_rgba(225,20,56,0.3)]">
-              <Trophy className="w-10 h-10 text-amber-400 drop-shadow-[0_0_12px_rgba(251,191,36,0.5)]" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
-              এখনও কোনো লিডারবোর্ড রেকর্ড নেই
-            </h3>
-            <p className="text-sm text-white/60 max-w-xs mb-7 leading-relaxed">
-              এই পরীক্ষা বা কোর্সে এখনও কোনো শিক্ষার্থী অংশ নেয়নি। পরীক্ষা দিয়ে প্রথম স্থান অধিকার করো!
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                if (onNavigateCourse) {
-                  onNavigateCourse(activeCourse?.id || activeCourse?.slug || selectedCourseId);
-                } else if (onNavigateExams) {
-                  onNavigateExams();
-                }
-              }}
-              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#e11438] to-[#ff3358] hover:from-[#c70f30] hover:to-[#e11438] text-white text-xs font-bold shadow-[0_0_25px_rgba(225,20,56,0.5)] transition-all cursor-pointer flex items-center gap-2 active:scale-95"
-            >
-              <Zap className="w-4 h-4 fill-white" />
-              <span>পরীক্ষায় অংশ নিন</span>
-            </button>
-          </div>
         ) : (
-          /* Real Data Available: Render Clean 3D Podium and Examinee Sheet */
+          /* Real Data or Unified Empty 3D Podium & Examinee Sheet */
           <>
             <div className="pt-16 sm:pt-20 pb-0 relative w-full">
               {/* Ground Soft Cast Ambient Shadow underneath the podium base */}
@@ -778,21 +750,37 @@ export default function LeaderboardPage({
                 <div className="w-[36%] min-w-0 flex flex-col items-center relative z-20">
                   {/* Floating Avatar 1 */}
                   <div className="flex flex-col items-center mb-3.5 animate-in fade-in duration-300 w-full">
-                    <div className="relative group shrink-0">
-                      <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-black/90 rounded-full blur-[4px]" />
-                      <img 
-                        src={rank1?.avatar || rank1?.student_avatar || '/avatar.svg'} 
-                        alt={rank1?.student_name || 'Rank 1'}
-                        className="w-[74px] h-[74px] sm:w-[84px] sm:h-[84px] rounded-full object-cover border-[3px] border-white shadow-[0_12px_28px_rgba(245,158,11,0.4)] relative z-10 shrink-0"
-                        onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                      />
-                    </div>
-                    <span className="text-xs sm:text-sm font-bold text-white truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                      {rank1?.student_username || rank1?.student_name?.split(' ')[0] || 'Champion'}
-                    </span>
-                    <div className="mt-1">
-                      <TokenPill points={viewMode === 'overall' ? rank1?.total_score : rank1?.score} size="lg" />
-                    </div>
+                    {rank1 ? (
+                      <>
+                        <div className="relative group shrink-0">
+                          <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-black/90 rounded-full blur-[4px]" />
+                          <img 
+                            src={rank1.avatar || rank1.student_avatar || '/avatar.svg'} 
+                            alt={rank1.student_name || 'Rank 1'}
+                            className="w-[74px] h-[74px] sm:w-[84px] sm:h-[84px] rounded-full object-cover border-[3px] border-white shadow-[0_12px_28px_rgba(245,158,11,0.4)] relative z-10 shrink-0"
+                            onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                          />
+                        </div>
+                        <span className="text-xs sm:text-sm font-bold text-white truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
+                          {rank1.student_username || rank1.student_name?.split(' ')[0] || 'Champion'}
+                        </span>
+                        <div className="mt-1">
+                          <TokenPill points={viewMode === 'overall' ? rank1.total_score : rank1.score} size="lg" />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-[74px] h-[74px] sm:w-[84px] sm:h-[84px] rounded-full border-2 border-dashed border-amber-400/35 flex items-center justify-center bg-white/[0.03] text-amber-400/60 shadow-inner">
+                          <span className="font-bold text-base sm:text-lg">১</span>
+                        </div>
+                        <span className="text-[11px] sm:text-xs font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
+                          ১ম স্থান (খালি)
+                        </span>
+                        <div className="mt-1">
+                          <TokenPill points="--" size="lg" />
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   {/* 3D Pillar #1 */}
@@ -884,7 +872,9 @@ export default function LeaderboardPage({
               <div className="divide-y divide-white/[0.04]">
                 {remainingList.length === 0 && (
                   <div className="py-8 text-center text-xs text-white/40">
-                    শীর্ষ ৩ জন ব্যতীত আর কোনো প্রতিযোগী নেই।
+                    {filteredData.length === 0 
+                      ? 'এখনও কোনো প্রতিযোগী এই পরীক্ষায় অংশগ্রহণ করেনি।'
+                      : 'শীর্ষ ৩ জন ব্যতীত আর কোনো প্রতিযোগী নেই।'}
                   </div>
                 )}
 

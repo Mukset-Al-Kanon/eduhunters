@@ -245,7 +245,23 @@ export async function fetchSupabaseOrders() {
       transactionId: row.trx_id,
       paymentMethodName: row.payment_method,
       totalPaid: row.amount,
-      createdAt: row.created_at
+      createdAt: row.created_at,
+      course_name: row.course_name,
+      course_slug: row.course_slug,
+      customer_email: row.customer_email,
+      customer_phone: row.customer_phone,
+      customer: {
+        ...(row.raw_data?.customer || {}),
+        name: row.customer_name || row.raw_data?.customer?.name,
+        email: row.customer_email || row.raw_data?.customer?.email,
+        phone: row.customer_phone || row.raw_data?.customer?.phone
+      },
+      course: {
+        ...(row.raw_data?.course || {}),
+        name: row.course_name || row.raw_data?.course?.name,
+        title: row.course_name || row.raw_data?.course?.title,
+        slug: row.course_slug || row.raw_data?.course?.slug
+      }
     }));
   } catch (err) {
     console.warn('[Supabase] Fetch orders exception:', err);

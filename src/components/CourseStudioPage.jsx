@@ -333,12 +333,15 @@ export default function CourseStudioPage({
     });
   }, [course]);
   const totalSections = curriculum.length;
-  const totalChapters = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters?.length || 0), 0), [curriculum]);
-  const totalLessons = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons?.length || 0), 0), 0), [curriculum]);
-  const totalFreeDemos = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons || []).filter(l => typeof l === 'object' && l.isFree).length, 0), 0), [curriculum]);
-  const totalLessonsWithVideo = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons || []).filter(l => typeof l === 'object' && l.videoUrl && l.videoUrl.trim()).length, 0), 0), [curriculum]);
-  const totalLessonsWithPdf = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons || []).filter(l => typeof l === 'object' && l.pdfUrl && l.pdfUrl.trim()).length, 0), 0), [curriculum]);
-  const totalLessonsWithQuiz = useMemo(() => curriculum.reduce((acc, s) => acc + (s.chapters || []).reduce((chAcc, ch) => chAcc + (ch.lessons || []).filter(l => typeof l === 'object' && ((l.quiz && l.quiz.questions?.length > 0) || l.examId)).length, 0), 0), [curriculum]);
+  const getSectionLessons = (s) => (Array.isArray(s.lessons) && s.lessons.length > 0)
+    ? s.lessons
+    : (s.chapters || []).flatMap(ch => ch.lessons || []);
+
+  const totalLessons = useMemo(() => curriculum.reduce((acc, s) => acc + getSectionLessons(s).length, 0), [curriculum]);
+  const totalFreeDemos = useMemo(() => curriculum.reduce((acc, s) => acc + getSectionLessons(s).filter(l => typeof l === 'object' && l.isFree).length, 0), [curriculum]);
+  const totalLessonsWithVideo = useMemo(() => curriculum.reduce((acc, s) => acc + getSectionLessons(s).filter(l => typeof l === 'object' && l.videoUrl && l.videoUrl.trim()).length, 0), [curriculum]);
+  const totalLessonsWithPdf = useMemo(() => curriculum.reduce((acc, s) => acc + getSectionLessons(s).filter(l => typeof l === 'object' && l.pdfUrl && l.pdfUrl.trim()).length, 0), [curriculum]);
+  const totalLessonsWithQuiz = useMemo(() => curriculum.reduce((acc, s) => acc + getSectionLessons(s).filter(l => typeof l === 'object' && ((l.quiz && l.quiz.questions?.length > 0) || l.examId)).length, 0), [curriculum]);
 
   const isExamBatch = Boolean(
     course?.isExamBatch ||
@@ -411,8 +414,8 @@ export default function CourseStudioPage({
   const handleAddSection = () => {
     const newSection = {
       id: `sec-${Date.now()}`,
-      name: `Module ${curriculum.length + 1}: New Topic`,
-      title: `Module ${curriculum.length + 1}: New Topic`,
+      name: `Paper / Subject ${curriculum.length + 1}: New Subject`,
+      title: `Paper / Subject ${curriculum.length + 1}: New Subject`,
       summary: '1 Chapter · 5 Lectures',
       chapters: [
         {
@@ -426,7 +429,7 @@ export default function CourseStudioPage({
     const updated = { ...course, curriculum: updatedCurriculum };
     notifySave(updated);
     setExpandedSections(prev => ({ ...prev, [curriculum.length]: true }));
-    triggerToast('New module added to syllabus');
+    triggerToast('New paper/subject added to syllabus');
   };
 
   const handleUpdateSection = (secIdx, field, value) => {
@@ -445,13 +448,13 @@ export default function CourseStudioPage({
   // In-App Interactive Delete Confirmation Handlers
   const handleDeleteSection = (secIdx) => {
     const sec = curriculum[secIdx];
-    const secName = sec?.name || sec?.title || `Module ${secIdx + 1}`;
+    const secName = sec?.name || sec?.title || `Paper / Subject ${secIdx + 1}`;
     const chapterCount = (sec?.chapters || []).length;
     setDeleteConfirmTarget({
       type: 'section',
       secIdx,
       title: secName,
-      subtitle: `এই মডিউলে ${chapterCount}টি অধ্যায় রয়েছে। ডিলিট করলে এর সকল ক্লাসও স্থায়ীভাবে মুছে যাবে।`
+      subtitle: `এই পেপারে ${chapterCount}টি অধ্যায় রয়েছে। ডিলিট করলে এর সকল ক্লাসও স্থায়ীভাবে মুছে যাবে।`
     });
   };
 
@@ -536,7 +539,7 @@ export default function CourseStudioPage({
     if (type === 'section') {
       const updatedCurriculum = curriculum.filter((_, i) => i !== secIdx);
       notifySave({ ...course, curriculum: updatedCurriculum });
-      triggerToast('Module deleted successfully');
+      triggerToast('Paper/subject deleted successfully');
     } else if (type === 'chapter') {
       const updatedCurriculum = curriculum.map((sec, i) => {
         if (i === secIdx) {
@@ -553,17 +556,19 @@ export default function CourseStudioPage({
     } else if (type === 'lesson') {
       const updatedCurriculum = curriculum.map((sec, i) => {
         if (i === secIdx) {
-          const chapters = (sec.chapters || []).map((ch, cIdx) => {
-            if (cIdx === chapIdx) {
+          let chapters = Array.isArray(sec.chapters) && sec.chapters.length > 0 
+            ? [...sec.chapters] 
+            : [{ id: `chap-${Date.now()}`, name: '', lessons: [] }];
+          const targetChapIdx = chapIdx < chapters.length ? chapIdx : 0;
+          chapters = chapters.map((ch, cIdx) => {
+            if (cIdx === targetChapIdx) {
               const lessons = (ch.lessons || []).filter((_, lIdx) => lIdx !== lesIdx);
-              return {
-                ...ch,
-                lessons
-              };
+              return { ...ch, lessons };
             }
             return ch;
           });
-          return { ...sec, chapters };
+          const allLessons = chapters.flatMap(c => c.lessons || []);
+          return { ...sec, chapters, lessons: allLessons };
         }
         return sec;
       });
@@ -574,7 +579,7 @@ export default function CourseStudioPage({
     setDeleteConfirmTarget(null);
   };
 
-  const handleAddLesson = (secIdx, chapIdx) => {
+  const handleAddLesson = (secIdx, chapIdx = 0) => {
     const draftKey = `${secIdx}-${chapIdx}`;
     const draft = newLessonDrafts[draftKey] || { title: '', duration: '45 min', videoUrl: '', pdfUrl: '', isFree: false };
     if (!draft.title.trim()) {
@@ -593,15 +598,20 @@ export default function CourseStudioPage({
 
     const updatedCurriculum = curriculum.map((sec, i) => {
       if (i === secIdx) {
-        const chapters = sec.chapters.map((ch, cIdx) => {
-          if (cIdx === chapIdx) {
+        let chapters = Array.isArray(sec.chapters) && sec.chapters.length > 0
+          ? [...sec.chapters]
+          : [{ id: `chap-${Date.now()}`, name: '', lessons: [] }];
+        const targetChapIdx = chapIdx < chapters.length ? chapIdx : 0;
+        chapters = chapters.map((ch, cIdx) => {
+          if (cIdx === targetChapIdx) {
             const lessons = Array.isArray(ch.lessons) ? [...ch.lessons] : [];
             lessons.push(newLessonItem);
             return { ...ch, lessons };
           }
           return ch;
         });
-        return { ...sec, chapters };
+        const allLessons = chapters.flatMap(c => c.lessons || []);
+        return { ...sec, chapters, lessons: allLessons };
       }
       return sec;
     });
@@ -614,12 +624,16 @@ export default function CourseStudioPage({
     triggerToast(`Class "${newLessonItem.title}" added successfully`);
   };
 
-  const handleUpdateLesson = (secIdx, chapIdx, lesIdx, field, value) => {
+  const handleUpdateLesson = (secIdx, chapIdx = 0, lesIdx, field, value) => {
     const updatedCurriculum = curriculum.map((sec, i) => {
       if (i === secIdx) {
-        const chapters = sec.chapters.map((ch, cIdx) => {
-          if (cIdx === chapIdx) {
-            const lessons = ch.lessons.map((les, lIdx) => {
+        let chapters = Array.isArray(sec.chapters) && sec.chapters.length > 0
+          ? [...sec.chapters]
+          : [{ id: `chap-${Date.now()}`, name: '', lessons: [] }];
+        const targetChapIdx = chapIdx < chapters.length ? chapIdx : 0;
+        chapters = chapters.map((ch, cIdx) => {
+          if (cIdx === targetChapIdx) {
+            const lessons = (ch.lessons || []).map((les, lIdx) => {
               if (lIdx === lesIdx) {
                 const currentObj = typeof les === 'object' && les !== null ? les : { title: les, duration: '45 min', videoUrl: '', pdfUrl: '', isFree: false };
                 return { ...currentObj, [field]: value };
@@ -630,7 +644,8 @@ export default function CourseStudioPage({
           }
           return ch;
         });
-        return { ...sec, chapters };
+        const allLessons = chapters.flatMap(c => c.lessons || []);
+        return { ...sec, chapters, lessons: allLessons };
       }
       return sec;
     });
@@ -2111,19 +2126,19 @@ export default function CourseStudioPage({
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 shrink-0">
             <div className="bg-[#f4f6fa] rounded-2xl p-3 text-center border border-slate-200/60 min-w-[90px]">
               <span className="block text-lg font-black text-[#5d5bf6]">{totalSections}</span>
-              <span className="text-[11px] font-bold text-slate-400 uppercase">Modules</span>
-            </div>
-            <div className="bg-[#f4f6fa] rounded-2xl p-3 text-center border border-slate-200/60 min-w-[90px]">
-              <span className="block text-lg font-black text-blue-600">{totalChapters}</span>
-              <span className="text-[11px] font-bold text-slate-400 uppercase">Chapters</span>
+              <span className="text-[11px] font-bold text-slate-400 uppercase">Papers</span>
             </div>
             <div className="bg-[#f4f6fa] rounded-2xl p-3 text-center border border-slate-200/60 min-w-[90px]">
               <span className="block text-lg font-black text-purple-600">{totalLessons}</span>
-              <span className="text-[11px] font-bold text-slate-400 uppercase">Lessons</span>
+              <span className="text-[11px] font-bold text-slate-400 uppercase">Classes</span>
             </div>
             <div className="bg-[#f4f6fa] rounded-2xl p-3 text-center border border-slate-200/60 min-w-[90px]">
               <span className="block text-lg font-black text-emerald-600">{totalFreeDemos}</span>
-              <span className="text-[11px] font-bold text-slate-400 uppercase">Demos</span>
+              <span className="text-[11px] font-bold text-slate-400 uppercase">Free Trial</span>
+            </div>
+            <div className="bg-[#f4f6fa] rounded-2xl p-3 text-center border border-slate-200/60 min-w-[90px]">
+              <span className="block text-lg font-black text-blue-600">{totalLessonsWithPdf}</span>
+              <span className="text-[11px] font-bold text-slate-400 uppercase">PDF Notes</span>
             </div>
           </div>
         </div>
@@ -2148,7 +2163,7 @@ export default function CourseStudioPage({
             <span className={`text-[10px] px-2 py-0.5 rounded-md font-black ${
               activeTab === 'curriculum' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
             }`}>
-              {totalLessons} Classes · {totalChapters} Chapters
+              {totalLessons} Classes · {totalSections} Papers
             </span>
           </button>
 
@@ -2206,7 +2221,7 @@ export default function CourseStudioPage({
                       Course Curriculum & Classes
                     </h3>
                     <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold">
-                      {totalSections} Modules · {totalChapters} Chapters · {totalLessons} Classes
+                      {totalSections} Papers · {totalLessons} Classes
                     </span>
                   </div>
                   <p className="text-xs text-slate-400 font-medium">
@@ -2243,7 +2258,7 @@ export default function CourseStudioPage({
                     className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold border border-slate-200/80 cursor-pointer transition-colors"
                   >
                     <Plus className="w-3.5 h-3.5" />
-                    <span>+ Add Module</span>
+                    <span>+ Add Paper/Subject</span>
                   </button>
 
                   <button
@@ -2319,9 +2334,9 @@ export default function CourseStudioPage({
                   <Layers className="w-8 h-8" />
                 </div>
                 <div>
-                  <h4 className="text-base font-extrabold text-slate-800">No syllabus modules created yet</h4>
+                  <h4 className="text-base font-extrabold text-slate-800">No syllabus papers or subjects created yet</h4>
                   <p className="text-xs text-slate-400 max-w-md mx-auto mt-1">
-                    Click "+ Add Module" to build your custom syllabus structure or load standard template.
+                    Click "+ Add Paper/Subject" to build your custom syllabus structure or load standard template.
                   </p>
                 </div>
                 <div className="flex justify-center gap-3 pt-2">
@@ -2339,13 +2354,13 @@ export default function CourseStudioPage({
                     className="px-4 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold border-none cursor-pointer shadow-sm transition-all flex items-center gap-1.5"
                   >
                     <Plus className="w-3.5 h-3.5" />
-                    <span>Create Module</span>
+                    <span>Create Paper/Subject</span>
                   </button>
                 </div>
               </div>
             )}
 
-            {/* 2. CURRICULUM MODULES LIST */}
+            {/* 2. CURRICULUM PAPERS / SUBJECTS LIST */}
             {curriculum.map((section, secIdx) => {
               const isSecExpanded = Boolean(expandedSections[secIdx]);
               const chapters = Array.isArray(section.chapters) ? section.chapters : [];
@@ -2355,7 +2370,7 @@ export default function CourseStudioPage({
                   key={section.id || secIdx}
                   className="bg-white rounded-2xl border border-slate-200/90 shadow-[0_2px_12px_rgba(0,0,0,0.02)] overflow-hidden transition-all"
                 >
-                  {/* Module Header Bar */}
+                  {/* Paper / Subject Header Bar */}
                   <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 sm:p-4 bg-slate-50/80 border-b border-slate-200/80">
                     <div className="flex items-center gap-3 flex-1 min-w-[280px]">
                       <span className="w-7 h-7 rounded-xl bg-white border border-slate-200 text-[#5d5bf6] font-black text-xs flex items-center justify-center shrink-0 shadow-2xs font-mono">
@@ -2365,7 +2380,7 @@ export default function CourseStudioPage({
                         <input
                           type="text"
                           value={section.name || section.title || ''}
-                          placeholder="Module Title (e.g. Module 01: Core Foundation)"
+                          placeholder="Paper / Subject Title (e.g. Physics 1st Paper / ১ম পত্র)"
                           onChange={(e) => handleUpdateSection(secIdx, 'name', e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-900 outline-none focus:border-[#5d5bf6] shadow-2xs transition-all"
                         />
@@ -2376,19 +2391,19 @@ export default function CourseStudioPage({
                     <div className="flex items-center gap-1.5 shrink-0">
                       <button
                         type="button"
-                        onClick={() => handleAddChapter(secIdx)}
-                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 text-xs font-bold hover:bg-slate-50 transition-colors shadow-2xs"
-                        title="Add Chapter to this Module"
+                        onClick={() => handleOpenAddClassWizard(secIdx, 0, 1)}
+                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#5d5bf6] text-white text-xs font-bold hover:bg-[#4e4be3] transition-colors shadow-2xs border-none cursor-pointer"
+                        title="Add Class to this Paper"
                       >
-                        <Plus className="w-3.5 h-3.5 text-slate-500" />
-                        <span>Chapter</span>
+                        <Plus className="w-3.5 h-3.5 text-white" />
+                        <span>+ Class</span>
                       </button>
 
                       <button
                         type="button"
                         disabled={secIdx === 0}
                         onClick={() => handleMoveSection(secIdx, 'up')}
-                        title="Move Module Up"
+                        title="Move Paper Up"
                         className="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 flex items-center justify-center cursor-pointer transition-colors shadow-2xs"
                       >
                         <ArrowUp className="w-3.5 h-3.5" />
@@ -2397,7 +2412,7 @@ export default function CourseStudioPage({
                         type="button"
                         disabled={secIdx === curriculum.length - 1}
                         onClick={() => handleMoveSection(secIdx, 'down')}
-                        title="Move Module Down"
+                        title="Move Paper Down"
                         className="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 flex items-center justify-center cursor-pointer transition-colors shadow-2xs"
                       >
                         <ArrowDown className="w-3.5 h-3.5" />
@@ -2405,7 +2420,7 @@ export default function CourseStudioPage({
                       <button
                         type="button"
                         onClick={() => handleDeleteSection(secIdx)}
-                        title="Delete Module"
+                        title="Delete Paper/Subject"
                         className="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-400 hover:text-rose-600 hover:border-rose-200 flex items-center justify-center cursor-pointer transition-colors shadow-2xs"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -2415,298 +2430,251 @@ export default function CourseStudioPage({
                         onClick={() => setExpandedSections(prev => ({ ...prev, [secIdx]: !prev[secIdx] }))}
                         className="px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1.5 cursor-pointer hover:bg-slate-100 transition-colors shadow-2xs"
                       >
-                        <span>{chapters.length} Chapters</span>
+                        {(() => {
+                          const directLessons = (Array.isArray(section.lessons) && section.lessons.length > 0)
+                            ? section.lessons
+                            : ((section.chapters || [])[0]?.lessons || []);
+                          return <span>{directLessons.length} Classes</span>;
+                        })()}
                         <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isSecExpanded ? 'rotate-180' : ''}`} />
                       </button>
                     </div>
                   </div>
 
-                  {/* Section Body (Chapters & Lessons) */}
-                  {isSecExpanded && (
-                    <div className="p-4 sm:p-5 space-y-4 bg-white">
-                      
-                      {chapters.length === 0 && (
-                        <div className="text-center py-6 bg-slate-50 rounded-2xl border border-dashed border-slate-200 space-y-2">
-                          <p className="text-xs text-slate-500 font-bold">No chapters created in this module yet</p>
+                  {/* Section Body (Direct Classes under Paper - No Chapter wrapper) */}
+                  {isSecExpanded && (() => {
+                    const lessons = (Array.isArray(section.lessons) && section.lessons.length > 0)
+                      ? section.lessons
+                      : ((section.chapters || [])[0]?.lessons || []);
+                    const draftKey = `${secIdx}-0`;
+                    const draft = newLessonDrafts[draftKey] || { title: '' };
+
+                    return (
+                      <div className="p-4 sm:p-5 space-y-3.5 bg-white">
+                        {lessons.length === 0 ? (
+                          <div className="text-center py-8 bg-slate-50 rounded-2xl border border-dashed border-slate-200 space-y-2">
+                            <p className="text-xs text-slate-500 font-bold">এই পেপারে এখনও কোনো ক্লাস যোগ করা হয়নি</p>
+                            <button
+                              type="button"
+                              onClick={() => handleOpenAddClassWizard(secIdx, 0, 1)}
+                              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] text-white text-xs font-bold border-none cursor-pointer shadow-2xs"
+                            >
+                              <Plus className="w-3.5 h-3.5" />
+                              <span>+ প্রথম ক্লাস যোগ করুন</span>
+                            </button>
+                          </div>
+                        ) : (
+                          <div className="bg-white rounded-2xl border border-slate-200/80 divide-y divide-slate-100 overflow-hidden shadow-2xs">
+                            {lessons.map((lesson, lesIdx) => {
+                              const isObj = typeof lesson === 'object' && lesson !== null;
+                              const title = isObj ? lesson.title : lesson;
+                              const duration = isObj ? (lesson.duration || '45 min') : '45 min';
+                              const videoUrl = isObj ? (lesson.videoUrl || '') : '';
+                              const pdfUrl = isObj ? (lesson.pdfUrl || '') : '';
+                              const isFree = isObj ? Boolean(lesson.isFree) : false;
+                              const hasVideo = Boolean(videoUrl && videoUrl.trim());
+                              const hasPdf = Boolean(pdfUrl && pdfUrl.trim());
+                              const quiz = isObj ? (lesson.quiz || lesson.exam) : null;
+                              const hasQuiz = Boolean((quiz && quiz.questions?.length > 0) || (isObj && lesson.examId));
+                              const questionCount = quiz?.questions?.length || 0;
+
+                              return (
+                                <div 
+                                  key={lesIdx}
+                                  className="px-3.5 py-2.5 hover:bg-slate-50/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2.5"
+                                >
+                                  {/* Left: Sequence & Class Title */}
+                                  <div className="flex items-center gap-2.5 flex-1 min-w-[220px]">
+                                    <span className="text-slate-300 font-mono select-none text-xs">⠿</span>
+                                    <span className="w-6 h-6 rounded-md bg-slate-100 text-slate-600 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">
+                                      {lesIdx + 1 < 10 ? `0${lesIdx + 1}` : lesIdx + 1}
+                                    </span>
+                                    <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                                      <Play className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                      <input
+                                        type="text"
+                                        value={title}
+                                        placeholder="Class Title"
+                                        onChange={(e) => handleUpdateLesson(secIdx, 0, lesIdx, 'title', e.target.value)}
+                                        className="w-full bg-transparent hover:bg-slate-100 focus:bg-white border border-transparent hover:border-slate-200 focus:border-[#5d5bf6] rounded-lg px-2 py-1 text-xs font-bold text-slate-900 outline-none transition-all truncate"
+                                      />
+                                    </div>
+                                  </div>
+
+                                  {/* Middle: Micro-Badges */}
+                                  <div className="flex items-center gap-1.5 flex-wrap pl-8 sm:pl-0">
+                                    {/* Video Badge */}
+                                    <button
+                                      type="button"
+                                      onClick={() => handleOpenEditClassWizard(secIdx, 0, lesIdx, lesson, 2)}
+                                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold border cursor-pointer transition-all ${
+                                        hasVideo
+                                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                                          : 'bg-slate-50 text-slate-400 border-slate-200 hover:border-emerald-300'
+                                      }`}
+                                      title="Click to edit Video URL"
+                                    >
+                                      <Play className="w-2.5 h-2.5" />
+                                      <span>{hasVideo ? 'Video' : 'No Video'}</span>
+                                    </button>
+
+                                    {/* PDF Badge */}
+                                    <button
+                                      type="button"
+                                      onClick={() => handleOpenEditClassWizard(secIdx, 0, lesIdx, lesson, 3)}
+                                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold border cursor-pointer transition-all ${
+                                        hasPdf
+                                          ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100'
+                                          : 'bg-slate-50 text-slate-400 border-slate-200 hover:border-blue-300'
+                                      }`}
+                                      title="Click to edit PDF Notes"
+                                    >
+                                      <FileText className="w-2.5 h-2.5" />
+                                      <span>{hasPdf ? 'Notes' : 'No PDF'}</span>
+                                    </button>
+
+                                    {/* Quiz Badge */}
+                                    <button
+                                      type="button"
+                                      onClick={() => handleOpenQuizEditor(secIdx, 0, lesIdx, lesson)}
+                                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold border cursor-pointer transition-all ${
+                                        hasQuiz
+                                          ? 'bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100'
+                                          : 'bg-slate-50 text-slate-400 border-slate-200 hover:border-purple-300'
+                                      }`}
+                                      title="Click to edit Quiz"
+                                    >
+                                      <Zap className="w-2.5 h-2.5 text-purple-600" />
+                                      <span>{hasQuiz ? (questionCount > 0 ? `Quiz (${questionCount})` : 'Exam Linked') : '+ Quiz'}</span>
+                                    </button>
+
+                                    {/* Duration */}
+                                    <span className="text-[10px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                                      {duration}
+                                    </span>
+
+                                    {/* Access */}
+                                    <button
+                                      type="button"
+                                      onClick={() => handleUpdateLesson(secIdx, 0, lesIdx, 'isFree', !isFree)}
+                                      className={`px-2 py-0.5 rounded-md text-[10px] font-bold cursor-pointer transition-colors border-none ${
+                                        isFree ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                                      }`}
+                                      title="Toggle Free Preview"
+                                    >
+                                      {isFree ? 'Free Preview' : 'Locked'}
+                                    </button>
+                                  </div>
+
+                                  {/* Right: Actions */}
+                                  <div className="flex items-center gap-1.5 shrink-0 justify-end pl-8 sm:pl-0">
+                                    <button
+                                      type="button"
+                                      onClick={() => handleOpenEditClassWizard(secIdx, 0, lesIdx, lesson, 1)}
+                                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-[#5d5bf6] text-[#5d5bf6] hover:text-white font-bold text-xs border border-indigo-200/80 hover:border-transparent transition-all cursor-pointer shadow-2xs active:scale-95"
+                                      title="Edit Class details"
+                                    >
+                                      <Edit3 className="w-3 h-3" />
+                                      <span>Edit</span>
+                                    </button>
+
+                                    <button
+                                      type="button"
+                                      onClick={() => handleDeleteLesson(secIdx, 0, lesIdx)}
+                                      className="w-7 h-7 rounded-lg text-slate-300 hover:text-rose-600 hover:bg-rose-50 flex items-center justify-center cursor-pointer border-none transition-colors"
+                                      title="Delete Class"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+
+                        {/* Streamlined Inline Quick-Add & Studio Row */}
+                        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5 pt-1.5">
+                          <div className="flex flex-wrap items-center gap-2 flex-1">
+                            <div className="relative flex-1 min-w-[220px]">
+                              <Plus className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                              <input
+                                type="text"
+                                placeholder="Class title (e.g. Day 01 - Basics)..."
+                                value={draft.title || ''}
+                                onChange={(e) => setNewLessonDrafts(prev => ({
+                                  ...prev,
+                                  [draftKey]: { ...draft, title: e.target.value }
+                                }))}
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter') {
+                                    e.preventDefault();
+                                    handleAddLesson(secIdx, 0);
+                                  }
+                                }}
+                                className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-semibold text-slate-800 outline-none focus:border-[#5d5bf6] shadow-2xs transition-all"
+                              />
+                            </div>
+
+                            <div className="relative w-full sm:w-60">
+                              <Play className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                              <input
+                                type="text"
+                                placeholder="Paste Video URL (YouTube / Bunny)..."
+                                value={draft.videoUrl || ''}
+                                onChange={(e) => setNewLessonDrafts(prev => ({
+                                  ...prev,
+                                  [draftKey]: { ...draft, videoUrl: e.target.value }
+                                }))}
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter') {
+                                    e.preventDefault();
+                                    handleAddLesson(secIdx, 0);
+                                  }
+                                }}
+                                className="w-full bg-white border border-slate-200 rounded-xl pl-8 pr-3 py-2 text-xs font-mono text-slate-800 outline-none focus:border-[#5d5bf6] shadow-2xs transition-all"
+                              />
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => handleAddLesson(secIdx, 0)}
+                              disabled={!draft.title?.trim()}
+                              className="px-3.5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold border-none cursor-pointer transition-all shrink-0 shadow-2xs active:scale-95 flex items-center gap-1.5"
+                            >
+                              <Plus className="w-3.5 h-3.5" />
+                              <span>+ Quick Add</span>
+                            </button>
+                          </div>
+
                           <button
                             type="button"
-                            onClick={() => handleAddChapter(secIdx)}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#5d5bf6] text-white text-xs font-bold border-none cursor-pointer"
+                            onClick={() => handleOpenAddClassWizard(secIdx, 0, 1, {
+                              title: draft.title || '',
+                              videoUrl: draft.videoUrl || ''
+                            })}
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-[#5d5bf6] hover:to-purple-600 text-[#5d5bf6] hover:text-white text-xs font-bold border border-indigo-200/80 hover:border-transparent transition-all cursor-pointer shadow-2xs shrink-0 active:scale-95"
+                            title="Open Full Studio for Video Uploads, Notes, and Quizzes"
                           >
-                            <Plus className="w-3 h-3" />
-                            <span>Create Chapter 01</span>
+                            <Sparkles className="w-3.5 h-3.5" />
+                            <span>+ Class Studio Modal</span>
                           </button>
                         </div>
-                      )}
-
-                      {chapters.map((chapter, chapIdx) => {
-                        const lessons = Array.isArray(chapter.lessons) ? chapter.lessons : [];
-                        const draftKey = `${secIdx}-${chapIdx}`;
-                        const draft = newLessonDrafts[draftKey] || { title: '' };
-
-                        return (
-                          <div 
-                            key={chapIdx}
-                            className="rounded-2xl border border-slate-200/80 bg-slate-50/60 p-3.5 sm:p-4 space-y-3"
-                          >
-                            {/* Chapter Header */}
-                            <div className="flex items-center justify-between gap-2 border-b border-slate-200/70 pb-2.5">
-                              <div className="flex items-center gap-2 flex-1 min-w-[200px]">
-                                <span className="w-6 h-6 rounded-lg bg-[#5d5bf6]/10 text-[#5d5bf6] font-bold text-xs flex items-center justify-center font-mono">
-                                  C{chapIdx + 1}
-                                </span>
-                                <input
-                                  type="text"
-                                  value={chapter.name}
-                                  placeholder="Chapter Title (e.g. Chapter 01: Core Lecture Series)"
-                                  onChange={(e) => handleUpdateChapter(secIdx, chapIdx, e.target.value)}
-                                  className="flex-1 bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-800 outline-none focus:border-[#5d5bf6] shadow-2xs transition-all"
-                                />
-                                <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-200 text-slate-700 font-mono">
-                                  {lessons.length} Classes
-                                </span>
-                              </div>
-
-                              <button
-                                type="button"
-                                onClick={() => handleDeleteChapter(secIdx, chapIdx)}
-                                className="text-slate-400 hover:text-rose-600 text-xs font-bold flex items-center gap-1 bg-transparent border-none cursor-pointer transition-colors p-1"
-                                title="Delete Chapter"
-                              >
-                                <Trash2 className="w-3.5 h-3.5" />
-                                <span className="hidden sm:inline">Delete</span>
-                              </button>
-                            </div>
-
-                            {/* Clean Divider-separated Lessons Table */}
-                            {lessons.length === 0 ? (
-                              <div className="p-4 rounded-xl bg-white border border-dashed border-slate-200 text-center text-xs text-slate-400">
-                                No classes in this chapter yet. Use the quick add bar below.
-                              </div>
-                            ) : (
-                              <div className="bg-white rounded-2xl border border-slate-200/80 divide-y divide-slate-100 overflow-hidden shadow-2xs">
-                                {lessons.map((lesson, lesIdx) => {
-                                  const isObj = typeof lesson === 'object' && lesson !== null;
-                                  const title = isObj ? lesson.title : lesson;
-                                  const duration = isObj ? (lesson.duration || '45 min') : '45 min';
-                                  const videoUrl = isObj ? (lesson.videoUrl || '') : '';
-                                  const pdfUrl = isObj ? (lesson.pdfUrl || '') : '';
-                                  const isFree = isObj ? Boolean(lesson.isFree) : false;
-                                  const hasVideo = Boolean(videoUrl && videoUrl.trim());
-                                  const hasPdf = Boolean(pdfUrl && pdfUrl.trim());
-                                  const quiz = isObj ? (lesson.quiz || lesson.exam) : null;
-                                  const hasQuiz = Boolean((quiz && quiz.questions?.length > 0) || (isObj && lesson.examId));
-                                  const questionCount = quiz?.questions?.length || 0;
-
-                                  return (
-                                    <div 
-                                      key={lesIdx}
-                                      className="px-3.5 py-2.5 hover:bg-slate-50/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2.5"
-                                    >
-                                      {/* Left: Sequence & Class Title */}
-                                      <div className="flex items-center gap-2.5 flex-1 min-w-[220px]">
-                                        <span className="text-slate-300 font-mono select-none text-xs">⠿</span>
-                                        <span className="w-6 h-6 rounded-md bg-slate-100 text-slate-600 font-mono font-bold text-[11px] flex items-center justify-center shrink-0">
-                                          {lesIdx + 1 < 10 ? `0${lesIdx + 1}` : lesIdx + 1}
-                                        </span>
-                                        <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                                          <Play className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                                          <input
-                                            type="text"
-                                            value={title}
-                                            placeholder="Class Title"
-                                            onChange={(e) => handleUpdateLesson(secIdx, chapIdx, lesIdx, 'title', e.target.value)}
-                                            className="w-full bg-transparent hover:bg-slate-100 focus:bg-white border border-transparent hover:border-slate-200 focus:border-[#5d5bf6] rounded-lg px-2 py-1 text-xs font-bold text-slate-900 outline-none transition-all truncate"
-                                          />
-                                        </div>
-                                      </div>
-
-                                      {/* Middle: Subtle Micro-Badges */}
-                                      <div className="flex items-center gap-1.5 flex-wrap pl-8 sm:pl-0">
-                                        {/* Video Badge */}
-                                        <button
-                                          type="button"
-                                          onClick={() => handleOpenEditClassWizard(secIdx, chapIdx, lesIdx, lesson, 2)}
-                                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold border cursor-pointer transition-all ${
-                                            hasVideo
-                                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
-                                              : 'bg-slate-50 text-slate-400 border-slate-200 hover:border-emerald-300'
-                                          }`}
-                                          title="Click to edit Video URL"
-                                        >
-                                          <Play className="w-2.5 h-2.5" />
-                                          <span>{hasVideo ? 'Video' : 'No Video'}</span>
-                                        </button>
-
-                                        {/* PDF Badge */}
-                                        <button
-                                          type="button"
-                                          onClick={() => handleOpenEditClassWizard(secIdx, chapIdx, lesIdx, lesson, 3)}
-                                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold border cursor-pointer transition-all ${
-                                            hasPdf
-                                              ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100'
-                                              : 'bg-slate-50 text-slate-400 border-slate-200 hover:border-blue-300'
-                                          }`}
-                                          title="Click to edit PDF Notes"
-                                        >
-                                          <FileText className="w-2.5 h-2.5" />
-                                          <span>{hasPdf ? 'Notes' : 'No PDF'}</span>
-                                        </button>
-
-                                        {/* Quiz Badge */}
-                                        <button
-                                          type="button"
-                                          onClick={() => handleOpenQuizEditor(secIdx, chapIdx, lesIdx, lesson)}
-                                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold border cursor-pointer transition-all ${
-                                            hasQuiz
-                                              ? 'bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100'
-                                              : 'bg-slate-50 text-slate-400 border-slate-200 hover:border-purple-300'
-                                          }`}
-                                          title="Click to edit Quiz"
-                                        >
-                                          <Zap className="w-2.5 h-2.5 text-purple-600" />
-                                          <span>{hasQuiz ? (questionCount > 0 ? `Quiz (${questionCount})` : 'Exam Linked') : '+ Quiz'}</span>
-                                        </button>
-
-                                        {/* Duration */}
-                                        <span className="text-[10px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
-                                          {duration}
-                                        </span>
-
-                                        {/* Access */}
-                                        <button
-                                          type="button"
-                                          onClick={() => handleUpdateLesson(secIdx, chapIdx, lesIdx, 'isFree', !isFree)}
-                                          className={`px-2 py-0.5 rounded-md text-[10px] font-bold cursor-pointer transition-colors border-none ${
-                                            isFree ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                                          }`}
-                                          title="Toggle Free Preview"
-                                        >
-                                          {isFree ? 'Free Preview' : 'Locked'}
-                                        </button>
-                                      </div>
-
-                                      {/* Right: Actions */}
-                                      <div className="flex items-center gap-1.5 shrink-0 justify-end pl-8 sm:pl-0">
-                                        <button
-                                          type="button"
-                                          onClick={() => handleOpenEditClassWizard(secIdx, chapIdx, lesIdx, lesson, 1)}
-                                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-[#5d5bf6] text-[#5d5bf6] hover:text-white font-bold text-xs border border-indigo-200/80 hover:border-transparent transition-all cursor-pointer shadow-2xs active:scale-95"
-                                          title="Edit Class details"
-                                        >
-                                          <Edit3 className="w-3 h-3" />
-                                          <span>Edit</span>
-                                        </button>
-
-                                        <button
-                                          type="button"
-                                          onClick={() => handleDeleteLesson(secIdx, chapIdx, lesIdx)}
-                                          className="w-7 h-7 rounded-lg text-slate-300 hover:text-rose-600 hover:bg-rose-50 flex items-center justify-center cursor-pointer border-none transition-colors"
-                                          title="Delete Class"
-                                        >
-                                          <Trash2 className="w-3.5 h-3.5" />
-                                        </button>
-                                      </div>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            )}
-
-                            {/* Streamlined Inline Quick-Add & Studio Row */}
-                            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5 pt-1.5">
-                              <div className="flex flex-wrap items-center gap-2 flex-1">
-                                <div className="relative flex-1 min-w-[220px]">
-                                  <Plus className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                                  <input
-                                    type="text"
-                                    placeholder="Class title (e.g. Day 01 - Basics)..."
-                                    value={draft.title || ''}
-                                    onChange={(e) => setNewLessonDrafts(prev => ({
-                                      ...prev,
-                                      [draftKey]: { ...draft, title: e.target.value }
-                                    }))}
-                                    onKeyDown={(e) => {
-                                      if (e.key === 'Enter') {
-                                        e.preventDefault();
-                                        handleAddLesson(secIdx, chapIdx);
-                                      }
-                                    }}
-                                    className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-semibold text-slate-800 outline-none focus:border-[#5d5bf6] shadow-2xs transition-all"
-                                  />
-                                </div>
-
-                                <div className="relative w-full sm:w-60">
-                                  <Play className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                                  <input
-                                    type="text"
-                                    placeholder="Paste Video URL (YouTube / Bunny)..."
-                                    value={draft.videoUrl || ''}
-                                    onChange={(e) => setNewLessonDrafts(prev => ({
-                                      ...prev,
-                                      [draftKey]: { ...draft, videoUrl: e.target.value }
-                                    }))}
-                                    onKeyDown={(e) => {
-                                      if (e.key === 'Enter') {
-                                        e.preventDefault();
-                                        handleAddLesson(secIdx, chapIdx);
-                                      }
-                                    }}
-                                    className="w-full bg-white border border-slate-200 rounded-xl pl-8 pr-3 py-2 text-xs font-mono text-slate-800 outline-none focus:border-[#5d5bf6] shadow-2xs transition-all"
-                                  />
-                                </div>
-
-                                <button
-                                  type="button"
-                                  onClick={() => handleAddLesson(secIdx, chapIdx)}
-                                  disabled={!draft.title?.trim()}
-                                  className="px-3.5 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4e4be3] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold border-none cursor-pointer transition-all shrink-0 shadow-2xs active:scale-95 flex items-center gap-1.5"
-                                >
-                                  <Plus className="w-3.5 h-3.5" />
-                                  <span>+ Quick Add</span>
-                                </button>
-                              </div>
-
-                              <button
-                                type="button"
-                                onClick={() => handleOpenAddClassWizard(secIdx, chapIdx, 1, {
-                                  title: draft.title || '',
-                                  videoUrl: draft.videoUrl || ''
-                                })}
-                                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-[#5d5bf6] hover:to-purple-600 text-[#5d5bf6] hover:text-white text-xs font-bold border border-indigo-200/80 hover:border-transparent transition-all cursor-pointer shadow-2xs shrink-0 active:scale-95"
-                                title="Open Full Studio for Video Uploads, Notes, and Quizzes"
-                              >
-                                <Sparkles className="w-3.5 h-3.5" />
-                                <span>+ Class Studio Modal</span>
-                              </button>
-                            </div>
-                          </div>
-                        );
-                      })}
-
-                      {/* Add Chapter to Module Button */}
-                      <button
-                        type="button"
-                        onClick={() => handleAddChapter(secIdx)}
-                        className="w-full py-2.5 rounded-xl border border-dashed border-slate-200 hover:border-slate-300 bg-slate-50/70 hover:bg-slate-100 text-slate-600 text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
-                      >
-                        <Plus className="w-3.5 h-3.5 text-slate-500" />
-                        <span>+ Add Chapter to this Module</span>
-                      </button>
-                    </div>
-                  )}
+                      </div>
+                    );
+                  })()}
                 </div>
               );
             })}
 
-            {/* Bottom Add Module Button */}
+            {/* Bottom Add Paper/Subject Button */}
             <button
               type="button"
               onClick={handleAddSection}
               className="w-full py-3.5 rounded-2xl border border-dashed border-slate-300 hover:border-[#5d5bf6] bg-white hover:bg-[#5d5bf6]/5 text-slate-600 hover:text-[#5d5bf6] text-xs font-bold flex items-center justify-center gap-2 cursor-pointer transition-all shadow-2xs"
             >
               <Plus className="w-4 h-4" />
-              <span>+ Add New Course Module</span>
+              <span>+ Add New Paper/Subject</span>
             </button>
           </div>
         )}
@@ -3158,26 +3126,24 @@ export default function CourseStudioPage({
                 </div>
 
                 <div className="space-y-4">
-                  {/* Chapter Selector */}
+                  {/* Paper / Subject Selector */}
                   <div>
                     <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Assigned Chapter / Module (নির্ধারিত অধ্যায় / মডিউল)
+                      Assigned Paper / Subject (নির্ধারিত পেপার / বিষয়)
                     </label>
                     <select
-                      value={`${classWizardModal.secIdx}-${classWizardModal.chapIdx}`}
+                      value={classWizardModal.secIdx}
                       onChange={(e) => {
-                        const [s, c] = e.target.value.split('-').map(Number);
-                        setClassWizardModal(prev => ({ ...prev, secIdx: s, chapIdx: c }));
+                        const s = Number(e.target.value);
+                        setClassWizardModal(prev => ({ ...prev, secIdx: s, chapIdx: 0 }));
                       }}
                       className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-800 outline-none focus:border-[#5d5bf6] transition-all"
                     >
-                      {curriculum.map((sec, sIdx) => 
-                        (sec.chapters || []).map((ch, cIdx) => (
-                          <option key={`${sIdx}-${cIdx}`} value={`${sIdx}-${cIdx}`}>
-                            {(sec.name || sec.title || `Module ${sIdx + 1}`)} → {(ch.name || `Chapter ${cIdx + 1}`)}
-                          </option>
-                        ))
-                      )}
+                      {curriculum.map((sec, sIdx) => (
+                        <option key={sIdx} value={sIdx}>
+                          {sec.name || sec.title || `Paper ${sIdx + 1}`}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
@@ -3953,11 +3919,11 @@ export default function CourseStudioPage({
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-rose-100 text-rose-800">
-                    {deleteConfirmTarget.type === 'section' ? 'Module Delete' : (deleteConfirmTarget.type === 'chapter' ? 'Chapter Delete' : 'Class Delete')}
+                    {deleteConfirmTarget.type === 'section' ? 'Paper/Subject Delete' : (deleteConfirmTarget.type === 'chapter' ? 'Chapter Delete' : 'Class Delete')}
                   </span>
                 </div>
                 <h3 className="text-base font-black text-slate-900 mt-1">
-                  {deleteConfirmTarget.type === 'section' ? 'মডিউল ডিলিট করবেন?' : (deleteConfirmTarget.type === 'chapter' ? 'অধ্যায় / চ্যাপ্টার ডিলিট করবেন?' : 'ক্লাস ডিলিট করবেন?')}
+                  {deleteConfirmTarget.type === 'section' ? 'পেপার/বিষয় ডিলিট করবেন?' : (deleteConfirmTarget.type === 'chapter' ? 'অধ্যায় / চ্যাপ্টার ডিলিট করবেন?' : 'ক্লাস ডিলিট করবেন?')}
                 </h3>
               </div>
             </div>

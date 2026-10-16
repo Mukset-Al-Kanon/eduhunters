@@ -27,11 +27,13 @@ import {
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import { homeCoursesData } from '../data/homeData';
 import { freeCoursesData } from '../data/freeCoursesData';
+import { physicsFinishingTouchCourseData } from '../data/physicsFinishingTouchData';
 import { isStudentProfileComplete } from '../utils/studentProfile';
 import { syncCourseWithYouTube, DEFAULT_YT_API_KEY } from '../utils/youtubeSync';
 import ProtectedPdfViewer from './ProtectedPdfViewer';
 import ExamEngine from './ExamEngine';
 import CheckoutModal from './CheckoutModal';
+import ProfileModal from './ProfileModal';
 import Navbar from './Navbar';
 import { initialData } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
@@ -114,84 +116,196 @@ export function toBengaliNumerals(n) {
 
 export function getRealCourseEnrolledStudentsCount(course, data) {
   if (!course) return 0;
-  const keys = new Set();
-  const addKey = (val) => {
+  
+  const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  const validTargetNorms = new Set();
+  const addTarget = (val) => {
     if (!val) return;
-    const s = String(val).trim().toLowerCase();
-    if (s) {
-      keys.add(s);
-      keys.add(s.replace(/[^a-z0-9]/g, ''));
+    const n = norm(val);
+    if (n && n.length >= 4) {
+      validTargetNorms.add(n);
     }
   };
 
-  addKey(course.id);
-  addKey(course.slug);
-  addKey(course.title);
-  addKey(course.name);
-  addKey(course.key);
+  addTarget(course.id);
+  addTarget(course.slug);
+  addTarget(course.title);
+  addTarget(course.name);
+  addTarget(course.key);
+  if (Array.isArray(course.curriculum)) {
+    course.curriculum.forEach(sec => {
+      addTarget(sec.name);
+      addTarget(sec.title);
+    });
+  }
+
+  // Include any bundle that contains this course
+  const allBundles = [
+    ...(Array.isArray(data?.bundles) ? data.bundles : []),
+    ...(Array.isArray(initialData?.bundles) ? initialData.bundles : [])
+  ];
+  allBundles.forEach(b => {
+    const cIds = Array.isArray(b?.courseIds) ? b.courseIds : [];
+    const hasThisCourse = cIds.some(cid => {
+      const cNorm = norm(cid);
+      return validTargetNorms.has(cNorm) || cNorm === norm(course.id) || cNorm === norm(course.slug);
+    });
+    if (hasThisCourse) {
+      addTarget(b.id);
+      addTarget(b.slug);
+      addTarget(b.title);
+      addTarget(b.name);
+    }
+  });
+
+  // Extract core keywords if present
+  const cTitleNorm = norm(course.title || course.name || '');
+  const isPhysicsFinishing = cTitleNorm.includes('physics') && (cTitleNorm.includes('finishing') || cTitleNorm.includes('touch'));
+  const isMasterEnglish = cTitleNorm.includes('masterenglish') || norm(course.id).includes('masterenglish') || norm(course.slug).includes('masterenglish');
 
   const isMatch = (item) => {
     if (!item) return false;
-    const str = String(item).trim().toLowerCase();
-    const clean = str.replace(/[^a-z0-9]/g, '');
-    return keys.has(str) || (clean && keys.has(clean));
+    const itemNorm = norm(item);
+    if (!itemNorm || itemNorm.length < 4) return false;
+    
+    // Direct exact match
+    if (validTargetNorms.has(itemNorm)) return true;
+
+    // High specificity match: both item and target must be at least 10 chars to prevent generic word overlaps
+    for (const t of validTargetNorms) {
+      if (t.length >= 10 && itemNorm.length >= 10) {
+        if (itemNorm.includes(t) || t.includes(itemNorm)) return true;
+      }
+    }
+
+    // Specific domain keywords
+    if (isPhysicsFinishing && itemNorm.includes('physics') && (itemNorm.includes('finishing') || itemNorm.includes('touch'))) {
+      return true;
+    }
+    if (isMasterEnglish && itemNorm.includes('masterenglish')) {
+      return true;
+    }
+
+    return false;
   };
 
   const enrolledSet = new Set();
 
-  // 1. Check data.users
+  const isAdminUser = (u) => {
+    if (!u) return false;
+    if (u.role === 'admin') return true;
+    const email = (u.email || u.customerEmail || (u.customer && u.customer.email) || '').toLowerCase().trim();
+    if (email === 'admin@eduhunters.com' || email === 'admin@eduhunters.com.bd') return true;
+    const name = (u.name || u.displayName || u.customerName || (u.customer && u.customer.name) || '').trim();
+    if (name === 'EduHunters Admin' || name === 'Admin') return true;
+    return false;
+  };
+
+  const getStudentKey = (u) => {
+    if (!u) return null;
+    const phone = String(u.phone || u.whatsapp || u.customerPhone || u.studentPhone || (u.customer && u.customer.phone) || '').replace(/[^0-9]/g, '');
+    if (phone.length >= 10) return `p_${phone.slice(-10)}`;
+    const email = String(u.email || u.customerEmail || u.studentEmail || (u.customer && u.customer.email) || '').toLowerCase().trim();
+    if (email && email.includes('@')) return `e_${email}`;
+    const id = u.uid || u.id || u.studentId || u.userId || (u.customer && u.customer.uid);
+    if (id && !String(id).startsWith('tx_') && !String(id).startsWith('dummy_')) return `id_${id}`;
+    const name = String(u.name || u.displayName || u.studentName || (u.customer && u.customer.name) || '').trim().toLowerCase();
+    if (name && name.length >= 3 && !name.startsWith('user_') && !name.startsWith('student')) return `n_${name}`;
+    return null;
+  };
+
+  // 1. Check data.users (central state from App.jsx and Supabase eduhunters_users)
   const users = Array.isArray(data?.users) ? data.users : [];
   users.forEach((u, idx) => {
+    if (isAdminUser(u)) return;
     const enrolled = Array.isArray(u?.enrolledCourses) ? u.enrolledCourses : [];
     if (enrolled.some(isMatch)) {
-      const uid = u.id || u.email || u.phone || `u_${idx}`;
-      enrolledSet.add(uid);
+      const key = getStudentKey(u) || `u_${idx}`;
+      enrolledSet.add(key);
     }
   });
 
-  // 2. Check registered users in localStorage
+  // 2. Check registered users in localStorage (eh_registered_users)
   try {
     const reg = JSON.parse(localStorage.getItem('eh_registered_users') || '[]');
     if (Array.isArray(reg)) {
       reg.forEach((u, idx) => {
+        if (isAdminUser(u)) return;
         const enrolled = Array.isArray(u?.enrolledCourses) ? u.enrolledCourses : [];
         if (enrolled.some(isMatch)) {
-          const uid = u.id || u.email || u.phone || `reg_${idx}`;
-          enrolledSet.add(uid);
+          const key = getStudentKey(u) || `reg_${idx}`;
+          enrolledSet.add(key);
         }
       });
     }
   } catch (e) {}
 
-  // 3. Check orders in eh_user_orders_v3
-  try {
-    const ords = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
-    if (Array.isArray(ords)) {
-      ords.forEach(o => {
-        const isApproved = o.status === 'PAID' || o.status === 'Completed' || o.isApproved === true;
-        if (!isApproved) return;
-        const oMatch = isMatch(o.course?.name) || isMatch(o.course?.slug) ||
-          (Array.isArray(o.items) && o.items.some(it => isMatch(it.title) || isMatch(it.name)));
-        if (oMatch) {
-          const custId = o.customer?.phone || o.customer?.email || o.customer?.studentId || o.id;
-          enrolledSet.add(custId);
-        }
-      });
-    }
-  } catch (e) {}
-
-  // 4. Check enrolled students in eh_enrolled_students
+  // 3. Check enrolled students in eh_enrolled_students (Admin Panel students tab)
   try {
     const stList = JSON.parse(localStorage.getItem('eh_enrolled_students') || '[]');
     if (Array.isArray(stList)) {
-      stList.forEach(st => {
+      stList.forEach((st, idx) => {
         if (st.status === 'Active' || !st.status) {
-          if (isMatch(st.courseTitle) || isMatch(st.course) || isMatch(st.targetTitle)) {
-            const stId = st.phone || st.email || st.studentId || st.id;
-            enrolledSet.add(stId);
+          if (isMatch(st.courseTitle) || isMatch(st.course) || isMatch(st.targetTitle) || isMatch(st.courseName)) {
+            const key = getStudentKey(st) || `st_${idx}`;
+            enrolledSet.add(key);
           }
         }
       });
+    }
+  } catch (e) {}
+
+  // 4. Check user orders in eh_user_orders_v3 (PAID or Approved orders)
+  try {
+    const ordList = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+    if (Array.isArray(ordList)) {
+      ordList.forEach((ord, idx) => {
+        if (ord.status === 'PAID' || ord.isApproved || ord.status === 'Approved') {
+          const matchCourse = isMatch(ord.course?.name) || isMatch(ord.course?.title) || isMatch(ord.course?.slug) || isMatch(ord.course?.id) || isMatch(ord.items?.[0]?.title);
+          if (matchCourse) {
+            const key = getStudentKey(ord) || `ord_${idx}`;
+            enrolledSet.add(key);
+          }
+        }
+      });
+    }
+  } catch (e) {}
+
+  // 5. Check accounting transactions in data.accounting.transactions
+  try {
+    const txList = Array.isArray(data?.accounting?.transactions) ? data.accounting.transactions : [];
+    txList.forEach((tx, idx) => {
+      if (tx.status === 'Approved' || tx.status === 'PAID') {
+        if (isMatch(tx.itemTitle) || isMatch(tx.courseName) || isMatch(tx.course)) {
+          const key = getStudentKey(tx) || `tx_${idx}`;
+          enrolledSet.add(key);
+        }
+      }
+    });
+  } catch (e) {}
+
+  // 6. Check global current user's enrolled courses if logged in as student
+  try {
+    const cur = JSON.parse(localStorage.getItem('eh_current_user') || 'null');
+    if (cur && !isAdminUser(cur)) {
+      const curCourses = Array.isArray(cur.enrolledCourses) ? cur.enrolledCourses : [];
+      if (curCourses.some(isMatch)) {
+        const key = getStudentKey(cur);
+        if (key) enrolledSet.add(key);
+      }
+    }
+  } catch (e) {}
+
+  // 7. Check browser-level enrolled courses
+  try {
+    const curCourses = JSON.parse(localStorage.getItem('eduhunters_enrolled_courses') || '[]');
+    if (Array.isArray(curCourses) && curCourses.some(isMatch)) {
+      const cur = JSON.parse(localStorage.getItem('eh_current_user') || 'null');
+      if (cur && !isAdminUser(cur)) {
+        const key = getStudentKey(cur);
+        if (key) enrolledSet.add(key);
+      }
     }
   } catch (e) {}
 
@@ -224,6 +338,7 @@ export default function BiologyCoursePage({
   const allCoursesList = React.useMemo(() => {
     return [
       ...(Array.isArray(data?.courses) ? data.courses : []),
+      physicsFinishingTouchCourseData,
       ...(Array.isArray(initialData?.courses) ? initialData.courses : []),
       ...(Array.isArray(homeCoursesData) ? homeCoursesData : []),
       ...(Array.isArray(freeCoursesData) ? freeCoursesData : [])
@@ -361,6 +476,18 @@ export default function BiologyCoursePage({
     window.addEventListener('eh:enrollment_approved', handleSync);
     window.addEventListener('eh_user_changed', handleSync);
 
+    let bc = null;
+    try {
+      if (typeof BroadcastChannel !== 'undefined') {
+        bc = new BroadcastChannel('eduhunters_sync_channel');
+        bc.onmessage = (msg) => {
+          if (msg && msg.data) {
+            handleSync();
+          }
+        };
+      }
+    } catch (e) {}
+
     return () => {
       window.removeEventListener('storage', handleSync);
       window.removeEventListener('eduhunters_data_updated', handleSync);
@@ -369,16 +496,16 @@ export default function BiologyCoursePage({
       window.removeEventListener('eh:new_enrollment', handleSync);
       window.removeEventListener('eh:enrollment_approved', handleSync);
       window.removeEventListener('eh_user_changed', handleSync);
+      if (bc) {
+        try { bc.close(); } catch (e) {}
+      }
     };
   }, []);
 
   const displayedStudentsCount = React.useMemo(() => {
-    const rawCountStr = String(course?.studentsCount || '১২৫০+').trim();
-    const baseNumber = parseCountNumber(rawCountStr) || 1250;
     const realStudents = getRealCourseEnrolledStudentsCount(course, data);
-    const total = baseNumber + realStudents;
-    return `${toBengaliNumerals(total)}+`;
-  }, [course?.studentsCount, course?.id, course?.slug, course?.title, data?.users, enrollmentTick]);
+    return `${realStudents}`;
+  }, [course?.id, course?.slug, course?.title, course?.name, data?.users, data?.accounting, data?.bundles, enrollmentTick]);
 
   const computedTotalClasses = React.useMemo(() => {
     if (!Array.isArray(course?.curriculum)) return 0;
@@ -446,11 +573,55 @@ export default function BiologyCoursePage({
     handleManualSync();
   };
 
-  const [expandedSections, setExpandedSections] = useState({ 1: true });
-  const [expandedChapters, setExpandedChapters] = useState({ '1-0': true });
+  const [expandedSections, setExpandedSections] = useState({ 0: true });
+  const [expandedChapters, setExpandedChapters] = useState({ '0-0': true, '1-0': true });
   const [showCheckout, setShowCheckout] = useState(false);
   const [showPdfViewer, setShowPdfViewer] = useState(false);
   const [showExamEngine, setShowExamEngine] = useState(false);
+
+  // Robust Paper / Subject resolution for both Physics 1st Paper & 2nd Paper
+  const sectionsToRender = React.useMemo(() => {
+    const rawCurriculum = Array.isArray(course?.curriculum) ? course.curriculum : [];
+    if (rawCurriculum.length === 0) return [];
+
+    const isPhysics = (
+      course?.id === 'course-1791887161017' ||
+      course?.slug === 'physics-finishing-touch-series' ||
+      (course?.title && /physics/i.test(course.title))
+    );
+
+    if (isPhysics) {
+      const sec1 = rawCurriculum[0] ? {
+        ...rawCurriculum[0],
+        name: rawCurriculum[0].name && !/finishing touch series/i.test(rawCurriculum[0].name)
+          ? rawCurriculum[0].name
+          : 'Physics 1st Paper'
+      } : {
+        id: 'sec-physics-1st-paper',
+        name: 'Physics 1st Paper',
+        title: 'Physics 1st Paper',
+        chapters: [],
+        lessons: []
+      };
+
+      const sec2 = rawCurriculum[1] ? {
+        ...rawCurriculum[1],
+        name: rawCurriculum[1].name && !/finishing touch series/i.test(rawCurriculum[1].name)
+          ? rawCurriculum[1].name
+          : 'Physics 2nd Paper'
+      } : {
+        id: 'sec-physics-2nd-paper',
+        name: 'Physics 2nd Paper',
+        title: 'Physics 2nd Paper',
+        chapters: [],
+        lessons: []
+      };
+
+      return [sec1, sec2, ...rawCurriculum.slice(2)];
+    }
+
+    return rawCurriculum;
+  }, [course?.curriculum, course?.id, course?.slug, course?.title]);
 
   // Admin Lecture & Curriculum Editing States
   const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com';
@@ -461,6 +632,54 @@ export default function BiologyCoursePage({
   const triggerToast = (msg) => {
     setToastMsg(msg);
     setTimeout(() => setToastMsg(''), 4000);
+  };
+
+  // Profile Completion Guard for Free Trial Classes
+  const [showProfileCompleteModal, setShowProfileCompleteModal] = useState(false);
+  const [pendingFreeLesson, setPendingFreeLesson] = useState(null);
+
+  const handleAccessFreeTrialLesson = (lessonInfo) => {
+    // 1. If student already has full paid enrollment in this course, allow direct access
+    if (isCourseEnrolled) {
+      if (onOpenLesson) {
+        onOpenLesson(course.id || course.slug || selectedCourseId, lessonInfo);
+      }
+      return;
+    }
+
+    // 2. Check if student is logged in
+    if (!currentUser) {
+      if (onLoginClick) {
+        onLoginClick(() => {
+          setTimeout(() => {
+            try {
+              const rawUser = localStorage.getItem('eh_current_user');
+              const u = rawUser ? JSON.parse(rawUser) : null;
+              if (u && isStudentProfileComplete(u)) {
+                if (onOpenLesson) onOpenLesson(course.id || course.slug || selectedCourseId, lessonInfo);
+              } else {
+                setPendingFreeLesson(lessonInfo);
+                setShowProfileCompleteModal(true);
+              }
+            } catch {}
+          }, 350);
+        });
+      }
+      triggerToast('ফ্রি ট্রায়াল ক্লাস করতে প্রথমে অ্যাকাউন্টে লগইন বা সাইন-আপ করুন');
+      return;
+    }
+
+    // 3. Check if profile is complete (Name, Mobile Number, College Name, HSC Batch/Class)
+    if (!isStudentProfileComplete(currentUser)) {
+      setPendingFreeLesson(lessonInfo);
+      setShowProfileCompleteModal(true);
+      return;
+    }
+
+    // 4. Profile is complete! Open free trial class immediately
+    if (onOpenLesson) {
+      onOpenLesson(course.id || course.slug || selectedCourseId, lessonInfo);
+    }
   };
 
   const handleSaveLessonEdit = (e) => {
@@ -618,7 +837,7 @@ export default function BiologyCoursePage({
     }
 
     setEditingSection(null);
-    triggerToast('✅ মডিউলের শিরোনাম সফলভাবে আপডেট করা হয়েছে!');
+    triggerToast('✅ পেপারের শিরোনাম সফলভাবে আপডেট করা হয়েছে!');
   };
 
   const handleOpenCheckout = () => {
@@ -709,14 +928,17 @@ export default function BiologyCoursePage({
         }`}
         onClick={() => {
           if (isUnlocked) {
-            if (onOpenLesson) {
-              onOpenLesson(course.id || course.slug || selectedCourseId, {
-                title: displayTitle,
-                videoUrl: videoUrl || course.previewVideoUrl,
-                pdfUrl,
-                duration,
-                lessonIdx: lIdx
-              });
+            const targetLessonInfo = {
+              title: displayTitle,
+              videoUrl: videoUrl || course.previewVideoUrl,
+              pdfUrl,
+              duration,
+              lessonIdx: lIdx
+            };
+            if (isFree && !isCourseEnrolled) {
+              handleAccessFreeTrialLesson(targetLessonInfo);
+            } else if (onOpenLesson) {
+              onOpenLesson(course.id || course.slug || selectedCourseId, targetLessonInfo);
             }
           } else {
             handleOpenCheckout();
@@ -748,18 +970,14 @@ export default function BiologyCoursePage({
         </div>
 
         <div className="shrink-0 ml-3 flex items-center gap-2 sm:gap-2.5">
-          {/* Free Trial Badge (placed to the left of the PDF icon) */}
+          {/* FREE Label (English, no background box, clean green typography) */}
           {isFree && (
-            <span className={`inline-flex items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold rounded-md border shrink-0 ${
-              isDark 
-                ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30' 
-                : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-            }`}>
-              ফ্রি ট্রায়াল
+            <span className="text-[11px] sm:text-xs font-black tracking-wider text-emerald-500 dark:text-emerald-400 shrink-0 select-none">
+              FREE
             </span>
           )}
 
-          {/* Sleek Gray PDF Icon Button (placed to the left of Time duration) */}
+          {/* Sleek PDF Icon Button (No background box, no 'PDF' text, just icon) */}
           {pdfUrl && (
             <button
               type="button"
@@ -769,39 +987,42 @@ export default function BiologyCoursePage({
                   handleOpenCheckout();
                   return;
                 }
+                const targetLessonInfo = {
+                  title: displayTitle,
+                  videoUrl: videoUrl || course.previewVideoUrl,
+                  pdfUrl,
+                  duration,
+                  lessonIdx: lIdx,
+                  activeTab: 'notes'
+                };
+                if (isFree && !isCourseEnrolled) {
+                  if (!currentUser) {
+                    if (onLoginClick) onLoginClick();
+                    triggerToast('ফ্রি নোট দেখতে প্রথমে লগইন করুন');
+                    return;
+                  }
+                  if (!isStudentProfileComplete(currentUser)) {
+                    setPendingFreeLesson(targetLessonInfo);
+                    setShowProfileCompleteModal(true);
+                    return;
+                  }
+                }
                 if (pdfUrl.startsWith('http') || pdfUrl.startsWith('/') || pdfUrl.startsWith('blob:')) {
                   window.open(pdfUrl, '_blank', 'noopener,noreferrer');
                 } else if (onOpenLesson) {
-                  onOpenLesson(course.id || course.slug || selectedCourseId, {
-                    title: displayTitle,
-                    videoUrl: videoUrl || course.previewVideoUrl,
-                    pdfUrl,
-                    duration,
-                    lessonIdx: lIdx,
-                    activeTab: 'notes'
-                  });
+                  onOpenLesson(course.id || course.slug || selectedCourseId, targetLessonInfo);
                 }
               }}
-              className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold border transition-all cursor-pointer shrink-0 ${
+              className={`p-1.5 transition-colors cursor-pointer shrink-0 border-0 bg-transparent rounded-md ${
                 isDark 
-                  ? 'bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border-slate-700/60' 
-                  : 'bg-slate-100 hover:bg-slate-200/90 text-slate-600 hover:text-slate-900 border-slate-200'
+                  ? 'text-gray-400 hover:text-white hover:bg-white/5' 
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
               }`}
               title={isUnlocked ? "PDF লেকচার নোট দেখুন" : "PDF দেখতে এনরোল করুন"}
+              aria-label="PDF"
             >
-              <FileText className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-300" />
-              <span className="text-[11px] font-medium tracking-tight">PDF</span>
+              <FileText className="w-4 h-4" />
             </button>
-          )}
-
-          {/* Time Duration */}
-          {duration && (
-            <div className={`flex items-center gap-1 text-xs font-mono font-medium shrink-0 ${
-              isDark ? 'text-gray-400' : 'text-gray-500'
-            }`}>
-              <Clock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-              <span>{duration}</span>
-            </div>
           )}
 
           {/* Admin Direct Lesson Edit / Delete Buttons */}
@@ -841,16 +1062,6 @@ export default function BiologyCoursePage({
                 <Trash2 className="w-3 h-3" />
               </button>
             </div>
-          )}
-
-          {/* Locked Badge */}
-          {!isUnlocked && (
-            <span className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-full shrink-0 ${
-              isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-600'
-            }`}>
-              <Lock className="w-3.5 h-3.5" />
-              <span>লক</span>
-            </span>
           )}
         </div>
       </div>
@@ -906,35 +1117,7 @@ export default function BiologyCoursePage({
               </div>
             )}
 
-            {/* Hero Banner */}
-            <div className={`eh-course-hero relative overflow-hidden rounded-2xl p-6 md:p-10 text-white shadow-lg transition-colors duration-300 ${
-              isDark 
-                ? 'bg-gradient-to-r from-[#3d0711] via-[#1f0309] to-[#0d0104] border border-[#e11438]/25' 
-                : 'bg-gradient-to-r from-[#7f1d1d] via-[#dc2626] to-[#991b1b] border border-red-700/20'
-            }`}>
-              <div className="relative z-10">
-                <h1 className="text-2xl md:text-4xl font-black text-white leading-tight mb-2">
-                  {course.name}
-                </h1>
-                <p className="text-sm md:text-base text-white/90 mb-5 max-w-2xl font-normal">
-                  {course.tagline}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${
-                    isDark ? 'border border-[#e11438]/30 bg-[#160408] text-gray-200' : 'border border-white/30 bg-white/20 text-white'
-                  }`}>
-                    <svg className={`w-3.5 h-3.5 ${isDark ? 'text-[#ff6b8b]' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    {course.level}
-                  </span>
-                  <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${
-                    isDark ? 'border border-[#e11438]/30 bg-[#160408] text-gray-200' : 'border border-white/30 bg-white/20 text-white'
-                  }`}>
-                    <svg className={`w-3.5 h-3.5 ${isDark ? 'text-[#ff6b8b]' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 10-4-4 4 4 0 004 4z"></path></svg>
-                    {displayedStudentsCount} শিক্ষার্থী
-                  </span>
-                </div>
-              </div>
-            </div>
+
 
             {/* Course About Box */}
             <div className={`rounded-2xl p-6 md:p-7 transition-all border ${
@@ -955,93 +1138,108 @@ export default function BiologyCoursePage({
               </div>
             </div>
 
-            {/* Recorded Classes Accordion */}
-            <div id="curriculum-section" className={`rounded-xl p-6 md:p-8 border transition-all ${
+            {/* Course Curriculum & Papers Dropdown Accordion Boxes */}
+            <div id="curriculum-section" className={`rounded-2xl p-4 sm:p-6 border transition-all ${
               isDark 
                 ? 'bg-[#120407]/90 shadow-[0_8px_30px_rgba(0,0,0,0.5)] border-[#e11438]/20' 
                 : 'bg-white shadow-sm border-gray-200'
             }`}>
-              <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <h2 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-[#111827]'}`}>রেকর্ডেড ক্লাস</h2>
-                  <p className={`text-sm mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{course.totalClasses}</p>
+              {/* If Admin is logged in, show sleek admin control bar */}
+              {isAdmin && (
+                <div className="mb-4 flex items-center justify-between gap-2 pb-3 border-b border-white/5">
+                  <span className="text-[11px] px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-bold">
+                    👑 অ্যাডমিন মোড
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setEditingSection({
+                      secIndex: sectionsToRender.length,
+                      isNew: true,
+                      name: '',
+                      summary: ''
+                    })}
+                    className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all cursor-pointer border-none shadow-xs flex items-center gap-1 active:scale-95"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>+ নতুন পেপার / বিষয় যোগ</span>
+                  </button>
                 </div>
-                {isAdmin && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-bold">
-                      👑 অ্যাডমিন মোড
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setEditingSection({
-                        secIndex: Array.isArray(course.curriculum) ? course.curriculum.length : 0,
-                        isNew: true,
-                        name: '',
-                        summary: ''
-                      })}
-                      className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all cursor-pointer border-none shadow-xs flex items-center gap-1 active:scale-95"
-                    >
-                      <Plus className="w-3.5 h-3.5" />
-                      <span>নতুন মডিউল যোগ</span>
-                    </button>
-                  </div>
-                )}
-              </div>
+              )}
 
-              {Array.isArray(course.curriculum) && course.curriculum.length > 0 ? (
-                <div className="space-y-4">
-                  {course.curriculum.map((section, sIdx) => {
-                    const isOpen = expandedSections[section.id] !== undefined ? expandedSections[section.id] : (sIdx === 0);
+              {/* Paper Dropdown Accordion Boxes */}
+              {sectionsToRender && sectionsToRender.length > 0 ? (
+                <div className="space-y-3.5">
+                  {sectionsToRender.map((section, sIdx) => {
+                    // Section 0 (Physics 1st Paper) is open by default; Section 1 (Physics 2nd Paper) is closed by default
+                    const isSectionOpen = expandedSections[sIdx] ?? (sIdx === 0);
+                    
+                    const sectionLessons = (Array.isArray(section.lessons) && section.lessons.length > 0)
+                      ? section.lessons
+                      : (section.chapters || []).flatMap(c => c.lessons || []);
+                    const lessonCount = sectionLessons.length;
+
                     return (
-                      <div key={section.id || sIdx} className={`rounded-xl overflow-hidden border ${
-                        isDark ? 'border-[#e11438]/20 bg-[#160408]' : 'border-gray-200 bg-white'
-                      }`}>
-                        <button 
-                          className={`w-full flex items-center justify-between gap-2 p-4 transition-colors text-left border-none cursor-pointer ${
-                            isDark ? 'bg-[#1b050d] hover:bg-[#250713]' : 'bg-gray-50 hover:bg-gray-100'
+                      <div 
+                        key={section.id || sIdx}
+                        className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                          isDark 
+                            ? (isSectionOpen 
+                                ? 'border-[#e11438]/40 bg-[#17040a] shadow-lg shadow-[#e11438]/10' 
+                                : 'border-[#e11438]/20 bg-[#160308]/80 hover:border-[#e11438]/35') 
+                            : (isSectionOpen 
+                                ? 'border-red-200 bg-white shadow-md' 
+                                : 'border-slate-200 bg-slate-50/70 hover:border-slate-300')
+                        }`}
+                      >
+                        {/* Dropdown Box Header Button */}
+                        <div
+                          onClick={() => toggleSection(sIdx)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSection(sIdx); } }}
+                          className={`w-full px-4 sm:px-5 py-3.5 sm:py-4 flex items-center justify-between gap-3 text-left transition-colors cursor-pointer select-none ${
+                            isDark 
+                              ? (isSectionOpen ? 'bg-[#22060e] border-b border-[#e11438]/25' : 'hover:bg-[#20050c]') 
+                              : (isSectionOpen ? 'bg-red-50/60 border-b border-red-100' : 'hover:bg-slate-100/70')
                           }`}
-                          onClick={() => toggleSection(section.id)}
                         >
-                          <div className="flex items-center gap-3 min-w-0 flex-1">
-                            {/* Clean 2-digit Sequence Badge (Replaces long raw IDs like c-91887600016) */}
-                            <span className={`flex items-center justify-center w-8 h-8 rounded-lg font-bold text-xs shrink-0 border select-none ${
-                              isDark ? 'bg-[#28060f] border-[#e11438]/30 text-[#ff6b8b]' : 'bg-red-50 border-red-100 text-[#dc2626]'
+                          <div className="flex items-center gap-3 min-w-0">
+                            <span className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border ${
+                              isDark 
+                                ? (isSectionOpen ? 'bg-[#ff2a55] text-white border-transparent shadow-sm shadow-red-500/30' : 'bg-white/5 text-gray-300 border-[#e11438]/20') 
+                                : (isSectionOpen ? 'bg-[#e11438] text-white border-transparent shadow-sm' : 'bg-white text-slate-700 border-slate-200')
                             }`}>
-                              {sIdx + 1 < 10 ? `0${sIdx + 1}` : sIdx + 1}
+                              <BookOpen className="w-4 h-4" />
                             </span>
-                            <div className="text-left min-w-0 flex-1">
-                              <div className="flex items-center gap-2">
-                                <h3 className={`font-semibold text-sm sm:text-base truncate ${isDark ? 'text-white' : 'text-[#111827]'}`}>
-                                  {section.name || `Module ${sIdx + 1}`}
-                                </h3>
-                                {isAdmin && (
-                                  <span
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      setEditingSection({
-                                        secIndex: sIdx,
-                                        name: section.name || '',
-                                        summary: section.summary || ''
-                                      });
-                                    }}
-                                    className="p-1 rounded-md text-gray-400 hover:text-white hover:bg-white/10 transition-colors border-none cursor-pointer inline-flex items-center"
-                                    title="মডিউলের নাম পরিবর্তন করুন"
-                                  >
-                                    <Edit2 className="w-3 h-3" />
-                                  </span>
-                                )}
-                              </div>
-                              <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{section.summary}</p>
+                            <div className="min-w-0">
+                              <h3 className={`text-sm sm:text-base font-extrabold truncate ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                {section.name || section.title || `Paper ${sIdx + 1}`}
+                              </h3>
+                              {section.summary && (
+                                <p className={`text-xs truncate ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                                  {section.summary}
+                                </p>
+                              )}
                             </div>
                           </div>
 
-                          <div className="flex items-center gap-2 shrink-0">
+                          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                            <span className={`px-2.5 py-1 rounded-full text-xs font-black tracking-wide ${
+                              lessonCount > 0
+                                ? (isDark ? 'bg-white/10 text-gray-200 border border-white/10' : 'bg-red-100 text-red-700')
+                                : (isDark ? 'bg-white/5 text-gray-400' : 'bg-slate-200/70 text-slate-500')
+                            }`}>
+                              {lessonCount > 0 ? `${lessonCount} Classes` : '0 Classes'}
+                            </span>
+
                             {isAdmin && (
-                              <span
+                              <button
+                                type="button"
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   setEditingLesson({
                                     secIndex: sIdx,
+                                    chapIndex: 0,
                                     lessonIndex: -1,
                                     title: '',
                                     videoUrl: '',
@@ -1050,128 +1248,92 @@ export default function BiologyCoursePage({
                                     isFree: false
                                   });
                                 }}
-                                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/30 transition-all cursor-pointer"
-                                title="এই মডিউলে নতুন ক্লাস যোগ করুন"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/30 transition-all cursor-pointer"
+                                title="এই পেপারে নতুন ক্লাস যোগ করুন"
                               >
-                                <Plus className="w-3 h-3" />
+                                <Plus className="w-2.5 h-2.5" />
                                 <span>+ ক্লাস</span>
-                              </span>
+                              </button>
                             )}
-                            <svg className={`w-5 h-5 transition-transform duration-300 ease-in-out shrink-0 ${isDark ? 'text-gray-400' : 'text-gray-500'} ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
+
+                            {isAdmin && (
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setEditingSection({
+                                    secIndex: sIdx,
+                                    name: section.name || section.title || '',
+                                    summary: section.summary || ''
+                                  });
+                                }}
+                                className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors border-none cursor-pointer"
+                                title="এই পেপারের নাম পরিবর্তন করুন"
+                              >
+                                <Edit2 className="w-3.5 h-3.5" />
+                              </button>
+                            )}
+
+                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-transform duration-200 ${
+                              isSectionOpen ? 'rotate-180 text-[#ff2a55]' : (isDark ? 'text-gray-400' : 'text-slate-500')
+                            }`}>
+                              <ChevronDown className="w-4 h-4" />
+                            </div>
                           </div>
-                        </button>
+                        </div>
 
-                        <div className={`smooth-accordion-grid border-t transition-colors ${isDark ? 'border-[#e11438]/20' : 'border-gray-200'} ${isOpen ? 'is-open' : ''}`}>
-                          <div className="smooth-accordion-inner">
-                            {(() => {
-                              const hasChapters = Array.isArray(section.chapters) && section.chapters.length > 0;
-                              const hasDirectLessons = Array.isArray(section.lessons) && section.lessons.length > 0;
-
-                              if (hasChapters) {
-                                return (
-                                  <div className="p-3 sm:p-4 space-y-3.5">
-                                    {section.chapters.map((chapter, cIdx) => {
-                                      const chapterLessons = Array.isArray(chapter.lessons) ? chapter.lessons : [];
-                                      return (
-                                        <div 
-                                          key={chapter.id || cIdx} 
-                                          className={`rounded-xl border overflow-hidden ${
-                                            isDark 
-                                              ? 'border-[#e11438]/20 bg-[#19050b]/90 shadow-xs' 
-                                              : 'border-slate-200/90 bg-white shadow-2xs'
-                                          }`}
-                                        >
-                                          {/* Chapter Header Banner */}
-                                          <div className={`px-4 py-2.5 flex items-center justify-between gap-2 border-b ${
-                                            isDark 
-                                              ? 'bg-[#22060e] border-[#e11438]/20' 
-                                              : 'bg-slate-50 border-slate-200/80'
-                                          }`}>
-                                            <div className="flex items-center gap-2 min-w-0">
-                                              <span className={`px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider shrink-0 ${
-                                                isDark 
-                                                  ? 'bg-[#e11438]/20 text-[#ff4d6d]' 
-                                                  : 'bg-rose-100 text-[#dc2626]'
-                                              }`}>
-                                                CH {cIdx + 1 < 10 ? `0${cIdx + 1}` : cIdx + 1}
-                                              </span>
-                                              <h4 className={`text-xs sm:text-sm font-bold truncate ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                                                {chapter.name || `Chapter ${cIdx + 1}`}
-                                              </h4>
-                                            </div>
-
-                                            <div className="flex items-center gap-2 shrink-0">
-                                              {isAdmin && (
-                                                <button
-                                                  type="button"
-                                                  onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    setEditingLesson({
-                                                      secIndex: sIdx,
-                                                      chapIndex: cIdx,
-                                                      lessonIndex: -1,
-                                                      title: '',
-                                                      videoUrl: '',
-                                                      pdfUrl: '',
-                                                      duration: '45 min',
-                                                      isFree: false
-                                                    });
-                                                  }}
-                                                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-bold bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/30 transition-all cursor-pointer"
-                                                  title="এই অধ্যায়ে নতুন ক্লাস যোগ করুন"
-                                                >
-                                                  <Plus className="w-2.5 h-2.5" />
-                                                  <span>+ ক্লাস</span>
-                                                </button>
-                                              )}
-                                              <span className={`text-[11px] font-mono px-2 py-0.5 rounded-full ${
-                                                isDark ? 'bg-white/5 text-gray-400' : 'bg-slate-200/60 text-slate-600'
-                                              }`}>
-                                                {chapterLessons.length} Classes
-                                              </span>
-                                            </div>
-                                          </div>
-
-                                          {/* Classes inside this chapter */}
-                                          {chapterLessons.length === 0 ? (
-                                            <div className="p-4 text-center text-xs text-gray-400">
-                                              এই অধ্যায়ে এখনও কোনো ক্লাস যুক্ত করা হয়নি
-                                            </div>
-                                          ) : (
-                                            <div className={`divide-y ${isDark ? 'divide-[#e11438]/10' : 'divide-gray-100'}`}>
-                                              {chapterLessons.map((lesson, lIdx) => renderLessonRow(lesson, lIdx, sIdx, cIdx))}
-                                            </div>
-                                          )}
-                                        </div>
-                                      );
-                                    })}
-
-                                    {/* Fallback for standalone section lessons not in chapters */}
-                                    {hasDirectLessons && !section.chapters.some(c => (c.lessons || []).length > 0) && (
-                                      <div className={`divide-y ${isDark ? 'divide-[#e11438]/10' : 'divide-gray-100'}`}>
-                                        {section.lessons.map((lesson, lIdx) => renderLessonRow(lesson, lIdx, sIdx, -1))}
-                                      </div>
-                                    )}
-                                  </div>
-                                );
-                              }
-
-                              if (hasDirectLessons) {
-                                return (
-                                  <div className={`divide-y ${isDark ? 'divide-[#e11438]/10' : 'divide-gray-100'}`}>
-                                    {section.lessons.map((lesson, lIdx) => renderLessonRow(lesson, lIdx, sIdx, -1))}
-                                  </div>
-                                );
-                              }
-
-                              return (
-                                <div className="p-6 text-center text-xs text-gray-400">
-                                  এই মডিউলে এখনও কোনো ক্লাস যোগ করা হয়নি। উপরে <strong>+ ক্লাস</strong> বাটনে ক্লিক করে ক্লাস যোগ করুন।
+                        {/* Dropdown Box Content (Body): Ultra-Smooth In-Out Accordion Transition */}
+                        <div 
+                          className={`grid transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${
+                            isSectionOpen 
+                              ? 'grid-rows-[1fr] opacity-100' 
+                              : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                          }`}
+                        >
+                          <div className="min-h-0 overflow-hidden">
+                            {sectionLessons.length > 0 ? (
+                              <div className={`divide-y ${isDark ? 'divide-[#e11438]/10' : 'divide-gray-100'}`}>
+                                {sectionLessons.map((lesson, lIdx) => renderLessonRow(lesson, lIdx, sIdx, 0))}
+                              </div>
+                            ) : (
+                              /* Empty state for Physics 2nd Paper or new empty paper */
+                              <div className="py-8 px-6 text-center space-y-3">
+                                <div className="w-12 h-12 mx-auto rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center text-xl">
+                                  📖
                                 </div>
-                              );
-                            })()}
+                                <div>
+                                  <h4 className={`text-sm font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                    {section.name ? `${section.name}-এর ক্লাস খুব শীঘ্রই শুরু হবে` : 'ক্লাসসমূহ খুব শীঘ্রই যুক্ত করা হবে'}
+                                  </h4>
+                                  <p className={`text-xs mt-1 max-w-sm mx-auto leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                                    এই পেপারের রেকর্ডেড লেকচার, নোট ও লাইভ এক্সাম শিডিউল দ্রুততম সময়ে আপলোড করা হবে।
+                                  </p>
+                                </div>
+                                {isAdmin && (
+                                  <div className="pt-2">
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setEditingLesson({
+                                          secIndex: sIdx,
+                                          chapIndex: 0,
+                                          lessonIndex: -1,
+                                          title: '',
+                                          videoUrl: '',
+                                          pdfUrl: '',
+                                          duration: '45 min',
+                                          isFree: false
+                                        });
+                                      }}
+                                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#e11438] hover:bg-[#ff2a55] text-white text-xs font-bold transition-all cursor-pointer border-none shadow-sm"
+                                    >
+                                      <Plus className="w-3.5 h-3.5" />
+                                      <span>+ নতুন ক্লাস যুক্ত করুন</span>
+                                    </button>
+                                  </div>
+                                )}
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -1245,62 +1407,7 @@ export default function BiologyCoursePage({
               </div>
             </div>
 
-            {/* Bottom Enrollment Action Card */}
-            {!isCourseEnrolled && !(course.isFree || Number(course.salePrice) === 0) && course.isActive !== false && (
-              <div className={`p-6 sm:p-8 rounded-3xl border transition-all shadow-xl relative overflow-hidden ${
-                isDark 
-                  ? 'bg-gradient-to-br from-[#24060d] via-[#140306] to-[#0c0205] border-[#e11438]/30 shadow-[0_15px_40px_rgba(225,20,56,0.18)]' 
-                  : 'bg-gradient-to-br from-red-50 via-white to-red-50/40 border-red-200 shadow-md'
-              }`}>
-                {isDark && (
-                  <div className="absolute top-0 right-0 w-72 h-72 bg-[#e11438]/10 rounded-full blur-3xl pointer-events-none" />
-                )}
 
-                <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-                  <div className="space-y-2">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#dc2626]/10 text-[#dc2626] border border-[#dc2626]/20">
-                      <span className="w-2 h-2 rounded-full bg-[#dc2626]"></span>
-                      <span>এখনই ভর্তি হোন</span>
-                    </div>
-
-                    <h2 className={`text-xl sm:text-2xl font-black tracking-tight leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      আজই যুক্ত হোন এই পূর্ণাঙ্গ কোর্সে
-                    </h2>
-                    
-                    <p className={`text-xs sm:text-sm max-w-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                      সবগুলো প্রিমিয়াম ক্লাস, লেকচার শিট, মেটেরিয়াল ও প্র্যাকটিস টেস্ট আনলক করতে এখনই এনরোল করুন।
-                    </p>
-
-                    <div className="flex items-center gap-3 pt-1">
-                      <span className={`text-2xl sm:text-3xl font-black ${isDark ? 'text-[#ff3b61]' : 'text-[#dc2626]'}`}>
-                        ৳{Number(course.salePrice || 0).toLocaleString()}
-                      </span>
-                      {course.regularPrice && (
-                        <span className="text-sm sm:text-base text-gray-400 line-through font-medium">
-                          ৳{Number(course.regularPrice || 0).toLocaleString()}
-                        </span>
-                      )}
-                      {Number(course.regularPrice) > Number(course.salePrice) && (
-                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#dc2626] text-white shadow-xs">
-                          ৳{Number(course.regularPrice) - Number(course.salePrice)} ছাড়
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="shrink-0 flex items-center">
-                    <button
-                      type="button"
-                      onClick={handleOpenCheckout}
-                      className="w-full sm:w-auto px-8 py-4 text-white text-base font-bold rounded-2xl shadow-xl transition-all duration-300 cursor-pointer border-none flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] bg-gradient-to-r from-[#dc2626] via-[#e11438] to-[#b91c1c] hover:shadow-[0_0_30px_rgba(225,20,56,0.5)]"
-                    >
-                      <ShoppingCart className="w-5 h-5" />
-                      <span>কোর্সটি কিনুন • এখনই এনরোল করুন</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
 
           </div>
 
@@ -1460,12 +1567,7 @@ export default function BiologyCoursePage({
                     ) : (course.isFree || Number(course.salePrice) === 0) ? (
                       <button 
                         onClick={() => {
-                          if (onOpenLesson) {
-                            onOpenLesson(course.id || course.slug || selectedCourseId, 0);
-                          } else {
-                            const elem = document.getElementById('curriculum-section');
-                            if (elem) elem.scrollIntoView({ behavior: 'smooth' });
-                          }
+                          handleAccessFreeTrialLesson(0);
                         }}
                         className="flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base rounded-xl transition-all border-none cursor-pointer shadow-lg shadow-emerald-600/30 group"
                       >
@@ -1490,7 +1592,7 @@ export default function BiologyCoursePage({
                         className="flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-[#dc2626] hover:bg-red-700 text-white font-bold text-base rounded-xl transition-all border-none cursor-pointer shadow-[0_0_25px_rgba(220,38,38,0.45)] hover:shadow-[0_0_35px_rgba(220,38,38,0.65)] hover:scale-[1.01] active:scale-[0.99]"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        কোর্সটি কিনুন
+                        Enroll Now
                       </button>
                     )}
                   </div>
@@ -1599,6 +1701,31 @@ export default function BiologyCoursePage({
         />
       )}
 
+      {/* Profile Completion Gate Modal for Free Trial Classes */}
+      <ProfileModal
+        isOpen={showProfileCompleteModal}
+        onClose={() => {
+          setShowProfileCompleteModal(false);
+          setPendingFreeLesson(null);
+        }}
+        requireCompletion={true}
+        title="প্রোফাইল তথ্য পূরণ করুন"
+        subtitle="ফ্রি ট্রায়াল ক্লাসটি চালু করতে আপনার নাম, মোবাইল নম্বর, কলেজ এবং ক্লাস/ব্যাচ পূরণ করুন।"
+        submitText="সংরক্ষণ করে ক্লাস শুরু করুন"
+        hintNotice="✅ তথ্যগুলো সংরক্ষণ করার সাথে সাথেই ফ্রি ট্রায়াল ক্লাসটি চালু হয়ে যাবে।"
+        onSaveSuccess={(updatedProfile) => {
+          setShowProfileCompleteModal(false);
+          triggerToast('🎉 প্রোফাইল সফলভাবে সংরক্ষিত হয়েছে! ফ্রি ট্রায়াল ক্লাস শুরু হচ্ছে...');
+          if (pendingFreeLesson !== null && onOpenLesson) {
+            const targetLesson = pendingFreeLesson;
+            setPendingFreeLesson(null);
+            setTimeout(() => {
+              onOpenLesson(course.id || course.slug || selectedCourseId, targetLesson);
+            }, 300);
+          }
+        }}
+      />
+
       {/* Checkout Modal */}
       {showCheckout && (
         <CheckoutModal 
@@ -1615,6 +1742,7 @@ export default function BiologyCoursePage({
           siteSettings={siteSettings}
           onSuccess={(trxData) => {
             if (onEnrollSuccess) onEnrollSuccess(trxData);
+            setEnrollmentTick(t => t + 1);
           }}
           onClose={() => setShowCheckout(false)}
         />
@@ -1860,9 +1988,9 @@ export default function BiologyCoursePage({
                 </div>
                 <div>
                   <h3 className="text-base font-bold">
-                    {editingSection.isNew ? 'নতুন মডিউল যোগ করুন' : 'মডিউলের নাম এডিট করুন'}
+                    {editingSection.isNew ? 'নতুন পেপার / বিষয় যোগ করুন' : 'পেপারের নাম এডিট করুন'}
                   </h3>
-                  <p className="text-xs text-gray-400">মডিউল বা অধ্যায়ের শিরোনাম পরিবর্তন</p>
+                  <p className="text-xs text-gray-400">পেপার বা বিষয়ের শিরোনাম পরিবর্তন</p>
                 </div>
               </div>
               <button
@@ -1877,14 +2005,14 @@ export default function BiologyCoursePage({
             <form onSubmit={handleSaveSectionEdit} className="space-y-4">
               <div>
                 <label className="block text-xs font-bold text-gray-300 mb-1.5">
-                  মডিউল বা অধ্যায়ের নাম <span className="text-[#e11438]">*</span>
+                  পেপার বা বিষয়ের নাম <span className="text-[#e11438]">*</span>
                 </label>
                 <input
                   type="text"
                   required
                   value={editingSection.name}
                   onChange={(e) => setEditingSection(prev => ({ ...prev, name: e.target.value }))}
-                  placeholder="যেমন: Physics 1st paper Finishing Touch Series"
+                  placeholder="যেমন: Physics 1st Paper বা Physics 2nd Paper"
                   className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
                     isDark 
                       ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white' 

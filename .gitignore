@@ -26,3 +26,5 @@ dist-ssr
 *.sln
 *.sw?
 scratch/
+.agents/
+skills-lock.json
