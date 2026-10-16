@@ -299,17 +299,25 @@ const formatMinimalTime = (totalSeconds) => {
   return `${s}s`;
 };
 
-// Points TokenPill matching user website
-const AdminTokenPill = ({ points, size = 'sm' }) => {
+// Points TokenPill matching clean enterprise dashboard style
+const AdminTokenPill = ({ points, size = 'sm', variant = 'gold' }) => {
   const isLarge = size === 'lg';
   const formatted = points === undefined || points === null || points === '--' 
     ? '--' 
     : (Number.isInteger(Number(points)) ? Number(points) : +(Number(points).toFixed(2)));
+  
+  const getBadgeStyle = () => {
+    if (variant === 'gold') return 'bg-amber-50 text-amber-800 border-amber-300';
+    if (variant === 'silver') return 'bg-slate-100 text-slate-800 border-slate-300';
+    if (variant === 'bronze') return 'bg-orange-50 text-orange-900 border-orange-300';
+    return 'bg-indigo-50 text-indigo-700 border-indigo-200';
+  };
+
   return (
-    <div className={`inline-flex items-center justify-center rounded-full bg-[#270811]/95 border border-[#e11438]/50 shadow-[0_3px_10px_rgba(0,0,0,0.6)] text-white font-mono font-bold select-none ${
-      isLarge ? 'px-3.5 py-0.5 text-xs' : 'px-3 py-0.5 text-[11px]'
+    <div className={`inline-flex items-center justify-center rounded-full font-mono font-bold select-none border shadow-xs ${getBadgeStyle()} ${
+      isLarge ? 'px-3 py-0.5 text-xs' : 'px-2.5 py-0.5 text-[11px]'
     }`}>
-      <span className="tracking-tight text-white/95">{formatted}</span>
+      <span className="tracking-tight">{formatted} pts</span>
     </div>
   );
 };
@@ -7851,74 +7859,71 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           )}
 
           {/* ========================================================= */}
-          {/* TAB: EXAM RESULTS & LIVE LEADERBOARD (EXACT USER WEBSITE STYLING) */}
+          {/* TAB: EXAM RESULTS & LIVE LEADERBOARD (CLEAN & PROFESSIONAL SAAS) */}
           {/* ========================================================= */}
           {activeTab === 'results' && (
-            <div className="relative rounded-[32px] sm:rounded-[40px] bg-gradient-to-b from-[#140308] via-[#0d0205] to-[#070102] text-white p-5 sm:p-8 border border-[#e11438]/25 shadow-[0_25px_70px_rgba(0,0,0,0.85)] overflow-hidden space-y-7">
-              {/* Top ambient ruby radial glow */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[650px] sm:w-[900px] h-[340px] bg-gradient-to-b from-[#e11438]/25 via-[#ff2a55]/10 to-transparent blur-3xl pointer-events-none -z-0" />
+            <div className="space-y-6">
 
               {/* 1. TOP HEADER & CONTROLS */}
-              <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 pb-5 border-b border-white/10">
-                <div className="flex items-center gap-4">
-                  <div className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-[#dc2626] to-[#ff2a55] text-white flex items-center justify-center shadow-[0_0_30px_rgba(225,20,56,0.65)] border border-white/25 shrink-0">
-                    <Trophy className="w-7 h-7 stroke-[2.2]" />
+              <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center border border-amber-500/20 shrink-0 shadow-xs">
+                    <Trophy className="w-6 h-6 stroke-[2.2]" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-2.5 flex-wrap">
-                      <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
                         Exam Results & Live Leaderboard
                       </h2>
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e11438]/20 border border-[#e11438]/40 text-[#ff4d6d] shadow-[0_0_12px_rgba(225,20,56,0.3)]">
-                        100% Real Examinees (Zero Mock)
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center gap-1.5 shadow-xs">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Live Synced
                       </span>
                       {submissionsLastRefreshed && (
-                        <span className="text-[11px] text-white/50 font-mono">
+                        <span className="text-[11px] text-slate-400 font-mono hidden md:inline">
                           Updated: {submissionsLastRefreshed}
                         </span>
                       )}
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-300 font-medium mt-1">
-                      ইউজার ওয়েবসাইটের আদলে রিয়েল-টাইম পরীক্ষার ফলাফল, খাতা মূল্যায়ন ও লাইভ মেধাতালিকা।
+                    <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
+                      শিক্ষার্থীদের পরীক্ষার ফলাফল, খাতা মূল্যায়ন ও রিয়েল-টাইম মেধা তালিকা ব্যবস্থাপনা।
                     </p>
                   </div>
                 </div>
 
                 {/* Header Action Buttons */}
-                <div className="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-start lg:justify-end">
-                  {/* Export CSV Button */}
+                <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto justify-start sm:justify-end">
                   <button
                     type="button"
                     onClick={handleExportCSV}
-                    className="px-4 py-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-white font-bold text-xs border border-white/15 shadow-sm transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+                    className="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs border border-slate-200 shadow-xs transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
                     title="Export results to CSV"
                   >
-                    <Download className="w-3.5 h-3.5 text-white/70" />
+                    <Download className="w-3.5 h-3.5 text-slate-500" />
                     <span>Export CSV</span>
                   </button>
 
-                  {/* Refresh Button */}
                   <button
                     type="button"
                     onClick={loadExamSubmissions}
                     disabled={isLoadingSubmissions}
-                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#dc2626] to-[#ff2a55] hover:from-[#c51d1d] hover:to-[#eb1c46] text-white font-bold text-xs border border-white/20 shadow-[0_0_20px_rgba(225,20,56,0.5)] transition-all flex items-center gap-2 cursor-pointer active:scale-95 disabled:opacity-60"
+                    className="px-4 py-2 rounded-xl bg-[#5d5bf6] hover:bg-[#4b49e0] text-white font-bold text-xs shadow-md shadow-[#5d5bf6]/20 transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 disabled:opacity-60"
                   >
                     <RefreshCw className={`w-3.5 h-3.5 ${isLoadingSubmissions ? 'animate-spin' : ''}`} />
-                    <span>{isLoadingSubmissions ? 'Loading...' : 'Refresh'}</span>
+                    <span>{isLoadingSubmissions ? 'Syncing...' : 'Refresh'}</span>
                   </button>
                 </div>
               </div>
 
-              {/* 2. THREE SIGNATURE NAVIGATION TABS */}
-              <div className="relative z-10 flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md">
+              {/* 2. THREE SEGMENTED NAVIGATION TABS */}
+              <div className="bg-white rounded-2xl p-1.5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-wrap items-center gap-1.5">
                 <button
                   type="button"
                   onClick={() => setExamViewMode('leaderboard')}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border ${
                     examViewMode === 'leaderboard'
-                      ? 'bg-gradient-to-r from-[#dc2626] to-[#ff2a55] text-white border-white/25 shadow-[0_0_20px_rgba(225,20,56,0.6)]'
-                      : 'bg-transparent text-gray-300 hover:text-white border-transparent hover:bg-white/[0.04]'
+                      ? 'bg-[#5d5bf6] text-white border-[#5d5bf6] shadow-sm'
+                      : 'bg-transparent text-slate-600 hover:text-slate-900 border-transparent hover:bg-slate-50'
                   }`}
                 >
                   <Trophy className="w-4 h-4" />
@@ -7930,8 +7935,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   onClick={() => setExamViewMode('gradebook')}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border ${
                     examViewMode === 'gradebook'
-                      ? 'bg-gradient-to-r from-[#dc2626] to-[#ff2a55] text-white border-white/25 shadow-[0_0_20px_rgba(225,20,56,0.6)]'
-                      : 'bg-transparent text-gray-300 hover:text-white border-transparent hover:bg-white/[0.04]'
+                      ? 'bg-[#5d5bf6] text-white border-[#5d5bf6] shadow-sm'
+                      : 'bg-transparent text-slate-600 hover:text-slate-900 border-transparent hover:bg-slate-50'
                   }`}
                 >
                   <Users className="w-4 h-4" />
@@ -7943,8 +7948,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   onClick={() => setExamViewMode('submissions')}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer border ${
                     examViewMode === 'submissions'
-                      ? 'bg-gradient-to-r from-[#dc2626] to-[#ff2a55] text-white border-white/25 shadow-[0_0_20px_rgba(225,20,56,0.6)]'
-                      : 'bg-transparent text-gray-300 hover:text-white border-transparent hover:bg-white/[0.04]'
+                      ? 'bg-[#5d5bf6] text-white border-[#5d5bf6] shadow-sm'
+                      : 'bg-transparent text-slate-600 hover:text-slate-900 border-transparent hover:bg-slate-50'
                   }`}
                 >
                   <FileText className="w-4 h-4" />
@@ -7952,68 +7957,68 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 </button>
               </div>
 
-              {/* 3. FOUR METRIC SUMMARY CARDS (DARK GLASS WITH RUBY GLOW) */}
-              <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+              {/* 3. FOUR METRIC SUMMARY CARDS */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
                 {/* Total Submissions */}
-                <div className="bg-[#1c060f]/80 rounded-2xl p-4 sm:p-5 border border-[#e11438]/25 shadow-lg backdrop-blur-md flex flex-col justify-between">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-300">Total Submissions</span>
-                    <div className="w-8 h-8 rounded-xl bg-[#e11438]/20 text-[#ff4d6d] flex items-center justify-center border border-[#e11438]/30">
+                    <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Submissions</span>
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100">
                       <FileText className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-white mt-2">
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mt-3">
                     {examStats.totalSubs}
                   </div>
-                  <span className="text-[11px] text-gray-400 font-medium mt-1">
+                  <span className="text-[11px] text-slate-400 font-medium mt-1">
                     মোট জমা হওয়া পরীক্ষার খাতা
                   </span>
                 </div>
 
                 {/* Unique Examinees */}
-                <div className="bg-[#1c060f]/80 rounded-2xl p-4 sm:p-5 border border-[#e11438]/25 shadow-lg backdrop-blur-md flex flex-col justify-between">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-300">Unique Examinees</span>
-                    <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center border border-purple-500/30">
+                    <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Unique Examinees</span>
+                    <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100">
                       <Users className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-white mt-2">
+                  <div className="text-2xl sm:text-3xl font-black text-purple-600 tracking-tight leading-none mt-3">
                     {examStats.uniqueExaminees}
                   </div>
-                  <span className="text-[11px] text-gray-400 font-medium mt-1">
+                  <span className="text-[11px] text-slate-400 font-medium mt-1">
                     অংশগ্রহণকারী পৃথক শিক্ষার্থী
                   </span>
                 </div>
 
                 {/* Avg Accuracy */}
-                <div className="bg-[#1c060f]/80 rounded-2xl p-4 sm:p-5 border border-[#e11438]/25 shadow-lg backdrop-blur-md flex flex-col justify-between">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-300">Average Score</span>
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center border border-emerald-500/30">
+                    <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Average Score</span>
+                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
                       <TrendingUp className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-emerald-400 mt-2">
+                  <div className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight leading-none mt-3">
                     {examStats.avgPct}%
                   </div>
-                  <span className="text-[11px] text-gray-400 font-medium mt-1">
-                    সামগ্রিক গড় অ্যাকুরেসি
+                  <span className="text-[11px] text-slate-400 font-medium mt-1">
+                    সার্বিক গড় অ্যাক্যুরেসি
                   </span>
                 </div>
 
                 {/* Top Performer */}
-                <div className="bg-[#1c060f]/80 rounded-2xl p-4 sm:p-5 border border-[#e11438]/25 shadow-lg backdrop-blur-md flex flex-col justify-between">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-300">Highest Mark</span>
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-500/30">
+                    <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Highest Mark</span>
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
                       <Trophy className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-amber-400 mt-2 truncate">
+                  <div className="text-2xl sm:text-3xl font-black text-amber-600 tracking-tight leading-none mt-3 truncate">
                     {examStats.topScorer ? `${examStats.topScorer.score} / ${examStats.topScorer.total_marks}` : '0'}
                   </div>
-                  <span className="text-[11px] text-gray-400 font-medium mt-1 truncate">
+                  <span className="text-[11px] text-slate-400 font-medium mt-1 truncate">
                     {examStats.topScorer ? examStats.topScorer.student_name : 'No submissions yet'}
                   </span>
                 </div>
@@ -8021,16 +8026,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
               {/* 4. TAB 1: 🏆 কোর্স ও পরীক্ষা ভিত্তিক লিডারবোর্ড (Course & Exam Batches Leaderboard) */}
               {examViewMode === 'leaderboard' && (
-                <div className="relative z-10 space-y-6">
+                <div className="space-y-6">
                   {/* Step A: Course Selection Cards */}
-                  <div className="space-y-2.5">
+                  <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-1.5">
-                        <BookOpen className="w-4 h-4 text-[#ff2a55]" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                        <BookOpen className="w-4 h-4 text-[#5d5bf6]" />
                         ১. কোর্স নির্বাচন করুন (Select Course):
                       </span>
-                      <span className="text-xs text-white/50">
-                        মোট {courses.length} টি কোর্স রয়েছে
+                      <span className="text-xs text-slate-400 font-medium">
+                        মোট {courses.length} টি কোর্স
                       </span>
                     </div>
 
@@ -8052,31 +8057,31 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               setLeaderboardCourseId(cKey);
                               setLeaderboardLessonId('');
                             }}
-                            className={`p-3.5 rounded-2xl text-left transition-all cursor-pointer border flex items-center gap-3 ${
+                            className={`p-3.5 rounded-xl text-left transition-all cursor-pointer border flex items-center gap-3 ${
                               isSelected
-                                ? 'bg-gradient-to-r from-[#e11438]/30 via-[#270811] to-[#160307] border-[#e11438] text-white shadow-[0_0_20px_rgba(225,20,56,0.35)] ring-1 ring-[#e11438]/50'
-                                : 'bg-white/[0.03] border-white/10 text-gray-300 hover:bg-white/[0.07] hover:border-white/20 hover:text-white'
+                                ? 'bg-indigo-50/60 border-[#5d5bf6] text-slate-900 shadow-sm ring-2 ring-[#5d5bf6]/20'
+                                : 'bg-slate-50/60 hover:bg-white hover:border-slate-300 border-slate-200 text-slate-700'
                             }`}
                           >
                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${
                               isSelected
-                                ? 'bg-[#e11438] border-white/30 text-white shadow-[0_0_15px_rgba(225,20,56,0.6)]'
-                                : 'bg-white/10 border-white/10 text-white/70'
+                                ? 'bg-[#5d5bf6] border-[#5d5bf6] text-white shadow-xs'
+                                : 'bg-white border-slate-200 text-slate-500'
                             }`}>
-                              <BookOpen className="w-5 h-5 text-white" />
+                              <BookOpen className="w-4 h-4" />
                             </div>
                             <div className="min-w-0 flex-1">
-                              <h4 className="text-xs font-bold text-white truncate leading-tight">
+                              <h4 className="text-xs font-bold text-slate-900 truncate leading-tight">
                                 {c.title || c.name || 'Course'}
                               </h4>
-                              <p className="text-[10px] text-gray-400 mt-1 flex items-center gap-2">
-                                <span>{c.category || 'Batch'}</span>
+                              <p className="text-[10px] text-slate-500 mt-1 flex items-center gap-1.5">
+                                <span className="font-medium">{c.category || 'Batch'}</span>
                                 <span>•</span>
-                                <span className="text-amber-400 font-semibold">{cSubmissions.length} জনা জমা</span>
+                                <span className="text-indigo-600 font-bold">{cSubmissions.length} খাতা জমা</span>
                               </p>
                             </div>
                             {isSelected && (
-                              <Check className="w-4 h-4 text-[#ff2a55] shrink-0" />
+                              <Check className="w-4 h-4 text-[#5d5bf6] shrink-0" />
                             )}
                           </button>
                         );
@@ -8086,13 +8091,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                   {/* Step B: Chapter / Exam Selector Pills */}
                   {currentLeaderboardCourse && (
-                    <div className="p-4 rounded-2xl bg-black/40 border border-white/10 space-y-3">
+                    <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] space-y-3">
                       <div className="flex items-center justify-between flex-wrap gap-2">
-                        <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                          <Flame className="w-4 h-4 text-amber-400" />
+                        <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                          <Flame className="w-4 h-4 text-amber-500" />
                           ২. অধ্যায় বা পরীক্ষা নির্বাচন করুন ({currentLeaderboardCourse.title}):
                         </span>
-                        <span className="text-[11px] text-white/50">
+                        <span className="text-xs text-slate-400">
                           {currentCourseLessons.length} টি পরীক্ষা অন্তর্ভুক্ত
                         </span>
                       </div>
@@ -8104,11 +8109,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           onClick={() => setLeaderboardLessonId('')}
                           className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border flex items-center gap-1.5 ${
                             !leaderboardLessonId || leaderboardLessonId === 'ALL' || leaderboardLessonId === 'overall'
-                              ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white border-amber-300/40 shadow-[0_0_15px_rgba(245,158,11,0.5)]'
-                              : 'bg-white/[0.04] text-gray-300 hover:text-white border-white/10 hover:bg-white/[0.08]'
+                              ? 'bg-amber-500 text-white border-amber-500 shadow-sm'
+                              : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200'
                           }`}
                         >
-                          <Trophy className="w-3.5 h-3.5 text-amber-300" />
+                          <Trophy className="w-3.5 h-3.5 text-white" />
                           <span>কোর্সের সামগ্রিক মেধা তালিকা (Cumulative Overall)</span>
                         </button>
 
@@ -8122,14 +8127,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                               onClick={() => setLeaderboardLessonId(les.lessonId)}
                               className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer border flex items-center gap-1.5 ${
                                 isLesActive
-                                  ? 'bg-[#e11438] text-white border-white/30 shadow-[0_0_15px_rgba(225,20,56,0.6)] font-bold'
-                                  : 'bg-white/[0.04] text-gray-300 hover:text-white border-white/10 hover:bg-white/[0.08]'
+                                  ? 'bg-[#5d5bf6] text-white border-[#5d5bf6] shadow-sm font-bold'
+                                  : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200'
                               }`}
                             >
-                              <span className="w-4 h-4 rounded-full bg-white/20 text-[10px] flex items-center justify-center font-mono">
+                              <span className={`w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-mono ${
+                                isLesActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-600'
+                              }`}>
                                 {idx + 1}
                               </span>
-                              <span className="truncate max-w-[180px]">{les.title}</span>
+                              <span className="truncate max-w-[200px]">{les.title}</span>
                               {isLesActive && <Check className="w-3.5 h-3.5 text-white shrink-0" />}
                             </button>
                           );
@@ -8138,231 +8145,245 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     </div>
                   )}
 
-                  {/* Step C: The Iconic 3D Podium & Avatars (Exact match to LeaderboardPage.jsx!) */}
+                  {/* Step C: The Iconic 3D Podium & Avatars (Clean & Elegant Enterprise Design) */}
                   {isLoadingLeaderboard ? (
-                    <div className="py-24 text-center">
-                      <RefreshCw className="w-8 h-8 text-[#ff2a55] animate-spin mx-auto mb-3" />
-                      <p className="text-sm font-bold text-white">মেধাতালিকা ও পোডিয়াম লোড হচ্ছে...</p>
+                    <div className="bg-white rounded-2xl p-16 border border-slate-200/80 text-center">
+                      <RefreshCw className="w-8 h-8 text-[#5d5bf6] animate-spin mx-auto mb-3" />
+                      <p className="text-sm font-bold text-slate-800">মেধাতালিকা ও পোডিয়াম লোড হচ্ছে...</p>
                     </div>
                   ) : (
-                    <div className="pt-8 pb-4 relative w-full">
-                      {/* Ground Soft Cast Ambient Shadow */}
-                      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[94%] h-16 bg-black/95 rounded-full blur-2xl pointer-events-none z-0" />
+                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] space-y-6">
+                      <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                        <div>
+                          <h3 className="text-base sm:text-lg font-black text-slate-900">
+                            শীর্ষ ৩ মেধা পোডিয়াম (Top 3 Standings)
+                          </h3>
+                          <p className="text-xs text-slate-500 font-medium mt-0.5">
+                            রিয়েল-টাইম স্কোর ও সময় অনুসারে স্বয়ংক্রিয়ভাবে নির্ধারিত পোডিয়াম।
+                          </p>
+                        </div>
+                      </div>
 
                       {/* 3-Column Podium Stage */}
-                      <div className="relative flex items-end justify-center w-full max-w-[420px] sm:max-w-[480px] mx-auto z-10">
-                        {/* RANK 2 (SILVER - LEFT) */}
-                        {(() => {
-                          const rank2 = leaderboardData[1] || null;
-                          return (
-                            <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -mr-1">
-                              <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
-                                {rank2 ? (
-                                  <>
-                                    <div className="relative group shrink-0">
-                                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black/85 rounded-full blur-[3px]" />
-                                      <img 
-                                        src={rank2.avatar || rank2.student_avatar || '/avatar.svg'} 
-                                        alt={rank2.student_name || 'Rank 2'}
-                                        className="w-[58px] h-[58px] sm:w-[68px] sm:h-[68px] rounded-full object-cover border-[2.5px] border-white shadow-[0_10px_22px_rgba(0,0,0,0.7)] relative z-10 shrink-0"
-                                        onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                                      />
-                                    </div>
-                                    <span className="text-[11px] sm:text-xs font-bold text-white/95 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                                      {rank2.student_name || 'Student'}
-                                    </span>
-                                    <div className="mt-1">
-                                      <AdminTokenPill points={rank2.score ?? rank2.total_score} />
-                                    </div>
-                                    <span className="text-[10px] text-white/50 font-mono mt-0.5">
-                                      {formatMinimalTime(rank2.time_taken_seconds ?? rank2.total_time_seconds)}
-                                    </span>
-                                  </>
-                                ) : (
-                                  <>
-                                    <div className="w-[58px] h-[58px] sm:w-[68px] sm:h-[68px] rounded-full border-2 border-dashed border-white/20 flex items-center justify-center bg-white/[0.03] text-white/40">
-                                      <span className="font-bold text-sm">২</span>
-                                    </div>
-                                    <span className="text-[10px] font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
-                                      ২য় স্থান (খালি)
-                                    </span>
-                                    <div className="mt-1">
-                                      <AdminTokenPill points="--" />
-                                    </div>
-                                  </>
-                                )}
-                              </div>
+                      <div className="pt-6 pb-2">
+                        <div className="flex items-end justify-center w-full max-w-[460px] sm:max-w-[520px] mx-auto">
+                          {/* RANK 2 (SILVER - LEFT) */}
+                          {(() => {
+                            const rank2 = leaderboardData[1] || null;
+                            return (
+                              <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -mr-1">
+                                <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
+                                  {rank2 ? (
+                                    <>
+                                      <div className="relative group shrink-0">
+                                        <img 
+                                          src={rank2.avatar || rank2.student_avatar || '/avatar.svg'} 
+                                          alt={rank2.student_name || 'Rank 2'}
+                                          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-4 border-slate-300 shadow-md relative z-10 shrink-0"
+                                          onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                                        />
+                                        <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-slate-500 text-white font-bold text-[10px] flex items-center justify-center border border-white z-20 shadow-xs">
+                                          2
+                                        </div>
+                                      </div>
+                                      <span className="text-xs font-bold text-slate-800 truncate max-w-full px-1 text-center mt-2 tracking-tight block">
+                                        {rank2.student_name || 'Student'}
+                                      </span>
+                                      <div className="mt-1">
+                                        <AdminTokenPill points={rank2.score ?? rank2.total_score} variant="silver" />
+                                      </div>
+                                      <span className="text-[10px] text-slate-400 font-mono mt-0.5">
+                                        {formatMinimalTime(rank2.time_taken_seconds ?? rank2.total_time_seconds)}
+                                      </span>
+                                      <button
+                                        type="button"
+                                        onClick={() => setInspectingSubmission(rank2)}
+                                        className="mt-1.5 px-2 py-0.5 rounded-lg text-[10px] font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors cursor-pointer"
+                                      >
+                                        খাতা দেখুন
+                                      </button>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-dashed border-slate-300 flex items-center justify-center bg-slate-50 text-slate-400">
+                                        <span className="font-bold text-sm">২</span>
+                                      </div>
+                                      <span className="text-[11px] font-medium text-slate-400 truncate max-w-full px-1 text-center mt-2 block">
+                                        ২য় স্থান (খালি)
+                                      </span>
+                                      <div className="mt-1">
+                                        <AdminTokenPill points="--" variant="silver" />
+                                      </div>
+                                    </>
+                                  )}
+                                </div>
 
-                              {/* 3D Pillar #2 */}
-                              <div className="w-full flex flex-col items-center relative">
-                                <div className="w-full h-8 sm:h-9 bg-gradient-to-b from-[#3a0e1a] via-[#260811] to-[#17040b] border-t border-l border-white/20 shadow-inner relative z-10">
-                                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
-                                </div>
-                                <div className="w-full h-36 sm:h-42 bg-gradient-to-b from-[#1e060d] via-[#110207] to-[#070103] border-l border-b border-white/10 pt-5 sm:pt-6 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_10px_20px_rgba(0,0,0,0.6)]">
-                                  <span 
-                                    className="font-black text-5xl sm:text-6xl select-none leading-none"
-                                    style={{
-                                      color: 'rgba(255, 255, 255, 0.09)',
-                                      textShadow: '0 2px 4px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.1)'
-                                    }}
-                                  >
-                                    2
-                                  </span>
+                                {/* 3D Pillar #2 */}
+                                <div className="w-full flex flex-col items-center relative">
+                                  <div className="w-full h-7 sm:h-8 bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 border-t-2 border-slate-400 rounded-t-xl shadow-xs" />
+                                  <div className="w-full h-32 sm:h-38 bg-gradient-to-b from-slate-50 to-slate-100 border-x border-b border-slate-200 flex flex-col items-center justify-center relative">
+                                    <span className="font-black text-4xl sm:text-5xl text-slate-400/50 select-none">
+                                      2
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          );
-                        })()}
+                            );
+                          })()}
 
-                        {/* RANK 1 (GOLD - CENTER - TALLEST & PROTRUDING) */}
-                        {(() => {
-                          const rank1 = leaderboardData[0] || null;
-                          return (
-                            <div className="w-[36%] min-w-0 flex flex-col items-center relative z-20">
-                              <div className="flex flex-col items-center mb-3.5 animate-in fade-in duration-300 w-full">
-                                {rank1 ? (
-                                  <>
-                                    <div className="relative group shrink-0">
-                                      <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-black/90 rounded-full blur-[4px]" />
-                                      <img 
-                                        src={rank1.avatar || rank1.student_avatar || '/avatar.svg'} 
-                                        alt={rank1.student_name || 'Rank 1'}
-                                        className="w-[74px] h-[74px] sm:w-[86px] sm:h-[86px] rounded-full object-cover border-[3px] border-amber-300 shadow-[0_12px_28px_rgba(245,158,11,0.4)] relative z-10 shrink-0"
-                                        onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                                      />
-                                    </div>
-                                    <span className="text-xs sm:text-sm font-black text-amber-300 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                                      👑 {rank1.student_name || 'Champion'}
-                                    </span>
-                                    <div className="mt-1">
-                                      <AdminTokenPill points={rank1.score ?? rank1.total_score} size="lg" />
-                                    </div>
-                                    <span className="text-[10px] text-amber-300/80 font-mono mt-0.5">
-                                      {formatMinimalTime(rank1.time_taken_seconds ?? rank1.total_time_seconds)}
-                                    </span>
-                                  </>
-                                ) : (
-                                  <>
-                                    <div className="w-[74px] h-[74px] sm:w-[86px] sm:h-[86px] rounded-full border-2 border-dashed border-amber-400/35 flex items-center justify-center bg-white/[0.03] text-amber-400/60 shadow-inner">
-                                      <span className="font-bold text-base sm:text-lg">১</span>
-                                    </div>
-                                    <span className="text-[11px] sm:text-xs font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
-                                      ১ম স্থান (খালি)
-                                    </span>
-                                    <div className="mt-1">
-                                      <AdminTokenPill points="--" size="lg" />
-                                    </div>
-                                  </>
-                                )}
-                              </div>
+                          {/* RANK 1 (GOLD - CENTER - TALLEST & PROTRUDING) */}
+                          {(() => {
+                            const rank1 = leaderboardData[0] || null;
+                            return (
+                              <div className="w-[36%] min-w-0 flex flex-col items-center relative z-20">
+                                <div className="flex flex-col items-center mb-3.5 animate-in fade-in duration-300 w-full">
+                                  {rank1 ? (
+                                    <>
+                                      <div className="relative group shrink-0">
+                                        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-base z-30 animate-bounce">
+                                          👑
+                                        </span>
+                                        <img 
+                                          src={rank1.avatar || rank1.student_avatar || '/avatar.svg'} 
+                                          alt={rank1.student_name || 'Rank 1'}
+                                          className="w-18 h-18 sm:w-20 sm:h-20 rounded-full object-cover border-4 border-amber-400 shadow-lg relative z-10 shrink-0"
+                                          onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                                        />
+                                        <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-amber-500 text-white font-black text-xs flex items-center justify-center border-2 border-white z-20 shadow-xs">
+                                          1
+                                        </div>
+                                      </div>
+                                      <span className="text-xs sm:text-sm font-black text-slate-900 truncate max-w-full px-1 text-center mt-2 tracking-tight block">
+                                        {rank1.student_name || 'Champion'}
+                                      </span>
+                                      <div className="mt-1">
+                                        <AdminTokenPill points={rank1.score ?? rank1.total_score} variant="gold" size="lg" />
+                                      </div>
+                                      <span className="text-[10px] text-amber-700 font-mono mt-0.5 font-bold">
+                                        {formatMinimalTime(rank1.time_taken_seconds ?? rank1.total_time_seconds)}
+                                      </span>
+                                      <button
+                                        type="button"
+                                        onClick={() => setInspectingSubmission(rank1)}
+                                        className="mt-1.5 px-2.5 py-0.5 rounded-lg text-[10px] font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 border border-amber-300 transition-colors cursor-pointer shadow-xs"
+                                      >
+                                        খাতা দেখুন
+                                      </button>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-full border-2 border-dashed border-amber-400 flex items-center justify-center bg-amber-50/50 text-amber-500">
+                                        <span className="font-bold text-base">১</span>
+                                      </div>
+                                      <span className="text-xs font-medium text-slate-400 truncate max-w-full px-1 text-center mt-2 block">
+                                        ১ম স্থান (খালি)
+                                      </span>
+                                      <div className="mt-1">
+                                        <AdminTokenPill points="--" variant="gold" size="lg" />
+                                      </div>
+                                    </>
+                                  )}
+                                </div>
 
-                              {/* 3D Pillar #1 */}
-                              <div className="w-full flex flex-col items-center relative z-20 shadow-[-16px_0_35px_rgba(0,0,0,0.92),16px_0_35px_rgba(0,0,0,0.92)]">
-                                <div className="w-full h-9 sm:h-10 bg-gradient-to-b from-[#551425] via-[#380c19] to-[#22050f] border-t border-x border-white/25 shadow-inner relative z-10">
-                                  <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-white/15 via-white/45 to-white/15" />
-                                </div>
-                                <div className="w-full h-48 sm:h-58 bg-gradient-to-b from-[#270610] via-[#150209] to-[#080104] border-x border-b border-white/15 pt-6 sm:pt-8 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_12px_24px_rgba(0,0,0,0.7)]">
-                                  <span 
-                                    className="font-black text-6xl sm:text-7xl select-none leading-none"
-                                    style={{
-                                      color: 'rgba(255, 255, 255, 0.12)',
-                                      textShadow: '0 3px 6px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.15)'
-                                    }}
-                                  >
-                                    1
-                                  </span>
+                                {/* 3D Pillar #1 */}
+                                <div className="w-full flex flex-col items-center relative">
+                                  <div className="w-full h-8 sm:h-9 bg-gradient-to-r from-amber-200 via-amber-300 to-amber-200 border-t-2 border-amber-400 rounded-t-xl shadow-xs" />
+                                  <div className="w-full h-42 sm:h-48 bg-gradient-to-b from-amber-50 to-amber-100/70 border-x border-b border-amber-200 flex flex-col items-center justify-center relative">
+                                    <span className="font-black text-5xl sm:text-6xl text-amber-500/40 select-none">
+                                      1
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          );
-                        })()}
+                            );
+                          })()}
 
-                        {/* RANK 3 (BRONZE - RIGHT) */}
-                        {(() => {
-                          const rank3 = leaderboardData[2] || null;
-                          return (
-                            <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -ml-1">
-                              <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
-                                {rank3 ? (
-                                  <>
-                                    <div className="relative group shrink-0">
-                                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-black/85 rounded-full blur-[3px]" />
-                                      <img 
-                                        src={rank3.avatar || rank3.student_avatar || '/avatar.svg'} 
-                                        alt={rank3.student_name || 'Rank 3'}
-                                        className="w-[58px] h-[58px] sm:w-[68px] sm:h-[68px] rounded-full object-cover border-[2.5px] border-white shadow-[0_10px_22px_rgba(0,0,0,0.7)] relative z-10 shrink-0"
-                                        onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                                      />
-                                    </div>
-                                    <span className="text-[11px] sm:text-xs font-bold text-white/95 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                                      {rank3.student_name || 'Student'}
-                                    </span>
-                                    <div className="mt-1">
-                                      <AdminTokenPill points={rank3.score ?? rank3.total_score} />
-                                    </div>
-                                    <span className="text-[10px] text-white/50 font-mono mt-0.5">
-                                      {formatMinimalTime(rank3.time_taken_seconds ?? rank3.total_time_seconds)}
-                                    </span>
-                                  </>
-                                ) : (
-                                  <>
-                                    <div className="w-[58px] h-[58px] sm:w-[68px] sm:h-[68px] rounded-full border-2 border-dashed border-white/20 flex items-center justify-center bg-white/[0.03] text-white/40">
-                                      <span className="font-bold text-sm">৩</span>
-                                    </div>
-                                    <span className="text-[10px] font-medium text-white/40 truncate max-w-full px-1 text-center mt-1.5 block">
-                                      ৩য় স্থান (খালি)
-                                    </span>
-                                    <div className="mt-1">
-                                      <AdminTokenPill points="--" />
-                                    </div>
-                                  </>
-                                )}
-                              </div>
+                          {/* RANK 3 (BRONZE - RIGHT) */}
+                          {(() => {
+                            const rank3 = leaderboardData[2] || null;
+                            return (
+                              <div className="w-[32%] min-w-0 flex flex-col items-center relative z-10 -ml-1">
+                                <div className="flex flex-col items-center mb-3 animate-in fade-in duration-300 w-full">
+                                  {rank3 ? (
+                                    <>
+                                      <div className="relative group shrink-0">
+                                        <img 
+                                          src={rank3.avatar || rank3.student_avatar || '/avatar.svg'} 
+                                          alt={rank3.student_name || 'Rank 3'}
+                                          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-4 border-amber-600/40 shadow-md relative z-10 shrink-0"
+                                          onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
+                                        />
+                                        <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-amber-700 text-white font-bold text-[10px] flex items-center justify-center border border-white z-20 shadow-xs">
+                                          3
+                                        </div>
+                                      </div>
+                                      <span className="text-xs font-bold text-slate-800 truncate max-w-full px-1 text-center mt-2 tracking-tight block">
+                                        {rank3.student_name || 'Student'}
+                                      </span>
+                                      <div className="mt-1">
+                                        <AdminTokenPill points={rank3.score ?? rank3.total_score} variant="bronze" />
+                                      </div>
+                                      <span className="text-[10px] text-slate-400 font-mono mt-0.5">
+                                        {formatMinimalTime(rank3.time_taken_seconds ?? rank3.total_time_seconds)}
+                                      </span>
+                                      <button
+                                        type="button"
+                                        onClick={() => setInspectingSubmission(rank3)}
+                                        className="mt-1.5 px-2 py-0.5 rounded-lg text-[10px] font-bold text-orange-800 bg-orange-100 hover:bg-orange-200 border border-orange-200 transition-colors cursor-pointer"
+                                      >
+                                        খাতা দেখুন
+                                      </button>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-dashed border-amber-700/30 flex items-center justify-center bg-orange-50/40 text-orange-400">
+                                        <span className="font-bold text-sm">৩</span>
+                                      </div>
+                                      <span className="text-[11px] font-medium text-slate-400 truncate max-w-full px-1 text-center mt-2 block">
+                                        ৩য় স্থান (খালি)
+                                      </span>
+                                      <div className="mt-1">
+                                        <AdminTokenPill points="--" variant="bronze" />
+                                      </div>
+                                    </>
+                                  )}
+                                </div>
 
-                              {/* 3D Pillar #3 */}
-                              <div className="w-full flex flex-col items-center relative">
-                                <div className="w-full h-8 sm:h-9 bg-gradient-to-b from-[#3a0e1a] via-[#260811] to-[#17040b] border-t border-r border-white/20 shadow-inner relative z-10">
-                                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
-                                </div>
-                                <div className="w-full h-28 sm:h-34 bg-gradient-to-b from-[#1e060d] via-[#110207] to-[#070103] border-r border-b border-white/10 pt-4 sm:pt-5 flex flex-col items-center justify-start relative overflow-hidden shadow-[inset_0_10px_20px_rgba(0,0,0,0.6)]">
-                                  <span 
-                                    className="font-black text-4xl sm:text-5xl select-none leading-none"
-                                    style={{
-                                      color: 'rgba(255, 255, 255, 0.09)',
-                                      textShadow: '0 2px 4px rgba(0,0,0,0.95), 0 -1px 1px rgba(255,255,255,0.1)'
-                                    }}
-                                  >
-                                    3
-                                  </span>
+                                {/* 3D Pillar #3 */}
+                                <div className="w-full flex flex-col items-center relative">
+                                  <div className="w-full h-7 sm:h-8 bg-gradient-to-r from-amber-100 via-orange-200 to-amber-100 border-t-2 border-amber-600/40 rounded-t-xl shadow-xs" />
+                                  <div className="w-full h-26 sm:h-30 bg-gradient-to-b from-orange-50/70 to-orange-100/60 border-x border-b border-orange-200 flex flex-col items-center justify-center relative">
+                                    <span className="font-black text-4xl sm:text-5xl text-orange-400/50 select-none">
+                                      3
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          );
-                        })()}
+                            );
+                          })()}
+                        </div>
                       </div>
                     </div>
                   )}
 
-                  {/* Step D: Rounded Bottom Sheet for Ranks 4+ Examinees (User Website Style) */}
-                  <div className="rounded-t-[32px] sm:rounded-t-[40px] rounded-b-2xl bg-gradient-to-b from-[#18040b] via-[#0e0206] to-[#070102] border border-white/10 p-5 sm:p-6 shadow-2xl space-y-4">
-                    <div className="w-10 h-1 bg-white/25 rounded-full mx-auto" />
-                    
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                        <Award className="w-4 h-4 text-amber-400" />
+                  {/* Step D: Ranks 4+ Standings List Table */}
+                  <div className="bg-white rounded-2xl border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] p-4 sm:p-5 space-y-3">
+                    <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                      <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-amber-500" />
                         পূর্ণাঙ্গ মেধাতালিকা (Full Merit Standings - {leaderboardData.length} Students)
                       </h4>
-                      <span className="text-xs text-white/40">
+                      <span className="text-xs text-slate-400">
                         টাই-ব্রেকার: স্কোর &gt; সময় &gt; প্রথম জমা
                       </span>
                     </div>
 
                     {leaderboardData.length === 0 ? (
-                      <div className="py-12 text-center text-white/40 text-xs">
+                      <div className="py-12 text-center text-slate-400 text-xs">
                         এখনও কোনো শিক্ষার্থী এই পরীক্ষায় অংশগ্রহণ করেনি। শিক্ষার্থীরা পরীক্ষা দিলে স্বয়ংক্রিয়ভাবে লাইভ মেধাতালিকায় নাম প্রদর্শিত হবে।
                       </div>
                     ) : (
-                      <div className="divide-y divide-white/[0.05]">
+                      <div className="divide-y divide-slate-100">
                         {leaderboardData.map((student, idx) => {
                           const rank = student.rank || idx + 1;
                           const rawPoints = student.score ?? student.total_score ?? 0;
@@ -8371,11 +8392,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           return (
                             <div 
                               key={student.id || student.student_id || idx}
-                              className="py-3 px-2 flex items-center justify-between gap-3 hover:bg-white/[0.03] rounded-xl transition-colors"
+                              className="py-3 px-2 flex items-center justify-between gap-3 hover:bg-slate-50/80 rounded-xl transition-colors"
                             >
                               <div className="flex items-center gap-3 min-w-0">
                                 <span className={`w-7 text-center font-black text-sm shrink-0 ${
-                                  rank === 1 ? 'text-amber-400' : rank === 2 ? 'text-slate-200' : rank === 3 ? 'text-orange-400' : 'text-white/40'
+                                  rank === 1 ? 'text-amber-500' : rank === 2 ? 'text-slate-500' : rank === 3 ? 'text-amber-700' : 'text-slate-400'
                                 }`}>
                                   #{rank}
                                 </span>
@@ -8383,15 +8404,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 <img 
                                   src={student.avatar || student.student_avatar || '/avatar.svg'} 
                                   alt={student.student_name}
-                                  className="w-10 h-10 rounded-full object-cover border border-white/15 bg-white/5 shrink-0"
+                                  className="w-10 h-10 rounded-full object-cover border border-slate-200 bg-slate-100 shrink-0"
                                   onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
                                 />
 
                                 <div className="min-w-0">
-                                  <h4 className="text-sm font-bold text-white truncate">
+                                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 truncate">
                                     {student.student_name || 'Anonymous Student'}
                                   </h4>
-                                  <p className="text-[11px] text-white/40 font-mono">
+                                  <p className="text-[11px] text-slate-500 font-mono">
                                     {student.student_phone || student.student_email || ''}
                                   </p>
                                 </div>
@@ -8399,10 +8420,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                               <div className="flex items-center gap-3 shrink-0">
                                 <div className="text-right">
-                                  <span className="font-black text-white text-sm block">
+                                  <span className="font-black text-slate-900 text-sm block">
                                     {rawPoints} pts
                                   </span>
-                                  <span className="text-[11px] text-white/40 font-mono block">
+                                  <span className="text-[11px] text-slate-400 font-mono block">
                                     {formatMinimalTime(sec)}
                                   </span>
                                 </div>
@@ -8411,10 +8432,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 <button
                                   type="button"
                                   onClick={() => setInspectingSubmission(student)}
-                                  className="px-2.5 py-1.5 rounded-lg bg-[#e11438]/20 hover:bg-[#e11438]/35 text-white text-[11px] font-bold border border-[#e11438]/40 transition-all cursor-pointer flex items-center gap-1 active:scale-95"
+                                  className="px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-[#5d5bf6] text-xs font-bold border border-indigo-200 transition-all cursor-pointer flex items-center gap-1 active:scale-95"
                                   title="View full answer sheet and evaluate marks"
                                 >
-                                  <Eye className="w-3.5 h-3.5 text-[#ff4d6d]" />
+                                  <Eye className="w-3.5 h-3.5 text-[#5d5bf6]" />
                                   <span className="hidden sm:inline">খাতা দেখুন</span>
                                 </button>
                               </div>
@@ -8429,163 +8450,177 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
               {/* 5. TAB 2: 👤 শিক্ষার্থী গ্রেডবুক ও খাতা মূল্যায়ন (Individual Student Gradebook) */}
               {examViewMode === 'gradebook' && (
-                <div className="relative z-10 space-y-6">
-                  {/* Search Bar & Quick Student Selection */}
-                  <div className="p-4 sm:p-5 rounded-2xl bg-black/40 border border-white/10 space-y-4">
-                    <div className="relative max-w-md">
-                      <Search className="w-4 h-4 text-white/40 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                      <input
-                        type="text"
-                        placeholder="শিক্ষার্থীর নাম, মোবাইল নম্বর বা ইমেইল টাইপ করুন..."
-                        value={gradebookSearchQuery}
-                        onChange={(e) => setGradebookSearchQuery(e.target.value)}
-                        className="w-full bg-[#18040b] border border-[#e11438]/40 rounded-xl pl-10 pr-8 py-2.5 text-xs text-white outline-none focus:border-[#ff2a55] focus:ring-2 focus:ring-[#e11438]/20 placeholder:text-white/40"
-                      />
-                      {gradebookSearchQuery && (
-                        <button
-                          type="button"
-                          onClick={() => setGradebookSearchQuery('')}
-                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-white/40 hover:text-white border-none bg-transparent cursor-pointer"
-                        >
-                          <X className="w-3.5 h-3.5" />
-                        </button>
-                      )}
+                <div className="space-y-5">
+                  {/* Student Search & Quick Select */}
+                  <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div>
+                        <h3 className="text-sm font-bold text-slate-900">
+                          শিক্ষার্থী খুঁজুন ও খাতা মূল্যায়ন
+                        </h3>
+                        <p className="text-xs text-slate-500 mt-0.5">
+                          যেকোনো শিক্ষার্থীর নাম বা ফোন নম্বর লিখে তার সম্পূর্ণ পরীক্ষার ফলাফল ও খাতা দেখুন।
+                        </p>
+                      </div>
+
+                      {/* Search Input */}
+                      <div className="relative w-full sm:w-72">
+                        <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="text"
+                          placeholder="নাম বা মোবাইল নম্বর..."
+                          value={gradebookSearchQuery}
+                          onChange={(e) => setGradebookSearchQuery(e.target.value)}
+                          className="w-full bg-slate-50 hover:bg-slate-50 focus:bg-white border border-slate-200 rounded-xl pl-10 pr-8 py-2 text-xs text-slate-800 outline-none focus:border-[#5d5bf6] focus:ring-1 focus:ring-[#5d5bf6] font-medium"
+                        />
+                        {gradebookSearchQuery && (
+                          <button
+                            type="button"
+                            onClick={() => setGradebookSearchQuery('')}
+                            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 border-none bg-transparent cursor-pointer"
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+                      </div>
                     </div>
 
-                    {/* Quick Selection Student Chips */}
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-[11px] text-white/50 font-semibold mr-1">
-                        শিক্ষার্থী নির্বাচন করুন:
-                      </span>
-                      {filteredGradebookStudents.slice(0, 8).map(st => {
-                        const isStSelected = activeGradebookStudent?.key === st.key;
-                        return (
-                          <button
-                            key={st.key}
-                            type="button"
-                            onClick={() => setSelectedGradebookStudentKey(st.key)}
-                            className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer border flex items-center gap-1.5 ${
-                              isStSelected
-                                ? 'bg-gradient-to-r from-[#dc2626] to-[#ff2a55] text-white border-white/30 shadow-[0_0_12px_rgba(225,20,56,0.5)] font-bold'
-                                : 'bg-white/[0.04] text-gray-300 hover:text-white border-white/10 hover:bg-white/[0.08]'
-                            }`}
-                          >
-                            <span>{st.student_name}</span>
-                            <span className="text-[10px] opacity-70">({st.totalExams})</span>
-                          </button>
-                        );
-                      })}
-                    </div>
+                    {/* Quick Student Chips */}
+                    {filteredGradebookStudents.length > 0 && (
+                      <div className="pt-2 border-t border-slate-100 flex items-center gap-2 overflow-x-auto pb-1">
+                        <span className="text-[11px] font-semibold text-slate-400 shrink-0">তালিকা:</span>
+                        {filteredGradebookStudents.slice(0, 15).map(st => {
+                          const isSel = selectedGradebookStudentKey === st.studentKey;
+                          return (
+                            <button
+                              key={st.studentKey}
+                              type="button"
+                              onClick={() => setSelectedGradebookStudentKey(st.studentKey)}
+                              className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer flex items-center gap-1.5 ${
+                                isSel
+                                  ? 'bg-[#5d5bf6] text-white border-[#5d5bf6] shadow-xs'
+                                  : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
+                              }`}
+                            >
+                              <span>{st.student_name}</span>
+                              <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSel ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-600'}`}>
+                                {st.submissions.length}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
 
-                  {/* Active Student Detail Card & Exam History */}
+                  {/* Active Student Details & Gradebook Table */}
                   {activeGradebookStudent ? (
-                    <div className="space-y-5">
-                      {/* Student Profile Hero Header */}
-                      <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#20050e] via-[#150309] to-[#0c0205] border border-[#e11438]/30 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
-                        <div className="flex items-center gap-4">
-                          <img 
-                            src={activeGradebookStudent.student_avatar || '/avatar.svg'} 
-                            alt={activeGradebookStudent.student_name}
-                            className="w-16 h-16 rounded-full object-cover border-2 border-[#ff2a55] shadow-[0_0_20px_rgba(225,20,56,0.4)] shrink-0"
-                            onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
-                          />
+                    <div className="space-y-4">
+                      {/* Student Profile Summary Banner */}
+                      <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div className="flex items-center gap-3.5">
+                          <div className="w-12 h-12 rounded-full bg-[#5d5bf6] text-white font-black text-lg flex items-center justify-center shrink-0 shadow-xs">
+                            {(activeGradebookStudent.student_name || 'S').charAt(0).toUpperCase()}
+                          </div>
                           <div>
-                            <h3 className="text-lg font-black text-white">
-                              {activeGradebookStudent.student_name}
-                            </h3>
-                            <p className="text-xs text-white/60 font-mono mt-0.5">
-                              {activeGradebookStudent.student_phone || 'No phone'} · {activeGradebookStudent.student_email || 'No email'}
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <h3 className="text-base font-black text-slate-900">
+                                {activeGradebookStudent.student_name}
+                              </h3>
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 text-[#5d5bf6] border border-indigo-200">
+                                {activeGradebookStudent.submissions.length} টি পরীক্ষা সম্পন্ন
+                              </span>
+                            </div>
+                            <p className="text-xs text-slate-500 font-mono mt-0.5">
+                              {activeGradebookStudent.student_phone || 'ফোন নম্বর নেই'} · {activeGradebookStudent.student_email || ''}
                             </p>
                           </div>
                         </div>
 
-                        {/* Student Mini Stats */}
-                        <div className="grid grid-cols-3 gap-3 w-full md:w-auto">
-                          <div className="bg-black/40 border border-white/10 rounded-xl p-3 text-center min-w-[90px]">
-                            <span className="text-[10px] text-gray-400 block font-bold">EXAMS</span>
-                            <span className="text-base font-black text-white">{activeGradebookStudent.totalExams}</span>
+                        {/* Summary Badges */}
+                        <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end border-t md:border-t-0 pt-3 md:pt-0 border-slate-100">
+                          <div className="text-left md:text-right">
+                            <span className="text-[10px] text-slate-400 font-bold block uppercase">গড় নম্বর</span>
+                            <span className="text-lg font-black text-emerald-600">
+                              {activeGradebookStudent.avgScore}%
+                            </span>
                           </div>
-                          <div className="bg-black/40 border border-white/10 rounded-xl p-3 text-center min-w-[90px]">
-                            <span className="text-[10px] text-gray-400 block font-bold">TOTAL PTS</span>
-                            <span className="text-base font-black text-amber-400">{activeGradebookStudent.totalScore}</span>
-                          </div>
-                          <div className="bg-black/40 border border-white/10 rounded-xl p-3 text-center min-w-[90px]">
-                            <span className="text-[10px] text-gray-400 block font-bold">AVG ACCURACY</span>
-                            <span className="text-base font-black text-emerald-400">{activeGradebookStudent.averagePercentage}%</span>
+                          <div className="h-8 w-px bg-slate-200 hidden md:block" />
+                          <div className="text-right">
+                            <span className="text-[10px] text-slate-400 font-bold block uppercase">সর্বোচ্চ স্কোর</span>
+                            <span className="text-lg font-black text-amber-600">
+                              {activeGradebookStudent.highestScore}
+                            </span>
                           </div>
                         </div>
                       </div>
 
                       {/* Exams History Table */}
-                      <div className="rounded-2xl bg-black/40 border border-white/10 overflow-hidden">
-                        <div className="p-4 border-b border-white/10 flex items-center justify-between">
-                          <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-                            অংশগ্রহণকৃত সকল পরীক্ষার ফলাফল তালিকা (Exam History)
+                      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] overflow-hidden">
+                        <div className="p-4 border-b border-slate-100 flex items-center justify-between">
+                          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">
+                            পরীক্ষার ইতিহাস ও খাতার তালিকা ({activeGradebookStudent.submissions.length} টি জমা)
                           </h4>
-                          <span className="text-xs text-white/50">
-                            মোট {activeGradebookStudent.submissions.length} টি পরীক্ষা সম্পন্ন
-                          </span>
                         </div>
 
                         <div className="overflow-x-auto">
-                          <table className="w-full text-left text-xs text-white/80">
-                            <thead className="bg-white/[0.03] text-white/50 uppercase text-[10px] font-bold border-b border-white/10">
+                          <table className="w-full text-left text-xs text-slate-700">
+                            <thead className="bg-slate-50/80 text-slate-600 uppercase text-[10px] font-bold border-b border-slate-200">
                               <tr>
                                 <th className="py-3 px-4">#</th>
                                 <th className="py-3 px-4">কোর্স</th>
                                 <th className="py-3 px-4">পরীক্ষার নাম</th>
                                 <th className="py-3 px-4 text-center">প্রাপ্ত নম্বর</th>
                                 <th className="py-3 px-4 text-center">অ্যাকুরেসি</th>
-                                <th className="py-3 px-4 text-center">সময়</th>
-                                <th className="py-3 px-4">তারিখ</th>
-                                <th className="py-3 px-4 text-center">খাতা পরিদর্শক</th>
+                                <th className="py-3 px-4 text-center">ব্যয়িত সময়</th>
+                                <th className="py-3 px-4">জমার তারিখ</th>
+                                <th className="py-3 px-4 text-center">খাতা দেখুন</th>
                               </tr>
                             </thead>
-                            <tbody className="divide-y divide-white/[0.04]">
+                            <tbody className="divide-y divide-slate-100">
                               {activeGradebookStudent.submissions.map((sub, idx) => {
                                 const pct = sub.percentage ?? 0;
                                 const isExcellent = pct >= 80;
                                 const isPass = pct >= 50;
 
                                 return (
-                                  <tr key={sub.id || idx} className="hover:bg-white/[0.03] transition-colors">
-                                    <td className="py-3 px-4 text-white/40 font-mono text-[11px]">{idx + 1}</td>
+                                  <tr key={sub.id || idx} className="hover:bg-slate-50/70 transition-colors">
+                                    <td className="py-3 px-4 text-slate-400 font-mono text-[11px]">{idx + 1}</td>
                                     <td className="py-3 px-4">
-                                      <span className="px-2 py-0.5 rounded-md bg-white/[0.05] text-white/80 text-[11px] font-semibold border border-white/10">
+                                      <span className="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[11px] font-semibold border border-slate-200">
                                         {sub.course_name || 'Course'}
                                       </span>
                                     </td>
-                                    <td className="py-3 px-4 font-bold text-white">
+                                    <td className="py-3 px-4 font-bold text-slate-900">
                                       {sub.lesson_title || 'Exam'}
                                     </td>
-                                    <td className="py-3 px-4 text-center font-bold text-white">
-                                      <span className="text-amber-400">{sub.score}</span> / {sub.total_marks}
+                                    <td className="py-3 px-4 text-center font-bold text-slate-900">
+                                      <span className="text-amber-600">{sub.score}</span> / {sub.total_marks}
                                     </td>
                                     <td className="py-3 px-4 text-center">
                                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
                                         isExcellent 
-                                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' 
+                                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
                                           : isPass
-                                          ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
-                                          : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                                          ? 'bg-amber-50 text-amber-700 border-amber-200'
+                                          : 'bg-rose-50 text-rose-700 border-rose-200'
                                       }`}>
                                         {pct}%
                                       </span>
                                     </td>
-                                    <td className="py-3 px-4 text-center font-mono text-[11px] text-white/60">
+                                    <td className="py-3 px-4 text-center font-mono text-[11px] text-slate-600">
                                       {formatMinimalTime(sub.time_taken_seconds)}
                                     </td>
-                                    <td className="py-3 px-4 text-white/40 text-[11px] whitespace-nowrap">
+                                    <td className="py-3 px-4 text-slate-500 text-[11px] whitespace-nowrap">
                                       {sub.submitted_at ? new Date(sub.submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'N/A'}
                                     </td>
                                     <td className="py-3 px-4 text-center">
                                       <button
                                         type="button"
                                         onClick={() => setInspectingSubmission(sub)}
-                                        className="px-3 py-1 rounded-lg bg-[#e11438]/20 hover:bg-[#e11438]/40 text-white text-xs font-bold border border-[#e11438]/40 transition-all cursor-pointer flex items-center gap-1 mx-auto active:scale-95"
+                                        className="px-3 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-[#5d5bf6] text-xs font-bold border border-indigo-200 transition-all cursor-pointer flex items-center gap-1 mx-auto active:scale-95"
                                       >
-                                        <Eye className="w-3.5 h-3.5 text-[#ff4d6d]" />
+                                        <Eye className="w-3.5 h-3.5 text-[#5d5bf6]" />
                                         <span>খাতা দেখুন</span>
                                       </button>
                                     </td>
@@ -8598,7 +8633,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       </div>
                     </div>
                   ) : (
-                    <div className="py-16 text-center text-white/40">
+                    <div className="bg-white rounded-2xl p-16 border border-slate-200/80 text-center text-slate-400">
                       কোনো শিক্ষার্থী পাওয়া যায়নি। উপরের সার্চ বারে ফোন বা নাম দিয়ে খুঁজুন।
                     </div>
                   )}
@@ -8607,23 +8642,23 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
               {/* 6. TAB 3: 📋 সকল জমার লাইভ লেজার (All Submissions Master Ledger) */}
               {examViewMode === 'submissions' && (
-                <div className="relative z-10 space-y-4">
-                  {/* Filter Toolbar */}
-                  <div className="p-4 rounded-2xl bg-black/40 border border-white/10 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
-                    <div className="relative w-full sm:w-80 md:w-96 shrink-0">
-                      <Search className="w-4 h-4 text-white/40 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <div className="space-y-4">
+                  {/* Filter Toolbar (Responsive Flex, NEVER OVERFLOWS) */}
+                  <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-3">
+                    <div className="relative flex-1 min-w-[220px]">
+                      <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                       <input
                         type="text"
-                        placeholder="শিক্ষার্থীর নাম, ফোন, ইমেইল বা পরীক্ষার নাম..."
+                        placeholder="শিক্ষার্থীর নাম, ফোন, ইমেইল বা পরীক্ষার নাম দিয়ে খুঁজুন..."
                         value={examSubmissionsSearch}
                         onChange={(e) => setExamSubmissionsSearch(e.target.value)}
-                        className="w-full bg-[#18040b] border border-[#e11438]/40 rounded-xl pl-10 pr-8 py-2 text-xs text-white outline-none focus:border-[#ff2a55] placeholder:text-white/40 font-medium"
+                        className="w-full bg-slate-50 hover:bg-slate-50 focus:bg-white border border-slate-200 rounded-xl pl-10 pr-8 py-2 text-xs text-slate-800 outline-none focus:border-[#5d5bf6] focus:ring-1 focus:ring-[#5d5bf6] font-medium transition-all"
                       />
                       {examSubmissionsSearch && (
                         <button
                           type="button"
                           onClick={() => setExamSubmissionsSearch('')}
-                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-white/40 hover:text-white border-none bg-transparent cursor-pointer"
+                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 border-none bg-transparent cursor-pointer"
                         >
                           <X className="w-3.5 h-3.5" />
                         </button>
@@ -8637,7 +8672,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           setSelectedExamCourseFilter(e.target.value);
                           setSelectedExamFilter('ALL');
                         }}
-                        className="bg-[#18040b] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-semibold outline-none focus:border-[#e11438]"
+                        className="bg-slate-50 hover:bg-slate-50 focus:bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6]"
                       >
                         <option value="ALL">সকল কোর্স (All Courses)</option>
                         {submissionCourseOptions.map(c => (
@@ -8648,7 +8683,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       <select
                         value={selectedExamFilter}
                         onChange={(e) => setSelectedExamFilter(e.target.value)}
-                        className="bg-[#18040b] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-semibold outline-none focus:border-[#e11438] max-w-[200px]"
+                        className="bg-slate-50 hover:bg-slate-50 focus:bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6] max-w-[200px]"
                       >
                         <option value="ALL">সকল পরীক্ষা (All Exams)</option>
                         {submissionExamOptions.map(e => (
@@ -8659,7 +8694,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       <select
                         value={examAttemptFilter}
                         onChange={(e) => setExamAttemptFilter(e.target.value)}
-                        className="bg-[#18040b] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-semibold outline-none focus:border-[#e11438]"
+                        className="bg-slate-50 hover:bg-slate-50 focus:bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 font-semibold outline-none focus:border-[#5d5bf6]"
                       >
                         <option value="ALL">সকল অ্যাটেম্পট</option>
                         <option value="OFFICIAL">অফিসিয়াল ১ম চেষ্টা (Official 1st)</option>
@@ -8675,7 +8710,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             setSelectedExamFilter('ALL');
                             setExamAttemptFilter('ALL');
                           }}
-                          className="px-2.5 py-2 rounded-xl text-xs font-bold text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 cursor-pointer"
+                          className="px-3 py-2 rounded-xl text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 cursor-pointer transition-colors"
                         >
                           Clear
                         </button>
@@ -8684,9 +8719,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   </div>
 
                   {/* Submissions Table */}
-                  <div className="overflow-x-auto rounded-2xl bg-black/40 border border-white/10">
-                    <table className="w-full text-left text-xs text-white/80">
-                      <thead className="bg-white/[0.04] text-white/50 uppercase text-[10px] font-bold border-b border-white/10">
+                  <div className="bg-white rounded-2xl border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] overflow-x-auto">
+                    <table className="w-full text-left text-xs text-slate-700">
+                      <thead className="bg-slate-50/80 text-slate-600 uppercase text-[10px] font-bold border-b border-slate-200">
                         <tr>
                           <th className="py-3.5 px-4">#</th>
                           <th className="py-3.5 px-4">শিক্ষার্থী</th>
@@ -8700,13 +8735,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           <th className="py-3.5 px-4 text-center">অ্যাকশন</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-white/[0.04]">
+                      <tbody className="divide-y divide-slate-100">
                         {filteredSubmissions.length === 0 ? (
                           <tr>
-                            <td colSpan="10" className="py-14 text-center text-white/40">
-                              <Trophy className="w-8 h-8 text-white/20 mx-auto mb-2" />
-                              <p className="font-bold text-sm text-white/70">কোনো পরীক্ষার ফলাফল পাওয়া যায়নি</p>
-                              <p className="text-xs text-white/40 mt-1">শিক্ষার্থীরা পরীক্ষা জমা দিলে এখানে প্রদর্শিত হবে।</p>
+                            <td colSpan="10" className="py-16 text-center text-slate-400">
+                              <Trophy className="w-10 h-10 text-slate-300 mx-auto mb-2" />
+                              <p className="font-bold text-sm text-slate-700">কোনো পরীক্ষার ফলাফল পাওয়া যায়নি</p>
+                              <p className="text-xs text-slate-400 mt-1">শিক্ষার্থীরা পরীক্ষা দিলে এখানে স্বয়ংক্রিয়ভাবে জমা হবে।</p>
                             </td>
                           </tr>
                         ) : (
@@ -8717,60 +8752,60 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             const isOfficial = sub.is_first_attempt !== false && (!sub.attempt_number || Number(sub.attempt_number) <= 1);
 
                             return (
-                              <tr key={sub.id || idx} className="hover:bg-white/[0.03] transition-colors">
-                                <td className="py-3.5 px-4 text-white/40 font-mono text-[11px]">{idx + 1}</td>
+                              <tr key={sub.id || idx} className="hover:bg-slate-50/70 transition-colors">
+                                <td className="py-3.5 px-4 text-slate-400 font-mono text-[11px]">{idx + 1}</td>
                                 <td className="py-3.5 px-4">
                                   <div className="flex items-center gap-2.5">
-                                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#dc2626] to-[#ff2a55] text-white font-black text-xs flex items-center justify-center shrink-0">
+                                    <div className="w-8 h-8 rounded-full bg-[#5d5bf6] text-white font-black text-xs flex items-center justify-center shrink-0">
                                       {(sub.student_name || 'S').charAt(0).toUpperCase()}
                                     </div>
                                     <div className="min-w-0">
-                                      <div className="font-bold text-xs text-white truncate">
+                                      <div className="font-bold text-xs text-slate-900 truncate">
                                         {sub.student_name || 'Anonymous Student'}
                                       </div>
-                                      <div className="text-[11px] text-white/40 font-mono">
+                                      <div className="text-[11px] text-slate-500 font-mono">
                                         {sub.student_phone || sub.student_email || ''}
                                       </div>
                                     </div>
                                   </div>
                                 </td>
                                 <td className="py-3.5 px-4">
-                                  <span className="px-2 py-0.5 rounded-md bg-white/[0.05] text-white/80 text-[11px] font-semibold border border-white/10 truncate max-w-[150px] inline-block">
+                                  <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[11px] font-semibold border border-slate-200 truncate max-w-[150px] inline-block">
                                     {sub.course_name || 'Course'}
                                   </span>
                                 </td>
-                                <td className="py-3.5 px-4 font-bold text-white truncate max-w-[180px]">
+                                <td className="py-3.5 px-4 font-bold text-slate-900 truncate max-w-[180px]">
                                   {sub.lesson_title || 'Quiz'}
                                 </td>
-                                <td className="py-3.5 px-4 text-center font-black text-amber-400">
-                                  {sub.score} <span className="text-white/40 font-normal">/ {sub.total_marks}</span>
+                                <td className="py-3.5 px-4 text-center font-black text-slate-900">
+                                  <span className="text-amber-600">{sub.score}</span> <span className="text-slate-400 font-normal">/ {sub.total_marks}</span>
                                 </td>
                                 <td className="py-3.5 px-4 text-center">
                                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
                                     isExcellent
-                                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                                      ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                                       : isPass
-                                      ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
-                                      : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                                      ? 'bg-amber-50 text-amber-700 border-amber-200'
+                                      : 'bg-rose-50 text-rose-700 border-rose-200'
                                   }`}>
                                     {pct}%
                                   </span>
                                 </td>
-                                <td className="py-3.5 px-4 text-center font-mono text-[11px] text-white/60">
+                                <td className="py-3.5 px-4 text-center font-mono text-[11px] text-slate-600">
                                   {formatMinimalTime(sub.time_taken_seconds)}
                                 </td>
                                 <td className="py-3.5 px-4 text-center">
                                   {isOfficial ? (
-                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#e11438]/20 text-[#ff4d6d] border border-[#e11438]/30">
+                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-indigo-50 text-[#5d5bf6] border border-indigo-200">
                                       Official 1st
                                     </span>
                                   ) : (
-                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-white/10 text-white/70 border border-white/15">
+                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
                                       Retake #{sub.attempt_number || 2}
                                     </span>
                                   )}
                                 </td>
-                                <td className="py-3.5 px-4 text-white/40 text-[11px] whitespace-nowrap">
+                                <td className="py-3.5 px-4 text-slate-500 text-[11px] whitespace-nowrap">
                                   {sub.submitted_at ? new Date(sub.submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'N/A'}
                                 </td>
                                 <td className="py-3.5 px-4 text-center">
@@ -8778,16 +8813,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     <button
                                       type="button"
                                       onClick={() => setInspectingSubmission(sub)}
-                                      className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors border-none bg-transparent cursor-pointer"
+                                      className="p-1.5 rounded-lg text-slate-500 hover:text-[#5d5bf6] hover:bg-indigo-50 transition-colors border-none bg-transparent cursor-pointer"
                                       title="View Student Answer Sheet"
                                     >
-                                      <Eye className="w-4 h-4 text-[#ff4d6d]" />
+                                      <Eye className="w-4 h-4 text-[#5d5bf6]" />
                                     </button>
                                     <button
                                       type="button"
                                       onClick={() => handleDeleteSubmission(sub.id)}
                                       disabled={deletingSubmissionId === sub.id}
-                                      className="p-1.5 rounded-lg text-white/40 hover:text-rose-400 hover:bg-rose-500/10 transition-colors border-none bg-transparent cursor-pointer disabled:opacity-40"
+                                      className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors border-none bg-transparent cursor-pointer disabled:opacity-40"
                                       title="Delete submission record"
                                     >
                                       <Trash2 className="w-4 h-4" />
@@ -8804,64 +8839,64 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 </div>
               )}
 
-              {/* 7. ANSWER SHEET INSPECTION MODAL (খাতা পরিদর্শক মোডাল) */}
+              {/* 7. ANSWER SHEET INSPECTION MODAL (খাতা পরিদর্শক মোডাল - CLEAN LIGHT THEME) */}
               {inspectingSubmission && (
-                <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
-                  <div className="relative w-full max-w-2xl max-h-[90vh] bg-gradient-to-b from-[#18040b] via-[#100207] to-[#070103] border border-[#e11438]/40 rounded-3xl p-6 text-white overflow-y-auto shadow-[0_25px_70px_rgba(225,20,56,0.4)] space-y-5">
+                <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-150">
+                  <div className="relative w-full max-w-2xl max-h-[90vh] bg-white border border-slate-200 rounded-3xl p-6 text-slate-900 overflow-y-auto shadow-2xl space-y-5">
                     {/* Modal Header */}
-                    <div className="flex items-start justify-between gap-4 pb-4 border-b border-white/10">
+                    <div className="flex items-start justify-between gap-4 pb-4 border-b border-slate-100">
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#e11438]/20 text-[#ff4d6d] border border-[#e11438]/30">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 text-[#5d5bf6] border border-indigo-200">
                             পরীক্ষার খাতা ও মূল্যায়ন
                           </span>
-                          <span className="text-xs text-white/50">
+                          <span className="text-xs text-slate-400">
                             {inspectingSubmission.submitted_at ? new Date(inspectingSubmission.submitted_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : ''}
                           </span>
                         </div>
-                        <h3 className="text-lg font-black text-white mt-1">
+                        <h3 className="text-lg font-black text-slate-900 mt-1">
                           {inspectingSubmission.lesson_title || inspectingSubmission.quiz_id || 'Class Exam'}
                         </h3>
-                        <p className="text-xs text-gray-300 mt-0.5">
-                          কোর্স: <span className="text-white font-bold">{inspectingSubmission.course_name || 'EduHunters Course'}</span>
+                        <p className="text-xs text-slate-500 mt-0.5">
+                          কোর্স: <span className="text-slate-800 font-bold">{inspectingSubmission.course_name || 'EduHunters Course'}</span>
                         </p>
                       </div>
 
                       <button
                         type="button"
                         onClick={() => setInspectingSubmission(null)}
-                        className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors border-none cursor-pointer"
+                        className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors border-none cursor-pointer"
                       >
                         <X className="w-4 h-4" />
                       </button>
                     </div>
 
                     {/* Student Info Card */}
-                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-between gap-4 flex-wrap">
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-4 flex-wrap">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#dc2626] to-[#ff2a55] text-white font-black text-lg flex items-center justify-center shrink-0">
+                        <div className="w-12 h-12 rounded-full bg-[#5d5bf6] text-white font-black text-lg flex items-center justify-center shrink-0">
                           {(inspectingSubmission.student_name || 'S').charAt(0).toUpperCase()}
                         </div>
                         <div>
-                          <h4 className="text-sm font-bold text-white">
+                          <h4 className="text-sm font-bold text-slate-900">
                             {inspectingSubmission.student_name || 'Anonymous Student'}
                           </h4>
-                          <p className="text-xs text-white/60 font-mono">
+                          <p className="text-xs text-slate-500 font-mono">
                             {inspectingSubmission.student_phone || 'No phone'} · {inspectingSubmission.student_email || ''}
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-4">
                         <div className="text-right">
-                          <span className="text-[10px] text-white/40 block font-bold">প্রাপ্ত নম্বর</span>
-                          <span className="text-xl font-black text-amber-400">
-                            {inspectingSubmission.score} <span className="text-xs text-white/50">/ {inspectingSubmission.total_marks}</span>
+                          <span className="text-[10px] text-slate-400 block font-bold">প্রাপ্ত নম্বর</span>
+                          <span className="text-xl font-black text-amber-600">
+                            {inspectingSubmission.score} <span className="text-xs text-slate-400 font-normal">/ {inspectingSubmission.total_marks}</span>
                           </span>
                         </div>
                         <div className="text-right">
-                          <span className="text-[10px] text-white/40 block font-bold">অ্যাকুরেসি</span>
-                          <span className="text-xl font-black text-emerald-400">
+                          <span className="text-[10px] text-slate-400 block font-bold">অ্যাকুরেসি</span>
+                          <span className="text-xl font-black text-emerald-600">
                             {inspectingSubmission.percentage}%
                           </span>
                         </div>
@@ -8870,21 +8905,21 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                     {/* Score Breakdown (Correct, Wrong, Skipped) */}
                     <div className="grid grid-cols-3 gap-3">
-                      <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-center">
-                        <span className="text-[10px] text-emerald-300 font-bold block uppercase">সঠিক উত্তর</span>
-                        <span className="text-lg font-black text-emerald-400">
+                      <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-center">
+                        <span className="text-[10px] text-emerald-700 font-bold block uppercase">সঠিক উত্তর</span>
+                        <span className="text-lg font-black text-emerald-600">
                           {inspectingSubmission.correct_count ?? '--'}
                         </span>
                       </div>
-                      <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/25 text-center">
-                        <span className="text-[10px] text-rose-300 font-bold block uppercase">ভুল উত্তর</span>
-                        <span className="text-lg font-black text-rose-400">
+                      <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-center">
+                        <span className="text-[10px] text-rose-700 font-bold block uppercase">ভুল উত্তর</span>
+                        <span className="text-lg font-black text-rose-600">
                           {inspectingSubmission.wrong_count ?? '--'}
                         </span>
                       </div>
-                      <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 text-center">
-                        <span className="text-[10px] text-gray-400 font-bold block uppercase">গৃহীত সময়</span>
-                        <span className="text-lg font-black text-white font-mono">
+                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                        <span className="text-[10px] text-slate-500 font-bold block uppercase">গৃহীত সময়</span>
+                        <span className="text-lg font-black text-slate-800 font-mono">
                           {formatMinimalTime(inspectingSubmission.time_taken_seconds)}
                         </span>
                       </div>
@@ -8893,10 +8928,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     {/* Question by Question Detailed Paper (if raw answers are present) */}
                     {Array.isArray(inspectingSubmission.raw_answers) && inspectingSubmission.raw_answers.length > 0 ? (
                       <div className="space-y-3 pt-2">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-white/80">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">
                           প্রশ্নভিত্তিক উত্তরপত্র (Question Analysis):
                         </h4>
-                        <div className="space-y-2.5 max-h-[300px] overflow-y-auto pr-1">
+                        <div className="space-y-2.5 max-h-[320px] overflow-y-auto pr-1">
                           {inspectingSubmission.raw_answers.map((ans, qIdx) => {
                             const isCorrect = ans.isCorrect || ans.selected === ans.correct;
                             const isSkipped = ans.selected === undefined || ans.selected === null || ans.selected === '';
@@ -8904,32 +8939,32 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                             return (
                               <div 
                                 key={qIdx}
-                                className={`p-3 rounded-xl border ${
+                                className={`p-3.5 rounded-xl border ${
                                   isCorrect 
-                                    ? 'bg-emerald-500/5 border-emerald-500/20' 
+                                    ? 'bg-emerald-50/60 border-emerald-200' 
                                     : isSkipped 
-                                    ? 'bg-white/[0.02] border-white/10' 
-                                    : 'bg-rose-500/5 border-rose-500/20'
+                                    ? 'bg-slate-50 border-slate-200' 
+                                    : 'bg-rose-50/60 border-rose-200'
                                 }`}
                               >
                                 <div className="flex items-start justify-between gap-2">
-                                  <span className="text-xs font-bold text-white">
+                                  <span className="text-xs font-bold text-slate-900">
                                     Q{qIdx + 1}. {ans.question || `Question #${qIdx + 1}`}
                                   </span>
                                   <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                                     isCorrect 
-                                      ? 'bg-emerald-500/20 text-emerald-300' 
+                                      ? 'bg-emerald-100 text-emerald-800' 
                                       : isSkipped 
-                                      ? 'bg-white/10 text-white/60' 
-                                      : 'bg-rose-500/20 text-rose-300'
+                                      ? 'bg-slate-200 text-slate-700' 
+                                      : 'bg-rose-100 text-rose-800'
                                   }`}>
                                     {isCorrect ? '+১ সঠিক' : isSkipped ? 'স্কিপড' : 'ভুল'}
                                   </span>
                                 </div>
-                                <div className="mt-2 text-[11px] text-gray-300 space-y-0.5 font-mono">
-                                  <div>শিক্ষার্থীর উত্তর: <span className={isCorrect ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>{String(ans.selectedText || ans.selected || 'স্কিপ করা হয়েছে')}</span></div>
+                                <div className="mt-2 text-[11px] text-slate-700 space-y-0.5 font-medium">
+                                  <div>শিক্ষার্থীর উত্তর: <span className={isCorrect ? 'text-emerald-700 font-bold' : 'text-rose-700 font-bold'}>{String(ans.selectedText || ans.selected || 'স্কিপ করা হয়েছে')}</span></div>
                                   {!isCorrect && ans.correct && (
-                                    <div className="text-emerald-400">সঠিক উত্তর ছিল: <span className="font-bold">{String(ans.correctText || ans.correct)}</span></div>
+                                    <div className="text-emerald-700">সঠিক উত্তর ছিল: <span className="font-bold">{String(ans.correctText || ans.correct)}</span></div>
                                   )}
                                 </div>
                               </div>
@@ -8938,17 +8973,17 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                         </div>
                       </div>
                     ) : (
-                      <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-center text-xs text-white/40">
-                        শিক্ষার্থীর সার্বিক স্কোর ডাটাবেজে সংরক্ষিত রয়েছে। প্রশ্নের বিস্তারিত উত্তরপত্র দেখতে শিক্ষার্থী পোর্টাল থেকে বিস্তারিত ফলাফল দেখা যাবে।
+                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-center text-xs text-slate-500">
+                        শিক্ষার্থীর সার্বিক স্কোর ডাটাবেজে সংরক্ষিত রয়েছে। প্রশ্নের বিস্তারিত উত্তরপত্র শিক্ষার্থী পোর্টাল থেকেও দেখতে পাবেন।
                       </div>
                     )}
 
                     {/* Bottom Modal Actions */}
-                    <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                       <button
                         type="button"
                         onClick={() => handleDeleteSubmission(inspectingSubmission.id)}
-                        className="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 text-xs font-bold border border-rose-500/30 transition-all cursor-pointer flex items-center gap-1.5"
+                        className="px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold border border-rose-200 transition-all cursor-pointer flex items-center gap-1.5"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                         <span>এই পরীক্ষার খাতা ডিলিট করুন</span>
@@ -8957,7 +8992,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       <button
                         type="button"
                         onClick={() => setInspectingSubmission(null)}
-                        className="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all cursor-pointer border border-white/20"
+                        className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all cursor-pointer border border-slate-200"
                       >
                         বন্ধ করুন (Close)
                       </button>
@@ -8968,7 +9003,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
             </div>
           )}
-
           {/* ========================================================= */}
           {/* TAB 5: COURSES & BUNDLES (CLEAN, MINIMAL & USER-FRIENDLY) */}
           {/* ========================================================= */}
