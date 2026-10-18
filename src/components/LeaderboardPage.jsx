@@ -14,7 +14,9 @@ import {
   X,
   Check,
   Zap,
-  BookOpen
+  BookOpen,
+  Lock,
+  ShoppingCart
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { 
@@ -25,6 +27,8 @@ import {
 import { subscribeToSupabaseMessage } from '../services/supabaseService';
 import { supabase, isSupabaseConfigured } from '../supabase/config';
 import { isItemEnrolled, normalizeStr } from '../utils/enrollmentService';
+import { getResolvedStudent } from '../utils/studentProfile';
+import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 
 // ============================================================================
 // 1. SCALLOPED ROSETTE MEDAL BADGE (12-Point Flower Sunburst Ribbon Medal)
@@ -149,7 +153,7 @@ function formatMinimalTime(totalSeconds) {
   return `${s}s`;
 }
 
-// Helper to extract clean lesson list from any course curriculum
+// Helper to extract clean lesson list from any course curriculum or exam batch
 function getCourseLessons(course) {
   const list = [];
   if (course?.curriculum && Array.isArray(course.curriculum)) {
@@ -166,7 +170,7 @@ function getCourseLessons(course) {
               .trim();
 
             list.push({
-              lessonId: les.id || `les-${sIdx}-${cIdx}-${lIdx}`,
+              lessonId: String(les.id || `les-${sIdx}-${cIdx}-${lIdx}`),
               title: fullTitle,
               shortTitle: cleanShort || fullTitle,
               chapterName: ch.name || `Chapter ${cIdx + 1}`,
@@ -179,8 +183,8 @@ function getCourseLessons(course) {
       if (Array.isArray(sec.lessons)) {
         sec.lessons.forEach((les, lIdx) => {
           if (les && typeof les === 'object') {
-            const lid = les.id || `les-${sIdx}-${lIdx}`;
-            if (!list.some(item => item.lessonId === lid)) {
+            const lid = String(les.id || `les-${sIdx}-${lIdx}`);
+            if (!list.some(item => String(item.lessonId) === lid)) {
               const fullTitle = les.title || `Class ${lIdx + 1}`;
               const cleanShort = fullTitle
                 .replace(/^Chapter\s*\d+[\s:.-]*/i, '')
@@ -199,6 +203,46 @@ function getCourseLessons(course) {
       }
     });
   }
+
+  // Also extract subjects if course is an exam batch with details.subjects
+  if (course?.details?.subjects && Array.isArray(course.details.subjects)) {
+    course.details.subjects.forEach((subj, sIdx) => {
+      const subId = `subj-${sIdx + 1}`;
+      if (!list.some(item => item.lessonId === subId)) {
+        list.push({
+          lessonId: subId,
+          title: subj,
+          shortTitle: subj,
+          chapterName: 'Exam Subject',
+          quiz: null
+        });
+      }
+    });
+  }
+
+  // Also include any recorded exams taken by students for this course from localStorage
+  try {
+    const rawSubs = localStorage.getItem('eh_quiz_submissions');
+    if (rawSubs) {
+      const subs = JSON.parse(rawSubs);
+      if (Array.isArray(subs)) {
+        const cId = String(course?.id || course?.slug || course?.key || '').toLowerCase();
+        subs.forEach(sub => {
+          const sCId = String(sub.course_id || sub.course_slug || '').toLowerCase();
+          const matchCourse = sCId && (sCId === cId || cId.includes(sCId) || sCId.includes(cId));
+          if (matchCourse && sub.lesson_id && !list.some(l => String(l.lessonId).toLowerCase() === String(sub.lesson_id).toLowerCase())) {
+            list.push({
+              lessonId: String(sub.lesson_id),
+              title: sub.lesson_title || `Exam #${sub.lesson_id}`,
+              shortTitle: sub.lesson_title || `Exam #${sub.lesson_id}`,
+              chapterName: 'Live Exam',
+              quiz: null
+            });
+          }
+        });
+      }
+    }
+  } catch (e) {}
 
   // Realistic curriculum fallback for Finishing Touch series if empty in localStorage
   if (list.length === 0) {
@@ -219,7 +263,10 @@ function getCourseLessons(course) {
 
 export default function LeaderboardPage({
   courses = [],
+  examBatches = [],
   currentUser = null,
+  initialCourseId = '',
+  initialLessonId = '',
   siteSettings = {},
   onNavigateHome,
   onNavigateDashboard,
@@ -235,24 +282,99 @@ export default function LeaderboardPage({
 }) {
   const { isDark } = useTheme();
 
-  // Find default course (Physics Finishing Touch if present, else first course)
+  // All courses and exam batches combined for selection
+  const allSelectableCourses = useMemo(() => {
+    const list = [];
+    const seen = new Set();
+
+    // 1. Regular courses
+    (courses || []).forEach(c => {
+      const id = String(c.id || c.slug || '').toLowerCase();
+      if (id && !seen.has(id)) {
+        seen.add(id);
+        list.push({ ...c, isExamBatch: false });
+      }
+    });
+
+    // 2. Exam batches from props or EXAM_CATEGORIES_METADATA
+    const batches = (examBatches && examBatches.length > 0) ? examBatches : EXAM_CATEGORIES_METADATA;
+    (batches || []).forEach(b => {
+      const id = String(b.key || b.id || '').toLowerCase();
+      if (id && !seen.has(id)) {
+        seen.add(id);
+        list.push({
+          id: b.key || b.id,
+          key: b.key || b.id,
+          slug: b.key || b.id,
+          title: b.title || b.name,
+          details: b.details,
+          isExamBatch: true
+        });
+      }
+    });
+
+    if (list.length === 0) {
+      list.push({
+        id: 'physics-finishing-touch-series',
+        slug: 'physics-finishing-touch-series',
+        title: 'Physics Finishing Touch Series'
+      });
+    }
+
+    return list;
+  }, [courses, examBatches]);
+
+  // Enrolled courses for this user
+  const userEnrolledCourses = useMemo(() => {
+    if (!Array.isArray(courses) || courses.length === 0) return [];
+
+    if (currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com') {
+      return courses;
+    }
+
+    if (!currentUser) return [];
+
+    return courses.filter(c => 
+      isItemEnrolled(c, currentUser, { courses }, { forDashboard: true })
+    );
+  }, [courses, currentUser]);
+
+  // Default course selection priority
   const defaultCourse = useMemo(() => {
-    if (!Array.isArray(courses) || courses.length === 0) return null;
-    return courses.find(c => 
+    if (allSelectableCourses.length === 0) return null;
+    if (initialCourseId) {
+      const match = allSelectableCourses.find(c => 
+        String(c.id).toLowerCase() === String(initialCourseId).toLowerCase() || 
+        String(c.slug || '').toLowerCase() === String(initialCourseId).toLowerCase() ||
+        String(c.key || '').toLowerCase() === String(initialCourseId).toLowerCase()
+      );
+      if (match) return match;
+    }
+    if (userEnrolledCourses.length > 0) {
+      return userEnrolledCourses[0];
+    }
+    return allSelectableCourses.find(c => 
       (c.title && c.title.toLowerCase().includes('finishing')) ||
       (c.name && c.name.toLowerCase().includes('finishing')) ||
       (c.slug && c.slug.toLowerCase().includes('finishing')) ||
       (c.title && c.title.toLowerCase().includes('physics')) ||
       (c.name && c.name.toLowerCase().includes('physics')) ||
       (c.slug && c.slug.toLowerCase().includes('physics'))
-    ) || courses[0];
-  }, [courses]);
+    ) || allSelectableCourses[0] || null;
+  }, [allSelectableCourses, initialCourseId, userEnrolledCourses]);
 
   const [selectedCourseId, setSelectedCourseId] = useState(() => defaultCourse?.id || defaultCourse?.slug || 'physics-finishing-touch-series');
+
+  // Keep selectedCourseId in sync if initialCourseId changes externally
+  useEffect(() => {
+    if (initialCourseId) {
+      setSelectedCourseId(initialCourseId);
+    }
+  }, [initialCourseId]);
   
   // viewMode: 'overall' (cumulative course total) | 'lesson' (individual class exam)
-  const [viewMode, setViewMode] = useState('overall');
-  const [selectedLessonId, setSelectedLessonId] = useState('');
+  const [viewMode, setViewMode] = useState(() => initialLessonId ? 'lesson' : 'overall');
+  const [selectedLessonId, setSelectedLessonId] = useState(() => initialLessonId || '');
   const [searchTerm, setSearchTerm] = useState('');
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -262,46 +384,33 @@ export default function LeaderboardPage({
 
   // Active selected course object
   const activeCourse = useMemo(() => {
-    if (!Array.isArray(courses) || courses.length === 0) return defaultCourse;
-    return courses.find(c => String(c.id) === String(selectedCourseId) || c.slug === selectedCourseId) || defaultCourse;
-  }, [courses, selectedCourseId, defaultCourse]);
+    if (allSelectableCourses.length === 0) return defaultCourse;
+    return allSelectableCourses.find(c => 
+      String(c.id).toLowerCase() === String(selectedCourseId).toLowerCase() || 
+      String(c.slug || '').toLowerCase() === String(selectedCourseId).toLowerCase() ||
+      String(c.key || '').toLowerCase() === String(selectedCourseId).toLowerCase()
+    ) || defaultCourse;
+  }, [allSelectableCourses, selectedCourseId, defaultCourse]);
 
-  // Lessons list extracted dynamically from course curriculum
+  // Lessons list extracted dynamically from course curriculum and exams
   const availableLessons = useMemo(() => {
     return getCourseLessons(activeCourse);
   }, [activeCourse]);
 
-  // Filter to only enrolled courses for the student (or active course fallback)
-  const userEnrolledCourses = useMemo(() => {
-    if (!Array.isArray(courses) || courses.length === 0) {
-      return defaultCourse ? [defaultCourse] : [];
+  // Check if current user is enrolled in this active course
+  const isUserEnrolledInActiveCourse = useMemo(() => {
+    if (currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com') {
+      return true;
     }
+    if (activeCourse?.isExamBatch) return true;
+    if (!currentUser || !activeCourse) return false;
+    return isItemEnrolled(activeCourse, currentUser, { courses }, { forDashboard: true });
+  }, [activeCourse, currentUser, courses]);
 
-    if (currentUser) {
-      // 1. Check genuine enrolled items (with forDashboard: true so admin pass doesn't automatically pull every single course)
-      const genuineEnrolled = courses.filter(c => 
-        isItemEnrolled(c, currentUser, { courses }, { forDashboard: true })
-      );
-      if (genuineEnrolled.length > 0) return genuineEnrolled;
-
-      // 2. Check explicit array of enrolled courses
-      if (Array.isArray(currentUser.enrolledCourses) && currentUser.enrolledCourses.length > 0) {
-        const matched = courses.filter(c =>
-          currentUser.enrolledCourses.some(ec =>
-            String(ec) === String(c.id) ||
-            normalizeStr(ec) === normalizeStr(c.title) ||
-            normalizeStr(ec) === normalizeStr(c.name)
-          )
-        );
-        if (matched.length > 0) return matched;
-      }
-    }
-
-    // Default / guest: show the active or default course (e.g. Physics Finishing Touch)
-    if (activeCourse) return [activeCourse];
-    if (defaultCourse) return [defaultCourse];
-    return [courses[0]];
-  }, [courses, currentUser, activeCourse, defaultCourse]);
+  // Current student identity resolution (supports logged in or persistent unique guest examinee)
+  const currentStudent = useMemo(() => {
+    return getResolvedStudent(currentUser);
+  }, [currentUser]);
 
   // Dropdown accordion expanded state (defaults to selectedCourseId)
   const [expandedCourseId, setExpandedCourseId] = useState(() => selectedCourseId);
@@ -320,7 +429,7 @@ export default function LeaderboardPage({
   // Active selected lesson object (if in lesson mode)
   const currentActiveLesson = useMemo(() => {
     if (viewMode !== 'lesson' || !selectedLessonId) return null;
-    return availableLessons.find(l => l.lessonId === selectedLessonId) || availableLessons[0] || null;
+    return availableLessons.find(l => String(l.lessonId).toLowerCase() === String(selectedLessonId).toLowerCase()) || availableLessons[0] || null;
   }, [viewMode, selectedLessonId, availableLessons]);
 
   // Clean Navigation Title requested by User:
@@ -335,14 +444,14 @@ export default function LeaderboardPage({
     return currentActiveLesson?.shortTitle || 'Leaderboard';
   }, [viewMode, activeCourse, currentActiveLesson]);
 
-  // Load Leaderboard data with Real-Time Live Sync
+  // Load Leaderboard data with Real-Time Live Sync (fetches for all genuine participants)
   useEffect(() => {
     let isMounted = true;
 
     async function loadData(showSpinner = true) {
       if (showSpinner) setIsLoading(true);
       try {
-        const courseId = activeCourse?.id || activeCourse?.slug || selectedCourseId;
+        const courseId = activeCourse?.id || activeCourse?.slug || activeCourse?.key || selectedCourseId;
         const courseTitle = activeCourse?.title || activeCourse?.name || '';
         if (viewMode === 'overall') {
           const res = await fetchCourseLeaderboard(courseId, courseTitle);
@@ -418,12 +527,17 @@ export default function LeaderboardPage({
     return filteredData.slice(3);
   }, [filteredData]);
 
-  // Current logged in student entry
+  // Current student rank entry (works for logged-in or persistent guest examinee)
   const userRankEntry = useMemo(() => {
-    if (!currentUser) return null;
-    const userId = currentUser.id || currentUser.phone || currentUser.email;
-    return leaderboardData.find(item => item.student_id === userId) || null;
-  }, [leaderboardData, currentUser]);
+    if (!currentStudent?.id && !currentStudent?.name) return null;
+    const entry = leaderboardData.find(item => 
+      (item.student_id && currentStudent.id && String(item.student_id).toLowerCase() === String(currentStudent.id).toLowerCase()) ||
+      (item.student_name && currentStudent.name && item.student_name.trim().toLowerCase() === currentStudent.name.trim().toLowerCase())
+    );
+    if (!entry) return null;
+    const rank = leaderboardData.findIndex(item => item === entry) + 1;
+    return { ...entry, rank };
+  }, [leaderboardData, currentStudent]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#28050c] via-[#100205] to-[#070102] text-white selection:bg-[#e11438] selection:text-white relative overflow-x-hidden font-sans">
@@ -528,11 +642,14 @@ export default function LeaderboardPage({
 
               {/* Courses & Chapters Accordion List */}
               <div className="py-2 space-y-3 flex-1">
-                {userEnrolledCourses.map((c) => {
-                  const cKey = c.id || c.slug;
-                  const isSelected = String(c.id) === String(selectedCourseId) || c.slug === selectedCourseId;
+                {allSelectableCourses.map((c) => {
+                  const cKey = c.id || c.slug || c.key;
+                  const isSelected = String(c.id).toLowerCase() === String(selectedCourseId).toLowerCase() || 
+                                     String(c.slug || '').toLowerCase() === String(selectedCourseId).toLowerCase() ||
+                                     String(c.key || '').toLowerCase() === String(selectedCourseId).toLowerCase();
                   const isExpanded = expandedCourseId === cKey;
                   const cLessons = getCourseLessons(c);
+                  const isEnrolled = currentUser ? isItemEnrolled(c, currentUser, { courses }, { forDashboard: true }) : false;
 
                   return (
                     <div 
@@ -558,11 +675,17 @@ export default function LeaderboardPage({
                             <BookOpen className="w-4 h-4 text-[#ff3358]" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-xs font-bold text-white truncate leading-snug">
-                              {c.title || c.name || 'Course'}
+                            <h4 className="text-xs font-bold text-white truncate leading-snug flex items-center gap-1.5">
+                              <span>{c.title || c.name || 'Course'}</span>
+                              {isEnrolled && (
+                                <span className="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Enrolled</span>
+                              )}
+                              {c.isExamBatch && !isEnrolled && (
+                                <span className="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">Batch</span>
+                              )}
                             </h4>
                             <p className="text-[10px] text-gray-400 mt-0.5">
-                              {cLessons.length} Chapters • Click to expand
+                              {cLessons.length > 0 ? `${cLessons.length} Chapters / Exams` : 'Live Leaderboard'} • Click to view
                             </p>
                           </div>
                         </div>
@@ -597,7 +720,7 @@ export default function LeaderboardPage({
                               </div>
                               <div className="min-w-0">
                                 <div className="text-xs font-bold text-white truncate">Overall Standing</div>
-                                <div className="text-[9.5px] text-gray-400">Cumulative course result</div>
+                                <div className="text-[9.5px] text-gray-400">Cumulative total ranking</div>
                               </div>
                             </div>
                             {isSelected && viewMode === 'overall' && (
@@ -607,7 +730,7 @@ export default function LeaderboardPage({
 
                           {/* Individual Chapter Exams */}
                           {cLessons.map((les, lIdx) => {
-                            const isLesActive = isSelected && viewMode === 'lesson' && selectedLessonId === les.lessonId;
+                            const isLesActive = isSelected && viewMode === 'lesson' && String(selectedLessonId).toLowerCase() === String(les.lessonId).toLowerCase();
                             return (
                               <button
                                 key={les.lessonId}
@@ -669,7 +792,27 @@ export default function LeaderboardPage({
       {/* Main Content Area */}
       <main className="w-full max-w-md sm:max-w-lg mx-auto px-3 sm:px-6 pb-20 relative z-10 flex flex-col min-h-screen">
         
-        {/* Loading State */}
+        {/* Subtle notice for unenrolled users on paid video courses */}
+        {!isUserEnrolledInActiveCourse && !activeCourse?.isExamBatch && currentUser && (
+          <div className="pt-16 pb-2">
+            <div className="p-3.5 rounded-2xl bg-[#24060f]/80 border border-[#e11438]/30 backdrop-blur-md flex items-center justify-between gap-3 text-xs text-white">
+              <div className="flex items-center gap-2 min-w-0">
+                <Lock className="w-4 h-4 text-[#ff4d6d] shrink-0" />
+                <span className="truncate text-white/90">
+                  {activeCourse?.title || 'এই কোর্সের'} ভিডিও ও রিসোর্স পেতে এনরোল করুন
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => onNavigateCourse && onNavigateCourse(activeCourse?.id || activeCourse?.slug)}
+                className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#e11438] to-[#ff2a55] text-white font-bold text-xs shrink-0 cursor-pointer border-none shadow-md"
+              >
+                ভর্তি হোন
+              </button>
+            </div>
+          </div>
+        )}
+
         {isLoading ? (
           <div className="pt-28 pb-20 flex flex-col items-center justify-center text-center">
             <div className="w-12 h-12 rounded-full border-2 border-white/10 border-t-[#e11438] animate-spin mb-4" />
@@ -702,8 +845,8 @@ export default function LeaderboardPage({
                             onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
                           />
                         </div>
-                        <span className="text-[11px] sm:text-xs font-semibold text-white/90 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                          {rank2.student_username || rank2.student_name?.split(' ')[0] || 'Student'}
+                        <span className="text-[11px] sm:text-xs font-semibold text-white/90 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block" title={rank2.student_name}>
+                          {rank2.student_name || rank2.student_username || 'Student'}
                         </span>
                         <div className="mt-1">
                           <TokenPill points={viewMode === 'overall' ? rank2.total_score : rank2.score} />
@@ -761,8 +904,8 @@ export default function LeaderboardPage({
                             onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
                           />
                         </div>
-                        <span className="text-xs sm:text-sm font-bold text-white truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                          {rank1.student_username || rank1.student_name?.split(' ')[0] || 'Champion'}
+                        <span className="text-xs sm:text-sm font-bold text-white truncate max-w-full px-1 text-center mt-1.5 tracking-tight block" title={rank1.student_name}>
+                          {rank1.student_name || rank1.student_username || 'Champion'}
                         </span>
                         <div className="mt-1">
                           <TokenPill points={viewMode === 'overall' ? rank1.total_score : rank1.score} size="lg" />
@@ -820,8 +963,8 @@ export default function LeaderboardPage({
                             onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
                           />
                         </div>
-                        <span className="text-[11px] sm:text-xs font-semibold text-white/90 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block">
-                          {rank3.student_username || rank3.student_name?.split(' ')[0] || 'Student'}
+                        <span className="text-[11px] sm:text-xs font-semibold text-white/90 truncate max-w-full px-1 text-center mt-1.5 tracking-tight block" title={rank3.student_name}>
+                          {rank3.student_name || rank3.student_username || 'Student'}
                         </span>
                         <div className="mt-1">
                           <TokenPill points={viewMode === 'overall' ? rank3.total_score : rank3.score} />
@@ -882,27 +1025,43 @@ export default function LeaderboardPage({
                   const rankNum = idx + 4;
                   const rawPoints = viewMode === 'overall' ? (student.total_score || 0) : (student.score || 0);
                   const points = formatScoreNumber(rawPoints);
+                  const isCurrent = (student.student_id && currentStudent?.id && String(student.student_id).toLowerCase() === String(currentStudent.id).toLowerCase()) ||
+                    (student.student_name && currentStudent?.name && student.student_name.trim().toLowerCase() === currentStudent.name.trim().toLowerCase());
 
                   return (
                     <div
                       key={student.student_id || idx}
-                      className="flex items-center justify-between gap-3 py-3 px-1 rounded-2xl hover:bg-white/[0.03] transition-colors"
+                      className={`flex items-center justify-between gap-3 py-3 px-2 rounded-2xl transition-colors ${
+                        isCurrent 
+                          ? 'bg-[#e11438]/20 border border-[#e11438]/50 shadow-[0_0_15px_rgba(225,20,56,0.25)]' 
+                          : 'hover:bg-white/[0.03]'
+                      }`}
                     >
                       <div className="flex items-center gap-3 min-w-0">
-                        <span className="w-5 text-center text-sm font-semibold text-white/50 shrink-0">
+                        <span className={`w-5 text-center text-sm font-semibold shrink-0 ${isCurrent ? 'text-[#ff4d6d] font-bold' : 'text-white/50'}`}>
                           {rankNum}
                         </span>
 
                         <img 
                           src={student.avatar || student.student_avatar || '/avatar.svg'} 
                           alt={student.student_name}
-                          className="w-10 h-10 rounded-full object-cover border border-white/15 shadow-sm bg-white/5 shrink-0"
+                          className={`w-10 h-10 rounded-full object-cover shadow-sm bg-white/5 shrink-0 ${isCurrent ? 'border-2 border-[#e11438]' : 'border border-white/15'}`}
                           onError={(e) => { e.target.onerror = null; e.target.src = '/avatar.svg'; }}
                         />
 
-                        <h4 className="text-sm font-semibold text-white truncate leading-none tracking-tight">
-                          {student.student_username || student.student_name}
-                        </h4>
+                        <div className="min-w-0">
+                          <h4 className="text-sm font-semibold text-white truncate leading-none tracking-tight flex items-center gap-1.5" title={student.student_name}>
+                            <span>{student.student_name || student.student_username || 'Student'}</span>
+                            {isCurrent && (
+                              <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#e11438] text-white">YOU</span>
+                            )}
+                          </h4>
+                          {student.accuracy !== undefined && (
+                            <span className="text-[10px] text-emerald-400 font-mono mt-0.5 block">
+                              {student.accuracy}% accuracy
+                            </span>
+                          )}
+                        </div>
                       </div>
 
                       <div className="text-right shrink-0">
@@ -923,7 +1082,7 @@ export default function LeaderboardPage({
 
       </main>
 
-      {/* Floating Sticky Bottom Bar for Current Student Standing (If logged in) */}
+      {/* Floating Sticky Bottom Bar for Current Student Standing */}
       {userRankEntry && (
         <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-full max-w-md px-4 z-50">
           <div className="p-3.5 rounded-2xl bg-[#22040c]/95 border border-[#e11438]/50 shadow-[0_12px_35px_rgba(225,20,56,0.4)] flex items-center justify-between gap-3 backdrop-blur-xl">
@@ -945,8 +1104,8 @@ export default function LeaderboardPage({
               <span className="font-mono font-black text-[#ff4d6d] text-sm block">
                 {formatScoreNumber(viewMode === 'overall' ? userRankEntry.total_score : userRankEntry.score)} pts
               </span>
-              <span className="text-[10px] text-white/60 font-mono">
-                Accuracy: {userRankEntry.percentage}%
+              <span className="text-[10px] text-emerald-400 font-mono">
+                {userRankEntry.accuracy !== undefined ? `${userRankEntry.accuracy}% accuracy` : (userRankEntry.percentage !== undefined ? `${userRankEntry.percentage}% accuracy` : '')}
               </span>
             </div>
           </div>

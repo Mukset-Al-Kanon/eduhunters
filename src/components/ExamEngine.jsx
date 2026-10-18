@@ -4,6 +4,7 @@ import confetti from 'canvas-confetti';
 import { stripEmoji } from '../utils/textUtils';
 import { useAuth } from '../context/AuthContext';
 import { recordQuizSubmission } from '../services/quizService';
+import { getResolvedStudent } from '../utils/studentProfile';
 import { getQuestionCorrectIndex, cleanExplanation, getUserAnswer } from '../utils/examBatchStorage';
 
 export default function ExamEngine({ exam, onClose }) {
@@ -127,8 +128,9 @@ export default function ExamEngine({ exam, onClose }) {
     try {
       const durationSecs = (exam?.durationMinutes ? exam.durationMinutes * 60 : 3600);
       const timeTaken = Math.max(1, durationSecs - timeLeft);
+      const resolvedStudent = getResolvedStudent(currentUser);
       recordQuizSubmission({
-        student: currentUser || { id: 'guest_student', name: 'Student' },
+        student: resolvedStudent,
         course: { 
           id: exam?.courseId || 'exam_batch', 
           title: exam?.courseName || exam?.title || 'Exam' 

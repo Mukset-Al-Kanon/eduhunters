@@ -1418,8 +1418,10 @@ export default function App() {
         setViewMode('store');
       }, '/store');
     },
-    onNavigateLeaderboard: () => {
+    onNavigateLeaderboard: (cId, lId) => {
       setExamFromBundle(false);
+      if (cId) setSelectedCourseId(cId);
+      if (lId) setSelectedLessonInfo({ id: lId });
       try { sessionStorage.removeItem('eduhunters_nav_from_bundle'); } catch(e) {}
       navigateWithSmoothTransition(() => {
         setViewMode('leaderboard');
@@ -1678,8 +1680,13 @@ export default function App() {
       return (
         <LeaderboardPage 
           courses={data?.courses || initialData.courses || []}
+          examBatches={data?.examBatches || EXAM_CATEGORIES_METADATA || []}
           currentUser={currentUser}
+          initialCourseId={selectedCourseId}
+          initialLessonId={selectedLessonInfo?.id}
           siteSettings={data?.siteSettings}
+          onNavigateCourse={navHandlers.onNavigateCourse}
+          onLoginClick={(postLoginAction) => handleOpenAuth('signin', postLoginAction)}
           {...navHandlers}
         />
       );

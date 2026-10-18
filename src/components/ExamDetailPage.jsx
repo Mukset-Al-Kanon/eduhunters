@@ -8,6 +8,7 @@ import {
 
 import { useTheme } from '../context/ThemeContext';
 import RtdsCurriculumView from './RtdsCurriculumView';
+import MasterEnglishCurriculumView from './MasterEnglishCurriculumView';
 import { stripEmoji } from '../utils/textUtils';
 
 
@@ -428,6 +429,14 @@ export default function ExamDetailPage({
             {/* Render Curriculum Hierarchy if category is RTDS or GK Course */}
             {(category?.key === 'rtds' || category?.key === 'gk_course') ? (
               <RtdsCurriculumView
+                exams={exams}
+                onSelectExam={onSelectExam}
+                isEnrolled={isEnrolled}
+                onOpenEnrollModal={onOpenEnrollModal}
+                category={category}
+              />
+            ) : isMasterEnglish ? (
+              <MasterEnglishCurriculumView
                 exams={exams}
                 onSelectExam={onSelectExam}
                 isEnrolled={isEnrolled}

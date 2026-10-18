@@ -504,6 +504,7 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
 
     // 1. Fetch user record from eduhunters_users
     let userEnrolled = [];
+    let dbUser = null;
     try {
       let query = supabase.from('eduhunters_users').select('*');
       if (uid) {
@@ -511,7 +512,8 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
       } else if (cleanEmail) {
         query = query.eq('email', cleanEmail);
       }
-      const { data: dbUser } = await query.maybeSingle();
+      const { data } = await query.maybeSingle();
+      dbUser = data;
       if (dbUser && Array.isArray(dbUser.enrolled_courses)) {
         userEnrolled = dbUser.enrolled_courses;
       }
@@ -756,12 +758,14 @@ export async function saveSupabaseUser(user, extra = {}) {
     let existingId = targetId;
     let existingEnrolled = [];
     let existingRaw = {};
+    let existingUser = null;
     try {
-      let { data: existingUser } = await supabase
+      const { data } = await supabase
         .from('eduhunters_users')
         .select('*')
         .eq('id', targetId)
         .maybeSingle();
+      existingUser = data;
 
       if (!existingUser && (user.email || extra.email)) {
         const cleanEmail = (user.email || extra.email).toLowerCase().trim();

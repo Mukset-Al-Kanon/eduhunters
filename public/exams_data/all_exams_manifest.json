@@ -5960,7 +5960,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Adjective Classification (Ques. No. 1-40).json",
       "totalQuestions": 40,
-      "durationMinutes": 20,
+      "durationMinutes": 24,
       "totalMarks": 40,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -5974,7 +5974,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Adverb Classification (Ques. No. 1-47).json",
       "totalQuestions": 47,
-      "durationMinutes": 20,
+      "durationMinutes": 28,
       "totalMarks": 47,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -5988,7 +5988,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Article (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6002,7 +6002,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Article (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6016,7 +6016,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Article (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6030,7 +6030,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Article (Ques. No. 201-233).json",
       "totalQuestions": 33,
-      "durationMinutes": 15,
+      "durationMinutes": 20,
       "totalMarks": 33,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6044,7 +6044,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Article (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6058,7 +6058,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conditional (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6072,7 +6072,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conditional (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6086,7 +6086,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conditional (Ques. No. 151-182).json",
       "totalQuestions": 32,
-      "durationMinutes": 15,
+      "durationMinutes": 19,
       "totalMarks": 32,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6100,7 +6100,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conditional (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6114,7 +6114,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conjugation of Verb (Ques. No. 191-240).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6128,7 +6128,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conjugation of Verb (Ques. No. 241-300).json",
       "totalQuestions": 60,
-      "durationMinutes": 30,
+      "durationMinutes": 36,
       "totalMarks": 60,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6142,7 +6142,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conjunction (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6156,7 +6156,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conjunction (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6170,7 +6170,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conjunction (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6184,7 +6184,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conjunction (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6198,7 +6198,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Conjunction, Interjection (Ques. No. 201-233).json",
       "totalQuestions": 33,
-      "durationMinutes": 15,
+      "durationMinutes": 20,
       "totalMarks": 33,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6212,7 +6212,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Correction (Ques. No. 1-50).json",
       "totalQuestions": 49,
-      "durationMinutes": 20,
+      "durationMinutes": 29,
       "totalMarks": 49,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6226,7 +6226,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Correction (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6240,7 +6240,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Correction (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6254,7 +6254,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Correction (Ques. No. 201-222).json",
       "totalQuestions": 22,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6268,7 +6268,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Correction (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6282,7 +6282,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Countable and Uncountable noun (Ques. No. 141-190).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6296,7 +6296,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Countable and Uncountable noun (Ques. No. 191-240).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6310,7 +6310,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Countable and Uncountable noun (Ques. No. 241-290).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6324,7 +6324,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Countable and Uncountable noun (Ques. No. 291-326).json",
       "totalQuestions": 36,
-      "durationMinutes": 16,
+      "durationMinutes": 22,
       "totalMarks": 36,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6338,7 +6338,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Degree (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6352,7 +6352,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Degree (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6366,7 +6366,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Degree (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6380,7 +6380,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Degree (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6394,7 +6394,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Derivatives (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6408,7 +6408,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Derivatives (Ques. No. 51-75).json",
       "totalQuestions": 25,
-      "durationMinutes": 10,
+      "durationMinutes": 15,
       "totalMarks": 25,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6422,7 +6422,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Finite Verb (Ques. No. 1-63).json",
       "totalQuestions": 63,
-      "durationMinutes": 25,
+      "durationMinutes": 38,
       "totalMarks": 63,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6436,7 +6436,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Gender (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6450,7 +6450,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Gender (Ques. No. 51-104).json",
       "totalQuestions": 54,
-      "durationMinutes": 21,
+      "durationMinutes": 32,
       "totalMarks": 54,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6464,7 +6464,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Identification of Parts of Speech (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6478,7 +6478,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Identification of Parts of Speech (Ques. No. 101-130).json",
       "totalQuestions": 30,
-      "durationMinutes": 15,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6492,7 +6492,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Identification of Parts of Speech (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6506,7 +6506,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Identification of Phrase & Clause (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6520,7 +6520,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Identification of Phrase & Clause (Ques. No. 101-151).json",
       "totalQuestions": 51,
-      "durationMinutes": 21,
+      "durationMinutes": 31,
       "totalMarks": 51,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6534,7 +6534,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Identification of Phrase & Clause (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6548,7 +6548,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Interchange of Parts of Speech (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6562,7 +6562,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Interchange of Parts of Speech (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6576,7 +6576,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Interchange of Parts of Speech (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6590,7 +6590,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Interchange of Parts of Speech (Ques. No. 201-235).json",
       "totalQuestions": 35,
-      "durationMinutes": 15,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6604,7 +6604,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Interchange of Parts of Speech (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6618,7 +6618,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Latin Adjective (Ques. No. 1-34).json",
       "totalQuestions": 34,
-      "durationMinutes": 15,
+      "durationMinutes": 20,
       "totalMarks": 34,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6632,7 +6632,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Narration (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6646,7 +6646,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Narration (Ques. No. 101-150).json",
       "totalQuestions": 49,
-      "durationMinutes": 20,
+      "durationMinutes": 29,
       "totalMarks": 49,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6660,7 +6660,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Narration (Ques. No. 151-207).json",
       "totalQuestions": 57,
-      "durationMinutes": 22,
+      "durationMinutes": 34,
       "totalMarks": 57,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6674,7 +6674,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Narration (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6688,7 +6688,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Non Finite Verb (Ques. No. 128-190).json",
       "totalQuestions": 63,
-      "durationMinutes": 25,
+      "durationMinutes": 38,
       "totalMarks": 63,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6702,7 +6702,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Non Finite Verb (Ques. No. 78-127).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6716,7 +6716,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Noun (Ques. No. 1-5 + 1-45).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6730,7 +6730,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Noun (Ques. No. 46-95).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6744,7 +6744,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Noun (Ques. No. 96-140).json",
       "totalQuestions": 45,
-      "durationMinutes": 20,
+      "durationMinutes": 27,
       "totalMarks": 45,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6758,7 +6758,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Number (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6772,7 +6772,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Number (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6786,7 +6786,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Number (Ques. No. 151-194).json",
       "totalQuestions": 44,
-      "durationMinutes": 20,
+      "durationMinutes": 26,
       "totalMarks": 44,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6800,7 +6800,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Number (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6814,7 +6814,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Position of Parts of Speech (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6828,7 +6828,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Position of Parts of Speech (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6842,7 +6842,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Position of Parts of Speech (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6856,7 +6856,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Position of Parts of Speech (Ques. No. 201-236).json",
       "totalQuestions": 36,
-      "durationMinutes": 16,
+      "durationMinutes": 22,
       "totalMarks": 36,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6870,7 +6870,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Position of Parts of Speech (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6884,7 +6884,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Pronoun (Ques. No. 105-154).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6898,7 +6898,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Pronoun (Ques. No. 155-204).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6912,7 +6912,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Pronoun (Ques. No. 205-254).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6926,7 +6926,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Pronoun (Ques. No. 255-304).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6940,7 +6940,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Pronoun (Ques. No. 305-349).json",
       "totalQuestions": 45,
-      "durationMinutes": 20,
+      "durationMinutes": 27,
       "totalMarks": 45,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -6954,7 +6954,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6968,7 +6968,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6982,7 +6982,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 116-165).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -6996,7 +6996,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7010,7 +7010,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 16-65).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7024,7 +7024,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 166-215).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7038,7 +7038,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7052,7 +7052,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 216-265).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7066,7 +7066,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7080,7 +7080,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 266-315).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7094,7 +7094,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 301-350).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7108,7 +7108,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 316-365).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7122,7 +7122,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 351-400).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7136,7 +7136,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 366-444).json",
       "totalQuestions": 66,
-      "durationMinutes": 25,
+      "durationMinutes": 40,
       "totalMarks": 66,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7150,7 +7150,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 401-450).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7164,7 +7164,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 451-500).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7178,7 +7178,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 501-550).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7192,7 +7192,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 51-100).json",
       "totalQuestions": 48,
-      "durationMinutes": 20,
+      "durationMinutes": 29,
       "totalMarks": 48,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7206,7 +7206,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 551-600).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7220,7 +7220,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 601-650).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7234,7 +7234,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 651-685 & 1-15).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7248,7 +7248,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Right Form of Verb (Ques. No. 66-115).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7262,7 +7262,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Same Word Used as Different Parts of Speech (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7276,7 +7276,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Same Word Used as Different Parts of Speech (Ques. No. 51-79).json",
       "totalQuestions": 29,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 29,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7290,7 +7290,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Sentence (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7304,7 +7304,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Sentence (Ques. No. 101-141).json",
       "totalQuestions": 41,
-      "durationMinutes": 20,
+      "durationMinutes": 25,
       "totalMarks": 41,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7318,7 +7318,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Sentence (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7332,7 +7332,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Sequence of Tense (Ques. No. 1-28).json",
       "totalQuestions": 28,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 28,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7346,7 +7346,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Simple, Complex, Compound Sentence (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7360,7 +7360,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Simple, Complex, Compound Sentence (Ques. No. 101-151).json",
       "totalQuestions": 51,
-      "durationMinutes": 25,
+      "durationMinutes": 31,
       "totalMarks": 51,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7374,7 +7374,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Simple, Complex, Compound Sentence (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7388,7 +7388,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Subject Verb Agreement (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7402,7 +7402,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Subject Verb Agreement (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7416,7 +7416,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Subject Verb Agreement (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7430,7 +7430,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Subject Verb Agreement (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7444,7 +7444,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Subject Verb Agreement (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7458,7 +7458,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Subject Verb Agreement (Ques. No. 301-324).json",
       "totalQuestions": 24,
-      "durationMinutes": 10,
+      "durationMinutes": 14,
       "totalMarks": 24,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7472,7 +7472,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Subject Verb Agreement (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7486,7 +7486,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Tense (Ques. No. 1-35).json",
       "totalQuestions": 35,
-      "durationMinutes": 15,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7500,7 +7500,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Voice (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7514,7 +7514,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Voice (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7528,7 +7528,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Voice (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7542,7 +7542,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Voice (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7556,7 +7556,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Voice (Ques. No. 251-292).json",
       "totalQuestions": 41,
-      "durationMinutes": 20,
+      "durationMinutes": 25,
       "totalMarks": 41,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7570,7 +7570,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/Voice (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7584,7 +7584,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/WH Question (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7598,7 +7598,7 @@
       "subject": "English",
       "filePath": "english_master/Grammar Topic Wise Exam/WH Question (Ques. No. 51-117).json",
       "totalQuestions": 67,
-      "durationMinutes": 30,
+      "durationMinutes": 40,
       "totalMarks": 67,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7612,7 +7612,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Adjective, Adverb Classification (Unlimited Exam).json",
       "totalQuestions": 87,
-      "durationMinutes": 15,
+      "durationMinutes": 52,
       "totalMarks": 87,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7626,7 +7626,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Antonym (Unlimited Exam).json",
       "totalQuestions": 304,
-      "durationMinutes": 15,
+      "durationMinutes": 182,
       "totalMarks": 304,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7640,7 +7640,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Appropriate Preposition (Unlimited Exam).json",
       "totalQuestions": 957,
-      "durationMinutes": 15,
+      "durationMinutes": 574,
       "totalMarks": 957,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7654,7 +7654,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Article (Unlimited Exam).json",
       "totalQuestions": 233,
-      "durationMinutes": 15,
+      "durationMinutes": 140,
       "totalMarks": 233,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7668,7 +7668,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Conditional (Unlimited Exam).json",
       "totalQuestions": 182,
-      "durationMinutes": 15,
+      "durationMinutes": 109,
       "totalMarks": 182,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7682,7 +7682,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Conjunction, Interjection (Unlimited Exam).json",
       "totalQuestions": 233,
-      "durationMinutes": 15,
+      "durationMinutes": 140,
       "totalMarks": 233,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7696,7 +7696,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Correction (Unlimited Exam).json",
       "totalQuestions": 221,
-      "durationMinutes": 15,
+      "durationMinutes": 133,
       "totalMarks": 221,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7710,7 +7710,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Degree (Unlimited Exam).json",
       "totalQuestions": 200,
-      "durationMinutes": 15,
+      "durationMinutes": 120,
       "totalMarks": 200,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7724,7 +7724,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Derivatives, Latin Adjective (Unlimited Exam).json",
       "totalQuestions": 109,
-      "durationMinutes": 15,
+      "durationMinutes": 65,
       "totalMarks": 109,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7738,7 +7738,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Gender (Unlimited Exam).json",
       "totalQuestions": 104,
-      "durationMinutes": 15,
+      "durationMinutes": 62,
       "totalMarks": 104,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7752,7 +7752,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Group Verb (Unlimited Exam).json",
       "totalQuestions": 468,
-      "durationMinutes": 15,
+      "durationMinutes": 281,
       "totalMarks": 468,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7766,7 +7766,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Identification of Phrase & Clause (Unlimited Exam).json",
       "totalQuestions": 150,
-      "durationMinutes": 15,
+      "durationMinutes": 90,
       "totalMarks": 150,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7780,7 +7780,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Idioms & Phrases (Unlimited Exam).json",
       "totalQuestions": 938,
-      "durationMinutes": 15,
+      "durationMinutes": 563,
       "totalMarks": 938,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7794,7 +7794,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Narration (Unlimited Exam).json",
       "totalQuestions": 206,
-      "durationMinutes": 15,
+      "durationMinutes": 124,
       "totalMarks": 206,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7808,7 +7808,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Noun (Unlimited Exam).json",
       "totalQuestions": 331,
-      "durationMinutes": 15,
+      "durationMinutes": 199,
       "totalMarks": 331,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7822,7 +7822,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Number (Unlimited Exam).json",
       "totalQuestions": 194,
-      "durationMinutes": 15,
+      "durationMinutes": 116,
       "totalMarks": 194,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7836,7 +7836,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/One Word Substitution (Unlimited Exam).json",
       "totalQuestions": 560,
-      "durationMinutes": 15,
+      "durationMinutes": 336,
       "totalMarks": 560,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7850,7 +7850,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Parts of Speech (Unlimited Exam).json",
       "totalQuestions": 680,
-      "durationMinutes": 15,
+      "durationMinutes": 408,
       "totalMarks": 680,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7864,7 +7864,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Pronoun (Unlimited Exam).json",
       "totalQuestions": 245,
-      "durationMinutes": 15,
+      "durationMinutes": 147,
       "totalMarks": 245,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7878,7 +7878,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Proverbs (Unlimited Exam).json",
       "totalQuestions": 222,
-      "durationMinutes": 15,
+      "durationMinutes": 133,
       "totalMarks": 222,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7892,7 +7892,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Right Form of Verb (Unlimited Exam).json",
       "totalQuestions": 1114,
-      "durationMinutes": 15,
+      "durationMinutes": 668,
       "totalMarks": 1114,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7906,7 +7906,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Sentence (Unlimited Exam).json",
       "totalQuestions": 141,
-      "durationMinutes": 15,
+      "durationMinutes": 85,
       "totalMarks": 141,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7920,7 +7920,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Simple, Complex, Compound Sentence (Unlimited Exam).json",
       "totalQuestions": 151,
-      "durationMinutes": 15,
+      "durationMinutes": 91,
       "totalMarks": 151,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7934,7 +7934,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Spelling (Unlimited Exam).json",
       "totalQuestions": 520,
-      "durationMinutes": 15,
+      "durationMinutes": 312,
       "totalMarks": 520,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7948,7 +7948,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Subject Verb Agreement (Unlimited Exam).json",
       "totalQuestions": 324,
-      "durationMinutes": 15,
+      "durationMinutes": 194,
       "totalMarks": 324,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7962,7 +7962,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Synonym (Unlimited Exam).json",
       "totalQuestions": 299,
-      "durationMinutes": 15,
+      "durationMinutes": 179,
       "totalMarks": 299,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -7976,7 +7976,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Tense (Unlimited Exam).json",
       "totalQuestions": 63,
-      "durationMinutes": 15,
+      "durationMinutes": 38,
       "totalMarks": 63,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -7990,7 +7990,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Translation (Unlimited Exam).json",
       "totalQuestions": 575,
-      "durationMinutes": 15,
+      "durationMinutes": 345,
       "totalMarks": 575,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8004,7 +8004,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Usage of Preposition (Unlimited Exam).json",
       "totalQuestions": 338,
-      "durationMinutes": 15,
+      "durationMinutes": 203,
       "totalMarks": 338,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8018,7 +8018,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Verb (Unlimited Exam).json",
       "totalQuestions": 176,
-      "durationMinutes": 15,
+      "durationMinutes": 106,
       "totalMarks": 176,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8032,7 +8032,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Vocabulary (Unlimited Exam).json",
       "totalQuestions": 261,
-      "durationMinutes": 15,
+      "durationMinutes": 157,
       "totalMarks": 261,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8046,7 +8046,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/Voice (Unlimited Exam).json",
       "totalQuestions": 291,
-      "durationMinutes": 15,
+      "durationMinutes": 175,
       "totalMarks": 291,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8060,7 +8060,7 @@
       "subject": "English",
       "filePath": "english_master/Unlimited Exam/WH Question (Unlimited Exam).json",
       "totalQuestions": 117,
-      "durationMinutes": 15,
+      "durationMinutes": 70,
       "totalMarks": 117,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8074,7 +8074,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Antonym (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8088,7 +8088,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Antonym (Ques. No. 151-200].json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8102,7 +8102,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Antonym (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8116,7 +8116,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Antonym (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8130,7 +8130,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Antonym (Ques. No. 301-354).json",
       "totalQuestions": 54,
-      "durationMinutes": 22,
+      "durationMinutes": 32,
       "totalMarks": 54,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8144,7 +8144,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Antonym (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8158,7 +8158,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 1-20 + 1-30).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8172,7 +8172,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 131-180).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8186,7 +8186,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 181-230).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8200,7 +8200,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 231-280).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8214,7 +8214,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 281-330).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8228,7 +8228,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 31-80).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8242,7 +8242,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 331-380).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8256,7 +8256,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 431-480).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8270,7 +8270,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 481-530).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8284,7 +8284,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 531-580).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8298,7 +8298,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 581-630).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8312,7 +8312,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 631-680).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8326,7 +8326,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 681-730).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8340,7 +8340,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 731-780).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8354,7 +8354,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 781-830).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8368,7 +8368,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 81-130).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8382,7 +8382,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 831-880).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8396,7 +8396,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Appropriate Preposition (Ques. No. 881-937).json",
       "totalQuestions": 57,
-      "durationMinutes": 22,
+      "durationMinutes": 34,
       "totalMarks": 57,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8410,7 +8410,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8424,7 +8424,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8438,7 +8438,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8452,7 +8452,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8466,7 +8466,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8480,7 +8480,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 301-350).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8494,7 +8494,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 351-400).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8508,7 +8508,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 401-468).json",
       "totalQuestions": 68,
-      "durationMinutes": 30,
+      "durationMinutes": 41,
       "totalMarks": 68,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8522,7 +8522,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Group Verb (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8536,7 +8536,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8550,7 +8550,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8564,7 +8564,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8578,7 +8578,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8592,7 +8592,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8606,7 +8606,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 301-350).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8620,7 +8620,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 351-400).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8634,7 +8634,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 401-450).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8648,7 +8648,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 451-500).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8662,7 +8662,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 501-550).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8676,7 +8676,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8690,7 +8690,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 551-600).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8704,7 +8704,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 601-650).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8718,7 +8718,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 651-700).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8732,7 +8732,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 701-750).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8746,7 +8746,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 751-800).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8760,7 +8760,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 801-850).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8774,7 +8774,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 851-900).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8788,7 +8788,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Idioms & Phrases (Ques. No. 901-938).json",
       "totalQuestions": 38,
-      "durationMinutes": 17,
+      "durationMinutes": 23,
       "totalMarks": 38,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8802,7 +8802,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8816,7 +8816,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 101- 150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8830,7 +8830,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8844,7 +8844,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8858,7 +8858,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8872,7 +8872,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 301-350).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8886,7 +8886,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 351-400).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8900,7 +8900,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 401-450).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8914,7 +8914,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 451-500).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8928,7 +8928,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 501-560).json",
       "totalQuestions": 60,
-      "durationMinutes": 23,
+      "durationMinutes": 36,
       "totalMarks": 60,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8942,7 +8942,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/One Word Substitution (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -8956,7 +8956,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Proverbs (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8970,7 +8970,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Proverbs (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8984,7 +8984,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Proverbs (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -8998,7 +8998,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Proverbs (Ques. No. 201-222).json",
       "totalQuestions": 22,
-      "durationMinutes": 15,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9012,7 +9012,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Proverbs (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9026,7 +9026,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9040,7 +9040,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9054,7 +9054,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9068,7 +9068,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9082,7 +9082,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9096,7 +9096,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 301-350).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9110,7 +9110,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 351-400).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9124,7 +9124,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 401-450].json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9138,7 +9138,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 451-500).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9152,7 +9152,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 501-520).json",
       "totalQuestions": 20,
-      "durationMinutes": 10,
+      "durationMinutes": 12,
       "totalMarks": 20,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9166,7 +9166,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Spelling (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9180,7 +9180,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9194,7 +9194,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9208,7 +9208,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9222,7 +9222,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9236,7 +9236,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9250,7 +9250,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 301-350).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9264,7 +9264,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 351-400).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9278,7 +9278,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 401-450).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9292,7 +9292,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 451-500).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9306,7 +9306,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 501-549).json",
       "totalQuestions": 49,
-      "durationMinutes": 20,
+      "durationMinutes": 29,
       "totalMarks": 49,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9320,7 +9320,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Synonym (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9418,7 +9418,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Translation (Ques. No. 351-400).json",
       "totalQuestions": 49,
-      "durationMinutes": 30,
+      "durationMinutes": 29,
       "totalMarks": 49,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9460,7 +9460,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Translation (Ques. No. 501-550).json",
       "totalQuestions": 49,
-      "durationMinutes": 30,
+      "durationMinutes": 29,
       "totalMarks": 49,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9488,7 +9488,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Translation (Ques. No. 551-578).json",
       "totalQuestions": 28,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 28,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9502,7 +9502,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Usage of Preposition (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9516,7 +9516,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Usage of Preposition (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9530,7 +9530,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Usage of Preposition (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9544,7 +9544,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Usage of Preposition (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9558,7 +9558,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Usage of Preposition (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9572,7 +9572,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Usage of Preposition (Ques. No. 301-338).json",
       "totalQuestions": 38,
-      "durationMinutes": 17,
+      "durationMinutes": 23,
       "totalMarks": 38,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9586,7 +9586,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Usage of Preposition (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9600,7 +9600,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Vocabulary (Ques. No. 1-50).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9614,7 +9614,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Vocabulary (Ques. No. 101-150).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9628,7 +9628,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Vocabulary (Ques. No. 151-200).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9642,7 +9642,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Vocabulary (Ques. No. 201-250).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9656,7 +9656,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Vocabulary (Ques. No. 251-300).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9670,7 +9670,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Vocabulary (Ques. No. 301-361).json",
       "totalQuestions": 61,
-      "durationMinutes": 25,
+      "durationMinutes": 37,
       "totalMarks": 61,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9684,7 +9684,7 @@
       "subject": "English",
       "filePath": "english_master/Vocabulary Topicwise Exam/Vocabulary (Ques. No. 51-100).json",
       "totalQuestions": 50,
-      "durationMinutes": 20,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -9698,7 +9698,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/10th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9754,7 +9754,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/14th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 19,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 19,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9768,7 +9768,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/15th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 10,
-      "durationMinutes": 5,
+      "durationMinutes": 6,
       "totalMarks": 10,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9796,7 +9796,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/17th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 7,
-      "durationMinutes": 5,
+      "durationMinutes": 4,
       "totalMarks": 7,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9810,7 +9810,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/18th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 12,
-      "durationMinutes": 5,
+      "durationMinutes": 7,
       "totalMarks": 12,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9824,7 +9824,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/19th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 29,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 29,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9838,7 +9838,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/20th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9852,7 +9852,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/21th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9866,7 +9866,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/22th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 20,
-      "durationMinutes": 10,
+      "durationMinutes": 12,
       "totalMarks": 20,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9880,7 +9880,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/23th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 20,
-      "durationMinutes": 10,
+      "durationMinutes": 12,
       "totalMarks": 20,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9894,7 +9894,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/24th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 17,
-      "durationMinutes": 12,
+      "durationMinutes": 10,
       "totalMarks": 17,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9908,7 +9908,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/24th BCS বাতিলকৃত (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9922,7 +9922,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/25th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 19,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 19,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9936,7 +9936,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/26th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 37,
-      "durationMinutes": 20,
+      "durationMinutes": 22,
       "totalMarks": 37,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9950,7 +9950,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/27th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -9992,7 +9992,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/30th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 10,
-      "durationMinutes": 10,
+      "durationMinutes": 6,
       "totalMarks": 10,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10006,7 +10006,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/31th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 10,
-      "durationMinutes": 10,
+      "durationMinutes": 6,
       "totalMarks": 10,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10020,7 +10020,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/32th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 13,
-      "durationMinutes": 10,
+      "durationMinutes": 8,
       "totalMarks": 13,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -10034,7 +10034,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/33th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 12,
-      "durationMinutes": 10,
+      "durationMinutes": 7,
       "totalMarks": 12,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -10048,7 +10048,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/34th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 14,
-      "durationMinutes": 10,
+      "durationMinutes": 8,
       "totalMarks": 14,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -10062,7 +10062,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/35th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 25,
-      "durationMinutes": 13,
+      "durationMinutes": 15,
       "totalMarks": 25,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10076,7 +10076,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/36th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 28,
-      "durationMinutes": 14,
+      "durationMinutes": 17,
       "totalMarks": 28,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10090,7 +10090,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/37th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 27,
-      "durationMinutes": 13,
+      "durationMinutes": 16,
       "totalMarks": 27,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10104,7 +10104,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/38th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 27,
-      "durationMinutes": 13,
+      "durationMinutes": 16,
       "totalMarks": 27,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10118,7 +10118,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/39th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 13,
-      "durationMinutes": 10,
+      "durationMinutes": 8,
       "totalMarks": 13,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10132,7 +10132,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/40th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 22,
-      "durationMinutes": 11,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10146,7 +10146,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/41th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 26,
-      "durationMinutes": 13,
+      "durationMinutes": 16,
       "totalMarks": 26,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10160,7 +10160,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/42th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 19,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 19,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10174,7 +10174,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/43th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 30,
-      "durationMinutes": 15,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10188,7 +10188,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/44th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 28,
-      "durationMinutes": 14,
+      "durationMinutes": 17,
       "totalMarks": 28,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10202,7 +10202,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/45th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 23,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 23,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10216,7 +10216,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/46th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 24,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 24,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10230,7 +10230,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/47th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 30,
-      "durationMinutes": 15,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10244,7 +10244,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/48th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 21,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 21,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10258,7 +10258,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/49th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 19,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 19,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10272,7 +10272,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/50th BCS (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 24,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 24,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10286,7 +10286,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK BCS Question Exam/বিসিএস প্রশ্নে মডেল টেস্ট (বাংলাদেশ বিষয়াবলি).json",
       "totalQuestions": 806,
-      "durationMinutes": 15,
+      "durationMinutes": 484,
       "totalMarks": 806,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10300,7 +10300,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2010-11).json",
       "totalQuestions": 42,
-      "durationMinutes": 12,
+      "durationMinutes": 25,
       "totalMarks": 42,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10314,7 +10314,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2011-12).json",
       "totalQuestions": 34,
-      "durationMinutes": 17,
+      "durationMinutes": 20,
       "totalMarks": 34,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10328,7 +10328,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2012-13).json",
       "totalQuestions": 36,
-      "durationMinutes": 18,
+      "durationMinutes": 22,
       "totalMarks": 36,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10342,7 +10342,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2013-14).json",
       "totalQuestions": 38,
-      "durationMinutes": 20,
+      "durationMinutes": 23,
       "totalMarks": 38,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10356,7 +10356,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2014-15).json",
       "totalQuestions": 38,
-      "durationMinutes": 20,
+      "durationMinutes": 23,
       "totalMarks": 38,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10370,7 +10370,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2015-16).json",
       "totalQuestions": 49,
-      "durationMinutes": 25,
+      "durationMinutes": 29,
       "totalMarks": 49,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10384,7 +10384,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2016-17).json",
       "totalQuestions": 49,
-      "durationMinutes": 25,
+      "durationMinutes": 29,
       "totalMarks": 49,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10398,7 +10398,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2017-18).json",
       "totalQuestions": 42,
-      "durationMinutes": 20,
+      "durationMinutes": 25,
       "totalMarks": 42,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10412,7 +10412,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2018-19).json",
       "totalQuestions": 36,
-      "durationMinutes": 20,
+      "durationMinutes": 22,
       "totalMarks": 36,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10426,7 +10426,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2019-20).json",
       "totalQuestions": 25,
-      "durationMinutes": 12,
+      "durationMinutes": 15,
       "totalMarks": 25,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10440,7 +10440,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2020-21).json",
       "totalQuestions": 20,
-      "durationMinutes": 10,
+      "durationMinutes": 12,
       "totalMarks": 20,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10454,7 +10454,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2021-22).json",
       "totalQuestions": 24,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 24,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10468,7 +10468,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2022-23).json",
       "totalQuestions": 27,
-      "durationMinutes": 15,
+      "durationMinutes": 16,
       "totalMarks": 27,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10482,7 +10482,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2023-24).json",
       "totalQuestions": 30,
-      "durationMinutes": 15,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10496,7 +10496,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (2024-25).json",
       "totalQuestions": 30,
-      "durationMinutes": 15,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10510,7 +10510,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU B (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 520,
-      "durationMinutes": 12,
+      "durationMinutes": 312,
       "totalMarks": 520,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10524,7 +10524,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2010-11).json",
       "totalQuestions": 40,
-      "durationMinutes": 20,
+      "durationMinutes": 24,
       "totalMarks": 40,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10538,7 +10538,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2012-13).json",
       "totalQuestions": 35,
-      "durationMinutes": 20,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10552,7 +10552,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2013-14).json",
       "totalQuestions": 41,
-      "durationMinutes": 20,
+      "durationMinutes": 25,
       "totalMarks": 41,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10566,7 +10566,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2014-15).json",
       "totalQuestions": 36,
-      "durationMinutes": 20,
+      "durationMinutes": 22,
       "totalMarks": 36,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10580,7 +10580,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2015-16).json",
       "totalQuestions": 33,
-      "durationMinutes": 16,
+      "durationMinutes": 20,
       "totalMarks": 33,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10594,7 +10594,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2016-17).json",
       "totalQuestions": 26,
-      "durationMinutes": 15,
+      "durationMinutes": 16,
       "totalMarks": 26,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10622,7 +10622,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2018-19).json",
       "totalQuestions": 35,
-      "durationMinutes": 20,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10636,7 +10636,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2019-20).json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10650,7 +10650,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2020-21).json",
       "totalQuestions": 22,
-      "durationMinutes": 11,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10664,7 +10664,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (2021-22).json",
       "totalQuestions": 27,
-      "durationMinutes": 13,
+      "durationMinutes": 16,
       "totalMarks": 27,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10678,7 +10678,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/GK DU Question Exam/GK DU D (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 347,
-      "durationMinutes": 12,
+      "durationMinutes": 208,
       "totalMarks": 347,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10692,7 +10692,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/আধুনিক পাশ্চাত্যের উত্থান + প্রথম বিশ্বযুদ্ধ + দ্বিতীয় বিশ্বযুদ্ধ (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 289,
-      "durationMinutes": 12,
+      "durationMinutes": 173,
       "totalMarks": 289,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10706,7 +10706,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/আন্তর্জাতিক বিষয়াবলি মডেল টেস্ট (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 1094,
-      "durationMinutes": 40,
+      "durationMinutes": 656,
       "totalMarks": 1094,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10720,7 +10720,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/আন্তর্জাতিক সংগঠন সমূহ (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 231,
-      "durationMinutes": 12,
+      "durationMinutes": 139,
       "totalMarks": 231,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10734,7 +10734,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/উপমহাদেশে মুসলিম শাসন (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 217,
-      "durationMinutes": 12,
+      "durationMinutes": 130,
       "totalMarks": 217,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10748,7 +10748,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/একমেরুকেন্দ্রিক বিশ্ব (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 172,
-      "durationMinutes": 12,
+      "durationMinutes": 103,
       "totalMarks": 172,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10762,7 +10762,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/জাতিসংঘ (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 294,
-      "durationMinutes": 12,
+      "durationMinutes": 176,
       "totalMarks": 294,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10776,7 +10776,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/নারী ও শিশু + ক্ষুদ্র নৃ-গোষ্ঠী (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 160,
-      "durationMinutes": 12,
+      "durationMinutes": 96,
       "totalMarks": 160,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10790,7 +10790,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/পাকিস্তান আমল (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 126,
-      "durationMinutes": 12,
+      "durationMinutes": 76,
       "totalMarks": 126,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10804,7 +10804,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/বাংলাদেশ পরিচিতি (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 197,
-      "durationMinutes": 12,
+      "durationMinutes": 118,
       "totalMarks": 197,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10818,7 +10818,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/বাংলাদেশ বিষয়াবলি মডেল টেস্ট (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 2536,
-      "durationMinutes": 40,
+      "durationMinutes": 1522,
       "totalMarks": 2536,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10832,7 +10832,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/বাংলাদেশের প্রত্নস্থল (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 170,
-      "durationMinutes": 12,
+      "durationMinutes": 102,
       "totalMarks": 170,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10846,7 +10846,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/বাংলাদেশের ভূ-প্রকৃতি (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 271,
-      "durationMinutes": 12,
+      "durationMinutes": 163,
       "totalMarks": 271,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10860,7 +10860,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/বাংলাদেশের সংবিধান (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 262,
-      "durationMinutes": 12,
+      "durationMinutes": 157,
       "totalMarks": 262,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10874,7 +10874,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/ব্রিটিশ শাসনামলে বাংলা (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 263,
-      "durationMinutes": 12,
+      "durationMinutes": 158,
       "totalMarks": 263,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10888,7 +10888,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/ভৌগোলিক বৈচিত্র্য (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 263,
-      "durationMinutes": 12,
+      "durationMinutes": 158,
       "totalMarks": 263,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10902,7 +10902,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/মহাদেশ পরিচিতি (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 409,
-      "durationMinutes": 12,
+      "durationMinutes": 245,
       "totalMarks": 409,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10916,7 +10916,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/মুক্তিযুদ্ধ ও বাংলাদেশের অভ্যুদয় (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 427,
-      "durationMinutes": 12,
+      "durationMinutes": 256,
       "totalMarks": 427,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10930,7 +10930,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আনলিমিটেড এক্সাম/সভ্যতার উত্তরণ + মধ্যযুগ (আনলিমিটেড এক্সাম).json",
       "totalQuestions": 224,
-      "durationMinutes": 12,
+      "durationMinutes": 134,
       "totalMarks": 224,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10944,7 +10944,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-01 - কমনওয়েলথ.json",
       "totalQuestions": 10,
-      "durationMinutes": 10,
+      "durationMinutes": 6,
       "totalMarks": 10,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10958,7 +10958,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-01 - জাতিসংঘের পরিচয়.json",
       "totalQuestions": 34,
-      "durationMinutes": 17,
+      "durationMinutes": 20,
       "totalMarks": 34,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -10972,7 +10972,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-01 - পর্বত.json",
       "totalQuestions": 44,
-      "durationMinutes": 22,
+      "durationMinutes": 26,
       "totalMarks": 44,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11000,7 +11000,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-01 - মহাদেশ.json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11014,7 +11014,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-01 - রেনেসাঁস বা নবজাগরণ.json",
       "totalQuestions": 10,
-      "durationMinutes": 5,
+      "durationMinutes": 6,
       "totalMarks": 10,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11028,7 +11028,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-01 - সমাজতান্ত্রিক যুগোশ্লাভিয়া এবং চেকোশ্লাভাকিয়ার পতন + সভ্যতার সংঘাত.json",
       "totalQuestions": 16,
-      "durationMinutes": 8,
+      "durationMinutes": 10,
       "totalMarks": 16,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11042,7 +11042,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-02 - OIC.json",
       "totalQuestions": 21,
-      "durationMinutes": 12,
+      "durationMinutes": 13,
       "totalMarks": 21,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11056,7 +11056,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-02 - অঙ্গ সংগঠন.json",
       "totalQuestions": 57,
-      "durationMinutes": 30,
+      "durationMinutes": 34,
       "totalMarks": 57,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11070,7 +11070,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-02 - একক পরাশক্তি যুক্তরাষ্ট্র.json",
       "totalQuestions": 21,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 21,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11084,7 +11084,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-02 - এশিয়া মহাদেশ.json",
       "totalQuestions": 95,
-      "durationMinutes": 50,
+      "durationMinutes": 57,
       "totalMarks": 95,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11098,7 +11098,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-02 - ভৌগোলিক আবিষ্কার.json",
       "totalQuestions": 22,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11112,7 +11112,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-02 - মহাসাগর.json",
       "totalQuestions": 26,
-      "durationMinutes": 15,
+      "durationMinutes": 16,
       "totalMarks": 26,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11126,7 +11126,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-02 - মেসোপোটেমীয় সভ্যতা.json",
       "totalQuestions": 29,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 29,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11140,7 +11140,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-03 - EU.json",
       "totalQuestions": 27,
-      "durationMinutes": 15,
+      "durationMinutes": 16,
       "totalMarks": 27,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11154,7 +11154,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-03 - ইউরোপ মহাদেশ.json",
       "totalQuestions": 57,
-      "durationMinutes": 30,
+      "durationMinutes": 34,
       "totalMarks": 57,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11168,7 +11168,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-03 - প্রাচীন মিশরীয় সভ্যতা.json",
       "totalQuestions": 24,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 24,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11182,7 +11182,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-03 - বিশেষায়িত সংস্থা.json",
       "totalQuestions": 56,
-      "durationMinutes": 30,
+      "durationMinutes": 34,
       "totalMarks": 56,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11196,7 +11196,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-03 - রাশিয়ার উত্থান.json",
       "totalQuestions": 21,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 21,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11210,7 +11210,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-03 - ল্যাতিন আমেরিকায় ইউরোপীয় উপনিবেশ.json",
       "totalQuestions": 20,
-      "durationMinutes": 10,
+      "durationMinutes": 12,
       "totalMarks": 20,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11224,7 +11224,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-03 - সাগর.json",
       "totalQuestions": 43,
-      "durationMinutes": 22,
+      "durationMinutes": 26,
       "totalMarks": 43,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11238,7 +11238,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-04 - ASEAN.json",
       "totalQuestions": 10,
-      "durationMinutes": 10,
+      "durationMinutes": 6,
       "totalMarks": 10,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11252,7 +11252,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-04 - আফ্রিকা মহাদেশ.json",
       "totalQuestions": 42,
-      "durationMinutes": 20,
+      "durationMinutes": 25,
       "totalMarks": 42,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11266,7 +11266,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-04 - উদীয়মান পরাশক্তি চীন.json",
       "totalQuestions": 31,
-      "durationMinutes": 15,
+      "durationMinutes": 19,
       "totalMarks": 31,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11280,7 +11280,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-04 - প্রণালি.json",
       "totalQuestions": 61,
-      "durationMinutes": 30,
+      "durationMinutes": 37,
       "totalMarks": 61,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11294,7 +11294,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-04 - বৈজ্ঞানিক আবিষ্কার + শিল্প বিপ্লব.json",
       "totalQuestions": 14,
-      "durationMinutes": 5,
+      "durationMinutes": 8,
       "totalMarks": 14,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11308,7 +11308,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-04 - ব্রেটন উডস্ ইনস্টিটিউশন.json",
       "totalQuestions": 52,
-      "durationMinutes": 26,
+      "durationMinutes": 31,
       "totalMarks": 52,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11322,7 +11322,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-04 - সিন্ধু সভ্যতা.json",
       "totalQuestions": 19,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 19,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11336,7 +11336,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-05 - MDGs, SDGs.json",
       "totalQuestions": 37,
-      "durationMinutes": 19,
+      "durationMinutes": 22,
       "totalMarks": 37,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11350,7 +11350,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-05 - SAARC.json",
       "totalQuestions": 35,
-      "durationMinutes": 20,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11364,7 +11364,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-05 - ইউরোপে শক্তিশালী রাজতন্ত্রের প্রতিষ্ঠা.json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11378,7 +11378,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-05 - উত্তর আমেরিকা মহাদেশ.json",
       "totalQuestions": 47,
-      "durationMinutes": 25,
+      "durationMinutes": 28,
       "totalMarks": 47,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11392,7 +11392,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-05 - নব্য মেরুকরণ + অস্ত্র প্রতিযোগিতা + ক্ষেপণাস্ত্র.json",
       "totalQuestions": 48,
-      "durationMinutes": 24,
+      "durationMinutes": 29,
       "totalMarks": 48,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11406,7 +11406,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-05 - পারস্য, হিব্রু, চৈনিক সভ্যতা.json",
       "totalQuestions": 23,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 23,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11420,7 +11420,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-05 - হ্রদ.json",
       "totalQuestions": 13,
-      "durationMinutes": 6,
+      "durationMinutes": 8,
       "totalMarks": 13,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11448,7 +11448,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-06 - LDCs + আন্তর্জাতিক শান্তি ও নিরাপত্তা + নিরস্ত্রীকরণ এবং অস্ত্র নিয়ন্ত্রণ.json",
       "totalQuestions": 19,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 19,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11462,7 +11462,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-06 - অস্ত্র নিয়ন্ত্রণ - সামরিক সক্ষমতা + গোয়েন্দা কার্যক্রম.json",
       "totalQuestions": 35,
-      "durationMinutes": 18,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11476,7 +11476,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-06 - আমেরিকার স্বাধীনতা যুদ্ধ.json",
       "totalQuestions": 22,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11490,7 +11490,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-06 - গ্রিক সভ্যতা.json",
       "totalQuestions": 56,
-      "durationMinutes": 30,
+      "durationMinutes": 34,
       "totalMarks": 56,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11504,7 +11504,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-06 - দক্ষিণ আমেরিকা মহাদেশ.json",
       "totalQuestions": 13,
-      "durationMinutes": 6,
+      "durationMinutes": 8,
       "totalMarks": 13,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11518,7 +11518,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-06 - নদনদী.json",
       "totalQuestions": 63,
-      "durationMinutes": 30,
+      "durationMinutes": 38,
       "totalMarks": 63,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11532,7 +11532,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-07 - G-7, G-15, G-20, G-77, D-8.json",
       "totalQuestions": 21,
-      "durationMinutes": 12,
+      "durationMinutes": 13,
       "totalMarks": 21,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11546,7 +11546,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-07 - ওশেনিয়া মহাদেশ.json",
       "totalQuestions": 22,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11560,7 +11560,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-07 - খাল ও জলপ্রপাত.json",
       "totalQuestions": 12,
-      "durationMinutes": 6,
+      "durationMinutes": 7,
       "totalMarks": 12,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11574,7 +11574,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-07 - ফরাসি বিপ্লব.json",
       "totalQuestions": 24,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 24,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11588,7 +11588,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-07 - মানবাধিকার + বিশ্ব নারী সম্মেলন + CEDAW + UNCRC.json",
       "totalQuestions": 26,
-      "durationMinutes": 13,
+      "durationMinutes": 16,
       "totalMarks": 26,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11602,7 +11602,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-07 - রোমান সাম্রাজ্য.json",
       "totalQuestions": 24,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 24,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11616,7 +11616,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-08 - BIMSTEC, BCIM, APEC.json",
       "totalQuestions": 14,
-      "durationMinutes": 12,
+      "durationMinutes": 8,
       "totalMarks": 14,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11630,7 +11630,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-08 - UNHRC + IHRC + আন্তর্জাতিক অপরাধ আদালত.json",
       "totalQuestions": 13,
-      "durationMinutes": 6,
+      "durationMinutes": 8,
       "totalMarks": 13,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11644,7 +11644,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-08 - আরবিয় সভ্যতার উত্থান ও বিকাশ.json",
       "totalQuestions": 31,
-      "durationMinutes": 15,
+      "durationMinutes": 19,
       "totalMarks": 31,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11658,7 +11658,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-08 - এক নজরে সকল মহাদেশ.json",
       "totalQuestions": 43,
-      "durationMinutes": 20,
+      "durationMinutes": 26,
       "totalMarks": 43,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11672,7 +11672,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-08 - নেপোলিয়ন বোনাপার্টের উত্থান.json",
       "totalQuestions": 21,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 21,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11686,7 +11686,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-09 - OPEC.json",
       "totalQuestions": 15,
-      "durationMinutes": 12,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11714,7 +11714,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-09 - প্রথম বিশ্বযুদ্ধ.json",
       "totalQuestions": 44,
-      "durationMinutes": 22,
+      "durationMinutes": 26,
       "totalMarks": 44,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11728,7 +11728,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-09 - ভৌগোলিক উপনাম.json",
       "totalQuestions": 72,
-      "durationMinutes": 35,
+      "durationMinutes": 43,
       "totalMarks": 72,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11742,7 +11742,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-10 - দ্বিতীয় বিশ্বযুদ্ধের পটভূমি.json",
       "totalQuestions": 14,
-      "durationMinutes": 5,
+      "durationMinutes": 8,
       "totalMarks": 14,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11756,7 +11756,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-10 - সকল সদর দপ্তর.json",
       "totalQuestions": 46,
-      "durationMinutes": 25,
+      "durationMinutes": 28,
       "totalMarks": 46,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11770,7 +11770,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-11 - দাতব্য সংগঠন.json",
       "totalQuestions": 13,
-      "durationMinutes": 12,
+      "durationMinutes": 8,
       "totalMarks": 13,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11784,7 +11784,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-11 - দ্বিতীয় বিশ্বযুদ্ধ.json",
       "totalQuestions": 45,
-      "durationMinutes": 22,
+      "durationMinutes": 27,
       "totalMarks": 45,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11798,7 +11798,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-12 - দ্বিতীয় বিশ্বযুদ্ধকালীন কূটনীতি ও বিভিন্ন সম্মেলন.json",
       "totalQuestions": 15,
-      "durationMinutes": 7,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11812,7 +11812,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-12 - মানবাধিকার ও সাস্থ্য সম্পর্কিত সংগঠন.json",
       "totalQuestions": 11,
-      "durationMinutes": 10,
+      "durationMinutes": 7,
       "totalMarks": 11,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11826,7 +11826,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/আন্তর্জাতিক টপিকওয়াইজ এক্সাম/MP3 Topic-13 - যুদ্ধোত্তর প্রতিক্রিয়া + স্মৃতিচারণ.json",
       "totalQuestions": 20,
-      "durationMinutes": 10,
+      "durationMinutes": 12,
       "totalMarks": 20,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11854,7 +11854,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-01 - উয়ারী বটেশ্বর, পুণ্ড্রনগর, সোনারগাঁও.json",
       "totalQuestions": 37,
-      "durationMinutes": 25,
+      "durationMinutes": 22,
       "totalMarks": 37,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11868,7 +11868,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-01 - পাকিস্তান আমল.json",
       "totalQuestions": 3,
-      "durationMinutes": 3,
+      "durationMinutes": 2,
       "totalMarks": 3,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11882,7 +11882,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-01 - বাংলাদেশের ভূ-প্রকৃতি.json",
       "totalQuestions": 35,
-      "durationMinutes": 18,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11896,7 +11896,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-01 - বাংলাদেশের ভৌগোলিক পরিচিতি.json",
       "totalQuestions": 29,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 29,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11924,7 +11924,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-01 - বাংলার ইতিহাস.json",
       "totalQuestions": 12,
-      "durationMinutes": 10,
+      "durationMinutes": 7,
       "totalMarks": 12,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11938,7 +11938,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-01 - ভারতীয় উপমহাদেশে ইউরোপীয়দের আগমন.json",
       "totalQuestions": 38,
-      "durationMinutes": 20,
+      "durationMinutes": 23,
       "totalMarks": 38,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11952,7 +11952,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-01 - ভারতে মুসলমান শাসনের সূচনা.json",
       "totalQuestions": 10,
-      "durationMinutes": 5,
+      "durationMinutes": 6,
       "totalMarks": 10,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11966,7 +11966,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-01 - শিশু, নারী.json",
       "totalQuestions": 21,
-      "durationMinutes": 11,
+      "durationMinutes": 13,
       "totalMarks": 21,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11980,7 +11980,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - অপারেশন সার্চ লাইট.json",
       "totalQuestions": 12,
-      "durationMinutes": 10,
+      "durationMinutes": 7,
       "totalMarks": 12,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -11994,7 +11994,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - গভর্নর জেনারেলের শাসন.json",
       "totalQuestions": 30,
-      "durationMinutes": 20,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12008,7 +12008,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - দিল্লি সালতানাত.json",
       "totalQuestions": 26,
-      "durationMinutes": 12,
+      "durationMinutes": 16,
       "totalMarks": 26,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12022,7 +12022,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - পরিব্রাজক.json",
       "totalQuestions": 29,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 29,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12036,7 +12036,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - পানিসম্পদ মন্ত্রণালয়.json",
       "totalQuestions": 35,
-      "durationMinutes": 18,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12050,7 +12050,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - প্রত্নতাত্ত্বিক স্থাপত্য.json",
       "totalQuestions": 35,
-      "durationMinutes": 20,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12064,7 +12064,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - প্রথম ভাগ - প্রজাতন্ত্র.json",
       "totalQuestions": 15,
-      "durationMinutes": 8,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12078,7 +12078,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - বাংলাদেশের মানচিত্র.json",
       "totalQuestions": 61,
-      "durationMinutes": 30,
+      "durationMinutes": 37,
       "totalMarks": 61,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12092,7 +12092,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - ভাষা আন্দোলন.json",
       "totalQuestions": 47,
-      "durationMinutes": 25,
+      "durationMinutes": 28,
       "totalMarks": 47,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12106,7 +12106,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-02 - সমাজকল্যাণ মন্ত্রণালয়.json",
       "totalQuestions": 10,
-      "durationMinutes": 5,
+      "durationMinutes": 6,
       "totalMarks": 10,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12120,7 +12120,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-03 - জেলার পূর্বনাম.json",
       "totalQuestions": 17,
-      "durationMinutes": 12,
+      "durationMinutes": 10,
       "totalMarks": 17,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12134,7 +12134,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-03 - দ্বিতীয় ভাগ - রাষ্ট্র পরিচালনার মূলনীতি.json",
       "totalQuestions": 30,
-      "durationMinutes": 15,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12148,7 +12148,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-03 - বাংলাদেশের নদ-নদী.json",
       "totalQuestions": 116,
-      "durationMinutes": 60,
+      "durationMinutes": 70,
       "totalMarks": 116,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12162,7 +12162,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-03 - বাংলাদেশের প্রথম মহিলা.json",
       "totalQuestions": 30,
-      "durationMinutes": 15,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12190,7 +12190,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-03 - ভাইসরয়ের শাসন.json",
       "totalQuestions": 43,
-      "durationMinutes": 25,
+      "durationMinutes": 26,
       "totalMarks": 43,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12218,7 +12218,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-03 - মুগল সাম্রাজ্য.json",
       "totalQuestions": 70,
-      "durationMinutes": 40,
+      "durationMinutes": 42,
       "totalMarks": 70,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12232,7 +12232,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-03 - শহীদ মিনার.json",
       "totalQuestions": 11,
-      "durationMinutes": 10,
+      "durationMinutes": 7,
       "totalMarks": 11,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12260,7 +12260,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - অস্থায়ী সরকার.json",
       "totalQuestions": 53,
-      "durationMinutes": 30,
+      "durationMinutes": 32,
       "totalMarks": 53,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12274,7 +12274,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - ক্ষুদ্র নৃ-গোষ্ঠীর অঞ্চলভিত্তিক অবস্থান.json",
       "totalQuestions": 42,
-      "durationMinutes": 21,
+      "durationMinutes": 25,
       "totalMarks": 42,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12288,7 +12288,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - চর, খাল, জলপ্রপাত, ঝর্না, হ্রদ.json",
       "totalQuestions": 22,
-      "durationMinutes": 11,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12302,7 +12302,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - তৃতীয় ভাগ - মৌলিক অধিকার.json",
       "totalQuestions": 25,
-      "durationMinutes": 12,
+      "durationMinutes": 15,
       "totalMarks": 25,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12316,7 +12316,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - প্রাচীন বাংলার জনপদ.json",
       "totalQuestions": 26,
-      "durationMinutes": 15,
+      "durationMinutes": 16,
       "totalMarks": 26,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12330,7 +12330,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - বাংলাদেশের সমুদ্র বিজয়.json",
       "totalQuestions": 15,
-      "durationMinutes": 12,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12344,7 +12344,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - ব্রিটিশ বিরোধ আন্দোলন.json",
       "totalQuestions": 26,
-      "durationMinutes": 15,
+      "durationMinutes": 16,
       "totalMarks": 26,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12358,7 +12358,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - ভাষা আন্দোলনভিত্তিক গান.json",
       "totalQuestions": 15,
-      "durationMinutes": 12,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12386,7 +12386,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-04 - শূর শাসন ও তুর্কি শাসন.json",
       "totalQuestions": 15,
-      "durationMinutes": 12,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12400,7 +12400,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - ক্ষুদ্র নৃ-গোষ্ঠীর জীবনধারা, অর্থনৈতিক জীবন, খাবার, পোশাক, ভাষা ও সংস্কৃতি.json",
       "totalQuestions": 25,
-      "durationMinutes": 13,
+      "durationMinutes": 15,
       "totalMarks": 25,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12414,7 +12414,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - চতুর্থ ভাগ - নির্বাহী বিভাগ.json",
       "totalQuestions": 42,
-      "durationMinutes": 21,
+      "durationMinutes": 25,
       "totalMarks": 42,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12428,7 +12428,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - বাংলাদেশের সমুদ্র সৈকত.json",
       "totalQuestions": 18,
-      "durationMinutes": 9,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12442,7 +12442,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - বাংলায় স্বাধীন সুলতানি শাসন.json",
       "totalQuestions": 28,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 28,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12456,7 +12456,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - বৌদ্ধবিহার.json",
       "totalQuestions": 48,
-      "durationMinutes": 25,
+      "durationMinutes": 29,
       "totalMarks": 48,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12470,7 +12470,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - মুক্তিযুদ্ধে বিভিন্ন বাহিনী.json",
       "totalQuestions": 51,
-      "durationMinutes": 30,
+      "durationMinutes": 31,
       "totalMarks": 51,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12484,7 +12484,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - মৌর্য ও গুপ্ত সাম্রাজ্য.json",
       "totalQuestions": 22,
-      "durationMinutes": 15,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12498,7 +12498,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - যুক্তফ্রন্ট.json",
       "totalQuestions": 14,
-      "durationMinutes": 12,
+      "durationMinutes": 8,
       "totalMarks": 14,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12526,7 +12526,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-05 - সিপাহী বিদ্রোহ.json",
       "totalQuestions": 13,
-      "durationMinutes": 10,
+      "durationMinutes": 8,
       "totalMarks": 13,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12540,7 +12540,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-06 - কাগমারী সম্মেলন.json",
       "totalQuestions": 15,
-      "durationMinutes": 12,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12554,7 +12554,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-06 - ক্ষুদ্র নৃ-গোষ্ঠীর ধর্ম ও উৎসব.json",
       "totalQuestions": 26,
-      "durationMinutes": 13,
+      "durationMinutes": 16,
       "totalMarks": 26,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12568,7 +12568,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-06 - জাতীয় বিষয়াবলি.json",
       "totalQuestions": 67,
-      "durationMinutes": 35,
+      "durationMinutes": 40,
       "totalMarks": 67,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12596,7 +12596,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-06 - পঞ্চম ভাগ - আইন সভা.json",
       "totalQuestions": 58,
-      "durationMinutes": 29,
+      "durationMinutes": 35,
       "totalMarks": 58,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12624,7 +12624,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-06 - বাংলাদেশের দ্বীপ.json",
       "totalQuestions": 45,
-      "durationMinutes": 23,
+      "durationMinutes": 27,
       "totalMarks": 45,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12638,7 +12638,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-06 - বারো ভূঁইয়াদের ইতিহাস.json",
       "totalQuestions": 11,
-      "durationMinutes": 5,
+      "durationMinutes": 7,
       "totalMarks": 11,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12652,7 +12652,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-06 - মুক্তিযুদ্ধে সম্মানসূচক খেতাব.json",
       "totalQuestions": 58,
-      "durationMinutes": 30,
+      "durationMinutes": 35,
       "totalMarks": 58,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12666,7 +12666,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-07 - পার্বত্য চট্টগ্রাম বিষয়ক মন্ত্রণালয়.json",
       "totalQuestions": 6,
-      "durationMinutes": 5,
+      "durationMinutes": 4,
       "totalMarks": 6,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12680,7 +12680,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-07 - বাংলায় মুগল শাসন ও নবাবি শাসন.json",
       "totalQuestions": 57,
-      "durationMinutes": 30,
+      "durationMinutes": 34,
       "totalMarks": 57,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12694,7 +12694,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-07 - মাৎস্যন্যায়.json",
       "totalQuestions": 7,
-      "durationMinutes": 5,
+      "durationMinutes": 4,
       "totalMarks": 7,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -12708,7 +12708,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-07 - মুক্তিযুদ্ধে নারী ও শিশু.json",
       "totalQuestions": 16,
-      "durationMinutes": 12,
+      "durationMinutes": 10,
       "totalMarks": 16,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12722,7 +12722,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-07 - রাজনৈতিক বিবর্তন.json",
       "totalQuestions": 88,
-      "durationMinutes": 50,
+      "durationMinutes": 53,
       "totalMarks": 88,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12736,7 +12736,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-07 - ষষ্ঠ ভাগ - বিচার বিভাগ.json",
       "totalQuestions": 29,
-      "durationMinutes": 15,
+      "durationMinutes": 17,
       "totalMarks": 29,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12750,7 +12750,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-07 - ৬৯ এর গণঅভ্যুত্থান.json",
       "totalQuestions": 21,
-      "durationMinutes": 15,
+      "durationMinutes": 13,
       "totalMarks": 21,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12778,7 +12778,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-08 - সপ্তম ভাগ - নির্বাচন.json",
       "totalQuestions": 17,
-      "durationMinutes": 9,
+      "durationMinutes": 10,
       "totalMarks": 17,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12792,7 +12792,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-08 - স্বাধীন বাংলা বেতার কেন্দ্র.json",
       "totalQuestions": 16,
-      "durationMinutes": 12,
+      "durationMinutes": 10,
       "totalMarks": 16,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12806,7 +12806,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-09 - অষ্টম, নবম, দশম ভাগ.json",
       "totalQuestions": 15,
-      "durationMinutes": 8,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12820,7 +12820,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-09 - মুক্তিযুদ্ধ ও বিদেশি নাগরিক.json",
       "totalQuestions": 30,
-      "durationMinutes": 20,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12834,7 +12834,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-09 - সেন রাজাদের ইতিহাস.json",
       "totalQuestions": 7,
-      "durationMinutes": 5,
+      "durationMinutes": 4,
       "totalMarks": 7,
       "negativeMark": 0.25,
       "hasExplanations": false
@@ -12848,7 +12848,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-10 - একাদশ ভাগ + অন্যান্য.json",
       "totalQuestions": 23,
-      "durationMinutes": 12,
+      "durationMinutes": 14,
       "totalMarks": 23,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12862,7 +12862,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-10 - মুক্তিযুদ্ধে বৃহৎশক্তির ভূমিকা.json",
       "totalQuestions": 18,
-      "durationMinutes": 12,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12876,7 +12876,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-11 - মুক্তিবাহিনী ও মিত্রবাহিনীর যৌথ আক্রমণ.json",
       "totalQuestions": 17,
-      "durationMinutes": 12,
+      "durationMinutes": 10,
       "totalMarks": 17,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12890,7 +12890,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-12 - চূড়ান্ত বিজয়.json",
       "totalQuestions": 15,
-      "durationMinutes": 12,
+      "durationMinutes": 9,
       "totalMarks": 15,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12904,7 +12904,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-13 - মুক্তিযুদ্ধভিত্তিক গান.json",
       "totalQuestions": 12,
-      "durationMinutes": 10,
+      "durationMinutes": 7,
       "totalMarks": 12,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12918,7 +12918,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-14 - মুক্তিযুদ্ধভিত্তিক চলচ্চিত্র.json",
       "totalQuestions": 41,
-      "durationMinutes": 30,
+      "durationMinutes": 25,
       "totalMarks": 41,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12946,7 +12946,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/MP3 Topic-16 - যুদ্ধাপরাধীদের বিচার.json",
       "totalQuestions": 6,
-      "durationMinutes": 5,
+      "durationMinutes": 4,
       "totalMarks": 6,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12960,7 +12960,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/আন্তর্জাতিক সংগঠন সমূহ (Live Exam).json",
       "totalQuestions": 50,
-      "durationMinutes": 17,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12974,7 +12974,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ টপিকওয়াইজ এক্সাম/প্রাচীন বাংলার ইতিহাস (Live Exam-01).json",
       "totalQuestions": 50,
-      "durationMinutes": 17,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -12988,7 +12988,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/[Set-A] মানচিত্র পরীক্ষা-০৫ (নদ-নদী, দ্বীপ, চর, হাওড়, খাল-বিল, হ্রদ, জলপ্রপাত).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13002,7 +13002,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/[Set-A] মানচিত্র পরীক্ষা-০৮ (বাংলাদেশের সম্পদ).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13016,7 +13016,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/[Set-A] মানচিত্র পরীক্ষা-১৪ (মুক্তিযুদ্ধকালীন ১৯ টি জেলা, সেক্টর, সেক্টর কমান্ডার, ৭ জন বীরশ্রেষ্ঠ).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13030,7 +13030,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/[Set-B] মানচিত্র পরীক্ষা-০৫ (নদ-নদী, দ্বীপ, চর, হাওড়, খাল-বিল, হ্রদ, জলপ্রপাত).json",
       "totalQuestions": 50,
-      "durationMinutes": 25,
+      "durationMinutes": 30,
       "totalMarks": 50,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13044,7 +13044,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/[Set-B] মানচিত্র পরীক্ষা-০৮ (বাংলাদেশের সম্পদ).json",
       "totalQuestions": 67,
-      "durationMinutes": 35,
+      "durationMinutes": 40,
       "totalMarks": 67,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13058,7 +13058,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/[Set-B] মানচিত্র পরীক্ষা-১৪ (মুক্তিযুদ্ধকালীন ১৯ টি জেলা, সেক্টর, সেক্টর কমান্ডার, ৭ জন বীরশ্রেষ্ঠ).json",
       "totalQuestions": 19,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 19,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13072,7 +13072,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/[Set-C] মানচিত্র পরীক্ষা-০৫ (নদ-নদী, দ্বীপ, চর, হাওড়, খাল-বিল, হ্রদ, জলপ্রপাত).json",
       "totalQuestions": 47,
-      "durationMinutes": 25,
+      "durationMinutes": 28,
       "totalMarks": 47,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13086,7 +13086,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/বাংলাদেশের মানচিত্র পরীক্ষা (Unlimited Exam).json",
       "totalQuestions": 810,
-      "durationMinutes": 15,
+      "durationMinutes": 486,
       "totalMarks": 810,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13100,7 +13100,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-০১ (বাংলাদেশের ভৌগোলিক পরিচিতি, সীমারেখা, কৌণিক-দিক).json",
       "totalQuestions": 35,
-      "durationMinutes": 20,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13114,7 +13114,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-০২ (বাংলাদেশের সীমান্তবর্তী জেলাসমূহ).json",
       "totalQuestions": 61,
-      "durationMinutes": 30,
+      "durationMinutes": 37,
       "totalMarks": 61,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13128,7 +13128,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-০৩ (বাংলাদেশের বিভাগ পরিচিতি).json",
       "totalQuestions": 75,
-      "durationMinutes": 35,
+      "durationMinutes": 45,
       "totalMarks": 75,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13142,7 +13142,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-০৪ (বাংলাদেশের ভূ-প্রকৃতি).json",
       "totalQuestions": 47,
-      "durationMinutes": 25,
+      "durationMinutes": 28,
       "totalMarks": 47,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13156,7 +13156,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-০৬ (প্রাকৃতিক দুর্যোগ).json",
       "totalQuestions": 22,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13170,7 +13170,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-০৭ (বঙ্গোপসাগর).json",
       "totalQuestions": 19,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 19,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13184,7 +13184,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-০৯ (শিল্প ও ইপিজেড সম্পদ).json",
       "totalQuestions": 35,
-      "durationMinutes": 20,
+      "durationMinutes": 21,
       "totalMarks": 35,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13198,7 +13198,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-১০ (স্থলবন্দর ও আন্তঃদেশীয় রেললাইন).json",
       "totalQuestions": 30,
-      "durationMinutes": 15,
+      "durationMinutes": 18,
       "totalMarks": 30,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13212,7 +13212,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-১১ (বাংলাদেশের উপজাতি-ক্ষুদ্র নৃ-গোষ্ঠী).json",
       "totalQuestions": 45,
-      "durationMinutes": 25,
+      "durationMinutes": 27,
       "totalMarks": 45,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13226,7 +13226,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-১২ (বাংলার প্রাচীন জনপদ).json",
       "totalQuestions": 22,
-      "durationMinutes": 10,
+      "durationMinutes": 13,
       "totalMarks": 22,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13240,7 +13240,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-১৩ (বাংলাদেশের সামরিক বাহিনী).json",
       "totalQuestions": 18,
-      "durationMinutes": 10,
+      "durationMinutes": 11,
       "totalMarks": 18,
       "negativeMark": 0.25,
       "hasExplanations": true
@@ -13254,7 +13254,7 @@
       "subject": "General Knowledge",
       "filePath": "gk_course/বাংলাদেশ মানচিত্র প্রশ্নব্যাংক/মানচিত্র পরীক্ষা-১৫ (বাংলাদেশের ঐতিহাসিক স্থান, প্রত্নস্থল ও স্থাপত্য).json",
       "totalQuestions": 68,
-      "durationMinutes": 35,
+      "durationMinutes": 41,
       "totalMarks": 68,
       "negativeMark": 0.25,
       "hasExplanations": true

@@ -720,21 +720,74 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     loadExamSubmissions();
   }, [loadExamSubmissions]);
 
-  // Default leaderboard course selection to first course
+  // All courses and exam batches available for leaderboard analysis
+  const allAdminLeaderboardCourses = useMemo(() => {
+    const list = [];
+    const seen = new Set();
+
+    // 1. Regular Video Courses
+    (courses || []).forEach(c => {
+      const id = String(c.id || c.slug).toLowerCase();
+      if (!seen.has(id)) {
+        seen.add(id);
+        list.push({ ...c, isExamBatch: false, typeLabel: 'Course' });
+      }
+    });
+
+    // 2. Exam Batches from data or EXAM_CATEGORIES_METADATA
+    const batches = (data?.examBatches && data.examBatches.length > 0) ? data.examBatches : EXAM_CATEGORIES_METADATA;
+    (batches || []).forEach(b => {
+      const id = String(b.key || b.id).toLowerCase();
+      if (!seen.has(id)) {
+        seen.add(id);
+        list.push({
+          id: b.key || b.id,
+          key: b.key || b.id,
+          slug: b.key || b.id,
+          title: b.title || b.name,
+          category: 'Exam Batch',
+          isExamBatch: true,
+          typeLabel: 'Exam Batch'
+        });
+      }
+    });
+
+    // 3. Any additional courses from submissions
+    examSubmissions.forEach(s => {
+      const id = String(s.course_id || s.course_slug || '').toLowerCase();
+      if (id && !seen.has(id)) {
+        seen.add(id);
+        list.push({
+          id,
+          key: id,
+          slug: id,
+          title: s.course_name || id,
+          category: 'Batch',
+          isExamBatch: true,
+          typeLabel: 'Batch'
+        });
+      }
+    });
+
+    return list;
+  }, [courses, data?.examBatches, examSubmissions]);
+
+  // Default leaderboard course selection to first course or batch
   useEffect(() => {
-    if ((!leaderboardCourseId || leaderboardCourseId === 'ALL') && courses && courses.length > 0) {
-      setLeaderboardCourseId(String(courses[0].id || courses[0].slug));
+    if ((!leaderboardCourseId || leaderboardCourseId === 'ALL') && allAdminLeaderboardCourses.length > 0) {
+      setLeaderboardCourseId(String(allAdminLeaderboardCourses[0].id || allAdminLeaderboardCourses[0].slug));
     }
-  }, [courses, leaderboardCourseId]);
+  }, [allAdminLeaderboardCourses, leaderboardCourseId]);
 
   // Currently selected course object for leaderboard
   const currentLeaderboardCourse = useMemo(() => {
-    if (!courses || courses.length === 0) return null;
-    return courses.find(c => 
+    if (!allAdminLeaderboardCourses || allAdminLeaderboardCourses.length === 0) return null;
+    return allAdminLeaderboardCourses.find(c => 
       String(c.id).toLowerCase() === String(leaderboardCourseId).toLowerCase() ||
-      String(c.slug || '').toLowerCase() === String(leaderboardCourseId).toLowerCase()
-    ) || courses[0];
-  }, [courses, leaderboardCourseId]);
+      String(c.slug || '').toLowerCase() === String(leaderboardCourseId).toLowerCase() ||
+      String(c.key || '').toLowerCase() === String(leaderboardCourseId).toLowerCase()
+    ) || allAdminLeaderboardCourses[0];
+  }, [allAdminLeaderboardCourses, leaderboardCourseId]);
 
   // Extract all lessons and exams for the selected course
   const currentCourseLessons = useMemo(() => {
@@ -8901,22 +8954,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
                         <BookOpen className="w-4 h-4 text-[#5d5bf6]" />
-                        ১. কোর্স নির্বাচন করুন (Select Course):
+                        ১. কোর্স বা এক্সাম ব্যাচ নির্বাচন করুন (Select Course / Batch):
                       </span>
                       <span className="text-xs text-slate-400 font-medium">
-                        মোট {courses.length} টি কোর্স
+                        মোট {allAdminLeaderboardCourses.length} টি কোর্স ও এক্সাম ব্যাচ
                       </span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-                      {courses.map(c => {
-                        const cKey = String(c.id || c.slug);
+                      {allAdminLeaderboardCourses.map(c => {
+                        const cKey = String(c.id || c.slug || c.key);
+                        const cTarget = cKey.toLowerCase().replace(/[-_\s]/g, '');
                         const isSelected = String(leaderboardCourseId).toLowerCase() === String(c.id).toLowerCase() ||
-                                           String(leaderboardCourseId).toLowerCase() === String(c.slug || '').toLowerCase();
-                        const cSubmissions = examSubmissions.filter(s => 
-                          String(s.course_id || '').toLowerCase() === String(c.id).toLowerCase() ||
-                          String(s.course_slug || '').toLowerCase() === String(c.slug || '').toLowerCase()
-                        );
+                                           String(leaderboardCourseId).toLowerCase() === String(c.slug || '').toLowerCase() ||
+                                           String(leaderboardCourseId).toLowerCase().replace(/[-_\s]/g, '') === cTarget;
+                        const cSubmissions = examSubmissions.filter(s => {
+                          const sCId = String(s.course_id || s.course_slug || '').toLowerCase().replace(/[-_\s]/g, '');
+                          return sCId === cTarget || (sCId && cTarget.includes(sCId)) || (cTarget && sCId.includes(cTarget));
+                        });
 
                         return (
                           <button
@@ -8937,14 +8992,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 ? 'bg-[#5d5bf6] border-[#5d5bf6] text-white shadow-xs'
                                 : 'bg-white border-slate-200 text-slate-500'
                             }`}>
-                              <BookOpen className="w-4 h-4" />
+                              {c.isExamBatch ? <Trophy className="w-4 h-4 text-amber-500" /> : <BookOpen className="w-4 h-4" />}
                             </div>
                             <div className="min-w-0 flex-1">
                               <h4 className="text-xs font-bold text-slate-900 truncate leading-tight">
                                 {c.title || c.name || 'Course'}
                               </h4>
-                              <p className="text-[10px] text-slate-500 mt-1 flex items-center gap-1.5">
-                                <span className="font-medium">{c.category || 'Batch'}</span>
+                              <p className="text-[10px] text-slate-500 mt-1 flex items-center gap-1.5 flex-wrap">
+                                <span className="font-semibold text-slate-600">{c.typeLabel || c.category || 'Batch'}</span>
                                 <span>•</span>
                                 <span className="text-indigo-600 font-bold">{cSubmissions.length} খাতা জমা</span>
                               </p>
@@ -10092,6 +10147,27 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           {/* Minimal Meta Row */}
                           <div className="flex items-center gap-2 text-xs text-slate-400 font-medium">
                             {(() => {
+                              if (course.isExamBatch || course.category === 'EXAM BATCH') {
+                                return (
+                                  <>
+                                    <span className="flex items-center gap-1 text-slate-700 font-bold">
+                                      <Play className="w-3.5 h-3.5 text-[#5d5bf6]" />
+                                      {course.examCountText || `${course.examCount || 0} Exams`}
+                                    </span>
+                                    {course.questionCount && (
+                                      <>
+                                        <span>•</span>
+                                        <span className="flex items-center gap-1 text-slate-500 font-medium">
+                                          <Layers className="w-3.5 h-3.5 text-slate-400" />
+                                          {course.questionCount}
+                                        </span>
+                                      </>
+                                    )}
+                                    <span>•</span>
+                                    <span className="font-mono text-[10px] text-slate-400">ID #{idx + 1}</span>
+                                  </>
+                                );
+                              }
                               const lesCount = (course.curriculum || []).reduce((acc, s) => acc + (s.chapters || []).reduce((cAcc, c) => cAcc + (c.lessons || []).length, 0), 0);
                               return (
                                 <>

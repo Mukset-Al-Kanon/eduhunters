@@ -7,6 +7,7 @@
  */
 import { supabase, isSupabaseConfigured } from '../supabase/config.js';
 import { broadcastSupabaseMessage } from './supabaseService.js';
+import { getResolvedStudent } from '../utils/studentProfile.js';
 
 const LOCAL_SUBMISSIONS_KEY = 'eduhunters_local_quiz_submissions';
 
@@ -16,29 +17,19 @@ const LOCAL_SUBMISSIONS_KEY = 'eduhunters_local_quiz_submissions';
 export function isDemoSubmission(item) {
   if (!item) return true;
   const sId = String(item.student_id || '').toLowerCase();
-  const sName = String(item.student_name || '').toLowerCase();
   const sUser = String(item.student_username || '').toLowerCase();
   const subId = String(item.id || '').toLowerCase();
 
   // Purge specific historical test submission requested by user
   if (subId === 'sub_1792087166936_jlgjb') return true;
 
+  // Strict check on actual mock indicators (do not false-positive on real names)
+  if (item.is_demo === true || item._isMock === true) return true;
   if (sId.startsWith('demo_') || sId.includes('demo_std')) return true;
   if (sUser.startsWith('demo_') || sUser === 'examinee') return true;
+  if (subId.startsWith('demo_')) return true;
 
-  const demoNames = [
-    'tanvir ahmed',
-    'nusrat jahan',
-    'samiul islam',
-    'sadia rahman',
-    'arif hossain',
-    'mehedi hasan',
-    'farhana akter',
-    'rakibul islam',
-    'afsana mimi',
-    'tahsin chowdhury'
-  ];
-  return demoNames.some(d => sName.includes(d) || sUser.includes(d.replace(/\s+/g, '_')));
+  return false;
 }
 
 /**
@@ -69,47 +60,14 @@ export function saveLocalSubmissions(submissions) {
   } catch (e) {}
 }
 
-/**
- * Check if the quiz is currently inside its live window
- */
 export function checkQuizLiveStatus(quiz) {
-  if (!quiz) {
-    return { isLive: true, isUpcoming: false, isExpired: false, statusText: 'Live Exam' };
-  }
-
-  const now = new Date();
-  const start = quiz.startDate ? new Date(quiz.startDate) : null;
-  const end = quiz.endDate ? new Date(quiz.endDate) : null;
-
-  if (start && !isNaN(start.getTime()) && now < start) {
-    return {
-      isLive: false,
-      isUpcoming: true,
-      isExpired: false,
-      startDate: start,
-      endDate: end,
-      statusText: `Upcoming (Opens: ${start.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })})`
-    };
-  }
-
-  if (end && !isNaN(end.getTime()) && now > end) {
-    return {
-      isLive: false,
-      isUpcoming: false,
-      isExpired: true,
-      startDate: start,
-      endDate: end,
-      statusText: 'Practice Mode (Live Window Closed)'
-    };
-  }
-
   return {
     isLive: true,
     isUpcoming: false,
     isExpired: false,
-    startDate: start,
-    endDate: end,
-    statusText: 'Official Live Exam'
+    startDate: null,
+    endDate: null,
+    statusText: 'Official Exam Open'
   };
 }
 
@@ -183,13 +141,15 @@ export async function recordQuizSubmission({
   result,
   timeTakenSeconds = 0
 }) {
-  const studentId = student?.id || student?.uid || student?.phone || student?.email || `std_${Date.now()}`;
-  const studentName = student?.name || student?.displayName || student?.phone || 'Student';
-  const studentPhone = (student?.phone || student?.whatsapp || '').replace(/[^0-9]/g, '');
-  const studentEmail = (student?.email || '').trim().toLowerCase();
+  // Guarantee 100% accurate student identity resolution
+  const resolved = getResolvedStudent(student);
+  const studentId = resolved.id || resolved.uid || `std_${Date.now()}`;
+  const studentName = resolved.name || resolved.displayName || 'Student';
+  const studentPhone = (resolved.phone || student?.phone || student?.whatsapp || '').replace(/[^0-9]/g, '');
+  const studentEmail = (resolved.email || student?.email || '').trim().toLowerCase();
   const rawPhone = studentPhone;
   const cleanEmail = studentEmail;
-  const studentAvatar = student?.avatar || student?.photoURL || student?.profilePic || '';
+  const studentAvatar = resolved.avatar || student?.avatar || student?.photoURL || '';
 
   const courseId = String(course?.id || course?.slug || 'course_default');
   const courseSlug = course?.slug || course?.id || '';
@@ -206,7 +166,7 @@ export async function recordQuizSubmission({
     const sPhone = (s.student_phone || '').replace(/[^0-9]/g, '');
     const sEmail = (s.student_email || '').trim().toLowerCase();
 
-    const idMatch = sId && (sId === String(studentId) || (student?.uid && sId === String(student?.uid)));
+    const idMatch = sId && (sId === String(studentId) || (resolved?.uid && sId === String(resolved?.uid)));
     const phoneMatch = rawPhone && sPhone && (rawPhone === sPhone || (rawPhone.length >= 10 && sPhone.includes(rawPhone.slice(-10))));
     const emailMatch = cleanEmail && sEmail && cleanEmail === sEmail;
 
@@ -351,7 +311,7 @@ export async function recordQuizSubmission({
 
   return {
     ...submissionPayload,
-    isOfficialRanked: isFirstAttempt && isLiveWindow
+    isOfficialRanked: Boolean(isFirstAttempt)
   };
 }
 
@@ -364,15 +324,21 @@ export async function recordQuizSubmission({
 export async function fetchLessonLeaderboard(courseId, lessonId) {
   const allSubmissions = await fetchAllSubmissions();
 
+  const cleanCourse = (courseId || '').toString().trim().toLowerCase().replace(/[-_\s]/g, '');
+  const cleanLesson = (lessonId || '').toString().trim().toLowerCase();
+
   // Filter only official first attempts for this lesson
   const filtered = allSubmissions.filter(s => {
     if (isDemoSubmission(s)) return false;
     if (s.is_first_attempt === false || (s.attempt_number && Number(s.attempt_number) > 1)) return false;
 
-    const matchLesson = !lessonId || String(s.lesson_id) === String(lessonId);
-    const matchCourse = !courseId || 
-      String(s.course_id).toLowerCase() === String(courseId).toLowerCase() || 
-      String(s.course_slug || '').toLowerCase() === String(courseId).toLowerCase();
+    const sLesson = String(s.lesson_id || '').trim().toLowerCase();
+    const matchLesson = !cleanLesson || cleanLesson === 'all' || cleanLesson === 'overall' || sLesson === cleanLesson;
+
+    const sCId = String(s.course_id || '').trim().toLowerCase().replace(/[-_\s]/g, '');
+    const sCSlug = String(s.course_slug || '').trim().toLowerCase().replace(/[-_\s]/g, '');
+    const matchCourse = !cleanCourse || cleanCourse === 'all' || sCId === cleanCourse || sCSlug === cleanCourse || sCId.includes(cleanCourse) || cleanCourse.includes(sCId);
+
     return matchLesson && matchCourse;
   });
 
@@ -448,12 +414,17 @@ export async function fetchCourseLeaderboard(courseId, courseTitle = '') {
     const sCSlug = String(s.course_slug || '').toLowerCase();
     const sCName = String(s.course_name || '').toLowerCase();
 
-    return Array.from(candidateIds).some(cid => 
-      sCId === cid || 
-      sCSlug === cid || 
-      (sCName && sCName.includes(cid)) || 
-      (cid && cid.includes(sCName))
-    );
+    return Array.from(candidateIds).some(cid => {
+      const cleanCid = cid.replace(/[-_\s]/g, '');
+      const cleanSCId = sCId.replace(/[-_\s]/g, '');
+      const cleanSCSlug = sCSlug.replace(/[-_\s]/g, '');
+      return sCId === cid || 
+        sCSlug === cid || 
+        cleanSCId === cleanCid || 
+        cleanSCSlug === cleanCid || 
+        (sCName && sCName.includes(cid)) || 
+        (cid && cid.includes(sCName));
+    });
   });
 
   // Sort chronologically so earliest attempt per lesson per student is retained
@@ -476,7 +447,7 @@ export async function fetchCourseLeaderboard(courseId, courseTitle = '') {
 
   const studentMap = {};
   studentLessonMap.forEach(sub => {
-    const sId = sub.student_id;
+    const sId = sub.canonicalStudentKey || sub.student_id;
     if (!studentMap[sId]) {
       studentMap[sId] = {
         student_id: sId,
@@ -493,6 +464,15 @@ export async function fetchCourseLeaderboard(courseId, courseTitle = '') {
         quizzes_completed: 0,
         last_submitted_at: sub.submitted_at
       };
+    } else {
+      if ((!studentMap[sId].student_name || studentMap[sId].student_name === 'Student') && sub.student_name && sub.student_name !== 'Student') {
+        studentMap[sId].student_name = sub.student_name;
+        studentMap[sId].student_username = sub.student_username || sub.student_name.toLowerCase().replace(/\s+/g, '_');
+      }
+      if ((!studentMap[sId].avatar || studentMap[sId].avatar === '/avatar.svg') && sub.avatar && sub.avatar !== '/avatar.svg') {
+        studentMap[sId].avatar = sub.avatar;
+        studentMap[sId].student_avatar = sub.avatar;
+      }
     }
 
     studentMap[sId].total_score = +(Number(studentMap[sId].total_score + Number(sub.score || 0)).toFixed(2));

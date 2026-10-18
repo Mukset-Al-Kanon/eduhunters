@@ -770,7 +770,7 @@ export default function RtdsCurriculumView({
                           <span>•</span>
                           <span className="flex items-center gap-1">
                             <Clock size={11} />
-                            {exam.durationMinutes || 30} মিনিট
+                            {exam.durationMinutes || Math.max(1, Math.round((exam.totalQuestions || 50) * 0.6))} মিনিট
                           </span>
                         </div>
                       </div>

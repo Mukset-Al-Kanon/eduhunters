@@ -85,7 +85,7 @@ export default function ExamBatchStudio({
     title: '',
     subCategory: 'General',
     subject: 'Biology',
-    durationMinutes: 40,
+    durationMinutes: 30,
     totalMarks: 100,
     negativeMark: 0.25
   });
@@ -115,7 +115,7 @@ export default function ExamBatchStudio({
 
   // Per-Exam Duration Customizer Modal state
   const [durationCustomizerModal, setDurationCustomizerModal] = useState(null);
-  const [tempDuration, setTempDuration] = useState(40);
+  const [tempDuration, setTempDuration] = useState(30);
 
   // Basic Details & Overview Form drafts
   const [newFeatureInput, setNewFeatureInput] = useState('');
@@ -305,7 +305,7 @@ export default function ExamBatchStudio({
       subCategory: newQuizForm.subCategory || 'General',
       subject: newQuizForm.subject || 'All Subjects',
       totalQuestions: 0,
-      durationMinutes: Number(newQuizForm.durationMinutes) || 40,
+      durationMinutes: Number(newQuizForm.durationMinutes) || 30,
       totalMarks: Number(newQuizForm.totalMarks) || 100,
       negativeMark: Number(newQuizForm.negativeMark) || 0.25,
       hasExplanations: true
@@ -331,7 +331,7 @@ export default function ExamBatchStudio({
       title: '',
       subCategory: subCategoriesList[0] || 'General',
       subject: 'Biology',
-      durationMinutes: 40,
+      durationMinutes: 30,
       totalMarks: 100,
       negativeMark: 0.25
     });
@@ -476,7 +476,7 @@ export default function ExamBatchStudio({
 
   // Open Duration Customizer for an individual exam
   const handleOpenDurationCustomizer = (exam, isModeB = false) => {
-    const cur = Number(exam?.durationMinutes || exam?.duration_minutes || 40);
+    const cur = Number(exam?.durationMinutes || exam?.duration_minutes || 30);
     setTempDuration(cur);
     setDurationCustomizerModal({
       examId: exam.id || exam.exam_id,
@@ -489,7 +489,7 @@ export default function ExamBatchStudio({
   // Save Duration for an individual exam
   const handleSaveDuration = (minutesToSave) => {
     if (!durationCustomizerModal) return;
-    const minutes = Math.max(1, parseInt(minutesToSave ?? tempDuration, 10) || 40);
+    const minutes = Math.max(1, parseInt(minutesToSave ?? tempDuration, 10) || 30);
     const examId = durationCustomizerModal.examId;
 
     const nextManifest = updateExamDuration(examId, minutes, manifestData, (updated) => {
@@ -964,7 +964,7 @@ export default function ExamBatchStudio({
               <span className="text-[11px] font-bold text-slate-400 uppercase">Chapters / Categories</span>
             </div>
             <div className="bg-[#f4f6fa] rounded-2xl p-3 text-center border border-slate-200/60 min-w-[95px]">
-              <span className="block text-lg font-black text-rose-600">{(course.duration || '40 mins').replace('মিনিট', 'mins').replace('মি.', 'm')}</span>
+              <span className="block text-lg font-black text-rose-600">{(course.duration || '30 mins').replace('মিনিট', 'mins').replace('মি.', 'm')}</span>
               <span className="text-[11px] font-bold text-slate-400 uppercase">Avg Duration</span>
             </div>
           </div>
@@ -1078,7 +1078,7 @@ export default function ExamBatchStudio({
                             title="Click to customize quiz duration"
                           >
                             <Clock className="w-3.5 h-3.5 text-amber-600" />
-                            <span>{activeExamMeta.durationMinutes || 40} mins</span>
+                            <span>{activeExamMeta.durationMinutes || 30} mins</span>
                             <span className="text-[10px] bg-amber-200/70 text-amber-900 px-1 py-0.2 rounded font-black">
                               Customize ✏️
                             </span>
@@ -1622,7 +1622,7 @@ export default function ExamBatchStudio({
                           title: '',
                           subCategory: selectedSubCategory !== 'all' ? selectedSubCategory : (subCategoriesList[0] || 'General'),
                           subject: 'Biology',
-                          durationMinutes: 40,
+                          durationMinutes: 30,
                           totalMarks: 100,
                           negativeMark: 0.25
                         });
@@ -1836,7 +1836,7 @@ export default function ExamBatchStudio({
                                       >
                                         <div className="flex items-center justify-center gap-1">
                                           <span className="block text-xs font-black text-slate-700 group-hover/time:text-amber-800">
-                                            {exam.durationMinutes || 40}m
+                                            {exam.durationMinutes || 30}m
                                           </span>
                                           <Clock className="w-2.5 h-2.5 text-slate-400 group-hover/time:text-amber-600 transition-colors" />
                                         </div>
@@ -1982,7 +1982,7 @@ export default function ExamBatchStudio({
                 <label className="text-xs font-bold text-slate-700">Average Exam Duration</label>
                 <input
                   type="text"
-                  value={course.duration || '40 mins'}
+                  value={course.duration || '30 mins'}
                   onChange={(e) => handleUpdateField('duration', e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6]"
                 />
@@ -2359,7 +2359,7 @@ export default function ExamBatchStudio({
                   <label className="text-xs font-bold text-slate-700">Duration (Minutes)</label>
                   <input
                     type="number"
-                    value={showEditQuizMetaModal.durationMinutes || 40}
+                    value={showEditQuizMetaModal.durationMinutes || 30}
                     onChange={(e) => setShowEditQuizMetaModal({ ...showEditQuizMetaModal, durationMinutes: Number(e.target.value) })}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-[#5d5bf6] font-bold"
                   />

@@ -288,7 +288,7 @@ export default function CourseStudioPage({
     pdfUrl: '',
     hasQuiz: false,
     quizTitle: '',
-    durationMinutes: 10,
+    durationMinutes: 30,
     negativeMark: 0.25,
     startDate: '',
     endDate: '',
@@ -676,7 +676,7 @@ export default function CourseStudioPage({
 
     const initialQuiz = existingQuiz ? {
       title: (existingQuiz.title || `${lessonTitleStr} - Quiz`).replace(/practice\s*quiz/gi, 'Quiz'),
-      durationMinutes: existingQuiz.durationMinutes || 10,
+      durationMinutes: existingQuiz.durationMinutes || 30,
       totalMarks: normalizedQuestions.length,
       negativeMark: existingQuiz.negativeMark !== undefined ? existingQuiz.negativeMark : 0.25,
       startDate: existingQuiz.startDate || '',
@@ -685,7 +685,7 @@ export default function CourseStudioPage({
       examId: existingQuiz.examId || (isObj ? lesson.examId : '') || ''
     } : {
       title: `${lessonTitleStr} - Quiz`,
-      durationMinutes: 10,
+      durationMinutes: 30,
       totalMarks: 0,
       negativeMark: 0.25,
       startDate: '',
@@ -1139,41 +1139,12 @@ export default function CourseStudioPage({
               </div>
             </div>
 
-            {/* Live Window Schedule row */}
-            <div className="pt-2 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="text-[11px] font-semibold text-slate-600 block mb-1">
-                  Live Window Start (Optional)
-                </label>
-                <input
-                  type="datetime-local"
-                  value={quiz.startDate || ''}
-                  onChange={(e) => setActiveQuizPage(prev => ({
-                    ...prev,
-                    quiz: { ...prev.quiz, startDate: e.target.value }
-                  }))}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 font-mono outline-none focus:bg-white focus:border-purple-600 transition-all"
-                />
-              </div>
-
-              <div>
-                <label className="text-[11px] font-semibold text-slate-600 block mb-1">
-                  Live Window End (Optional)
-                </label>
-                <input
-                  type="datetime-local"
-                  value={quiz.endDate || ''}
-                  onChange={(e) => setActiveQuizPage(prev => ({
-                    ...prev,
-                    quiz: { ...prev.quiz, endDate: e.target.value }
-                  }))}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 font-mono outline-none focus:bg-white focus:border-purple-600 transition-all"
-                />
-              </div>
+            {/* Open Anytime Notice */}
+            <div className="pt-2.5 border-t border-slate-100">
+              <p className="text-[11px] text-slate-500 flex items-center gap-1.5">
+                <span>🏆 শিক্ষার্থীরা যেকোনো সময় পরীক্ষায় অংশ নিতে পারবে। শুধুমাত্র প্রথম প্রচেষ্টার ফলাফলটি লিডারবোর্ডে র‍্যাঙ্ক হবে; পরবর্তী প্রচেষ্টাগুলো প্র্যাকটিস হিসেবে গণ্য হবে।</span>
+              </p>
             </div>
-            <p className="text-[11px] text-slate-400">
-              Note: Students taking their first attempt during the live window are officially recorded for the Leaderboard podium.
-            </p>
           </div>
         </div>
 
@@ -1720,7 +1691,7 @@ export default function CourseStudioPage({
       pdfUrl: prefill.pdfUrl || '',
       hasQuiz: false,
       quizTitle: '',
-      durationMinutes: 10,
+      durationMinutes: 30,
       negativeMark: 0.25,
       startDate: prefill.startDate || '',
       endDate: prefill.endDate || '',
@@ -1750,7 +1721,7 @@ export default function CourseStudioPage({
       pdfUrl: isObj ? (lesson.pdfUrl || '') : '',
       hasQuiz: Boolean(existingQuiz && (existingQuiz.questions?.length > 0 || existingQuiz.examId)),
       quizTitle: existingQuiz?.title || `${lessonTitle} - Quiz`,
-      durationMinutes: existingQuiz?.durationMinutes || 10,
+      durationMinutes: existingQuiz?.durationMinutes || 30,
       negativeMark: existingQuiz?.negativeMark !== undefined ? existingQuiz.negativeMark : 0.25,
       startDate: existingQuiz?.startDate || '',
       endDate: existingQuiz?.endDate || '',
@@ -1769,7 +1740,7 @@ export default function CourseStudioPage({
 
     const finalQuiz = hasQuiz ? {
       title: quizTitle.trim() || `${classWizardModal.title.trim()} - Quiz`,
-      durationMinutes: Number(durationMinutes) || 10,
+      durationMinutes: Number(durationMinutes) || 30,
       totalMarks: questions.length > 0 ? questions.length : 5,
       negativeMark: Number(negativeMark) || 0.25,
       startDate: startDate || '',
@@ -3687,40 +3658,9 @@ export default function CourseStudioPage({
                             </div>
                           </div>
 
-                          {/* Live Window Schedule */}
-                          <div className="p-3 bg-white border border-slate-200/90 rounded-xl space-y-2">
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                              <span className="text-xs font-bold text-slate-800">
-                                Live Window Schedule (Optional)
-                              </span>
-                              <span className="text-[10px] text-slate-500">
-                                First attempt within window counts for official Leaderboard
-                              </span>
-                            </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                              <div>
-                                <label className="text-[11px] font-semibold text-slate-600 block mb-1">
-                                  Live Window Start
-                                </label>
-                                <input
-                                  type="datetime-local"
-                                  value={classWizardModal.startDate || ''}
-                                  onChange={(e) => setClassWizardModal(prev => ({ ...prev, startDate: e.target.value }))}
-                                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all font-mono"
-                                />
-                              </div>
-                              <div>
-                                <label className="text-[11px] font-semibold text-slate-600 block mb-1">
-                                  Live Window End
-                                </label>
-                                <input
-                                  type="datetime-local"
-                                  value={classWizardModal.endDate || ''}
-                                  onChange={(e) => setClassWizardModal(prev => ({ ...prev, endDate: e.target.value }))}
-                                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 outline-none focus:bg-white focus:border-purple-600 transition-all font-mono"
-                                />
-                              </div>
-                            </div>
+                          {/* Open Anytime Notice */}
+                          <div className="p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-[11px] text-slate-600 flex items-center gap-1.5">
+                            <span>🏆 শিক্ষার্থীরা যেকোনো সময় পরীক্ষা দিতে পারবে (শুধুমাত্র ১ম প্রচেষ্টার ফলাফল লিডারবোর্ডে গণ্য হবে)।</span>
                           </div>
 
                           {/* Action Toolbar */}

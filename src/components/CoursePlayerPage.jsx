@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { 
   Play, 
   FileText, 
@@ -7,18 +7,12 @@ import {
   Clock, 
   ChevronDown, 
   ListVideo, 
-  CheckSquare, 
-  RotateCcw, 
-  X, 
-  Zap, 
-  Check, 
   Lock, 
   ShoppingCart, 
-  ShieldCheck,
-  Calendar,
   Trophy,
   AlertCircle,
-  Timer
+  Timer,
+  Calendar
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import { freeCoursesData } from '../data/freeCoursesData';
@@ -31,9 +25,9 @@ import Navbar from './Navbar';
 import SureShotExamSystem from './SureShotExamSystem';
 import CheckoutModal from './CheckoutModal';
 import ProfileModal from './ProfileModal';
-import { isStudentProfileComplete } from '../utils/studentProfile';
-import { recordQuizSubmission, checkQuizLiveStatus } from '../services/quizService';
-import { getQuizScheduleState, formatScheduleDateTimeBn, toBengaliDigits } from '../utils/quizScheduleHelper';
+import { isStudentProfileComplete, getResolvedStudent } from '../utils/studentProfile';
+import { recordQuizSubmission } from '../services/quizService';
+import { getQuizScheduleState } from '../utils/quizScheduleHelper';
 
 function getEmbedUrl(url) {
   if (!url) return '';
@@ -313,36 +307,8 @@ export default function CoursePlayerPage({
   const [isPdfDropdownOpen, setIsPdfDropdownOpen] = useState(false);
   const activeLessonRef = useRef(null);
 
-  // Subtle Anti-Piracy Floating Watermark (Alternates Top-Left 5s -> Hidden 12s -> Bottom-Right 5s -> Hidden 12s)
-  const [watermarkPos, setWatermarkPos] = useState('top-left'); // 'top-left' | 'bottom-right'
-  const [watermarkVisible, setWatermarkVisible] = useState(true);
-
-  useEffect(() => {
-    let isMounted = true;
-    let timerId = null;
-
-    const runCycle = () => {
-      setWatermarkVisible(true);
-      timerId = setTimeout(() => {
-        if (!isMounted) return;
-        setWatermarkVisible(false);
-        timerId = setTimeout(() => {
-          if (!isMounted) return;
-          setWatermarkPos(prev => (prev === 'top-left' ? 'bottom-right' : 'top-left'));
-          runCycle();
-        }, 12000);
-      }, 5000);
-    };
-
-    runCycle();
-    return () => {
-      isMounted = false;
-      if (timerId) clearTimeout(timerId);
-    };
-  }, []);
 
   // Practice Quiz & Exam state
-  const [isQuizDropdownOpen, setIsQuizDropdownOpen] = useState(false);
   const [activeLessonExam, setActiveLessonExam] = useState(null);
   const [clockTime, setClockTime] = useState(() => Date.now());
 
@@ -521,8 +487,9 @@ export default function CoursePlayerPage({
               });
 
               try {
+                const resolvedStudent = getResolvedStudent(currentUser);
                 await recordQuizSubmission({
-                  student: currentUser || { id: 'guest_student', name: 'Student' },
+                  student: resolvedStudent,
                   course,
                   lesson: currentLesson,
                   quiz: currentLesson.quiz,
@@ -690,21 +657,6 @@ export default function CoursePlayerPage({
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   ></iframe>
-
-                  {/* Subtle Anti-Piracy Floating Watermark (Alternating Top-Left / Bottom-Right) */}
-                  <div 
-                    className={`absolute pointer-events-none select-none z-30 transition-all duration-700 ease-in-out ${
-                      watermarkPos === 'top-left' ? 'top-3 left-3 sm:top-4 sm:left-4' : 'bottom-12 right-3 sm:bottom-14 sm:right-4'
-                    } ${
-                      watermarkVisible ? 'opacity-30 scale-100' : 'opacity-0 scale-95'
-                    }`}
-                  >
-                    <div className="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-xs border border-white/15 text-[10px] sm:text-xs font-mono font-medium text-white/90 tracking-wider shadow-sm flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                      <span>{currentUser?.phone || currentUser?.email || 'EH-STUDENT'}</span>
-                      <span className="opacity-60">• ID: {currentUser?.id?.slice(0, 8) || 'VERIFIED'}</span>
-                    </div>
-                  </div>
                 </>
               ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center text-center p-6 text-gray-400">
@@ -866,54 +818,10 @@ export default function CoursePlayerPage({
                 </div>
               </div>
 
-              {/* 'Practice Quiz & Exam' Dropdown Box */}
-              <div className="mt-3 pt-3 border-t border-gray-500/15">
-                <button
-                  type="button"
-                  onClick={() => setIsQuizDropdownOpen(prev => !prev)}
-                  className={`w-full flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 cursor-pointer shadow-xs group ${
-                    isQuizDropdownOpen
-                      ? (isDark 
-                          ? 'bg-[#1e050d] border-red-500/40 text-white' 
-                          : 'bg-red-50/80 border-red-300 text-slate-900')
-                      : (isDark 
-                          ? 'bg-[#150409]/90 hover:bg-[#1f060e] border-[#e11438]/25 text-gray-200 hover:text-white hover:border-[#e11438]/40' 
-                          : 'bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-800 hover:border-slate-300')
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-colors ${
-                      isDark 
-                        ? 'bg-red-500/15 text-red-400 group-hover:bg-red-500/25' 
-                        : 'bg-red-100 text-red-600 group-hover:bg-red-200'
-                    }`}>
-                      <Zap className="w-5 h-5" />
-                    </div>
-                    <div className="text-left">
-                      <span className="text-sm sm:text-base font-bold flex items-center gap-2">
-                        Class Exam & Quiz
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                    isDark ? 'bg-white/5 text-gray-300 group-hover:text-white' : 'bg-black/5 text-slate-600 group-hover:text-slate-900'
-                  }`}>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isQuizDropdownOpen ? 'rotate-180' : ''}`} />
-                  </div>
-                </button>
-
-                {/* Dropdown Content Area */}
-                <div
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    isQuizDropdownOpen
-                      ? 'grid-rows-[1fr] opacity-100 mt-3.5'
-                      : 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <div className="pt-1 space-y-4">
-                      {!isCurrentLessonUnlocked ? (
+              {/* Class Exam & Quiz Section (Always Directly Visible / Expanded) */}
+              {(!isCurrentLessonUnlocked || currentLesson.quiz || currentLesson.examId) && (
+                <div className="mt-4 pt-4 border-t border-gray-500/15 space-y-4">
+                  {!isCurrentLessonUnlocked ? (
                         /* Locked Quiz State for unenrolled students */
                         <div className={`p-6 sm:p-7 rounded-2xl border text-center flex flex-col items-center justify-center space-y-3 ${
                           isDark ? 'border-purple-500/25 bg-[#17040a]/70' : 'border-purple-200 bg-purple-50/50'
@@ -1094,11 +1002,7 @@ export default function CoursePlayerPage({
                           );
                         }
 
-                        // -------------------------------------------------------------
-                        // STATE 2: CURRENTLY LIVE (OFFICIAL FIRST ATTEMPT OPEN)
-                        // -------------------------------------------------------------
-                        if (sched.isLive) {
-                          return (
+                        return (
                             <div className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all relative overflow-hidden ${
                               isDark 
                                 ? 'bg-gradient-to-br from-[#1a040b]/95 via-[#120206] to-[#0a0104] border-[#e11438]/35 shadow-[0_8px_30px_rgba(225,20,56,0.14)]' 
@@ -1160,14 +1064,14 @@ export default function CoursePlayerPage({
                                     isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
                                   }`}>
                                     <span>Official Score: <strong>{savedScore.score} / {savedScore.totalPossible}</strong></span>
-                                    <span className="text-[11px] opacity-75">First Attempt Recorded</span>
+                                    <span className="text-[11px] opacity-75">1st Attempt Ranked on Leaderboard</span>
                                   </div>
                                 )}
 
                                 {onNavigateLeaderboard && (
                                   <button
                                     type="button"
-                                    onClick={onNavigateLeaderboard}
+                                    onClick={() => onNavigateLeaderboard(course?.id || course?.slug || courseId, currentLesson?.id)}
                                     className={`w-full py-3.5 px-6 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all cursor-pointer border shadow-sm hover:scale-[1.01] active:scale-[0.99] ${
                                       isDark 
                                         ? 'bg-[#22060f] hover:bg-[#320816] text-[#ff4d6d] hover:text-white border-[#e11438]/35 hover:border-[#e11438]/60 shadow-red-950/30' 
@@ -1185,113 +1089,14 @@ export default function CoursePlayerPage({
                                   className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#e11438] to-[#ff2a55] hover:opacity-95 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-red-600/30 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border-none"
                                 >
                                   <Play className="w-4 h-4 fill-white" />
-                                  <span>{savedScore ? 'Retake Exam' : 'Start Exam'}</span>
+                                  <span>{savedScore ? 'Retake Exam (Practice)' : 'Start Exam'}</span>
                                 </button>
                               </div>
                             </div>
                           );
-                        }
-
-                        // -------------------------------------------------------------
-                        // STATE 3: EXPIRED (PRACTICE MODE)
-                        // -------------------------------------------------------------
-                        return (
-                          <div className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all ${
-                            isDark 
-                              ? 'bg-gradient-to-br from-[#16040a]/90 to-[#0d0205] border-red-500/25 shadow-sm' 
-                              : 'bg-white border-slate-200 shadow-2xs'
-                          }`}>
-                            <div className="space-y-4">
-                              <div className="text-center space-y-2">
-                                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-500/15 text-slate-500 dark:text-slate-400 border border-slate-500/25 inline-block mb-1">
-                                  Live Window Closed • Practice Mode
-                                </span>
-                                <h4 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white">
-                                  {quizTitle}
-                                </h4>
-                                <div className="flex items-center justify-center gap-2 flex-wrap text-xs font-medium">
-                                  <span className={`px-2.5 py-1 rounded-lg border ${
-                                    isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
-                                  }`}>
-                                    {totalQs} Questions
-                                  </span>
-                                  <span className={`px-2.5 py-1 rounded-lg border ${
-                                    isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
-                                  }`}>
-                                    {durMins} Minutes
-                                  </span>
-                                  <span className={`px-2.5 py-1 rounded-lg border ${
-                                    isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
-                                  }`}>
-                                    Total Marks: {totalQs}
-                                  </span>
-                                  <span className={`px-2.5 py-1 rounded-lg border ${
-                                    isDark ? 'bg-red-500/10 border-red-500/20 text-red-400' : 'bg-red-50 border-red-200 text-red-600'
-                                  }`}>
-                                    Neg Mark: {negMark}
-                                  </span>
-                                </div>
-                                <p className={`text-xs mt-2 leading-relaxed ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
-                                  The official live exam window has ended. You can still practice this test anytime with full explanations and instant results.
-                                </p>
-                              </div>
-
-                              {savedScore && (
-                                <div className={`p-3 rounded-xl border flex items-center justify-between text-xs font-medium ${
-                                  isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-100 border-slate-200 text-slate-700'
-                                }`}>
-                                  <span>Official Score: <strong>{savedScore.score} / {savedScore.totalPossible}</strong></span>
-                                  <span className="text-[11px] opacity-75">First Attempt Result</span>
-                                </div>
-                              )}
-
-                              {onNavigateLeaderboard && (
-                                <button
-                                  type="button"
-                                  onClick={onNavigateLeaderboard}
-                                  className={`w-full py-3.5 px-6 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all cursor-pointer border shadow-sm hover:scale-[1.01] active:scale-[0.99] ${
-                                    isDark 
-                                      ? 'bg-[#22060f] hover:bg-[#320816] text-[#ff4d6d] hover:text-white border-[#e11438]/35 hover:border-[#e11438]/60 shadow-red-950/30' 
-                                      : 'bg-red-50/90 hover:bg-red-100 text-[#dc2626] border-red-200 shadow-xs'
-                                  }`}
-                                >
-                                  <Trophy className="w-4 h-4 text-[#ff4d6d]" />
-                                  <span>Leaderboard</span>
-                                </button>
-                              )}
-
-                              <button
-                                type="button"
-                                onClick={handleStartQuiz}
-                                className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer transition-all border-none bg-gradient-to-r from-[#e11438] to-[#ff2a55] hover:opacity-95 text-white shadow-md shadow-red-600/30"
-                              >
-                                <Play className="w-4 h-4 fill-current" />
-                                <span>Take Practice Exam</span>
-                              </button>
-                            </div>
-                          </div>
-                        );
-                      })() : (
-                        <div className={`p-8 rounded-2xl border text-center flex flex-col items-center justify-center space-y-3 ${
-                          isDark ? 'border-red-500/20 bg-[#16040a]/60' : 'border-slate-200 bg-slate-50/70'
-                        }`}>
-                          <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400">
-                            <CheckSquare className="w-6 h-6" />
-                          </div>
-                          <div className="max-w-md">
-                            <h4 className="text-sm font-bold">
-                              No Exam Attached Yet
-                            </h4>
-                            <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
-                              Practice questions and exams will be published for this lesson soon.
-                            </p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                        })() : null}
                 </div>
-              </div>
+              )}
 
             </div>
           </div>
@@ -1384,38 +1189,14 @@ export default function CoursePlayerPage({
                         </div>
                       </div>
 
-                      {/* Right: Badges (FREE & Quiz Live) */}
-                      <div className="shrink-0 flex items-center gap-2">
-                        {!isEnrolled && les.isFree && (
+                      {/* Right: Badges (FREE demo class indicator) */}
+                      {!isEnrolled && les.isFree && (
+                        <div className="shrink-0 flex items-center">
                           <span className="text-[10px] font-black tracking-wider text-emerald-500 dark:text-emerald-400 select-none">
                             FREE
                           </span>
-                        )}
-
-                        {les.quiz && (() => {
-                          const sched = getQuizScheduleState(les.quiz, clockTime);
-                          if (sched.isUpcoming) {
-                            return (
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-amber-500/15 text-amber-500 border border-amber-500/25 flex items-center gap-1 shrink-0">
-                                <Lock className="w-2.5 h-2.5" /> Quiz Locked
-                              </span>
-                            );
-                          }
-                          if (sched.isLive) {
-                            return (
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#e11438]/15 text-[#ff2a55] border border-[#e11438]/30 flex items-center gap-1 shrink-0">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#e11438] animate-ping"></span>
-                                Quiz Live
-                              </span>
-                            );
-                          }
-                          return (
-                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-slate-500/15 text-slate-400 border border-slate-500/25 shrink-0">
-                              Practice Quiz
-                            </span>
-                          );
-                        })()}
-                      </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}

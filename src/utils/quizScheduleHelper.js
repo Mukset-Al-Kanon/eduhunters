@@ -122,80 +122,20 @@ export function calculateCountdown(targetDate, fromDate = new Date()) {
 }
 
 export function getQuizScheduleState(quiz, referenceTime = new Date()) {
-  if (!quiz) {
-    return {
-      hasSchedule: false,
-      isUpcoming: false,
-      isLive: true,
-      isExpired: false,
-      startDate: null,
-      endDate: null,
-      countdown: null,
-      statusTextBn: 'সাধারণ কুইজ',
-      statusTextEn: 'Standard Quiz'
-    };
-  }
-
-  const now = parseDateSafe(referenceTime) || new Date();
-  const start = parseDateSafe(quiz.startDate);
-  const end = parseDateSafe(quiz.endDate);
-
-  const hasSchedule = Boolean(start || end);
-
-  // 1. Upcoming (Strictly Locked before start date)
-  if (start && now.getTime() < start.getTime()) {
-    const countdown = calculateCountdown(start, now);
-    return {
-      hasSchedule: true,
-      isUpcoming: true,
-      isLive: false,
-      isExpired: false,
-      startDate: start,
-      endDate: end,
-      formattedStartBn: formatScheduleDateTimeBn(start),
-      formattedStartEn: formatScheduleDateTimeEn(start),
-      formattedEndBn: formatScheduleDateTimeBn(end),
-      formattedEndEn: formatScheduleDateTimeEn(end),
-      countdown,
-      statusTextBn: `লকড (শুরু: ${formatScheduleDateTimeBn(start)})`,
-      statusTextEn: `Upcoming (Opens: ${formatScheduleDateTimeEn(start)})`
-    };
-  }
-
-  // 2. Expired (Live Window Closed, Practice Mode)
-  if (end && now.getTime() > end.getTime()) {
-    return {
-      hasSchedule: true,
-      isUpcoming: false,
-      isLive: false,
-      isExpired: true,
-      startDate: start,
-      endDate: end,
-      formattedStartBn: formatScheduleDateTimeBn(start),
-      formattedStartEn: formatScheduleDateTimeEn(start),
-      formattedEndBn: formatScheduleDateTimeBn(end),
-      formattedEndEn: formatScheduleDateTimeEn(end),
-      countdown: null,
-      statusTextBn: 'প্র্যাকটিস মোড (লাইভ সময় শেষ)',
-      statusTextEn: 'Practice Mode (Live Window Closed)'
-    };
-  }
-
-  // 3. Currently Live (Official Examination Window)
-  const countdownToEnd = end ? calculateCountdown(end, now) : null;
   return {
-    hasSchedule: true,
+    hasSchedule: false,
     isUpcoming: false,
     isLive: true,
     isExpired: false,
-    startDate: start,
-    endDate: end,
-    formattedStartBn: formatScheduleDateTimeBn(start),
-    formattedStartEn: formatScheduleDateTimeEn(start),
-    formattedEndBn: formatScheduleDateTimeBn(end),
-    formattedEndEn: formatScheduleDateTimeEn(end),
-    countdown: countdownToEnd,
-    statusTextBn: 'অফিশিয়াল লাইভ পরীক্ষা চলমান',
-    statusTextEn: 'Official Live Exam Open'
+    startDate: null,
+    endDate: null,
+    formattedStartBn: '',
+    formattedStartEn: '',
+    formattedEndBn: '',
+    formattedEndEn: '',
+    countdown: null,
+    statusTextBn: 'উন্মুক্ত পরীক্ষা',
+    statusTextEn: 'Exam Open'
   };
 }
+
