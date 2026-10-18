@@ -71,7 +71,8 @@ export async function saveNewOrder({
   trxId,
   amount,
   originalPrice,
-  discount
+  discount,
+  existingOrderId = null
 }) {
   const orderId = `ord_${Date.now()}_${Math.floor(1000 + Math.random() * 9000)}`;
   const invoiceNumber = generateInvoiceNumber();
@@ -171,20 +172,88 @@ export async function saveNewOrder({
   };
 
   try {
-    // 3. Persist order in local user orders
+    // 3. Persist order in local user orders (Deduplicate: reuse existing pending order if present)
     const existingOrders = getUserOrders();
-    const updatedOrders = [newOrder, ...existingOrders];
+
+    // CRITICAL SAFETY GUARD: If student already has an approved/paid order for this course, NEVER downgrade them!
+    const existingApprovedOrder = existingOrders.find(o => {
+      const isPaid = (o.status || '').toUpperCase() === 'PAID' || (o.status || '').toLowerCase() === 'completed' || Boolean(o.isApproved);
+      const isSameCourse = (o.course?.name || o.items?.[0]?.title || '').trim().toLowerCase() === title.trim().toLowerCase();
+      const isSamePhone = isPhoneMatch(o.customer?.phone, newOrder.customer?.phone);
+      const isSameEmail = studentEmail && o.customer?.email && o.customer?.email.toLowerCase() === studentEmail.toLowerCase();
+      return isPaid && isSameCourse && (isSamePhone || isSameEmail);
+    });
+    if (existingApprovedOrder) {
+      return existingApprovedOrder;
+    }
+
+    const existingPendingOrderIdx = existingOrders.findIndex(o => {
+      const isPending = (o.status || '').toUpperCase() === 'PENDING' && !o.isApproved;
+      if (!isPending) return false;
+      if (existingOrderId && o.id === existingOrderId) return true;
+      const isSameCourse = (o.course?.name || o.items?.[0]?.title || '').trim().toLowerCase() === title.trim().toLowerCase();
+      const isSamePhone = isPhoneMatch(o.customer?.phone, newOrder.customer?.phone);
+      const isSameEmail = studentEmail && o.customer?.email && o.customer?.email.toLowerCase() === studentEmail.toLowerCase();
+      const isSameUid = studentUid && (o.userId === studentUid || o.customer?.uid === studentUid);
+      return isSameCourse && (isSamePhone || isSameEmail || isSameUid);
+    });
+
+    let updatedOrders;
+    if (existingPendingOrderIdx !== -1) {
+      updatedOrders = [...existingOrders];
+      const prevOrd = updatedOrders[existingPendingOrderIdx];
+      updatedOrders[existingPendingOrderIdx] = {
+        ...prevOrd,
+        transactionId: newOrder.transactionId,
+        paymentGateway: newOrder.paymentGateway,
+        paymentMethodName: newOrder.paymentMethodName,
+        totalPaid: newOrder.totalPaid,
+        updatedAt: new Date().toISOString()
+      };
+      newOrder.id = prevOrd.id;
+      newOrder.invoiceNumber = prevOrd.invoiceNumber;
+      newTx.orderId = prevOrd.id;
+      newTx.invoiceNumber = prevOrd.invoiceNumber;
+    } else {
+      updatedOrders = [newOrder, ...existingOrders];
+    }
     localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(updatedOrders));
 
-    // 4. Update accounting in eduhunters_data so AdminPanel immediately has the transaction
+    // 4. Update accounting in eduhunters_data so AdminPanel immediately has the transaction (Deduplicated)
     const rawSiteData = localStorage.getItem('eduhunters_data');
     if (rawSiteData) {
       try {
         const parsedSite = JSON.parse(rawSiteData);
         const prevAcc = parsedSite.accounting || { totalRevenue: 0, totalExpenses: 0, netProfit: 0, totalOrders: 0, transactions: [] };
         const prevTxs = Array.isArray(prevAcc.transactions) ? prevAcc.transactions : [];
-        const nextTxs = [newTx, ...prevTxs.filter(t => t.id !== newTx.id)];
-        const nextOrdersCount = (Number(prevAcc.totalOrders) || prevTxs.length) + 1;
+
+        const existingPendingTxIndex = prevTxs.findIndex(t => {
+          const isPending = (t.status || '').toLowerCase() === 'pending';
+          if (!isPending) return false;
+          if (existingOrderId && (t.orderId === existingOrderId || t.id === existingOrderId)) return true;
+          const isSameCourse = (t.itemTitle || '').trim().toLowerCase() === title.trim().toLowerCase();
+          const isSamePhone = isPhoneMatch(t.studentPhone, newTx.studentPhone);
+          const isSameEmail = studentEmail && t.studentEmail && t.studentEmail.toLowerCase() === studentEmail.toLowerCase();
+          return isSameCourse && (isSamePhone || isSameEmail);
+        });
+
+        let nextTxs;
+        if (existingPendingTxIndex !== -1) {
+          nextTxs = [...prevTxs];
+          const prevTargetTx = nextTxs[existingPendingTxIndex];
+          nextTxs[existingPendingTxIndex] = {
+            ...prevTargetTx,
+            trxId: newTx.trxId,
+            amount: newTx.amount,
+            method: newTx.method,
+            updatedAt: new Date().toISOString()
+          };
+          newTx.id = prevTargetTx.id;
+        } else {
+          nextTxs = [newTx, ...prevTxs.filter(t => t.id !== newTx.id)];
+        }
+
+        const nextOrdersCount = (Number(prevAcc.totalOrders) || prevTxs.length) + (existingPendingTxIndex !== -1 ? 0 : 1);
 
         parsedSite.accounting = {
           ...prevAcc,
@@ -196,12 +265,20 @@ export async function saveNewOrder({
       } catch (e) {}
     }
 
-    // 5. Update eh_enrolled_students with Pending status
+    // 5. Update eh_enrolled_students with Pending status (Safeguard Active students)
     try {
       const rawStudents = localStorage.getItem('eh_enrolled_students');
       const prevStudents = rawStudents ? JSON.parse(rawStudents) : [];
-      const nextStudents = [newStudent, ...prevStudents.filter(s => !(s.phone === newStudent.phone && s.courseName === newStudent.courseName))];
-      localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+      const existingActive = prevStudents.find(s => 
+        isPhoneMatch(s.phone, newStudent.phone) && 
+        s.courseName === newStudent.courseName && 
+        (s.status || '').toLowerCase() === 'active'
+      );
+      // CRITICAL: If student is already Active, NEVER downgrade them to Pending!
+      if (!existingActive) {
+        const nextStudents = [newStudent, ...prevStudents.filter(s => !(isPhoneMatch(s.phone, newStudent.phone) && s.courseName === newStudent.courseName))];
+        localStorage.setItem('eh_enrolled_students', JSON.stringify(nextStudents));
+      }
     } catch (e) {}
 
     // Note: Course is NOT unlocked yet. It unlocks only when Admin clicks "Approve".

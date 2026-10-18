@@ -219,15 +219,21 @@ export const getUserTimestamp = (u) => {
 
 export const isDeletedItem = (item, deletedIds) => {
   if (!item) return false;
+  // CRITICAL SAFETY GUARD: Approved / Paid orders or Active students MUST NEVER be treated as deleted
+  const isPaidOrActive = Boolean(item.isApproved) || 
+                         (item.status || '').toUpperCase() === 'PAID' || 
+                         (item.status || '').toLowerCase() === 'completed' || 
+                         (item.status || '').toLowerCase() === 'active';
+  if (isPaidOrActive) return false;
+
   const dSet = deletedIds || getDeletedIdsSet();
   if (dSet.size === 0) return false;
   const k1 = item.id;
   const k2 = item.orderId;
-  const k3 = item.trxId;
   const k4 = item.invoiceNumber;
   const s1 = typeof item.id === 'string' ? item.id.replace(/^(TRX-|st-)/, '') : null;
   const s2 = typeof item.orderId === 'string' ? item.orderId.replace(/^(TRX-|st-)/, '') : null;
-  return [k1, k2, k3, k4, s1, s2].filter(Boolean).some(id => dSet.has(id) || dSet.has(String(id)));
+  return [k1, k2, k4, s1, s2].filter(Boolean).some(id => dSet.has(id) || dSet.has(String(id)));
 };
 
 export const applyAmountOverride = (tx, overrides) => {
@@ -428,72 +434,127 @@ export const deduplicateTransactions = (txList) => {
 // Pure helper: Deduplicate users without EVER losing any enrolled course access (Union of courses)
 export const deduplicateUsers = (userList) => {
   if (!Array.isArray(userList)) return [];
-  const mergedMap = new Map();
 
-  userList.forEach(u => {
-    if (!u) return;
-    const emailKey = (u.email || '').trim().toLowerCase();
-    const phoneKey = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
+  const cleanUserPhone = (p) => {
+    if (!p) return '';
+    const digits = String(p).replace(/[^0-9]/g, '');
+    return digits.length >= 10 ? digits.slice(-10) : digits;
+  };
 
-    const isRealEmail = emailKey && !emailKey.includes('@eduhunters.com') && emailKey.includes('@');
-    const primaryKey = isRealEmail ? `email:${emailKey}` : (phoneKey && phoneKey.length >= 8 ? `phone:${phoneKey}` : `id:${u.id || u.uid}`);
-
-    let existing = mergedMap.get(primaryKey);
-    if (!existing && phoneKey && phoneKey.length >= 8) {
-      existing = mergedMap.get(`phone:${phoneKey}`);
+  const cleanUserEmail = (e) => {
+    if (!e) return '';
+    const s = String(e).trim().toLowerCase();
+    if (s === 'null' || s === 'undefined' || !s.includes('@') || s.endsWith('@eduhunters.com')) {
+      return '';
     }
-    if (!existing && isRealEmail) {
-      existing = mergedMap.get(`email:${emailKey}`);
+    return s;
+  };
+
+  const isRealUid = (id) => {
+    if (!id) return false;
+    const s = String(id);
+    return !s.startsWith('usr-') && !s.startsWith('user_') && !s.startsWith('u_') && s.length >= 20;
+  };
+
+  const mergeTwo = (a, b) => {
+    let chosenId = a.id || a.uid;
+    if (!isRealUid(chosenId) && isRealUid(b.id || b.uid)) {
+      chosenId = b.id || b.uid;
     }
 
-    if (existing) {
-      // 100% GUARANTEE: UNION OF ENROLLED COURSES SO ACCESS IS NEVER LOST
-      const allCourses = Array.from(new Set([
-        ...(Array.isArray(existing.enrolledCourses) ? existing.enrolledCourses : []),
-        ...(Array.isArray(u.enrolledCourses) ? u.enrolledCourses : [])
-      ]));
+    const aEmail = cleanUserEmail(a.email);
+    const bEmail = cleanUserEmail(b.email);
+    const chosenEmail = aEmail || bEmail || a.email || b.email || '';
 
-      const mergedUser = {
-        ...existing,
-        ...u,
-        id: existing.id || u.id,
-        name: existing.name && existing.name !== 'Student' && existing.name !== 'Online Student' ? existing.name : (u.name || existing.name),
-        email: existing.email || u.email,
-        phone: existing.phone || u.phone || existing.whatsapp || u.whatsapp,
-        whatsapp: existing.whatsapp || u.whatsapp || existing.phone || u.phone,
-        college: existing.college || u.college || existing.institution || u.institution,
-        institution: existing.institution || u.institution || existing.college || u.college,
-        role: (existing.role === 'Admin' || u.role === 'Admin') ? 'Admin' : (existing.role || u.role || 'Student'),
-        status: (existing.status === 'Active' || u.status === 'Active') ? 'Active' : (existing.status || u.status || 'Active'),
-        batch: existing.batch || u.batch || existing.hscBatch || u.hscBatch || 'HSC 26',
-        hscBatch: existing.hscBatch || u.hscBatch || existing.batch || u.batch || 'HSC 26',
-        enrolledCourses: allCourses,
-        totalSpent: Math.max(Number(existing.totalSpent) || 0, Number(u.totalSpent) || 0)
-      };
+    const isGeneric = (n) => !n || ['student', 'online student', 'user'].includes(String(n).trim().toLowerCase());
+    let chosenName = a.name || a.displayName;
+    if (isGeneric(chosenName) && !isGeneric(b.name || b.displayName)) {
+      chosenName = b.name || b.displayName;
+    }
 
-      mergedMap.set(primaryKey, mergedUser);
-      if (phoneKey && phoneKey.length >= 8) mergedMap.set(`phone:${phoneKey}`, mergedUser);
-      if (isRealEmail) mergedMap.set(`email:${emailKey}`, mergedUser);
+    const chosenPhone = a.phone || b.phone || a.whatsapp || b.whatsapp || '';
+    const chosenWhatsapp = a.whatsapp || b.whatsapp || chosenPhone;
+
+    // 100% GUARANTEE: UNION OF ENROLLED COURSES SO ACCESS IS NEVER LOST
+    const allCourses = Array.from(new Set([
+      ...(Array.isArray(a.enrolledCourses) ? a.enrolledCourses : []),
+      ...(Array.isArray(b.enrolledCourses) ? b.enrolledCourses : [])
+    ])).filter(Boolean);
+
+    const chosenSpent = Math.max(Number(a.totalSpent) || 0, Number(b.totalSpent) || 0);
+
+    const isCustomAvatar = (av) => av && typeof av === 'string' && !av.includes('dicebear.com');
+    const chosenAvatar = isCustomAvatar(a.avatar || a.photoURL) 
+      ? (a.avatar || a.photoURL) 
+      : (isCustomAvatar(b.avatar || b.photoURL) ? (b.avatar || b.photoURL) : (a.avatar || b.avatar || a.photoURL || b.photoURL));
+
+    const chosenRole = (a.role === 'Admin' || b.role === 'Admin') ? 'Admin' : (a.role || b.role || 'Student');
+    const chosenStatus = (a.status === 'Active' || b.status === 'Active') ? 'Active' : (a.status || b.status || 'Active');
+
+    const aDate = a.createdAt || a.created_at;
+    const bDate = b.createdAt || b.created_at;
+    const chosenCreatedAt = aDate && bDate ? (new Date(aDate) < new Date(bDate) ? aDate : bDate) : (aDate || bDate);
+
+    return {
+      ...a,
+      ...b,
+      id: chosenId,
+      uid: chosenId,
+      name: chosenName || 'Student',
+      displayName: chosenName || 'Student',
+      email: chosenEmail,
+      phone: chosenPhone,
+      whatsapp: chosenWhatsapp,
+      enrolledCourses: allCourses,
+      totalSpent: chosenSpent,
+      avatar: chosenAvatar,
+      photoURL: chosenAvatar,
+      role: chosenRole,
+      status: chosenStatus,
+      batch: a.batch || b.batch || a.hscBatch || b.hscBatch || 'HSC 26',
+      hscBatch: a.hscBatch || b.hscBatch || a.batch || b.batch || 'HSC 26',
+      college: a.college || b.college || a.institution || b.institution || '',
+      institution: a.institution || b.institution || a.college || b.college || '',
+      ...(chosenCreatedAt ? { createdAt: chosenCreatedAt, created_at: chosenCreatedAt } : {})
+    };
+  };
+
+  const mergedList = [];
+  
+  userList.forEach(rawUser => {
+    if (!rawUser) return;
+    const uPhone = cleanUserPhone(rawUser.phone || rawUser.whatsapp);
+    const uEmail = cleanUserEmail(rawUser.email);
+    const uId = rawUser.id || rawUser.uid;
+
+    const matchIndex = mergedList.findIndex(existing => {
+      if (uId && (existing.id === uId || existing.uid === uId)) return true;
+      const exEmail = cleanUserEmail(existing.email);
+      if (uEmail && exEmail && uEmail === exEmail) return true;
+      const exPhone = cleanUserPhone(existing.phone || existing.whatsapp);
+      if (uPhone && exPhone && uPhone === exPhone && uPhone.length >= 8) {
+        if (uEmail && exEmail && uEmail !== exEmail) {
+          const uName = (rawUser.name || '').trim().toLowerCase();
+          const exName = (existing.name || '').trim().toLowerCase();
+          return uName === exName;
+        }
+        return true;
+      }
+      return false;
+    });
+
+    if (matchIndex !== -1) {
+      mergedList[matchIndex] = mergeTwo(mergedList[matchIndex], rawUser);
     } else {
-      const newUser = {
-        ...u,
-        enrolledCourses: Array.isArray(u.enrolledCourses) ? [...u.enrolledCourses] : []
-      };
-      mergedMap.set(primaryKey, newUser);
-      if (phoneKey && phoneKey.length >= 8) mergedMap.set(`phone:${phoneKey}`, newUser);
-      if (isRealEmail) mergedMap.set(`email:${emailKey}`, newUser);
+      mergedList.push({
+        ...rawUser,
+        enrolledCourses: Array.isArray(rawUser.enrolledCourses) ? [...rawUser.enrolledCourses] : [],
+        totalSpent: Number(rawUser.totalSpent) || 0
+      });
     }
   });
 
-  const unique = new Map();
-  mergedMap.forEach(u => {
-    const k = (u.email || u.id || u.uid || '').toLowerCase();
-    if (k && !unique.has(k)) {
-      unique.set(k, u);
-    }
-  });
-
-  return Array.from(unique.values());
+  return mergedList;
 };
 
 // Minimal time formatter for podium and leaderboards (matching user website)
@@ -1678,22 +1739,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         unsubscribeUsers = onSnapshot(collection(db, 'users'), (snapshot) => {
           const cloudUsers = snapshot.docs.map(docSnap => mapFirestoreUserDoc(docSnap.id, docSnap.data()));
 
-          setUsersList(prev => {
-            const emailMap = new Map();
-            prev.forEach(u => {
-              const key = (u.email || u.id || '').toLowerCase();
-              if (key) emailMap.set(key, u);
-            });
-            cloudUsers.forEach(u => {
-              const key = (u.email || u.id || '').toLowerCase().trim();
-              if (key) {
-                notifiedUserKeysRef.current.add(key);
-                const existing = emailMap.get(key);
-                emailMap.set(key, existing ? { ...existing, ...u } : u);
-              }
-            });
-            return Array.from(emailMap.values());
+          cloudUsers.forEach(u => {
+            const key = (u.email || u.id || '').toLowerCase().trim();
+            if (key) notifiedUserKeysRef.current.add(key);
           });
+          setUsersList(prev => deduplicateUsers([...prev, ...cloudUsers]));
 
           // Trigger toast only for newly registered users after initial snapshot
           if (!isInitialUsersSnapshot) {
@@ -2172,21 +2222,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     if (data.refundPolicy) setRefundPolicy(data.refundPolicy);
     if (data.privacyPolicy) setPrivacyPolicy(data.privacyPolicy);
     if (Array.isArray(data.users) && data.users.length > 0) {
-      setUsersList(prev => {
-        const emailMap = new Map();
-        prev.forEach(u => {
-          const key = (u.email || u.id || '').toLowerCase();
-          if (key) emailMap.set(key, u);
-        });
-        data.users.forEach(u => {
-          const key = (u.email || u.id || '').toLowerCase();
-          if (key) {
-            const existing = emailMap.get(key);
-            emailMap.set(key, existing ? { ...existing, ...u } : u);
-          }
-        });
-        return Array.from(emailMap.values());
-      });
+      setUsersList(prev => deduplicateUsers([...prev, ...data.users]));
     }
     if (Array.isArray(data.instructors)) setInstructors(data.instructors);
   }, [data]);
@@ -2826,7 +2862,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       freeVideos: overrides.freeVideos !== undefined ? overrides.freeVideos : freeVideos,
       storeProducts: overrides.storeProducts !== undefined ? overrides.storeProducts : storeProducts,
       accounting: overrides.accounting !== undefined ? overrides.accounting : accounting,
-      users: overrides.users !== undefined ? overrides.users : usersList,
+      users: deduplicateUsers(overrides.users !== undefined ? overrides.users : usersList),
+      enrolledStudents: overrides.enrolledStudents !== undefined ? overrides.enrolledStudents : enrolledStudents,
       sectionTexts: overrides.sectionTexts !== undefined ? overrides.sectionTexts : sectionTexts,
       whyChooseUs: overrides.whyChooseUs !== undefined ? overrides.whyChooseUs : whyChooseUs,
       termsAndConditions: overrides.termsAndConditions !== undefined ? overrides.termsAndConditions : termsAndConditions,
@@ -2921,11 +2958,19 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       return;
     }
 
+    const cleanInputPhone = (userForm.phone || '').replace(/[^0-9]/g, '');
+    const cleanLast10Phone = cleanInputPhone.length >= 10 ? cleanInputPhone.slice(-10) : cleanInputPhone;
+    const cleanInputEmail = userForm.email.trim().toLowerCase();
+
     if (editingUserId) {
       const targetUser = usersList.find(u => u.id === editingUserId);
       const oldSpent = Number(targetUser?.totalSpent) || 0;
       const newSpent = Number(userForm.totalSpent) || 0;
       const spentDiff = newSpent - oldSpent;
+
+      const targetPhoneClean = (targetUser?.phone || targetUser?.whatsapp || '').replace(/[^0-9]/g, '');
+      const targetPhoneLast10 = targetPhoneClean.length >= 10 ? targetPhoneClean.slice(-10) : targetPhoneClean;
+      const targetEmailClean = (targetUser?.email || '').trim().toLowerCase();
 
       let savedUserRecord = null;
       const updated = usersList.map(u => {
@@ -2933,6 +2978,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           savedUserRecord = {
             ...u,
             name: userForm.name.trim(),
+            displayName: userForm.name.trim(),
             email: userForm.email.trim(),
             phone: userForm.phone.trim(),
             whatsapp: (userForm.whatsapp || userForm.phone).trim(),
@@ -2950,56 +2996,158 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       });
       setUsersList(updated);
 
-      // Bidirectional sync: If totalSpent changed, immediately sync with Ledger & Enrolled Students
+      // =========================================================================
+      // BIDIRECTIONAL SYNC: USER MANAGEMENT <-> ACCOUNTING LEDGER & ENROLLED STUDENTS
+      // =========================================================================
       let nextAcc = accounting;
       let nextEnrolled = enrolledStudents;
 
-      if (spentDiff !== 0) {
-        const uPhone = (userForm.phone || '').replace(/[^0-9]/g, '');
-        const uEmail = userForm.email.trim().toLowerCase();
+      // 1. Sync Accounting transactions (Name, Phone, Email and Amount)
+      const prevTxs = Array.isArray(accounting.transactions) ? accounting.transactions : [];
+      let txUpdated = false;
+      const overridesMap = getAmountOverridesMap();
 
-        // 1. Sync Accounting transactions
-        let txUpdated = false;
-        const nextTxs = (accounting.transactions || []).map(t => {
-          const tp = (t.studentPhone || '').replace(/[^0-9]/g, '');
-          const te = (t.studentEmail || '').trim().toLowerCase();
-          const match = (uPhone && tp && (uPhone.includes(tp) || tp.includes(uPhone))) || (uEmail && te === uEmail);
+      const nextTxs = prevTxs.map(t => {
+        const tpRaw = (t.studentPhone || '').replace(/[^0-9]/g, '');
+        const tpLast10 = tpRaw.length >= 10 ? tpRaw.slice(-10) : tpRaw;
+        const te = (t.studentEmail || '').trim().toLowerCase();
+        const tId = t.userId || t.studentId;
+
+        const isUserMatch = (cleanLast10Phone && tpLast10 && cleanLast10Phone === tpLast10) ||
+                            (targetPhoneLast10 && tpLast10 && targetPhoneLast10 === tpLast10) ||
+                            (cleanInputEmail && te && cleanInputEmail === te) ||
+                            (targetEmailClean && te && targetEmailClean === te) ||
+                            (editingUserId && tId && (tId === editingUserId || tId === targetUser?.uid));
+
+        if (isUserMatch) {
+          // Always update contact information to keep transactions current
+          const updatedTx = {
+            ...t,
+            studentName: userForm.name.trim(),
+            studentPhone: userForm.phone.trim(),
+            studentEmail: userForm.email.trim()
+          };
+
           const st = (t.status || '').toLowerCase();
-          const isComp = st === 'completed' || st === 'paid';
-          if (match && isComp && !txUpdated) {
+          const isComp = st === 'completed' || st === 'paid' || st === 'approved' || Boolean(t.isApproved);
+          if (isComp && !txUpdated && (spentDiff !== 0 || Number(t.amount) !== newSpent)) {
             txUpdated = true;
-            const updatedTrxAmt = Math.max(0, (Number(t.amount) || 0) + spentDiff);
+            const updatedTrxAmt = Math.max(0, newSpent > 0 ? newSpent : (Number(t.amount) || 0) + spentDiff);
+            updatedTx.amount = updatedTrxAmt;
+
+            // Persist to eh_trx_amount_overrides
+            if (t.id) overridesMap[t.id] = updatedTrxAmt;
+            if (t.orderId) overridesMap[t.orderId] = updatedTrxAmt;
+            if (t.trxId && t.trxId !== 'PENDING') overridesMap[t.trxId] = updatedTrxAmt;
+            if (t.invoiceNumber) overridesMap[t.invoiceNumber] = updatedTrxAmt;
+
             const targetOrderId = t.orderId || t.id;
             if (isSupabaseConfigured && targetOrderId) {
               updateSupabaseOrderAmount(targetOrderId, updatedTrxAmt).catch(() => {});
             }
-            return { ...t, amount: updatedTrxAmt };
           }
-          return t;
-        });
+          return updatedTx;
+        }
+        return t;
+      });
 
-        const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + spentDiff);
-        const newExp = Number(accounting.totalExpenses) || 0;
-        nextAcc = {
-          ...accounting,
-          totalRevenue: newRev,
-          netProfit: newRev - newExp,
-          transactions: nextTxs
+      // If user had no completed transaction but newSpent > 0, generate a completed transaction
+      if (!txUpdated && newSpent > 0) {
+        const newTxId = `TRX-USER-${Date.now()}`;
+        const newOrderId = `ord_user_${Date.now()}`;
+        const invoiceNum = `INV-2026-EH-${Math.floor(100000 + Math.random() * 900000)}`;
+        const autoTx = {
+          id: newTxId,
+          orderId: newOrderId,
+          trxId: `USR-LEDGER-${Date.now().toString().slice(-6)}`,
+          date: new Date().toISOString().slice(0, 10),
+          createdAt: new Date().toISOString(),
+          type: 'INCOME',
+          category: 'Course Enrollment',
+          amount: newSpent,
+          method: 'Direct Admin Ledger',
+          status: 'Completed',
+          isApproved: true,
+          studentName: userForm.name.trim(),
+          studentEmail: userForm.email.trim(),
+          studentPhone: userForm.phone.trim(),
+          itemTitle: (targetUser?.enrolledCourses && targetUser.enrolledCourses[0]) || 'Direct Course Enrollment',
+          notes: 'Synchronized from User Management',
+          invoiceNumber: invoiceNum,
+          userId: editingUserId
         };
-        setAccounting(nextAcc);
-
-        // 2. Sync Enrolled Students
-        nextEnrolled = enrolledStudents.map(st => {
-          const sp = (st.phone || '').replace(/[^0-9]/g, '');
-          const se = (st.email || '').trim().toLowerCase();
-          const match = (uPhone && sp && (uPhone.includes(sp) || sp.includes(uPhone))) || (uEmail && se === uEmail);
-          if (match) {
-            return { ...st, amount: newSpent };
-          }
-          return st;
-        });
-        setEnrolledStudents(nextEnrolled);
+        nextTxs.unshift(autoTx);
+        overridesMap[newTxId] = newSpent;
+        overridesMap[newOrderId] = newSpent;
       }
+
+      // Save updated overrides
+      try {
+        localStorage.setItem('eh_trx_amount_overrides', JSON.stringify(overridesMap));
+      } catch (e) {}
+
+      // Recalculate accounting totals
+      const resetConfig = getAccountingResetConfig();
+      const newRev = nextTxs
+        .filter(t => (t.type || '').toUpperCase() === 'INCOME' &&
+                     ['completed', 'paid', 'approved'].includes((t.status || '').toLowerCase()) &&
+                     !isHistoricalTx(t, resetConfig))
+        .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
+      const newExp = Number(accounting.totalExpenses) || 0;
+      nextAcc = {
+        ...accounting,
+        totalRevenue: newRev,
+        netProfit: newRev - newExp,
+        transactions: nextTxs
+      };
+      setAccounting(nextAcc);
+
+      // 2. Sync Enrolled Students (Name, Phone, Email, Amount)
+      let studentUpdated = false;
+      nextEnrolled = enrolledStudents.map(st => {
+        const spRaw = (st.phone || '').replace(/[^0-9]/g, '');
+        const spLast10 = spRaw.length >= 10 ? spRaw.slice(-10) : spRaw;
+        const se = (st.email || '').trim().toLowerCase();
+        const stId = st.userId || st.studentId || st.id;
+
+        const isMatch = (cleanLast10Phone && spLast10 && cleanLast10Phone === spLast10) ||
+                        (targetPhoneLast10 && spLast10 && targetPhoneLast10 === spLast10) ||
+                        (cleanInputEmail && se && cleanInputEmail === se) ||
+                        (targetEmailClean && se && targetEmailClean === se) ||
+                        (editingUserId && stId && (stId === editingUserId || stId === targetUser?.uid));
+        if (isMatch) {
+          studentUpdated = true;
+          return {
+            ...st,
+            name: userForm.name.trim(),
+            email: userForm.email.trim(),
+            phone: userForm.phone.trim(),
+            amount: newSpent
+          };
+        }
+        return st;
+      });
+
+      // If user has enrolled courses but not yet in enrolledStudents list, add them!
+      if (!studentUpdated && targetUser?.enrolledCourses && targetUser.enrolledCourses.length > 0) {
+        const newEnrolledStudent = {
+          id: `st-${Date.now()}`,
+          name: userForm.name.trim(),
+          email: userForm.email.trim(),
+          phone: userForm.phone.trim(),
+          course: targetUser.enrolledCourses[0],
+          courses: targetUser.enrolledCourses,
+          amount: newSpent,
+          status: 'Active',
+          batch: userForm.batch || 'HSC 26',
+          enrolledAt: new Date().toISOString()
+        };
+        nextEnrolled = [newEnrolledStudent, ...nextEnrolled];
+      }
+      setEnrolledStudents(nextEnrolled);
+      try {
+        localStorage.setItem('eh_enrolled_students', JSON.stringify(nextEnrolled));
+      } catch (e) {}
 
       persistAll({ 
         users: updated,
@@ -3021,12 +3169,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         }).catch(e => console.warn('[AdminPanel] Supabase user update note:', e));
       }
 
-      triggerToast(`User "${userForm.name}" updated successfully`);
+      triggerToast(`User "${userForm.name}" & Ledger updated successfully`);
     } else {
+      // New user addition
       const nowIso = new Date().toISOString();
+      const newSpent = Number(userForm.totalSpent) || 0;
       const newUser = {
         id: `usr-${Date.now().toString().slice(-4)}`,
         name: userForm.name.trim(),
+        displayName: userForm.name.trim(),
         email: userForm.email.trim(),
         phone: userForm.phone.trim() || '',
         whatsapp: (userForm.whatsapp || userForm.phone || '').trim(),
@@ -3037,7 +3188,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         batch: userForm.batch || 'HSC 26',
         hscBatch: userForm.batch || 'HSC 26',
         enrolledCourses: [],
-        totalSpent: Number(userForm.totalSpent) || 0,
+        totalSpent: newSpent,
         createdAt: nowIso,
         created_at: nowIso,
         joinedDate: 'Just now',
@@ -3047,7 +3198,50 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       };
       const updated = [newUser, ...usersList];
       setUsersList(updated);
-      persistAll({ users: updated });
+
+      let nextAcc = accounting;
+      if (newSpent > 0) {
+        const newTxId = `TRX-USER-${Date.now()}`;
+        const newOrderId = `ord_user_${Date.now()}`;
+        const autoTx = {
+          id: newTxId,
+          orderId: newOrderId,
+          trxId: `USR-LEDGER-${Date.now().toString().slice(-6)}`,
+          date: new Date().toISOString().slice(0, 10),
+          createdAt: nowIso,
+          type: 'INCOME',
+          category: 'Course Enrollment',
+          amount: newSpent,
+          method: 'Direct Admin Ledger',
+          status: 'Completed',
+          isApproved: true,
+          studentName: newUser.name,
+          studentEmail: newUser.email,
+          studentPhone: newUser.phone,
+          itemTitle: 'Direct Course Enrollment',
+          notes: 'New user manual entry',
+          invoiceNumber: `INV-2026-EH-${Math.floor(100000 + Math.random() * 900000)}`,
+          userId: newUser.id
+        };
+        const nextTxs = [autoTx, ...(accounting.transactions || [])];
+        const newRev = Math.max(0, (Number(accounting.totalRevenue) || 0) + newSpent);
+        const newExp = Number(accounting.totalExpenses) || 0;
+        nextAcc = {
+          ...accounting,
+          totalRevenue: newRev,
+          netProfit: newRev - newExp,
+          transactions: nextTxs
+        };
+        setAccounting(nextAcc);
+        try {
+          const overridesMap = getAmountOverridesMap();
+          overridesMap[newTxId] = newSpent;
+          overridesMap[newOrderId] = newSpent;
+          localStorage.setItem('eh_trx_amount_overrides', JSON.stringify(overridesMap));
+        } catch (e) {}
+      }
+
+      persistAll({ users: updated, accounting: nextAcc });
 
       if (isSupabaseConfigured) {
         saveSupabaseUser({
@@ -3724,14 +3918,14 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         const deletedTxs = JSON.parse(localStorage.getItem('eh_deleted_transactions') || '[]');
         const rawId = typeof targetTx.id === 'string' ? targetTx.id.replace(/^(TRX-|st-)/, '') : null;
         const rawOrderId = typeof targetTx.orderId === 'string' ? targetTx.orderId.replace(/^(TRX-|st-)/, '') : null;
+        const isApprovedTx = Boolean(targetTx.isApproved) || (targetTx.status || '').toLowerCase() === 'completed';
         const toAdd = [
           trxId,
           targetTx.id,
-          targetTx.orderId,
+          !isApprovedTx ? targetTx.orderId : null,
           rawId,
-          rawOrderId,
-          targetTx.invoiceNumber,
-          targetTx.trxId && targetTx.trxId !== 'PENDING' ? targetTx.trxId : null
+          !isApprovedTx ? rawOrderId : null,
+          targetTx.invoiceNumber
         ].filter(Boolean);
 
         const newDelOrders = Array.from(new Set([...deletedOrders, ...toAdd]));
@@ -3742,17 +3936,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
       // 2. Remove matching student from enrolledStudents state & localStorage immediately
       const nextStudents = enrolledStudents.filter(st => {
-        const cleanStPhone = (st.phone || '').replace(/[^0-9]/g, '');
-        const cleanTxPhone = (targetTx.studentPhone || '').replace(/[^0-9]/g, '');
-        const cleanStEmail = (st.email || '').trim().toLowerCase();
-        const cleanTxEmail = (targetTx.studentEmail || '').trim().toLowerCase();
+        // CRITICAL SAFETY GUARD: Active students must NEVER lose access when an admin deletes a transaction!
+        if ((st.status || '').toLowerCase() === 'active') {
+          return true;
+        }
         const isMatch = st.id === trxId ||
                         st.id === targetTx.id ||
                         st.orderId === targetTx.orderId ||
                         (typeof st.id === 'string' && typeof targetTx.id === 'string' && st.id.replace(/^(TRX-|st-)/, '') === targetTx.id.replace(/^(TRX-|st-)/, '')) ||
-                        (st.trxId && targetTx.trxId && st.trxId !== 'PENDING' && st.trxId === targetTx.trxId) ||
-                        (cleanTxPhone && cleanStPhone && cleanTxPhone === cleanStPhone && (st.courseName === targetTx.itemTitle || st.courseName === targetTx.category)) ||
-                        (cleanTxEmail && cleanStEmail && cleanTxEmail === cleanStEmail && (st.courseName === targetTx.itemTitle || st.courseName === targetTx.category));
+                        (targetTx.orderId && st.id === `st-${targetTx.orderId}`);
         return !isMatch;
       });
       setEnrolledStudents(nextStudents);
@@ -3767,13 +3959,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           const ords = JSON.parse(rawOrders);
           const rawId = typeof targetTx.id === 'string' ? targetTx.id.replace(/^(TRX-|st-)/, '') : '';
           const filteredOrds = ords.filter(o => {
+            // CRITICAL SAFETY GUARD: Approved / Paid orders must NEVER be deleted when an accounting transaction is removed!
+            const isApprovedOrder = Boolean(o.isApproved) || (o.status || '').toUpperCase() === 'PAID' || (o.status || '').toLowerCase() === 'completed';
+            if (isApprovedOrder) return true;
+
             const rawOId = typeof o.id === 'string' ? o.id.replace(/^(TRX-|st-)/, '') : '';
             return o.id !== trxId && 
                    o.id !== targetTx.id && 
                    o.id !== targetTx.orderId && 
                    (!rawId || rawOId !== rawId) &&
-                   o.invoiceNumber !== targetTx.invoiceNumber && 
-                   (targetTx.trxId === 'PENDING' || o.transactionId !== targetTx.trxId);
+                   o.invoiceNumber !== targetTx.invoiceNumber;
           });
           localStorage.setItem('eh_user_orders_v3', JSON.stringify(filteredOrds));
         }
@@ -3995,7 +4190,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         st.orderId,
         typeof studentId === 'string' ? studentId.replace(/^(TRX-|st-)/, '') : null,
         typeof resolvedOrderId === 'string' ? resolvedOrderId.replace(/^(TRX-|st-)/, '') : null,
-        targetTx?.trxId && targetTx.trxId !== 'PENDING' ? targetTx.trxId : null,
         targetTx?.invoiceNumber
       ].filter(Boolean);
 
