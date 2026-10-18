@@ -82,7 +82,7 @@ import BundleStudioPage from './BundleStudioPage';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { grantCourseAccess, revokeCourseAccess, getCanonicalCourses, isPhoneMatch } from '../utils/enrollmentService';
 import CourseSearchSelect from './CourseSearchSelect';
-import { approveOrder, revokeOrder } from '../services/orderService';
+import { approveOrder, revokeOrder, getUserOrders } from '../services/orderService';
 import { 
   getBunnyConfig, 
   saveBunnyConfig, 
@@ -297,16 +297,49 @@ export const mapOrderDocToTx = (docId, order) => {
   const t = order.transaction || {};
   let isPaid = order.status === 'PAID' || order.status === 'COMPLETED' || Boolean(order.isApproved) || Boolean(order.is_approved) || (t.status || '').toLowerCase() === 'completed';
   const isRejected = order.status === 'REJECTED' || (t.status || '').toLowerCase() === 'rejected';
-  let status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
 
   // Check persistent status override
   const sMap = getStatusOverridesMap();
   const cleanDocId = typeof docId === 'string' ? docId.replace(/^(TRX-|st-|ord_)/, '') : '';
   const overrideStatus = sMap[docId] ?? sMap[cleanDocId] ?? sMap[t.id] ?? sMap[t.trxId] ?? sMap[order.transactionId] ?? sMap[order.invoiceNumber];
   if (overrideStatus) {
-    status = overrideStatus;
     isPaid = (overrideStatus || '').toLowerCase() === 'completed';
   }
+
+  // AUTO-RESOLVE: If student is already enrolled/active in the system, this order is fulfilled and MUST NOT show as Pending
+  if (!isPaid && !isRejected) {
+    const rawP = t.studentPhone || order.customer?.phone || '';
+    const cleanP = String(rawP).replace(/[^0-9]/g, '').slice(-10);
+    const cleanE = String(t.studentEmail || order.customer?.email || '').trim().toLowerCase();
+    try {
+      const rawEnrolled = localStorage.getItem('eh_enrolled_students');
+      if (rawEnrolled) {
+        const parsed = JSON.parse(rawEnrolled);
+        if (Array.isArray(parsed) && parsed.some(st => {
+          const sp = String(st.phone || '').replace(/[^0-9]/g, '').slice(-10);
+          const se = String(st.email || '').trim().toLowerCase();
+          return ((cleanP && sp && cleanP === sp) || (cleanE && se && cleanE === se)) && (st.status || '').toLowerCase() === 'active';
+        })) {
+          isPaid = true;
+        }
+      }
+      if (!isPaid) {
+        const rawUsers = localStorage.getItem('eh_registered_users');
+        if (rawUsers) {
+          const parsedU = JSON.parse(rawUsers);
+          if (Array.isArray(parsedU) && parsedU.some(u => {
+            const up = String(u.phone || u.whatsapp || '').replace(/[^0-9]/g, '').slice(-10);
+            const ue = String(u.email || '').trim().toLowerCase();
+            return ((cleanP && up && cleanP === up) || (cleanE && ue && cleanE === ue)) && Array.isArray(u.enrolledCourses) && u.enrolledCourses.length > 0;
+          })) {
+            isPaid = true;
+          }
+        }
+      }
+    } catch (e) {}
+  }
+
+  const status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
 
   const baseTx = {
     id: t.id || `TRX-${docId}`,
@@ -343,6 +376,25 @@ export const mapOrderDocToStudent = (docId, order) => {
     isPaid = (overrideStatus || '').toLowerCase() === 'completed';
   }
 
+  if (!isPaid) {
+    const rawP = s.phone || order.customer?.phone || t.studentPhone || '';
+    const cleanP = String(rawP).replace(/[^0-9]/g, '').slice(-10);
+    const cleanE = String(s.email || order.customer?.email || t.studentEmail || '').trim().toLowerCase();
+    try {
+      const rawUsers = localStorage.getItem('eh_registered_users');
+      if (rawUsers) {
+        const parsedU = JSON.parse(rawUsers);
+        if (Array.isArray(parsedU) && parsedU.some(u => {
+          const up = String(u.phone || u.whatsapp || '').replace(/[^0-9]/g, '').slice(-10);
+          const ue = String(u.email || '').trim().toLowerCase();
+          return ((cleanP && up && cleanP === up) || (cleanE && ue && cleanE === ue)) && Array.isArray(u.enrolledCourses) && u.enrolledCourses.length > 0;
+        })) {
+          isPaid = true;
+        }
+      }
+    } catch (e) {}
+  }
+
   const baseStudent = {
     id: s.id || `st-${docId}`,
     orderId: docId,
@@ -372,27 +424,62 @@ export const deduplicateTransactions = (txList) => {
   const deletedIds = getDeletedIdsSet();
   const overrides = getAmountOverridesMap();
 
-  // 1. Identify all completed/approved transactions (ignoring deleted)
+  const cleanLast10Phone = (val) => {
+    if (!val) return '';
+    const digits = String(val).replace(/[^0-9]/g, '');
+    return digits.length >= 10 ? digits.slice(-10) : digits;
+  };
+
+  // 1. Identify all completed/approved students across transactions, enrolled students, and users
   const approvedKeys = new Set();
   txList.forEach(t => {
     if (!t || isDeletedItem(t, deletedIds)) return;
     const s = (t.status || '').toLowerCase();
     const isApproved = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
     if (isApproved) {
-      const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+      const p = cleanLast10Phone(t.studentPhone);
       const e = (t.studentEmail || '').trim().toLowerCase();
-      const c = (t.itemTitle || t.category || '').trim().toLowerCase();
-      if (p && c) approvedKeys.add(`${p}_${c}`);
-      if (e && c) approvedKeys.add(`${e}_${c}`);
       if (p) approvedKeys.add(p);
-      if (e) approvedKeys.add(e);
+      if (e && e.includes('@')) approvedKeys.add(e);
     }
   });
 
-  // 2. Filter transactions: keep all completed/paid/rejected (unless deleted).
-  // If pending, discard if student already has an approved transaction for the course.
-  // Also keep only the most recent pending attempt for the same student + course.
+  // Also pull from enrolled students & registered users to guarantee zero ghost pendings
+  try {
+    const rawEnrolled = localStorage.getItem('eh_enrolled_students');
+    if (rawEnrolled) {
+      const parsed = JSON.parse(rawEnrolled);
+      if (Array.isArray(parsed)) {
+        parsed.forEach(st => {
+          const sp = cleanLast10Phone(st.phone);
+          const se = (st.email || '').trim().toLowerCase();
+          if (sp) approvedKeys.add(sp);
+          if (se && se.includes('@')) approvedKeys.add(se);
+        });
+      }
+    }
+    const rawUsers = localStorage.getItem('eh_registered_users');
+    if (rawUsers) {
+      const parsedU = JSON.parse(rawUsers);
+      if (Array.isArray(parsedU)) {
+        parsedU.forEach(u => {
+          if (Array.isArray(u.enrolledCourses) && u.enrolledCourses.length > 0) {
+            const up = cleanLast10Phone(u.phone || u.whatsapp);
+            const ue = (u.email || '').trim().toLowerCase();
+            if (up) approvedKeys.add(up);
+            if (ue && ue.includes('@')) approvedKeys.add(ue);
+          }
+        });
+      }
+    }
+  } catch (e) {}
+
+  // 2. Filter transactions:
+  // - Completed/paid/rejected transactions are kept (deduplicating identical valid TrxIDs).
+  // - Pending transactions: If student is already enrolled/approved, DISCARD IT!
+  // - Keep at most ONE pending request per un-enrolled student.
   const seenPendingKeys = new Set();
+  const seenCompletedTrx = new Set();
   const result = [];
 
   for (let t of txList) {
@@ -402,25 +489,33 @@ export const deduplicateTransactions = (txList) => {
     const s = (t.status || '').toLowerCase();
     const isCompleted = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
 
-    if (isCompleted || s === 'rejected') {
+    if (isCompleted) {
+      const validTrx = t.trxId && t.trxId !== 'PENDING' && t.trxId.length >= 6 ? t.trxId.toUpperCase().trim() : null;
+      if (validTrx) {
+        if (seenCompletedTrx.has(validTrx)) continue;
+        seenCompletedTrx.add(validTrx);
+      }
+      result.push(t);
+      continue;
+    }
+
+    if (s === 'rejected') {
       result.push(t);
       continue;
     }
 
     // It's a pending transaction:
-    const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
+    const p = cleanLast10Phone(t.studentPhone);
     const e = (t.studentEmail || '').trim().toLowerCase();
-    const c = (t.itemTitle || t.category || '').trim().toLowerCase();
 
-    const hasApproved = (p && c && approvedKeys.has(`${p}_${c}`)) ||
-                        (e && c && approvedKeys.has(`${e}_${c}`)) ||
-                        (p && approvedKeys.has(p) && !c);
-    if (hasApproved) {
-      // Discard duplicate pending because student has already been approved!
+    // If student has already been approved / enrolled, drop this old pending draft!
+    const isAlreadyEnrolled = (p && approvedKeys.has(p)) || (e && approvedKeys.has(e));
+    if (isAlreadyEnrolled) {
       continue;
     }
 
-    const pendingKey = p && c ? `${p}_${c}` : (e && c ? `${e}_${c}` : (p || e || t.id));
+    // Un-enrolled student: keep at most ONE pending record
+    const pendingKey = p || e || t.id;
     if (seenPendingKeys.has(pendingKey)) {
       continue;
     }
@@ -1159,7 +1254,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
     // Merge from eh_user_orders_v3 so fresh orders are immediately present on refresh
     try {
-      const userOrders = JSON.parse(localStorage.getItem('eh_user_orders_v3') || '[]');
+      const userOrders = getUserOrders();
       if (Array.isArray(userOrders)) {
         userOrders.forEach(ord => {
           if (isDeletedItem(ord, deletedIds)) return;
