@@ -80,18 +80,12 @@ export function getUserOrders() {
         const isDraft = ord.transactionId === 'PENDING_VERIFICATION' || (ord.status || '').toUpperCase() === 'PENDING';
 
         if (isEnrolled) {
+          // If the student is already enrolled in the system, completely purge ghost checkout drafts!
           if (isDraft) {
-            const draftKey = `${p || e}_${ord.course?.name || ord.items?.[0]?.title || ''}`;
-            if (seenDrafts.has(draftKey)) {
-              changed = true;
-              continue;
-            }
-            seenDrafts.add(draftKey);
             changed = true;
-            nextList.push({ ...ord, status: 'PAID', isApproved: true, is_approved: true });
-          } else {
-            nextList.push(ord);
+            continue;
           }
+          nextList.push({ ...ord, status: 'PAID', isApproved: true, is_approved: true });
         } else {
           if (isDraft) {
             const draftKey = `${p || e}_${ord.course?.name || ord.items?.[0]?.title || ''}`;
@@ -243,14 +237,17 @@ export async function saveNewOrder({
   try {
     // 3. Persist order in local user orders (Deduplicate: reuse existing pending order if present)
     const existingOrders = getUserOrders();
+    const cleanStudentEmail = (studentEmail || '').trim().toLowerCase();
+    const cleanCourseTitle = title.trim().toLowerCase();
 
     // CRITICAL SAFETY GUARD: If student already has an approved/paid order for this course, NEVER downgrade them!
     const existingApprovedOrder = existingOrders.find(o => {
       const isPaid = (o.status || '').toUpperCase() === 'PAID' || (o.status || '').toLowerCase() === 'completed' || Boolean(o.isApproved);
-      const isSameCourse = (o.course?.name || o.items?.[0]?.title || '').trim().toLowerCase() === title.trim().toLowerCase();
+      const isSameCourse = (o.course?.name || o.items?.[0]?.title || '').trim().toLowerCase() === cleanCourseTitle;
+      const ordEmail = (o.customer?.email || '').trim().toLowerCase();
+      const isSameEmail = cleanStudentEmail && ordEmail && cleanStudentEmail === ordEmail;
       const isSamePhone = isPhoneMatch(o.customer?.phone, newOrder.customer?.phone);
-      const isSameEmail = studentEmail && o.customer?.email && o.customer?.email.toLowerCase() === studentEmail.toLowerCase();
-      return isPaid && isSameCourse && (isSamePhone || isSameEmail);
+      return isPaid && isSameCourse && (isSameEmail || isSamePhone);
     });
     if (existingApprovedOrder) {
       return existingApprovedOrder;
@@ -260,11 +257,12 @@ export async function saveNewOrder({
       const isPending = (o.status || '').toUpperCase() === 'PENDING' && !o.isApproved;
       if (!isPending) return false;
       if (existingOrderId && o.id === existingOrderId) return true;
-      const isSameCourse = (o.course?.name || o.items?.[0]?.title || '').trim().toLowerCase() === title.trim().toLowerCase();
+      const isSameCourse = (o.course?.name || o.items?.[0]?.title || '').trim().toLowerCase() === cleanCourseTitle;
+      const ordEmail = (o.customer?.email || '').trim().toLowerCase();
+      const isSameEmail = cleanStudentEmail && ordEmail && cleanStudentEmail === ordEmail;
       const isSamePhone = isPhoneMatch(o.customer?.phone, newOrder.customer?.phone);
-      const isSameEmail = studentEmail && o.customer?.email && o.customer?.email.toLowerCase() === studentEmail.toLowerCase();
       const isSameUid = studentUid && (o.userId === studentUid || o.customer?.uid === studentUid);
-      return isSameCourse && (isSamePhone || isSameEmail || isSameUid);
+      return isSameCourse && (isSameEmail || isSamePhone || isSameUid);
     });
 
     let updatedOrders;
@@ -300,10 +298,11 @@ export async function saveNewOrder({
           const isPending = (t.status || '').toLowerCase() === 'pending';
           if (!isPending) return false;
           if (existingOrderId && (t.orderId === existingOrderId || t.id === existingOrderId)) return true;
-          const isSameCourse = (t.itemTitle || '').trim().toLowerCase() === title.trim().toLowerCase();
+          const isSameCourse = (t.itemTitle || '').trim().toLowerCase() === cleanCourseTitle;
+          const tEmail = (t.studentEmail || '').trim().toLowerCase();
+          const isSameEmail = cleanStudentEmail && tEmail && cleanStudentEmail === tEmail;
           const isSamePhone = isPhoneMatch(t.studentPhone, newTx.studentPhone);
-          const isSameEmail = studentEmail && t.studentEmail && t.studentEmail.toLowerCase() === studentEmail.toLowerCase();
-          return isSameCourse && (isSamePhone || isSameEmail);
+          return isSameCourse && (isSameEmail || isSamePhone);
         });
 
         let nextTxs;

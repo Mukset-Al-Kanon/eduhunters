@@ -1,5 +1,6 @@
 // src/services/supabaseService.js
 import { supabase, isSupabaseConfigured } from '../supabase/config.js';
+export { supabase, isSupabaseConfigured };
 import { physicsFinishingTouchCourseData } from '../data/physicsFinishingTouchData.js';
 
 /**
@@ -86,6 +87,35 @@ export async function saveSupabaseOrder(order) {
 
     // 1. Instant WebSocket Broadcast to Admin Panel (<50ms)
     broadcastSupabaseMessage('NEW_ORDER', payload);
+
+    // 1.5 Safety check: Check if an order already exists for this email and course
+    const cleanEmail = (payload.customer_email || '').trim().toLowerCase();
+    const courseKey = (payload.course_name || '').trim();
+    if (cleanEmail && cleanEmail.includes('@') && courseKey) {
+      try {
+        const { data: existingCloudOrder } = await supabase
+          .from('eduhunters_orders')
+          .select('id, status, is_approved, invoice_number')
+          .ilike('customer_email', cleanEmail)
+          .eq('course_name', courseKey)
+          .limit(1)
+          .maybeSingle();
+
+        if (existingCloudOrder) {
+          // If already approved/paid, NEVER downgrade or duplicate
+          if (existingCloudOrder.is_approved || existingCloudOrder.status === 'PAID' || existingCloudOrder.status === 'COMPLETED') {
+            return existingCloudOrder;
+          }
+          // If pending, reuse the existing ID and invoice number to update the existing record
+          payload.id = existingCloudOrder.id;
+          if (existingCloudOrder.invoice_number) {
+            payload.invoice_number = existingCloudOrder.invoice_number;
+          }
+        }
+      } catch (checkErr) {
+        // Fallback silently
+      }
+    }
 
     // 2. Persistent save to PostgreSQL database
     const { data, error } = await supabase

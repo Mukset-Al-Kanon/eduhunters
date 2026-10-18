@@ -418,7 +418,24 @@ export const mapOrderDocToStudent = (docId, order) => {
   return baseStudent;
 };
 
-// Pure helper: Deduplicate transactions so approved students never have duplicate pending records & deleted transactions NEVER resurrect
+// Clean date and time formatter for orders and ledger entries
+export const formatOrderDateTime = (dateOrIso) => {
+  if (!dateOrIso) return { date: '--', time: '', full: '--' };
+  try {
+    const d = new Date(dateOrIso);
+    if (isNaN(d.getTime())) {
+      return { date: String(dateOrIso), time: '', full: String(dateOrIso) };
+    }
+    const dateStr = d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    const timeStr = d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+    return { date: dateStr, time: timeStr, full: `${dateStr} · ${timeStr}` };
+  } catch {
+    return { date: String(dateOrIso), time: '', full: String(dateOrIso) };
+  }
+};
+
+// Pure helper: Deduplicate transactions so approved students never have duplicate pending records,
+// amount 0 approved records auto-heal to their real paid fee, and deleted transactions NEVER resurrect
 export const deduplicateTransactions = (txList) => {
   if (!Array.isArray(txList)) return [];
   const deletedIds = getDeletedIdsSet();
@@ -432,15 +449,28 @@ export const deduplicateTransactions = (txList) => {
 
   // 1. Identify all completed/approved students across transactions, enrolled students, and users
   const approvedKeys = new Set();
+  const studentKnownPrice = new Map(); // email/phone -> real price if > 0
+
+  // Inspect existing txList
   txList.forEach(t => {
     if (!t || isDeletedItem(t, deletedIds)) return;
     const s = (t.status || '').toLowerCase();
     const isApproved = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
+    const p = cleanLast10Phone(t.studentPhone);
+    const e = (t.studentEmail || '').trim().toLowerCase();
+    const amt = Number(t.amount) || 0;
+
+    if (amt > 0) {
+      if (e && e.includes('@')) studentKnownPrice.set(e, amt);
+      if (p) studentKnownPrice.set(p, amt);
+    }
+
     if (isApproved) {
-      const p = cleanLast10Phone(t.studentPhone);
-      const e = (t.studentEmail || '').trim().toLowerCase();
-      if (p) approvedKeys.add(p);
       if (e && e.includes('@')) approvedKeys.add(e);
+      if (p) approvedKeys.add(p);
+      const c = (t.itemTitle || t.category || '').trim().toLowerCase();
+      if (e && c) approvedKeys.add(`${e}_${c}`);
+      if (p && c) approvedKeys.add(`${p}_${c}`);
     }
   });
 
@@ -453,8 +483,16 @@ export const deduplicateTransactions = (txList) => {
         parsed.forEach(st => {
           const sp = cleanLast10Phone(st.phone);
           const se = (st.email || '').trim().toLowerCase();
-          if (sp) approvedKeys.add(sp);
+          const amt = Number(st.amount) || 0;
+          if (amt > 0) {
+            if (se && !studentKnownPrice.has(se)) studentKnownPrice.set(se, amt);
+            if (sp && !studentKnownPrice.has(sp)) studentKnownPrice.set(sp, amt);
+          }
           if (se && se.includes('@')) approvedKeys.add(se);
+          if (sp) approvedKeys.add(sp);
+          const sc = (st.courseName || '').trim().toLowerCase();
+          if (se && sc) approvedKeys.add(`${se}_${sc}`);
+          if (sp && sc) approvedKeys.add(`${sp}_${sc}`);
         });
       }
     }
@@ -463,11 +501,21 @@ export const deduplicateTransactions = (txList) => {
       const parsedU = JSON.parse(rawUsers);
       if (Array.isArray(parsedU)) {
         parsedU.forEach(u => {
+          const up = cleanLast10Phone(u.phone || u.whatsapp);
+          const ue = (u.email || '').trim().toLowerCase();
+          const amt = Number(u.totalSpent) || 0;
+          if (amt > 0) {
+            if (ue && !studentKnownPrice.has(ue)) studentKnownPrice.set(ue, amt);
+            if (up && !studentKnownPrice.has(up)) studentKnownPrice.set(up, amt);
+          }
           if (Array.isArray(u.enrolledCourses) && u.enrolledCourses.length > 0) {
-            const up = cleanLast10Phone(u.phone || u.whatsapp);
-            const ue = (u.email || '').trim().toLowerCase();
-            if (up) approvedKeys.add(up);
             if (ue && ue.includes('@')) approvedKeys.add(ue);
+            if (up) approvedKeys.add(up);
+            u.enrolledCourses.forEach(cName => {
+              const uc = (cName || '').trim().toLowerCase();
+              if (ue && uc) approvedKeys.add(`${ue}_${uc}`);
+              if (up && uc) approvedKeys.add(`${up}_${uc}`);
+            });
           }
         });
       }
@@ -475,11 +523,13 @@ export const deduplicateTransactions = (txList) => {
   } catch (e) {}
 
   // 2. Filter transactions:
-  // - Completed/paid/rejected transactions are kept (deduplicating identical valid TrxIDs).
+  // - Completed/paid/rejected transactions: keep exactly ONE completed record per student email and course!
+  // - If completed transaction amount is 0, auto-heal with known student price (e.g. ৳499)
   // - Pending transactions: If student is already enrolled/approved, DISCARD IT!
-  // - Keep at most ONE pending request per un-enrolled student.
+  // - Keep at most ONE pending request per student email and course.
   const seenPendingKeys = new Set();
   const seenCompletedTrx = new Set();
+  const seenCompletedEmailCourse = new Set();
   const result = [];
 
   for (let t of txList) {
@@ -488,9 +538,29 @@ export const deduplicateTransactions = (txList) => {
 
     const s = (t.status || '').toLowerCase();
     const isCompleted = s === 'completed' || s === 'paid' || Boolean(t.isApproved);
+    const p = cleanLast10Phone(t.studentPhone);
+    const e = (t.studentEmail || '').trim().toLowerCase();
+    const c = (t.itemTitle || t.category || '').trim().toLowerCase();
 
     if (isCompleted) {
-      const validTrx = t.trxId && t.trxId !== 'PENDING' && t.trxId.length >= 6 ? t.trxId.toUpperCase().trim() : null;
+      // Auto-heal 0 amount if real fee is known
+      let finalAmt = Number(t.amount) || 0;
+      if (finalAmt <= 0) {
+        const known = (e && studentKnownPrice.get(e)) || (p && studentKnownPrice.get(p)) || 0;
+        if (known > 0) {
+          finalAmt = known;
+          t = { ...t, amount: finalAmt };
+        }
+      }
+
+      // Check for duplicate completed transactions for the same student and course
+      const compKey = (e && e.includes('@') && c) ? `${e}_${c}` : (p && c ? `${p}_${c}` : null);
+      if (compKey) {
+        if (seenCompletedEmailCourse.has(compKey)) continue;
+        seenCompletedEmailCourse.add(compKey);
+      }
+
+      const validTrx = t.trxId && t.trxId !== 'PENDING' && t.trxId !== 'PENDING_VERIFICATION' && t.trxId.length >= 6 ? t.trxId.toUpperCase().trim() : null;
       if (validTrx) {
         if (seenCompletedTrx.has(validTrx)) continue;
         seenCompletedTrx.add(validTrx);
@@ -505,17 +575,17 @@ export const deduplicateTransactions = (txList) => {
     }
 
     // It's a pending transaction:
-    const p = cleanLast10Phone(t.studentPhone);
-    const e = (t.studentEmail || '').trim().toLowerCase();
-
-    // If student has already been approved / enrolled, drop this old pending draft!
-    const isAlreadyEnrolled = (p && approvedKeys.has(p)) || (e && approvedKeys.has(e));
+    // If student has already been approved / enrolled in any course or this course, drop old pending drafts!
+    const isAlreadyEnrolled = (e && approvedKeys.has(e)) ||
+                              (e && c && approvedKeys.has(`${e}_${c}`)) ||
+                              (p && approvedKeys.has(p)) ||
+                              (p && c && approvedKeys.has(`${p}_${c}`));
     if (isAlreadyEnrolled) {
       continue;
     }
 
-    // Un-enrolled student: keep at most ONE pending record
-    const pendingKey = p || e || t.id;
+    // Un-enrolled student: keep at most ONE pending record per (email, course) or (phone, course)
+    const pendingKey = (e && e.includes('@') && c) ? `${e}_${c}` : (p && c ? `${p}_${c}` : (e || p || t.id));
     if (seenPendingKeys.has(pendingKey)) {
       continue;
     }
@@ -5734,7 +5804,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   const deferredUserQuery = useDeferredValue(userSearchQuery);
 
   const filteredUsers = useMemo(() => {
-    let list = [...usersList];
+    let list = deduplicateUsers(usersList);
     const q = deferredUserQuery.trim().toLowerCase();
 
     if (userRoleFilter !== 'ALL') {
@@ -5789,51 +5859,74 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   }, [usersList, userRoleFilter, userStatusFilter, userBatchFilter, deferredUserQuery, userSortBy, courses, bundles]);
 
   const userMetrics = useMemo(() => {
-    const total = usersList.length;
-    const activeStudents = usersList.filter(u => u.role === 'Student' && u.status === 'Active').length;
-    const staffCount = usersList.filter(u => ['Admin', 'Instructor', 'Moderator'].includes(u.role)).length;
-    const suspendedCount = usersList.filter(u => u.status === 'Suspended').length;
+    const unique = deduplicateUsers(usersList);
+    const total = unique.length;
+    const activeStudents = unique.filter(u => u.role === 'Student' && u.status === 'Active').length;
+    const staffCount = unique.filter(u => ['Admin', 'Instructor', 'Moderator'].includes(u.role)).length;
+    const suspendedCount = unique.filter(u => u.status === 'Suspended').length;
     return { total, activeStudents, staffCount, suspendedCount };
   }, [usersList]);
 
-  // Memoized Pending Requests (Chronologically Sorted - Newest First)
-  const pendingRequests = useMemo(() => {
-    const txs = accounting?.transactions || [];
+  // Live Dashboard Analytics (Users Joined Today, Enrolled Today, Revenue Breakdown: Today, 7 Days, 30 Days, All-Time)
+  const dashboardAnalytics = useMemo(() => {
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
 
-    const approvedKeys = new Set();
-    txs.forEach(t => {
-      const st = (t.status || '').toLowerCase();
-      if (st === 'completed' || st === 'paid' || Boolean(t.isApproved)) {
-        const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
-        const e = (t.studentEmail || '').trim().toLowerCase();
-        const c = (t.itemTitle || t.category || '').trim().toLowerCase();
-        if (p && c) approvedKeys.add(`${p}_${c}`);
-        if (e && c) approvedKeys.add(`${e}_${c}`);
-        if (p) approvedKeys.add(p);
+    const uniqueUsers = deduplicateUsers(usersList);
+    const joinedTodayCount = uniqueUsers.filter(u => {
+      const ts = getUserTimestamp(u);
+      return ts >= todayStart;
+    }).length;
+
+    const txs = deduplicateTransactions(accounting?.transactions || []);
+    const completedTxs = txs.filter(t => {
+      const s = (t.status || '').toLowerCase();
+      return (s === 'completed' || s === 'paid' || Boolean(t.isApproved)) && (t.type || '').toUpperCase() !== 'EXPENSE';
+    });
+
+    let enrollmentsTodayCount = 0;
+    let todayRevenue = 0;
+    let revenue7Days = 0;
+    let revenue30Days = 0;
+    let allTimeRevenue = 0;
+
+    completedTxs.forEach(t => {
+      const amt = Number(t.amount) || 0;
+      allTimeRevenue += amt;
+      const tTime = new Date(t.createdAt || t.date || 0).getTime();
+      if (!isNaN(tTime) && tTime > 0) {
+        if (tTime >= todayStart) {
+          enrollmentsTodayCount += 1;
+          todayRevenue += amt;
+        }
+        if (tTime >= sevenDaysAgo) {
+          revenue7Days += amt;
+        }
+        if (tTime >= thirtyDaysAgo) {
+          revenue30Days += amt;
+        }
       }
     });
 
-    const seenPending = new Set();
+    return {
+      joinedTodayCount,
+      enrollmentsTodayCount,
+      todayRevenue,
+      revenue7Days,
+      revenue30Days,
+      allTimeRevenue,
+      totalActiveStudents: uniqueUsers.filter(u => u.role === 'Student' && u.status === 'Active').length
+    };
+  }, [usersList, accounting?.transactions]);
+
+  // Memoized Pending Requests (Chronologically Sorted - Newest First)
+  const pendingRequests = useMemo(() => {
+    const txs = deduplicateTransactions(accounting?.transactions || []);
     return txs.filter(tx => {
       const s = (tx.status || '').toLowerCase();
-      const isPending = s === 'pending' || (s !== 'completed' && s !== 'paid' && s !== 'rejected');
-      if (!isPending) return false;
-
-      const p = (tx.studentPhone || '').replace(/[^0-9]/g, '');
-      const e = (tx.studentEmail || '').trim().toLowerCase();
-      const c = (tx.itemTitle || tx.category || '').trim().toLowerCase();
-
-      // Discard if student has an approved transaction for this course
-      if ((p && c && approvedKeys.has(`${p}_${c}`)) || (e && c && approvedKeys.has(`${e}_${c}`))) {
-        return false;
-      }
-
-      // Keep only one pending request per student + course
-      const key = p && c ? `${p}_${c}` : (e && c ? `${e}_${c}` : tx.id);
-      if (seenPending.has(key)) return false;
-      seenPending.add(key);
-
-      return true;
+      return s === 'pending' || (s !== 'completed' && s !== 'paid' && s !== 'rejected');
     }).sort((a, b) => {
       const timeA = new Date(a.createdAt || a.date || 0).getTime();
       const timeB = new Date(b.createdAt || b.date || 0).getTime();
@@ -5848,34 +5941,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Memoized Filtered Transactions (Pending & Newest on TOP)
   const filteredTransactions = useMemo(() => {
-    const txs = accounting?.transactions || [];
+    const txs = deduplicateTransactions(accounting?.transactions || []);
     const query = deferredSearchTrx.trim().toLowerCase();
-
-    const approvedKeys = new Set();
-    txs.forEach(t => {
-      const st = (t.status || '').toLowerCase();
-      if (st === 'completed' || st === 'paid' || Boolean(t.isApproved)) {
-        const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
-        const e = (t.studentEmail || '').trim().toLowerCase();
-        const c = (t.itemTitle || t.category || '').trim().toLowerCase();
-        if (p && c) approvedKeys.add(`${p}_${c}`);
-        if (e && c) approvedKeys.add(`${e}_${c}`);
-      }
-    });
 
     const filtered = txs.filter(tx => {
       const st = (tx.status || '').toLowerCase();
       const isPending = st === 'pending' || (st !== 'completed' && st !== 'paid' && st !== 'rejected');
-
-      // If pending, hide if student already has an approved transaction for this course
-      if (isPending) {
-        const p = (tx.studentPhone || '').replace(/[^0-9]/g, '');
-        const e = (tx.studentEmail || '').trim().toLowerCase();
-        const c = (tx.itemTitle || tx.category || '').trim().toLowerCase();
-        if ((p && c && approvedKeys.has(`${p}_${c}`)) || (e && c && approvedKeys.has(`${e}_${c}`))) {
-          return false;
-        }
-      }
 
       const matchesSearch = !query ||
         (tx.studentName || '').toLowerCase().includes(query) ||
@@ -5903,23 +5974,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Memoized Verification Hub Filtered List
   const verificationList = useMemo(() => {
-    const txs = accounting?.transactions || [];
+    const txs = deduplicateTransactions(accounting?.transactions || []);
     const q = deferredVerifQuery.trim().toLowerCase();
     const qClean = q.replace(/[^a-zA-Z0-9]/g, '');
 
-    const approvedKeys = new Set();
-    txs.forEach(t => {
-      const st = (t.status || '').toLowerCase();
-      if (st === 'completed' || st === 'paid' || Boolean(t.isApproved)) {
-        const p = (t.studentPhone || '').replace(/[^0-9]/g, '');
-        const e = (t.studentEmail || '').trim().toLowerCase();
-        const c = (t.itemTitle || t.category || '').trim().toLowerCase();
-        if (p && c) approvedKeys.add(`${p}_${c}`);
-        if (e && c) approvedKeys.add(`${e}_${c}`);
-      }
-    });
-
-    const seenPending = new Set();
     return txs.filter(tx => {
       if ((tx.type || '').toUpperCase() === 'EXPENSE') return false;
 
@@ -5927,19 +5985,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       const isPending = st === 'pending' || (st !== 'completed' && st !== 'paid' && st !== 'rejected');
       const isCompleted = st === 'completed' || st === 'paid' || Boolean(tx.isApproved);
       const isRejected = st === 'rejected';
-
-      // If pending, hide duplicate if student already has an approved transaction
-      if (isPending) {
-        const p = (tx.studentPhone || '').replace(/[^0-9]/g, '');
-        const e = (tx.studentEmail || '').trim().toLowerCase();
-        const c = (tx.itemTitle || tx.category || '').trim().toLowerCase();
-        if ((p && c && approvedKeys.has(`${p}_${c}`)) || (e && c && approvedKeys.has(`${e}_${c}`))) {
-          return false;
-        }
-        const key = p && c ? `${p}_${c}` : (e && c ? `${e}_${c}` : tx.id);
-        if (seenPending.has(key)) return false;
-        seenPending.add(key);
-      }
 
       if (verificationFilter === 'PENDING' && !isPending) return false;
       if (verificationFilter === 'COMPLETED' && !isCompleted) return false;
@@ -6740,71 +6785,153 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   </h2>
                 </div>
 
-                {/* ULTRA-MINIMAL METRIC STAT CARDS (NO ICONS, NO DUPLICATE LABELS) */}
+                {/* 1. TOP ACTIVITY STATS: TODAY'S ACTIVITY & LIVE STUDENT METRICS */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
-                  
-                  {/* CARD 1: Total Enrolled */}
+                  {/* CARD 1: Joined Today */}
                   <div 
-                    onClick={() => setDashboardMainTab('students')}
+                    onClick={() => setActiveTab('users')}
                     className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
                   >
                     <div className="flex items-center justify-between gap-1">
-                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Enrolled</span>
-                      <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shrink-0">
-                        <TrendingUp className="w-3 h-3" />
-                        <span>Live</span>
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">আজকের জয়েনিং</span>
+                      <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shrink-0">
+                        Today
                       </span>
                     </div>
                     <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mt-3">
-                      {enrolledStudents.filter(s => s.status === 'Active').length.toLocaleString()}
+                      {dashboardAnalytics.joinedTodayCount}
                     </div>
                   </div>
 
-                  {/* CARD 2: Pending Verification */}
-                  <div 
-                    onClick={() => setDashboardMainTab('verification')}
-                    className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
-                  >
-                    <div className="flex items-center justify-between gap-1">
-                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Pending Verification</span>
-                      {pendingCount > 0 && (
-                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0" title="Needs review" />
-                      )}
-                    </div>
-                    <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mt-3">
-                      {pendingCount}
-                    </div>
-                  </div>
-
-                  {/* CARD 3: Net Profit */}
+                  {/* CARD 2: Enrolled Today */}
                   <div 
                     onClick={() => setActiveTab('accounting')}
                     className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
                   >
                     <div className="flex items-center justify-between gap-1">
-                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Net Profit</span>
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">আজকের এনরোলমেন্ট</span>
+                      <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shrink-0">
+                        <TrendingUp className="w-3 h-3" />
+                        Today
+                      </span>
                     </div>
                     <div className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight leading-none mt-3">
-                      ৳{accountingTotals.netProfit.toLocaleString()}
+                      {dashboardAnalytics.enrollmentsTodayCount}
                     </div>
                   </div>
 
-                  {/* CARD 4: Total Spendings */}
+                  {/* CARD 3: Pending Verification */}
                   <div 
-                    onClick={() => {
-                      setTrxFilter('EXPENSE');
-                      setActiveTab('accounting');
-                    }}
+                    onClick={() => setDashboardMainTab('verification')}
                     className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
                   >
                     <div className="flex items-center justify-between gap-1">
-                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">Total Spendings</span>
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">পেন্ডিং ভেরিফিকেশন</span>
+                      {pendingCount > 0 && (
+                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0" title="Needs review" />
+                      )}
                     </div>
-                    <div className="text-2xl sm:text-3xl font-black text-rose-600 tracking-tight leading-none mt-3">
-                      ৳{accountingTotals.totalExpenses.toLocaleString()}
+                    <div className="text-2xl sm:text-3xl font-black text-amber-600 tracking-tight leading-none mt-3">
+                      {pendingCount}
                     </div>
                   </div>
 
+                  {/* CARD 4: Total Active Students */}
+                  <div 
+                    onClick={() => setDashboardMainTab('students')}
+                    className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group active:scale-[0.98] flex flex-col justify-between"
+                  >
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 truncate">মোট সক্রিয় শিক্ষার্থী</span>
+                      <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded-md shrink-0">
+                        Total
+                      </span>
+                    </div>
+                    <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mt-3">
+                      {dashboardAnalytics.totalActiveStudents.toLocaleString()}
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. REVENUE PERFORMANCE MATRIX (আয় ও অর্থ বিবরণী: আজ, ৭ দিন, ৩০ দিন, মোট লাভ) */}
+                <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] space-y-3.5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                    <div>
+                      <h3 className="text-sm sm:text-base font-black text-slate-900 tracking-tight flex items-center gap-2">
+                        <DollarSign className="w-4 h-4 text-emerald-600" />
+                        <span>আয় ও অর্থ বিবরণী (Financial Revenue Matrix)</span>
+                      </h3>
+                      <p className="text-[11px] text-slate-400 font-medium mt-0.5">
+                        সময় অনুযায়ী আয়ের লাইভ পরিসংখ্যান
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab('accounting')}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#5d5bf6] hover:text-[#4b49e0] transition-colors cursor-pointer bg-transparent border-none p-0"
+                    >
+                      <span>লেজার দেখুন</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5 pt-1">
+                    {/* Today Revenue */}
+                    <div 
+                      onClick={() => setActiveTab('accounting')}
+                      className="bg-slate-50/80 hover:bg-slate-100/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/70 transition-all cursor-pointer flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-500">আজকের আয়</span>
+                        <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">আজ</span>
+                      </div>
+                      <div className="text-xl sm:text-2xl font-black text-emerald-600 tracking-tight leading-none mt-2.5">
+                        ৳{dashboardAnalytics.todayRevenue.toLocaleString()}
+                      </div>
+                    </div>
+
+                    {/* Last 7 Days Revenue */}
+                    <div 
+                      onClick={() => setActiveTab('accounting')}
+                      className="bg-slate-50/80 hover:bg-slate-100/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/70 transition-all cursor-pointer flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-500">গত ৭ দিনের আয়</span>
+                        <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-blue-100 text-blue-800">৭ দিন</span>
+                      </div>
+                      <div className="text-xl sm:text-2xl font-black text-blue-600 tracking-tight leading-none mt-2.5">
+                        ৳{dashboardAnalytics.revenue7Days.toLocaleString()}
+                      </div>
+                    </div>
+
+                    {/* Last 30 Days Revenue */}
+                    <div 
+                      onClick={() => setActiveTab('accounting')}
+                      className="bg-slate-50/80 hover:bg-slate-100/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/70 transition-all cursor-pointer flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-500">গত ১ মাসের আয়</span>
+                        <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-800">৩০ দিন</span>
+                      </div>
+                      <div className="text-xl sm:text-2xl font-black text-indigo-600 tracking-tight leading-none mt-2.5">
+                        ৳{dashboardAnalytics.revenue30Days.toLocaleString()}
+                      </div>
+                    </div>
+
+                    {/* Net Profit All-Time */}
+                    <div 
+                      onClick={() => setActiveTab('accounting')}
+                      className="bg-slate-50/80 hover:bg-slate-100/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/70 transition-all cursor-pointer flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-500">সর্বমোট নেট প্রফিট</span>
+                        <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-violet-100 text-violet-800">মোট</span>
+                      </div>
+                      <div className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none mt-2.5">
+                        ৳{accountingTotals.netProfit.toLocaleString()}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -7901,7 +8028,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                     </button>
                                   </div>
                                 )}
-                                <div className="text-[10px] text-slate-400 mt-0.5 font-mono">{tx.date}</div>
+                                <div className="text-[10px] text-slate-400 mt-0.5 font-mono">{formatOrderDateTime(tx.createdAt || tx.date).full}</div>
                               </div>
                             </div>
 
@@ -7999,22 +8126,37 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       <table className="w-full text-left text-xs border-collapse">
                         <thead>
                           <tr className="bg-slate-50/80 text-slate-500 border-b border-slate-200 uppercase font-bold text-[11px] tracking-wider">
-                            <th className="py-3 px-4">ID</th>
-                            <th className="py-3 px-4">Date</th>
+                            <th className="py-3 px-4">#</th>
+                            <th className="py-3 px-4">Date & Time</th>
                             <th className="py-3 px-4">Student / Description</th>
                             <th className="py-3 px-4">Course / Product</th>
                             <th className="py-3 px-4">Method</th>
-                            <th className="py-3 px-4">TrxID</th>
+                            <th className="py-3 px-4">Payment TrxID</th>
                             <th className="py-3 px-4 text-center">Status</th>
                             <th className="py-3 px-4 text-right">Amount</th>
                             <th className="py-3 px-4 text-center">Actions</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100 text-slate-700">
-                          {filteredTransactions.map((tx) => (
+                          {filteredTransactions.map((tx, txIdx) => (
                             <tr key={tx.id} className="hover:bg-slate-50/70 transition-colors">
-                              <td className="py-3 px-4 font-mono font-bold text-slate-400">{tx.id}</td>
-                              <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{tx.date}</td>
+                              <td className="py-3 px-4 font-mono font-bold text-slate-400">#{txIdx + 1}</td>
+                              <td className="py-3 px-4 text-slate-500 whitespace-nowrap">
+                                {(() => {
+                                  const dt = formatOrderDateTime(tx.createdAt || tx.date);
+                                  return (
+                                    <div>
+                                      <div className="font-semibold text-slate-800">{dt.date}</div>
+                                      {dt.time && (
+                                        <div className="text-[10px] text-slate-400 font-mono flex items-center gap-1 mt-0.5">
+                                          <Clock className="w-3 h-3 text-slate-400" />
+                                          <span>{dt.time}</span>
+                                        </div>
+                                      )}
+                                    </div>
+                                  );
+                                })()}
+                              </td>
                               <td className="py-3 px-4">
                                 {(() => {
                                   const cleanDigits = (tx.studentPhone || '').replace(/[^0-9]/g, '');
@@ -8054,7 +8196,23 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                   {tx.method}
                                 </span>
                               </td>
-                              <td className="py-3 px-4 font-mono text-[11px] text-slate-600">{tx.trxId}</td>
+                              <td className="py-3 px-4 font-mono text-[11px] text-slate-700 whitespace-nowrap">
+                                {tx.trxId && tx.trxId !== 'PENDING' && tx.trxId !== 'PENDING_VERIFICATION' ? (
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200/80">{tx.trxId}</span>
+                                    <button
+                                      type="button"
+                                      onClick={() => handleCopyText(tx.trxId, 'trxId')}
+                                      className="p-1 text-slate-400 hover:text-slate-600 border-none bg-transparent cursor-pointer"
+                                      title="Copy TrxID"
+                                    >
+                                      <Copy className="w-3 h-3" />
+                                    </button>
+                                  </div>
+                                ) : (
+                                  <span className="text-slate-400 italic">Pending</span>
+                                )}
+                              </td>
                               <td className="py-3 px-4 text-center">
                                 <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
                                   tx.status === 'Completed'
@@ -8383,13 +8541,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   <>
                     {/* MOBILE VIEW (< md): Clean Touch-Friendly Cards */}
                     <div className="md:hidden p-3 space-y-3">
-                      {filteredUsers.map((user) => {
+                      {filteredUsers.map((user, userIdx) => {
                         const isActive = user.status === 'Active';
                         const isPending = user.status === 'Pending';
                         const contactNum = user.whatsapp || user.phone || '';
                         const cleanDigits = contactNum.replace(/[^0-9]/g, '');
                         const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
-                        const displayId = user.id ? (user.id.startsWith('usr-') ? user.id.toUpperCase() : (user.id.length > 10 ? `STU-${user.id.slice(0, 6).toUpperCase()}` : user.id.toUpperCase())) : 'STU-001';
                         const canonicalCourses = getCanonicalCourses(user.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA });
                         const enrolledTitle = canonicalCourses.length > 0
                           ? (canonicalCourses[0] + (canonicalCourses.length > 1 ? ` (+${canonicalCourses.length - 1})` : ''))
@@ -8417,7 +8574,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                                 <div className="font-extrabold text-emerald-600 text-sm leading-tight">
                                   {user.totalSpent > 0 ? `৳${user.totalSpent.toLocaleString()}` : '৳0'}
                                 </div>
-                                <div className="text-[10px] text-slate-400 mt-0.5 font-mono">{displayId}</div>
+                                <div className="text-[10px] text-slate-400 mt-0.5 font-mono">
+                                  <span className="font-bold text-slate-500">#{userIdx + 1}</span> · {formatOrderDateTime(user.createdAt || user.created_at || user.joinedDate).full}
+                                </div>
                               </div>
                             </div>
 
@@ -8525,8 +8684,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                       <table className="w-full text-left border-collapse">
                         <thead>
                           <tr className="bg-[#f8fafc] border-b border-slate-200 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                            <th className="py-3 px-4">ID</th>
-                            <th className="py-3 px-4">Date</th>
+                            <th className="py-3 px-4">#</th>
+                            <th className="py-3 px-4">Date & Time</th>
                             <th className="py-3 px-4">Student / Description</th>
                             <th className="py-3 px-4">Course / Product</th>
                             <th className="py-3 px-4">Batch</th>
@@ -8538,15 +8697,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
-                          {filteredUsers.map((user) => {
+                          {filteredUsers.map((user, userIdx) => {
                             const isActive = user.status === 'Active';
                             const isPending = user.status === 'Pending';
                             const contactNum = user.whatsapp || user.phone || '';
                             const cleanDigits = contactNum.replace(/[^0-9]/g, '');
                             const waPhone = cleanDigits.startsWith('880') ? cleanDigits : (cleanDigits.startsWith('0') ? '88' + cleanDigits : ('880' + cleanDigits));
-                            
-                            // Display ID in TRX/STU style
-                            const displayId = user.id ? (user.id.startsWith('usr-') ? user.id.toUpperCase() : (user.id.length > 10 ? `STU-${user.id.slice(0, 6).toUpperCase()}` : user.id.toUpperCase())) : 'STU-001';
 
                             // Enrolled courses display (Canonicalized - No Duplicates)
                             const canonicalCourses = getCanonicalCourses(user.enrolledCourses, { courses, bundles, examBatches: EXAM_CATEGORIES_METADATA });
@@ -8556,14 +8712,27 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
                             return (
                               <tr key={user.id} className="hover:bg-slate-50/70 border-b border-slate-100 transition-colors">
-                                {/* ID */}
-                                <td className="py-3.5 px-4 text-xs font-mono text-slate-400 font-medium whitespace-nowrap">
-                                  {displayId}
+                                {/* # */}
+                                <td className="py-3.5 px-4 text-xs font-mono font-bold text-slate-400 whitespace-nowrap">
+                                  #{userIdx + 1}
                                 </td>
 
-                                {/* Date */}
-                                <td className="py-3.5 px-4 text-xs text-slate-500 font-medium whitespace-nowrap">
-                                  {user.joinedDate || '2026-10-09'}
+                                {/* Date & Time */}
+                                <td className="py-3.5 px-4 text-xs text-slate-500 whitespace-nowrap">
+                                  {(() => {
+                                    const dt = formatOrderDateTime(user.createdAt || user.created_at || user.joinedDate);
+                                    return (
+                                      <div>
+                                        <div className="font-semibold text-slate-800">{dt.date}</div>
+                                        {dt.time && (
+                                          <div className="text-[10px] text-slate-400 font-mono flex items-center gap-1 mt-0.5">
+                                            <Clock className="w-3 h-3 text-slate-400" />
+                                            <span>{dt.time}</span>
+                                          </div>
+                                        )}
+                                      </div>
+                                    );
+                                  })()}
                                 </td>
 
                                 {/* Student / Description */}

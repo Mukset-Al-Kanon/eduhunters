@@ -4,6 +4,7 @@ import confetti from 'canvas-confetti';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
 import { saveNewOrder, getUserOrders, isPhoneMatch } from '../services/orderService';
+import { fetchSupabaseOrders, isSupabaseConfigured } from '../services/supabaseService';
 import { isItemEnrolled } from '../utils/enrollmentService';
 import InvoiceModal from './InvoiceModal';
 import TermsModal from './TermsModal';
@@ -36,6 +37,32 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
   const [createdOrder, setCreatedOrder] = useState(null);
   const [showInvoiceModal, setShowInvoiceModal] = useState(false);
   const [showEditPayment, setShowEditPayment] = useState(false);
+  const [cloudPendingOrder, setCloudPendingOrder] = useState(null);
+
+  // Cross-device / Cloud Pending Order Check
+  useEffect(() => {
+    if (currentUser?.email && isSupabaseConfigured) {
+      const userEmail = (currentUser.email || '').trim().toLowerCase();
+      const targetTitle = (item?.title || item?.name || '').trim().toLowerCase();
+      const targetSlug = (item?.slug || item?.id || '').trim().toLowerCase();
+
+      fetchSupabaseOrders().then(orders => {
+        if (Array.isArray(orders) && orders.length > 0) {
+          const match = orders.find(ord => {
+            const isPending = (ord.status || '').toUpperCase() === 'PENDING' && !ord.isApproved && !ord.is_approved;
+            if (!isPending) return false;
+            const ordEmail = (ord.customer?.email || ord.customer_email || '').trim().toLowerCase();
+            if (ordEmail !== userEmail) return false;
+            const ordTitle = (ord.course?.name || ord.course_name || '').trim().toLowerCase();
+            const ordSlug = (ord.course?.slug || ord.course_slug || '').trim().toLowerCase();
+            return (targetTitle && (ordTitle.includes(targetTitle) || targetTitle.includes(ordTitle))) ||
+                   (targetSlug && (ordSlug === targetSlug || ordSlug.replace(/[-_]/g, '') === targetSlug.replace(/[-_]/g, '')));
+          });
+          if (match) setCloudPendingOrder(match);
+        }
+      }).catch(() => {});
+    }
+  }, [currentUser?.email, item?.title, item?.name, item?.slug, item?.id]);
 
   // Check if current user is ALREADY enrolled and approved for this item
   const alreadyEnrolledOrder = useMemo(() => {
@@ -84,7 +111,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
       const userEmail = (currentUser?.email || '').trim().toLowerCase();
       const userPhoneClean = (currentUser?.whatsapp || currentUser?.phone || currentUser?.phoneNumber || '').replace(/[^0-9]/g, '');
 
-      return orders.find(ord => {
+      const localMatch = orders.find(ord => {
         const st = (ord.status || '').toUpperCase();
         const isPending = st === 'PENDING' && !ord.isApproved;
         if (!isPending) return false;
@@ -101,11 +128,13 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
         const phoneMatch = userPhoneClean.length >= 10 && ordPhoneClean.length >= 10 && userPhoneClean.slice(-10) === ordPhoneClean.slice(-10);
 
         return emailMatch || phoneMatch;
-      }) || null;
+      });
+
+      return localMatch || cloudPendingOrder || null;
     } catch {
-      return null;
+      return cloudPendingOrder || null;
     }
-  }, [currentUser, item]);
+  }, [currentUser, item, cloudPendingOrder]);
 
   // Synchronize student name and phone whenever currentUser updates
   useEffect(() => {
@@ -166,6 +195,12 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
   const handleConfirmPayment = (e) => {
     e.preventDefault();
     if (isProcessing) return;
+
+    if (existingPendingOrder && !showEditPayment) {
+      alert("Your enrollment request has already been received and is under review. Please wait, verification is typically completed within 5-15 minutes.");
+      return;
+    }
+
     const cleanPhone = (phoneNumber || '').replace(/[^0-9]/g, '');
     if (!cleanPhone || cleanPhone.length < 11) {
       alert("Please enter a valid 11-digit mobile number");
@@ -347,13 +382,13 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 <div>
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    এনরোলমেন্ট সক্রিয় (Active)
+                    Enrollment Active
                   </span>
                   <h4 className={`text-base sm:text-lg font-black mt-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                    আপনি ইতিমধ্যে এই কোর্সে ভর্তি আছেন!
+                    You are already enrolled in this course!
                   </h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
-                    আপনার একাউন্টে এই কোর্সের পূর্ণ এক্সেস চালু রয়েছে। আপনি সব ক্লাস, নোট ও এক্সামে অংশ নিতে পারবেন।
+                    Your account has full access to this course. You can access all classes, lecture notes, and exams.
                   </p>
                 </div>
               </div>
@@ -363,26 +398,26 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 isDark ? 'bg-white/[0.02] border-white/10 text-gray-300' : 'bg-gray-50 border-gray-100 text-gray-700'
               }`}>
                 <div className="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-white/5">
-                  <span className="text-gray-400">কোর্সের নাম:</span>
+                  <span className="text-gray-400">Course Name:</span>
                   <span className="font-bold text-right ml-2 max-w-[200px] truncate">{alreadyEnrolledOrder?.course?.name || item.title}</span>
                 </div>
                 {alreadyEnrolledOrder?.transactionId && (
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-400">ট্রানজেকশন আইডি:</span>
+                    <span className="text-gray-400">Transaction ID:</span>
                     <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">{alreadyEnrolledOrder.transactionId}</span>
                   </div>
                 )}
                 {alreadyEnrolledOrder?.invoiceNumber && (
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-400">ইনভয়েস নম্বর:</span>
+                    <span className="text-gray-400">Invoice Number:</span>
                     <span className="font-mono font-semibold">{alreadyEnrolledOrder.invoiceNumber}</span>
                   </div>
                 )}
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-400">স্ট্যাটাস:</span>
+                  <span className="text-gray-400">Status:</span>
                   <span className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                     <CheckCircle size={13} />
-                    ভর্তি নিশ্চিত ও কোর্স আনলকড
+                    Enrolled & Course Unlocked
                   </span>
                 </div>
               </div>
@@ -403,7 +438,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                     }`}
                   >
                     <FileText size={15} />
-                    <span>ইনভয়েস দেখুন</span>
+                    <span>View Invoice</span>
                   </button>
                 )}
 
@@ -420,7 +455,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                   className="flex-1 py-3 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white rounded-xl font-bold text-xs border-none cursor-pointer shadow-md transition-all flex items-center justify-center gap-1.5"
                 >
                   <CheckCircle size={15} />
-                  <span>কোর্সে প্রবেশ করুন</span>
+                  <span>Go to Course</span>
                 </button>
               </div>
 
@@ -434,7 +469,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                     : 'bg-white hover:bg-gray-50 text-gray-600 hover:text-gray-900 border-gray-200'
                 }`}
               >
-                বন্ধ করুন
+                Close
               </button>
             </div>
           ) : existingPendingOrder && !showEditPayment ? (
@@ -449,13 +484,13 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 <div>
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />
-                    রিকোয়েস্ট প্রক্রিয়াধীন (Pending)
+                    Request Pending Verification
                   </span>
                   <h4 className={`text-base sm:text-lg font-black mt-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                    আপনার এনরোলমেন্ট রিকোয়েস্টটি পর্যালোচনায় রয়েছে
+                    Your Enrollment Request is Under Review
                   </h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
-                    আমাদের টিম আপনার পেমেন্ট তথ্য যাচাই করছে। সাধারণত <strong>৫ থেকে ১৫ মিনিটের মধ্যে</strong> কোর্স এক্সেস অনুমোদন হয়ে যায়।
+                    Our team is verifying your payment details. Course access is typically approved within <strong>5 to 15 minutes</strong>.
                   </p>
                 </div>
               </div>
@@ -465,23 +500,23 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 isDark ? 'bg-white/[0.02] border-white/10 text-gray-300' : 'bg-gray-50 border-gray-100 text-gray-700'
               }`}>
                 <div className="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-white/5">
-                  <span className="text-gray-400">কোর্সের নাম:</span>
+                  <span className="text-gray-400">Course Name:</span>
                   <span className="font-bold text-right ml-2 max-w-[200px] truncate">{existingPendingOrder.course?.name || item.title}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-400">ট্রানজেকশন আইডি:</span>
+                  <span className="text-gray-400">Transaction ID:</span>
                   <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">{existingPendingOrder.transactionId || 'PENDING'}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-400">পেমেন্ট নম্বর:</span>
+                  <span className="text-gray-400">Payment Number:</span>
                   <span className="font-mono font-semibold">{existingPendingOrder.customer?.phone || phoneNumber}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-400">পেমেন্ট মাধ্যম:</span>
+                  <span className="text-gray-400">Payment Method:</span>
                   <span className="font-semibold capitalize">{existingPendingOrder.paymentGateway || paymentMethod}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-400">সাবমিটের সময়:</span>
+                  <span className="text-gray-400">Submitted At:</span>
                   <span className="font-medium text-gray-500">
                     {existingPendingOrder.createdAt 
                       ? new Date(existingPendingOrder.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) 
@@ -496,7 +531,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
               }`}>
                 <ShieldCheck className="w-4 h-4 shrink-0 mt-0.5 text-blue-500" />
                 <div>
-                  <strong>অপেক্ষা করুন:</strong> একই কোর্সের জন্য একাধিকবার টাকা পাঠানো বা রিকোয়েস্ট পাঠানোর প্রয়োজন নেই। অনুমোদন হওয়ামাত্রই কোর্স পেজ স্বয়ংক্রিয়ভাবে আনলক হয়ে যাবে।
+                  <strong>Please wait:</strong> You do not need to send money or submit another request for this course. The course page will automatically unlock once approved.
                 </div>
               </div>
 
@@ -515,17 +550,17 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                   }`}
                 >
                   <FileText size={15} />
-                  <span>ইনভয়েস দেখুন</span>
+                  <span>View Invoice</span>
                 </button>
 
                 <a
-                  href={`https://wa.me/8801342227935?text=${encodeURIComponent(`আসসালামু আলাইকুম, আমি EduHunters-এ "${existingPendingOrder.course?.name || item.title}" কোর্সে এনরোলমেন্ট রিকোয়েস্ট পাঠিয়েছি। আমার TrxID: ${existingPendingOrder.transactionId}। দয়া করে একটু ভেরিফাই করবেন?`)}`}
+                  href={`https://wa.me/8801342227935?text=${encodeURIComponent(`Hello, I have submitted an enrollment request for "${existingPendingOrder.course?.name || item.title}" on EduHunters. My TrxID is: ${existingPendingOrder.transactionId}. Could you please verify?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-3 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white rounded-xl font-bold text-xs border-none cursor-pointer shadow-md transition-all flex items-center justify-center gap-1.5 no-underline"
                 >
                   <MessageCircle size={15} />
-                  <span>হোয়াটসঅ্যাপ হেল্পলাইন</span>
+                  <span>WhatsApp Helpline</span>
                 </a>
               </div>
 
@@ -539,7 +574,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                     : 'bg-white hover:bg-gray-50 text-gray-600 hover:text-gray-900 border-gray-200'
                 }`}
               >
-                বুঝেছি, বন্ধ করুন
+                Got it, Close
               </button>
 
               {/* Discreet Edit Option */}
@@ -552,7 +587,7 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                   }}
                   className="text-[11px] text-gray-400 hover:text-rose-500 transition-colors underline cursor-pointer bg-transparent border-none"
                 >
-                  ভুল ট্রানজেকশন আইডি দিয়েছেন? তথ্য আপডেট করতে এখানে ক্লিক করুন
+                  Entered wrong Transaction ID? Click here to update details
                 </button>
               </div>
             </div>
@@ -562,13 +597,13 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                 <div className={`p-3 rounded-xl border text-xs flex items-center justify-between ${
                   isDark ? 'bg-amber-500/10 border-amber-500/20 text-amber-300' : 'bg-amber-50 border-amber-200 text-amber-900'
                 }`}>
-                  <span className="font-medium">পেন্ডিং রিকোয়েস্টের তথ্য সংশোধন করছেন</span>
+                  <span className="font-medium">Updating pending payment details</span>
                   <button
                     type="button"
                     onClick={() => setShowEditPayment(false)}
                     className="text-[11px] font-bold underline cursor-pointer bg-transparent border-none p-0"
                   >
-                    ফিরে যান
+                    Go Back
                   </button>
                 </div>
               )}
@@ -753,10 +788,10 @@ export default function CheckoutModal({ bundle, course, onClose, onSuccess, site
                   {isProcessing ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>যাচাই করা হচ্ছে...</span>
+                      <span>Verifying...</span>
                     </>
                   ) : (
-                    <span>{existingPendingOrder ? `তথ্য আপডেট ও কনফার্ম করুন (৳${price})` : `Confirm ৳${price} Payment`}</span>
+                    <span>{existingPendingOrder ? `Update Details & Confirm (৳${price})` : `Confirm ৳${price} Payment`}</span>
                   )}
                 </button>
               </form>

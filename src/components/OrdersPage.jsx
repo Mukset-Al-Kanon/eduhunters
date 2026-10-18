@@ -58,15 +58,15 @@ export default function OrdersPage({
 
   const formatDateBn = (dateString) => {
     try {
-      return new Date(dateString).toLocaleDateString('bn-BD', {
+      return new Date(dateString).toLocaleDateString('en-GB', {
         year: 'numeric',
-        month: 'long',
+        month: 'short',
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
       });
     } catch {
-      return 'তারিখ নেই';
+      return 'No date';
     }
   };
 
