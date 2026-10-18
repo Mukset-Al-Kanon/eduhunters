@@ -175,17 +175,25 @@ export const getUserTimestamp = (u) => {
   if (typeof u.timestamp === 'number' && !isNaN(u.timestamp) && u.timestamp > 0) return u.timestamp;
   if (typeof u.registeredAt === 'number' && !isNaN(u.registeredAt) && u.registeredAt > 0) return u.registeredAt;
 
-  const iso = u.createdAt || u.created_at || u.lastActiveAt || u.last_active_at;
+  const iso = u.createdAt || u.created_at;
   if (iso) {
     const t = new Date(iso).getTime();
     if (!isNaN(t) && t > 0) return t;
   }
 
+  const lastActive = u.lastActiveAt || u.last_active_at;
+  if (lastActive) {
+    const t = new Date(lastActive).getTime();
+    if (!isNaN(t) && t > 0) return t;
+  }
+
   const joined = (u.joinedDate || '').trim().toLowerCase();
-  if (joined === 'just now' || joined === 'today' || joined === 'active now' || joined === 'recently') {
+  // Only return current time if literally created right now in the current session
+  if (joined === 'just now') {
     return Date.now();
   }
-  if (joined && joined !== 'official launch') {
+  // If it is a real parsable date like '18 Oct 2026' or '2026-10-18'
+  if (joined && !['just now', 'today', 'active now', 'recently', 'official launch'].includes(joined)) {
     const t = new Date(joined).getTime();
     if (!isNaN(t) && t > 0) return t;
   }
@@ -205,7 +213,8 @@ export const getUserTimestamp = (u) => {
     }
   }
 
-  return 0;
+  // Older baseline for seed users lacking timestamps so newly registered users are ALWAYS on top
+  return 1000;
 };
 
 export const isDeletedItem = (item, deletedIds) => {
@@ -1238,8 +1247,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       data.users.filter(u => !['usr-1', 'usr-2', 'usr-3', 'usr-4', 'usr-5', 'usr-6', 'usr-7', 'usr-8'].includes(u.id)).forEach(u => {
         const k = (u.email || u.id || '').toLowerCase();
         if (k) {
-          const createdIso = u.createdAt || u.created_at || new Date().toISOString();
-          userMap.set(k, { ...userMap.get(k), ...u, createdAt: createdIso, created_at: createdIso });
+          const createdIso = u.createdAt || u.created_at || (u.joinedDate === 'Official Launch' ? '2026-01-01T00:00:00.000Z' : null);
+          userMap.set(k, { ...userMap.get(k), ...u, ...(createdIso ? { createdAt: createdIso, created_at: createdIso } : {}) });
         }
       });
     }
@@ -1256,7 +1265,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       allLocal.forEach((u, i) => {
         const k = (u.email || u.id || u.uid || '').toLowerCase();
         if (!k) return;
-        const createdIso = u.createdAt || u.created_at || (u.joinedDate === 'Official Launch' ? '2026-01-01T00:00:00.000Z' : new Date().toISOString());
+        const createdIso = u.createdAt || u.created_at || (u.joinedDate === 'Official Launch' ? '2026-01-01T00:00:00.000Z' : null);
         const mapped = {
           id: u.uid || u.id || `usr-reg-${i}`,
           name: u.displayName || u.name || u.email?.split('@')[0] || 'Student',
@@ -1276,8 +1285,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           lastActive: 'Recently',
           device: 'Web Client',
           avatar: u.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(u.email || 'user')}`,
-          createdAt: createdIso,
-          created_at: createdIso
+          ...(createdIso ? { createdAt: createdIso, created_at: createdIso } : {})
         };
         const ex = userMap.get(k);
         userMap.set(k, ex ? { ...ex, ...mapped } : mapped);
@@ -1389,6 +1397,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
       if (existingIndex !== -1) {
         const existing = prev[existingIndex];
+        const userCreated = u.createdAt || u.created_at || existing.createdAt || existing.created_at;
         const updatedUser = {
           ...existing,
           name: u.displayName || u.name || existing.name,
@@ -1404,10 +1413,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
           photoURL: u.photoURL || u.avatar || existing.photoURL,
           enrolledCourses: Array.isArray(u.enrolledCourses) ? Array.from(new Set([...(existing.enrolledCourses || []), ...u.enrolledCourses])) : existing.enrolledCourses,
           totalSpent: u.totalSpent !== undefined ? Math.max(existing.totalSpent || 0, Number(u.totalSpent) || 0) : existing.totalSpent,
-          lastActive: 'Active now'
+          lastActive: 'Active now',
+          ...(userCreated ? { createdAt: userCreated, created_at: userCreated } : {})
         };
-        const nextList = [...prev];
-        nextList[existingIndex] = updatedUser;
+        const nextList = [updatedUser, ...prev.filter((_, idx) => idx !== existingIndex)];
         try {
           localStorage.setItem('eh_registered_users', JSON.stringify(nextList));
         } catch (e) {}
@@ -5479,7 +5488,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       ));
     } else {
       // Default: Newest users ALWAYS on top with 100% accuracy
-      list.sort((a, b) => getUserTimestamp(b) - getUserTimestamp(a));
+      list.sort((a, b) => {
+        const timeB = getUserTimestamp(b);
+        const timeA = getUserTimestamp(a);
+        if (timeB !== timeA) return timeB - timeA;
+        return (a.name || '').localeCompare(b.name || '');
+      });
     }
 
     return list;
