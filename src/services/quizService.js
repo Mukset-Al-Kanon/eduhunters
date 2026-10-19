@@ -161,6 +161,22 @@ export async function recordQuizSubmission({
 
   // Check previous attempts across studentId, UID, Phone, Email, and local attempts cache
   const allSubmissions = await fetchAllSubmissions();
+
+  // Deduplication check: if a submission for the same student & lesson was made within last 6 seconds, return it
+  const recentDuplicate = allSubmissions.find(s => {
+    if (String(s.lesson_id) !== String(lessonId)) return false;
+    const isSameStudent = (String(s.student_id) === String(studentId)) || (cleanEmail && s.student_email === cleanEmail);
+    if (!isSameStudent) return false;
+    const timeDiff = Math.abs(Date.now() - new Date(s.submitted_at || 0).getTime());
+    return timeDiff < 6000;
+  });
+  if (recentDuplicate) {
+    return {
+      ...recentDuplicate,
+      isOfficialRanked: Boolean(recentDuplicate.is_first_attempt)
+    };
+  }
+
   const existingAttempts = allSubmissions.filter(s => {
     const sId = String(s.student_id || '');
     const sPhone = (s.student_phone || '').replace(/[^0-9]/g, '');

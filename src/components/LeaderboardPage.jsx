@@ -19,6 +19,7 @@ import {
   ShoppingCart
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 import { 
   fetchLessonLeaderboard, 
   fetchCourseLeaderboard, 
@@ -264,7 +265,7 @@ function getCourseLessons(course) {
 export default function LeaderboardPage({
   courses = [],
   examBatches = [],
-  currentUser = null,
+  currentUser: propCurrentUser = null,
   initialCourseId = '',
   initialLessonId = '',
   siteSettings = {},
@@ -281,6 +282,8 @@ export default function LeaderboardPage({
   onLoginClick
 }) {
   const { isDark } = useTheme();
+  const { currentUser: authUser } = useAuth();
+  const currentUser = propCurrentUser || authUser;
 
   // All courses and exam batches combined for selection
   const allSelectableCourses = useMemo(() => {

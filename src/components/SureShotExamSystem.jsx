@@ -1114,7 +1114,15 @@ export default function SureShotExamSystem({
         quiz: examData,
         result: resultObj,
         timeTakenSeconds: elapsedSecs
-      }).then(() => {
+      }).then((sub) => {
+        if (sub) {
+          setExamResult(prev => prev ? ({
+            ...prev,
+            isOfficialRanked: sub.isOfficialRanked,
+            isFirstAttempt: sub.is_first_attempt,
+            attemptNumber: sub.attempt_number
+          }) : prev);
+        }
         loadLiveExamLeaderboard(catToUse, examIdToUse);
       }).catch(e => console.warn("[SureShot] Leaderboard async load note:", e));
     } catch (e) {
@@ -2200,7 +2208,7 @@ export default function SureShotExamSystem({
                   <p className="text-xs font-bold truncate">
                     {currentUser.displayName || currentUser.name || 'Student'}
                   </p>
-                  <p className="text-[10px] text-emerald-500 font-medium">ভেরিফাইড শিক্ষার্থী • মেধা তালিকায় নাম প্রদর্শিত হবে</p>
+                  <p className="text-[10px] text-emerald-500 font-medium">ভেরিফাইড শিক্ষার্থী • মেধা তালিকায় নাম প্রদর্শিত হবে</p>
                 </div>
               </div>
               <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 shrink-0 flex items-center gap-1">
@@ -2230,7 +2238,7 @@ export default function SureShotExamSystem({
                 }`}
               />
               <p className={`text-[10px] ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                💡 ১ম বারের পরীক্ষায় এই নামে মেধা তালিকায় আপনার রেজাল্ট ও র‍্যাংক ১০০% নির্ভুলভাবে সংরক্ষিত হবে।
+                💡 ১ম বারের পরীক্ষায় এই নামে মেধা তালিকায় আপনার রেজাল্ট ও র‍্যাংক ১০০% নির্ভুলভাবে সংরক্ষিত হবে।
               </p>
             </div>
           )}
@@ -2441,7 +2449,7 @@ export default function SureShotExamSystem({
 
                   {/* Options List */}
                   <div className="space-y-3">
-                    {q.options.map((optText, oIdx) => {
+                    {(Array.isArray(q.options) ? q.options : []).map((optText, oIdx) => {
                       const isSelected = selectedOpt !== undefined && Number(selectedOpt) === Number(oIdx);
                       const isOptionCorrect = Number(oIdx) === Number(targetCorrect);
 
@@ -2523,7 +2531,7 @@ export default function SureShotExamSystem({
                         isDark ? 'bg-emerald-950/20 border-emerald-500/20 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-800'
                       }`}>
                         <Check size={14} className="text-emerald-500 shrink-0" />
-                        <span>সঠিক উত্তর: <strong>{OPTION_LETTERS[targetCorrect] || targetCorrect + 1}) {q.options[targetCorrect]}</strong></span>
+                        <span>সঠিক উত্তর: <strong>{OPTION_LETTERS[targetCorrect] || targetCorrect + 1}) {(q.options && q.options[targetCorrect] !== undefined) ? q.options[targetCorrect] : ''}</strong></span>
                       </div>
                     )
                   )}
@@ -2854,19 +2862,25 @@ export default function SureShotExamSystem({
               </div>
             </div>
 
-            {/* Leaderboard Policy Note */}
-            <div className={`p-3 rounded-2xl border text-xs font-medium flex items-center justify-center gap-2 ${
-              isDark ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-slate-50 border-slate-200 text-slate-600'
-            }`}>
-              <span>🏆 ১ম বারের পরীক্ষার ফলাফল অফিসিয়াল লিডারবোর্ডে যুক্ত থাকবে • যেকোনো পুনঃপরীক্ষা প্র্যাকটিস মোড হিসেবে গণ্য হবে</span>
-            </div>
+            {/* Leaderboard Policy Note / Dynamic Attempt Badge */}
+            {(examResult?.isOfficialRanked || (examResult?.isFirstAttempt && (!examResult?.attemptNumber || examResult?.attemptNumber === 1))) ? (
+              <div className="p-3.5 rounded-2xl border text-xs font-bold flex items-center justify-center gap-2.5 bg-emerald-500/10 border-emerald-500/30 text-emerald-600 dark:text-emerald-400">
+                <Trophy size={18} className="text-amber-500 shrink-0" />
+                <span>🏆 ১ম অফিসিয়াল প্রচেষ্টা: আপনার স্কোর ও অবস্থান সরাসরি লাইভ মেধা তালিকায় অন্তর্ভুক্ত হয়েছে!</span>
+              </div>
+            ) : (
+              <div className="p-3.5 rounded-2xl border text-xs font-bold flex items-center justify-center gap-2.5 bg-blue-500/10 border-blue-500/30 text-blue-600 dark:text-blue-400">
+                <RefreshCw size={18} className="text-blue-500 shrink-0" />
+                <span>📝 অনুশীলন প্রচেষ্টা (Practice Mode): এটি প্র্যাকটিস হিসেবে সম্পন্ন হয়েছে। ১ম প্রচেষ্টার অফিসিয়াল মেধা তালিকা ও স্কোর অপরিবর্তিত থাকবে।</span>
+              </div>
+            )}
 
             {/* Action Buttons Row */}
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <button
                 onClick={() => {
                   sessionStorage.removeItem('eduhunters_active_exam_result');
-                  handleStartExam(examMode);
+                  handleStartExam('practice');
                 }}
                 className="py-3 px-6 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] hover:from-[#b91c1c] hover:to-[#991b1b] text-white font-bold text-xs sm:text-sm rounded-xl flex items-center gap-2 cursor-pointer border-none transition-all"
               >
@@ -3125,7 +3139,7 @@ export default function SureShotExamSystem({
 
                   {/* Options List */}
                   <div className="space-y-2 pt-1">
-                    {q.options.map((optText, oIdx) => {
+                    {(Array.isArray(q.options) ? q.options : []).map((optText, oIdx) => {
                       const isOptionCorrect = Number(oIdx) === Number(targetCorrect);
                       const isUserSelected = isAnswered && Number(selectedOpt) === Number(oIdx);
 
@@ -3188,7 +3202,7 @@ export default function SureShotExamSystem({
                       isDark ? 'bg-emerald-950/20 border-emerald-500/20 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-800'
                     }`}>
                       <Check size={14} className="text-emerald-500 shrink-0" />
-                      <span>সঠিক উত্তর: <strong>{OPTION_LETTERS[targetCorrect] || targetCorrect + 1}) {q.options[targetCorrect]}</strong></span>
+                      <span>সঠিক উত্তর: <strong>{OPTION_LETTERS[targetCorrect] || targetCorrect + 1}) {(q.options && q.options[targetCorrect] !== undefined) ? q.options[targetCorrect] : ''}</strong></span>
                     </div>
                   )}
                 </div>
