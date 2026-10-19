@@ -5,7 +5,7 @@ import BundleDetailModal from './BundleDetailModal';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
-import { isItemEnrolled, grantCourseAccess } from '../utils/enrollmentService';
+import { isItemEnrolled } from '../utils/enrollmentService';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { isStudentProfileComplete } from '../utils/studentProfile';
 
@@ -753,11 +753,9 @@ export default function CoursesPage({
           onClose={() => setShowCheckout(false)}
           course={selectedCourseForCheckout || filteredCourses[0] || {}}
           onEnrollSuccess={(trxData) => {
-            if (selectedCourseForCheckout) grantCourseAccess(selectedCourseForCheckout, data);
             if (onEnrollSuccess) onEnrollSuccess(trxData);
           }}
           onSuccess={(trxData) => {
-            if (selectedCourseForCheckout) grantCourseAccess(selectedCourseForCheckout, data);
             if (onEnrollSuccess) onEnrollSuccess(trxData);
           }}
           siteSettings={siteSettings}

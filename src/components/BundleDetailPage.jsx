@@ -32,7 +32,7 @@ import { initialData } from '../data/mockData';
 import { EXAM_CATEGORIES_METADATA, mapExamBatchToCourse } from '../data/examCategoriesData';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
-import { useEnrollmentStatus, grantCourseAccess } from '../utils/enrollmentService';
+import { useEnrollmentStatus } from '../utils/enrollmentService';
 
 // Helper to convert Bengali / English number strings to valid JavaScript numbers
 const parsePrice = (val, defaultVal = 0) => {
@@ -63,6 +63,7 @@ export default function BundleDetailPage({
   onEnrollSuccess
 }) {
   const { isDark } = useTheme();
+  const { currentUser } = useAuth();
   const siteSettings = data.siteSettings || initialData.siteSettings || {};
   const [showCheckout, setShowCheckout] = useState(false);
   const [openFaqIdx, setOpenFaqIdx] = useState(0);
@@ -129,7 +130,6 @@ export default function BundleDetailPage({
     return found || null;
   }, [allBundles, selectedBundleId]);
 
-  const { currentUser } = useAuth();
   const isBundleEnrolled = useEnrollmentStatus(bundle, currentUser, data);
 
   // Resolve included courses / batches
@@ -825,7 +825,6 @@ export default function BundleDetailPage({
           }}
           siteSettings={siteSettings}
           onSuccess={(trxData) => {
-            grantCourseAccess(bundle, data);
             if (onEnrollSuccess) onEnrollSuccess(trxData);
           }}
           onClose={() => setShowCheckout(false)} 

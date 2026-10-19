@@ -38,7 +38,7 @@ import Navbar from './Navbar';
 import { initialData } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
-import { useEnrollmentStatus, grantCourseAccess } from '../utils/enrollmentService';
+import { useEnrollmentStatus } from '../utils/enrollmentService';
 
 function getEmbedUrl(url) {
   if (!url) return '';

@@ -265,7 +265,7 @@ export default function DevicesPage({
                             </div>
 
                             <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                              {device.browser} Â· {device.os} Â· {device.deviceType}
+                              {device.browser} • {device.os} • {device.deviceType}
                             </p>
 
                             <div className={`grid sm:grid-cols-2 gap-x-6 gap-y-1.5 text-xs mt-3 ${

@@ -17,7 +17,6 @@ import BundleDetailModal from './BundleDetailModal';
 import Navbar from './Navbar';
 import { initialData, isZenithCopiedCourse } from '../data/mockData';
 import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
-import { grantCourseAccess } from '../utils/enrollmentService';
 import { isStudentProfileComplete } from '../utils/studentProfile';
 import { 
   X, 
@@ -1626,7 +1625,6 @@ export default function HomePage({
           bundle={selectedCourseForCheckout}
           siteSettings={siteSettings}
           onSuccess={(trxData) => {
-            if (selectedCourseForCheckout) grantCourseAccess(selectedCourseForCheckout, data);
             if (onEnrollSuccess) onEnrollSuccess(trxData);
           }}
           onClose={() => setShowCheckout(false)} 

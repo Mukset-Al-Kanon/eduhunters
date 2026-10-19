@@ -11,11 +11,34 @@
  * @returns {boolean} True if all 4 fields are non-empty strings
  */
 export const isStudentProfileComplete = (user) => {
-  if (!user) return false;
-  const name = (user.displayName || user.name || '').trim();
-  const college = (user.college || user.institution || '').trim();
-  const rawPhone = (user.whatsapp || user.phone || user.phoneNumber || '').replace(/[^0-9]/g, '');
-  const studentClass = (user.hscBatch || user.batch || user.academicClass || user.class || '').trim();
+  let targetUser = user;
+  if (!targetUser) {
+    try {
+      const saved = localStorage.getItem('eh_current_user');
+      if (saved) targetUser = JSON.parse(saved);
+    } catch (e) {}
+  }
+  if (!targetUser) return false;
+
+  let name = (targetUser.displayName || targetUser.name || '').trim();
+  let college = (targetUser.college || targetUser.institution || '').trim();
+  let rawPhone = (targetUser.whatsapp || targetUser.phone || targetUser.phoneNumber || '').replace(/[^0-9]/g, '');
+  let studentClass = (targetUser.hscBatch || targetUser.batch || targetUser.academicClass || targetUser.class || '').trim();
+
+  if (!college || !rawPhone || !studentClass || !name || name.toLowerCase().startsWith('user_')) {
+    try {
+      const saved = localStorage.getItem('eh_current_user');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed) {
+          if (!name || name.toLowerCase().startsWith('user_')) name = (parsed.displayName || parsed.name || '').trim();
+          if (!college) college = (parsed.college || parsed.institution || '').trim();
+          if (!rawPhone) rawPhone = (parsed.whatsapp || parsed.phone || parsed.phoneNumber || '').replace(/[^0-9]/g, '');
+          if (!studentClass) studentClass = (parsed.hscBatch || parsed.batch || parsed.academicClass || parsed.class || '').trim();
+        }
+      }
+    } catch (e) {}
+  }
 
   const hasValidName = name.length >= 2 && !name.toLowerCase().startsWith('user_');
   const hasValidPhone = rawPhone.length >= 10;
@@ -32,13 +55,36 @@ export const isStudentProfileComplete = (user) => {
  * @returns {Array<string>}
  */
 export const getMissingProfileFields = (user) => {
-  if (!user) return ['name', 'phone', 'college', 'class'];
-  const missing = [];
-  const name = (user.displayName || user.name || '').trim();
-  const college = (user.college || user.institution || '').trim();
-  const rawPhone = (user.whatsapp || user.phone || user.phoneNumber || '').replace(/[^0-9]/g, '');
-  const studentClass = (user.hscBatch || user.batch || user.academicClass || user.class || '').trim();
+  let targetUser = user;
+  if (!targetUser) {
+    try {
+      const saved = localStorage.getItem('eh_current_user');
+      if (saved) targetUser = JSON.parse(saved);
+    } catch (e) {}
+  }
+  if (!targetUser) return ['name', 'phone', 'college', 'class'];
 
+  let name = (targetUser.displayName || targetUser.name || '').trim();
+  let college = (targetUser.college || targetUser.institution || '').trim();
+  let rawPhone = (targetUser.whatsapp || targetUser.phone || targetUser.phoneNumber || '').replace(/[^0-9]/g, '');
+  let studentClass = (targetUser.hscBatch || targetUser.batch || targetUser.academicClass || targetUser.class || '').trim();
+
+  if (!college || !rawPhone || !studentClass || !name || name.toLowerCase().startsWith('user_')) {
+    try {
+      const saved = localStorage.getItem('eh_current_user');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed) {
+          if (!name || name.toLowerCase().startsWith('user_')) name = (parsed.displayName || parsed.name || '').trim();
+          if (!college) college = (parsed.college || parsed.institution || '').trim();
+          if (!rawPhone) rawPhone = (parsed.whatsapp || parsed.phone || parsed.phoneNumber || '').replace(/[^0-9]/g, '');
+          if (!studentClass) studentClass = (parsed.hscBatch || parsed.batch || parsed.academicClass || parsed.class || '').trim();
+        }
+      }
+    } catch (e) {}
+  }
+
+  const missing = [];
   if (!name || name.length < 2 || name.toLowerCase().startsWith('user_')) missing.push('name');
   if (!rawPhone || rawPhone.length < 10) missing.push('phone');
   if (!college || college.length < 2) missing.push('college');

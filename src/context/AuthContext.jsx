@@ -401,9 +401,8 @@ export function AuthProvider({ children }) {
         if (!prev) return prev;
         const curEmail = (prev.email || '').toLowerCase().trim();
         const curPhone = (prev.phone || prev.whatsapp || '').replace(/[^0-9]/g, '');
-        const isMatch = (studentEmail && curEmail === studentEmail) || 
-                        isPhoneMatch(curPhone, studentPhone) || 
-                        (!studentEmail && !studentPhone);
+        const isMatch = (studentEmail && curEmail && curEmail === studentEmail) || 
+                        (studentPhone && curPhone && isPhoneMatch(curPhone, studentPhone));
         
         if (isMatch) {
           const prevCourses = Array.isArray(prev.enrolledCourses) ? prev.enrolledCourses : [];

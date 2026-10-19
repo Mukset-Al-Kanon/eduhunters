@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Search, X, Lock, FileText, ChevronDown, BookOpen, Clock
 } from 'lucide-react';

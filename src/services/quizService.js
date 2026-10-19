@@ -309,6 +309,14 @@ export async function recordQuizSubmission({
     }
   }
 
+  // 3. Dispatch real-time events for instant single-page & multi-tab UI synchronization
+  if (typeof window !== 'undefined') {
+    try {
+      window.dispatchEvent(new CustomEvent('eh:quiz_submission', { detail: submissionPayload }));
+      window.dispatchEvent(new Event('storage'));
+    } catch (e) {}
+  }
+
   return {
     ...submissionPayload,
     isOfficialRanked: Boolean(isFirstAttempt)

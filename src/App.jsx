@@ -4,22 +4,22 @@ import { initialData, isZenithCopiedCourse } from './data/mockData';
 import { EXAM_CATEGORIES_METADATA } from './data/examCategoriesData';
 import HomePage from './components/HomePage';
 import CoursesPage from './components/CoursesPage';
-import BiologyCoursePage from './components/BiologyCoursePage';
-import CoursePlayerPage from './components/CoursePlayerPage';
-import BundleDetailPage from './components/BundleDetailPage';
-import ExamsPage from './components/ExamsPage';
-import StorePage from './components/StorePage';
-import AboutPage from './components/AboutPage';
-import DevicesPage from './components/DevicesPage';
-import OrdersPage from './components/OrdersPage';
-import DashboardPage from './components/DashboardPage';
-import LegalPoliciesPage from './components/LegalPoliciesPage';
-import LeaderboardPage from './components/LeaderboardPage';
+// Route-level Dynamic Code Splitting for ultra-fast student page loading
+const BiologyCoursePage = lazy(() => import('./components/BiologyCoursePage'));
+const CoursePlayerPage = lazy(() => import('./components/CoursePlayerPage'));
+const BundleDetailPage = lazy(() => import('./components/BundleDetailPage'));
+const ExamsPage = lazy(() => import('./components/ExamsPage'));
+const StorePage = lazy(() => import('./components/StorePage'));
+const AboutPage = lazy(() => import('./components/AboutPage'));
+const DevicesPage = lazy(() => import('./components/DevicesPage'));
+const OrdersPage = lazy(() => import('./components/OrdersPage'));
+const DashboardPage = lazy(() => import('./components/DashboardPage'));
+const LegalPoliciesPage = lazy(() => import('./components/LegalPoliciesPage'));
+const LeaderboardPage = lazy(() => import('./components/LeaderboardPage'));
 import AuthModal from './components/AuthModal';
 import ProfileModal from './components/ProfileModal';
 import PreloaderScreen from './components/PreloaderScreen';
 import AdminAuthModal from './components/AdminAuthModal';
-import { isStudentProfileComplete } from './utils/studentProfile';
 import { getAdminSession, clearAdminSession } from './services/adminAuthService';
 import { saveCloudData, fetchCloudData, subscribeToCloudData } from './services/firestoreSyncService';
 import { saveSupabaseSiteData, fetchSupabaseSiteData, subscribeToSupabaseSiteData } from './services/supabaseService';
@@ -1208,15 +1208,15 @@ export default function App() {
       const cleanPhone = (payload.studentPhone || '').replace(/[^0-9]/g, '');
       const cleanEmail = (payload.studentEmail || '').toLowerCase().trim();
 
-      // 1. Unlock course globally in localStorage keys
-      grantCourseAccess(approvedCourse, { bundles: data.bundles, courses: data.courses });
-
-      // 2. Unlock in currentUser if this session is the student
+      // 1. Check if this browser session belongs to the student who was approved
       const curPhone = (currentUser?.whatsapp || currentUser?.phone || '').replace(/[^0-9]/g, '');
       const curEmail = (currentUser?.email || '').toLowerCase().trim();
-      const isTargetStudent = (cleanEmail && curEmail === cleanEmail) || (cleanPhone && curPhone === cleanPhone);
+      const isTargetStudent = (cleanEmail && curEmail === cleanEmail) || 
+                              (cleanPhone && curPhone && (curPhone === cleanPhone || (curPhone.length >= 10 && cleanPhone.length >= 10 && curPhone.slice(-10) === cleanPhone.slice(-10))));
 
-      if (isTargetStudent || !cleanEmail) {
+      // Only grant course access if this session is the target student
+      if (isTargetStudent) {
+        grantCourseAccess(approvedCourse, { bundles: data.bundles, courses: data.courses }, currentUser);
         try {
           const rawCur = localStorage.getItem('eh_current_user');
           if (rawCur) {
@@ -1747,7 +1747,9 @@ export default function App() {
           key={`${viewMode}-${selectedCourseId || ''}-${selectedBundleId || ''}-${selectedExamCategory || ''}`}
           className="page-transition-container page-animating"
         >
-          {renderContent()}
+          <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><div className="w-8 h-8 border-3 border-[#e11438] border-t-transparent rounded-full animate-spin" /></div>}>
+            {renderContent()}
+          </Suspense>
         </div>
       </ErrorBoundary>
 

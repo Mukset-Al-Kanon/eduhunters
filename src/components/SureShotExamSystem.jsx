@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 import { EXAM_CATEGORIES_METADATA, EXAM_PAGE_FILTER_TABS } from '../data/examCategoriesData';
 import CategoryDetailModal from './CategoryDetailModal';
 import ExamDetailPage from './ExamDetailPage';
@@ -18,8 +19,7 @@ import RtdsCurriculumView from './RtdsCurriculumView';
 import MasterEnglishCurriculumView from './MasterEnglishCurriculumView';
 import { stripEmoji } from '../utils/textUtils';
 import { getMergedExamManifest, loadExamQuestions, getQuestionCorrectIndex, cleanExplanation, getUserAnswer } from '../utils/examBatchStorage';
-import { useAuth } from '../context/AuthContext';
-import { getStoredEnrolledBatches, grantCourseAccess, isItemEnrolled } from '../utils/enrollmentService';
+import { getStoredEnrolledBatches, isItemEnrolled } from '../utils/enrollmentService';
 import { recordQuizSubmission, fetchLessonLeaderboard } from '../services/quizService';
 import { getResolvedStudent } from '../utils/studentProfile';
 
@@ -254,7 +254,6 @@ export default function SureShotExamSystem({
   };
 
   const handleEnrollBatch = (catKey) => {
-    grantCourseAccess(catKey);
     setEnrolledBatches(prev => {
       if (prev.includes(catKey)) return prev;
       return [...prev, catKey];
@@ -1179,15 +1178,18 @@ export default function SureShotExamSystem({
   const checkoutModalMarkup = checkoutCategory ? (
     <CheckoutModal 
       course={{
+        id: checkoutCategory.id || checkoutCategory.key,
+        slug: checkoutCategory.slug || checkoutCategory.key,
+        key: checkoutCategory.key,
         title: checkoutCategory.title || 'এক্সাম ব্যাচ এনরোলমেন্ট',
         price: parseInt(String(checkoutCategory.price || '399').replace(/[^0-9]/g, '')) || 399,
         salePrice: parseInt(String(checkoutCategory.price || '399').replace(/[^0-9]/g, '')) || 399,
         originalPrice: parseInt(String(checkoutCategory.originalPrice || '799').replace(/[^0-9]/g, '')) || 799,
-        image: checkoutCategory.image || '/sureshot_banner.jpg'
+        image: checkoutCategory.image || '/sureshot_banner.jpg',
+        isExamBatch: true
       }}
       onClose={() => setCheckoutCategory(null)}
       onSuccess={(orderInfo) => {
-        handleEnrollBatch(checkoutCategory.key);
         setCheckoutCategory(null);
       }}
       siteSettings={siteSettings}

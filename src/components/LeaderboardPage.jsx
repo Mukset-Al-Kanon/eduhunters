@@ -476,7 +476,21 @@ export default function LeaderboardPage({
       loadData(false);
     });
 
-    // 2. PostgreSQL CDC listener for remote database changes
+    // 2. Intra-tab instant custom event
+    const handleLocalQuizSub = () => {
+      loadData(false);
+    };
+    window.addEventListener('eh:quiz_submission', handleLocalQuizSub);
+
+    // 3. Cross-tab storage event
+    const handleStorageChange = (e) => {
+      if (e.key === 'eduhunters_local_quiz_submissions') {
+        loadData(false);
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+
+    // 4. PostgreSQL CDC listener for remote database changes
     let cdcChannel = null;
     if (isSupabaseConfigured && supabase) {
       const channelId = `leaderboard_live_cdc_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
@@ -502,6 +516,8 @@ export default function LeaderboardPage({
     return () => {
       isMounted = false;
       if (typeof unsubBroadcast === 'function') unsubBroadcast();
+      window.removeEventListener('eh:quiz_submission', handleLocalQuizSub);
+      window.removeEventListener('storage', handleStorageChange);
       if (cdcChannel && supabase) supabase.removeChannel(cdcChannel);
     };
   }, [activeCourse, selectedCourseId, viewMode, selectedLessonId, availableLessons]);
