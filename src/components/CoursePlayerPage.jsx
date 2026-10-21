@@ -1277,23 +1277,20 @@ export default function CoursePlayerPage({
                           }`}>
                             {les.title}
                           </p>
-                          <div className="flex items-center flex-wrap gap-1.5 mt-1.5">
-                            {les.pdfUrl && (
-                              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-500 dark:text-blue-400 border border-blue-500/20">
-                                <FileText className="w-2.5 h-2.5" /> PDF
-                              </span>
-                            )}
-                            {les.quiz && (
-                              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-purple-500/10 text-purple-500 dark:text-purple-400 border border-purple-500/20">
-                                <Zap className="w-2.5 h-2.5" /> Quiz
-                              </span>
-                            )}
-                            {les.duration && (
-                              <span className="text-[10px] text-gray-400 font-medium">
-                                {les.duration}
-                              </span>
-                            )}
-                          </div>
+                          {(les.pdfUrl || les.quiz) && (
+                            <div className="flex items-center gap-2 mt-1">
+                              {les.pdfUrl && (
+                                <span className="text-gray-400 hover:text-white transition-colors" title="লেকচার শিট PDF">
+                                  <FileText className="w-3.5 h-3.5" />
+                                </span>
+                              )}
+                              {les.quiz && (
+                                <span className="text-gray-400 hover:text-white transition-colors" title="কুইজ">
+                                  <Zap className="w-3.5 h-3.5" />
+                                </span>
+                              )}
+                            </div>
+                          )}
                         </div>
                       </div>
 

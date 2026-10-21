@@ -1106,73 +1106,61 @@ export default function BiologyCoursePage({
               </p>
             )}
 
-            {/* Micro badges below title on small screens */}
-            <div className="flex items-center flex-wrap gap-1.5 mt-1 sm:hidden">
-              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                <Play className="w-2 h-2 fill-current" /> Video
-              </span>
-              {pdfUrl ? (
-                <button
-                  type="button"
-                  onClick={handleLessonPdfClick}
-                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/25 transition-all cursor-pointer"
-                >
-                  <FileText className="w-2.5 h-2.5" /> Notes
-                </button>
-              ) : (
-                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium text-gray-400 opacity-60">
-                  <FileText className="w-2 h-2" /> No PDF
-                </span>
-              )}
-              {quiz && (
-                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
-                  <Zap className="w-2 h-2" /> Quiz{quizCount ? ` (${quizCount})` : ''}
-                </span>
-              )}
-              {duration && (
-                <span className="text-[10px] text-gray-400 font-medium">
-                  {duration}
-                </span>
-              )}
-            </div>
-          </div>
+                      </div>
         </div>
 
-        {/* Right side chips and actions */}
-        <div className="shrink-0 ml-3 flex items-center gap-2 sm:gap-2.5">
-          {/* Desktop Badges (Video, Notes, Quiz, Duration) matching Studio design */}
-          <div className="hidden sm:flex items-center gap-1.5">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-              <Play className="w-2.5 h-2.5 fill-current" /> Video
-            </span>
+        {/* Right side icons and actions */}
+        <div className="shrink-0 ml-3 flex items-center gap-1.5 sm:gap-2">
+          {/* PDF Icon (clean neutral icon button, only if PDF exists) */}
+          {pdfUrl && (
+            <button
+              type="button"
+              onClick={handleLessonPdfClick}
+              className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+                isDark
+                  ? 'text-gray-400 hover:text-white hover:bg-white/10'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
+              }`}
+              title="লেকচার শিট PDF দেখুন"
+            >
+              <FileText className="w-4 h-4" />
+            </button>
+          )}
 
-            {pdfUrl ? (
-              <button
-                type="button"
-                onClick={handleLessonPdfClick}
-                className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-blue-500/10 hover:bg-blue-500/25 text-blue-600 dark:text-blue-400 border border-blue-500/30 transition-all cursor-pointer shadow-xs active:scale-95"
-                title="লেকচার শিট ও PDF নোট দেখুন"
-              >
-                <FileText className="w-2.5 h-2.5" /> Notes
-              </button>
-            ) : (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium text-gray-400 dark:text-gray-500 opacity-60">
-                <FileText className="w-2.5 h-2.5" /> No PDF
-              </span>
-            )}
-
-            {quiz && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/25">
-                <Zap className="w-2.5 h-2.5" /> Quiz{quizCount ? ` (${quizCount})` : ''}
-              </span>
-            )}
-
-            {duration && (
-              <span className="text-[11px] text-gray-400 font-medium px-1">
-                {duration}
-              </span>
-            )}
-          </div>
+          {/* Quiz Icon (clean neutral icon button, only if Quiz exists) */}
+          {quiz && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (!isUnlocked) {
+                  handleOpenCheckout();
+                  return;
+                }
+                const targetLessonInfo = {
+                  title: displayTitle,
+                  videoUrl: videoUrl || course.previewVideoUrl,
+                  pdfUrl,
+                  duration,
+                  lessonIdx: lIdx,
+                  activeTab: 'quiz'
+                };
+                if (isFree && !isCourseEnrolled) {
+                  handleAccessFreeTrialLesson(targetLessonInfo);
+                } else if (onOpenLesson) {
+                  onOpenLesson(course.id || course.slug || selectedCourseId, targetLessonInfo);
+                }
+              }}
+              className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+                isDark
+                  ? 'text-gray-400 hover:text-white hover:bg-white/10'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
+              }`}
+              title={quizCount ? `কুইজ পরীক্ষা (${quizCount}টি প্রশ্ন)` : 'কুইজ পরীক্ষা'}
+            >
+              <Zap className="w-4 h-4" />
+            </button>
+          )}
 
           {/* FREE / Locked Badge */}
           {isFree ? (
