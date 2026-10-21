@@ -109,6 +109,40 @@ export const getUserTimestamp = (u) => {
   return 1000;
 };
 
+export const getTransactionTimestamp = (tx) => {
+  if (!tx) return 0;
+  if (typeof tx.timestamp === 'number' && !isNaN(tx.timestamp) && tx.timestamp > 0) return tx.timestamp;
+
+  const iso = tx.createdAt || tx.created_at;
+  if (iso) {
+    const t = new Date(iso).getTime();
+    if (!isNaN(t) && t > 0) return t;
+  }
+
+  const dateVal = tx.date;
+  if (dateVal) {
+    const t = new Date(dateVal).getTime();
+    if (!isNaN(t) && t > 0) return t;
+  }
+
+  if (typeof tx.id === 'string') {
+    const match = tx.id.match(/\d{10,13}/);
+    if (match) {
+      const num = Number(match[0]);
+      if (!isNaN(num) && num > 1000000000) return num;
+    }
+  }
+  if (typeof tx.orderId === 'string') {
+    const match = tx.orderId.match(/\d{10,13}/);
+    if (match) {
+      const num = Number(match[0]);
+      if (!isNaN(num) && num > 1000000000) return num;
+    }
+  }
+
+  return 1000;
+};
+
 export const isDeletedItem = (item, deletedIds) => {
   if (!item) return false;
   // CRITICAL SAFETY GUARD: Approved / Paid orders or Active students MUST NEVER be treated as deleted

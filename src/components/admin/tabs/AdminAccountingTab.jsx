@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   RotateCcw,
   Plus,
@@ -12,7 +12,7 @@ import {
   Trash2,
   Clock
 } from 'lucide-react';
-import { formatOrderDateTime } from '../adminHelpers';
+import { formatOrderDateTime, getTransactionTimestamp } from '../adminHelpers';
 
 export default function AdminAccountingTab({
   accountingTotals = { totalRevenue: 0, totalExpenses: 0, netProfit: 0 },
@@ -34,6 +34,70 @@ export default function AdminAccountingTab({
 }) {
   const [internalEditingId, setInternalEditingId] = useState(null);
   const [internalEditingVal, setInternalEditingVal] = useState('');
+
+  // Chronological transaction & enrollment serial number mapping:
+  // The very first transaction (earliest timestamp) gets #1.
+  // Each subsequent transaction gets an incremented serial (#2, #3, ... #N).
+  // The table is sorted newest-first (with pending requests at the top),
+  // so the latest request displays the highest serial at the top,
+  // while the oldest transaction displays #1 at the bottom.
+  const txSerialMap = useMemo(() => {
+    const allSource = [
+      ...(Array.isArray(accounting?.transactions) ? accounting.transactions : []),
+      ...(Array.isArray(filteredTransactions) ? filteredTransactions : [])
+    ];
+    const seen = new Set();
+    const unique = [];
+
+    allSource.forEach(tx => {
+      if (!tx) return;
+      const key = (tx.id || tx.orderId || tx.trxId || '').toLowerCase().trim();
+      if (key && !seen.has(key)) {
+        seen.add(key);
+        unique.push(tx);
+      }
+    });
+
+    // Sort CHRONOLOGICALLY ASCENDING: Oldest first -> index 0 gets serial 1
+    unique.sort((a, b) => {
+      const timeA = getTransactionTimestamp(a);
+      const timeB = getTransactionTimestamp(b);
+      if (timeA !== timeB) return timeA - timeB;
+      const dateA = a.createdAt || a.date || '';
+      const dateB = b.createdAt || b.date || '';
+      if (dateA !== dateB) return String(dateA).localeCompare(String(dateB));
+      const idA = a.id || a.orderId || '';
+      const idB = b.id || b.orderId || '';
+      return String(idA).localeCompare(String(idB));
+    });
+
+    const map = new Map();
+    unique.forEach((tx, idx) => {
+      const serial = idx + 1;
+      if (tx.id) map.set(String(tx.id), serial);
+      if (tx.orderId) map.set(String(tx.orderId), serial);
+      if (tx.trxId && tx.trxId !== 'PENDING') map.set(String(tx.trxId).toLowerCase().trim(), serial);
+      if (tx.invoiceNumber && tx.invoiceNumber !== 'INV-EH') map.set(String(tx.invoiceNumber).toLowerCase().trim(), serial);
+    });
+
+    return map;
+  }, [accounting?.transactions, filteredTransactions]);
+
+  const getTxSerial = (tx, fallbackIdx) => {
+    if (!tx) return fallbackIdx + 1;
+    const idKey = tx.id ? String(tx.id) : null;
+    const orderIdKey = tx.orderId ? String(tx.orderId) : null;
+    const trxIdKey = (tx.trxId && tx.trxId !== 'PENDING') ? String(tx.trxId).toLowerCase().trim() : null;
+    const invKey = (tx.invoiceNumber && tx.invoiceNumber !== 'INV-EH') ? String(tx.invoiceNumber).toLowerCase().trim() : null;
+
+    return (
+      (idKey && txSerialMap.get(idKey)) ||
+      (orderIdKey && txSerialMap.get(orderIdKey)) ||
+      (trxIdKey && txSerialMap.get(trxIdKey)) ||
+      (invKey && txSerialMap.get(invKey)) ||
+      (fallbackIdx + 1)
+    );
+  };
 
   const onStartEdit = (tx) => {
     setInternalEditingId(tx.id);
@@ -210,7 +274,7 @@ export default function AdminAccountingTab({
           <>
             {/* MOBILE VIEW (< md): Clean Touch-Friendly Cards */}
             <div className="md:hidden p-3 space-y-3">
-              {filteredTransactions.map((tx) => {
+              {filteredTransactions.map((tx, idx) => {
                 const isIncome = tx.type === 'INCOME';
                 const isPending = tx.status === 'Pending';
                 const isCompleted = tx.status === 'Completed';
@@ -276,7 +340,9 @@ export default function AdminAccountingTab({
                             </button>
                           </div>
                         )}
-                        <div className="text-[10px] text-slate-400 mt-0.5 font-mono">{formatOrderDateTime(tx.createdAt || tx.date).full}</div>
+                        <div className="text-[10px] text-slate-400 mt-0.5 font-mono">
+                          <span className="font-bold text-slate-500">#{getTxSerial(tx, idx)}</span> · {formatOrderDateTime(tx.createdAt || tx.date).full}
+                        </div>
                       </div>
                     </div>
 
@@ -388,7 +454,7 @@ export default function AdminAccountingTab({
                 <tbody className="divide-y divide-slate-100 text-slate-700">
                   {filteredTransactions.map((tx, txIdx) => (
                     <tr key={tx.id} className="hover:bg-slate-50/70 transition-colors">
-                      <td className="py-3 px-4 font-mono font-bold text-slate-400">#{txIdx + 1}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-slate-400">#{getTxSerial(tx, txIdx)}</td>
                       <td className="py-3 px-4 text-slate-500 whitespace-nowrap">
                         {(() => {
                           const dt = formatOrderDateTime(tx.createdAt || tx.date);

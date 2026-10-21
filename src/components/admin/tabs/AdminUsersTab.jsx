@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Users,
   Search,
@@ -13,7 +13,7 @@ import {
   Trash2,
   Clock
 } from 'lucide-react';
-import { formatOrderDateTime } from '../adminHelpers';
+import { formatOrderDateTime, getUserTimestamp } from '../adminHelpers';
 import { getCanonicalCourses } from '../../../utils/enrollmentService';
 import { EXAM_CATEGORIES_METADATA } from '../../../data/examCategoriesData';
 
@@ -48,6 +48,65 @@ export default function AdminUsersTab({
   setEditingUserId,
   setUserForm
 }) {
+  // Chronological registration serial number mapping:
+  // The very first registered user (earliest timestamp) gets #1.
+  // Each subsequent registered user gets an incremented serial (#2, #3, ... #N).
+  // The table is sorted newest-first, so the newest user displays the highest serial at the top,
+  // while the oldest user displays #1 at the bottom.
+  const userSerialMap = useMemo(() => {
+    const allSource = [...(usersList || []), ...(filteredUsers || [])];
+    const seen = new Set();
+    const unique = [];
+
+    allSource.forEach(u => {
+      if (!u) return;
+      const key = (u.id || u.uid || u.email || '').toLowerCase().trim();
+      if (key && !seen.has(key)) {
+        seen.add(key);
+        unique.push(u);
+      }
+    });
+
+    // Sort CHRONOLOGICALLY ASCENDING: Oldest first -> index 0 gets serial 1
+    unique.sort((a, b) => {
+      const timeA = getUserTimestamp(a);
+      const timeB = getUserTimestamp(b);
+      if (timeA !== timeB) return timeA - timeB;
+      const dateA = a.createdAt || a.created_at || a.joinedDate || '';
+      const dateB = b.createdAt || b.created_at || b.joinedDate || '';
+      if (dateA !== dateB) return String(dateA).localeCompare(String(dateB));
+      return (a.name || '').localeCompare(b.name || '');
+    });
+
+    const map = new Map();
+    unique.forEach((u, idx) => {
+      const serial = idx + 1;
+      if (u.id) map.set(String(u.id), serial);
+      if (u.uid) map.set(String(u.uid), serial);
+      if (u.email) map.set(u.email.toLowerCase().trim(), serial);
+      const cleanP = (u.whatsapp || u.phone || '').replace(/[^0-9]/g, '');
+      if (cleanP.length >= 8) map.set(cleanP.slice(-8), serial);
+    });
+
+    return map;
+  }, [usersList, filteredUsers]);
+
+  const getUserSerial = (user, fallbackIdx) => {
+    if (!user) return fallbackIdx + 1;
+    const idKey = user.id ? String(user.id) : null;
+    const uidKey = user.uid ? String(user.uid) : null;
+    const emailKey = user.email ? user.email.toLowerCase().trim() : null;
+    const cleanP = (user.whatsapp || user.phone || '').replace(/[^0-9]/g, '');
+    const phoneKey = cleanP.length >= 8 ? cleanP.slice(-8) : null;
+
+    return (
+      (idKey && userSerialMap.get(idKey)) ||
+      (uidKey && userSerialMap.get(uidKey)) ||
+      (emailKey && userSerialMap.get(emailKey)) ||
+      (phoneKey && userSerialMap.get(phoneKey)) ||
+      (fallbackIdx + 1)
+    );
+  };
   return (
     <div className="space-y-5">
       {/* Top 4-Card KPI Stat Row (Minimal, 2 Side-by-Side on Mobile) */}
@@ -302,7 +361,7 @@ export default function AdminUsersTab({
                           {user.totalSpent > 0 ? `৳${user.totalSpent.toLocaleString()}` : '৳0'}
                         </div>
                         <div className="text-[10px] text-slate-400 mt-0.5 font-mono">
-                          <span className="font-bold text-slate-500">#{userIdx + 1}</span> · {formatOrderDateTime(user.createdAt || user.created_at || user.joinedDate).full}
+                          <span className="font-bold text-slate-500">#{getUserSerial(user, userIdx)}</span> · {formatOrderDateTime(user.createdAt || user.created_at || user.joinedDate).full}
                         </div>
                       </div>
                     </div>
@@ -438,7 +497,7 @@ export default function AdminUsersTab({
                       <tr key={user.id} className="hover:bg-slate-50/70 border-b border-slate-100 transition-colors">
                         {/* # */}
                         <td className="py-3.5 px-4 text-xs font-mono font-bold text-slate-400 whitespace-nowrap">
-                          #{userIdx + 1}
+                          #{getUserSerial(user, userIdx)}
                         </td>
 
                         {/* Date & Time */}
