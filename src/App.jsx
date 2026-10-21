@@ -426,10 +426,16 @@ export default function App() {
                   let mapped = c.category === 'University A Unit' ? { ...c, category: 'Free' } : c;
                   const initialMatch = initialData.courses.find(initC => initC.id === c.id || initC.slug === c.slug);
                   if (initialMatch) {
-                    const localLessonCount = (mapped.curriculum?.[0]?.lessons || []).length;
+                    const localLessonCount = (mapped.curriculum?.[0]?.lessons || mapped.curriculum?.[0]?.chapters?.[0]?.lessons || []).length;
                     const seedLessonCount = (initialMatch.curriculum?.[0]?.lessons || []).length;
-                    if (!mapped.curriculum || !Array.isArray(mapped.curriculum) || mapped.curriculum.length === 0 || (c.id === 'course-1791887161017' && localLessonCount < seedLessonCount)) {
+                    if (!mapped.curriculum || !Array.isArray(mapped.curriculum) || mapped.curriculum.length === 0) {
                       mapped = { ...mapped, curriculum: initialMatch.curriculum };
+                    } else if (c.id === 'course-1791887161017' && localLessonCount < seedLessonCount) {
+                      const sec1 = mapped.curriculum[1] || initialMatch.curriculum[1];
+                      mapped = {
+                        ...mapped,
+                        curriculum: [initialMatch.curriculum[0], sec1, ...mapped.curriculum.slice(2)]
+                      };
                     }
                     if (!mapped.features || !Array.isArray(mapped.features) || mapped.features.length === 0) {
                       mapped = { ...mapped, features: initialMatch.features };
@@ -609,12 +615,20 @@ export default function App() {
               modified = true;
             } else {
               const hasCurriculum = Array.isArray(parsed.courses[physIdx].curriculum) && parsed.courses[physIdx].curriculum.length > 0;
-              const localLessons = (parsed.courses[physIdx].curriculum?.[0]?.lessons || []).length;
+              const localLessons = (parsed.courses[physIdx].curriculum?.[0]?.lessons || parsed.courses[physIdx].curriculum?.[0]?.chapters?.[0]?.lessons || []).length;
               const seedLessons = (initialPhys.curriculum?.[0]?.lessons || []).length;
-              if (!hasCurriculum || localLessons < seedLessons) {
+              if (!hasCurriculum) {
                 parsed.courses[physIdx] = {
                   ...parsed.courses[physIdx],
                   curriculum: initialPhys.curriculum,
+                  totalClasses: initialPhys.totalClasses || '২১টি ক্লাস'
+                };
+                modified = true;
+              } else if (localLessons < seedLessons) {
+                const sec1 = parsed.courses[physIdx].curriculum[1] || initialPhys.curriculum[1];
+                parsed.courses[physIdx] = {
+                  ...parsed.courses[physIdx],
+                  curriculum: [initialPhys.curriculum[0], sec1, ...parsed.courses[physIdx].curriculum.slice(2)],
                   totalClasses: initialPhys.totalClasses || '২১টি ক্লাস'
                 };
                 modified = true;
@@ -836,10 +850,18 @@ export default function App() {
             const mergedCurriculum = (cloudCourse.curriculum || []).map((cSec, sIdx) => {
               const lSec = localCourse.curriculum?.[sIdx];
               if (!lSec) return cSec;
-              const cLessons = Array.isArray(cSec.lessons) ? cSec.lessons : [];
-              const lLessons = Array.isArray(lSec.lessons) ? lSec.lessons : [];
-              const mergedLessons = cLessons.map((cLes, lesIdx) => {
+              const cLessons = Array.isArray(cSec.lessons) ? cSec.lessons : (cSec.chapters || []).flatMap(c => c.lessons || []);
+              const lLessons = Array.isArray(lSec.lessons) ? lSec.lessons : (lSec.chapters || []).flatMap(c => c.lessons || []);
+
+              if (cLessons.length === 0 && lLessons.length > 0) {
+                return lSec;
+              }
+
+              const baseLen = Math.max(cLessons.length, lLessons.length);
+              const mergedLessons = Array.from({ length: baseLen }, (_, lesIdx) => {
+                const cLes = cLessons[lesIdx];
                 const lLes = lLessons[lesIdx];
+                if (!cLes) return lLes;
                 if (!lLes) return cLes;
                 return {
                   ...lLes,
@@ -851,22 +873,27 @@ export default function App() {
               });
               return {
                 ...cSec,
+                ...lSec,
                 lessons: mergedLessons,
-                chapters: (cSec.chapters && cSec.chapters.length > 0)
-                  ? [{ ...cSec.chapters[0], lessons: mergedLessons }]
-                  : (lSec.chapters || [{ id: `chap-${sIdx}`, name: '', lessons: mergedLessons }])
+                chapters: (lSec.chapters && lSec.chapters.length > 0)
+                  ? [{ ...lSec.chapters[0], lessons: mergedLessons }]
+                  : ((cSec.chapters && cSec.chapters.length > 0)
+                    ? [{ ...cSec.chapters[0], lessons: mergedLessons }]
+                    : (lSec.chapters || [{ id: `chap-${sIdx}`, name: '', lessons: mergedLessons }]))
               };
             });
+            const cloudSecCount = (cloudCourse.curriculum || []).length;
+            const extraLocalSecs = (localCourse.curriculum || []).slice(cloudSecCount);
             return {
               ...cloudCourse,
-              curriculum: mergedCurriculum
+              curriculum: [...mergedCurriculum, ...extraLocalSecs]
             };
           }
 
           return cloudCourse;
         });
 
-        // Bulletproof Guard: Guarantee Physics Finishing Touch Series has all 10 lessons & PDFs
+        // Bulletproof Guard: Guarantee Physics Finishing Touch Series has both 1st Paper & 2nd Paper lessons & PDFs
         const physIdx = resolvedCourses.findIndex(c => 
           c && (c.id === 'course-1791887161017' || c.slug === 'physics-finishing-touch-series' || (c.title || '').includes('Physics Finishing Touch'))
         );
@@ -875,13 +902,25 @@ export default function App() {
           const curLessons = (Array.isArray(physCur?.curriculum?.[0]?.lessons) && physCur.curriculum[0].lessons.length > 0)
             ? physCur.curriculum[0].lessons.length
             : ((physCur?.curriculum?.[0]?.chapters?.[0]?.lessons || []).length);
-          if (curLessons < 10) {
-            resolvedCourses[physIdx] = {
-              ...physicsFinishingTouchCourseData,
-              ...physCur,
-              curriculum: physicsFinishingTouchCourseData.curriculum
-            };
+          
+          let nextCurriculum = Array.isArray(physCur?.curriculum) ? [...physCur.curriculum] : [];
+          if (curLessons < 10 || !nextCurriculum[0]) {
+            nextCurriculum[0] = physicsFinishingTouchCourseData.curriculum[0];
           }
+
+          const hasSec1 = nextCurriculum[1] && (
+            (nextCurriculum[1].lessons && nextCurriculum[1].lessons.length > 0) ||
+            (nextCurriculum[1].chapters && nextCurriculum[1].chapters.some(c => c.lessons && c.lessons.length > 0))
+          );
+          if (!hasSec1) {
+            nextCurriculum[1] = physicsFinishingTouchCourseData.curriculum[1];
+          }
+
+          resolvedCourses[physIdx] = {
+            ...physicsFinishingTouchCourseData,
+            ...physCur,
+            curriculum: nextCurriculum
+          };
         }
 
         // Ensure any local-only courses (e.g. freshly created custom courses) are preserved

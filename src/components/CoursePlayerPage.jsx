@@ -21,6 +21,7 @@ import { freeCoursesData } from '../data/freeCoursesData';
 import { initialData } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
+import { getAdminSession } from '../services/adminAuthService';
 import { loadExamQuestions, getQuestionCorrectIndex, cleanExplanation } from '../utils/examBatchStorage';
 import { useEnrollmentStatus } from '../utils/enrollmentService';
 import Navbar from './Navbar';
@@ -151,10 +152,23 @@ export default function CoursePlayerPage({
     });
     if (foundDynamic) {
       if (isPhysicsTarget) {
+        const dynamicCurr = Array.isArray(foundDynamic.curriculum) && foundDynamic.curriculum.length > 0
+          ? [...foundDynamic.curriculum]
+          : [...physicsFinishingTouchCourseData.curriculum];
+
+        const defaultSec2 = physicsFinishingTouchCourseData.curriculum[1];
+        const hasSec2 = dynamicCurr[1] && (
+          (dynamicCurr[1].lessons && dynamicCurr[1].lessons.length > 0) ||
+          (dynamicCurr[1].chapters && dynamicCurr[1].chapters.some(c => c.lessons && c.lessons.length > 0))
+        );
+        if (!hasSec2) {
+          dynamicCurr[1] = defaultSec2;
+        }
+
         return {
           ...physicsFinishingTouchCourseData,
           ...foundDynamic,
-          curriculum: (foundDynamic.curriculum && foundDynamic.curriculum.length > 0) ? foundDynamic.curriculum : physicsFinishingTouchCourseData.curriculum
+          curriculum: dynamicCurr
         };
       }
       return foundDynamic;
@@ -164,10 +178,23 @@ export default function CoursePlayerPage({
     if (!isNaN(Number(cid)) && coursesList[Number(cid)]) {
       const indexedCourse = coursesList[Number(cid)];
       if (isPhysicsTarget || String(indexedCourse?.slug || '').includes('physics')) {
+        const dynamicCurr = Array.isArray(indexedCourse.curriculum) && indexedCourse.curriculum.length > 0
+          ? [...indexedCourse.curriculum]
+          : [...physicsFinishingTouchCourseData.curriculum];
+
+        const defaultSec2 = physicsFinishingTouchCourseData.curriculum[1];
+        const hasSec2 = dynamicCurr[1] && (
+          (dynamicCurr[1].lessons && dynamicCurr[1].lessons.length > 0) ||
+          (dynamicCurr[1].chapters && dynamicCurr[1].chapters.some(c => c.lessons && c.lessons.length > 0))
+        );
+        if (!hasSec2) {
+          dynamicCurr[1] = defaultSec2;
+        }
+
         return {
           ...physicsFinishingTouchCourseData,
           ...indexedCourse,
-          curriculum: (indexedCourse.curriculum && indexedCourse.curriculum.length > 0) ? indexedCourse.curriculum : physicsFinishingTouchCourseData.curriculum
+          curriculum: dynamicCurr
         };
       }
       return indexedCourse;
@@ -204,7 +231,7 @@ export default function CoursePlayerPage({
   }, [courseId, data]);
 
   const _isCourseEnrolled = useEnrollmentStatus(course, currentUser, data);
-  const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com';
+  const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com' || Boolean(getAdminSession());
   const isFreeCourse = Boolean(course?.isFree) || (course?.salePrice !== undefined && Number(course?.salePrice) === 0 && Number(course?.price || 0) === 0);
   // If student is genuinely enrolled, user is admin, or course is free, everything is unlocked
   const isEnrolled = _isCourseEnrolled || isAdmin || isFreeCourse;
@@ -241,7 +268,14 @@ export default function CoursePlayerPage({
           (chap.lessons || []).forEach((les, lesIdx) => {
             const isObj = typeof les === 'object' && les !== null;
             const lesId = isObj ? String(les.id !== undefined ? les.id : `s${secIdx}-c${chapIdx}-l${lesIdx}`) : `s${secIdx}-c${chapIdx}-l${lesIdx}`;
-            const lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null) || course.previewVideoUrl || course.videoUrl) : (course.previewVideoUrl || course.videoUrl);
+            let lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null)) : null;
+            if (isPhysicsCourse && secIdx === 0 && !lesVideo) {
+              const seedLes = seedLessons[lesIdx];
+              if (seedLes?.videoUrl) lesVideo = seedLes.videoUrl;
+            }
+            if (!lesVideo && secIdx === 0) {
+              lesVideo = course.previewVideoUrl || course.videoUrl;
+            }
 
             let resolvedPdf = null;
             let resolvedQuiz = null;
@@ -288,7 +322,14 @@ export default function CoursePlayerPage({
         sec.lessons.forEach((les, lesIdx) => {
           const isObj = typeof les === 'object' && les !== null;
           const lesId = isObj ? String(les.id !== undefined ? les.id : `s${secIdx}-l${lesIdx}`) : `s${secIdx}-l${lesIdx}`;
-          const lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null) || course.previewVideoUrl || course.videoUrl) : (course.previewVideoUrl || course.videoUrl);
+          let lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null)) : null;
+          if (isPhysicsCourse && secIdx === 0 && !lesVideo) {
+            const seedLes = seedLessons[lesIdx];
+            if (seedLes?.videoUrl) lesVideo = seedLes.videoUrl;
+          }
+          if (!lesVideo && secIdx === 0) {
+            lesVideo = course.previewVideoUrl || course.videoUrl;
+          }
 
           let resolvedPdf = isObj ? les.pdfUrl : null;
           let resolvedQuiz = isObj ? (les.quiz || les.exam) : null;
@@ -336,29 +377,89 @@ export default function CoursePlayerPage({
   }, [course]);
 
   // Determine current active lesson (prioritizes free preview for unenrolled users if first lesson is locked)
-  const [activeIndex, setActiveIndex] = useState(() => {
-    if (initialLesson) {
-      if (typeof initialLesson === 'number' && initialLesson >= 0) return initialLesson;
-      if (typeof initialLesson === 'object') {
-        if (initialLesson.globalIndex !== undefined) return initialLesson.globalIndex;
-        if (initialLesson.lessonIdx !== undefined) return initialLesson.lessonIdx;
-        if (initialLesson.id) {
-          const idx = allLessons.findIndex(l => String(l.id) === String(initialLesson.id));
+  const resolveActiveIndex = (targetLesson, lessonsList) => {
+    if (!lessonsList || lessonsList.length === 0) return 0;
+    if (targetLesson) {
+      if (typeof targetLesson === 'number' && targetLesson >= 0 && targetLesson < lessonsList.length) {
+        return targetLesson;
+      }
+      if (typeof targetLesson === 'object') {
+        if (targetLesson.id) {
+          const idx = lessonsList.findIndex(l => String(l.id) === String(targetLesson.id));
           if (idx !== -1) return idx;
         }
-        if (initialLesson.title) {
-          const idx = allLessons.findIndex(l => l.title === initialLesson.title);
+        if (targetLesson.title) {
+          const cleanTargetTitle = String(targetLesson.title).trim().toLowerCase();
+          const idx = lessonsList.findIndex(l => String(l.title).trim().toLowerCase() === cleanTargetTitle);
           if (idx !== -1) return idx;
+        }
+        if (targetLesson.globalIndex !== undefined && targetLesson.globalIndex >= 0 && targetLesson.globalIndex < lessonsList.length) {
+          return targetLesson.globalIndex;
+        }
+        if (targetLesson.secIdx !== undefined && targetLesson.lessonIdx !== undefined) {
+          let count = 0;
+          for (let s = 0; s < targetLesson.secIdx; s++) {
+            const sec = course.curriculum?.[s];
+            if (sec) {
+              const c = (sec.lessons || []).length || (sec.chapters || []).reduce((a, ch) => a + (ch.lessons || []).length, 0);
+              count += c;
+            }
+          }
+          count += targetLesson.lessonIdx;
+          if (count >= 0 && count < lessonsList.length) return count;
         }
       }
     }
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const vParam = urlParams.get('v');
+      if (vParam !== null && !isNaN(Number(vParam))) {
+        const vNum = Number(vParam);
+        if (vNum >= 0 && vNum < lessonsList.length) return vNum;
+      }
+    } catch (e) {}
     // If user is not enrolled and lesson 0 is locked, jump to first free preview
     if (!isEnrolled) {
-      const firstFreeIdx = allLessons.findIndex(l => l.isFree);
+      const firstFreeIdx = lessonsList.findIndex(l => l.isFree);
       if (firstFreeIdx !== -1) return firstFreeIdx;
     }
     return 0;
-  });
+  };
+
+  const [activeIndex, setActiveIndex] = useState(() => resolveActiveIndex(initialLesson, allLessons));
+
+  // Reactive sync when initialLesson or allLessons changes
+  useEffect(() => {
+    if (initialLesson && allLessons.length > 0) {
+      const newIdx = resolveActiveIndex(initialLesson, allLessons);
+      setActiveIndex(newIdx);
+    }
+  }, [initialLesson, allLessons]);
+
+  // Reactive sync when URL param ?v= changes
+  useEffect(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const vParam = urlParams.get('v');
+      if (vParam !== null && !isNaN(Number(vParam))) {
+        const vNum = Number(vParam);
+        if (vNum >= 0 && vNum < allLessons.length && vNum !== activeIndex) {
+          setActiveIndex(vNum);
+        }
+      }
+    } catch (e) {}
+  }, [allLessons.length]);
+
+  // Keep browser URL ?v= in sync with activeIndex
+  useEffect(() => {
+    try {
+      const currentUrl = new URL(window.location.href);
+      if (currentUrl.searchParams.get('v') !== String(activeIndex)) {
+        currentUrl.searchParams.set('v', activeIndex);
+        window.history.replaceState(null, '', currentUrl.toString());
+      }
+    } catch (e) {}
+  }, [activeIndex]);
 
   const currentLesson = allLessons[activeIndex] || allLessons[0] || {
     id: 'default',

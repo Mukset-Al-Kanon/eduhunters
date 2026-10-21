@@ -37,43 +37,6 @@ export function getUserOrders() {
     if (Array.isArray(parsed)) {
       const cleaned = parsed.filter(o => !['ord_exam_2026_9842', 'ord_course_2026_8421', 'ord_store_2026_6105'].includes(o.id));
       
-      // Auto-resolve pending orders for students who are already genuinely enrolled in that specific course
-      const activeEnrolledSet = new Set();
-      try {
-        const rawEnrolled = localStorage.getItem('eh_enrolled_students');
-        if (rawEnrolled) {
-          const stList = JSON.parse(rawEnrolled);
-          if (Array.isArray(stList)) {
-            stList.forEach(st => {
-              if ((st.status || '').toLowerCase() === 'active') {
-                const p = String(st.phone || '').replace(/[^0-9]/g, '').slice(-10);
-                const e = String(st.email || '').trim().toLowerCase();
-                const c = String(st.courseName || '').trim().toLowerCase();
-                if (p && c) activeEnrolledSet.add(`${p}::${c}`);
-                if (e && c) activeEnrolledSet.add(`${e}::${c}`);
-              }
-            });
-          }
-        }
-        const rawUsers = localStorage.getItem('eh_registered_users');
-        if (rawUsers) {
-          const uList = JSON.parse(rawUsers);
-          if (Array.isArray(uList)) {
-            uList.forEach(u => {
-              if (Array.isArray(u.enrolledCourses) && u.enrolledCourses.length > 0) {
-                const p = String(u.phone || u.whatsapp || '').replace(/[^0-9]/g, '').slice(-10);
-                const e = String(u.email || '').trim().toLowerCase();
-                u.enrolledCourses.forEach(cName => {
-                  const c = String(cName || '').trim().toLowerCase();
-                  if (p && c) activeEnrolledSet.add(`${p}::${c}`);
-                  if (e && c) activeEnrolledSet.add(`${e}::${c}`);
-                });
-              }
-            });
-          }
-        }
-      } catch (e) {}
-
       let changed = false;
       const seenDrafts = new Set();
       const nextList = [];
@@ -82,27 +45,17 @@ export function getUserOrders() {
         const p = String(ord.customer?.phone || ord.studentPhone || '').replace(/[^0-9]/g, '').slice(-10);
         const e = String(ord.customer?.email || ord.studentEmail || '').trim().toLowerCase();
         const c = String(ord.course?.name || ord.items?.[0]?.title || '').trim().toLowerCase();
-        const isEnrolled = (p && c && activeEnrolledSet.has(`${p}::${c}`)) || (e && c && activeEnrolledSet.has(`${e}::${c}`));
         const isDraft = ord.transactionId === 'PENDING_VERIFICATION' || (ord.status || '').toUpperCase() === 'PENDING';
 
-        if (isEnrolled) {
-          // If the student is already enrolled in this course, purge ghost checkout drafts or ensure marked approved
-          if (isDraft) {
+        if (isDraft) {
+          const draftKey = `${p || e}_${c}`;
+          if (seenDrafts.has(draftKey)) {
             changed = true;
             continue;
           }
-          nextList.push({ ...ord, status: 'PAID', isApproved: true, is_approved: true });
-        } else {
-          if (isDraft) {
-            const draftKey = `${p || e}_${c}`;
-            if (seenDrafts.has(draftKey)) {
-              changed = true;
-              continue;
-            }
-            seenDrafts.add(draftKey);
-          }
-          nextList.push(ord);
+          seenDrafts.add(draftKey);
         }
+        nextList.push(ord);
       }
 
       if (changed || nextList.length !== parsed.length) {

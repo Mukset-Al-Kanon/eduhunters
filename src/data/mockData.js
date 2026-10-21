@@ -176,12 +176,28 @@ export const initialData = {
       };
     }
     if (course.id === 'course-1791887161017' || course.slug === 'physics-finishing-touch-series') {
-      const curLessons = (course.curriculum?.[0]?.lessons || []).length;
+      const curLessons = (course.curriculum?.[0]?.lessons || course.curriculum?.[0]?.chapters?.[0]?.lessons || []).length;
       const seedLessons = (physicsFinishingTouchCourseData.curriculum?.[0]?.lessons || []).length;
+      let finalCurriculum = Array.isArray(course.curriculum) && course.curriculum.length > 0 
+        ? [...course.curriculum] 
+        : [...physicsFinishingTouchCourseData.curriculum];
+
+      if (curLessons < seedLessons || !finalCurriculum[0]) {
+        finalCurriculum[0] = physicsFinishingTouchCourseData.curriculum[0];
+      }
+
+      const hasSec1 = finalCurriculum[1] && (
+        (finalCurriculum[1].lessons && finalCurriculum[1].lessons.length > 0) ||
+        (finalCurriculum[1].chapters && finalCurriculum[1].chapters.some(c => c.lessons && c.lessons.length > 0))
+      );
+      if (!hasSec1) {
+        finalCurriculum[1] = physicsFinishingTouchCourseData.curriculum[1];
+      }
+
       return {
         ...physicsFinishingTouchCourseData,
         ...course,
-        curriculum: curLessons >= seedLessons ? course.curriculum : physicsFinishingTouchCourseData.curriculum
+        curriculum: finalCurriculum
       };
     }
     const foundFree = freeCoursesData.find(c => c.id === course.id || c.slug === course.slug);

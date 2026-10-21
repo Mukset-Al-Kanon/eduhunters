@@ -941,12 +941,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             // Retain any manual/offline transactions that are not deleted
             prevTxs.filter(tx => !isDeletedItem(tx, deletedIds)).forEach(tx => {
               const key = tx.orderId || tx.id || tx.trxId;
-              if (key) txMap.set(key, applyAmountOverride(tx, overrides));
+              if (key) txMap.set(key, applyAmountOverride(applyStatusOverride(tx), overrides));
             });
             // Cloud orders take precedence and reflect live Firestore state
             mappedTxs.forEach(tx => {
               const key = tx.orderId || tx.id || tx.trxId;
-              if (key) txMap.set(key, applyAmountOverride(tx, overrides));
+              if (key) txMap.set(key, applyAmountOverride(applyStatusOverride(tx), overrides));
             });
 
             const resetConfig = getAccountingResetConfig();
@@ -1035,13 +1035,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               mappedTxs.forEach(tx => {
                 const key = tx.orderId || tx.id || tx.trxId;
                 if (key) {
-                  const existing = txMap.get(key);
-                  const isExistingCompleted = existing && (existing.status || '').toLowerCase() === 'completed';
-                  const isCloudPending = (tx.status || '').toLowerCase() === 'pending';
-                  const finalTx = (isExistingCompleted && isCloudPending)
-                    ? { ...tx, status: 'Completed', isApproved: true }
-                    : tx;
-                  txMap.set(key, applyAmountOverride(applyStatusOverride(finalTx), overrides));
+                  txMap.set(key, applyAmountOverride(applyStatusOverride(tx), overrides));
                 }
               });
               const resetConfig = getAccountingResetConfig();
@@ -1086,6 +1080,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               const name = (o.customer_name || o.customer?.name || '').trim();
               if (email || phone || name) {
                 const orderCreated = o.created_at || o.createdAt || new Date().toISOString();
+                const isApprovedOrder = (o.status === 'PAID' || Boolean(o.is_approved) || Boolean(o.isApproved));
                 upsertUserInList({
                   id: o.customer?.uid || o.userId || `usr-${o.id}`,
                   email: email || `${(name || 'student').toLowerCase().replace(/[^a-z0-9]/g, '')}@gmail.com`,
@@ -1094,8 +1089,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                   phone: phone,
                   whatsapp: phone,
                   role: 'Student',
-                  status: (o.status === 'PAID' || o.is_approved) ? 'Active' : 'Pending',
-                  enrolledCourses: [o.course_name || o.course?.name || o.items?.[0]?.title].filter(Boolean),
+                  status: isApprovedOrder ? 'Active' : 'Pending',
+                  enrolledCourses: isApprovedOrder ? [o.course_name || o.course?.name || o.items?.[0]?.title].filter(Boolean) : [],
                   totalSpent: Number(o.amount || o.totalPaid || 0),
                   createdAt: orderCreated,
                   created_at: orderCreated,
@@ -1181,13 +1176,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
                 mappedTxs.forEach(tx => {
                   const key = tx.orderId || tx.id || tx.trxId;
                   if (key) {
-                    const existing = txMap.get(key);
-                    const isExistingCompleted = existing && (existing.status || '').toLowerCase() === 'completed';
-                    const isCloudPending = (tx.status || '').toLowerCase() === 'pending';
-                    const finalTx = (isExistingCompleted && isCloudPending)
-                      ? { ...tx, status: 'Completed', isApproved: true }
-                      : tx;
-                    txMap.set(key, applyAmountOverride(applyStatusOverride(finalTx), overrides));
+                    txMap.set(key, applyAmountOverride(applyStatusOverride(tx), overrides));
                   }
                 });
                 const resetConfig = getAccountingResetConfig();
@@ -4547,15 +4536,20 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     mutateCurrentCourse(c => {
       const curr = [...(c.curriculum || [])];
       const sec = { ...curr[secIdx] };
-      const chaps = [...(sec.chapters || [])];
-      const chap = { ...chaps[chapIdx] };
+      let chaps = Array.isArray(sec.chapters) && sec.chapters.length > 0
+        ? [...sec.chapters]
+        : [{ id: `chap-${Date.now()}`, name: '', lessons: [] }];
+      const targetChapIdx = (chapIdx !== undefined && chapIdx < chaps.length) ? chapIdx : 0;
+      const chap = { ...chaps[targetChapIdx] };
       const lessons = [...(chap.lessons || [])];
       lessons.push(newLessonItem);
       chap.lessons = lessons;
       chap.count = lessons.length;
-      chaps[chapIdx] = chap;
+      chaps[targetChapIdx] = chap;
       sec.chapters = chaps;
-      sec.summary = `${chaps.length} chapters · ${chaps.reduce((acc, ch) => acc + (ch.lessons?.length || 0), 0)} lessons`;
+      const allLessons = chaps.flatMap(ch => ch.lessons || []);
+      sec.lessons = allLessons;
+      sec.summary = `${chaps.length} chapters · ${allLessons.length} lessons`;
       curr[secIdx] = sec;
       return { ...c, curriculum: curr };
     });
@@ -4579,7 +4573,9 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       chap.count = lessons.length;
       chaps[chapIdx] = chap;
       sec.chapters = chaps;
-      sec.summary = `${chaps.length} chapters · ${chaps.reduce((acc, ch) => acc + (ch.lessons?.length || 0), 0)} lessons`;
+      const allLessons = chaps.flatMap(ch => ch.lessons || []);
+      sec.lessons = allLessons;
+      sec.summary = `${chaps.length} chapters · ${allLessons.length} lessons`;
       curr[secIdx] = sec;
       return { ...c, curriculum: curr };
     });
@@ -4603,6 +4599,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       chap.lessons = lessons;
       chaps[chapIdx] = chap;
       sec.chapters = chaps;
+      const allLessons = chaps.flatMap(ch => ch.lessons || []);
+      sec.lessons = allLessons;
       curr[secIdx] = sec;
       return { ...c, curriculum: curr };
     });

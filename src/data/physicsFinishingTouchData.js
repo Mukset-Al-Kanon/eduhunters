@@ -29,6 +29,27 @@ const all10Lessons = [
   lesson10
 ];
 
+export const physics2ndPaperLessons = [
+  {
+    id: "les-phys2-01-thermo",
+    title: "তাপগতিবিদ্যা",
+    duration: "45 min",
+    videoUrl: "",
+    pdfUrl: "",
+    quiz: null,
+    isFree: false
+  },
+  {
+    id: "les-phys2-02-static-electricity",
+    title: "স্থির তড়িৎ",
+    duration: "45 min",
+    videoUrl: "",
+    pdfUrl: "",
+    quiz: null,
+    isFree: false
+  }
+];
+
 export const physicsFinishingTouchCourseData = {
   id: "course-1791887161017",
   slug: "physics-finishing-touch-series",
@@ -70,8 +91,14 @@ export const physicsFinishingTouchCourseData = {
       id: "sec-physics-2nd-paper",
       name: "Physics 2nd Paper",
       title: "Physics 2nd Paper",
-      chapters: [],
-      lessons: []
+      chapters: [
+        {
+          id: "chap-phys-2nd-all",
+          name: "Physics 2nd Paper",
+          lessons: physics2ndPaperLessons
+        }
+      ],
+      lessons: physics2ndPaperLessons
     }
   ]
 };

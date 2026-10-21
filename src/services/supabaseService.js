@@ -793,18 +793,20 @@ async function executeSaveSupabaseSiteData(siteData) {
       );
       const seedLessons = physicsFinishingTouchCourseData.curriculum[0].lessons;
       if (physIdx !== -1) {
-        const existingLessons = (Array.isArray(cur?.curriculum?.[0]?.lessons) && cur.curriculum[0].lessons.length > 0)
-          ? cur.curriculum[0].lessons
-          : (cur?.curriculum?.[0]?.chapters?.[0]?.lessons || []);
-        if (existingLessons.length < 10) {
-          sanitized.courses[physIdx] = {
-            ...physicsFinishingTouchCourseData,
-            ...cur,
-            curriculum: physicsFinishingTouchCourseData.curriculum
-          };
+        const cur = sanitized.courses[physIdx];
+        const seedSec0 = physicsFinishingTouchCourseData.curriculum[0];
+        const seedLessons = seedSec0.lessons;
+        const currSec0 = cur?.curriculum?.[0] || {};
+        const existingLessons0 = (Array.isArray(currSec0.lessons) && currSec0.lessons.length > 0)
+          ? currSec0.lessons
+          : (currSec0.chapters?.[0]?.lessons || []);
+
+        let updatedSec0;
+        if (existingLessons0.length < 10) {
+          updatedSec0 = seedSec0;
         } else {
           // If 10 or more lessons exist, ensure any missing pdfUrls or quizzes for seed lessons (first 10) are enriched
-          const enrichedLessons = existingLessons.map((les, lIdx) => {
+          const enrichedLessons = existingLessons0.map((les, lIdx) => {
             const seedLes = seedLessons[lIdx];
             if (!seedLes) return les; // Preserve newly added classes beyond index 9 exactly as created
             return {
@@ -815,20 +817,22 @@ async function executeSaveSupabaseSiteData(siteData) {
               quiz: (les.quiz && les.quiz.questions?.length > 0) ? les.quiz : (seedLes?.quiz || null)
             };
           });
-          const currSec0 = cur.curriculum[0] || {};
-          const updatedSec0 = {
+          updatedSec0 = {
             ...currSec0,
             lessons: enrichedLessons,
             chapters: (currSec0.chapters && currSec0.chapters.length > 0)
               ? [{ ...currSec0.chapters[0], lessons: enrichedLessons }]
               : [{ id: 'chap-phys-1st-all', name: 'ভৌত রাশি ও পরিমাপ', lessons: enrichedLessons }]
           };
-          const currSec1 = cur.curriculum[1] || physicsFinishingTouchCourseData.curriculum[1];
-          sanitized.courses[physIdx] = {
-            ...cur,
-            curriculum: [updatedSec0, currSec1, ...(cur.curriculum ? cur.curriculum.slice(2) : [])]
-          };
         }
+
+        // Section 1 (Physics 2nd Paper) - Preserve user-added lessons and chapters
+        const currSec1 = cur?.curriculum?.[1] || physicsFinishingTouchCourseData.curriculum[1];
+        sanitized.courses[physIdx] = {
+          ...physicsFinishingTouchCourseData,
+          ...cur,
+          curriculum: [updatedSec0, currSec1, ...(cur?.curriculum ? cur.curriculum.slice(2) : [])]
+        };
       } else {
         sanitized.courses.push(physicsFinishingTouchCourseData);
       }

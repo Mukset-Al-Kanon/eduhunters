@@ -42,6 +42,7 @@ import { initialData } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
 import { useEnrollmentStatus } from '../utils/enrollmentService';
+import { getAdminSession } from '../services/adminAuthService';
 
 function getEmbedUrl(url) {
   if (!url) return '';
@@ -447,7 +448,8 @@ export default function BiologyCoursePage({
 
       const enrichedCurriculum = baseCurriculum.map((sec, sIdx) => {
         const seedLessons = sIdx === 0 ? seedLessons0 : [];
-        if (Array.isArray(sec.chapters) && sec.chapters.length > 0) {
+        const hasChapterLessons = Array.isArray(sec.chapters) && sec.chapters.some(ch => (ch.lessons || []).length > 0);
+        if (hasChapterLessons) {
           const newChaps = sec.chapters.map((ch, cIdx) => {
             const enrichedLessons = (ch.lessons || []).map((l, lIdx) => {
               const seedL = (sIdx === 0 && cIdx === 0) ? seedLessons[lIdx] : null;
@@ -697,17 +699,19 @@ export default function BiologyCoursePage({
         lessons: []
       };
 
-      const sec2 = rawCurriculum[1] ? {
-        ...rawCurriculum[1],
-        name: rawCurriculum[1].name && !/finishing touch series/i.test(rawCurriculum[1].name)
-          ? rawCurriculum[1].name
-          : 'Physics 2nd Paper'
-      } : {
-        id: 'sec-physics-2nd-paper',
-        name: 'Physics 2nd Paper',
-        title: 'Physics 2nd Paper',
-        chapters: [],
-        lessons: []
+      const defaultSec2 = physicsFinishingTouchCourseData.curriculum[1];
+      const sec2Candidate = rawCurriculum[1];
+      const hasSec2Content = sec2Candidate && (
+        (sec2Candidate.lessons && sec2Candidate.lessons.length > 0) ||
+        (sec2Candidate.chapters && sec2Candidate.chapters.some(c => c.lessons && c.lessons.length > 0))
+      );
+      const baseSec2 = hasSec2Content ? sec2Candidate : defaultSec2;
+      const sec2 = {
+        ...baseSec2,
+        name: baseSec2?.name && !/finishing touch series/i.test(baseSec2.name)
+          ? baseSec2.name
+          : 'Physics 2nd Paper',
+        title: baseSec2?.title || 'Physics 2nd Paper'
       };
 
       return [sec1, sec2, ...rawCurriculum.slice(2)];
@@ -716,10 +720,7 @@ export default function BiologyCoursePage({
     return rawCurriculum;
   }, [course?.curriculum, course?.id, course?.slug, course?.title]);
 
-  // Admin Lecture & Curriculum Editing States
-  const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com';
-  const [editingLesson, setEditingLesson] = useState(null);
-  const [editingSection, setEditingSection] = useState(null);
+  // Toast Notification State
   const [toastMsg, setToastMsg] = useState('');
 
   const triggerToast = (msg) => {
@@ -775,170 +776,7 @@ export default function BiologyCoursePage({
     }
   };
 
-  const handleSaveLessonEdit = (e) => {
-    if (e && e.preventDefault) e.preventDefault();
-    if (!editingLesson) return;
 
-    const { secIndex, chapIndex, lessonIndex, title, videoUrl, pdfUrl, duration, isFree } = editingLesson;
-    const nextCurriculum = JSON.parse(JSON.stringify(course.curriculum || []));
-    if (!nextCurriculum[secIndex]) return;
-
-    const targetSection = nextCurriculum[secIndex];
-
-    const lessonObj = {
-      title: (title || '').trim(),
-      videoUrl: (videoUrl || '').trim(),
-      pdfUrl: (pdfUrl || '').trim(),
-      duration: (duration || '45 min').trim(),
-      isFree: Boolean(isFree)
-    };
-
-    if (lessonIndex === -1) {
-      // Adding a brand new lesson
-      const newLesson = {
-        id: `les-${Date.now()}`,
-        ...lessonObj
-      };
-      if (chapIndex !== undefined && chapIndex !== -1 && targetSection.chapters?.[chapIndex]) {
-        if (!Array.isArray(targetSection.chapters[chapIndex].lessons)) {
-          targetSection.chapters[chapIndex].lessons = [];
-        }
-        targetSection.chapters[chapIndex].lessons.push(newLesson);
-        targetSection.lessons = targetSection.chapters.flatMap(c => c.lessons || []);
-      } else if (Array.isArray(targetSection.chapters) && targetSection.chapters.length > 0) {
-        if (!Array.isArray(targetSection.chapters[0].lessons)) {
-          targetSection.chapters[0].lessons = [];
-        }
-        targetSection.chapters[0].lessons.push(newLesson);
-        targetSection.lessons = targetSection.chapters.flatMap(c => c.lessons || []);
-      } else {
-        targetSection.chapters = [{
-          id: `chap-${Date.now()}`,
-          name: '',
-          lessons: [newLesson]
-        }];
-        targetSection.lessons = [newLesson];
-      }
-    } else {
-      // Editing an existing lesson
-      if (chapIndex !== undefined && chapIndex !== -1 && targetSection.chapters?.[chapIndex]?.lessons) {
-        const prev = typeof targetSection.chapters[chapIndex].lessons[lessonIndex] === 'object' && targetSection.chapters[chapIndex].lessons[lessonIndex] !== null ? targetSection.chapters[chapIndex].lessons[lessonIndex] : {};
-        targetSection.chapters[chapIndex].lessons[lessonIndex] = { ...prev, ...lessonObj };
-        targetSection.lessons = targetSection.chapters.flatMap(c => c.lessons || []);
-      } else if (Array.isArray(targetSection.lessons) && targetSection.lessons.length > lessonIndex) {
-        const prev = typeof targetSection.lessons[lessonIndex] === 'object' && targetSection.lessons[lessonIndex] !== null ? targetSection.lessons[lessonIndex] : {};
-        targetSection.lessons[lessonIndex] = { ...prev, ...lessonObj };
-      } else if (Array.isArray(targetSection.chapters)) {
-        let counter = 0;
-        let done = false;
-        for (const ch of targetSection.chapters) {
-          if (Array.isArray(ch.lessons)) {
-            for (let i = 0; i < ch.lessons.length; i++) {
-              if (counter === lessonIndex) {
-                const prev = typeof ch.lessons[i] === 'object' && ch.lessons[i] !== null ? ch.lessons[i] : {};
-                ch.lessons[i] = { ...prev, ...lessonObj };
-                done = true;
-                break;
-              }
-              counter++;
-            }
-          }
-          if (done) break;
-        }
-        targetSection.lessons = targetSection.chapters.flatMap(c => c.lessons || []);
-      }
-    }
-
-    const updatedCourse = {
-      ...course,
-      curriculum: nextCurriculum
-    };
-
-    setCourse(updatedCourse);
-
-    if (onUpdateCourse) {
-      onUpdateCourse(updatedCourse);
-    } else {
-      try {
-        const raw = localStorage.getItem('eduhunters_data');
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          if (Array.isArray(parsed.courses)) {
-            parsed.courses = parsed.courses.map(c => 
-              (c.id === updatedCourse.id || c.slug === updatedCourse.slug) ? updatedCourse : c
-            );
-            localStorage.setItem('eduhunters_data', JSON.stringify(parsed));
-          }
-        }
-      } catch (err) {}
-    }
-
-    setEditingLesson(null);
-    triggerToast('✅ লেকচারের নাম ও তথ্য সফলভাবে সংরক্ষণ করা হয়েছে!');
-  };
-
-  const handleDeleteLesson = (secIdx, chapIdx, lesIdx) => {
-    if (!window.confirm('আপনি কি নিশ্চিত যে এই ক্লাসটি মুছে ফেলতে চান?')) return;
-    const nextCurriculum = JSON.parse(JSON.stringify(course.curriculum || []));
-    if (!nextCurriculum[secIdx]) return;
-
-    if (chapIdx !== undefined && chapIdx !== -1 && nextCurriculum[secIdx].chapters?.[chapIdx]) {
-      nextCurriculum[secIdx].chapters[chapIdx].lessons = (nextCurriculum[secIdx].chapters[chapIdx].lessons || []).filter((_, i) => i !== lesIdx);
-      nextCurriculum[secIdx].lessons = nextCurriculum[secIdx].chapters.flatMap(c => c.lessons || []);
-    } else if (Array.isArray(nextCurriculum[secIdx].lessons)) {
-      nextCurriculum[secIdx].lessons = nextCurriculum[secIdx].lessons.filter((_, i) => i !== lesIdx);
-    }
-
-    const updatedCourse = {
-      ...course,
-      curriculum: nextCurriculum
-    };
-
-    setCourse(updatedCourse);
-    if (onUpdateCourse) {
-      onUpdateCourse(updatedCourse);
-    }
-    triggerToast('🗑️ ক্লাসটি মুছে ফেলা হয়েছে!');
-  };
-
-  const handleSaveSectionEdit = (e) => {
-    if (e && e.preventDefault) e.preventDefault();
-    if (!editingSection) return;
-
-    const { secIndex, name, summary } = editingSection;
-    const nextCurriculum = JSON.parse(JSON.stringify(course.curriculum || []));
-    if (!nextCurriculum[secIndex]) return;
-
-    nextCurriculum[secIndex].name = (name || '').trim();
-    if (summary !== undefined) nextCurriculum[secIndex].summary = (summary || '').trim();
-
-    const updatedCourse = {
-      ...course,
-      curriculum: nextCurriculum
-    };
-
-    setCourse(updatedCourse);
-
-    if (onUpdateCourse) {
-      onUpdateCourse(updatedCourse);
-    } else {
-      try {
-        const raw = localStorage.getItem('eduhunters_data');
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          if (Array.isArray(parsed.courses)) {
-            parsed.courses = parsed.courses.map(c => 
-              (c.id === updatedCourse.id || c.slug === updatedCourse.slug) ? updatedCourse : c
-            );
-            localStorage.setItem('eduhunters_data', JSON.stringify(parsed));
-          }
-        }
-      } catch (err) {}
-    }
-
-    setEditingSection(null);
-    triggerToast('✅ পেপারের শিরোনাম সফলভাবে আপডেট করা হয়েছে!');
-  };
 
   const handleOpenCheckout = () => {
     if (course.isActive === false && !isAdmin) {
@@ -1062,12 +900,27 @@ export default function BiologyCoursePage({
         }`}
         onClick={() => {
           if (isUnlocked) {
+            let calculatedGlobalIndex = 0;
+            for (let i = 0; i < sIdx; i++) {
+              const prevSec = sectionsToRender[i];
+              if (prevSec) {
+                const prevCount = (prevSec.lessons || []).length > 0
+                  ? prevSec.lessons.length
+                  : (prevSec.chapters || []).reduce((acc, ch) => acc + (ch.lessons || []).length, 0);
+                calculatedGlobalIndex += prevCount;
+              }
+            }
+            calculatedGlobalIndex += lIdx;
+
             const targetLessonInfo = {
+              id: (lesson && typeof lesson === 'object' && lesson.id) ? lesson.id : `s${sIdx}-l${lIdx}`,
               title: displayTitle,
-              videoUrl: videoUrl || course.previewVideoUrl,
+              videoUrl: videoUrl || '',
               pdfUrl,
               duration,
-              lessonIdx: lIdx
+              lessonIdx: lIdx,
+              secIdx: sIdx,
+              globalIndex: calculatedGlobalIndex
             };
             if (isFree && !isCourseEnrolled) {
               handleAccessFreeTrialLesson(targetLessonInfo);
@@ -1137,12 +990,27 @@ export default function BiologyCoursePage({
                   handleOpenCheckout();
                   return;
                 }
+                let calculatedGlobalIndex = 0;
+                for (let i = 0; i < sIdx; i++) {
+                  const prevSec = sectionsToRender[i];
+                  if (prevSec) {
+                    const prevCount = (prevSec.lessons || []).length > 0
+                      ? prevSec.lessons.length
+                      : (prevSec.chapters || []).reduce((acc, ch) => acc + (ch.lessons || []).length, 0);
+                    calculatedGlobalIndex += prevCount;
+                  }
+                }
+                calculatedGlobalIndex += lIdx;
+
                 const targetLessonInfo = {
+                  id: (lesson && typeof lesson === 'object' && lesson.id) ? lesson.id : `s${sIdx}-l${lIdx}`,
                   title: displayTitle,
-                  videoUrl: videoUrl || course.previewVideoUrl,
+                  videoUrl: videoUrl || '',
                   pdfUrl,
                   duration,
                   lessonIdx: lIdx,
+                  secIdx: sIdx,
+                  globalIndex: calculatedGlobalIndex,
                   activeTab: 'quiz'
                 };
                 if (isFree && !isCourseEnrolled) {
@@ -1173,44 +1041,7 @@ export default function BiologyCoursePage({
             </span>
           ) : null}
 
-          {/* Admin Direct Lesson Edit / Delete Buttons */}
-          {isAdmin && (
-            <div className="flex items-center gap-1 shrink-0 ml-1">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setEditingLesson({
-                    secIndex: sIdx,
-                    chapIndex: cIdx,
-                    lessonIndex: lIdx,
-                    title: isUrlTitle ? '' : (rawTitle || ''),
-                    videoUrl: videoUrl || (isUrlTitle ? rawTitle : ''),
-                    pdfUrl: pdfUrl || '',
-                    duration: duration || '45 min',
-                    isFree: Boolean(isFree)
-                  });
-                }}
-                className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold bg-[#e11438]/15 hover:bg-[#e11438] text-[#ff4d6d] hover:text-white border border-[#e11438]/30 transition-all cursor-pointer shrink-0 shadow-xs active:scale-95"
-                title="এই লেকচারের নাম ও ভিডিও লিংক এডিট করুন"
-              >
-                <Edit2 className="w-3 h-3" />
-                <span className="hidden sm:inline">এডিট</span>
-              </button>
 
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleDeleteLesson(sIdx, cIdx, lIdx);
-                }}
-                className="p-1 rounded-lg text-xs font-bold bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/20 transition-all cursor-pointer shrink-0 shadow-xs"
-                title="এই ক্লাসটি মুছে ফেলুন"
-              >
-                <Trash2 className="w-3 h-3" />
-              </button>
-            </div>
-          )}
         </div>
       </div>
     );
@@ -1293,33 +1124,14 @@ export default function BiologyCoursePage({
                 : 'bg-white shadow-sm border-gray-200'
             }`}>
               {/* If Admin is logged in, show sleek admin control bar */}
-              {isAdmin && (
-                <div className="mb-4 flex items-center justify-between gap-2 pb-3 border-b border-white/5">
-                  <span className="text-[11px] px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-bold">
-                    👑 অ্যাডমিন মোড
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setEditingSection({
-                      secIndex: sectionsToRender.length,
-                      isNew: true,
-                      name: '',
-                      summary: ''
-                    })}
-                    className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all cursor-pointer border-none shadow-xs flex items-center gap-1 active:scale-95"
-                  >
-                    <Plus className="w-3.5 h-3.5" />
-                    <span>+ নতুন পেপার / বিষয় যোগ</span>
-                  </button>
-                </div>
-              )}
+
 
               {/* Paper Dropdown Accordion Boxes */}
               {sectionsToRender && sectionsToRender.length > 0 ? (
                 <div className="space-y-3.5">
                   {sectionsToRender.map((section, sIdx) => {
                     // Section 0 (Physics 1st Paper) is open by default; Section 1 (Physics 2nd Paper) is closed by default
-                    const isSectionOpen = expandedSections[sIdx] ?? (sIdx === 0);
+                    const isSectionOpen = expandedSections[sIdx] ?? (sIdx === 0 || (sIdx === 1 && (section.lessons?.length > 0 || section.chapters?.[0]?.lessons?.length > 0)));
                     
                     const sectionLessons = (Array.isArray(section.lessons) && section.lessons.length > 0)
                       ? section.lessons
@@ -1380,47 +1192,7 @@ export default function BiologyCoursePage({
                               {lessonCount > 0 ? `${lessonCount} Classes` : '0 Classes'}
                             </span>
 
-                            {isAdmin && (
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setEditingLesson({
-                                    secIndex: sIdx,
-                                    chapIndex: 0,
-                                    lessonIndex: -1,
-                                    title: '',
-                                    videoUrl: '',
-                                    pdfUrl: '',
-                                    duration: '45 min',
-                                    isFree: false
-                                  });
-                                }}
-                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/30 transition-all cursor-pointer"
-                                title="এই পেপারে নতুন ক্লাস যোগ করুন"
-                              >
-                                <Plus className="w-2.5 h-2.5" />
-                                <span>+ ক্লাস</span>
-                              </button>
-                            )}
 
-                            {isAdmin && (
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setEditingSection({
-                                    secIndex: sIdx,
-                                    name: section.name || section.title || '',
-                                    summary: section.summary || ''
-                                  });
-                                }}
-                                className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors border-none cursor-pointer"
-                                title="এই পেপারের নাম পরিবর্তন করুন"
-                              >
-                                <Edit2 className="w-3.5 h-3.5" />
-                              </button>
-                            )}
 
                             <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-transform duration-200 ${
                               isSectionOpen ? 'rotate-180 text-[#ff2a55]' : (isDark ? 'text-gray-400' : 'text-slate-500')
@@ -1457,29 +1229,7 @@ export default function BiologyCoursePage({
                                     এই পেপারের রেকর্ডেড লেকচার, নোট ও লাইভ এক্সাম শিডিউল দ্রুততম সময়ে আপলোড করা হবে।
                                   </p>
                                 </div>
-                                {isAdmin && (
-                                  <div className="pt-2">
-                                    <button
-                                      type="button"
-                                      onClick={() => {
-                                        setEditingLesson({
-                                          secIndex: sIdx,
-                                          chapIndex: 0,
-                                          lessonIndex: -1,
-                                          title: '',
-                                          videoUrl: '',
-                                          pdfUrl: '',
-                                          duration: '45 min',
-                                          isFree: false
-                                        });
-                                      }}
-                                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#e11438] hover:bg-[#ff2a55] text-white text-xs font-bold transition-all cursor-pointer border-none shadow-sm"
-                                    >
-                                      <Plus className="w-3.5 h-3.5" />
-                                      <span>+ নতুন ক্লাস যুক্ত করুন</span>
-                                    </button>
-                                  </div>
-                                )}
+
                               </div>
                             )}
                           </div>
@@ -1975,237 +1725,7 @@ export default function BiologyCoursePage({
         </div>
       )}
 
-      {/* Admin Edit Lecture Modal */}
-      {editingLesson && (
-        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className={`relative w-full max-w-lg rounded-3xl border p-6 sm:p-7 shadow-2xl transition-all ${
-            isDark ? 'bg-[#140307] border-[#e11438]/40 text-white' : 'bg-white border-gray-200 text-gray-900'
-          }`}>
-            {/* Header */}
-            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-[#e11438]/15 border border-[#e11438]/30 flex items-center justify-center text-[#ff4d6d]">
-                  <Edit2 className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-base font-bold">
-                    {editingLesson.lessonIndex === -1 ? 'নতুন ক্লাস যোগ করুন' : 'ক্লাস ও লেকচারের নাম এডিট করুন'}
-                  </h3>
-                  <p className="text-xs text-gray-400">লেকচারের নাম, ইউটিউব লিংক ও নোট আপডেট করুন</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setEditingLesson(null)}
-                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer border-none bg-transparent"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
 
-            <form onSubmit={handleSaveLessonEdit} className="space-y-4">
-              {/* Lecture Name (Title) */}
-              <div>
-                <label className="block text-xs font-bold text-gray-300 mb-1.5">
-                  লেকচারের নাম <span className="text-[#e11438]">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={editingLesson.title}
-                  onChange={(e) => setEditingLesson(prev => ({ ...prev, title: e.target.value }))}
-                  placeholder="যেমন: ভেক্টর লেকচার ০১ - বেসিক থিওরি ও ডট গুণন"
-                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
-                    isDark 
-                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white placeholder-gray-500' 
-                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900 placeholder-gray-400'
-                  }`}
-                />
-                <p className="text-[11px] text-gray-400 mt-1">
-                  এখানে আপনার লেকচারের আসল শিরোনাম দিন (লিংক দেওয়ার দরকার নেই, লিংক নিচে দিন)।
-                </p>
-              </div>
-
-              {/* Video URL */}
-              <div>
-                <label className="block text-xs font-bold text-gray-300 mb-1.5">
-                  ইউটিউব ভিডিও লিংক (YouTube URL)
-                </label>
-                <input
-                  type="text"
-                  value={editingLesson.videoUrl}
-                  onChange={(e) => setEditingLesson(prev => ({ ...prev, videoUrl: e.target.value }))}
-                  placeholder="যেমন: https://youtu.be/vnHUmQqTFJQ অথবা https://www.youtube.com/watch?v=..."
-                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
-                    isDark 
-                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white placeholder-gray-500' 
-                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900 placeholder-gray-400'
-                  }`}
-                />
-              </div>
-
-              {/* Duration & Free Toggle Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-bold text-gray-300 mb-1.5">
-                    ক্লাসের ব্যাপ্তি (Duration)
-                  </label>
-                  <input
-                    type="text"
-                    value={editingLesson.duration}
-                    onChange={(e) => setEditingLesson(prev => ({ ...prev, duration: e.target.value }))}
-                    placeholder="যেমন: 45 min"
-                    className={`w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold border outline-none transition-colors ${
-                      isDark 
-                        ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white' 
-                        : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900'
-                    }`}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-300 mb-1.5">
-                    লেকচার অ্যাক্সেস
-                  </label>
-                  <label className={`flex items-center gap-2.5 p-2 rounded-xl border cursor-pointer select-none transition-colors ${
-                    editingLesson.isFree ? 'border-emerald-500/50 bg-emerald-500/10' : 'border-white/10 bg-white/[0.02]'
-                  }`}>
-                    <input
-                      type="checkbox"
-                      checked={editingLesson.isFree}
-                      onChange={(e) => setEditingLesson(prev => ({ ...prev, isFree: e.target.checked }))}
-                      className="w-4 h-4 text-[#e11438] rounded cursor-pointer"
-                    />
-                    <span className="text-xs font-bold">
-                      {editingLesson.isFree ? 'ফ্রি ট্রায়াল ক্লাস (আনলক)' : 'পেইড স্টুডেন্ট (লকড)'}
-                    </span>
-                  </label>
-                </div>
-              </div>
-
-              {/* PDF Link */}
-              <div>
-                <label className="block text-xs font-bold text-gray-300 mb-1.5">
-                  লেকচার শিট বা PDF লিংক (ঐচ্ছিক)
-                </label>
-                <input
-                  type="text"
-                  value={editingLesson.pdfUrl}
-                  onChange={(e) => setEditingLesson(prev => ({ ...prev, pdfUrl: e.target.value }))}
-                  placeholder="Google Drive বা সরাসরি PDF লিংক"
-                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
-                    isDark 
-                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white placeholder-gray-500' 
-                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900 placeholder-gray-400'
-                  }`}
-                />
-              </div>
-
-              {/* Buttons */}
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setEditingLesson(null)}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-colors cursor-pointer border-none bg-transparent"
-                >
-                  বাতিল
-                </button>
-                <button
-                  type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#e11438] to-[#ff2a55] hover:opacity-95 text-white font-bold text-xs shadow-md transition-all cursor-pointer border-none flex items-center gap-1.5 active:scale-95"
-                >
-                  <Check className="w-3.5 h-3.5" />
-                  <span>সংরক্ষণ করুন</span>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Admin Edit Section Modal */}
-      {editingSection && (
-        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className={`relative w-full max-w-md rounded-3xl border p-6 sm:p-7 shadow-2xl transition-all ${
-            isDark ? 'bg-[#140307] border-[#e11438]/40 text-white' : 'bg-white border-gray-200 text-gray-900'
-          }`}>
-            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-[#e11438]/15 border border-[#e11438]/30 flex items-center justify-center text-[#ff4d6d]">
-                  <Edit2 className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-base font-bold">
-                    {editingSection.isNew ? 'নতুন পেপার / বিষয় যোগ করুন' : 'পেপারের নাম এডিট করুন'}
-                  </h3>
-                  <p className="text-xs text-gray-400">পেপার বা বিষয়ের শিরোনাম পরিবর্তন</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setEditingSection(null)}
-                className="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer border-none bg-transparent"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <form onSubmit={handleSaveSectionEdit} className="space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-gray-300 mb-1.5">
-                  পেপার বা বিষয়ের নাম <span className="text-[#e11438]">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={editingSection.name}
-                  onChange={(e) => setEditingSection(prev => ({ ...prev, name: e.target.value }))}
-                  placeholder="যেমন: Physics 1st Paper বা Physics 2nd Paper"
-                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
-                    isDark 
-                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white' 
-                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900'
-                  }`}
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-gray-300 mb-1.5">
-                  সংক্ষিপ্ত বিবরণ (Summary)
-                </label>
-                <input
-                  type="text"
-                  value={editingSection.summary}
-                  onChange={(e) => setEditingSection(prev => ({ ...prev, summary: e.target.value }))}
-                  placeholder="যেমন: ১০টি লাইভ ও রেকর্ডেড ক্লাস"
-                  className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border outline-none transition-colors ${
-                    isDark 
-                      ? 'bg-black/50 border-white/15 focus:border-[#e11438] text-white' 
-                      : 'bg-gray-50 border-gray-300 focus:border-[#e11438] text-gray-900'
-                  }`}
-                />
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setEditingSection(null)}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-colors cursor-pointer border-none bg-transparent"
-                >
-                  বাতিল
-                </button>
-                <button
-                  type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#e11438] to-[#ff2a55] hover:opacity-95 text-white font-bold text-xs shadow-md transition-all cursor-pointer border-none flex items-center gap-1.5 active:scale-95"
-                >
-                  <Check className="w-3.5 h-3.5" />
-                  <span>সংরক্ষণ করুন</span>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
 
       {/* Sleek Built-in PDF Lecture Sheet Modal */}
       {activePdfLesson && (

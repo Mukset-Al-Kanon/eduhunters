@@ -232,39 +232,7 @@ export const mapOrderDocToTx = (docId, order) => {
     isPaid = (overrideStatus || '').toLowerCase() === 'completed';
   }
 
-  // AUTO-RESOLVE: If student is already enrolled/active in the system, this order is fulfilled and MUST NOT show as Pending
-  if (!isPaid && !isRejected) {
-    const rawP = t.studentPhone || order.customer?.phone || '';
-    const cleanP = String(rawP).replace(/[^0-9]/g, '').slice(-10);
-    const cleanE = String(t.studentEmail || order.customer?.email || '').trim().toLowerCase();
-    try {
-      const rawEnrolled = localStorage.getItem('eh_enrolled_students');
-      if (rawEnrolled) {
-        const parsed = JSON.parse(rawEnrolled);
-        if (Array.isArray(parsed) && parsed.some(st => {
-          const sp = String(st.phone || '').replace(/[^0-9]/g, '').slice(-10);
-          const se = String(st.email || '').trim().toLowerCase();
-          return ((cleanP && sp && cleanP === sp) || (cleanE && se && cleanE === se)) && (st.status || '').toLowerCase() === 'active';
-        })) {
-          isPaid = true;
-        }
-      }
-      if (!isPaid) {
-        const rawUsers = localStorage.getItem('eh_registered_users');
-        if (rawUsers) {
-          const parsedU = JSON.parse(rawUsers);
-          if (Array.isArray(parsedU) && parsedU.some(u => {
-            const up = String(u.phone || u.whatsapp || '').replace(/[^0-9]/g, '').slice(-10);
-            const ue = String(u.email || '').trim().toLowerCase();
-            return ((cleanP && up && cleanP === up) || (cleanE && ue && cleanE === ue)) && Array.isArray(u.enrolledCourses) && u.enrolledCourses.length > 0;
-          })) {
-            isPaid = true;
-          }
-        }
-      }
-    } catch (e) {}
-  }
-
+  // Pending orders strictly remain Pending until Admin manually approves them
   const status = isPaid ? 'Completed' : (isRejected ? 'Rejected' : 'Pending');
 
   const baseTx = {
@@ -300,25 +268,6 @@ export const mapOrderDocToStudent = (docId, order) => {
   const overrideStatus = sMap[docId] ?? sMap[cleanDocId] ?? sMap[s.id] ?? sMap[t.id] ?? sMap[s.trxId] ?? sMap[t.trxId] ?? sMap[order.transactionId];
   if (overrideStatus) {
     isPaid = (overrideStatus || '').toLowerCase() === 'completed';
-  }
-
-  if (!isPaid) {
-    const rawP = s.phone || order.customer?.phone || t.studentPhone || '';
-    const cleanP = String(rawP).replace(/[^0-9]/g, '').slice(-10);
-    const cleanE = String(s.email || order.customer?.email || t.studentEmail || '').trim().toLowerCase();
-    try {
-      const rawUsers = localStorage.getItem('eh_registered_users');
-      if (rawUsers) {
-        const parsedU = JSON.parse(rawUsers);
-        if (Array.isArray(parsedU) && parsedU.some(u => {
-          const up = String(u.phone || u.whatsapp || '').replace(/[^0-9]/g, '').slice(-10);
-          const ue = String(u.email || '').trim().toLowerCase();
-          return ((cleanP && up && cleanP === up) || (cleanE && ue && cleanE === ue)) && Array.isArray(u.enrolledCourses) && u.enrolledCourses.length > 0;
-        })) {
-          isPaid = true;
-        }
-      }
-    } catch (e) {}
   }
 
   const baseStudent = {

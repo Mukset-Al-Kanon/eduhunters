@@ -6,6 +6,7 @@ import { EXAM_CATEGORIES_METADATA } from '../data/examCategoriesData';
 import { db, isFirebaseConfigured } from '../firebase/config';
 import { doc, setDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { saveSupabaseOrder, saveSupabaseUser } from '../services/supabaseService';
+import { getAdminSession } from '../services/adminAuthService';
 import React, { useState, useEffect, useMemo } from 'react';
 
 export const ENROLLED_COURSES_KEY = 'eduhunters_enrolled_courses';
@@ -594,8 +595,9 @@ cleanUnverifiedLegacyBatches();
 export function isItemEnrolled(itemOrId, currentUser = null, data = null, options = {}) {
   if (!itemOrId) return false;
 
-  // 1. Admin Role has master pass to everything (except when viewing personal dashboard where only genuine enrollments are shown)
-  if (!options?.forDashboard && (currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com')) {
+  // 1. Admin Role or Active Admin Session has master pass to everything (except when viewing personal dashboard where only genuine enrollments are shown)
+  const adminSession = getAdminSession();
+  if (!options?.forDashboard && (currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'admin@eduhunters.com' || Boolean(adminSession))) {
     return true;
   }
 
