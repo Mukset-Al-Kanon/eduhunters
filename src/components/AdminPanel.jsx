@@ -217,11 +217,11 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     return raw;
   });
 
-  const [courses, setCourses] = useState(() => {
-    const raw = Array.isArray(data?.courses) 
+  const [courses, setCourses] = useState(() => 
+    Array.isArray(data?.courses) 
       ? data.courses 
-      : initialData.courses;
-  });
+      : (initialData.courses || [])
+  );
 
   const [categories, setCategories] = useState(() => {
     const raw = Array.isArray(data?.categories) 
@@ -5097,7 +5097,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   // Memoized Filtered Courses with instant search
   const deferredCourseQuery = useDeferredValue(courseSearchQuery);
   const filteredCourses = useMemo(() => {
-    let list = courses.map((course, originalIdx) => ({ course, originalIdx }));
+    const safeCourses = Array.isArray(courses) ? courses : [];
+    let list = safeCourses.map((course, originalIdx) => ({ course, originalIdx }));
     
     if (!isAllCat(adminCourseCategoryFilter)) {
       list = list.filter(({ course }) => courseMatchesCategory(course, adminCourseCategoryFilter));
