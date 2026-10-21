@@ -375,18 +375,18 @@ export function grantCourseAccess(itemOrTitle, data = {}, targetUser = null) {
         nextOrdersList.unshift(adminOrder);
         localStorage.setItem('eh_user_orders_v3', JSON.stringify(nextOrdersList));
         saveSupabaseOrder(adminOrder).catch(e => console.warn('[enrollmentService] Supabase grant save note:', e));
+      }
 
-        if (targetUser && (targetUid || targetEmail)) {
-          saveSupabaseUser({
-            uid: targetUid || `u_${targetEmail.replace(/[^a-z0-9]/g, '')}`,
-            id: targetUid,
-            email: targetEmail,
-            displayName: targetUser.name || targetUser.displayName || 'Student',
-            phone: targetPhone
-          }, {
-            enrolledCourses: resolvedCourses
-          }).catch(e => console.warn('[enrollmentService] Supabase user grant sync note:', e));
-        }
+      if (targetUser && (targetUid || targetEmail)) {
+        saveSupabaseUser({
+          uid: targetUid || `u_${targetEmail.replace(/[^a-z0-9]/g, '')}`,
+          id: targetUid,
+          email: targetEmail,
+          displayName: targetUser.name || targetUser.displayName || 'Student',
+          phone: targetPhone
+        }, {
+          enrolledCourses: resolvedCourses
+        }).catch(e => console.warn('[enrollmentService] Supabase user grant sync note:', e));
       }
     } catch (e) {}
 

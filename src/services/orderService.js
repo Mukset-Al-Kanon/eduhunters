@@ -545,14 +545,36 @@ export function approveOrder(identifier, { courseTitle, studentPhone, studentEma
     }
 
     // Sync student profile with unlocked course in Supabase users table
-    if (cleanEmail || approvedOrder?.customer?.uid || approvedOrder?.userId) {
-      const uUid = approvedOrder?.customer?.uid || approvedOrder?.userId || `u_${cleanEmail.replace(/[^a-z0-9]/g, '')}`;
+    if (cleanEmail || cleanPhone || approvedOrder?.customer?.uid || approvedOrder?.userId || extra.userId) {
+      let uUid = extra.userId || approvedOrder?.customer?.uid || approvedOrder?.userId;
+      if (!uUid && cleanEmail) {
+        try {
+          const rawReg = localStorage.getItem('eh_registered_users');
+          if (rawReg) {
+            const list = JSON.parse(rawReg);
+            const foundU = list.find(u => (u.email || '').toLowerCase().trim() === cleanEmail);
+            if (foundU) uUid = foundU.uid || foundU.id;
+          }
+        } catch (e) {}
+      }
+      if (!uUid && cleanPhone) {
+        try {
+          const rawReg = localStorage.getItem('eh_registered_users');
+          if (rawReg) {
+            const list = JSON.parse(rawReg);
+            const foundU = list.find(u => isPhoneMatch((u.phone || u.whatsapp || '').replace(/[^0-9]/g, ''), cleanPhone));
+            if (foundU) uUid = foundU.uid || foundU.id;
+          }
+        } catch (e) {}
+      }
+
       saveSupabaseUser({
         uid: uUid,
         id: uUid,
         email: cleanEmail,
         displayName: studentName || approvedOrder?.customer?.name || 'Student',
-        phone: cleanPhone
+        phone: cleanPhone,
+        role: 'Student'
       }, {
         enrolledCourses: [finalTitle]
       }).catch(e => console.warn('[orderService] Supabase user enrollment update note:', e));

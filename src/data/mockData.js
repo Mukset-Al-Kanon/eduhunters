@@ -176,10 +176,12 @@ export const initialData = {
       };
     }
     if (course.id === 'course-1791887161017' || course.slug === 'physics-finishing-touch-series') {
+      const curLessons = (course.curriculum?.[0]?.lessons || []).length;
+      const seedLessons = (physicsFinishingTouchCourseData.curriculum?.[0]?.lessons || []).length;
       return {
-        ...course,
         ...physicsFinishingTouchCourseData,
-        curriculum: physicsFinishingTouchCourseData.curriculum
+        ...course,
+        curriculum: curLessons >= seedLessons ? course.curriculum : physicsFinishingTouchCourseData.curriculum
       };
     }
     const foundFree = freeCoursesData.find(c => c.id === course.id || c.slug === course.slug);

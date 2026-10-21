@@ -426,7 +426,9 @@ export default function App() {
                   let mapped = c.category === 'University A Unit' ? { ...c, category: 'Free' } : c;
                   const initialMatch = initialData.courses.find(initC => initC.id === c.id || initC.slug === c.slug);
                   if (initialMatch) {
-                    if (!mapped.curriculum || !Array.isArray(mapped.curriculum) || mapped.curriculum.length === 0) {
+                    const localLessonCount = (mapped.curriculum?.[0]?.lessons || []).length;
+                    const seedLessonCount = (initialMatch.curriculum?.[0]?.lessons || []).length;
+                    if (!mapped.curriculum || !Array.isArray(mapped.curriculum) || mapped.curriculum.length === 0 || (c.id === 'course-1791887161017' && localLessonCount < seedLessonCount)) {
                       mapped = { ...mapped, curriculum: initialMatch.curriculum };
                     }
                     if (!mapped.features || !Array.isArray(mapped.features) || mapped.features.length === 0) {
@@ -607,11 +609,13 @@ export default function App() {
               modified = true;
             } else {
               const hasCurriculum = Array.isArray(parsed.courses[physIdx].curriculum) && parsed.courses[physIdx].curriculum.length > 0;
-              if (!hasCurriculum) {
+              const localLessons = (parsed.courses[physIdx].curriculum?.[0]?.lessons || []).length;
+              const seedLessons = (initialPhys.curriculum?.[0]?.lessons || []).length;
+              if (!hasCurriculum || localLessons < seedLessons) {
                 parsed.courses[physIdx] = {
                   ...parsed.courses[physIdx],
                   curriculum: initialPhys.curriculum,
-                  totalClasses: initialPhys.totalClasses || '৩টি ক্লাস'
+                  totalClasses: initialPhys.totalClasses || '২১টি ক্লাস'
                 };
                 modified = true;
               }
@@ -750,7 +754,7 @@ export default function App() {
       const cloudTime = cloudData._lastUpdated ? new Date(cloudData._lastUpdated).getTime() : 0;
 
       // If local state has newer or equal edits than cloudData, preserve local without writing back in a loop
-      if (localTime >= cloudTime && localTime > 0) {
+      if (localTime >= cloudTime && localTime > 0 && cloudTime > 0) {
         return prev;
       }
 
@@ -811,8 +815,8 @@ export default function App() {
           const localLessons = countLessons(localCourse.curriculum);
           const cloudLessons = countLessons(cloudCourse.curriculum);
 
-          // If local course has richer curriculum or cloud curriculum is empty, preserve local curriculum
-          if (localLessons > cloudLessons) {
+          // If cloud course curriculum is empty but local has curriculum, fallback to local curriculum
+          if (cloudLessons === 0 && localLessons > 0) {
             return {
               ...cloudCourse,
               curriculum: localCourse.curriculum

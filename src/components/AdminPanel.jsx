@@ -193,6 +193,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     } catch {}
   };
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const lastLocalSaveRef = useRef(0);
 
   // Bulletproof state initialization - NEVER empty or undefined
   const [siteSettings, setSiteSettings] = useState(() => ({
@@ -220,42 +221,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     const raw = Array.isArray(data?.courses) 
       ? data.courses 
       : initialData.courses;
-    return raw.filter(c => !isZenithCopiedCourse(c));
   });
-
-  useEffect(() => {
-    if (Array.isArray(data?.courses) && data.courses.length > 0) {
-      setCourses(data.courses.filter(c => !isZenithCopiedCourse(c)));
-    }
-  }, [data?.courses]);
-
-  useEffect(() => {
-    if (data?.siteSettings) setSiteSettings(data.siteSettings);
-  }, [data?.siteSettings]);
-
-  useEffect(() => {
-    if (data?.sectionTexts) setSectionTexts(data.sectionTexts);
-  }, [data?.sectionTexts]);
-
-  useEffect(() => {
-    if (data?.announcement !== undefined) setAnnouncement(data.announcement);
-  }, [data?.announcement]);
-
-  useEffect(() => {
-    if (Array.isArray(data?.heroSlides) && data.heroSlides.length > 0) setHeroSlides(data.heroSlides);
-  }, [data?.heroSlides]);
-
-  useEffect(() => {
-    if (Array.isArray(data?.bundles) && data.bundles.length > 0) setBundles(data.bundles);
-  }, [data?.bundles]);
-
-  useEffect(() => {
-    if (Array.isArray(data?.instructors) && data.instructors.length > 0) setInstructors(data.instructors);
-  }, [data?.instructors]);
-
-  useEffect(() => {
-    if (Array.isArray(data?.whyChooseUs) && data.whyChooseUs.length > 0) setWhyChooseUs(data.whyChooseUs);
-  }, [data?.whyChooseUs]);
 
   const [categories, setCategories] = useState(() => {
     const raw = Array.isArray(data?.categories) 
@@ -1359,6 +1325,10 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
   // Synchronize AdminPanel state with live updates from App.jsx or cross-tab synchronization
   useEffect(() => {
     if (!data) return;
+    // Don't re-sync if the update came from our own local save within the last 2.5 seconds
+    if (Date.now() - lastLocalSaveRef.current < 2500) {
+      return;
+    }
     if (Array.isArray(data.bundles)) setBundles(data.bundles);
     if (Array.isArray(data.courses)) setCourses(data.courses.filter(c => !isZenithCopiedCourse(c)));
     if (Array.isArray(data.heroSlides)) setHeroSlides(data.heroSlides);
@@ -1892,6 +1862,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
   // Central Save & Persist
   const persistAll = (overrides = {}) => {
+    lastLocalSaveRef.current = Date.now();
     const currentCourses = overrides.courses !== undefined ? overrides.courses : courses;
     const currentBatches = overrides.examBatches !== undefined ? overrides.examBatches : (data?.examBatches || initialData.examBatches || []);
     const syncedBatches = currentBatches.map(b => {
@@ -1940,9 +1911,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       privacyPolicy: overrides.privacyPolicy !== undefined ? overrides.privacyPolicy : privacyPolicy
     };
     onUpdateData(fullState);
-    try {
-      saveSupabaseSiteData(fullState);
-    } catch (e) {}
     return fullState;
   };
 
@@ -2428,6 +2396,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
     persistAll({ users: updated, enrolledStudents: nextEnrolled });
 
+    // Bi-directional sync: Mirror to Supabase eduhunters_users
+    if (isSupabaseConfigured && targetUser) {
+      const uRecord = updated.find(u => u.id === userId || u.uid === userId || u.email === userId);
+      if (uRecord) {
+        saveSupabaseUser({
+          uid: uRecord.id || uRecord.uid,
+          id: uRecord.id || uRecord.uid,
+          email: uRecord.email,
+          displayName: uRecord.name || uRecord.displayName,
+          phone: uRecord.phone || uRecord.whatsapp,
+          role: uRecord.role || 'Student'
+        }, {
+          enrolledCourses: uRecord.enrolledCourses,
+          totalSpent: uRecord.totalSpent
+        }).catch(e => console.warn('[AdminPanel] Quick enroll Supabase sync note:', e));
+      }
+    }
+
     if (selectedUserDetails?.id === userId || selectedUserDetails?.uid === userId) {
       setSelectedUserDetails(prev => ({
         ...prev,
@@ -2490,6 +2476,24 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     }
 
     persistAll({ users: updated, enrolledStudents: nextEnrolled });
+
+    // Sync revoked courses to Supabase eduhunters_users
+    if (isSupabaseConfigured && targetUser) {
+      const uRecord = updated.find(u => u.id === userId || u.uid === userId || u.email === userId);
+      if (uRecord) {
+        saveSupabaseUser({
+          uid: uRecord.id || uRecord.uid,
+          id: uRecord.id || uRecord.uid,
+          email: uRecord.email,
+          displayName: uRecord.name || uRecord.displayName,
+          phone: uRecord.phone || uRecord.whatsapp,
+          role: uRecord.role || 'Student'
+        }, {
+          enrolledCourses: uRecord.enrolledCourses || [],
+          overwriteEnrolledCourses: true
+        }).catch(e => console.warn('[AdminPanel] Revoke course Supabase sync note:', e));
+      }
+    }
 
     if (selectedUserDetails?.id === userId || selectedUserDetails?.uid === userId) {
       setSelectedUserDetails(prev => ({
@@ -2839,6 +2843,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
     // 5. User Management: Ensure student is unified into usersList & placed at the very top
     let userFound = false;
+    let savedUserRecord = null;
     const updatedUsersList = usersList.map(u => {
       const uPhone = (u.phone || u.whatsapp || '').replace(/[^0-9]/g, '');
       const uEmail = (u.email || '').trim().toLowerCase();
@@ -2850,13 +2855,16 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       if (matchPhone || matchEmail || matchName) {
         userFound = true;
         const current = u.enrolledCourses || [];
-        return {
+        const nextCourses = Array.from(new Set([...current, ...coursesToGrant]));
+        const updatedU = {
           ...u,
           status: 'Active',
-          enrolledCourses: Array.from(new Set([...current, ...coursesToGrant])),
-          totalSpent: (u.totalSpent || 0) + (Number(targetTx.amount) || 0),
+          enrolledCourses: nextCourses,
+          totalSpent: (Number(u.totalSpent) || 0) + (Number(targetTx.amount) || 0),
           lastActive: 'Active now'
         };
+        savedUserRecord = updatedU;
+        return updatedU;
       }
       return u;
     });
@@ -2887,21 +2895,25 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(targetTx.studentName || 'student')}`
       };
       extraUserUpdates = [newStudentUser, ...updatedUsersList];
-      if (isSupabaseConfigured) {
-        saveSupabaseUser({
-          uid: newStudentUser.id,
-          email: newStudentUser.email,
-          displayName: newStudentUser.name,
-          phone: newStudentUser.phone,
-          role: 'Student'
-        }, {
-          enrolledCourses: coursesToGrant,
-          totalSpent: newStudentUser.totalSpent,
-          isNewRegistration: true
-        }).catch(() => {});
-      }
+      savedUserRecord = newStudentUser;
     }
     setUsersList(extraUserUpdates);
+
+    // CRITICAL: Always persist student user profile to Supabase eduhunters_users immediately!
+    if (isSupabaseConfigured && savedUserRecord) {
+      saveSupabaseUser({
+        uid: savedUserRecord.id || savedUserRecord.uid,
+        id: savedUserRecord.id || savedUserRecord.uid,
+        email: savedUserRecord.email,
+        displayName: savedUserRecord.name || savedUserRecord.displayName,
+        phone: savedUserRecord.phone || savedUserRecord.whatsapp,
+        role: savedUserRecord.role || 'Student'
+      }, {
+        enrolledCourses: savedUserRecord.enrolledCourses || coursesToGrant,
+        totalSpent: savedUserRecord.totalSpent,
+        isNewRegistration: !userFound
+      }).catch(e => console.warn('[AdminPanel] Supabase user enrollment approval sync note:', e));
+    }
 
     // 6. Direct Supabase order status update with multi-strategy resolution
     const resolvedOrderId = targetTx.orderId || targetTx.id;
@@ -2910,11 +2922,13 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         id: targetTx.id,
         orderId: targetTx.orderId,
         trxId: targetTx.trxId,
+        invoiceNumber: targetTx.invoiceNumber,
         phone: targetTx.studentPhone,
         email: targetTx.studentEmail,
         courseTitle: itemTitle,
         studentName: targetTx.studentName,
-        amount: targetTx.amount
+        amount: targetTx.amount,
+        uid: savedUserRecord?.id || savedUserRecord?.uid
       }).catch(e => console.warn('[AdminPanel] Direct Supabase order approval note:', e));
     }
 
@@ -2924,7 +2938,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       studentPhone: targetTx.studentPhone,
       studentEmail: targetTx.studentEmail,
       studentName: targetTx.studentName,
-      amount: targetTx.amount
+      amount: targetTx.amount,
+      userId: savedUserRecord?.id || savedUserRecord?.uid
     });
 
     persistAll({ 
@@ -2980,6 +2995,44 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         revokeCourseAccess(targetTx.itemTitle, { bundles, courses }, matchedTargetUser);
       }
 
+      // Update usersList and sync revocation to Supabase
+      let nextUsersList = usersList;
+      if (matchedTargetUser && targetTx.itemTitle) {
+        const normT = (targetTx.itemTitle || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+        nextUsersList = usersList.map(u => {
+          if (u.id === matchedTargetUser.id || u.uid === matchedTargetUser.id || (matchedTargetUser.email && u.email === matchedTargetUser.email)) {
+            const current = u.enrolledCourses || [];
+            const filtered = current.filter(c => {
+              const normC = (c || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+              return normC !== normT && !normC.includes(normT) && !normT.includes(normC);
+            });
+            return {
+              ...u,
+              enrolledCourses: filtered
+            };
+          }
+          return u;
+        });
+        setUsersList(nextUsersList);
+
+        if (isSupabaseConfigured) {
+          const uRecord = nextUsersList.find(u => u.id === matchedTargetUser.id || u.uid === matchedTargetUser.id || (matchedTargetUser.email && u.email === matchedTargetUser.email));
+          if (uRecord) {
+            saveSupabaseUser({
+              uid: uRecord.id || uRecord.uid,
+              id: uRecord.id || uRecord.uid,
+              email: uRecord.email,
+              displayName: uRecord.name || uRecord.displayName,
+              phone: uRecord.phone || uRecord.whatsapp,
+              role: uRecord.role || 'Student'
+            }, {
+              enrolledCourses: uRecord.enrolledCourses || [],
+              overwriteEnrolledCourses: true
+            }).catch(() => {});
+          }
+        }
+      }
+
       // Update enrolled students list
       const updatedStudents = enrolledStudents.map(st => {
         const stPhone = (st.phone || '').replace(/[^0-9]/g, '');
@@ -3011,7 +3064,8 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
       persistAll({
         accounting: newAcc,
-        enrolledStudents: updatedStudents
+        enrolledStudents: updatedStudents,
+        users: nextUsersList
       });
 
       triggerToast('Enrollment approval revoked and course locked');
@@ -3819,8 +3873,6 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
     });
 
     persistAll({ courses: updated, examBatches: updatedBatches });
-    // Targeted lightweight cloud save to guarantee instant Firestore persistence
-    saveCloudData({ courses: updated, examBatches: updatedBatches });
     triggerToast(nextActive ? `🟢 "${targetCourse.title}" Activated` : `⚪ "${targetCourse.title}" Deactivated`);
   };
 
@@ -4122,6 +4174,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
 
     // 4. Update usersList - Union of enrolled courses, 100% guarantee no access is lost
     let userFound = false;
+    let savedUserRecord = null;
     let updatedUsers = usersList.map(u => {
       const uPhone = (u.phone || '').replace(/[^0-9]/g, '');
       const uName = (u.name || '').trim().toLowerCase();
@@ -4132,13 +4185,15 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
       if (matchPhone || matchEmail || matchName) {
         userFound = true;
         const current = u.enrolledCourses || [];
-        return {
+        const updatedU = {
           ...u,
           status: 'Active',
           enrolledCourses: Array.from(new Set([...current, courseTitle, ...grantedCourses])),
           totalSpent: (Number(u.totalSpent) || 0) + addedAmt,
           lastActive: 'Active now'
         };
+        savedUserRecord = updatedU;
+        return updatedU;
       }
       return u;
     });
@@ -4166,21 +4221,25 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
         avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(studentName)}`
       };
       updatedUsers = [newStudentUser, ...updatedUsers];
-      if (isSupabaseConfigured) {
-        saveSupabaseUser({
-          uid: newStudentUser.id,
-          email: newStudentUser.email,
-          displayName: newStudentUser.name,
-          phone: newStudentUser.phone,
-          role: 'Student'
-        }, {
-          enrolledCourses: newStudentUser.enrolledCourses,
-          totalSpent: addedAmt,
-          isNewRegistration: true
-        }).catch(() => {});
-      }
+      savedUserRecord = newStudentUser;
     }
     setUsersList(updatedUsers);
+
+    // CRITICAL: Always persist student user profile to Supabase eduhunters_users immediately!
+    if (isSupabaseConfigured && savedUserRecord) {
+      saveSupabaseUser({
+        uid: savedUserRecord.id || savedUserRecord.uid,
+        id: savedUserRecord.id || savedUserRecord.uid,
+        email: savedUserRecord.email,
+        displayName: savedUserRecord.name || savedUserRecord.displayName,
+        phone: savedUserRecord.phone || savedUserRecord.whatsapp,
+        role: savedUserRecord.role || 'Student'
+      }, {
+        enrolledCourses: savedUserRecord.enrolledCourses || Array.from(new Set([courseTitle, ...grantedCourses])),
+        totalSpent: savedUserRecord.totalSpent,
+        isNewRegistration: !userFound
+      }).catch(e => console.warn('[AdminPanel] Supabase user enrollment approval sync note:', e));
+    }
 
     // Direct Supabase order update
     if (isSupabaseConfigured) {
@@ -5145,11 +5204,7 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
               (updatedCourse?.slug && c?.slug === updatedCourse.slug)
             ) ? updatedCourse : c);
             setCourses(next);
-            const fullState = persistAll({ courses: next });
-            try {
-              saveSupabaseSiteData(fullState);
-            } catch (e) {}
-            saveCloudData({ courses: next });
+            persistAll({ courses: next });
           }}
           onBack={() => {
             setCurriculumCourseIndex(null);

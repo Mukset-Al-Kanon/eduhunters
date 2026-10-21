@@ -163,9 +163,21 @@ export async function updateSupabaseOrderStatus(orderId, updatesOrStatus, extraC
       const clean = val.trim();
       if (!clean) return;
       idsToTry.add(clean);
-      if (clean.startsWith('TRX-')) idsToTry.add(clean.replace(/^TRX-/, ''));
+      if (clean.startsWith('TRX-')) {
+        const withoutTrx = clean.replace(/^TRX-/, '');
+        idsToTry.add(withoutTrx);
+        if (!withoutTrx.startsWith('ord_')) idsToTry.add(`ord_${withoutTrx}`);
+      }
       if (clean.startsWith('st-')) idsToTry.add(clean.replace(/^st-/, ''));
-      if (clean.startsWith('ord_')) idsToTry.add(clean.replace(/^ord_/, ''));
+      if (clean.startsWith('ord_')) {
+        idsToTry.add(clean.replace(/^ord_/, ''));
+        idsToTry.add(`TRX-${clean}`);
+      }
+      if (!clean.startsWith('ord_') && !clean.startsWith('TRX-') && !clean.startsWith('ORD-ADM-') && !clean.startsWith('st-')) {
+        idsToTry.add(`ord_${clean}`);
+        idsToTry.add(`TRX-${clean}`);
+        idsToTry.add(`TRX-ord_${clean}`);
+      }
     };
 
     addCandidate(orderId);
@@ -180,7 +192,7 @@ export async function updateSupabaseOrderStatus(orderId, updatesOrStatus, extraC
       for (const cand of candidateArray) {
         const { data } = await supabase
           .from('eduhunters_orders')
-          .select('id, raw_data')
+          .select('*')
           .eq('id', cand)
           .maybeSingle();
         if (data) {
@@ -195,7 +207,7 @@ export async function updateSupabaseOrderStatus(orderId, updatesOrStatus, extraC
     if (!matchedOrder && targetTrxId && targetTrxId !== 'PENDING' && targetTrxId !== 'PENDING_VERIFICATION') {
       const { data } = await supabase
         .from('eduhunters_orders')
-        .select('id, raw_data')
+        .select('*')
         .eq('trx_id', targetTrxId)
         .maybeSingle();
       if (data) {
@@ -207,7 +219,7 @@ export async function updateSupabaseOrderStatus(orderId, updatesOrStatus, extraC
     if (!matchedOrder && extraCriteria.invoiceNumber && extraCriteria.invoiceNumber !== 'INV-EH') {
       const { data } = await supabase
         .from('eduhunters_orders')
-        .select('id, raw_data')
+        .select('*')
         .eq('invoice_number', extraCriteria.invoiceNumber)
         .maybeSingle();
       if (data) {
@@ -215,18 +227,54 @@ export async function updateSupabaseOrderStatus(orderId, updatesOrStatus, extraC
       }
     }
 
-    // 4. Fallback: try finding by phone + course name
-    if (!matchedOrder && extraCriteria.phone && extraCriteria.courseTitle) {
+    // 4. Fallback: try finding by customer email
+    if (!matchedOrder && extraCriteria.email) {
+      const cleanEmail = String(extraCriteria.email).toLowerCase().trim();
+      if (cleanEmail) {
+        if (extraCriteria.courseTitle) {
+          const { data: withCourse } = await supabase
+            .from('eduhunters_orders')
+            .select('*')
+            .eq('customer_email', cleanEmail)
+            .ilike('course_name', `%${extraCriteria.courseTitle.slice(0, 15)}%`)
+            .order('created_at', { ascending: false })
+            .limit(1);
+          if (withCourse && withCourse.length > 0) {
+            matchedOrder = withCourse[0];
+          }
+        }
+        if (!matchedOrder) {
+          const { data: anyPending } = await supabase
+            .from('eduhunters_orders')
+            .select('*')
+            .eq('customer_email', cleanEmail)
+            .eq('status', 'PENDING')
+            .order('created_at', { ascending: false })
+            .limit(1);
+          if (anyPending && anyPending.length > 0) {
+            matchedOrder = anyPending[0];
+          }
+        }
+      }
+    }
+
+    // 5. Fallback: try finding by phone (+ course name)
+    if (!matchedOrder && extraCriteria.phone) {
       const cleanPhone = String(extraCriteria.phone).replace(/[^0-9]/g, '');
       if (cleanPhone.length >= 8) {
-        const { data } = await supabase
+        const last8 = cleanPhone.slice(-8);
+        const { data: phoneMatches } = await supabase
           .from('eduhunters_orders')
-          .select('id, raw_data')
-          .ilike('customer_phone', `%${cleanPhone.slice(-8)}%`)
-          .ilike('course_name', `%${extraCriteria.courseTitle}%`)
-          .limit(1);
-        if (data && data.length > 0) {
-          matchedOrder = data[0];
+          .select('*')
+          .ilike('customer_phone', `%${last8}%`)
+          .order('created_at', { ascending: false });
+        if (phoneMatches && phoneMatches.length > 0) {
+          if (extraCriteria.courseTitle) {
+            const courseMatch = phoneMatches.find(m => (m.course_name || '').toLowerCase().includes(extraCriteria.courseTitle.toLowerCase().slice(0, 15)));
+            matchedOrder = courseMatch || phoneMatches[0];
+          } else {
+            matchedOrder = phoneMatches[0];
+          }
         }
       }
     }
@@ -262,6 +310,29 @@ export async function updateSupabaseOrderStatus(orderId, updatesOrStatus, extraC
     const { error } = await updateQuery;
     if (error) {
       console.warn('[Supabase] Failed to update order:', error.message);
+    }
+
+    // Automatic Guarantee: If approved, ensure student profile in eduhunters_users is instantly unlocked
+    if (isApprovedVal && (statusVal === 'PAID' || statusVal === 'COMPLETED')) {
+      const studentEmail = (matchedOrder?.customer_email || extraCriteria.email || '').toLowerCase().trim();
+      const studentPhone = (matchedOrder?.customer_phone || extraCriteria.phone || '').replace(/[^0-9]/g, '');
+      const studentUid = matchedOrder?.raw_data?.userId || matchedOrder?.raw_data?.customer?.uid || extraCriteria.uid || extraCriteria.userId;
+      const courseTitleToGrant = extraCriteria.courseTitle || matchedOrder?.course_name || matchedOrder?.raw_data?.course?.name;
+      const studentName = matchedOrder?.customer_name || extraCriteria.studentName || 'Student';
+
+      if (courseTitleToGrant && (studentEmail || studentPhone || studentUid)) {
+        saveSupabaseUser({
+          uid: studentUid,
+          id: studentUid,
+          email: studentEmail,
+          phone: studentPhone,
+          displayName: studentName,
+          name: studentName,
+          role: 'Student'
+        }, {
+          enrolledCourses: [courseTitleToGrant]
+        }).catch(e => console.warn('[Supabase] Auto user enrollment unlock note:', e));
+      }
     }
 
     // Instant Broadcast to all users / student device
@@ -536,14 +607,18 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
     let userEnrolled = [];
     let dbUser = null;
     try {
-      let query = supabase.from('eduhunters_users').select('*');
       if (uid) {
-        query = query.eq('id', uid);
-      } else if (cleanEmail) {
-        query = query.eq('email', cleanEmail);
+        const { data } = await supabase.from('eduhunters_users').select('*').eq('id', uid).maybeSingle();
+        dbUser = data;
       }
-      const { data } = await query.maybeSingle();
-      dbUser = data;
+      if (!dbUser && cleanEmail) {
+        const { data } = await supabase.from('eduhunters_users').select('*').eq('email', cleanEmail).maybeSingle();
+        dbUser = data;
+      }
+      if (!dbUser && cleanPhone && cleanPhone.length >= 8) {
+        const { data } = await supabase.from('eduhunters_users').select('*').ilike('phone', `%${cleanPhone.slice(-8)}%`).maybeSingle();
+        dbUser = data;
+      }
       if (dbUser && Array.isArray(dbUser.enrolled_courses)) {
         userEnrolled = dbUser.enrolled_courses;
       }
@@ -561,7 +636,6 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
         filterClauses.push(`customer_phone.eq.+880${raw10}`);
       }
     }
-    if (uid) filterClauses.push(`id.eq.${uid}`);
 
     let ordersList = [];
     if (filterClauses.length > 0) {
@@ -643,16 +717,74 @@ export async function fetchUserApprovedEnrollments(email, phone, uid) {
  * ==========================================
  */
 
-/**
- * Save site data (Hero slider, courses, settings) to Supabase
- */
-export async function saveSupabaseSiteData(siteData) {
+let _pendingSiteData = null;
+let _siteDataDebounceTimer = null;
+let _siteDataResolvers = [];
+
+async function executeSaveSupabaseSiteData(siteData) {
   if (!isSupabaseConfigured || !supabase || !siteData) return false;
   try {
     const sanitized = JSON.parse(JSON.stringify(siteData, (key, value) => {
       if (value === undefined) return null;
       return value;
     }));
+
+    // Guarantee _lastUpdated is always a valid ISO timestamp so clients never reject updates
+    const now = new Date().toISOString();
+    sanitized._lastUpdated = sanitized._lastUpdated || now;
+
+    // Critical Protection: If sanitized is missing users or accounting, merge from local cache so user course access is NEVER wiped
+    try {
+      const cached = JSON.parse(localStorage.getItem('eduhunters_data') || '{}');
+      if ((!Array.isArray(sanitized.users) || sanitized.users.length === 0) && Array.isArray(cached.users) && cached.users.length > 0) {
+        sanitized.users = cached.users;
+      }
+      if (!sanitized.accounting && cached.accounting) {
+        sanitized.accounting = cached.accounting;
+      }
+      if (!sanitized.siteSettings && cached.siteSettings) {
+        sanitized.siteSettings = cached.siteSettings;
+      }
+      if (!sanitized.heroSlides && cached.heroSlides) {
+        sanitized.heroSlides = cached.heroSlides;
+      }
+    } catch (e) {}
+
+    // Clean ephemeral blob: URLs from courses so dead memory URLs are not persisted
+    if (Array.isArray(sanitized.courses)) {
+      sanitized.courses = sanitized.courses.map(c => {
+        if (!c || !Array.isArray(c.curriculum)) return c;
+        const cleanedCurriculum = c.curriculum.map(sec => {
+          const chapters = Array.isArray(sec.chapters) ? sec.chapters.map(ch => {
+            const lessons = Array.isArray(ch.lessons) ? ch.lessons.map(les => {
+              if (typeof les === 'object' && les !== null) {
+                return {
+                  ...les,
+                  videoUrl: typeof les.videoUrl === 'string' && les.videoUrl.startsWith('blob:') ? '' : les.videoUrl,
+                  pdfUrl: typeof les.pdfUrl === 'string' && les.pdfUrl.startsWith('blob:') ? '' : les.pdfUrl
+                };
+              }
+              return les;
+            }) : [];
+            return { ...ch, lessons };
+          }) : [];
+
+          const lessons = Array.isArray(sec.lessons) ? sec.lessons.map(les => {
+            if (typeof les === 'object' && les !== null) {
+              return {
+                ...les,
+                videoUrl: typeof les.videoUrl === 'string' && les.videoUrl.startsWith('blob:') ? '' : les.videoUrl,
+                pdfUrl: typeof les.pdfUrl === 'string' && les.pdfUrl.startsWith('blob:') ? '' : les.pdfUrl
+              };
+            }
+            return les;
+          }) : [];
+
+          return { ...sec, chapters, lessons };
+        });
+        return { ...c, curriculum: cleanedCurriculum };
+      });
+    }
 
     // Bulletproof Guard: Protect Physics 1st paper Finishing Touch Series and its 5 chapters/quizzes
     if (sanitized && Array.isArray(sanitized.courses)) {
@@ -674,7 +806,6 @@ export async function saveSupabaseSiteData(siteData) {
       }
     }
 
-    const now = new Date().toISOString();
     const payload = {
       id: 'main_data',
       data: sanitized,
@@ -701,6 +832,46 @@ export async function saveSupabaseSiteData(siteData) {
 }
 
 /**
+ * Save site data (Hero slider, courses, settings) to Supabase with automatic coalescing debounce (200ms)
+ */
+export async function saveSupabaseSiteData(siteData) {
+  if (!isSupabaseConfigured || !supabase || !siteData) return false;
+
+  // Merge into in-memory queue to prevent losing fast successive updates
+  _pendingSiteData = {
+    ...(_pendingSiteData || {}),
+    ...siteData,
+    courses: siteData.courses || _pendingSiteData?.courses,
+    users: siteData.users || _pendingSiteData?.users,
+    accounting: siteData.accounting || _pendingSiteData?.accounting,
+    _lastUpdated: siteData._lastUpdated || new Date().toISOString()
+  };
+
+  return new Promise((resolve) => {
+    _siteDataResolvers.push(resolve);
+
+    if (_siteDataDebounceTimer) {
+      clearTimeout(_siteDataDebounceTimer);
+    }
+
+    _siteDataDebounceTimer = setTimeout(async () => {
+      const dataToSave = _pendingSiteData;
+      const resolvers = [..._siteDataResolvers];
+      _pendingSiteData = null;
+      _siteDataResolvers = [];
+      _siteDataDebounceTimer = null;
+
+      try {
+        const result = await executeSaveSupabaseSiteData(dataToSave);
+        resolvers.forEach(r => r(result));
+      } catch (err) {
+        resolvers.forEach(r => r(false));
+      }
+    }, 200);
+  });
+}
+
+/**
  * Fetch site data from Supabase
  */
 export async function fetchSupabaseSiteData() {
@@ -708,7 +879,7 @@ export async function fetchSupabaseSiteData() {
   try {
     const { data, error } = await supabase
       .from('eduhunters_site')
-      .select('data')
+      .select('data, updated_at')
       .eq('id', 'main_data')
       .maybeSingle();
 
@@ -718,7 +889,10 @@ export async function fetchSupabaseSiteData() {
       }
       return null;
     }
-    return data?.data || null;
+    if (!data?.data) return null;
+    const siteData = data.data;
+    siteData._lastUpdated = siteData._lastUpdated || data.updated_at || new Date().toISOString();
+    return siteData;
   } catch (err) {
     console.warn('[Supabase] Fetch site data exception:', err);
     return null;
@@ -735,7 +909,10 @@ export function subscribeToSupabaseSiteData(onUpdate) {
 
   // 1. Instant Broadcast listener
   const unsubscribeBroadcast = subscribeToSupabaseMessage('SITE_DATA_UPDATED', (newData) => {
-    if (newData) onUpdate(newData);
+    if (newData) {
+      newData._lastUpdated = newData._lastUpdated || new Date().toISOString();
+      onUpdate(newData);
+    }
   });
 
   // 2. PostgreSQL CDC listener
@@ -747,7 +924,9 @@ export function subscribeToSupabaseSiteData(onUpdate) {
       { event: '*', schema: 'public', table: 'eduhunters_site', filter: 'id=eq.main_data' },
       (payload) => {
         const newData = payload.new?.data;
+        const updatedAt = payload.new?.updated_at;
         if (newData) {
+          newData._lastUpdated = newData._lastUpdated || updatedAt || new Date().toISOString();
           onUpdate(newData);
         }
       }
@@ -810,6 +989,21 @@ export async function saveSupabaseUser(user, extra = {}) {
         }
       }
 
+      if (!existingUser && (user.phone || user.whatsapp || extra.phone || extra.whatsapp)) {
+        const cleanPhone = String(user.phone || user.whatsapp || extra.phone || extra.whatsapp).replace(/[^0-9]/g, '');
+        if (cleanPhone.length >= 8) {
+          const { data: userByPhone } = await supabase
+            .from('eduhunters_users')
+            .select('*')
+            .ilike('phone', `%${cleanPhone.slice(-8)}%`)
+            .maybeSingle();
+          if (userByPhone) {
+            existingUser = userByPhone;
+            existingId = userByPhone.id;
+          }
+        }
+      }
+
       if (existingUser) {
         if (Array.isArray(existingUser.enrolled_courses)) {
           existingEnrolled = existingUser.enrolled_courses;
@@ -826,10 +1020,27 @@ export async function saveSupabaseUser(user, extra = {}) {
         ? extra.enrolledCourses
         : [];
 
-    const mergedCourses = Array.from(new Set([
-      ...existingEnrolled,
-      ...incomingCourses
-    ])).filter(Boolean);
+    let mergedCourses = extra.overwriteEnrolledCourses
+      ? incomingCourses
+      : Array.from(new Set([
+          ...existingEnrolled,
+          ...incomingCourses
+        ])).filter(Boolean);
+
+    // Expand canonical aliases for Physics Finishing Touch Series if enrolled
+    const hasPhysicsFinishing = mergedCourses.some(c => {
+      const low = String(c).toLowerCase();
+      return low.includes('1791887161017') || low.includes('physics-finishing-touch-series') || (low.includes('physics') && low.includes('finishing'));
+    });
+    if (hasPhysicsFinishing) {
+      mergedCourses = Array.from(new Set([
+        'Physics Finishing Touch Series',
+        'course-1791887161017',
+        'physics-finishing-touch-series',
+        'Physics 1st paper Finishing Touch Series',
+        ...mergedCourses
+      ]));
+    }
 
     const finalName = (user.displayName || user.name || extra.displayName || extra.name || existingRaw.displayName || existingRaw.name || user.email?.split('@')[0] || '').trim();
     const finalPhone = (user.whatsapp || user.phone || user.phoneNumber || extra.whatsapp || extra.phone || existingRaw.whatsapp || existingRaw.phone || '').trim();

@@ -23,17 +23,20 @@ export async function fetchCloudData() {
   return null;
 }
 
-import { saveSupabaseSiteData } from './supabaseService';
-
 /**
- * Save updated site data directly to Supabase PostgreSQL (100% Centralized Cloud)
+ * Save updated site data to Cloud Firestore fallback
  */
 export async function saveCloudData(newData) {
   if (!newData) return false;
+  if (!isFirebaseConfigured || !db) return true;
   try {
-    return await saveSupabaseSiteData(newData);
+    const docRef = doc(db, COLLECTION_NAME, DOC_ID);
+    await setDoc(docRef, newData, { merge: true });
+    return true;
   } catch (error) {
-    console.warn('[FirestoreSync] Failed to save cloud data to Supabase:', error);
+    if (error?.code !== 'resource-exhausted') {
+      console.warn('[FirestoreSync] Firestore fallback save note:', error);
+    }
     return false;
   }
 }

@@ -391,10 +391,14 @@ export default function CourseStudioPage({
     }, 350);
   };
 
-  // Field updater
+  const fieldDebounceRef = useRef(null);
+  // Field updater with 250ms debounce
   const handleUpdateField = (field, value) => {
     const updated = { ...course, [field]: value };
-    notifySave(updated);
+    if (fieldDebounceRef.current) clearTimeout(fieldDebounceRef.current);
+    fieldDebounceRef.current = setTimeout(() => {
+      notifySave(updated);
+    }, 250);
   };
 
   // ==========================================
@@ -1585,17 +1589,24 @@ export default function CourseStudioPage({
           ...prev,
           videoUrl: res.embedUrl
         }));
+        setVideoUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
+        triggerToast('Video uploaded successfully to Bunny Stream');
       } else {
         res = await uploadVideoFile(file, classWizardModal.title || file.name, ({ percent, loaded, total }) => {
           setVideoUploadState(prev => ({ ...prev, percent, loaded, total }));
         });
-        setClassWizardModal(prev => ({
-          ...prev,
-          videoUrl: res.url
-        }));
+        setVideoUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
+        if (res.isLocalFallback || (res.url && res.url.startsWith('blob:'))) {
+          setVideoTabMode('url');
+          triggerToast('⚠️ ক্লাউড স্টোরেজ কী সেট নেই। শিক্ষার্থীদের পাওয়ার জন্য YouTube, Bunny বা ডিরেক্ট ভিডিও লিংক দিন।');
+        } else {
+          setClassWizardModal(prev => ({
+            ...prev,
+            videoUrl: res.url
+          }));
+          triggerToast('Video uploaded successfully');
+        }
       }
-      setVideoUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
-      triggerToast('Video uploaded successfully');
     } catch (err) {
       setVideoUploadState({ uploading: false, percent: 0, loaded: 0, total: 0, error: err.message });
       triggerToast(err.message || 'Video upload failed');
@@ -1616,17 +1627,24 @@ export default function CourseStudioPage({
           ...prev,
           pdfUrl: res.cdnUrl
         }));
+        setPdfUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
+        triggerToast('PDF lecture note uploaded successfully to Bunny Storage');
       } else {
         res = await uploadPdfFile(file, classWizardModal.title || file.name, ({ percent, loaded, total }) => {
           setPdfUploadState(prev => ({ ...prev, percent, loaded, total }));
         });
-        setClassWizardModal(prev => ({
-          ...prev,
-          pdfUrl: res.url
-        }));
+        setPdfUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
+        if (res.isLocalFallback || (res.url && res.url.startsWith('blob:'))) {
+          setPdfTabMode('url');
+          triggerToast('⚠️ ক্লাউড স্টোরেজ কী সেট নেই। শিক্ষার্থীদের পাওয়ার জন্য Google Drive বা ডিরেক্ট PDF লিংক পেস্ট করুন।');
+        } else {
+          setClassWizardModal(prev => ({
+            ...prev,
+            pdfUrl: res.url
+          }));
+          triggerToast('PDF lecture note uploaded successfully');
+        }
       }
-      setPdfUploadState({ uploading: false, percent: 100, loaded: file.size, total: file.size, error: '' });
-      triggerToast('PDF lecture note uploaded successfully');
     } catch (err) {
       setPdfUploadState({ uploading: false, percent: 0, loaded: 0, total: 0, error: err.message });
       triggerToast(err.message || 'PDF upload failed');

@@ -10,6 +10,24 @@ import { lesson2 } from './physicsChapters/chapter2_vectors.js';
 import { lesson3 } from './physicsChapters/chapter3_dynamics.js';
 import { lesson4 } from './physicsChapters/chapter4_newtonian.js';
 import { lesson5 } from './physicsChapters/chapter5_work_power.js';
+import { lesson6 } from './physicsChapters/chapter6_gravity.js';
+import { lesson7 } from './physicsChapters/chapter7_matter_properties.js';
+import { lesson8 } from './physicsChapters/chapter8_periodic_motion.js';
+import { lesson9 } from './physicsChapters/chapter9_ideal_gas.js';
+import { lesson10 } from './physicsChapters/chapter10_wave.js';
+
+const all10Lessons = [
+  lesson1,
+  lesson2,
+  lesson3,
+  lesson4,
+  lesson5,
+  lesson6,
+  lesson7,
+  lesson8,
+  lesson9,
+  lesson10
+];
 
 export const physicsFinishingTouchCourseData = {
   id: "course-1791887161017",
@@ -37,14 +55,16 @@ export const physicsFinishingTouchCourseData = {
   curriculum: [
     {
       id: "sec-1791887600016",
+      name: "Physics 1st Paper",
       title: "Physics 1st Paper",
-      lessons: [
-        lesson1,
-        lesson2,
-        lesson3,
-        lesson4,
-        lesson5
-      ]
+      chapters: [
+        {
+          id: "chap-phys-1st-all",
+          name: "ভৌত রাশি ও পরিমাপ",
+          lessons: all10Lessons
+        }
+      ],
+      lessons: all10Lessons
     },
     {
       id: "sec-physics-2nd-paper",

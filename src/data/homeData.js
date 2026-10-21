@@ -47,7 +47,7 @@ export const homeCoursesData = [
   },
   {
     ...physicsFinishingTouchCourseData,
-    totalClasses: "৫টি ক্লাস"
+    totalClasses: "২১টি ক্লাস"
   },
   ...freeCoursesData.map(c => ({
     id: c.id,
