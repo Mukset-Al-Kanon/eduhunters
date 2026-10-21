@@ -815,6 +815,14 @@ export default function App() {
           const localLessons = countLessons(localCourse.curriculum);
           const cloudLessons = countLessons(cloudCourse.curriculum);
 
+          // If local course has more lessons than cloud, ALWAYS preserve local curriculum
+          if (localLessons > cloudLessons) {
+            return {
+              ...cloudCourse,
+              curriculum: localCourse.curriculum
+            };
+          }
+
           // If cloud course curriculum is empty but local has curriculum, fallback to local curriculum
           if (cloudLessons === 0 && localLessons > 0) {
             return {
@@ -822,8 +830,59 @@ export default function App() {
               curriculum: localCourse.curriculum
             };
           }
+
+          // If both have lessons, merge them so that local edits/PDFs/quizzes are not lost
+          if (localLessons > 0 && cloudLessons > 0) {
+            const mergedCurriculum = (cloudCourse.curriculum || []).map((cSec, sIdx) => {
+              const lSec = localCourse.curriculum?.[sIdx];
+              if (!lSec) return cSec;
+              const cLessons = Array.isArray(cSec.lessons) ? cSec.lessons : [];
+              const lLessons = Array.isArray(lSec.lessons) ? lSec.lessons : [];
+              const mergedLessons = cLessons.map((cLes, lesIdx) => {
+                const lLes = lLessons[lesIdx];
+                if (!lLes) return cLes;
+                return {
+                  ...lLes,
+                  ...cLes,
+                  pdfUrl: (cLes.pdfUrl && cLes.pdfUrl.trim()) ? cLes.pdfUrl : (lLes.pdfUrl || ''),
+                  videoUrl: (cLes.videoUrl && cLes.videoUrl.trim()) ? cLes.videoUrl : (lLes.videoUrl || ''),
+                  quiz: (cLes.quiz && cLes.quiz.questions?.length > 0) ? cLes.quiz : (lLes.quiz || null)
+                };
+              });
+              return {
+                ...cSec,
+                lessons: mergedLessons,
+                chapters: (cSec.chapters && cSec.chapters.length > 0)
+                  ? [{ ...cSec.chapters[0], lessons: mergedLessons }]
+                  : (lSec.chapters || [{ id: `chap-${sIdx}`, name: '', lessons: mergedLessons }])
+              };
+            });
+            return {
+              ...cloudCourse,
+              curriculum: mergedCurriculum
+            };
+          }
+
           return cloudCourse;
         });
+
+        // Bulletproof Guard: Guarantee Physics Finishing Touch Series has all 10 lessons & PDFs
+        const physIdx = resolvedCourses.findIndex(c => 
+          c && (c.id === 'course-1791887161017' || c.slug === 'physics-finishing-touch-series' || (c.title || '').includes('Physics Finishing Touch'))
+        );
+        if (physIdx !== -1) {
+          const physCur = resolvedCourses[physIdx];
+          const curLessons = (Array.isArray(physCur?.curriculum?.[0]?.lessons) && physCur.curriculum[0].lessons.length > 0)
+            ? physCur.curriculum[0].lessons.length
+            : ((physCur?.curriculum?.[0]?.chapters?.[0]?.lessons || []).length);
+          if (curLessons < 10) {
+            resolvedCourses[physIdx] = {
+              ...physicsFinishingTouchCourseData,
+              ...physCur,
+              curriculum: physicsFinishingTouchCourseData.curriculum
+            };
+          }
+        }
 
         // Ensure any local-only courses (e.g. freshly created custom courses) are preserved
         const resolvedIds = new Set(resolvedCourses.map(c => c.id || c.slug));
@@ -1520,6 +1579,7 @@ export default function App() {
             adminUser={adminSessionState}
             onUpdateData={handleUpdateData}
             onResetData={handleResetData}
+            onNavigateCourse={navHandlers.onNavigateCourse}
             onExitAdmin={() => {
               navigateWithSmoothTransition(() => {
                 setViewMode('home');

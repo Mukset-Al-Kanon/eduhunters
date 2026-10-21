@@ -1781,14 +1781,19 @@ export default function CourseStudioPage({
 
       const updatedCurriculum = curriculum.map((sec, sIdx) => {
         if (sIdx === secIdx) {
-          const chapters = (sec.chapters || []).map((ch, cIdx) => {
-            if (cIdx === chapIdx) {
+          let chapters = Array.isArray(sec.chapters) && sec.chapters.length > 0
+            ? [...sec.chapters]
+            : [{ id: `chap-${Date.now()}`, name: '', lessons: [] }];
+          const targetChapIdx = chapIdx < chapters.length ? chapIdx : 0;
+          chapters = chapters.map((ch, cIdx) => {
+            if (cIdx === targetChapIdx) {
               const lessons = Array.isArray(ch.lessons) ? [...ch.lessons, newLessonItem] : [newLessonItem];
               return { ...ch, lessons };
             }
             return ch;
           });
-          return { ...sec, chapters };
+          const allLessons = chapters.flatMap(c => c.lessons || []);
+          return { ...sec, chapters, lessons: allLessons };
         }
         return sec;
       });
@@ -1800,8 +1805,12 @@ export default function CourseStudioPage({
       // Edit mode
       const updatedCurriculum = curriculum.map((sec, sIdx) => {
         if (sIdx === secIdx) {
-          const chapters = (sec.chapters || []).map((ch, cIdx) => {
-            if (cIdx === chapIdx) {
+          let chapters = Array.isArray(sec.chapters) && sec.chapters.length > 0
+            ? [...sec.chapters]
+            : [{ id: `chap-${Date.now()}`, name: '', lessons: Array.isArray(sec.lessons) ? [...sec.lessons] : [] }];
+          const targetChapIdx = chapIdx < chapters.length ? chapIdx : 0;
+          chapters = chapters.map((ch, cIdx) => {
+            if (cIdx === targetChapIdx) {
               const lessons = (ch.lessons || []).map((les, lIdx) => {
                 if (lIdx === lesIdx) {
                   const currentObj = typeof les === 'object' && les !== null ? les : {};
@@ -1822,7 +1831,8 @@ export default function CourseStudioPage({
             }
             return ch;
           });
-          return { ...sec, chapters };
+          const allLessons = chapters.flatMap(c => c.lessons || []);
+          return { ...sec, chapters, lessons: allLessons };
         }
         return sec;
       });

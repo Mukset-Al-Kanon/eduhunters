@@ -786,19 +786,47 @@ async function executeSaveSupabaseSiteData(siteData) {
       });
     }
 
-    // Bulletproof Guard: Protect Physics 1st paper Finishing Touch Series and its 5 chapters/quizzes
+    // Bulletproof Guard: Protect Physics 1st paper Finishing Touch Series and its 10 chapters, PDFs, and quizzes
     if (sanitized && Array.isArray(sanitized.courses)) {
       const physIdx = sanitized.courses.findIndex(c => 
-        c && (c.id === 'course-1791887161017' || c.slug === 'physics-finishing-touch-series')
+        c && (c.id === 'course-1791887161017' || c.slug === 'physics-finishing-touch-series' || (c.title || '').includes('Physics Finishing Touch'))
       );
+      const seedLessons = physicsFinishingTouchCourseData.curriculum[0].lessons;
       if (physIdx !== -1) {
-        const cur = sanitized.courses[physIdx];
-        const lessons = cur?.curriculum?.[0]?.lessons || cur?.curriculum?.sections?.[0]?.lessons;
-        if (!lessons || lessons.length < 5 || !lessons[0]?.quiz?.questions?.length) {
+        const existingLessons = (Array.isArray(cur?.curriculum?.[0]?.lessons) && cur.curriculum[0].lessons.length > 0)
+          ? cur.curriculum[0].lessons
+          : (cur?.curriculum?.[0]?.chapters?.[0]?.lessons || []);
+        if (existingLessons.length < 10) {
+          sanitized.courses[physIdx] = {
+            ...physicsFinishingTouchCourseData,
+            ...cur,
+            curriculum: physicsFinishingTouchCourseData.curriculum
+          };
+        } else {
+          // If 10 or more lessons exist, ensure any missing pdfUrls or quizzes for seed lessons (first 10) are enriched
+          const enrichedLessons = existingLessons.map((les, lIdx) => {
+            const seedLes = seedLessons[lIdx];
+            if (!seedLes) return les; // Preserve newly added classes beyond index 9 exactly as created
+            return {
+              ...seedLes,
+              ...les,
+              pdfUrl: (les.pdfUrl && les.pdfUrl.trim()) ? les.pdfUrl : (seedLes?.pdfUrl || ''),
+              videoUrl: (les.videoUrl && les.videoUrl.trim()) ? les.videoUrl : (seedLes?.videoUrl || ''),
+              quiz: (les.quiz && les.quiz.questions?.length > 0) ? les.quiz : (seedLes?.quiz || null)
+            };
+          });
+          const currSec0 = cur.curriculum[0] || {};
+          const updatedSec0 = {
+            ...currSec0,
+            lessons: enrichedLessons,
+            chapters: (currSec0.chapters && currSec0.chapters.length > 0)
+              ? [{ ...currSec0.chapters[0], lessons: enrichedLessons }]
+              : [{ id: 'chap-phys-1st-all', name: 'ভৌত রাশি ও পরিমাপ', lessons: enrichedLessons }]
+          };
+          const currSec1 = cur.curriculum[1] || physicsFinishingTouchCourseData.curriculum[1];
           sanitized.courses[physIdx] = {
             ...cur,
-            ...physicsFinishingTouchCourseData,
-            curriculum: physicsFinishingTouchCourseData.curriculum
+            curriculum: [updatedSec0, currSec1, ...(cur.curriculum ? cur.curriculum.slice(2) : [])]
           };
         }
       } else {

@@ -22,7 +22,10 @@ import {
   Clock,
   Edit2,
   Plus,
-  Trash2
+  Trash2,
+  Zap,
+  Download,
+  ExternalLink
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
 import { homeCoursesData } from '../data/homeData';
@@ -97,6 +100,15 @@ function getEmbedUrl(url) {
     return trimmed;
   } catch {}
   return url;
+}
+
+export function getGoogleDrivePreviewUrl(url) {
+  if (!url) return '';
+  const trimmed = String(url).trim();
+  if (trimmed.includes('drive.google.com/file/d/')) {
+    return trimmed.replace(/\/view(\?.*)?$/, '/preview').replace(/\/edit(\?.*)?$/, '/preview');
+  }
+  return trimmed;
 }
 
 export function parseCountNumber(str) {
@@ -396,6 +408,15 @@ export default function BiologyCoursePage({
     foundCourse?.slug === 'master-english-30-days'
   );
 
+  const isPhysicsFinishingTouch = (
+    targetId === 'physics-finishing-touch-series' ||
+    targetId === 'course-1791887161017' ||
+    targetId.includes('physics-finishing') ||
+    foundCourse?.id === 'course-1791887161017' ||
+    foundCourse?.slug === 'physics-finishing-touch-series' ||
+    (foundCourse?.title && String(foundCourse.title).toLowerCase().includes('physics finishing'))
+  );
+
   const baseCourse = React.useMemo(() => {
     if (isMasterEnglish || (!foundCourse && (!targetId || targetId === 'master-english-30-days'))) {
       return {
@@ -418,7 +439,78 @@ export default function BiologyCoursePage({
       };
     }
 
-    // Non-Master English (e.g. Physics Finishing Touch Series, or other custom courses)
+    if (isPhysicsFinishingTouch) {
+      const fc = foundCourse || {};
+      const baseCurriculum = (fc.curriculum && fc.curriculum.length > 0) ? fc.curriculum : physicsFinishingTouchCourseData.curriculum;
+      const seedSec0 = physicsFinishingTouchCourseData.curriculum?.[0];
+      const seedLessons0 = (seedSec0?.chapters && seedSec0.chapters[0]?.lessons) || seedSec0?.lessons || [];
+
+      const enrichedCurriculum = baseCurriculum.map((sec, sIdx) => {
+        const seedLessons = sIdx === 0 ? seedLessons0 : [];
+        if (Array.isArray(sec.chapters) && sec.chapters.length > 0) {
+          const newChaps = sec.chapters.map((ch, cIdx) => {
+            const enrichedLessons = (ch.lessons || []).map((l, lIdx) => {
+              const seedL = (sIdx === 0 && cIdx === 0) ? seedLessons[lIdx] : null;
+              if (!seedL) return l;
+              return {
+                ...seedL,
+                ...l,
+                videoUrl: l.videoUrl || seedL.videoUrl,
+                pdfUrl: l.pdfUrl || seedL.pdfUrl,
+                quiz: l.quiz || seedL.quiz,
+                duration: l.duration || seedL.duration
+              };
+            });
+            const finalLessons = enrichedLessons.length > 0 
+              ? enrichedLessons 
+              : ((sIdx === 0 && cIdx === 0) ? seedLessons : []);
+            return { ...ch, lessons: finalLessons };
+          });
+          const allLessons = newChaps.flatMap(c => c.lessons || []);
+          return { ...sec, chapters: newChaps, lessons: allLessons };
+        }
+        const enrichedLessons = (sec.lessons || []).map((l, lIdx) => {
+          const seedL = sIdx === 0 ? seedLessons[lIdx] : null;
+          if (!seedL) return l;
+          return {
+            ...seedL,
+            ...l,
+            videoUrl: l.videoUrl || seedL.videoUrl,
+            pdfUrl: l.pdfUrl || seedL.pdfUrl,
+            quiz: l.quiz || seedL.quiz,
+            duration: l.duration || seedL.duration
+          };
+        });
+        const finalLessons = enrichedLessons.length > 0 ? enrichedLessons : (sIdx === 0 ? seedLessons : []);
+        return { 
+          ...sec, 
+          lessons: finalLessons,
+          chapters: (sec.chapters && sec.chapters.length > 0) 
+            ? sec.chapters 
+            : [{ id: `chap-${sIdx}`, name: '', lessons: finalLessons }]
+        };
+      });
+
+      return {
+        ...physicsFinishingTouchCourseData,
+        ...fc,
+        name: fc.title || fc.name || physicsFinishingTouchCourseData.name,
+        title: fc.title || fc.name || physicsFinishingTouchCourseData.name,
+        tagline: fc.tagline || fc.description || physicsFinishingTouchCourseData.tagline,
+        aboutText: fc.aboutText || fc.description || physicsFinishingTouchCourseData.aboutText,
+        totalClasses: fc.totalClasses || physicsFinishingTouchCourseData.totalClasses,
+        features: (fc.features && fc.features.length > 0) ? fc.features : physicsFinishingTouchCourseData.features,
+        curriculum: enrichedCurriculum,
+        salePrice: fc.salePrice !== undefined ? fc.salePrice : physicsFinishingTouchCourseData.salePrice,
+        regularPrice: fc.regularPrice !== undefined ? fc.regularPrice : physicsFinishingTouchCourseData.regularPrice,
+        previewVideoUrl: fc.previewVideoUrl || physicsFinishingTouchCourseData.previewVideoUrl,
+        category: fc.category || physicsFinishingTouchCourseData.category,
+        isFree: Boolean(fc.isFree ?? physicsFinishingTouchCourseData.isFree),
+        isActive: fc.isActive !== false
+      };
+    }
+
+    // Non-Master English (e.g. custom courses)
     const fc = foundCourse || {};
     const defaultFeatures = [
       'HD কোয়ালিটি লাইভ ও রেকর্ডেড ক্লাস',
@@ -578,6 +670,7 @@ export default function BiologyCoursePage({
   const [showCheckout, setShowCheckout] = useState(false);
   const [showPdfViewer, setShowPdfViewer] = useState(false);
   const [showExamEngine, setShowExamEngine] = useState(false);
+  const [activePdfLesson, setActivePdfLesson] = useState(null);
 
   // Robust Paper / Subject resolution for both Physics 1st Paper & 2nd Paper
   const sectionsToRender = React.useMemo(() => {
@@ -702,22 +795,29 @@ export default function BiologyCoursePage({
 
     if (lessonIndex === -1) {
       // Adding a brand new lesson
+      const newLesson = {
+        id: `les-${Date.now()}`,
+        ...lessonObj
+      };
       if (chapIndex !== undefined && chapIndex !== -1 && targetSection.chapters?.[chapIndex]) {
         if (!Array.isArray(targetSection.chapters[chapIndex].lessons)) {
           targetSection.chapters[chapIndex].lessons = [];
         }
-        targetSection.chapters[chapIndex].lessons.push(lessonObj);
+        targetSection.chapters[chapIndex].lessons.push(newLesson);
         targetSection.lessons = targetSection.chapters.flatMap(c => c.lessons || []);
       } else if (Array.isArray(targetSection.chapters) && targetSection.chapters.length > 0) {
         if (!Array.isArray(targetSection.chapters[0].lessons)) {
           targetSection.chapters[0].lessons = [];
         }
-        targetSection.chapters[0].lessons.push(lessonObj);
+        targetSection.chapters[0].lessons.push(newLesson);
         targetSection.lessons = targetSection.chapters.flatMap(c => c.lessons || []);
-      } else if (Array.isArray(targetSection.lessons)) {
-        targetSection.lessons.push(lessonObj);
       } else {
-        targetSection.lessons = [lessonObj];
+        targetSection.chapters = [{
+          id: `chap-${Date.now()}`,
+          name: '',
+          lessons: [newLesson]
+        }];
+        targetSection.lessons = [newLesson];
       }
     } else {
       // Editing an existing lesson
@@ -917,6 +1017,40 @@ export default function BiologyCoursePage({
     const isUnlocked = isFree || isCourseEnrolled || isAdmin;
     const videoUrl = isObj ? (lesson.videoUrl || (isUrlTitle ? rawTitle : null)) : (isUrlTitle ? rawTitle : null);
     const pdfUrl = isObj ? lesson.pdfUrl : null;
+    const quiz = isObj ? (lesson.quiz || lesson.exam) : null;
+    const quizCount = quiz?.totalQuestions || (Array.isArray(quiz?.questions) ? quiz.questions.length : (quiz ? 50 : 0));
+
+    const handleLessonPdfClick = (e) => {
+      e.stopPropagation();
+      if (!isUnlocked) {
+        handleOpenCheckout();
+        return;
+      }
+      if (isFree && !isCourseEnrolled) {
+        if (!currentUser) {
+          if (onLoginClick) onLoginClick();
+          triggerToast('ফ্রি নোট দেখতে প্রথমে লগইন করুন');
+          return;
+        }
+        if (!isStudentProfileComplete(currentUser)) {
+          const targetLessonInfo = {
+            title: displayTitle,
+            videoUrl: videoUrl || course.previewVideoUrl,
+            pdfUrl,
+            duration,
+            lessonIdx: lIdx,
+            activeTab: 'notes'
+          };
+          setPendingFreeLesson(targetLessonInfo);
+          setShowProfileCompleteModal(true);
+          return;
+        }
+      }
+      setActivePdfLesson({
+        title: displayTitle,
+        pdfUrl
+      });
+    };
 
     return (
       <div 
@@ -958,76 +1092,102 @@ export default function BiologyCoursePage({
             )}
           </div>
           <div className="min-w-0 flex-1">
-            <p className={`text-sm font-semibold truncate transition-colors ${isDark ? 'text-gray-100 group-hover:text-red-400' : 'text-[#111827] group-hover:text-[#dc2626]'}`}>
-              {displayTitle}
-            </p>
+            <div className="flex items-center gap-2">
+              <span className={`text-xs font-mono font-bold ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                {String(lIdx + 1).padStart(2, '0')}
+              </span>
+              <p className={`text-sm font-semibold truncate transition-colors ${isDark ? 'text-gray-100 group-hover:text-red-400' : 'text-[#111827] group-hover:text-[#dc2626]'}`}>
+                {displayTitle}
+              </p>
+            </div>
             {isUrlTitle && (
               <p className="text-[11px] text-gray-400 truncate font-mono mt-0.5">
                 {rawTitle}
               </p>
             )}
+
+            {/* Micro badges below title on small screens */}
+            <div className="flex items-center flex-wrap gap-1.5 mt-1 sm:hidden">
+              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <Play className="w-2 h-2 fill-current" /> Video
+              </span>
+              {pdfUrl ? (
+                <button
+                  type="button"
+                  onClick={handleLessonPdfClick}
+                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/25 transition-all cursor-pointer"
+                >
+                  <FileText className="w-2.5 h-2.5" /> Notes
+                </button>
+              ) : (
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium text-gray-400 opacity-60">
+                  <FileText className="w-2 h-2" /> No PDF
+                </span>
+              )}
+              {quiz && (
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                  <Zap className="w-2 h-2" /> Quiz{quizCount ? ` (${quizCount})` : ''}
+                </span>
+              )}
+              {duration && (
+                <span className="text-[10px] text-gray-400 font-medium">
+                  {duration}
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
+        {/* Right side chips and actions */}
         <div className="shrink-0 ml-3 flex items-center gap-2 sm:gap-2.5">
-          {/* FREE Label (English, no background box, clean green typography) */}
-          {isFree && (
-            <span className="text-[11px] sm:text-xs font-black tracking-wider text-emerald-500 dark:text-emerald-400 shrink-0 select-none">
-              FREE
+          {/* Desktop Badges (Video, Notes, Quiz, Duration) matching Studio design */}
+          <div className="hidden sm:flex items-center gap-1.5">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <Play className="w-2.5 h-2.5 fill-current" /> Video
             </span>
-          )}
 
-          {/* Sleek PDF Icon Button (No background box, no 'PDF' text, just icon) */}
-          {pdfUrl && (
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                if (!isUnlocked) {
-                  handleOpenCheckout();
-                  return;
-                }
-                const targetLessonInfo = {
-                  title: displayTitle,
-                  videoUrl: videoUrl || course.previewVideoUrl,
-                  pdfUrl,
-                  duration,
-                  lessonIdx: lIdx,
-                  activeTab: 'notes'
-                };
-                if (isFree && !isCourseEnrolled) {
-                  if (!currentUser) {
-                    if (onLoginClick) onLoginClick();
-                    triggerToast('ফ্রি নোট দেখতে প্রথমে লগইন করুন');
-                    return;
-                  }
-                  if (!isStudentProfileComplete(currentUser)) {
-                    setPendingFreeLesson(targetLessonInfo);
-                    setShowProfileCompleteModal(true);
-                    return;
-                  }
-                }
-                if (pdfUrl.startsWith('http') || pdfUrl.startsWith('/') || pdfUrl.startsWith('blob:')) {
-                  window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-                } else if (onOpenLesson) {
-                  onOpenLesson(course.id || course.slug || selectedCourseId, targetLessonInfo);
-                }
-              }}
-              className={`p-1.5 transition-colors cursor-pointer shrink-0 border-0 bg-transparent rounded-md ${
-                isDark 
-                  ? 'text-gray-400 hover:text-white hover:bg-white/5' 
-                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
-              }`}
-              title={isUnlocked ? "PDF লেকচার নোট দেখুন" : "PDF দেখতে এনরোল করুন"}
-              aria-label="PDF"
-            >
-              <FileText className="w-4 h-4" />
-            </button>
-          )}
+            {pdfUrl ? (
+              <button
+                type="button"
+                onClick={handleLessonPdfClick}
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-blue-500/10 hover:bg-blue-500/25 text-blue-600 dark:text-blue-400 border border-blue-500/30 transition-all cursor-pointer shadow-xs active:scale-95"
+                title="লেকচার শিট ও PDF নোট দেখুন"
+              >
+                <FileText className="w-2.5 h-2.5" /> Notes
+              </button>
+            ) : (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium text-gray-400 dark:text-gray-500 opacity-60">
+                <FileText className="w-2.5 h-2.5" /> No PDF
+              </span>
+            )}
+
+            {quiz && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/25">
+                <Zap className="w-2.5 h-2.5" /> Quiz{quizCount ? ` (${quizCount})` : ''}
+              </span>
+            )}
+
+            {duration && (
+              <span className="text-[11px] text-gray-400 font-medium px-1">
+                {duration}
+              </span>
+            )}
+          </div>
+
+          {/* FREE / Locked Badge */}
+          {isFree ? (
+            <span className="px-2 py-0.5 rounded-md text-[10px] font-black tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shrink-0 select-none">
+              Free Preview
+            </span>
+          ) : !isUnlocked ? (
+            <span className="hidden xs:inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium text-gray-400 border border-gray-500/20 shrink-0 select-none">
+              <Lock className="w-2.5 h-2.5" /> Locked
+            </span>
+          ) : null}
 
           {/* Admin Direct Lesson Edit / Delete Buttons */}
           {isAdmin && (
-            <div className="flex items-center gap-1 shrink-0">
+            <div className="flex items-center gap-1 shrink-0 ml-1">
               <button
                 type="button"
                 onClick={(e) => {
@@ -2055,6 +2215,78 @@ export default function BiologyCoursePage({
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Sleek Built-in PDF Lecture Sheet Modal */}
+      {activePdfLesson && (
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className={`relative w-full max-w-4xl h-[90vh] flex flex-col rounded-3xl border shadow-2xl overflow-hidden transition-all ${
+            isDark ? 'bg-[#140307] border-[#e11438]/30 text-white' : 'bg-white border-slate-200 text-slate-900'
+          }`}>
+            {/* Modal Header */}
+            <div className={`p-4 sm:p-5 border-b flex items-center justify-between gap-3 ${
+              isDark ? 'border-white/10 bg-[#1c060d]' : 'border-slate-100 bg-slate-50'
+            }`}>
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-2xl bg-blue-500/15 text-blue-500 flex items-center justify-center shrink-0">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-sm sm:text-base font-extrabold truncate">
+                    {activePdfLesson.title}
+                  </h3>
+                  <p className="text-xs text-gray-400 truncate">
+                    অফিশিয়াল লেকচার শিট ও প্র্যাকটিস নোট
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <a
+                  href={activePdfLesson.pdfUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-[#e11438] hover:bg-[#ff2a55] text-white text-decoration-none shadow-sm transition-all"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>নতুন ট্যাবে খুলুন</span>
+                </a>
+
+                <a
+                  href={activePdfLesson.pdfUrl}
+                  download
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-decoration-none border transition-all ${
+                    isDark ? 'border-white/15 bg-white/5 text-gray-200 hover:text-white' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-100'
+                  }`}
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span className="hidden xs:inline">ডাউনলোড</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => setActivePdfLesson(null)}
+                  className="w-9 h-9 rounded-xl flex items-center justify-center bg-gray-500/10 hover:bg-gray-500/20 text-gray-400 hover:text-white transition-colors cursor-pointer border-none"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body: Embedded PDF Preview */}
+            <div className="flex-1 bg-black/20 w-full h-full overflow-hidden">
+              <iframe
+                src={getGoogleDrivePreviewUrl(activePdfLesson.pdfUrl)}
+                title={activePdfLesson.title}
+                className="w-full h-full border-0"
+                allow="autoplay"
+              />
+            </div>
           </div>
         </div>
       )}

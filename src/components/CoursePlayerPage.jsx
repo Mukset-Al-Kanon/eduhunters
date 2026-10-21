@@ -12,9 +12,11 @@ import {
   Trophy,
   AlertCircle,
   Timer,
-  Calendar
+  Calendar,
+  Zap
 } from 'lucide-react';
 import { masterEnglishCourseData } from '../data/masterEnglishCourseData';
+import { physicsFinishingTouchCourseData } from '../data/physicsFinishingTouchData';
 import { freeCoursesData } from '../data/freeCoursesData';
 import { initialData } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
@@ -88,6 +90,15 @@ function getEmbedUrl(url) {
   return url;
 }
 
+export function getGoogleDrivePreviewUrl(url) {
+  if (!url) return '';
+  const trimmed = String(url).trim();
+  if (trimmed.includes('drive.google.com/file/d/')) {
+    return trimmed.replace(/\/view(\?.*)?$/, '/preview').replace(/\/edit(\?.*)?$/, '/preview');
+  }
+  return trimmed;
+}
+
 export default function CoursePlayerPage({
   data,
   courseId,
@@ -117,6 +128,12 @@ export default function CoursePlayerPage({
     const coursesList = data?.courses || initialData.courses || [];
     const cleanTarget = cidStr.replace(/[^a-z0-9]/g, '');
 
+    const isPhysicsTarget = (
+      cleanTarget.includes('physicsfinishing') ||
+      cleanTarget.includes('course1791887161017') ||
+      cidStr.includes('physics')
+    );
+
     const foundDynamic = coursesList.find(c => {
       if (!c) return false;
       const idStr = String(c.id !== undefined ? c.id : '').trim().toLowerCase();
@@ -132,11 +149,28 @@ export default function CoursePlayerPage({
         (slugStr && slugStr.replace(/[^a-z0-9]/g, '') === cleanTarget)
       );
     });
-    if (foundDynamic) return foundDynamic;
+    if (foundDynamic) {
+      if (isPhysicsTarget) {
+        return {
+          ...physicsFinishingTouchCourseData,
+          ...foundDynamic,
+          curriculum: (foundDynamic.curriculum && foundDynamic.curriculum.length > 0) ? foundDynamic.curriculum : physicsFinishingTouchCourseData.curriculum
+        };
+      }
+      return foundDynamic;
+    }
 
     // Check by numeric index if passed as 0, 1, 2...
     if (!isNaN(Number(cid)) && coursesList[Number(cid)]) {
-      return coursesList[Number(cid)];
+      const indexedCourse = coursesList[Number(cid)];
+      if (isPhysicsTarget || String(indexedCourse?.slug || '').includes('physics')) {
+        return {
+          ...physicsFinishingTouchCourseData,
+          ...indexedCourse,
+          curriculum: (indexedCourse.curriculum && indexedCourse.curriculum.length > 0) ? indexedCourse.curriculum : physicsFinishingTouchCourseData.curriculum
+        };
+      }
+      return indexedCourse;
     }
 
     // 2. Check free courses
@@ -147,6 +181,11 @@ export default function CoursePlayerPage({
       return idStr === cidStr || slugStr === cidStr;
     });
     if (foundFree) return foundFree;
+
+    // Check if target is Physics Finishing Touch before master english
+    if (isPhysicsTarget) {
+      return physicsFinishingTouchCourseData;
+    }
 
     // 3. Check for dynamic master english course before falling back to static
     const masterInList = coursesList.find(c => 
@@ -177,10 +216,24 @@ export default function CoursePlayerPage({
   const allLessons = useMemo(() => {
     const list = [];
     const curriculum = course.curriculum || [];
+    const isPhysicsCourse = (
+      course.id === 'course-1791887161017' ||
+      course.slug === 'physics-finishing-touch-series' ||
+      String(course.title || course.name || '').toLowerCase().includes('physics finishing')
+    );
 
     curriculum.forEach((sec, secIdx) => {
       const secTitle = sec.name || sec.title || `Module ${secIdx + 1}`;
       const hasChapterLessons = Array.isArray(sec.chapters) && sec.chapters.some(ch => (ch.lessons || []).length > 0);
+
+      // Only check seed lessons for section 0 (Physics 1st Paper); section 1+ (2nd Paper etc.) belongs strictly to user
+      const seedSec = (isPhysicsCourse && secIdx === 0) ? physicsFinishingTouchCourseData.curriculum?.[0] : null;
+      let seedLessons = [];
+      if (seedSec?.chapters && seedSec.chapters[0]?.lessons) {
+        seedLessons = seedSec.chapters[0].lessons;
+      } else if (seedSec?.lessons) {
+        seedLessons = seedSec.lessons;
+      }
 
       if (hasChapterLessons) {
         sec.chapters.forEach((chap, chapIdx) => {
@@ -194,20 +247,26 @@ export default function CoursePlayerPage({
             let resolvedQuiz = null;
             let resolvedExamId = isObj ? les.examId : null;
 
-            if (isObj && 'quiz' in les) {
+            if (isObj && 'quiz' in les && les.quiz) {
               resolvedQuiz = les.quiz;
-            } else if (isObj && 'exam' in les) {
+            } else if (isObj && 'exam' in les && les.exam) {
               resolvedQuiz = les.exam;
             } else if (course.id === 'master-english-30-days' || course.slug === 'master-english-30-days') {
               const defaultLes = masterEnglishCourseData.curriculum?.[secIdx]?.chapters?.[chapIdx]?.lessons?.[lesIdx];
               if (defaultLes?.quiz) resolvedQuiz = defaultLes.quiz;
+            } else if (isPhysicsCourse && secIdx === 0) {
+              const seedLes = seedLessons[lesIdx];
+              if (seedLes?.quiz) resolvedQuiz = seedLes.quiz;
             }
 
-            if (isObj && 'pdfUrl' in les && les.pdfUrl !== undefined) {
+            if (isObj && 'pdfUrl' in les && les.pdfUrl) {
               resolvedPdf = les.pdfUrl;
             } else if (course.id === 'master-english-30-days' || course.slug === 'master-english-30-days') {
               const defaultLes = masterEnglishCourseData.curriculum?.[secIdx]?.chapters?.[chapIdx]?.lessons?.[lesIdx];
               if (defaultLes?.pdfUrl) resolvedPdf = defaultLes.pdfUrl;
+            } else if (isPhysicsCourse && secIdx === 0) {
+              const seedLes = seedLessons[lesIdx];
+              if (seedLes?.pdfUrl) resolvedPdf = seedLes.pdfUrl;
             }
 
             list.push({
@@ -230,13 +289,23 @@ export default function CoursePlayerPage({
           const isObj = typeof les === 'object' && les !== null;
           const lesId = isObj ? String(les.id !== undefined ? les.id : `s${secIdx}-l${lesIdx}`) : `s${secIdx}-l${lesIdx}`;
           const lesVideo = isObj ? (les.videoUrl || les.youtubeUrl || (les.videoId ? `https://www.youtube.com/watch?v=${les.videoId}` : null) || course.previewVideoUrl || course.videoUrl) : (course.previewVideoUrl || course.videoUrl);
+
+          let resolvedPdf = isObj ? les.pdfUrl : null;
+          let resolvedQuiz = isObj ? (les.quiz || les.exam) : null;
+
+          if (isPhysicsCourse && secIdx === 0) {
+            const seedLes = seedLessons[lesIdx];
+            if (!resolvedPdf && seedLes?.pdfUrl) resolvedPdf = seedLes.pdfUrl;
+            if (!resolvedQuiz && seedLes?.quiz) resolvedQuiz = seedLes.quiz;
+          }
+
           list.push({
             id: lesId,
             title: isObj ? les.title : les,
             duration: isObj ? les.duration : null,
             videoUrl: lesVideo,
-            pdfUrl: isObj ? les.pdfUrl : null,
-            quiz: isObj ? (les.quiz || les.exam) : null,
+            pdfUrl: resolvedPdf,
+            quiz: resolvedQuiz,
             examId: isObj ? les.examId : null,
             isFree: isObj ? Boolean(les.isFree) : false,
             sectionTitle: secTitle,
@@ -303,8 +372,15 @@ export default function CoursePlayerPage({
 
   const isCurrentLessonUnlocked = isEnrolled || Boolean(currentLesson.isFree);
   const isProfileNeededForFree = !_isCourseEnrolled && Boolean(currentLesson.isFree) && (!currentUser || !isStudentProfileComplete(currentUser));
+  const [isPdfDropdownOpen, setIsPdfDropdownOpen] = useState(() => Boolean(currentLesson?.pdfUrl));
 
-  const [isPdfDropdownOpen, setIsPdfDropdownOpen] = useState(false);
+  // Auto-expand PDF dropdown whenever current lesson has a PDF attached
+  useEffect(() => {
+    if (currentLesson?.pdfUrl) {
+      setIsPdfDropdownOpen(true);
+    }
+  }, [currentLesson?.id, currentLesson?.pdfUrl]);
+
   const activeLessonRef = useRef(null);
 
 
@@ -764,6 +840,9 @@ export default function CoursePlayerPage({
                                 <h3 className="text-sm sm:text-base font-bold leading-tight">
                                   {currentLesson.title}
                                 </h3>
+                                <p className={`text-xs mt-0.5 ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
+                                  অফিশিয়াল লেকচার শিট ও প্র্যাকটিস নোট
+                                </p>
                               </div>
                             </div>
 
@@ -793,6 +872,18 @@ export default function CoursePlayerPage({
                                 <span>Download</span>
                               </a>
                             </div>
+                          </div>
+
+                          {/* Direct In-App Google Drive / PDF Preview Window */}
+                          <div className={`w-full h-[520px] sm:h-[650px] rounded-2xl overflow-hidden border shadow-lg ${
+                            isDark ? 'border-[#e11438]/25 bg-[#0d0205]' : 'border-slate-200 bg-white'
+                          }`}>
+                            <iframe
+                              src={getGoogleDrivePreviewUrl(currentLesson.pdfUrl)}
+                              title={`${currentLesson.title} - Lecture Sheet`}
+                              className="w-full h-full border-0"
+                              allow="autoplay"
+                            />
                           </div>
                         </div>
                       ) : (
@@ -1186,13 +1277,30 @@ export default function CoursePlayerPage({
                           }`}>
                             {les.title}
                           </p>
+                          <div className="flex items-center flex-wrap gap-1.5 mt-1.5">
+                            {les.pdfUrl && (
+                              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-500 dark:text-blue-400 border border-blue-500/20">
+                                <FileText className="w-2.5 h-2.5" /> PDF
+                              </span>
+                            )}
+                            {les.quiz && (
+                              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-purple-500/10 text-purple-500 dark:text-purple-400 border border-purple-500/20">
+                                <Zap className="w-2.5 h-2.5" /> Quiz
+                              </span>
+                            )}
+                            {les.duration && (
+                              <span className="text-[10px] text-gray-400 font-medium">
+                                {les.duration}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
 
                       {/* Right: Badges (FREE demo class indicator) */}
                       {!isEnrolled && les.isFree && (
                         <div className="shrink-0 flex items-center">
-                          <span className="text-[10px] font-black tracking-wider text-emerald-500 dark:text-emerald-400 select-none">
+                          <span className="px-2 py-0.5 rounded text-[10px] font-black tracking-wider bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 border border-emerald-500/25 select-none">
                             FREE
                           </span>
                         </div>

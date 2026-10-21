@@ -34,8 +34,8 @@ export const physicsFinishingTouchCourseData = {
   slug: "physics-finishing-touch-series",
   image: physicsThumbnail,
   title: "Physics Finishing Touch Series",
-  tagline: "",
-  category: "Course",
+  category: "Medical",
+  filterGroup: "medical",
   features: [
     "HD কোয়ালিটি লাইভ ও রেকর্ডেড ক্লাস",
     "অধ্যায়ভিত্তিক লেকচার নোট ও প্র্যাকটিস শিট",

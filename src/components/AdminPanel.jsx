@@ -173,7 +173,7 @@ export {
   AdminTokenPill
 };
 
-export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin }) {
+export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmin, adminUser, onLogoutAdmin, onNavigateCourse }) {
   // Navigation Tabs: overview, accounting, slides, stats, courses, instructors, videos, store, settings
   const [activeTab, setActiveTabState] = useState(() => {
     try {
@@ -5214,8 +5214,12 @@ export default function AdminPanel({ data, onUpdateData, onResetData, onExitAdmi
             } catch (e) {}
           }}
           onPreview={() => {
+            const currentC = courses[curriculumCourseIndex];
             setCurriculumCourseIndex(null);
             onExitAdmin();
+            if (currentC && onNavigateCourse) {
+              onNavigateCourse(currentC.slug || currentC.id);
+            }
           }}
           openGalleryModal={openGalleryModal}
           triggerToast={triggerToast}
